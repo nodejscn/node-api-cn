@@ -1,37 +1,36 @@
 
 <!--type=misc-->
 
-Throughout the documentation, you will see indications of a section's
-stability.  The Node.js API is still somewhat changing, and as it
-matures, certain parts are more reliable than others.  Some are so
-proven, and so relied upon, that they are unlikely to ever change at
-all.  Others are brand new and experimental, or known to be hazardous
-and in the process of being redesigned.
+贯穿整个文档，你会看到每个章节的稳定性标志。
+Node.js 的 API 仍会有少量变化，但随着发展，部分 API 会更稳定可靠。
+有些 API 历经考验、且被大量依赖，它们几乎不会再改变。
+也有些 API 是新增的、或试验的、或被认定为有风险且正在重新设计中的。
 
-The stability indices are as follows:
+稳定性的指标如下：
 
 ```txt
-Stability: 0 - Deprecated
-This feature is known to be problematic, and changes are
-planned.  Do not rely on it.  Use of the feature may cause warnings.  Backwards
-compatibility should not be expected.
+稳定性: 0 - 废弃的
+这个特性被认定为存在问题，且正计划修改。
+不要依赖该特性。
+使用该特性可能会产生警告信息。
+不要指望该特性会向后兼容。
 ```
 
 ```txt
-Stability: 1 - Experimental
-This feature is subject to change, and is gated by a command line flag.
-It may change or be removed in future versions.
+稳定性: 1 - 试验的
+这个特性可能会变化，在命令行中会有标记提示。
+在将来的版本中该特性可能会变化或被移除。
 ```
 
 ```txt
-Stability: 2 - Stable
-The API has proven satisfactory. Compatibility with the npm ecosystem
-is a high priority, and will not be broken unless absolutely necessary.
+稳定性: 2 - 稳定的
+这个特性已被证明是符合要求的。
+与 npm 生态系统的兼容性是一个高优先级，除非绝对必要否则不会变化。
 ```
 
 ```txt
-Stability: 3 - Locked
-Only fixes related to security, performance, or bug fixes will be accepted.
-Please do not suggest API changes in this area; they will be refused.
+稳定性: 3 - 锁定的
+这个特性只接受与安全性、性能、或 BUG 修复有关的修改。
+请不要在该特性提出修改 API 的建议，这些建议会被拒绝。
 ```
 
