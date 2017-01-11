@@ -2,17 +2,17 @@
 added: v0.1.21
 -->
 
-Throws an `AssertionError`. If `message` is falsy, the error message is set as
-the values of `actual` and `expected` separated by the provided `operator`.
-Otherwise, the error message is the value of `message`.
+抛出 `AssertionError`。
+如果 `message` 的值不为真，则错误信息为 `actual` 和 `expected` 的值，并以 `operator` 分隔。
+否则，错误信息为 `message` 的值。
 
 ```js
 const assert = require('assert');
 
 assert.fail(1, 2, undefined, '>');
-// AssertionError: 1 > 2
+// 抛出 AssertionError: 1 > 2
 
 assert.fail(1, 2, 'whoops', '>');
-// AssertionError: whoops
+// 抛出 AssertionError: whoops
 ```
 
