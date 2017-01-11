@@ -1,6 +1,5 @@
 
-An example of a [web server][] written with Node.js which responds with
-`'Hello World'`:
+例子，使用 Node.js 编写的 [Web 服务器](http.html)，响应返回 `'Hello World'`：
 
 ```js
 const http = require('http');
@@ -19,15 +18,12 @@ server.listen(port, hostname, () => {
 });
 ```
 
-To run the server, put the code into a file called `example.js` and execute
-it with Node.js:
+要运行这个服务器，需将代码保存到名为 `example.js` 的文件，并使用 Node.js 来执行：
 
 ```txt
 $ node example.js
 Server running at http://127.0.0.1:3000/
 ```
 
-All of the examples in the documentation can be run similarly.
+文档中所有的例子都可以用相同的方式运行。
 
-[Command Line Options]: cli.html#cli_command_line_options
-[web server]: http.html
