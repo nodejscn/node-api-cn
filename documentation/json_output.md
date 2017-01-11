@@ -1,8 +1,8 @@
 
-> Stability: 1 - Experimental
+> 稳定性: 1 - 试验的
 
-Every HTML file in the markdown has a corresponding JSON file with the
-same data.
+每个通过 markdown 生成的 HTML 文件都有一个对应的具有相同数据的 JSON 文件。
 
-This feature was added in Node.js v0.6.12.  It is experimental.
+这个特性是 Node.js v0.6.12 新增的。
+该特性是试验的。
 
