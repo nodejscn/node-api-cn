@@ -2,22 +2,20 @@
 added: v0.1.21
 -->
 
-Tests for deep equality between the `actual` and `expected` parameters.
-Primitive values are compared with the equal comparison operator ( `==` ).
+测试 `actual` 和 `expected` 参数是否深度相等。
+原始值会使用相等运算符（`==`）进行比较。
 
-Only enumerable "own" properties are considered. The `deepEqual()`
-implementation does not test object prototypes, attached symbols, or
-non-enumerable properties. This can lead to some potentially surprising
-results. For example, the following example does not throw an `AssertionError`
-because the properties on the [`Error`][] object are non-enumerable:
+只比较可枚举的自身属性。
+`deepEqual()` 不测试对象的原型、连接符、或不可枚举的属性。
+这会引起一些潜在的意料之外的结果。
+例如，下面的例子不会抛出 `AssertionError`，因为 [Error](errors.html#errors_class_error) 对象的属性是不可枚举的：
 
 ```js
-// WARNING: This does not throw an AssertionError!
+// 注意：这不会抛出 AssertionError！
 assert.deepEqual(Error('a'), Error('b'));
 ```
 
-"Deep" equality means that the enumerable "own" properties of child objects
-are evaluated also:
+深度相等意味着子对象的可枚举的自身属性也会被比较：
 
 ```js
 const assert = require('assert');
@@ -40,21 +38,20 @@ const obj3 = {
 const obj4 = Object.create(obj1);
 
 assert.deepEqual(obj1, obj1);
-// OK, object is equal to itself
+// 通过，对象与自身相等
 
 assert.deepEqual(obj1, obj2);
-// AssertionError: { a: { b: 1 } } deepEqual { a: { b: 2 } }
-// values of b are different
+// 抛出 AssertionError: { a: { b: 1 } } deepEqual { a: { b: 2 } }
+// b 的值不同
 
 assert.deepEqual(obj1, obj3);
-// OK, objects are equal
+// 通过，两个对象相等
 
 assert.deepEqual(obj1, obj4);
-// AssertionError: { a: { b: 1 } } deepEqual {}
-// Prototypes are ignored
+// 抛出 AssertionError: { a: { b: 1 } } deepEqual {}
+// 原型会被忽略
 ```
 
-If the values are not equal, an `AssertionError` is thrown with a `message`
-property set equal to the value of the `message` parameter. If the `message`
-parameter is undefined, a default error message is assigned.
+如果两个值不相等，则抛出一个带有 `message` 属性的 `AssertionError`，其中 `message` 属性的值等于传入的 `message` 参数的值。
+如果 `message` 参数为 `undefined`，则输出默认的错误信息。
 
