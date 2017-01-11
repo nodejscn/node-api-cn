@@ -2,22 +2,21 @@
 added: v1.2.0
 -->
 
-Generally identical to `assert.deepEqual()` with two exceptions. First,
-primitive values are compared using the strict equality operator ( `===` ).
-Second, object comparisons include a strict equality check of their prototypes.
+大多数情况下等同于 `assert.deepEqual()`，但有两个例外。
+首先，原始值使用严格相等运算符（`===`）进行比较。
+其次，对象对比包括严格比较它们的原型。
 
 ```js
 const assert = require('assert');
 
 assert.deepEqual({a:1}, {a:'1'});
-// OK, because 1 == '1'
+// 通过，因为 1 == '1'
 
 assert.deepStrictEqual({a:1}, {a:'1'});
-// AssertionError: { a: 1 } deepStrictEqual { a: '1' }
-// because 1 !== '1' using strict equality
+// 抛出 AssertionError: { a: 1 } deepStrictEqual { a: '1' }
+// 因为 1 !== '1' 使用严格相等运算符
 ```
 
-If the values are not equal, an `AssertionError` is thrown with a `message`
-property set equal to the value of the `message` parameter. If the `message`
-parameter is undefined, a default error message is assigned.
+如果两个值不相等，则抛出一个带有 `message` 属性的 `AssertionError`，其中 `message` 属性的值等于传入的 `message` 参数的值。
+如果 `message` 参数为 `undefined`，则输出默认的错误信息。
 
