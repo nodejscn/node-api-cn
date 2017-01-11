@@ -1,25 +1,11 @@
 
 <!-- type=misc -->
 
-The goal of this documentation is to comprehensively explain the Node.js
-API, both from a reference as well as a conceptual point of view.  Each
-section describes a built-in module or high-level concept.
+本文档的目的是全面地讲解 Node.js 的 API，既从参考角度也从概念角度。
+每个章节介绍一个内置模块或高级概念。
 
-Where appropriate, property types, method arguments, and the arguments
-provided to event handlers are detailed in a list underneath the topic
-heading.
+必要时，属性类型、方法参数、以及传给事件句柄的参数会在主题标题下的列表中详细说明。
 
-Every `.html` document has a corresponding `.json` document presenting
-the same information in a structured manner.  This feature is
-experimental, and added for the benefit of IDEs and other utilities that
-wish to do programmatic things with the documentation.
-
-Every `.html` and `.json` file is generated based on the corresponding
-`.md` file in the `doc/api/` folder in Node.js's source tree.  The
-documentation is generated using the `tools/doc/generate.js` program.
-The HTML template is located at `doc/template.html`.
-
-
-If you find an error in this documentation, please [submit an issue][]
-or see [the contributing guide][] for directions on how to submit a patch.
+每个 `.html` 文档都有一个对应的 `.json` 文档，以结构化的方式呈现相同的内容。
+这个特性是试验的，用于帮助那些需要为编程提供文档的 IDE 或其他开发工具。
 
