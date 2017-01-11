@@ -2,7 +2,8 @@
 added: v0.1.21
 -->
 
-Tests for any deep inequality. Opposite of [`assert.deepEqual()`][].
+测试 `actual` 和 `expected` 参数是否不深度相等。
+与 [assert.deepEqual()](#assert_assert_deepequal_actual_expected_message) 相反。
 
 ```js
 const assert = require('assert');
@@ -25,19 +26,18 @@ const obj3 = {
 const obj4 = Object.create(obj1);
 
 assert.notDeepEqual(obj1, obj1);
-// AssertionError: { a: { b: 1 } } notDeepEqual { a: { b: 1 } }
+// 抛出 AssertionError: { a: { b: 1 } } notDeepEqual { a: { b: 1 } }
 
 assert.notDeepEqual(obj1, obj2);
-// OK, obj1 and obj2 are not deeply equal
+// 通过，obj1 与 obj2 不深度相等
 
 assert.notDeepEqual(obj1, obj3);
-// AssertionError: { a: { b: 1 } } notDeepEqual { a: { b: 1 } }
+// 抛出 AssertionError: { a: { b: 1 } } notDeepEqual { a: { b: 1 } }
 
 assert.notDeepEqual(obj1, obj4);
-// OK, obj1 and obj2 are not deeply equal
+// 通过，obj1 与 obj4 不深度相等
 ```
 
-If the values are deeply equal, an `AssertionError` is thrown with a `message`
-property set equal to the value of the `message` parameter. If the `message`
-parameter is undefined, a default error message is assigned.
+如果两个值深度相等，则抛出一个带有 `message` 属性的 `AssertionError`，其中 `message` 属性的值等于传入的 `message` 参数的值。
+如果 `message` 参数为 `undefined`，则输出默认的错误信息。
 
