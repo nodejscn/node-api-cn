@@ -2,23 +2,21 @@
 added: v0.1.21
 -->
 
-Tests shallow, coercive inequality with the not equal comparison operator
-( `!=` ).
+使用不等运算符（`!=`）来测试 `actual` 和 `expected` 参数是否不相等。
 
 ```js
 const assert = require('assert');
 
 assert.notEqual(1, 2);
-// OK
+// 通过
 
 assert.notEqual(1, 1);
-// AssertionError: 1 != 1
+// 抛出 AssertionError: 1 != 1
 
 assert.notEqual(1, '1');
-// AssertionError: 1 != '1'
+// 抛出 AssertionError: 1 != '1'
 ```
 
-If the values are equal, an `AssertionError` is thrown with a `message`
-property set equal to the value of the `message` parameter. If the `message`
-parameter is undefined, a default error message is assigned.
+如果两个值相等，则抛出一个带有 `message` 属性的 `AssertionError`，其中 `message` 属性的值等于传入的 `message` 参数的值。
+如果 `message` 参数为 `undefined`，则输出默认的错误信息。
 
