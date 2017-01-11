@@ -2,20 +2,20 @@
 added: v0.5.9
 -->
 
-An alias of [`assert.ok()`][] .
+[`assert.ok()`](#assert_assert_ok_value_message) 的别名。
 
 ```js
 const assert = require('assert');
 
 assert(true);
-// OK
+// 通过
 assert(1);
-// OK
+// 通过
 assert(false);
-// throws "AssertionError: false == true"
+// 抛出 "AssertionError: false == true"
 assert(0);
-// throws "AssertionError: 0 == true"
+// 抛出 "AssertionError: 0 == true"
 assert(false, 'it\'s false');
-// throws "AssertionError: it's false"
+// 抛出 "AssertionError: it's false"
 ```
 
