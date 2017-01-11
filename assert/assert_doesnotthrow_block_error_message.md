@@ -2,19 +2,15 @@
 added: v0.1.21
 -->
 
-Asserts that the function `block` does not throw an error. See
-[`assert.throws()`][] for more details.
+断言 `block` 函数不会抛出错误。
+查看 [assert.throws()](#assert_assert_throws_block_error_message) 了解更多。
 
-When `assert.doesNotThrow()` is called, it will immediately call the `block`
-function.
+当调用 `assert.doesNotThrow()` 时，它会立即调用 `block` 函数。
 
-If an error is thrown and it is the same type as that specified by the `error`
-parameter, then an `AssertionError` is thrown. If the error is of a different
-type, or if the `error` parameter is undefined, the error is propagated back
-to the caller.
+如果 `block` 函数抛出错误，并且错误类型与 `error` 参数指定的相同，则抛出 `AssertionError`。
+如果错误类型不相同，或 `error` 参数是 `undefined`，则错误回传给调用者。
 
-The following, for instance, will throw the [`TypeError`][] because there is no
-matching error type in the assertion:
+以下例子会抛出 [TypeError](errors.html#errors_class_typeerror)，因为在断言中没有匹配的错误类型：
 
 ```js
 assert.doesNotThrow(
@@ -25,8 +21,7 @@ assert.doesNotThrow(
 );
 ```
 
-However, the following will result in an `AssertionError` with the message
-'Got unwanted exception (TypeError)..':
+以下例子会抛出一个带有 'Got unwanted exception (TypeError)..' 信息的 `AssertionError`：
 
 ```js
 assert.doesNotThrow(
@@ -37,9 +32,7 @@ assert.doesNotThrow(
 );
 ```
 
-If an `AssertionError` is thrown and a value is provided for the `message`
-parameter, the value of `message` will be appended to the `AssertionError`
-message:
+如果抛出了 `AssertionError`，并且有为 `message` 参数传值，则 `message` 的值会被追加到 `AssertionError` 的消息中：
 
 ```js
 assert.doesNotThrow(
@@ -49,6 +42,6 @@ assert.doesNotThrow(
   TypeError,
   'Whoops'
 );
-// Throws: AssertionError: Got unwanted exception (TypeError). Whoops
+// 抛出 AssertionError: Got unwanted exception (TypeError). Whoops
 ```
 
