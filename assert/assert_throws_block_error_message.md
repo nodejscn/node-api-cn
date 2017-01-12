@@ -2,15 +2,13 @@
 added: v0.1.21
 -->
 
-Expects the function `block` to throw an error.
+期望 `block` 函数抛出错误。
 
-If specified, `error` can be a constructor, [`RegExp`][], or validation
-function.
+如果指定 `error`，它可以是一个构造函数、[正则表达式](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions)、或校验函数。
 
-If specified, `message` will be the message provided by the `AssertionError` if
-the block fails to throw.
+如果指定 `message`，当 `block` 函数抛出错误时，`message` 会作为错误信息传给 `AssertionError`。
 
-Validate instanceof using constructor:
+使用构造函数的例子：
 
 ```js
 assert.throws(
@@ -21,7 +19,7 @@ assert.throws(
 );
 ```
 
-Validate error message using [`RegExp`][]:
+使用正则表达式的例子：
 
 ```js
 assert.throws(
@@ -32,7 +30,7 @@ assert.throws(
 );
 ```
 
-Custom error validation:
+使用自定义校验函数的例子：
 
 ```js
 assert.throws(
@@ -48,23 +46,15 @@ assert.throws(
 );
 ```
 
-Note that `error` can not be a string. If a string is provided as the second
-argument, then `error` is assumed to be omitted and the string will be used for
-`message` instead. This can lead to easy-to-miss mistakes:
+注意，`error` 参数不能是字符串。
+如果第二个参数是字符串，则视为不传 `error` 参数，传入的字符串会被当作是 `message` 的值。
+这可能会引起误解：
 
 ```js
-// THIS IS A MISTAKE! DO NOT DO THIS!
+// 这是错误的！不要这么做！
 assert.throws(myFunction, 'missing foo', 'did not throw with expected message');
 
-// Do this instead.
+// 应该这么做。
 assert.throws(myFunction, /missing foo/, 'did not throw with expected message');
 ```
 
-[Locked]: documentation.html#documentation_stability_index
-[`assert.deepEqual()`]: #assert_assert_deepequal_actual_expected_message
-[`assert.deepStrictEqual()`]: #assert_assert_deepstrictequal_actual_expected_message
-[`assert.ok()`]: #assert_assert_ok_value_message
-[`assert.throws()`]: #assert_assert_throws_block_error_message
-[`Error`]: errors.html#errors_class_error
-[`RegExp`]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions
-[`TypeError`]: errors.html#errors_class_typeerror
