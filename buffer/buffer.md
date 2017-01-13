@@ -1,46 +1,38 @@
 
-> Stability: 2 - Stable
+> 稳定性: 2 - 稳定的
 
-Prior to the introduction of [`TypedArray`] in ECMAScript 2015 (ES6), the
-JavaScript language had no mechanism for reading or manipulating streams
-of binary data. The `Buffer` class was introduced as part of the Node.js
-API to make it possible to interact with octet streams in the context of things
-like TCP streams and file system operations.
+在 ECMAScript 2015 (ES6) 引入 [`TypedArray`] 之前，JavaScript 语言没有读取或操作二进制数据流的机制。
+`Buffer` 类被引入作为 Node.js API 的一部分，使其可以在 TCP 流和文件系统操作等场景中处理二进制数据流。
 
-Now that [`TypedArray`] has been added in ES6, the `Buffer` class implements the
-[`Uint8Array`] API in a manner that is more optimized and suitable for Node.js'
-use cases.
+现在 [`TypedArray`] 已经被添加进 ES6 中，`Buffer` 类以一种更优与更适合 Node.js 用例的方式实现了 [`Uint8Array`] API。
 
-Instances of the `Buffer` class are similar to arrays of integers but
-correspond to fixed-sized, raw memory allocations outside the V8 heap.
-The size of the `Buffer` is established when it is created and cannot be
-resized.
+`Buffer` 类的实例类似于整数数组，除了其是大小固定的、且在 V8 堆外分配物理内存。
+`Buffer` 的大小在其创建时就已确定，且不能调整大小。
 
-The `Buffer` class is a global within Node.js, making it unlikely that one
-would need to ever use `require('buffer').Buffer`.
+`Buffer` 类在 Node.js 中是一个全局变量，因此无需 `require('buffer').Buffer`。
 
-Examples:
+例子：
 
 ```js
-// Creates a zero-filled Buffer of length 10.
+// 创建一个长度为 10、且用 0 填充的 Buffer。
 const buf1 = Buffer.alloc(10);
 
-// Creates a Buffer of length 10, filled with 0x1.
+// 创建一个长度为 10、且用 0x1 填充的 Buffer。 
 const buf2 = Buffer.alloc(10, 1);
 
-// Creates an uninitialized buffer of length 10.
-// This is faster than calling Buffer.alloc() but the returned
-// Buffer instance might contain old data that needs to be
-// overwritten using either fill() or write().
+// 创建一个长度为 10、且未初始化的 Buffer。
+// 这个方法比调用 Buffer.alloc() 更快，
+// 但返回的 Buffer 实例可能包含旧数据，
+// 因此需要使用 fill() 或 write() 重写。
 const buf3 = Buffer.allocUnsafe(10);
 
-// Creates a Buffer containing [0x1, 0x2, 0x3].
+// 创建一个包含 [0x1, 0x2, 0x3] 的 Buffer。
 const buf4 = Buffer.from([1, 2, 3]);
 
-// Creates a Buffer containing ASCII bytes [0x74, 0x65, 0x73, 0x74].
+// 创建一个包含 ASCII 字节数组 [0x74, 0x65, 0x73, 0x74] 的 Buffer。
 const buf5 = Buffer.from('test');
 
-// Creates a Buffer containing UTF-8 bytes [0x74, 0xc3, 0xa9, 0x73, 0x74].
+// 创建一个包含 UTF-8 字节数组 [0x74, 0xc3, 0xa9, 0x73, 0x74] 的 Buffer。
 const buf6 = Buffer.from('tést', 'utf8');
 ```
 
