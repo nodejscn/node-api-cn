@@ -1,56 +1,26 @@
 
-In versions of Node.js prior to v6, `Buffer` instances were created using the
-`Buffer` constructor function, which allocates the returned `Buffer`
-differently based on what arguments are provided:
+在 Node.js v6 之前的版本中，`Buffer` 实例是通过 `Buffer` 构造函数创建的，它根据提供的参数返回不同的 `Buffer`：
 
-* Passing a number as the first argument to `Buffer()` (e.g. `new Buffer(10)`),
-  allocates a new `Buffer` object of the specified size. The memory allocated
-  for such `Buffer` instances is *not* initialized and *can contain sensitive
-  data*. Such `Buffer` instances *must* be initialized *manually* by using either
-  [`buf.fill(0)`][`buf.fill()`] or by writing to the `Buffer` completely. While
-  this behavior is *intentional* to improve performance, development experience
-  has demonstrated that a more explicit distinction is required between creating
-  a fast-but-uninitialized `Buffer` versus creating a slower-but-safer `Buffer`.
-* Passing a string, array, or `Buffer` as the first argument copies the
-  passed object's data into the `Buffer`.
-* Passing an [`ArrayBuffer`] returns a `Buffer` that shares allocated memory with
-  the given [`ArrayBuffer`].
+* 传一个数值作为第一个参数给 `Buffer()`（如 `new Buffer(10)`），则分配一个指定大小的新建的 `Buffer` 对象。
+  分配给这种 `Buffer` 实例的内存是**没有**初始化的，且**可能包含敏感数据**。
+  这种 `Buffer` 实例**必须手动地**被初始化，可以使用 [`buf.fill(0)`] 或写满这个 `Buffer`。
+  虽然这种行为是为了提高性能而**有意为之的**，但开发经验表明，创建一个快速但未初始化的 `Buffer` 与创建一个慢点但更安全的 `Buffer` 之间需要有更明确的区分。
+* 传一个字符串、数组、或 `Buffer` 作为第一个参数，则将所传对象的数据拷贝到 `Buffer` 中。
+* 传入一个 [`ArrayBuffer`]，则返回一个与给定的 [`ArrayBuffer`] 共享所分配内存的 `Buffer`。
 
-Because the behavior of `new Buffer()` changes significantly based on the type
-of value passed as the first argument, applications that do not properly
-validate the input arguments passed to `new Buffer()`, or that fail to
-appropriately initialize newly allocated `Buffer` content, can inadvertently
-introduce security and reliability issues into their code.
+因为 `new Buffer()` 的行为会根据所传入的第一个参数的值的数据类型而明显地改变，所以如果应用程序没有正确地校验传给 `new Buffer()` 的参数、或未能正确地初始化新分配的 `Buffer` 的内容，就有可能在无意中为他们的代码引入安全性与可靠性问题。
 
-To make the creation of `Buffer` instances more reliable and less error prone,
-the various forms of the `new Buffer()` constructor have been **deprecated**
-and replaced by separate `Buffer.from()`, [`Buffer.alloc()`], and
-[`Buffer.allocUnsafe()`] methods.
+为了使 `Buffer` 实例的创建更可靠、更不容易出错，各种 `new Buffer()` 构造函数已被 **废弃**，并由 `Buffer.from()`、[`Buffer.alloc()`]、和 [`Buffer.allocUnsafe()`] 方法替代。
 
-*Developers should migrate all existing uses of the `new Buffer()` constructors
-to one of these new APIs.*
+**开发者们应当把所有正在使用的 `new Buffer()` 构造函数迁移到这些新的 API 上。**
 
-* [`Buffer.from(array)`] returns a new `Buffer` containing a *copy* of the provided
-  octets.
-* [`Buffer.from(arrayBuffer[, byteOffset [, length]])`][`Buffer.from(arrayBuffer)`]
-  returns a new `Buffer` that *shares* the same allocated memory as the given
-  [`ArrayBuffer`].
-* [`Buffer.from(buffer)`] returns a new `Buffer` containing a *copy* of the
-  contents of the given `Buffer`.
-* [`Buffer.from(string[, encoding])`][`Buffer.from(string)`] returns a new `Buffer`
-  containing a *copy* of the provided string.
-* [`Buffer.alloc(size[, fill[, encoding]])`][`Buffer.alloc()`] returns a "filled"
-  `Buffer` instance of the specified size. This method can be significantly
-  slower than [`Buffer.allocUnsafe(size)`][`Buffer.allocUnsafe()`] but ensures
-  that newly created `Buffer` instances never contain old and potentially
-  sensitive data.
-* [`Buffer.allocUnsafe(size)`][`Buffer.allocUnsafe()`] and
-  [`Buffer.allocUnsafeSlow(size)`][`Buffer.allocUnsafeSlow()`] each return a
-  new `Buffer` of the specified `size` whose content *must* be initialized
-  using either [`buf.fill(0)`][`buf.fill()`] or written to completely.
+* [`Buffer.from(array)`] 返回一个新建的包含所提供的字节数组的副本的 `Buffer`。
+* [`Buffer.from(arrayBuffer[, byteOffset [, length]])`][`Buffer.from(arrayBuffer)`] 返回一个新建的与给定的 [`ArrayBuffer`] 共享同一内存的 `Buffer`。
+* [`Buffer.from(buffer)`] 返回一个新建的包含所提供的 `Buffer` 的内容的副本的 `Buffer`。
+* [`Buffer.from(string[, encoding])`][`Buffer.from(string)`] 返回一个新建的包含所提供的字符串的副本的 `Buffer`。
+* [`Buffer.alloc(size[, fill[, encoding]])`][`Buffer.alloc()`] 返回一个指定大小的被填满的 `Buffer` 实例。
+  这个方法会明显地比 [`Buffer.allocUnsafe(size)`] 慢，但可确保新创建的 `Buffer` 实例绝不会包含旧的和潜在的敏感数据。
+* [`Buffer.allocUnsafe(size)`] 与 [`Buffer.allocUnsafeSlow(size)`] 返回一个新建的指定 `size` 的 `Buffer`，但它的内容**必须**被初始化，可以使用 [`buf.fill(0)`] 或完全写满。
 
-`Buffer` instances returned by [`Buffer.allocUnsafe()`] *may* be allocated off
-a shared internal memory pool if `size` is less than or equal to half
-[`Buffer.poolSize`]. Instances returned by [`Buffer.allocUnsafeSlow()`] *never*
-use the shared internal memory pool.
+如果 `size` 小于或等于 [`Buffer.poolSize`] 的一半，则 [`Buffer.allocUnsafe()`] 返回的 `Buffer` 实例**可能**会被分配进一个共享的内部内存池。
 
