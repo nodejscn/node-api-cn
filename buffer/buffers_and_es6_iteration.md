@@ -1,13 +1,12 @@
 
-`Buffer` instances can be iterated over using the ECMAScript 2015 (ES6) `for..of`
-syntax.
+`Buffer` 实例可以使用 ECMAScript 2015 (ES6) 的 `for..of` 语法进行遍历。
 
-Example:
+例子：
 
 ```js
 const buf = Buffer.from([1, 2, 3]);
 
-// Prints:
+// 输出:
 //   1
 //   2
 //   3
@@ -16,6 +15,5 @@ for (var b of buf) {
 }
 ```
 
-Additionally, the [`buf.values()`], [`buf.keys()`], and
-[`buf.entries()`] methods can be used to create iterators.
+此外，[`buf.values()`] 、[`buf.keys()`] 和 [`buf.entries()`] 方法可用于创建迭代器。
 
