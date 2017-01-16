@@ -1,4 +1,4 @@
 
-The `Buffer` class is a global type for dealing with binary data directly.
-It can be constructed in a variety of ways.
+`Buffer` 类是一个全局变量类型，用来直接处理二进制数据的。
+它能够使用多种方式构建。
 
