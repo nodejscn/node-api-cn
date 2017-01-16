@@ -2,7 +2,7 @@
 deprecated: v6.0.0
 -->
 
-> Stability: 0 - Deprecated: Use [`Buffer.from(array)`] instead.
+> 稳定性: 0 - 废弃的: 使用 [`Buffer.from(array)`] 代替。
 
 * `array` {Array} An array of bytes to copy from
 
