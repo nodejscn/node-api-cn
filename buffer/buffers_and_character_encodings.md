@@ -1,49 +1,37 @@
 
-`Buffer` instances are commonly used to represent sequences of encoded characters
-such as UTF-8, UCS2, Base64 or even Hex-encoded data. It is possible to
-convert back and forth between `Buffer` instances and ordinary JavaScript strings
-by using an explicit character encoding.
+`Buffer` 实例一般用于表示编码字符的序列，比如 UTF-8 、 UCS2 、 Base64 、或十六进制编码的数据。
+通过使用显式的字符编码，就可以在 `Buffer` 实例与普通的 JavaScript 字符串之间进行相互转换。
 
-Example:
+例子：
 
 ```js
 const buf = Buffer.from('hello world', 'ascii');
 
-// Prints: 68656c6c6f20776f726c64
+// 输出 68656c6c6f20776f726c64
 console.log(buf.toString('hex'));
 
-// Prints: aGVsbG8gd29ybGQ=
+// 输出 aGVsbG8gd29ybGQ=
 console.log(buf.toString('base64'));
 ```
 
-The character encodings currently supported by Node.js include:
+Node.js 目前支持的字符编码包括：
 
-* `'ascii'` - for 7-bit ASCII data only. This encoding is fast and will strip
-  the high bit if set.
+* `'ascii'` - 仅支持 7 位 ASCII 数据。如果设置去掉高位的话，这种编码是非常快的。
 
-* `'utf8'` - Multibyte encoded Unicode characters. Many web pages and other
-  document formats use UTF-8.
+* `'utf8'` - 多字节编码的 Unicode 字符。许多网页和其他文档格式都使用 UTF-8 。
 
-* `'utf16le'` - 2 or 4 bytes, little-endian encoded Unicode characters.
-  Surrogate pairs (U+10000 to U+10FFFF) are supported.
+* `'utf16le'` - 2 或 4 个字节，小字节序编码的 Unicode 字符。支持代理对（U+10000 至 U+10FFFF）。
 
-* `'ucs2'` - Alias of `'utf16le'`.
+* `'ucs2'` - `'utf16le'` 的别名。
 
-* `'base64'` - Base64 encoding. When creating a `Buffer` from a string,
-  this encoding will also correctly accept "URL and Filename Safe Alphabet" as
-  specified in [RFC4648, Section 5].
+* `'base64'` - Base64 编码。当从字符串创建 `Buffer` 时，按照 [RFC4648 第 5 章]的规定，这种编码也将正确地接受“URL 与文件名安全字母表”。
 
-* `'latin1'` - A way of encoding the `Buffer` into a one-byte encoded string
-  (as defined by the IANA in [RFC1345],
-  page 63, to be the Latin-1 supplement block and C0/C1 control codes).
+* `'latin1'` - 一种把 `Buffer` 编码成一字节编码的字符串的方式（由 IANA 定义在 [RFC1345] 第 63 页，用作 Latin-1 补充块与 C0/C1 控制码）。
 
-* `'binary'` - Alias for `'latin1'`.
+* `'binary'` - `'latin1'` 的别名。
 
-* `'hex'` - Encode each byte as two hexadecimal characters.
+* `'hex'` - 将每个字节编码为两个十六进制字符。
 
-_Note_: Today's browsers follow the [WHATWG spec] which aliases both 'latin1' and
-ISO-8859-1 to win-1252. This means that while doing something like `http.get()`,
-if the returned charset is one of those listed in the WHATWG spec it's possible
-that the server actually returned win-1252-encoded data, and using `'latin1'`
-encoding may incorrectly decode the characters.
+**注意**：现代浏览器遵循 [WHATWG 规范] 将 'latin1' 和 ISO-8859-1 别名为 win-1252。
+这意味着当进行例如 `http.get()` 这样的操作时，如果返回的字符编码是 WHATWG 规范列表中的，则有可能服务器真的返回 win-1252 编码的数据，此时使用 `'latin1'` 字符编码可能会错误地解码数据。
 
