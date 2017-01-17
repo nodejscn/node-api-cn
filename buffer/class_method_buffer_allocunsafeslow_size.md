@@ -2,51 +2,42 @@
 added: v5.10.0
 -->
 
-* `size` {Integer} The desired length of the new `Buffer`
+* `size` {Integer} 新建的 `Buffer` 期望的长度
 
-Allocates a new *non-zero-filled* and non-pooled `Buffer` of `size` bytes. The
-`size` must be less than or equal to the value of [`buffer.kMaxLength`].
-Otherwise, a [`RangeError`] is thrown. A zero-length `Buffer` will be created if
-`size <= 0`.
+分配一个大小为 `size` 字节的新建的**没有用0填充**的非池 `Buffer` 。
+`size` 必须小于或等于 [`buffer.kMaxLength`] 的值，否则将抛出 [`RangeError`] 错误。
+如果 `size` 小于或等于0，则创建一个长度为0的 `Buffer` 。
 
-The underlying memory for `Buffer` instances created in this way is *not
-initialized*. The contents of the newly created `Buffer` are unknown and
-*may contain sensitive data*. Use [`buf.fill(0)`][`buf.fill()`] to initialize such
-`Buffer` instances to zeroes.
+以这种方式创建的 `Buffer` 实例的底层内存是**未初始化**的。
+新创建的 `Buffer` 的内容是未知的，且**可能包含敏感数据**。
+可以使用 [`buf.fill(0)`] 初始化 `Buffer` 实例为0。
 
-When using [`Buffer.allocUnsafe()`] to allocate new `Buffer` instances,
-allocations under 4KB are, by default, sliced from a single pre-allocated
-`Buffer`. This allows applications to avoid the garbage collection overhead of
-creating many individually allocated `Buffer` instances. This approach improves
-both performance and memory usage by eliminating the need to track and cleanup as
-many `Persistent` objects.
+当使用 [`Buffer.allocUnsafe()`] 分配新建的 `Buffer` 时，当分配的内存小于 4KB 时，默认会从一个单一的预分配的 `Buffer` 切割出来。
+这使得应用程序可以避免垃圾回收机制因创建太多独立分配的 `Buffer` 实例而过度使用。
+这个方法通过像大多数持久对象一样消除追踪与清理的需求，改善了性能与内存使用。
 
-However, in the case where a developer may need to retain a small chunk of
-memory from a pool for an indeterminate amount of time, it may be appropriate
-to create an un-pooled `Buffer` instance using `Buffer.allocUnsafeSlow()` then
-copy out the relevant bits.
+当然，在开发者可能需要在不确定的时间段从内存池保留一小块内存的情况下，使用 `Buffer.allocUnsafeSlow()` 创建一个非池的 `Buffer` 实例然后拷贝出相关的位元是合适的做法。
 
-Example:
+例子：
 
 ```js
-// Need to keep around a few small chunks of memory
+// 需要保留一小块内存块
 const store = [];
 
 socket.on('readable', () => {
   const data = socket.read();
 
-  // Allocate for retained data
+  // 为保留的数据分配内存
   const sb = Buffer.allocUnsafeSlow(10);
 
-  // Copy the data into the new allocation
+  // 拷贝数据进新分配的内存
   data.copy(sb, 0, 0, 10);
 
   store.push(sb);
 });
 ```
 
-Use of `Buffer.allocUnsafeSlow()` should be used only as a last resort *after*
-a developer has observed undue memory retention in their applications.
+`Buffer.allocUnsafeSlow()` 应当仅仅作为开发者已经在他们的应用程序中观察到过度的内存保留之后的终极手段使用。
 
-A `TypeError` will be thrown if `size` is not a number.
+如果 `size` 不是一个数值，则抛出 `TypeError` 错误。
 
