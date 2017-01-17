@@ -2,17 +2,14 @@
 added: v5.10.0
 -->
 
-* `arrayBuffer` {ArrayBuffer} The `.buffer` property of a [`TypedArray`] or
-  [`ArrayBuffer`]
-* `byteOffset` {Integer} Where to start copying from `arrayBuffer`. **Default:** `0`
-* `length` {Integer} How many bytes to copy from `arrayBuffer`.
-  **Default:** `arrayBuffer.length - byteOffset`
+* `arrayBuffer` {ArrayBuffer} [`TypedArray`] 或 [`ArrayBuffer`] 的 `.buffer` 属性
+* `byteOffset` {Integer} 从 `arrayBuffer` 开始拷贝的位置。 **默认:** `0`
+* `length` {Integer} 从 `arrayBuffer` 拷贝多少字节。
+  **默认:** `arrayBuffer.length - byteOffset`
 
-When passed a reference to the `.buffer` property of a [`TypedArray`] instance,
-the newly created `Buffer` will share the same allocated memory as the
-[`TypedArray`].
+当传入一个 [`TypedArray`] 实例的 `.buffer` 属性的引用时，这个新建的 `Buffer` 会像 [`TypedArray`] 那样共享同一分配的内存。
 
-Example:
+例子：
 
 ```js
 const arr = new Uint16Array(2);
@@ -20,31 +17,30 @@ const arr = new Uint16Array(2);
 arr[0] = 5000;
 arr[1] = 4000;
 
-// Shares memory with `arr`
+// 与 `arr` 共享内存
 const buf = Buffer.from(arr.buffer);
 
-// Prints: <Buffer 88 13 a0 0f>
+// 输出: <Buffer 88 13 a0 0f>
 console.log(buf);
 
-// Changing the original Uint16Array changes the Buffer also
+// 改变原始的 Uint16Array 也会改变 Buffer
 arr[1] = 6000;
 
-// Prints: <Buffer 88 13 70 17>
+// 输出: <Buffer 88 13 70 17>
 console.log(buf);
 ```
 
-The optional `byteOffset` and `length` arguments specify a memory range within
-the `arrayBuffer` that will be shared by the `Buffer`.
+可选的 `byteOffset` 和 `length` 参数指定将与 `Buffer` 共享的 `arrayBuffer` 的内存范围。
 
-Example:
+例子：
 
 ```js
 const ab = new ArrayBuffer(10);
 const buf = Buffer.from(ab, 0, 2);
 
-// Prints: 2
+// 输出: 2
 console.log(buf.length);
 ```
 
-A `TypeError` will be thrown if `arrayBuffer` is not an [`ArrayBuffer`].
+如果 `arrayBuffer` 不是一个 [`ArrayBuffer`]，则抛出 `TypeError` 错误。
 
