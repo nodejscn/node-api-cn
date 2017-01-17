@@ -2,7 +2,7 @@
 deprecated: v6.0.0
 -->
 
-> Stability: 0 - Deprecated: Use [`Buffer.from(buffer)`] instead.
+> 稳定性: 0 - 废弃的: 使用 [`Buffer.from(buffer)`] 代替。
 
 * `buffer` {Buffer} An existing `Buffer` to copy data from
 
