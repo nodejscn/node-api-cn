@@ -2,8 +2,7 @@
 deprecated: v6.0.0
 -->
 
-> Stability: 0 - Deprecated:
-> Use [`Buffer.from(string[, encoding])`][`Buffer.from(string)`] instead.
+> 稳定性: 0 - 废弃的: 使用 [`Buffer.from(string[, encoding])`][`Buffer.from(string)`] 代替。
 
 * `string` {String} String to encode
 * `encoding` {String} The encoding of `string`. **Default:** `'utf8'`
