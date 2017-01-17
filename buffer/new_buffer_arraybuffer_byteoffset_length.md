@@ -2,9 +2,7 @@
 deprecated: v6.0.0
 -->
 
-> Stability: 0 - Deprecated: Use
-> [`Buffer.from(arrayBuffer[, byteOffset [, length]])`][`Buffer.from(arrayBuffer)`]
-> instead.
+> 稳定性: 0 - 废弃的: 使用 [`Buffer.from(arrayBuffer[, byteOffset [, length]])`][`Buffer.from(arrayBuffer)`] 代替。
 
 * `arrayBuffer` {ArrayBuffer} The `.buffer` property of a [`TypedArray`] or
   [`ArrayBuffer`]
