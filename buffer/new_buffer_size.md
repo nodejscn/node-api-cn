@@ -2,8 +2,7 @@
 deprecated: v6.0.0
 -->
 
-> Stability: 0 - Deprecated: Use [`Buffer.alloc()`] instead (also see
-> [`Buffer.allocUnsafe()`]).
+> 稳定性: 0 - 废弃的: 使用 [`Buffer.alloc()`] 代替（或 [`Buffer.allocUnsafe()`]）。
 
 * `size` {Integer} The desired length of the new `Buffer`
 
