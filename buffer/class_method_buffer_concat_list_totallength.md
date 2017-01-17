@@ -2,23 +2,18 @@
 added: v0.7.11
 -->
 
-* `list` {Array} List of `Buffer` instances to concat
-* `totalLength` {Integer} Total length of the `Buffer` instances in `list`
-  when concatenated
-* Returns: {Buffer}
+* `list` {Array} 要合并的 `Buffer` 实例的数组
+* `totalLength` {Integer} 合并时 `list` 中 `Buffer` 实例的总长度
+* 返回: {Buffer}
 
-Returns a new `Buffer` which is the result of concatenating all the `Buffer`
-instances in the `list` together.
+返回一个合并了 `list` 中所有 `Buffer` 实例的新建的 `Buffer` 。
 
-If the list has no items, or if the `totalLength` is 0, then a new zero-length
-`Buffer` is returned.
+如果 `list` 中没有元素、或 `totalLength` 为 0 ，则返回一个新建的长度为 0 的 `Buffer` 。
 
-If `totalLength` is not provided, it is calculated from the `Buffer` instances
-in `list`. This however causes an additional loop to be executed in order to
-calculate the `totalLength`, so it is faster to provide the length explicitly if
-it is already known.
+如果没有提供 `totalLength` ，则从 `list` 中的 `Buffer` 实例计算得到。
+为了计算 `totalLength` 会导致需要执行额外的循环，所以提供明确的长度会运行更快。
 
-Example: Create a single `Buffer` from a list of three `Buffer` instances
+例子：从一个包含三个 `Buffer` 实例的数组创建为一个单一的 `Buffer`。
 
 ```js
 const buf1 = Buffer.alloc(10);
@@ -26,15 +21,15 @@ const buf2 = Buffer.alloc(14);
 const buf3 = Buffer.alloc(18);
 const totalLength = buf1.length + buf2.length + buf3.length;
 
-// Prints: 42
+// 输出: 42
 console.log(totalLength);
 
 const bufA = Buffer.concat([buf1, buf2, buf3], totalLength);
 
-// Prints: <Buffer 00 00 00 00 ...>
+// 输出: <Buffer 00 00 00 00 ...>
 console.log(bufA);
 
-// Prints: 42
+// 输出: 42
 console.log(bufA.length);
 ```
 
