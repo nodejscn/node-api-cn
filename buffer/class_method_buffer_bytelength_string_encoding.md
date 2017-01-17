@@ -2,28 +2,25 @@
 added: v0.1.90
 -->
 
-* `string` {String | Buffer | TypedArray | DataView | ArrayBuffer} A value to
-  calculate the length of
-* `encoding` {String} If `string` is a string, this is its encoding.
-  **Default:** `'utf8'`
-* Returns: {Integer} The number of bytes contained within `string`
+* `string` {String | Buffer | TypedArray | DataView | ArrayBuffer} 要计算长度的值
+* `encoding` {String} 如果 `string` 是字符串，则这是它的字符编码。
+  **默认:** `'utf8'`
+* 返回: {Integer} `string` 包含的字节数
 
-Returns the actual byte length of a string. This is not the same as
-[`String.prototype.length`] since that returns the number of *characters* in
-a string.
+返回一个字符串的实际字节长度。
+这与 [`String.prototype.length`] 不同，因为那返回字符串的**字符**数。
 
-Example:
+例子：
 
 ```js
 const str = '\u00bd + \u00bc = \u00be';
 
-// Prints: ½ + ¼ = ¾: 9 characters, 12 bytes
-console.log(`${str}: ${str.length} characters, ` +
-            `${Buffer.byteLength(str, 'utf8')} bytes`);
+// 输出: ½ + ¼ = ¾: 9 个字符, 12 个字节
+console.log(`${str}: ${str.length} 个字符, ` +
+            `${Buffer.byteLength(str, 'utf8')} 个字节`);
 ```
 
-When `string` is a `Buffer`/[`DataView`]/[`TypedArray`]/[`ArrayBuffer`], the
-actual byte length is returned.
+当 `string` 是一个 `Buffer`/[`DataView`]/[`TypedArray`]/[`ArrayBuffer`] 时，返回实际的字节长度。
 
-Otherwise, converts to `String` and returns the byte length of string.
+否则，会转换为 `String` 并返回字符串的字节长度。
 
