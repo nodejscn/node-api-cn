@@ -2,44 +2,37 @@
 added: v5.10.0
 -->
 
-* `size` {Integer} The desired length of the new `Buffer`
+* `size` {Integer} 新建的 `Buffer` 期望的长度
 
-Allocates a new *non-zero-filled* `Buffer` of `size` bytes. The `size` must
-be less than or equal to the value of [`buffer.kMaxLength`]. Otherwise, a
-[`RangeError`] is thrown. A zero-length `Buffer` will be created if `size <= 0`.
+分配一个大小为 `size` 字节的新建的**没有用0填充**的 `Buffer` 。
+`size` 必须小于或等于 [`buffer.kMaxLength`] 的值，否则将抛出 [`RangeError`] 错误。
+如果 `size` 小于或等于0，则创建一个长度为0的 `Buffer` 。
 
-The underlying memory for `Buffer` instances created in this way is *not
-initialized*. The contents of the newly created `Buffer` are unknown and
-*may contain sensitive data*. Use [`Buffer.alloc()`] instead to initialize
-`Buffer` instances to zeroes.
+以这种方式创建的 `Buffer` 实例的底层内存是**未初始化**的。
+新创建的 `Buffer` 的内容是未知的，且**可能包含敏感数据**。
+可以使用 [`buf.fill(0)`] 初始化 `Buffer` 实例为0。
 
-Example:
+例子：
 
 ```js
 const buf = Buffer.allocUnsafe(5);
 
-// Prints: (contents may vary): <Buffer 78 e0 82 02 01>
+// 输出: (内容可能不同): <Buffer 78 e0 82 02 01>
 console.log(buf);
 
 buf.fill(0);
 
-// Prints: <Buffer 00 00 00 00 00>
+// 输出: <Buffer 00 00 00 00 00>
 console.log(buf);
 ```
 
-A `TypeError` will be thrown if `size` is not a number.
+如果 `size` 不是一个数值，则抛出 `TypeError` 错误。
 
-Note that the `Buffer` module pre-allocates an internal `Buffer` instance of
-size [`Buffer.poolSize`] that is used as a pool for the fast allocation of new
-`Buffer` instances created using [`Buffer.allocUnsafe()`] and the deprecated
-`new Buffer(size)` constructor only when `size` is less than or equal to
-`Buffer.poolSize >> 1` (floor of [`Buffer.poolSize`] divided by two).
+注意，`Buffer` 模块会预分配一个大小为 [`Buffer.poolSize`] 的内部 `Buffer` 实例作为快速分配池，
+用于使用 [`Buffer.allocUnsafe()`] 新创建的 `Buffer` 实例，以及废弃的 `new Buffer(size)` 构造器，
+仅限于当 `size` 小于或等于 `Buffer.poolSize >> 1` （[`Buffer.poolSize`] 除以2后的最大整数值）。
 
-Use of this pre-allocated internal memory pool is a key difference between
-calling `Buffer.alloc(size, fill)` vs. `Buffer.allocUnsafe(size).fill(fill)`.
-Specifically, `Buffer.alloc(size, fill)` will *never* use the internal `Buffer`
-pool, while `Buffer.allocUnsafe(size).fill(fill)` *will* use the internal
-`Buffer` pool if `size` is less than or equal to half [`Buffer.poolSize`]. The
-difference is subtle but can be important when an application requires the
-additional performance that [`Buffer.allocUnsafe()`] provides.
+对这个预分配的内部内存池的使用，是调用 `Buffer.alloc(size, fill)` 和 `Buffer.allocUnsafe(size).fill(fill)` 的关键区别。
+具体地说，如果 `size` 小于或等于 [`Buffer.poolSize`] 的一半，则 `Buffer.alloc(size, fill)` **不会**使用这个内部的 `Buffer` 池，而 `Buffer.allocUnsafe(size).fill(fill)` **会**使用这个内部的 `Buffer` 池。
+当应用程序需要 [`Buffer.allocUnsafe()`] 提供额外的性能时，这个细微的区别是非常重要的。
 
