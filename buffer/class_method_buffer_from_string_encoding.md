@@ -2,29 +2,29 @@
 added: v5.10.0
 -->
 
-* `string` {String} A string to encode.
-* `encoding` {String} The encoding of `string`. **Default:** `'utf8'`
+* `string` {String} 要编码的字符串
+* `encoding` {String} `string` 的字符编码。 **默认:** `'utf8'`
 
-Creates a new `Buffer` containing the given JavaScript string `string`. If
-provided, the `encoding` parameter identifies the character encoding of `string`.
+新建一个包含所给的 JavaScript 字符串 `string` 的 `Buffer` 。
+`encoding` 参数指定 `string` 的字符编码。
 
-Examples:
+例子：
 
 ```js
 const buf1 = Buffer.from('this is a tést');
 
-// Prints: this is a tést
+// 输出: this is a tést
 console.log(buf1.toString());
 
-// Prints: this is a tC)st
+// 输出: this is a tC)st
 console.log(buf1.toString('ascii'));
 
 
 const buf2 = Buffer.from('7468697320697320612074c3a97374', 'hex');
 
-// Prints: this is a tést
+// 输出: this is a tést
 console.log(buf2.toString());
 ```
 
-A `TypeError` will be thrown if `str` is not a string.
+如果 `string` 不是一个字符串，则抛出 `TypeError` 错误。
 
