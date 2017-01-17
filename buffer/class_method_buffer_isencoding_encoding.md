@@ -2,9 +2,8 @@
 added: v0.9.1
 -->
 
-* `encoding` {String} A character encoding name to check
-* Returns: {Boolean}
+* `encoding` {String} 一个要检查的字符编码名称
+* 返回: {Boolean}
 
-Returns `true` if `encoding` contains a supported character encoding, or `false`
-otherwise.
+如果 `encoding` 是一个支持的字符编码则返回 `true`，否则返回 `false` 。
 
