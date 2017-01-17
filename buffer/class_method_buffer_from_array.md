@@ -4,14 +4,14 @@ added: v5.10.0
 
 * `array` {Array}
 
-Allocates a new `Buffer` using an `array` of octets.
+通过一个八位字节的 `array` 创建一个新的 `Buffer` 。
 
-Example:
+例子：
 
 ```js
-// Creates a new Buffer containing ASCII bytes of the string 'buffer'
+// 创建一个新的包含字符串 'buffer' 的 ASCII 字节的 Buffer
 const buf = Buffer.from([0x62, 0x75, 0x66, 0x66, 0x65, 0x72]);
 ```
 
-A `TypeError` will be thrown if `array` is not an `Array`.
+如果 `array` 不是一个数组，则抛出 `TypeError` 错误。
 
