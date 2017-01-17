@@ -2,11 +2,11 @@
 added: v5.10.0
 -->
 
-* `buffer` {Buffer} An existing `Buffer` to copy data from
+* `buffer` {Buffer} 一个要拷贝数据的已存在的 `Buffer`
 
-Copies the passed `buffer` data onto a new `Buffer` instance.
+将传入的 `buffer` 数据拷贝到一个新建的 `Buffer` 实例。
 
-Example:
+例子：
 
 ```js
 const buf1 = Buffer.from('buffer');
@@ -14,12 +14,12 @@ const buf2 = Buffer.from(buf1);
 
 buf1[0] = 0x61;
 
-// Prints: auffer
+// 输出: auffer
 console.log(buf1.toString());
 
-// Prints: buffer
+// 输出: buffer
 console.log(buf2.toString());
 ```
 
-A `TypeError` will be thrown if `buffer` is not a `Buffer`.
+如果 `buffer` 不是一个 `Buffer`，则抛出 `TypeError` 错误。
 
