@@ -2,17 +2,16 @@
 added: v1.1.0
 -->
 
-* Returns: {Iterator}
+* 返回: {Iterator}
 
-Creates and returns an [iterator] of `[index, byte]` pairs from the contents of
-`buf`.
+从 `buf` 的内容中，创建并返回一个 `[index, byte]` 形式的[迭代器]。
 
-Example: Log the entire contents of a `Buffer`
+例子：记录一个 `Buffer` 全部的内容。
 
 ```js
 const buf = Buffer.from('buffer');
 
-// Prints:
+// 输出:
 //   [0, 98]
 //   [1, 117]
 //   [2, 102]
