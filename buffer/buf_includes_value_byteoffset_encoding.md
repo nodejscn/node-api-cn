@@ -2,39 +2,39 @@
 added: v5.3.0
 -->
 
-* `value` {String | Buffer | Integer} What to search for
-* `byteOffset` {Integer} Where to begin searching in `buf`. **Default:** `0`
-* `encoding` {String} If `value` is a string, this is its encoding.
-  **Default:** `'utf8'`
-* Returns: {Boolean} `true` if `value` was found in `buf`, `false` otherwise
+* `value` {String | Buffer | Integer} 要搜索的值
+* `byteOffset` {Integer} `buf` 中开始搜索的位置。**默认:** `0`
+* `encoding` {String} 如果 `value` 是一个字符串，则这是它的字符编码。
+  **默认:** `'utf8'`
+* 返回: {Boolean} 如果 `buf` 找到 `value`，则返回 `true`，否则返回 `false`
 
-Equivalent to [`buf.indexOf() !== -1`][`buf.indexOf()`].
+相当于 [`buf.indexOf() !== -1`]。
 
-Examples:
+例子：
 
 ```js
 const buf = Buffer.from('this is a buffer');
 
-// Prints: true
+// 输出: true
 console.log(buf.includes('this'));
 
-// Prints: true
+// 输出: true
 console.log(buf.includes('is'));
 
-// Prints: true
+// 输出: true
 console.log(buf.includes(Buffer.from('a buffer')));
 
-// Prints: true
-// (97 is the decimal ASCII value for 'a')
+// 输出: true
+// (97 是 'a' 的十进制 ASCII 值)
 console.log(buf.includes(97));
 
-// Prints: false
+// 输出: false
 console.log(buf.includes(Buffer.from('a buffer example')));
 
-// Prints: true
+// 输出: true
 console.log(buf.includes(Buffer.from('a buffer example').slice(0, 8)));
 
-// Prints: false
+// 输出: false
 console.log(buf.includes('this', 4));
 ```
 
