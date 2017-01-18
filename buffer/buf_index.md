@@ -3,11 +3,10 @@ type: property
 name: [index]
 -->
 
-The index operator `[index]` can be used to get and set the octet at position
-`index` in `buf`. The values refer to individual bytes, so the legal value
-range is between `0x00` and `0xFF` (hex) or `0` and `255` (decimal).
+索引操作符 `[index]` 可用于获取或设置 `buf` 中指定 `index` 位置的八位字节。
+这个值指向的是单个字节，所以合法的值范围是的 `0x00` 至 `0xFF`（十六进制），或 `0` 至 `255`（十进制）。
 
-Example: Copy an ASCII string into a `Buffer`, one byte at a time
+例如：拷贝一个 ASCII 字符串到一个 `Buffer`，每次一个字节。
 
 ```js
 const str = 'Node.js';
@@ -17,7 +16,7 @@ for (let i = 0; i < str.length ; i++) {
   buf[i] = str.charCodeAt(i);
 }
 
-// Prints: Node.js
+// 输出: Node.js
 console.log(buf.toString('ascii'));
 ```
 
