@@ -2,23 +2,22 @@
 added: v0.11.13
 -->
 
-* `otherBuffer` {Buffer} A `Buffer` to compare to
-* Returns: {Boolean}
+* `otherBuffer` {Buffer} 要比较的 `Buffer`
+* 返回: {Boolean}
 
-Returns `true` if both `buf` and `otherBuffer` have exactly the same bytes,
-`false` otherwise.
+如果 `buf` 与 `otherBuffer` 具有完全相同的字节，则返回 `true`，否则返回 `false`。
 
-Examples:
+例子：
 
 ```js
 const buf1 = Buffer.from('ABC');
 const buf2 = Buffer.from('414243', 'hex');
 const buf3 = Buffer.from('ABCD');
 
-// Prints: true
+// 输出: true
 console.log(buf1.equals(buf2));
 
-// Prints: false
+// 输出: false
 console.log(buf1.equals(buf3));
 ```
 
