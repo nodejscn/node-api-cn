@@ -2,16 +2,16 @@
 added: v1.1.0
 -->
 
-* Returns: {Iterator}
+* 返回: {Iterator}
 
-Creates and returns an [iterator] of `buf` keys (indices).
+创建并返回一个包含 `buf` 键名（索引）的[迭代器]。
 
-Example:
+例子：
 
 ```js
 const buf = Buffer.from('buffer');
 
-// Prints:
+// 输出:
 //   0
 //   1
 //   2
