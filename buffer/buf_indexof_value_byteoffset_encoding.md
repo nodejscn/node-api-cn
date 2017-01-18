@@ -2,53 +2,49 @@
 added: v1.5.0
 -->
 
-* `value` {String | Buffer | Integer} What to search for
-* `byteOffset` {Integer} Where to begin searching in `buf`. **Default:** `0`
-* `encoding` {String} If `value` is a string, this is its encoding.
-  **Default:** `'utf8'`
-* Returns: {Integer} The index of the first occurrence of `value` in `buf` or `-1`
-  if `buf` does not contain `value`
+* `value` {String | Buffer | Integer} 要搜索的值
+* `byteOffset` {Integer} `buf` 中开始搜索的位置。**默认:** `0`
+* `encoding` {String} 如果 `value` 是一个字符串，则这是它的字符编码。
+  **默认:** `'utf8'`
+* 返回: {Integer} `buf` 中 `value` 首次出现的索引，如果 `buf` 没包含 `value` 则返回 `-1`
 
-If `value` is:
+如果 `value` 是：
 
-  * a string, `value` is interpreted according to the character encoding in
-    `encoding`.
-  * a `Buffer`, `value` will be used in its entirety. To compare a partial
-  `Buffer` use [`buf.slice()`].
-  * a number, `value` will be interpreted as an unsigned 8-bit integer
-  value between `0` and `255`.
+  * 字符串，则 `value` 根据 `encoding` 的字符编码进行解析。
+  * `Buffer`，则 `value` 会被作为一个整体使用。如果要比较部分 `Buffer` 可使用 [`buf.slice()`]。
+  * 数值, 则 `value` 会解析为一个 `0` 至 `255` 之间的无符号八位整数值。
 
-Examples:
+例子：
 
 ```js
 const buf = Buffer.from('this is a buffer');
 
-// Prints: 0
+// 输出: 0
 console.log(buf.indexOf('this')));
 
-// Prints: 2
+// 输出: 2
 console.log(buf.indexOf('is'));
 
-// Prints: 8
+// 输出: 8
 console.log(buf.indexOf(Buffer.from('a buffer')));
 
-// Prints: 8
-// (97 is the decimal ASCII value for 'a')
+// 输出: 8
+// (97 是 'a' 的十进制 ASCII 值)
 console.log(buf.indexOf(97));
 
-// Prints: -1
+// 输出: -1
 console.log(buf.indexOf(Buffer.from('a buffer example')));
 
-// Prints: 8
+// 输出: 8
 console.log(buf.indexOf(Buffer.from('a buffer example').slice(0, 8)));
 
 
 const utf16Buffer = Buffer.from('\u039a\u0391\u03a3\u03a3\u0395', 'ucs2');
 
-// Prints: 4
+// 输出: 4
 console.log(utf16Buffer.indexOf('\u03a3', 0, 'ucs2'));
 
-// Prints: 6
+// 输出: 6
 console.log(utf16Buffer.indexOf('\u03a3', -4, 'ucs2'));
 ```
 
