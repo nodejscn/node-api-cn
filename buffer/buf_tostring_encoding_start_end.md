@@ -2,41 +2,41 @@
 added: v0.1.90
 -->
 
-* `encoding` {String} The character encoding to decode to. **Default:** `'utf8'`
-* `start` {Integer} The byte offset to start decoding at. **Default:** `0`
-* `end` {Integer} The byte offset to stop decoding at (not inclusive).
-  **Default:** [`buf.length`]
-* Returns: {String}
+* `encoding` {String} 解码使用的字符编码。**默认:** `'utf8'`
+* `start` {Integer} 开始解码的字节偏移量。**默认:** `0`
+* `end` {Integer} 结束解码的字节偏移量（不包含）。
+  **默认:** [`buf.length`]
+* 返回: {String}
 
-Decodes `buf` to a string according to the specified character encoding in
-`encoding`. `start` and `end` may be passed to decode only a subset of `buf`.
+根据 `encoding` 指定的字符编码解码 `buf` 成一个字符串。
+`start` 和 `end` 可传入用于只解码 `buf` 的一部分。
 
-Examples:
+例子：
 
 ```js
 const buf1 = Buffer.allocUnsafe(26);
 
 for (var i = 0 ; i < 26 ; i++) {
-  // 97 is the decimal ASCII value for 'a'
+  // 97 是 'a' 的十进制 ASCII 值
   buf1[i] = i + 97;
 }
 
-// Prints: abcdefghijklmnopqrstuvwxyz
+// 输出: abcdefghijklmnopqrstuvwxyz
 console.log(buf1.toString('ascii'));
 
-// Prints: abcde
+// 输出: abcde
 console.log(buf1.toString('ascii', 0, 5));
 
 
 const buf2 = Buffer.from('tést');
 
-// Prints: 74c3a97374
+// 输出: 74c3a97374
 console.log(buf2.toString('hex'));
 
-// Prints: té
+// 输出: té
 console.log(buf2.toString('utf8', 0, 3));
 
-// Prints: té
+// 输出: té
 console.log(buf2.toString(undefined, 0, 3));
 ```
 
