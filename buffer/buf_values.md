@@ -2,17 +2,17 @@
 added: v1.1.0
 -->
 
-* Returns: {Iterator}
+* 返回: {Iterator}
 
-Creates and returns an [iterator] for `buf` values (bytes). This function is
-called automatically when a `Buffer` is used in a `for..of` statement.
+创建并返回一个包含 `buf` 的值（字节）的[迭代器]。
+当 `Buffer` 使用 `for..of` 时会自动调用该函数。
 
-Examples:
+例子：
 
 ```js
 const buf = Buffer.from('buffer');
 
-// Prints:
+// 输出:
 //   98
 //   117
 //   102
@@ -23,7 +23,7 @@ for (var value of buf.values()) {
   console.log(value);
 }
 
-// Prints:
+// 输出:
 //   98
 //   117
 //   102
