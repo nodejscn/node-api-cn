@@ -2,29 +2,26 @@
 added: v0.5.5
 -->
 
-* `offset` {Integer} Where to start reading. Must satisfy: `0 <= offset <= buf.length - 4`
-* `noAssert` {Boolean} Skip `offset` validation? **Default:** `false`
-* Returns: {Integer}
+* `offset` {Integer} 开始读取的位置，必须满足：`0 <= offset <= buf.length - 4`
+* `noAssert` {Boolean} 是否跳过 `offset` 检验？**默认:** `false`
+* 返回: {Integer}
 
-Reads an unsigned 32-bit integer from `buf` at the specified `offset` with
-specified endian format (`readUInt32BE()` returns big endian,
-`readUInt32LE()` returns little endian).
+用指定的尾数格式（`readUInt32BE()` 返回大尾数，`readUInt32LE()` 返回小尾数）从 `buf` 中指定的 `offset` 读取一个无符号的32位整数值。
 
-Setting `noAssert` to `true` allows `offset` to be beyond the end of `buf`, but
-the result should be considered undefined behavior.
+设置 `noAssert` 为 `true` 则 `offset` 可超出 `buf` 的末尾，但后果是不确定的。
 
-Examples:
+例子：
 
 ```js
 const buf = Buffer.from([0x12, 0x34, 0x56, 0x78]);
 
-// Prints: 12345678
+// 输出: 12345678
 console.log(buf.readUInt32BE(0).toString(16));
 
-// Prints: 78563412
+// 输出: 78563412
 console.log(buf.readUInt32LE(0).toString(16));
 
-// Throws an exception: RangeError: Index out of range
+// 抛出异常: RangeError: Index out of range
 console.log(buf.readUInt32LE(1).toString(16));
 ```
 
