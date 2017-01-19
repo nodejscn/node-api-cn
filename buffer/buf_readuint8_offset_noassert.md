@@ -2,27 +2,26 @@
 added: v0.5.0
 -->
 
-* `offset` {Integer} Where to start reading. Must satisfy: `0 <= offset <= buf.length - 1`
-* `noAssert` {Boolean} Skip `offset` validation? **Default:** `false`
-* Returns: {Integer}
+* `offset` {Integer} 开始读取的位置，必须满足：`0 <= offset <= buf.length - 1`
+* `noAssert` {Boolean} 是否跳过 `offset` 检验？**默认:** `false`
+* 返回: {Integer}
 
-Reads an unsigned 8-bit integer from `buf` at the specified `offset`.
+从 `buf` 中指定的 `offset` 读取一个无符号的8位整数值。
 
-Setting `noAssert` to `true` allows `offset` to be beyond the end of `buf`, but
-the result should be considered undefined behavior.
+设置 `noAssert` 为 `true` 则 `offset` 可超出 `buf` 的末尾，但后果是不确定的。
 
-Examples:
+例子：
 
 ```js
 const buf = Buffer.from([1, -2]);
 
-// Prints: 1
+// 输出: 1
 console.log(buf.readUInt8(0));
 
-// Prints: 254
+// 输出: 254
 console.log(buf.readUInt8(1));
 
-// Throws an exception: RangeError: Index out of range
+// 抛出异常: RangeError: Index out of range
 console.log(buf.readUInt8(2));
 ```
 
