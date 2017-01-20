@@ -2,33 +2,31 @@
 added: v0.5.5
 -->
 
-* `value` {Integer} Number to be written to `buf`
-* `offset` {Integer} Where to start writing. Must satisfy: `0 <= offset <= buf.length - byteLength`
-* `byteLength` {Integer} How many bytes to write. Must satisfy: `0 < byteLength <= 6`
-* `noAssert` {Boolean} Skip `value`, `offset`, and `byteLength` validation?
-  **Default:** `false`
-* Returns: {Integer} `offset` plus the number of bytes written
+* `value` {Integer} 要写入 `buf` 的数值
+* `offset` {Integer} 开始写入的位置，必须满足：`0 <= offset <= buf.length - byteLength`
+* `byteLength` {Integer} 要写入的字节数，必须满足：`0 < byteLength <= 6`
+* `noAssert` {Boolean} 是否跳过 `value`、`offset` 和 `byteLength` 检验？**默认:** `false`
+* 返回: {Integer} `offset` 加上写入的字节数
 
-Writes `byteLength` bytes of `value` to `buf` at the specified `offset`.
-Supports up to 48 bits of accuracy. Behavior is undefined when `value` is
-anything other than an unsigned integer.
+写入 `value` 中的 `byteLength` 个字节到 `buf` 中指定的 `offset` 位置。
+最高支持48位精度。
+当 `value` 不是一个无符号的整数时，反应是不确定的。
 
-Setting `noAssert` to `true` allows the encoded form of `value` to extend beyond
-the end of `buf`, but the result should be considered undefined behavior.
+设置 `noAssert` 为 `true` 则 `value` 的编码形式可超出 `buf` 的末尾，但后果是不确定的。
 
-Examples:
+例子：
 
 ```js
 const buf = Buffer.allocUnsafe(6);
 
 buf.writeUIntBE(0x1234567890ab, 0, 6);
 
-// Prints: <Buffer 12 34 56 78 90 ab>
+// 输出: <Buffer 12 34 56 78 90 ab>
 console.log(buf);
 
 buf.writeUIntLE(0x1234567890ab, 0, 6);
 
-// Prints: <Buffer ab 90 78 56 34 12>
+// 输出: <Buffer ab 90 78 56 34 12>
 console.log(buf);
 ```
 
