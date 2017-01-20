@@ -2,19 +2,18 @@
 added: v0.5.0
 -->
 
-* `value` {Integer} Number to be written to `buf`
-* `offset` {Integer} Where to start writing. Must satisfy: `0 <= offset <= buf.length - 1`
-* `noAssert` {Boolean} Skip `value` and `offset` validation? **Default:** `false`
-* Returns: {Integer} `offset` plus the number of bytes written
+* `value` {Integer} 要写入 `buf` 的数值
+* `offset` {Integer} 开始写入的位置，必须满足：`0 <= offset <= buf.length - 1`
+* `noAssert` {Boolean} 是否跳过 `value` 和 `offset` 检验？**默认:** `false`
+* 返回: {Integer} `offset` 加上写入的字节数
 
-Writes `value` to `buf` at the specified `offset`. `value` *should* be a
-valid unsigned 8-bit integer. Behavior is undefined when `value` is anything
-other than an unsigned 8-bit integer.
+写入 `value` 到 `buf` 中指定的 `offset` 位置。
+`value` 应当是一个有效的无符号的8位整数。
+当 `value` 不是一个无符号的8位整数时，反应是不确定的。
 
-Setting `noAssert` to `true` allows the encoded form of `value` to extend beyond
-the end of `buf`, but the result should be considered undefined behavior.
+设置 `noAssert` 为 `true` 则 `value` 的编码形式可超出 `buf` 的末尾，但后果是不确定的。
 
-Examples:
+例子：
 
 ```js
 const buf = Buffer.allocUnsafe(4);
@@ -24,7 +23,7 @@ buf.writeUInt8(0x4, 1);
 buf.writeUInt8(0x23, 2);
 buf.writeUInt8(0x42, 3);
 
-// Prints: <Buffer 03 04 23 42>
+// 输出: <Buffer 03 04 23 42>
 console.log(buf);
 ```
 
