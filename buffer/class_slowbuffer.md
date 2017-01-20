@@ -2,7 +2,7 @@
 deprecated: v6.0.0
 -->
 
-> Stability: 0 - Deprecated: Use [`Buffer.allocUnsafeSlow()`] instead.
+> 稳定性: 0 - 废弃的: 使用 [`Buffer.allocUnsafeSlow()`] 代替。
 
 Returns an un-pooled `Buffer`.
 
