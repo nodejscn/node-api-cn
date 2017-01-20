@@ -2,20 +2,18 @@
 added: v0.5.5
 -->
 
-* `value` {Integer} Number to be written to `buf`
-* `offset` {Integer} Where to start writing. Must satisfy: `0 <= offset <= buf.length - 2`
-* `noAssert` {Boolean} Skip `value` and `offset` validation? **Default:** `false`
-* Returns: {Integer} `offset` plus the number of bytes written
+* `value` {Integer} 要写入 `buf` 的数值
+* `offset` {Integer} 开始写入的位置，必须满足：`0 <= offset <= buf.length - 2`
+* `noAssert` {Boolean} 是否跳过 `value` 和 `offset` 检验？**默认:** `false`
+* 返回: {Integer} `offset` 加上写入的字节数
 
-Writes `value` to `buf` at the specified `offset` with specified endian
-format (`writeUInt16BE()` writes big endian, `writeUInt16LE()` writes little
-endian). `value` should be a valid unsigned 16-bit integer. Behavior is
-undefined when `value` is anything other than an unsigned 16-bit integer.
+用指定的尾数格式（`writeUInt16BE()` 写入大尾数，`writeUInt16LE()` 写入小尾数）写入 `value` 到 `buf` 中指定的 `offset` 位置。
+`value` 应当是一个有效的无符号的16位整数。
+当 `value` 不是一个无符号的16位整数时，反应是不确定的。
 
-Setting `noAssert` to `true` allows the encoded form of `value` to extend beyond
-the end of `buf`, but the result should be considered undefined behavior.
+设置 `noAssert` 为 `true` 则 `value` 的编码形式可超出 `buf` 的末尾，但后果是不确定的。
 
-Examples:
+例子：
 
 ```js
 const buf = Buffer.allocUnsafe(4);
@@ -23,13 +21,13 @@ const buf = Buffer.allocUnsafe(4);
 buf.writeUInt16BE(0xdead, 0);
 buf.writeUInt16BE(0xbeef, 2);
 
-// Prints: <Buffer de ad be ef>
+// 输出: <Buffer de ad be ef>
 console.log(buf);
 
 buf.writeUInt16LE(0xdead, 0);
 buf.writeUInt16LE(0xbeef, 2);
 
-// Prints: <Buffer ad de ef be>
+// 输出: <Buffer ad de ef be>
 console.log(buf);
 ```
 
