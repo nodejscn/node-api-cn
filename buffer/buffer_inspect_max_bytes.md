@@ -2,12 +2,11 @@
 added: v0.5.4
 -->
 
-* {Integer} **Default:** `50`
+* {Integer} **默认:** `50`
 
-Returns the maximum number of bytes that will be returned when
-`buf.inspect()` is called. This can be overridden by user modules. See
-[`util.inspect()`] for more details on `buf.inspect()` behavior.
+当调用 `buf.inspect()` 时返回的最大字节数。
+可以被用户模块重写。
+详见 [`util.inspect()`] 了解更多 `buf.inspect()` 的行为。
 
-Note that this is a property on the `buffer` module as returned by
-`require('buffer')`, not on the `Buffer` global or a `Buffer` instance.
+注意，这个属性是在通过 `require('buffer')` 返回的 `buffer` 模块上，而不是在 `Buffer` 的全局变量或 `Buffer` 实例上。
 
