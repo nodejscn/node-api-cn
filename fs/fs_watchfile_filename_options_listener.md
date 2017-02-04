@@ -8,18 +8,16 @@ added: v0.1.31
   * `interval` {Integer}
 * `listener` {Function}
 
-Watch for changes on `filename`. The callback `listener` will be called each
-time the file is accessed.
+监视 `filename` 的变化。
+回调 `listener` 会在每次访问文件时被调用。
 
-The `options` argument may be omitted. If provided, it should be an object. The
-`options` object may contain a boolean named `persistent` that indicates
-whether the process should continue to run as long as files are being watched.
-The `options` object may specify an `interval` property indicating how often the
-target should be polled in milliseconds. The default is
-`{ persistent: true, interval: 5007 }`.
+`options` 参数可被省略。
+如果提供的话，它应该是一个对象。
+`options` 对象可能包含一个名为 `persistent` 的布尔值，表明当文件正在被监视时，进程是否应该继续运行。
+`options` 对象可以指定一个 `interval` 属性，表示目标应该每隔多少毫秒被轮询。
+默认值为 `{ persistent: true, interval: 5007 }`。
 
-The `listener` gets two arguments the current stat object and the previous
-stat object:
+`listener` 有两个参数，当前的状态对象和以前的状态对象：
 
 ```js
 fs.watchFile('message.text', (curr, prev) => {
@@ -29,17 +27,15 @@ fs.watchFile('message.text', (curr, prev) => {
 ```
 
 These stat objects are instances of `fs.Stat`.
+这里的状态对象是 `fs.Stat` 实例。
 
-If you want to be notified when the file was modified, not just accessed,
-you need to compare `curr.mtime` and `prev.mtime`.
+如果你想在文件被修改而不只是访问时得到通知，则需要比较 `curr.mtime` 和 `prev.mtime`。
 
-_Note: when an `fs.watchFile` operation results in an `ENOENT` error, it will
- invoke the listener once, with all the fields zeroed (or, for dates, the Unix
- Epoch). In Windows, `blksize` and `blocks` fields will be `undefined`, instead
- of zero. If the file is created later on, the listener will be called again,
- with the latest stat objects. This is a change in functionality since v0.10._
+注意：当一个 `fs.watchFile` 的运行结果是一个 `ENOENT` 错误时，它会调用监听器一次，且将所有字段置零（或将日期设为 Unix 纪元）。
+在 Windows 中，`blksize` 和 `blocks` 字段会是 `undefined` 而不是零。
+如果文件是在那之后创建的，则监听器会被再次调用，且带上最新的状态对象。
+这是在 v0.10 版之后在功能上的变化。
 
-_Note: [`fs.watch()`][] is more efficient than `fs.watchFile` and
-`fs.unwatchFile`. `fs.watch` should be used instead of `fs.watchFile` and
-`fs.unwatchFile` when possible._
+注意：[`fs.watch()`] 比 `fs.watchFile` 和 `fs.unwatchFile` 更高效。
+可能的话，应该使用 `fs.watch` 而不是 `fs.watchFile` 和 `fs.unwatchFile`。
 
