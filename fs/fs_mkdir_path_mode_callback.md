@@ -6,6 +6,7 @@ added: v0.1.8
 * `mode` {Integer}
 * `callback` {Function}
 
-Asynchronous mkdir(2). No arguments other than a possible exception are given
-to the completion callback. `mode` defaults to `0o777`.
+异步的 mkdir(2)。
+完成回调只有一个可能的异常参数。
+`mode` 默认为 `0o777`。
 
