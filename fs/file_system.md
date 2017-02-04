@@ -1,21 +1,20 @@
 
-> Stability: 2 - Stable
+> 稳定性: 2 - 稳定的
 
 <!--name=fs-->
 
-File I/O is provided by simple wrappers around standard POSIX functions.  To
-use this module do `require('fs')`. All the methods have asynchronous and
-synchronous forms.
+文件 I/O 是由简单封装的标准 POSIX 函数提供的。
+通过 `require('fs')` 使用该模块。
+所有的方法都有异步和同步的形式。
 
-The asynchronous form always takes a completion callback as its last argument.
-The arguments passed to the completion callback depend on the method, but the
-first argument is always reserved for an exception. If the operation was
-completed successfully, then the first argument will be `null` or `undefined`.
+异步形式始终以完成回调作为它最后一个参数。
+传给完成回调的参数取决于具体方法，但第一个参数总是留给异常。
+如果操作成功完成，则第一个参数会是 `null` 或 `undefined`。
 
-When using the synchronous form any exceptions are immediately thrown.
-You can use try/catch to handle exceptions or allow them to bubble up.
+当使用同步形式时，任何异常都会被立即抛出。
+可以使用 try/catch 来处理异常，或让它们往上冒泡。
 
-Here is an example of the asynchronous version:
+这是异步版本的例子：
 
 ```js
 const fs = require('fs');
@@ -26,7 +25,7 @@ fs.unlink('/tmp/hello', (err) => {
 });
 ```
 
-Here is the synchronous version:
+这是同步版本的例子：
 
 ```js
 const fs = require('fs');
@@ -35,8 +34,8 @@ fs.unlinkSync('/tmp/hello');
 console.log('successfully deleted /tmp/hello');
 ```
 
-With the asynchronous methods there is no guaranteed ordering. So the
-following is prone to error:
+异步方法不保证执行顺序。
+所以下面的例子容易出错：
 
 ```js
 fs.rename('/tmp/hello', '/tmp/world', (err) => {
@@ -49,8 +48,7 @@ fs.stat('/tmp/world', (err, stats) => {
 });
 ```
 
-It could be that `fs.stat` is executed before `fs.rename`.
-The correct way to do this is to chain the callbacks.
+`fs.stat` 可能在 `fs.rename` 之前执行。正确的方法是把回调链起来。
 
 ```js
 fs.rename('/tmp/hello', '/tmp/world', (err) => {
@@ -62,16 +60,15 @@ fs.rename('/tmp/hello', '/tmp/world', (err) => {
 });
 ```
 
-In busy processes, the programmer is _strongly encouraged_ to use the
-asynchronous versions of these calls. The synchronous versions will block
-the entire process until they complete--halting all connections.
+在繁忙的进程中，**强烈推荐**开发者使用这些函数的异步版本。
+同步版本会阻塞整个进程，直到它们完成（停止所有连接）。
 
-The relative path to a filename can be used. Remember, however, that this path
-will be relative to `process.cwd()`.
+可使用文件名的相对路径。
+但该路径是相对 `process.cwd()` 的。
 
-Most fs functions let you omit the callback argument. If you do, a default
-callback is used that rethrows errors. To get a trace to the original call
-site, set the `NODE_DEBUG` environment variable:
+大部分 fs 函数会让你忽略回调参数。
+如果你这么做，一个默认的回调将用于抛出错误。
+为了追踪原始的调用点，可设置 `NODE_DEBUG` 环境变量：
 
 ```txt
 $ cat script.js
