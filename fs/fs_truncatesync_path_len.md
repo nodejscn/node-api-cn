@@ -3,8 +3,9 @@ added: v0.8.6
 -->
 
 * `path` {String | Buffer}
-* `len` {Integer} default = `0`
+* `len` {Integer} 默认 = `0`
 
-Synchronous truncate(2). Returns `undefined`. A file descriptor can also be
-passed as the first argument. In this case, `fs.ftruncateSync()` is called.
+同步的 truncate(2)。
+返回 `undefined`。
+文件描述符也可以作为第一个参数传入，在这种情况下，`fs.ftruncateSync()` 会被调用。
 
