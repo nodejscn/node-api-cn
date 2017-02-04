@@ -7,6 +7,6 @@ deprecated: v0.4.7
 * `gid` {Integer}
 * `callback` {Function}
 
-Asynchronous lchown(2). No arguments other than a possible exception are given
-to the completion callback.
+异步的 lchown(2)。
+完成回调只有一个可能的异常参数。
 
