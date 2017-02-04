@@ -6,5 +6,5 @@ added: v0.1.97
 * `uid` {Integer}
 * `gid` {Integer}
 
-Synchronous chown(2). Returns `undefined`.
+同步的 chown(2)。返回 `undefined`。
 
