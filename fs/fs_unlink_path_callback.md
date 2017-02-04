@@ -5,6 +5,6 @@ added: v0.0.2
 * `path` {String | Buffer}
 * `callback` {Function}
 
-Asynchronous unlink(2). No arguments other than a possible exception are given
-to the completion callback.
+异步的 unlink(2)。
+完成回调只有一个可能的异常参数。
 
