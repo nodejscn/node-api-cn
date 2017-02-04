@@ -1,5 +1,4 @@
 
-Returns an object containing commonly used constants for file system
-operations. The specific constants currently defined are described in
-[FS Constants][].
+返回一个包含常用文件系统操作的常量的对象。
+具体的常量定义在 [FS Constants] 中描述。
 
