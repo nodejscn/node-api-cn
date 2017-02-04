@@ -6,6 +6,6 @@ added: v0.1.30
 * `mode` {Integer}
 * `callback` {Function}
 
-Asynchronous chmod(2). No arguments other than a possible exception are given
-to the completion callback.
+异步的 chmod(2)。
+完成回调只有一个可能的异常参数。
 
