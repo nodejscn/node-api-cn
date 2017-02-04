@@ -9,16 +9,16 @@ added: v0.0.2
 * `position` {Integer}
 * `callback` {Function}
 
-Read data from the file specified by `fd`.
+从 `fd` 指定的文件中读取数据。
 
-`buffer` is the buffer that the data will be written to.
+`buffer` 是数据将被写入到的 buffer。
 
-`offset` is the offset in the buffer to start writing at.
+`offset` 是 buffer 中开始写入的偏移量。
 
-`length` is an integer specifying the number of bytes to read.
+`length` 是一个整数，指定要读取的字节数。
 
-`position` is an integer specifying where to begin reading from in the file.
-If `position` is `null`, data will be read from the current file position.
+`position` 是一个整数，指定从文件中开始读取的位置。
+如果 `position` 为 `null`，则数据从当前文件位置开始读取。
 
-The callback is given the three arguments, `(err, bytesRead, buffer)`.
+回调有三个参数 `(err, bytesRead, buffer)`。
 
