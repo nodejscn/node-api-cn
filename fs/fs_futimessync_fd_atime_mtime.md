@@ -6,5 +6,5 @@ added: v0.4.2
 * `atime` {Integer}
 * `mtime` {Integer}
 
-Synchronous version of [`fs.futimes()`][]. Returns `undefined`.
+[`fs.futimes()`] 的同步版本。返回 `undefined`。
 
