@@ -2,13 +2,13 @@
 added: v0.1.8
 -->
 
-* `file` {String | Buffer | Integer} filename or file descriptor
+* `file` {String | Buffer | Integer} 文件名或文件描述符
 * `options` {Object | String}
-  * `encoding` {String | Null} default = `null`
-  * `flag` {String} default = `'r'`
+  * `encoding` {String | Null} 默认 = `null`
+  * `flag` {String} 默认 = `'r'`
 
-Synchronous version of [`fs.readFile`][]. Returns the contents of the `file`.
+[`fs.readFile`] 的同步版本。
+返回 `file` 的内容。
 
-If the `encoding` option is specified then this function returns a
-string. Otherwise it returns a buffer.
+如果指定了 `encoding` 选项，则该函数返回一个字符串，否则返回一个 buffer。
 
