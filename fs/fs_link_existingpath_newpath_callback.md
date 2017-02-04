@@ -6,6 +6,6 @@ added: v0.1.31
 * `newPath` {String | Buffer}
 * `callback` {Function}
 
-Asynchronous link(2). No arguments other than a possible exception are given to
-the completion callback.
+异步的 link(2)。
+完成回调只有一个可能的异常参数。
 
