@@ -2,13 +2,10 @@
 added: v6.0.0
 -->
 
-`fs` functions support passing and receiving paths as both strings
-and Buffers. The latter is intended to make it possible to work with
-filesystems that allow for non-UTF-8 filenames. For most typical
-uses, working with paths as Buffers will be unnecessary, as the string
-API converts to and from UTF-8 automatically.
+`fs` 函数支持传递和接收字符串路径与 Buffer 路径。
+后者的目的是使其可以在允许非 UTF-8 文件名的文件系统中工作。
+对于大多数普通用途，使用 Buffer 路径是不必要的，因为字符串 API 会自动与 UTF-8 相互转换。
 
-*Note* that on certain file systems (such as NTFS and HFS+) filenames
-will always be encoded as UTF-8. On such file systems, passing
-non-UTF-8 encoded Buffers to `fs` functions will not work as expected.
+**注意**，在某些文件系统（如 NTFS 和 HFS+），文件名总是被编码为 UTF-8。
+在这些文件系统中，传入非 UTF-8 编码的 Buffer 到 `fs` 函数将无法像预期那样工作。
 
