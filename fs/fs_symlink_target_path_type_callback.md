@@ -7,18 +7,17 @@ added: v0.1.31
 * `type` {String}
 * `callback` {Function}
 
-Asynchronous symlink(2). No arguments other than a possible exception are given
-to the completion callback. The `type` argument can be set to `'dir'`,
-`'file'`, or `'junction'` (default is `'file'`) and is only available on
-Windows (ignored on other platforms). Note that Windows junction points require
-the destination path to be absolute. When using `'junction'`, the `target`
-argument will automatically be normalized to absolute path.
+异步的 symlink(2)。
+完成回调只有一个可能的异常参数。
+`type` 参数可以设为 `'dir'`、`'file'` 或 `'junction'`（默认为 `'file'`），且仅在 Windows 上有效（在其他平台上忽略）。
+注意，Windows 结点要求目标路径是绝对的。
+当使用 `'junction'` 时，`target` 参数会被自动标准化为绝对路径。
 
-Here is an example below:
+例子：
 
 ```js
 fs.symlink('./foo', './new-port');
 ```
 
-It creates a symbolic link named "new-port" that points to "foo".
+它创建了一个名为 "new-port" 且指向 "foo" 的符号链接。
 
