@@ -3,50 +3,48 @@ added: v0.8.6
 -->
 
 * `fd` {Integer}
-* `len` {Integer} default = `0`
+* `len` {Integer} 默认 = `0`
 * `callback` {Function}
 
-Asynchronous ftruncate(2). No arguments other than a possible exception are
-given to the completion callback.
+异步的 ftruncate(2)。
+完成回调只有一个可能的异常参数。
 
-If the file referred to by the file descriptor was larger than `len` bytes, only
-the first `len` bytes will be retained in the file.
+如果文件描述符指向的文件大于 `len` 个字节，则只有前面 `len` 个字节会保留在文件中。
 
-For example, the following program retains only the first four bytes of the file
+例子，下面的程序会只保留文件前4个字节。
 
 ```js
 console.log(fs.readFileSync('temp.txt', 'utf8'));
-// Prints: Node.js
+// 输出: Node.js
 
-// get the file descriptor of the file to be truncated
+// 获取要截断的文件的文件描述符
 const fd = fs.openSync('temp.txt', 'r+');
 
-// truncate the file to first four bytes
+// 截断文件至前4个字节
 fs.ftruncate(fd, 4, (err) => {
   assert.ifError(err);
   console.log(fs.readFileSync('temp.txt', 'utf8'));
 });
-// Prints: Node
+// 输出: Node
 ```
 
-If the file previously was shorter than `len` bytes, it is extended, and the
-extended part is filled with null bytes ('\0'). For example,
+如果前面的文件小于 `len` 个字节，则扩展文件，且扩展的部分用空字节（'\0'）填充。例子：
 
 ```js
 console.log(fs.readFileSync('temp.txt', 'utf-8'));
-// Prints: Node.js
+// 输出: Node.js
 
-// get the file descriptor of the file to be truncated
+// 获取要截断的文件的文件描述符
 const fd = fs.openSync('temp.txt', 'r+');
 
-// truncate the file to 10 bytes, whereas the actual size is 7 bytes
+// 截断文件至前10个字节，但实际大小是7个字节
 fs.ftruncate(fd, 10, (err) => {
   assert.ifError(!err);
   console.log(fs.readFileSync('temp.txt'));
 });
-// Prints: <Buffer 4e 6f 64 65 2e 6a 73 00 00 00>
+// 输出: <Buffer 4e 6f 64 65 2e 6a 73 00 00 00>
 // ('Node.js\0\0\0' in UTF8)
 ```
 
-The last three bytes are null bytes ('\0'), to compensate the over-truncation.
+最后3个字节是空字节（'\0'），用于补充超出的截断。
 
