@@ -6,6 +6,6 @@ added: v0.4.7
 * `mode` {Integer}
 * `callback` {Function}
 
-Asynchronous fchmod(2). No arguments other than a possible exception
-are given to the completion callback.
+异步的 fchmod(2)。
+完成回调只有一个可能的异常参数。
 
