@@ -4,5 +4,6 @@ added: v0.1.21
 
 * `path` {String | Buffer}
 
-Synchronous stat(2). Returns an instance of [`fs.Stats`][].
+同步的 stat(2)。
+返回一个 [`fs.Stats`] 实例。
 
