@@ -6,24 +6,22 @@ added: v0.11.15
 * `mode` {Integer}
 * `callback` {Function}
 
-Tests a user's permissions for the file or directory specified by `path`.
-The `mode` argument is an optional integer that specifies the accessibility
-checks to be performed. The following constants define the possible values of
-`mode`. It is possible to create a mask consisting of the bitwise OR of two or
-more values.
+测试 `path` 指定的文件或目录的用户权限。
+`mode` 是一个可选的整数，指定要执行的可访问性检查。
+以下常量定义了 `mode` 的可能值。
+可以创建由两个或更多个值的位或组成的掩码。
 
-- `fs.constants.F_OK` - `path` is visible to the calling process. This is useful
-for determining if a file exists, but says nothing about `rwx` permissions.
-Default if no `mode` is specified.
-- `fs.constants.R_OK` - `path` can be read by the calling process.
-- `fs.constants.W_OK` - `path` can be written by the calling process.
-- `fs.constants.X_OK` - `path` can be executed by the calling process. This has
-no effect on Windows (will behave like `fs.constants.F_OK`).
+- `fs.constants.F_OK` - `path` 文件对调用进程可见。
+这在确定文件是否存在时很有用，但不涉及 `rwx` 权限。
+如果没指定 `mode`，则默认为该值。
+- `fs.constants.R_OK` - `path` 文件可被调用进程读取。
+- `fs.constants.W_OK` - `path` 文件可被调用进程写入。
+- `fs.constants.X_OK` - `path` 文件可被调用进程执行。
+对 Windows 系统没作用（相当于 `fs.constants.F_OK`）。
 
-The final argument, `callback`, is a callback function that is invoked with
-a possible error argument. If any of the accessibility checks fail, the error
-argument will be populated. The following example checks if the file
-`/etc/passwd` can be read and written by the current process.
+最后一个参数 `callback` 是一个回调函数，会带有一个可能的错误参数被调用。
+如果可访问性检查有任何的失败，则错误参数会被传入。
+下面的例子会检查 `/etc/passwd` 文件是否可以被当前进程读取和写入。
 
 ```js
 fs.access('/etc/passwd', fs.constants.R_OK | fs.constants.W_OK, (err) => {
@@ -31,16 +29,14 @@ fs.access('/etc/passwd', fs.constants.R_OK | fs.constants.W_OK, (err) => {
 });
 ```
 
-Using `fs.access()` to check for the accessibility of a file before calling
-`fs.open()`, `fs.readFile()` or `fs.writeFile()` is not recommended. Doing
-so introduces a race condition, since other processes may change the file's
-state between the two calls. Instead, user code should open/read/write the
-file directly and handle the error raised if the file is not accessible.
+不建议在调用 `fs.open()` 、 `fs.readFile()` 或 `fs.writeFile()` 之前使用 `fs.access()` 检查一个文件的可访问性。
+如此处理会造成紊乱情况，因为其他进程可能在两个调用之间改变该文件的状态。
+作为替代，用户代码应该直接打开/读取/写入文件，当文件无法访问时再处理错误。
 
-For example:
+例子：
 
 
-**write (NOT RECOMMENDED)**
+**写入（不推荐）**
 
 ```js
 fs.access('myfile', (err) => {
@@ -56,7 +52,7 @@ fs.access('myfile', (err) => {
 });
 ```
 
-**write (RECOMMENDED)**
+**写入（推荐）**
 
 ```js
 fs.open('myfile', 'wx', (err, fd) => {
@@ -73,7 +69,7 @@ fs.open('myfile', 'wx', (err, fd) => {
 });
 ```
 
-**read (NOT RECOMMENDED)**
+**读取（不推荐）**
 
 ```js
 fs.access('myfile', (err) => {
@@ -93,7 +89,7 @@ fs.access('myfile', (err) => {
 });
 ```
 
-**read (RECOMMENDED)**
+**写入（推荐）**
 
 ```js
 fs.open('myfile', 'r', (err, fd) => {
@@ -110,11 +106,8 @@ fs.open('myfile', 'r', (err, fd) => {
 });
 ```
 
-The "not recommended" examples above check for accessibility and then use the
-file; the "recommended" examples are better because they use the file directly
-and handle the error, if any.
+以上**不推荐**的例子检查可访问性之后再使用文件；
+**推荐**的例子更好，因为它们直接使用文件并处理任何错误。
 
-In general, check for the accessibility of a file only if the file won’t be
-used directly, for example when its accessibility is a signal from another
-process.
+通常，仅在文件不会被直接使用时才检查一个文件的可访问性，例如当它的可访问性是来自另一个进程的信号。
 
