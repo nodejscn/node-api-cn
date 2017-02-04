@@ -4,58 +4,49 @@ added: v5.10.0
 
 * `prefix` {String}
 * `options` {String | Object}
-  * `encoding` {String} default = `'utf8'`
+  * `encoding` {String} 默认 = `'utf8'`
 * `callback` {Function}
 
-Creates a unique temporary directory.
+创建一个唯一的临时目录。
 
-Generates six random characters to be appended behind a required
-`prefix` to create a unique temporary directory.
+生成六位随机字符附加到一个要求的 `prefix` 后面，然后创建一个唯一的临时目录。
 
-The created folder path is passed as a string to the callback's second
-parameter.
+创建的目录路径会作为字符串传给回调的第二个参数。
 
-The optional `options` argument can be a string specifying an encoding, or an
-object with an `encoding` property specifying the character encoding to use.
+可选的 `options` 参数可以是一个字符串并指定一个字符编码，或是一个对象且由一个 `encoding` 属性指定使用的字符编码。
 
-Example:
+例子：
 
 ```js
 fs.mkdtemp('/tmp/foo-', (err, folder) => {
   if (err) throw err;
   console.log(folder);
-  // Prints: /tmp/foo-itXde2
+  // 输出: /tmp/foo-itXde2
 });
 ```
 
-*Note*: The `fs.mkdtemp()` method will append the six randomly selected
-characters directly to the `prefix` string. For instance, given a directory
-`/tmp`, if the intention is to create a temporary directory *within* `/tmp`,
-the `prefix` *must* end with a trailing platform-specific path separator
-(`require('path').sep`).
+**注意**：`fs.mkdtemp()` 方法会直接附加六位随机选择的字符串到 `prefix` 字符串。
+例如，指定一个目录 `/tmp`，如果目的是要在 `/tmp` 里创建一个临时目录，则 `prefix` **必须** 以一个指定平台的路径分隔符（`require('path').sep`）结尾。
 
 ```js
-// The parent directory for the new temporary directory
+// 新建的临时目录的父目录
 const tmpDir = '/tmp';
 
-// This method is *INCORRECT*:
+// 该方法是 *错误的*：
 fs.mkdtemp(tmpDir, (err, folder) => {
   if (err) throw err;
   console.log(folder);
-  // Will print something similar to `/tmpabc123`.
-  // Note that a new temporary directory is created
-  // at the file system root rather than *within*
-  // the /tmp directory.
+  // 会输出类似于 `/tmpabc123`。
+  // 注意，一个新的临时目录会被创建在文件系统的根目录，而不是在 /tmp 目录里。
 });
 
-// This method is *CORRECT*:
+// 该方法是 *正确的*：
 const path = require('path');
 fs.mkdtemp(tmpDir + path.sep, (err, folder) => {
   if (err) throw err;
   console.log(folder);
-  // Will print something similar to `/tmp/abc123`.
-  // A new temporary directory is created within
-  // the /tmp directory.
+  // 会输出类似于 `/tmp/abc123`。
+  // 一个新的临时目录会被创建在 /tmp 目录里。
 });
 ```
 
