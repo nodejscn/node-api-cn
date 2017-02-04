@@ -4,5 +4,5 @@ added: v0.1.21
 
 * `path` {String | Buffer}
 
-Synchronous rmdir(2). Returns `undefined`.
+同步的 rmdir(2)。返回 `undefined`。
 
