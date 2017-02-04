@@ -5,7 +5,7 @@ added: v0.1.95
 * `fd` {Integer}
 * `callback` {Function}
 
-Asynchronous fstat(2). The callback gets two arguments `(err, stats)` where
-`stats` is an [`fs.Stats`][] object. `fstat()` is identical to [`stat()`][],
-except that the file to be stat-ed is specified by the file descriptor `fd`.
+异步的 fstat(2)。
+回调获得两个参数 `(err, stats)`，其中 `stats` 是一个 [`fs.Stats`] 对象。
+`fstat()` 与 [`stat()`] 类似，除了文件是通过文件描述符 `fd` 指定的。
 
