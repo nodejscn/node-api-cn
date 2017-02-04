@@ -6,6 +6,6 @@ added: v0.1.21
 * `flags` {String | Number}
 * `mode` {Integer}
 
-Synchronous version of [`fs.open()`][]. Returns an integer representing the file
-descriptor.
+[`fs.open()`] 的同步版本。
+返回一个表示文件描述符的整数。
 
