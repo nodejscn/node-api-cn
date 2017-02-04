@@ -7,75 +7,63 @@ added: v0.0.2
 * `mode` {Integer}
 * `callback` {Function}
 
-Asynchronous file open. See open(2). `flags` can be:
+异步地打开文件。详见 open(2)。
+`flags` 可以是：
 
-* `'r'` - Open file for reading.
-An exception occurs if the file does not exist.
+* `'r'` - 以读取模式打开文件。如果文件不存在则发生异常。
 
-* `'r+'` - Open file for reading and writing.
-An exception occurs if the file does not exist.
+* `'r+'` - 以读写模式打开文件。如果文件不存在则发生异常。
 
-* `'rs+'` - Open file for reading and writing in synchronous mode. Instructs
-  the operating system to bypass the local file system cache.
+* `'rs+'` - 以同步读写模式打开文件。命令操作系统绕过本地文件系统缓存。
 
-  This is primarily useful for opening files on NFS mounts as it allows you to
-  skip the potentially stale local cache. It has a very real impact on I/O
-  performance so don't use this flag unless you need it.
+  这对 NFS 挂载模式下打开文件很有用，因为它可以让你跳过潜在的旧本地缓存。
+  它对 I/O 的性能有明显的影响，所以除非需要，否则不要使用此标志。
 
-  Note that this doesn't turn `fs.open()` into a synchronous blocking call.
-  If that's what you want then you should be using `fs.openSync()`
+  注意，这不会使 `fs.open()` 进入同步阻塞调用。
+  如果那是你想要的，则应该使用 `fs.openSync()`。
 
-* `'w'` - Open file for writing.
-The file is created (if it does not exist) or truncated (if it exists).
+* `'w'` - 以写入模式打开文件。文件会被创建（如果文件不存在）或截断（如果文件存在）。
 
-* `'wx'` - Like `'w'` but fails if `path` exists.
+* `'wx'` - 类似 `'w'`，但如果 `path` 存在，则失败。
 
-* `'w+'` - Open file for reading and writing.
-The file is created (if it does not exist) or truncated (if it exists).
+* `'w+'` - 以读写模式打开文件。文件会被创建（如果文件不存在）或截断（如果文件存在）。
 
-* `'wx+'` - Like `'w+'` but fails if `path` exists.
+* `'wx+'` - 类似 `'w+'`，但如果 `path` 存在，则失败。
 
-* `'a'` - Open file for appending.
-The file is created if it does not exist.
+* `'a'` - 以追加模式打开文件。如果文件不存在，则会被创建。
 
-* `'ax'` - Like `'a'` but fails if `path` exists.
+* `'ax'` - 类似于 `'a'`，但如果 `path` 存在，则失败。
 
-* `'a+'` - Open file for reading and appending.
-The file is created if it does not exist.
+* `'a+'` - 以读取和追加模式打开文件。如果文件不存在，则会被创建。
 
-* `'ax+'` - Like `'a+'` but fails if `path` exists.
+* `'ax+'` - 类似于 `'a+'`，但如果 `path` 存在，则失败。
 
-`mode` sets the file mode (permission and sticky bits), but only if the file was
-created. It defaults to `0666`, readable and writable.
+`mode` 可设置文件模式（权限和 sticky 位），但只有当文件被创建时才有效。默认为 `0666`，可读写。
 
-The callback gets two arguments `(err, fd)`.
+该回调有两个参数 `(err, fd)`。
 
-The exclusive flag `'x'` (`O_EXCL` flag in open(2)) ensures that `path` is newly
-created. On POSIX systems, `path` is considered to exist even if it is a symlink
-to a non-existent file. The exclusive flag may or may not work with network file
-systems.
+特有的标志 `'x'`（在 open(2) 中的 `O_EXCL` 标志）确保 `path` 是新创建的。
+在 POSIX 操作系统中，`path` 会被视为存在，即使是一个链接到一个不存在的文件的符号。
+该特有的标志有可能在网络文件系统中无法使用。
 
-`flags` can also be a number as documented by open(2); commonly used constants
-are available from `fs.constants`.  On Windows, flags are translated to
-their equivalent ones where applicable, e.g. `O_WRONLY` to `FILE_GENERIC_WRITE`,
-or `O_EXCL|O_CREAT` to `CREATE_NEW`, as accepted by CreateFileW.
+`flags` 也可以是一个数字，[open(2)] 文档中有描述；
+常用的常量可从 `fs.constants` 获取。
+在 Windows 系统中，标志会被转换为与它等同的替代者，例如，`O_WRONLY` 转换为 `FILE_GENERIC_WRITE`、或 `O_EXCL|O_CREAT` 转换为 `CREATE_NEW`，通过 CreateFileW 接受。
 
-On Linux, positional writes don't work when the file is opened in append mode.
-The kernel ignores the position argument and always appends the data to
-the end of the file.
+在 Linux 中，当文件以追加模式打开时，定位的写入不起作用。
+内核会忽略位置参数，并总是附加数据到文件的末尾。
 
-_Note: The behavior of `fs.open()` is platform specific for some flags. As such,
-opening a directory on OS X and Linux with the `'a+'` flag - see example below -
-will return an error. In contrast, on Windows and FreeBSD, a file descriptor
-will be returned._
+注意：`fs.open()` 某些标志的行为是与平台相关的。
+因此，在 OS X 和 Linux 下用 `'a+'` 标志打开一个目录（见下面的例子），会返回一个错误。
+与此相反，在 Windows 和 FreeBSD，则会返回一个文件描述符。
 
 ```js
-// OS X and Linux
+// OS X 与 Linux
 fs.open('<directory>', 'a+', (err, fd) => {
   // => [Error: EISDIR: illegal operation on a directory, open <directory>]
 });
 
-// Windows and FreeBSD
+// Windows 与 FreeBSD
 fs.open('<directory>', 'a+', (err, fd) => {
   // => null, <fd>
 });
