@@ -2,12 +2,13 @@
 added: v0.6.7
 -->
 
-* `file` {String | Buffer | Number} filename or file descriptor
+* `file` {String | Buffer | Number} 文件名或文件描述符
 * `data` {String | Buffer}
 * `options` {Object | String}
-  * `encoding` {String | Null} default = `'utf8'`
-  * `mode` {Integer} default = `0o666`
-  * `flag` {String} default = `'a'`
+  * `encoding` {String | Null} 默认 = `'utf8'`
+  * `mode` {Integer} 默认 = `0o666`
+  * `flag` {String} 默认 = `'a'`
 
-The synchronous version of [`fs.appendFile()`][]. Returns `undefined`.
+[`fs.appendFile()`] 的同步版本。
+返回 `undefined`。
 
