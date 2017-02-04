@@ -6,5 +6,5 @@ added: v0.4.7
 * `uid` {Integer}
 * `gid` {Integer}
 
-Synchronous fchown(2). Returns `undefined`.
+同步的 fchown(2)。返回 `undefined`。
 
