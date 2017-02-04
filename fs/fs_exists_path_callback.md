@@ -3,7 +3,7 @@ added: v0.0.2
 deprecated: v1.0.0
 -->
 
-> Stability: 0 - Deprecated: Use [`fs.stat()`][] or [`fs.access()`][] instead.
+> 稳定性: 0 - 废弃的: 使用 [`fs.stat()`] 或 [`fs.access()`] 代替。
 
 * `path` {String | Buffer}
 * `callback` {Function}
