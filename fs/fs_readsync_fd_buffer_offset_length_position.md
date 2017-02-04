@@ -8,5 +8,6 @@ added: v0.1.21
 * `length` {Integer}
 * `position` {Integer}
 
-Synchronous version of [`fs.read()`][]. Returns the number of `bytesRead`.
+[`fs.read()`] 的同步版本。
+返回 `bytesRead` 的数量。
 
