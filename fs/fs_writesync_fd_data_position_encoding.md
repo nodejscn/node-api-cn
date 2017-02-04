@@ -7,5 +7,5 @@ added: v0.11.5
 * `position` {Integer}
 * `encoding` {String}
 
-Synchronous versions of [`fs.write()`][]. Returns the number of bytes written.
+[`fs.write()`] 的同步版本。返回写入的字节数。
 
