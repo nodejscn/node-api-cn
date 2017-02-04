@@ -4,30 +4,23 @@ added: v0.5.10
 
 * `filename` {String | Buffer}
 * `options` {String | Object}
-  * `persistent` {Boolean} Indicates whether the process should continue to run
-    as long as files are being watched. default = `true`
-  * `recursive` {Boolean} Indicates whether all subdirectories should be
-    watched, or only the current directory. The applies when a directory is
-    specified, and only on supported platforms (See [Caveats][]). default =
-    `false`
-  * `encoding` {String} Specifies the character encoding to be used for the
-     filename passed to the listener. default = `'utf8'`
+  * `persistent` {Boolean} 指明如果文件正在被监视，进程是否应该继续运行。默认 = `true`
+  * `recursive` {Boolean} 指明是否全部子目录应该被监视，或只是当前目录。
+    适用于当一个目录被指定时，且只在支持的平台（详见 [Caveats]）。默认 = `false`
+  * `encoding` {String} 指定用于传给监听器的文件名的字符编码。默认 = `'utf8'`
 * `listener` {Function}
 
-Watch for changes on `filename`, where `filename` is either a file or a
-directory.  The returned object is a [`fs.FSWatcher`][].
+监视 `filename` 的变化，`filename` 可以是一个文件或一个目录。
+返回的对象是一个 [`fs.FSWatcher`]。
 
-The second argument is optional. If `options` is provided as a string, it
-specifies the `encoding`. Otherwise `options` should be passed as an object.
+第二个参数是可选的。
+如果提供的 `options` 是一个字符串，则它指定了 `encoding`。
+否则 `options` 应该以一个对象传入。
 
-The listener callback gets two arguments `(eventType, filename)`.  `eventType` is either
-`'rename'` or `'change'`, and `filename` is the name of the file which triggered
-the event.
+监听器回调有两个参数 `(eventType, filename)`。
+`eventType` 可以是 `'rename'` 或 `'change'`，`filename` 是触发事件的文件的名称。
 
-Note that on most platforms, `'rename'` is emitted whenever a filename appears
-or disappears in the directory.
+注意，在大多数平台，当一个文件出现或消失在一个目录里时，`'rename'` 会被触发。
 
-Also note the listener callback is attached to the `'change'` event fired by
-[`fs.FSWatcher`][], but it is not the same thing as the `'change'` value of
-`eventType`.
+还需要注意，监听器回调是绑定在由 [`fs.FSWatcher`] 触发的 `'change'` 事件上，但它跟 `eventType` 的 `'change'` 值不是同一个东西。
 
