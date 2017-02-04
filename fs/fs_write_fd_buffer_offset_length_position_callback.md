@@ -9,22 +9,18 @@ added: v0.0.2
 * `position` {Integer}
 * `callback` {Function}
 
-Write `buffer` to the file specified by `fd`.
+写入 `buffer` 到 `fd` 指定的文件。
 
-`offset` and `length` determine the part of the buffer to be written.
+`offset` 和 `length` 决定 buffer 中被写入的部分。
 
-`position` refers to the offset from the beginning of the file where this data
-should be written. If `typeof position !== 'number'`, the data will be written
-at the current position. See pwrite(2).
+`position` 指向从文件开始写入数据的位置的偏移量。
+如果 `typeof position !== 'number'`，则数据从当前位置写入。详见 pwrite(2)。
 
-The callback will be given three arguments `(err, written, buffer)` where
-`written` specifies how many _bytes_ were written from `buffer`.
+回调有三个参数 `(err, written, buffer)`，其中 `written` 指定从 `buffer` 写入了多少**字节**。
 
-Note that it is unsafe to use `fs.write` multiple times on the same file
-without waiting for the callback. For this scenario,
-`fs.createWriteStream` is strongly recommended.
+注意，多次对同一文件使用 `fs.write` 且不等待回调，是不安全的。
+对于这种情况，强烈推荐使用 `fs.createWriteStream`。
 
-On Linux, positional writes don't work when the file is opened in append mode.
-The kernel ignores the position argument and always appends the data to
-the end of the file.
+在 Linux 上，当文件以追加模式打开时，指定位置的写入是不起作用的。
+内核会忽略位置参数，并总是将数据追加到文件的末尾。
 
