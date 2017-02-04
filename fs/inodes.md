@@ -1,9 +1,9 @@
 
 <!--type=misc-->
 
-On Linux and OS X systems, `fs.watch()` resolves the path to an [inode][] and
-watches the inode. If the watched path is deleted and recreated, it is assigned
-a new inode. The watch will emit an event for the delete but will continue
-watching the *original* inode. Events for the new inode will not be emitted.
-This is expected behavior.
+在 Linux 或 OS X 系统中，`fs.watch()` 解析路径到一个[索引节点]，并监视该索引节点。
+如果监视的路径被删除或重建，则它会被分配一个新的索引节点。
+监视器会发出一个删除事件，但会继续监视**原始的**索引节点。
+新建的索引节点的事件不会被触发。
+这是正常的行为。
 
