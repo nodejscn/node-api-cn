@@ -8,28 +8,24 @@ added: v0.11.5
 * `encoding` {String}
 * `callback` {Function}
 
-Write `data` to the file specified by `fd`.  If `data` is not a Buffer instance
-then the value will be coerced to a string.
+写入 `data` 到 `fd` 指定的文件。
+如果 `data` 不是一个 Buffer 实例，则该值将被强制转换为一个字符串。
 
-`position` refers to the offset from the beginning of the file where this data
-should be written. If `typeof position !== 'number'` the data will be written at
-the current position. See pwrite(2).
+`position` 指向从文件开始写入数据的位置的偏移量。
+如果 `typeof position !== 'number'`，则数据从当前位置写入。详见 pwrite(2)。
 
-`encoding` is the expected string encoding.
+`encoding` 是期望的字符串编码。
 
-The callback will receive the arguments `(err, written, string)` where `written`
-specifies how many _bytes_ the passed string required to be written. Note that
-bytes written is not the same as string characters. See [`Buffer.byteLength`][].
+回调有三个参数 `(err, written, string)`，其中 `written` 指定传入的字符串被写入多少字节。
+注意，写入的字节与字符串的字符是不同的。详见 [`Buffer.byteLength`]。
 
-Unlike when writing `buffer`, the entire string must be written. No substring
-may be specified. This is because the byte offset of the resulting data may not
-be the same as the string offset.
+不同于写入 `buffer`，该方法整个字符串必须被写入。
+不能指定子字符串。
+这是因为结果数据的字节偏移量可能与字符串的偏移量不同。
 
-Note that it is unsafe to use `fs.write` multiple times on the same file
-without waiting for the callback. For this scenario,
-`fs.createWriteStream` is strongly recommended.
+注意，多次对同一文件使用 `fs.write` 且不等待回调，是不安全的。
+对于这种情况，强烈推荐使用 `fs.createWriteStream`。
 
-On Linux, positional writes don't work when the file is opened in append mode.
-The kernel ignores the position argument and always appends the data to
-the end of the file.
+在 Linux 上，当文件以追加模式打开时，指定位置的写入是不起作用的。
+内核会忽略位置参数，并总是将数据追加到文件的末尾。
 
