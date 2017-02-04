@@ -4,11 +4,10 @@ added: v5.10.0
 
 * `prefix` {String}
 * `options` {String | Object}
-  * `encoding` {String} default = `'utf8'`
+  * `encoding` {String} 默认 = `'utf8'`
 
-The synchronous version of [`fs.mkdtemp()`][]. Returns the created
-folder path.
+[`fs.mkdtemp()`] 的同步版本。
+返回创建的目录的路径。
 
-The optional `options` argument can be a string specifying an encoding, or an
-object with an `encoding` property specifying the character encoding to use.
+可选的 `options` 参数可以是一个字符串并指定一个字符编码，或是一个对象且由一个 `encoding` 属性指定使用的字符编码。
 
