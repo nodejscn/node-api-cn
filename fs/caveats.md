@@ -1,8 +1,7 @@
 
 <!--type=misc-->
 
-The `fs.watch` API is not 100% consistent across platforms, and is
-unavailable in some situations.
+`fs.watch` API 不是 100％ 跨平台一致的，且在某些情况下不可用。
 
-The recursive option is only supported on OS X and Windows.
+递归选项只支持 OS X 和 Windows。
 
