@@ -5,6 +5,6 @@ added: v0.11.15
 * `path` {String | Buffer}
 * `mode` {Integer}
 
-Synchronous version of [`fs.access()`][]. This throws if any accessibility
-checks fail, and does nothing otherwise.
+[`fs.access()`] 的同步版本。
+如果有任何可访问性检查失败则抛出错误，否则什么也不做。
 
