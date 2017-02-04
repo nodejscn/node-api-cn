@@ -1,18 +1,17 @@
 
 <!--type=misc-->
 
-Providing `filename` argument in the callback is only supported on Linux and
-Windows.  Even on supported platforms, `filename` is not always guaranteed to
-be provided. Therefore, don't assume that `filename` argument is always
-provided in the callback, and have some fallback logic if it is null.
+回调中提供的 `filename` 参数仅在 Linux 和 Windows 系统上支持。
+即使在支持的平台中，`filename` 也不能保证提供。
+因此，不要以为 `filename` 参数总是在回调中提供，如果它是空的，需要有一定的后备逻辑。
 
 ```js
 fs.watch('somedir', (eventType, filename) => {
-  console.log(`event type is: ${eventType}`);
+  console.log(`事件类型是: ${eventType}`);
   if (filename) {
-    console.log(`filename provided: ${filename}`);
+    console.log(`提供的文件名: ${filename}`);
   } else {
-    console.log('filename not provided');
+    console.log('未提供文件名');
   }
 });
 ```
