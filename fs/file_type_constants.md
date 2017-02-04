@@ -1,43 +1,42 @@
 
-The following constants are meant for use with the [`fs.Stats`][] object's
-`mode` property for determining a file's type.
+以下常量用于 [`fs.Stats`] 对象中用于决定一个文件的类型的 `mode` 属性。
 
 <table>
   <tr>
-    <th>Constant</th>
-    <th>Description</th>
+    <th>常量</th>
+    <th>描述</th>
   </tr>
   <tr>
     <td><code>S_IFMT</code></td>
-    <td>Bit mask used to extract the file type code.</td>
+    <td>用于提取文件类型码的位掩码。</td>
   </tr>
   <tr>
     <td><code>S_IFREG</code></td>
-    <td>File type constant for a regular file.</td>
+    <td>表示一个常规文件的文件类型常量。</td>
   </tr>
   <tr>
     <td><code>S_IFDIR</code></td>
-    <td>File type constant for a directory.</td>
+    <td>表示一个目录的文件类型常量。</td>
   </tr>
   <tr>
     <td><code>S_IFCHR</code></td>
-    <td>File type constant for a character-oriented device file.</td>
+    <td>表示一个面向字符的设备文件的文件类型常量。</td>
   </tr>
   <tr>
     <td><code>S_IFBLK</code></td>
-    <td>File type constant for a block-oriented device file.</td>
+    <td>表示一个面向块的设备文件的文件类型常量。</td>
   </tr>
   <tr>
     <td><code>S_IFIFO</code></td>
-    <td>File type constant for a FIFO/pipe.</td>
+    <td>表示一个 FIFO/pipe 的文件类型常量。</td>
   </tr>
   <tr>
     <td><code>S_IFLNK</code></td>
-    <td>File type constant for a symbolic link.</td>
+    <td>表示一个符号链接的文件类型常量。</td>
   </tr>
   <tr>
     <td><code>S_IFSOCK</code></td>
-    <td>File type constant for a socket.</td>
+    <td>表示一个 socket 的文件类型常量。</td>
   </tr>
 </table>
 
