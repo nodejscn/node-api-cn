@@ -6,5 +6,5 @@ deprecated: v0.4.7
 * `uid` {Integer}
 * `gid` {Integer}
 
-Synchronous lchown(2). Returns `undefined`.
+同步的 lchown(2)。返回 `undefined`。
 
