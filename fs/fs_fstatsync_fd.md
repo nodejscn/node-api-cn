@@ -4,5 +4,5 @@ added: v0.1.95
 
 * `fd` {Integer}
 
-Synchronous fstat(2). Returns an instance of [`fs.Stats`][].
+同步的 fstat(2)。返回一个 [`fs.Stats`] 实例。
 
