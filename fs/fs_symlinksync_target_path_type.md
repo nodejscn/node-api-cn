@@ -6,5 +6,5 @@ added: v0.1.31
 * `path` {String | Buffer}
 * `type` {String}
 
-Synchronous symlink(2). Returns `undefined`.
+同步的 symlink(2)。返回 `undefined`。
 
