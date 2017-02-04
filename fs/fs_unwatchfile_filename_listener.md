@@ -5,14 +5,12 @@ added: v0.1.31
 * `filename` {String | Buffer}
 * `listener` {Function}
 
-Stop watching for changes on `filename`. If `listener` is specified, only that
-particular listener is removed. Otherwise, *all* listeners are removed and you
-have effectively stopped watching `filename`.
+停止监视 `filename` 文件的变化。
+如果指定了 `listener`，则只移除特定的监听器。
+否则，**所有**的监听器都会被移除，且已经有效地停止监视 `filename`。
 
-Calling `fs.unwatchFile()` with a filename that is not being watched is a
-no-op, not an error.
+调用 `fs.unwatchFile()` 且带上一个未被监视的文件名，将会是一个空操作，而不是一个错误。
 
-_Note: [`fs.watch()`][] is more efficient than `fs.watchFile()` and `fs.unwatchFile()`.
-`fs.watch()` should be used instead of `fs.watchFile()` and `fs.unwatchFile()`
-when possible._
+注意：[`fs.watch()`] 比 `fs.watchFile()` 和 `fs.unwatchFile()` 更高效。
+可能的话，应该使用 `fs.watch()` 而不是 `fs.watchFile()` 和 `fs.unwatchFile()`。
 
