@@ -1,81 +1,70 @@
 
-The following constants are meant for use with `fs.open()`.
+以下常量用于 `fs.open()`。
 
 <table>
   <tr>
-    <th>Constant</th>
-    <th>Description</th>
+    <th>常量</th>
+    <th>描述</th>
   </tr>
   <tr>
     <td><code>O_RDONLY</code></td>
-    <td>Flag indicating to open a file for read-only access.</td>
+    <td>该标志表明打开一个文件用于只读访问。</td>
   </tr>
   <tr>
     <td><code>O_WRONLY</code></td>
-    <td>Flag indicating to open a file for write-only access.</td>
+    <td>该标志表明打开一个文件用于只写访问。</td>
   </tr>
   <tr>
     <td><code>O_RDWR</code></td>
-    <td>Flag indicating to open a file for read-write access.</td>
+    <td>该标志表明打开一个文件用于读写访问。</td>
   </tr>
   <tr>
     <td><code>O_CREAT</code></td>
-    <td>Flag indicating to create the file if it does not already exist.</td>
+    <td>该标志表明如果文件不存在则创建一个文件。</td>
   </tr>
   <tr>
     <td><code>O_EXCL</code></td>
-    <td>Flag indicating that opening a file should fail if the
-    <code>O_CREAT</code> flag is set and the file already exists.</td>
+    <td>该标志表明如果设置了 <code>O_CREAT</code> 标志且文件已经存在，则打开一个文件应该失败。</td>
   </tr>
   <tr>
     <td><code>O_NOCTTY</code></td>
-    <td>Flag indicating that if path identifies a terminal device, opening the
-    path shall not cause that terminal to become the controlling terminal for
-    the process (if the process does not already have one).</td>
+    <td>该标志表明如果路径是一个终端设备，则打开该路径不应该造成该终端变成进程的控制终端（如果进程还没有终端）。</td>
   </tr>
   <tr>
     <td><code>O_TRUNC</code></td>
-    <td>Flag indicating that if the file exists and is a regular file, and the
-    file is opened successfully for write access, its length shall be truncated
-    to zero.</td>
+    <td>该标志表明如果文件存在且为一个常规文件、且文件被成功打开为写入访问，则它的长度应该被截断至零。</td>
   </tr>
   <tr>
     <td><code>O_APPEND</code></td>
-    <td>Flag indicating that data will be appended to the end of the file.</td>
+    <td>该标志表明数据会被追加到文件的末尾。</td>
   </tr>
   <tr>
     <td><code>O_DIRECTORY</code></td>
-    <td>Flag indicating that the open should fail if the path is not a
-    directory.</td>
+    <td>该标志表明如果路径不是一个目录，则打开应该失败。</td>
   </tr>
   <tr>
   <td><code>O_NOATIME</code></td>
-    <td>Flag indicating reading accesses to the file system will no longer
-    result in an update to the `atime` information associated with the file.
-    This flag is available on Linux operating systems only.</td>
+    <td>该标志表明文件系统的读取访问权不再引起相关文件 `atime` 信息的更新。该标志只在 Linux 操作系统有效。</td>
   </tr>
   <tr>
     <td><code>O_NOFOLLOW</code></td>
-    <td>Flag indicating that the open should fail if the path is a symbolic
-    link.</td>
+    <td>该标志表明如果路径是一个符号链接，则打开应该失败。</td>
   </tr>
   <tr>
     <td><code>O_SYNC</code></td>
-    <td>Flag indicating that the file is opened for synchronous I/O.</td>
+    <td>该标志表明文件打开用于同步 I/O。</td>
   </tr>
   <tr>
     <td><code>O_SYMLINK</code></td>
-    <td>Flag indicating to open the symbolic link itself rather than the
-    resource it is pointing to.</td>
+    <td>该标志表明打开符号链接自身，而不是它指向的资源。</td>
   </tr>
   <tr>
     <td><code>O_DIRECT</code></td>
-    <td>When set, an attempt will be made to minimize caching effects of file
-    I/O.</td>
+    <td>当设置它时，会尝试最小化文件 I/O 的缓存效果。</td>
   </tr>
   <tr>
     <td><code>O_NONBLOCK</code></td>
-    <td>Flag indicating to open the file in nonblocking mode when possible.</td>
+    <td>该标志表明当可能时以非阻塞模式打开文件。</td>
   </tr>
 </table>
 
