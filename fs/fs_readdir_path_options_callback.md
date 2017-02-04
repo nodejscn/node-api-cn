@@ -4,15 +4,13 @@ added: v0.1.8
 
 * `path` {String | Buffer}
 * `options` {String | Object}
-  * `encoding` {String} default = `'utf8'`
+  * `encoding` {String} 默认 = `'utf8'`
 * `callback` {Function}
 
-Asynchronous readdir(3).  Reads the contents of a directory.
-The callback gets two arguments `(err, files)` where `files` is an array of
-the names of the files in the directory excluding `'.'` and `'..'`.
+异步的 readdir(3)。
+读取一个目录的内容。
+回调有两个参数 `(err, files)`，其中 `files` 是目录中不包括 `'.'` 和 `'..'` 的文件名的数组。
 
-The optional `options` argument can be a string specifying an encoding, or an
-object with an `encoding` property specifying the character encoding to use for
-the filenames passed to the callback. If the `encoding` is set to `'buffer'`,
-the filenames returned will be passed as `Buffer` objects.
+可选的 `options` 参数用于传入回调的文件名，它可以是一个字符串并指定一个字符编码，或是一个对象且由一个 `encoding` 属性指定使用的字符编码。
+如果 `encoding` 设为 `'buffer'`，则返回的文件名会被作为 `Buffer` 对象传入。
 
