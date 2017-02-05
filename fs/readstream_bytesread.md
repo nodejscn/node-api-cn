@@ -2,5 +2,5 @@
 added: 6.4.0
 -->
 
-The number of bytes read so far.
+已读取的字节数。
 
