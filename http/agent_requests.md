@@ -4,6 +4,6 @@ added: v0.5.9
 
 * {Object}
 
-An object which contains queues of requests that have not yet been assigned to
-sockets. Do not modify.
+一个包含还未被分配到 socket 的请求队列的对象。
+不要修改。
 
