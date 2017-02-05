@@ -4,7 +4,7 @@ added: v0.3.6
 
 * {Number}
 
-By default set to Infinity. Determines how many concurrent sockets the agent
-can have open per origin. Origin is either a 'host:port' or
-'host:port:localAddress' combination.
+默认设为无穷大。
+决定每个来源中代理可打开多少个并发的 socket。
+来源是一个 `'host:port'` 或 `'host:port:localAddress'` 组合。
 
