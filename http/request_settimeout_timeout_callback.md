@@ -2,11 +2,10 @@
 added: v0.5.9
 -->
 
-* `timeout` {Number} Milliseconds before a request is considered to be timed out.
-* `callback` {Function} Optional function to be called when a timeout occurs. Same as binding to the `timeout` event.
+* `timeout` {Number} 一个请求被认为是超时的毫秒数。
+* `callback` {Function} 可选的函数，当发生超时时调用。与绑定到 `timeout` 事件的相同。
 
-Once a socket is assigned to this request and is connected
-[`socket.setTimeout()`][] will be called.
+一旦 socket 被分配给请求且已连接，[`socket.setTimeout()`] 会被调用。
 
-Returns `request`.
+返回 `request`。
 
