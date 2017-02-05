@@ -4,5 +4,5 @@ added: v0.5.8
 
 * `error` {Error}
 
-Emitted when an error occurs.
+当发生错误时触发。
 
