@@ -2,23 +2,21 @@
 added: v0.5.8
 -->
 
-* `eventType` {String} The type of fs change
-* `filename` {String | Buffer} The filename that changed (if relevant/available)
+* `eventType` {String} fs 变化的类型
+* `filename` {String | Buffer} 变化的文件名（如果是相关的/可用的）
 
-Emitted when something changes in a watched directory or file.
-See more details in [`fs.watch()`][].
+当一个被监视的目录或文件有变化时触发。
+详见 [`fs.watch()`]。
 
-The `filename` argument may not be provided depending on operating system
-support. If `filename` is provided, it will be provided as a `Buffer` if
-`fs.watch()` is called with its `encoding` option set to `'buffer'`, otherwise
-`filename` will be a string.
+`filename` 参数可能不会被提供，这依赖于操作系统支持。
+如果提供了 `filename`，则若 `fs.watch()` 被调用时 `encoding` 选项被设置为 `'buffer'` 则它会是一个 `Buffer`，否则 `filename` 是一个字符串。
 
 ```js
-// Example when handled through fs.watch listener
+// 例子，处理 fs.watch 监听器
 fs.watch('./tmp', {encoding: 'buffer'}, (eventType, filename) => {
   if (filename)
     console.log(filename);
-    // Prints: <Buffer ...>
+    // 输出: <Buffer ...>
 });
 ```
 
