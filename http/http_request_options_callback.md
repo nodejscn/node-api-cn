@@ -3,57 +3,47 @@ added: v0.3.6
 -->
 
 * `options` {Object}
-  * `protocol` {String} Protocol to use. Defaults to `'http:'`.
-  * `host` {String} A domain name or IP address of the server to issue the
-    request to. Defaults to `'localhost'`.
-  * `hostname` {String} Alias for `host`. To support [`url.parse()`][],
-    `hostname` is preferred over `host`.
-  * `family` {Number} IP address family to use when resolving `host` and
-    `hostname`. Valid values are `4` or `6`. When unspecified, both IP v4 and
-    v6 will be used.
-  * `port` {Number} Port of remote server. Defaults to 80.
-  * `localAddress` {String} Local interface to bind for network connections.
-  * `socketPath` {String} Unix Domain Socket (use one of host:port or
-    socketPath).
-  * `method` {String} A string specifying the HTTP request method. Defaults to
-    `'GET'`.
-  * `path` {String} Request path. Defaults to `'/'`. Should include query
-    string if any. E.G. `'/index.html?page=12'`. An exception is thrown when
-    the request path contains illegal characters. Currently, only spaces are
-    rejected but that may change in the future.
-  * `headers` {Object} An object containing request headers.
-  * `auth` {String} Basic authentication i.e. `'user:password'` to compute an
-    Authorization header.
-  * `agent` {http.Agent|Boolean} Controls [`Agent`][] behavior. When an Agent
-    is used request will default to `Connection: keep-alive`. Possible values:
-   * `undefined` (default): use [`http.globalAgent`][] for this host and port.
-   * `Agent` object: explicitly use the passed in `Agent`.
-   * `false`: opts out of connection pooling with an Agent, defaults request to
-     `Connection: close`.
-  * `createConnection` {Function} A function that produces a socket/stream to
-    use for the request when the `agent` option is not used. This can be used to
-    avoid creating a custom Agent class just to override the default
-    `createConnection` function. See [`agent.createConnection()`][] for more
-    details.
-  * `timeout` {Integer}: A number specifying the socket timeout in milliseconds.
-    This will set the timeout before the socket is connected.
+  * `protocol` {String} 使用的协议。默认为 `'http:'`。
+  * `host` {String} 请求发送至的服务器的域名或 IP 地址。默认为 `'localhost'`。
+  * `hostname` {String} `host` 的别名。为了支持 [`url.parse()`]，`hostname` 优于 `host`。
+  * `family` {Number} 当解析 `host` 和 `hostname` 时使用的 IP 地址族。
+    有效值是 `4` 或 `6`。当未指定时，则同时使用 IP v4 和 v6。
+  * `port` {Number} 远程服务器的端口。默认为 `80`。
+  * `localAddress` {String} 要绑定到网络连接的本地接口。
+  * `socketPath` {String} Unix 域 Socket（使用 host:port 或 socketPath 的其中之一）。
+  * `method` {String} 一个指定 HTTP 请求方法的字符串。默认为 `'GET'`。
+  * `path` {String} 请求的路径。默认为 `'/'`。
+    应包括查询字符串（如有的话）。如 `'/index.html?page=12'`。
+    当请求的路径中包含非法字符时，会抛出异常。
+    目前只有空字符会被拒绝，但未来可能会变化。
+  * `headers` {Object} 一个包含请求头的对象。
+  * `auth` {String} 基本身份验证，如 `'user:password'` 来计算 Authorization 头。
+  * `agent` {http.Agent|Boolean} 控制 [`Agent`] 的行为。
+    当使用 Agent 是，请求默认为 `Connection: keep-alive`。
+    可能的值有：
+   * `undefined` (默认): 对该主机和端口使用 [`http.globalAgent`]。
+   * `Agent` 对象：显式地使用传入的 `Agent`。
+   * `false`: 不对连接池使用 Agent，默认请求 `Connection: close`。
+  * `createConnection` {Function} 当不使用 `agent` 选项时，产生一个用于请求的 socket/stream 的函数。
+    这可以用于避免创建一个自定义的 Agent 类，只是为了覆盖默认的 `createConnection` 函数。详见 [`agent.createConnection()`]。
+  * `timeout` {Integer}: 一个数值，指定 socket 超时的毫秒数。
+    它会在 socket 被连接时设置超时。
 * `callback` {Function}
-* Returns: {http.ClientRequest}
+* 返回: {http.ClientRequest}
 
-Node.js maintains several connections per server to make HTTP requests.
-This function allows one to transparently issue requests.
+Node.js 维护每台服务器的多个连接来进行 HTTP 请求。
+该函数允许显式地发出请求。
 
-`options` can be an object or a string. If `options` is a string, it is
-automatically parsed with [`url.parse()`][].
+`options` 可以是一个对象或一个字符串。
+如果 `options` 是一个字符串，它会被自动使用 [`url.parse()`] 解析。
 
-The optional `callback` parameter will be added as a one time listener for
-the [`'response'`][] event.
+可选的 `callback` 参数会被添加为 [`'response'`] 事件的单次监听器。
 
-`http.request()` returns an instance of the [`http.ClientRequest`][]
-class. The `ClientRequest` instance is a writable stream. If one needs to
-upload a file with a POST request, then write to the `ClientRequest` object.
+`http.request()` 返回一个 [`http.ClientRequest`] 类的实例。
+`ClientRequest` 实例是一个可写流。
+如果需要通过 POST 请求上传一个文件，则写入到 `ClientRequest` 对象。
 
-Example:
+例子：
 
 ```js
 var postData = querystring.stringify({
@@ -76,80 +66,37 @@ var req = http.request(options, (res) => {
   console.log(`HEADERS: ${JSON.stringify(res.headers)}`);
   res.setEncoding('utf8');
   res.on('data', (chunk) => {
-    console.log(`BODY: ${chunk}`);
+    console.log(`主体: ${chunk}`);
   });
   res.on('end', () => {
-    console.log('No more data in response.');
+    console.log('响应中已无数据。');
   });
 });
 
 req.on('error', (e) => {
-  console.log(`problem with request: ${e.message}`);
+  console.log(`请求遇到问题: ${e.message}`);
 });
 
-// write data to request body
+// 写入数据到请求主体
 req.write(postData);
 req.end();
 ```
 
-Note that in the example `req.end()` was called. With `http.request()` one
-must always call `req.end()` to signify that you're done with the request -
-even if there is no data being written to the request body.
+注意，在例子中调用了 `req.end()`。
+使用 `http.request()` 必须总是调用 `req.end()` 来表明请求已经结束，即使没有数据被写入请求主体。
 
-If any error is encountered during the request (be that with DNS resolution,
-TCP level errors, or actual HTTP parse errors) an `'error'` event is emitted
-on the returned request object. As with all `'error'` events, if no listeners
-are registered the error will be thrown.
+如果请求过程中遇到任何错误（DNS 解析错误、TCP 级的错误、或实际的 HTTP 解析错误），则在返回的请求对象中会触发 `'error'` 事件。
+对于所有的 `'error'` 事件，如果没有注册监听器，则抛出错误。
 
-There are a few special headers that should be noted.
+以下是需要注意的几个特殊的请求头。
 
-* Sending a 'Connection: keep-alive' will notify Node.js that the connection to
-  the server should be persisted until the next request.
+* 发送一个 `'Connection: keep-alive'` 会通知 Node.js，服务器的连接应一直持续到下一个请求。
 
-* Sending a 'Content-length' header will disable the default chunked encoding.
+* 发送一个 `'Content-length'` 请求头会禁用默认的块编码。
 
-* Sending an 'Expect' header will immediately send the request headers.
-  Usually, when sending 'Expect: 100-continue', you should both set a timeout
-  and listen for the `'continue'` event. See RFC2616 Section 8.2.3 for more
-  information.
+* 发送一个 `'Expect'` 请求头会立即发送请求头。
+  通常情况下，当发送 `'Expect: 100-continue'` 时，应该设置一个超时并监听 `'continue'` 事件。
+  详见 RFC2616 章节 8.2.3。
 
-* Sending an Authorization header will override using the `auth` option
-  to compute basic authentication.
+* 发送一个 Authorization 请求头会覆盖使用 `auth` 选项计算基本身份验证。
 
-[`'checkContinue'`]: #http_event_checkcontinue
-[`'listening'`]: net.html#net_event_listening
-[`'request'`]: #http_event_request
-[`'response'`]: #http_event_response
-[`Agent`]: #http_class_http_agent
-[`agent.createConnection()`]: #http_agent_createconnection_options_callback
-[`destroy()`]: #http_agent_destroy
-[`EventEmitter`]: events.html#events_class_eventemitter
-[`http.Agent`]: #http_class_http_agent
-[`http.ClientRequest`]: #http_class_http_clientrequest
-[`http.globalAgent`]: #http_http_globalagent
-[`http.IncomingMessage`]: #http_class_http_incomingmessage
-[`http.request()`]: #http_http_request_options_callback
-[`http.Server`]: #http_class_http_server
-[`message.headers`]: #http_message_headers
-[`net.createConnection()`]: net.html#net_net_createconnection_options_connectlistener
-[`net.Server`]: net.html#net_class_net_server
-[`net.Server.close()`]: net.html#net_server_close_callback
-[`net.Server.listen()`]: net.html#net_server_listen_handle_backlog_callback
-[`net.Server.listen(path)`]: net.html#net_server_listen_path_backlog_callback
-[`net.Server.listen(port)`]: net.html#net_server_listen_port_hostname_backlog_callback
-[`net.Socket`]: net.html#net_class_net_socket
-[`request.socket.getPeerCertificate()`]: tls.html#tls_tlssocket_getpeercertificate_detailed
-[`response.end()`]: #http_response_end_data_encoding_callback
-[`response.setHeader()`]: #http_response_setheader_name_value
-[`response.write()`]: #http_response_write_chunk_encoding_callback
-[`response.write(data, encoding)`]: #http_response_write_chunk_encoding_callback
-[`response.writeContinue()`]: #http_response_writecontinue
-[`response.writeHead()`]: #http_response_writehead_statuscode_statusmessage_headers
-[`socket.setKeepAlive()`]: net.html#net_socket_setkeepalive_enable_initialdelay
-[`socket.setNoDelay()`]: net.html#net_socket_setnodelay_nodelay
-[`socket.setTimeout()`]: net.html#net_socket_settimeout_timeout_callback
-[`TypeError`]: errors.html#errors_class_typeerror
-[`url.parse()`]: url.html#url_url_parse_urlstring_parsequerystring_slashesdenotehost
-[constructor options]: #http_new_agent_options
-[Readable Stream]: stream.html#stream_class_stream_readable
-[Writable Stream]: stream.html#stream_class_stream_writable
