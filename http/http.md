@@ -1,15 +1,13 @@
 
-> Stability: 2 - Stable
+> 稳定性: 2 - 稳定的
 
-To use the HTTP server and client one must `require('http')`.
+使用 HTTP 服务器和客户端必须 `require('http')`。
 
-The HTTP interfaces in Node.js are designed to support many features
-of the protocol which have been traditionally difficult to use.
-In particular, large, possibly chunk-encoded, messages. The interface is
-careful to never buffer entire requests or responses--the
-user is able to stream data.
+Node.js 中的 HTTP 接口被设计为支持以往较难使用的协议的许多特性。
+比如，大块编码的消息。
+该接口从不缓存整个请求或响应，所以用户能够流化数据。
 
-HTTP message headers are represented by an object like this:
+HTTP 消息头由类似以下的对象表示：
 
 ```js
 { 'content-length': '123',
@@ -19,19 +17,16 @@ HTTP message headers are represented by an object like this:
   'accept': '*/*' }
 ```
 
-Keys are lowercased. Values are not modified.
+键名是小写的，值是不能修改的。
 
-In order to support the full spectrum of possible HTTP applications, Node.js's
-HTTP API is very low-level. It deals with stream handling and message
-parsing only. It parses a message into headers and body but it does not
-parse the actual headers or the body.
+为了支持全部可能的 HTTP 应用，Node.js 的 HTTP API 是非常底层的。
+它只涉及流处理和消息解析。
+它把一个消息解析成头部和主体，但它不解析具体的头部或主体。
 
-See [`message.headers`][] for details on how duplicate headers are handled.
+详见 [`message.headers`] 了解如何处理重复的头部。
 
-The raw headers as they were received are retained in the `rawHeaders`
-property, which is an array of `[key, value, key2, value2, ...]`.  For
-example, the previous message header object might have a `rawHeaders`
-list like the following:
+收到的原始消息头保存在 `rawHeaders` 属性中，它是一个 `[key, value, key2, value2, ...]` 的数组。
+例如，上面的消息头对象可能有一个类似以下的 `rawHeaders` 列表：
 
 ```js
 [ 'ConTent-Length', '123456',
