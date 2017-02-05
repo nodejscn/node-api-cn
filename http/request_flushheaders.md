@@ -2,13 +2,11 @@
 added: v1.6.0
 -->
 
-Flush the request headers.
+刷新请求头。
 
-For efficiency reasons, Node.js normally buffers the request headers until you
-call `request.end()` or write the first chunk of request data.  It then tries
-hard to pack the request headers and data into a single TCP packet.
+出于效率的考虑，Node.js 通常缓存请求头直到调用 `request.end()` 或写入请求数据的第一块。
+然后试图将请求头和数据打包成单一的 TCP 数据包。
 
-That's usually what you want (it saves a TCP round-trip) but not when the first
-data isn't sent until possibly much later.  `request.flushHeaders()` lets you bypass
-the optimization and kickstart the request.
+通常那是你想要的（它节省了 TCP 往返），除了当第一个数据块直到很久之后才被发送。
+`request.flushHeaders()` 让你绕过最优化并提前开始请求。
 
