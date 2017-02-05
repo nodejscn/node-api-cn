@@ -2,8 +2,7 @@
 added: v0.1.93
 -->
 
-The path to the file the stream is writing to as specified in the first
-argument to `fs.createWriteStream()`. If `path` is passed as a string, then
-`writeStream.path` will be a string. If `path` is passed as a `Buffer`, then
-`writeStream.path` will be a `Buffer`.
+流正在写入的文件的路径，指定在 `fs.createWriteStream()` 的第一个参数。
+如果 `path` 传入的是一个字符串，则 `writeStream.path` 是一个字符串。
+如果 `path` 传入的是一个 `Buffer`，则 `writeStream.path` 是一个 `Buffer`。
 
