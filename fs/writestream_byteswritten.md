@@ -2,6 +2,6 @@
 added: v0.4.7
 -->
 
-The number of bytes written so far. Does not include data that is still queued
-for writing.
+已写入的字节数。
+不包括仍在排队等待写入的数据。
 
