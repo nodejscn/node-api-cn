@@ -2,6 +2,6 @@
 added: v0.3.8
 -->
 
-Marks the request as aborting. Calling this will cause remaining data
-in the response to be dropped and the socket to be destroyed.
+标记请求为终止。
+调用该方法将导致响应中剩余的数据会被丢弃，且 socket 会被销毁。
 
