@@ -4,7 +4,6 @@ added: v0.11.7
 
 * {Number}
 
-By default set to 256.  For Agents supporting HTTP KeepAlive, this
-sets the maximum number of sockets that will be left open in the free
-state.
+默认设为 256。
+对于支持 HTTP KeepAlive 的 Agent，它设置了在空闲状态下可打开的 socket 的最大数量。
 
