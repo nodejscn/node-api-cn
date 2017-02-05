@@ -2,11 +2,9 @@
 added: v0.11.4
 -->
 
-Destroy any sockets that are currently in use by the agent.
+销毁当前正被代理使用的任何 socket。
 
-It is usually not necessary to do this.  However, if you are using an
-agent with KeepAlive enabled, then it is best to explicitly shut down
-the agent when you know that it will no longer be used.  Otherwise,
-sockets may hang open for quite a long time before the server
-terminates them.
+通常不需要这么做。
+但是，如果使用的是启用 KeepAlive 的代理，则当知道它不再被使用时，最好显式地关闭代理。
+否则，在服务器终止之前，socket 可能会挂起开放相当长的时间。
 
