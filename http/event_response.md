@@ -4,6 +4,6 @@ added: v0.1.0
 
 * `response` {http.IncomingMessage}
 
-Emitted when a response is received to this request. This event is emitted only
-once.
+当请求的响应被接收时触发。
+该事件只触发一次。
 
