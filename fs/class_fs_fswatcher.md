@@ -2,10 +2,9 @@
 added: v0.5.8
 -->
 
-Objects returned from [`fs.watch()`][] are of this type.
+从 [`fs.watch()`] 返回的对象是该类型。
 
-The `listener` callback provided to `fs.watch()` receives the returned FSWatcher's
-`change` events.
+提供给 `fs.watch()` 的 `listener` 回调会接收返回的 FSWatcher 的 `change` 事件。
 
-The object itself emits these events:
+该对象本身可触发以下事件：
 
