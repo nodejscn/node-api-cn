@@ -2,5 +2,5 @@
 added: v0.1.93
 -->
 
-`ReadStream` is a [Readable Stream][].
+`ReadStream` 是一个[可读流]。
 
