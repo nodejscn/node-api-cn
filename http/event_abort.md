@@ -2,6 +2,6 @@
 added: v1.4.1
 -->
 
-Emitted when the request has been aborted by the client. This event is only
-emitted on the first call to `abort()`.
+当请求已被客户端中止时触发。
+该事件仅在首次调用 `abort()` 时触发。
 
