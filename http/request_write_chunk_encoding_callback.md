@@ -6,17 +6,12 @@ added: v0.1.29
 * `encoding` {String}
 * `callback` {Function}
 
-Sends a chunk of the body.  By calling this method
-many times, the user can stream a request body to a
-server--in that case it is suggested to use the
-`['Transfer-Encoding', 'chunked']` header line when
-creating the request.
+发送主体的一个数据块。
+通过多次调用该方法，用户可以以流的形式将请求主体发送到一个服务器，在这种情况下，当创建请求时，建议使用 `['Transfer-Encoding', 'chunked']` 头行。
 
-The `encoding` argument is optional and only applies when `chunk` is a string.
-Defaults to `'utf8'`.
+`encoding` 参数是可选的，且仅当 `chunk` 是一个字符串时有效。默认为 `'utf8'`。
 
-The `callback` argument is optional and will be called when this chunk of data
-is flushed.
+`callback` 参数是可选的，且当数据块被刷新时调用。
 
-Returns `request`.
+返回 `request`。
 
