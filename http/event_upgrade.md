@@ -6,33 +6,32 @@ added: v0.1.94
 * `socket` {net.Socket}
 * `head` {Buffer}
 
-Emitted each time a server responds to a request with an upgrade. If this
-event isn't being listened for, clients receiving an upgrade header will have
-their connections closed.
+每当服务器响应一个升级请求时触发。
+如果该事件未被监听，则接收到升级请求头的客户端会关闭它们的连接。
 
-A client server pair that show you how to listen for the `'upgrade'` event.
+一对客户端和服务端会展示如何监听 `'upgrade'` 事件：
 
 ```js
 const http = require('http');
 
-// Create an HTTP server
+// 创建一个 HTTP 服务器
 var srv = http.createServer( (req, res) => {
   res.writeHead(200, {'Content-Type': 'text/plain'});
   res.end('okay');
 });
 srv.on('upgrade', (req, socket, head) => {
-  socket.write('HTTP/1.1 101 Web Socket Protocol Handshake\r\n' +
-               'Upgrade: WebSocket\r\n' +
-               'Connection: Upgrade\r\n' +
+  socket.write('HTTP/1.1 101 Web Socket 协议握手\r\n' +
+               '升级: WebSocket\r\n' +
+               '连接: 升级\r\n' +
                '\r\n');
 
-  socket.pipe(socket); // echo back
+  socket.pipe(socket); // 回声
 });
 
-// now that server is running
+// 现在服务器正在运行
 srv.listen(1337, '127.0.0.1', () => {
 
-  // make a request
+  // 发送一个请求
   var options = {
     port: 1337,
     hostname: '127.0.0.1',
@@ -46,7 +45,7 @@ srv.listen(1337, '127.0.0.1', () => {
   req.end();
 
   req.on('upgrade', (res, socket, upgradeHead) => {
-    console.log('got upgraded!');
+    console.log('已升级！');
     socket.end();
     process.exit(0);
   });
