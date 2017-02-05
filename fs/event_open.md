@@ -2,7 +2,7 @@
 added: v0.1.93
 -->
 
-* `fd` {Integer} Integer file descriptor used by the ReadStream.
+* `fd` {Integer} 被 ReadStream 使用的整数文件描述符。
 
-Emitted when the ReadStream's file is opened.
+当 ReadStream 文件被打开时触发。
 
