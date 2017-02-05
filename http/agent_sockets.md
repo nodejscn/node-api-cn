@@ -4,6 +4,6 @@ added: v0.3.6
 
 * {Object}
 
-An object which contains arrays of sockets currently in use by the
-Agent.  Do not modify.
+一个包含当前被 Agent 使用的 socket 数组的对象。
+不要修改。
 
