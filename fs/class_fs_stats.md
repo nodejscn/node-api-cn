@@ -2,19 +2,17 @@
 added: v0.1.21
 -->
 
-Objects returned from [`fs.stat()`][], [`fs.lstat()`][] and [`fs.fstat()`][] and their
-synchronous counterparts are of this type.
+从 [`fs.stat()`]、[`fs.lstat()`] 和 [`fs.fstat()`] 及其同步版本返回的对象都是该类型。
 
  - `stats.isFile()`
  - `stats.isDirectory()`
  - `stats.isBlockDevice()`
  - `stats.isCharacterDevice()`
- - `stats.isSymbolicLink()` (only valid with [`fs.lstat()`][])
+ - `stats.isSymbolicLink()` (仅对 [`fs.lstat()`] 有效)
  - `stats.isFIFO()`
  - `stats.isSocket()`
 
-For a regular file [`util.inspect(stats)`][] would return a string very
-similar to this:
+对于一个普通文件，[`util.inspect(stats)`] 会返回一个类似如下的字符串：
 
 ```js
 {
@@ -35,13 +33,7 @@ similar to this:
 }
 ```
 
-Please note that `atime`, `mtime`, `birthtime`, and `ctime` are
-instances of [`Date`][MDN-Date] object and to compare the values of
-these objects you should use appropriate methods. For most general
-uses [`getTime()`][MDN-Date-getTime] will return the number of
-milliseconds elapsed since _1 January 1970 00:00:00 UTC_ and this
-integer should be sufficient for any comparison, however there are
-additional methods which can be used for displaying fuzzy information.
-More details can be found in the [MDN JavaScript Reference][MDN-Date]
-page.
+注意，`atime`、`mtime`、`birthtime` 和 `ctime` 是 [`Date`] 对象的实例，比较这些对象的值需要使用适当的方法。
+对于大多数一般用途，[`getTime()`] 会返回 **1970年1月1日 00:00:00 UTC** 至今已过的毫秒数，且该整数应该满足任何对比，当然也有可用于显示模糊信息的其他方法。
+详见 [MDN JavaScript 手册]。
 
