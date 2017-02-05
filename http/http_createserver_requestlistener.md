@@ -2,10 +2,9 @@
 added: v0.1.13
 -->
 
-* Returns: {http.Server}
+* 返回: {http.Server}
 
-Returns a new instance of [`http.Server`][].
+返回一个新建的 [`http.Server`] 实例。
 
-The `requestListener` is a function which is automatically
-added to the [`'request'`][] event.
+`requestListener` 是一个会被自动添加到 [`'request'`] 事件中的函数。
 
