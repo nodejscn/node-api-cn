@@ -6,13 +6,11 @@ added: v0.1.90
 * `encoding` {String}
 * `callback` {Function}
 
-Finishes sending the request. If any parts of the body are
-unsent, it will flush them to the stream. If the request is
-chunked, this will send the terminating `'0\r\n\r\n'`.
+完成发送请求。
+如果主体的任何部分未被发送，则会刷新它们到流中。
+如果请求被分块，则会发送终止 `'0\r\n\r\n'`。
 
-If `data` is specified, it is equivalent to calling
-[`response.write(data, encoding)`][] followed by `request.end(callback)`.
+如果指定了 `data`，则等同于调用 `request.end(callback)` 之后调用 [`response.write(data, encoding)`]。
 
-If `callback` is specified, it will be called when the request stream
-is finished.
+如果指定了 `callback`，则当请求流结束时会被调用。
 
