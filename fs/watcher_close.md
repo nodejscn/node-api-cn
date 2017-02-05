@@ -2,5 +2,5 @@
 added: v0.5.8
 -->
 
-Stop watching for changes on the given `fs.FSWatcher`.
+停止监视给定的 `fs.FSWatcher` 的变化。
 
