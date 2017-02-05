@@ -2,5 +2,5 @@
 added: v0.1.93
 -->
 
-`WriteStream` is a [Writable Stream][].
+`WriteStream` 一个[可写流]。
 
