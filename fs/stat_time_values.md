@@ -1,24 +1,18 @@
 
-The times in the stat object have the following semantics:
+stat 对象中的时间有以下语义：
 
-* `atime` "Access Time" - Time when file data last accessed.  Changed
-  by the mknod(2), utimes(2), and read(2) system calls.
-* `mtime` "Modified Time" - Time when file data last modified.
-  Changed by the mknod(2), utimes(2), and write(2) system calls.
-* `ctime` "Change Time" - Time when file status was last changed
-  (inode data modification).  Changed by the chmod(2), chown(2),
-  link(2), mknod(2), rename(2), unlink(2), utimes(2),
-  read(2), and write(2) system calls.
-* `birthtime` "Birth Time" -  Time of file creation. Set once when the
-  file is created.  On filesystems where birthtime is not available,
-  this field may instead hold either the `ctime` or
-  `1970-01-01T00:00Z` (ie, unix epoch timestamp `0`). Note that this
-  value may be greater than `atime` or `mtime` in this case. On Darwin
-  and other FreeBSD variants, also set if the `atime` is explicitly
-  set to an earlier value than the current `birthtime` using the
-  utimes(2) system call.
+* `atime` "访问时间" - 文件数据最近被访问的时间。
+  会被 mknod(2)、 utimes(2) 和 read(2) 系统调用改变。
+* `mtime` "修改时间" - 文件数据最近被修改的时间。
+  会被 mknod(2)、 utimes(2) 和 write(2) 系统调用改变。
+* `ctime` "变化时间" - 文件状态最近更改的时间（修改索引节点数据）
+  会被 chmod(2)、 chown(2)、 link(2)、 mknod(2)、 rename(2)、 unlink(2)、 utimes(2)、 read(2) 和 write(2) 系统调用改变。
+* `birthtime` "创建时间" -  文件创建的时间。
+  当文件被创建时设定一次。
+  在创建时间不可用的文件系统中，该字段可能被替代为 `ctime` 或 `1970-01-01T00:00Z`（如 Unix 的纪元时间戳 `0`）。
+  注意，该值在此情况下可能会大于 `atime` 或 `mtime`。
+  在 Darwin 和其它的 FreeBSD 衍生系统中，如果 `atime` 被使用 utimes(2) 系统调用显式地设置为一个比当前 `birthtime` 更早的值，也会有这种情况。
 
-Prior to Node v0.12, the `ctime` held the `birthtime` on Windows
-systems.  Note that as of v0.12, `ctime` is not "creation time", and
-on Unix systems, it never was.
+在 Node.js v0.12 之前的版本中，`ctime` 在 Windows 系统中保存 `birthtime`。
+注意，在 v0.12 中，`ctime` 不是“创建时间”，并且在 Unix 系统中，它从来都不是。
 
