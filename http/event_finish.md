@@ -2,10 +2,9 @@
 added: v0.3.6
 -->
 
-Emitted when the response has been sent. More specifically, this event is
-emitted when the last segment of the response headers and body have been
-handed off to the operating system for transmission over the network. It
-does not imply that the client has received anything yet.
+当响应已被发送时触发。
+更具体地说，当响应头和主体的最后一部分已被交给操作系统通过网络进行传输时，触发该事件。
+这并不意味着客户端已接收到任何东西。
 
-After this event, no more events will be emitted on the response object.
+该事件触发后，响应对象上不再触发其他事件。
 
