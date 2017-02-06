@@ -4,16 +4,13 @@ added: v0.4.0
 
 * {Number}
 
-When using implicit headers (not calling [`response.writeHead()`][] explicitly),
-this property controls the status code that will be sent to the client when
-the headers get flushed.
+当使用隐式的消息头时（没有显式地调用 [`response.writeHead()`]），在消息头被刷新时该属性会控制将被发送到客户端的状态码。
 
-Example:
+例子：
 
 ```js
 response.statusCode = 404;
 ```
 
-After response header was sent to the client, this property indicates the
-status code which was sent out.
+响应头被发送到客户端后，该属性表明被发出的状态码。
 
