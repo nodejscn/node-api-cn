@@ -7,23 +7,19 @@ added: v0.1.90
 * `backlog` {Number}
 * `callback` {Function}
 
-Begin accepting connections on the specified `port` and `hostname`. If the
-`hostname` is omitted, the server will accept connections on any IPv6 address
-(`::`) when IPv6 is available, or any IPv4 address (`0.0.0.0`) otherwise.
-Omit the port argument, or use a port value of `0`, to have the operating system
-assign a random port, which can be retrieved by using `server.address().port`
-after the `'listening'` event has been emitted.
+开始在指定的 `port` 和 `hostname` 上接受连接。
+如果省略了 `hostname`，则当 IPv6 可用时，服务器会接受任何 IPv6 地址（`::`）的连接，否则接受任何 IPv4 地址（`0.0.0.0`）的连接。
+省略 `port` 参数或使用端口值 `0`，则操作系统会分配一个随机的端口，该端口可在 `'listening'` 事件已被触发后通过使用 `server.address().port` 获取。
 
-To listen to a unix socket, supply a filename instead of port and hostname.
+要监听一个 UNIX socket，需要提供文件名而不是端口和主机名。
 
-`backlog` is the maximum length of the queue of pending connections.
-The actual length will be determined by your OS through sysctl settings such as
-`tcp_max_syn_backlog` and `somaxconn` on linux. The default value of this
-parameter is 511 (not 512).
+`backlog` 是等待连接的队列的最大长度。
+实际长度由操作系统通过 sysctl 设置决定，比如 Linux 上的 `tcp_max_syn_backlog` 和 `somaxconn`。
+该参数的默认值是 511（不是 512）。
 
-This function is asynchronous. `callback` will be added as a listener for the
-[`'listening'`][] event.  See also [`net.Server.listen(port)`][].
+该函数是异步的。
+`callback` 会被添加到 [`'listening'`] 事件的监听器中。详见 [`net.Server.listen(port)`]。
 
-*Note*: The `server.listen()` method may be called multiple times. Each
-subsequent call will *re-open* the server using the provided options.
+注意，`server.listen()` 方法可能被多次调用。
+每次调用都会使用提供的选项**重新打开**服务器。
 
