@@ -2,5 +2,5 @@
 added: v0.1.4
 -->
 
-Emitted when the server closes.
+当服务器关闭时触发。
 
