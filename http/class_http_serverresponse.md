@@ -2,9 +2,9 @@
 added: v0.1.17
 -->
 
-This object is created internally by an HTTP server--not by the user. It is
-passed as the second parameter to the [`'request'`][] event.
+该对象是由一个 HTTP 服务器（而不是用户）内部创建的。
+它作为第二个参数被传入 [`'request'`] 事件。
 
-The response implements, but does not inherit from, the [Writable Stream][]
-interface. This is an [`EventEmitter`][] with the following events:
+该响应实现（而不是继承自）[可写流]接口。
+这是一个有以下事件的 [`EventEmitter`]：
 
