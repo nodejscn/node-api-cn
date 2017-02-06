@@ -5,11 +5,11 @@ added: v0.1.90
 * `path` {String}
 * `callback` {Function}
 
-Start a UNIX socket server listening for connections on the given `path`.
+启动一个 UNIX socket 服务器，并在给定的 `path` 上监听连接。
 
-This function is asynchronous. `callback` will be added as a listener for the
-[`'listening'`][] event.  See also [`net.Server.listen(path)`][].
+该函数是异步的。
+`callback` 会被添加到 [`'listening'`] 事件的监听器中。详见 [`net.Server.listen(path)`]。
 
-*Note*: The `server.listen()` method may be called multiple times. Each
-subsequent call will *re-open* the server using the provided options.
+注意，`server.listen()` 方法可能被多次调用。
+每次调用都会使用提供的选项**重新打开**服务器。
 
