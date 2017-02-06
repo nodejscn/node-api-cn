@@ -2,6 +2,6 @@
 added: v0.4.2
 -->
 
-Indicates that the underlying connection was closed.
-Just like `'end'`, this event occurs only once per response.
+表明底层连接被关闭。
+就像 `'end'`，该事件每次响应只发生一次。
 
