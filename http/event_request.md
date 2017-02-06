@@ -5,6 +5,6 @@ added: v0.1.0
 * `request` {http.IncomingMessage}
 * `response` {http.ServerResponse}
 
-Emitted each time there is a request. Note that there may be multiple requests
-per connection (in the case of keep-alive connections).
+每次接收到一个请求时触发。
+注意，每个连接可能有多个请求（在 `keep-alive` 连接的情况下）。
 
