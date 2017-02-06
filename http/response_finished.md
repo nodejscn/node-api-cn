@@ -4,6 +4,7 @@ added: v0.0.2
 
 * {Boolean}
 
-Boolean value that indicates whether the response has completed. Starts
-as `false`. After [`response.end()`][] executes, the value will be `true`.
+布尔值，表明响应是否已完成。
+开始时为 `false`。
+执行 [`response.end()`] 后，该值会变为 `true`。
 
