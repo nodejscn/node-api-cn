@@ -4,9 +4,7 @@ added: v0.7.5
 
 * {Boolean}
 
-When true, the Date header will be automatically generated and sent in
-the response if it is not already present in the headers. Defaults to true.
+当为 `true` 时，如果消息头里还不存在日期消息头，则它会被自动生成并在响应中发送。默认为 `true`。
 
-This should only be disabled for testing; HTTP requires the Date header
-in responses.
+这应该只在测试中才被禁用；HTTP 需要响应日期消息头。
 
