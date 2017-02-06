@@ -2,15 +2,11 @@
 added: v0.9.12
 -->
 
-* {Number} Default = 120000 (2 minutes)
+* {Number} 默认 = 120000 (2 分钟)
 
-The number of milliseconds of inactivity before a socket is presumed
-to have timed out.
+一个 socket 被认定为已超时的空闲毫秒数。
 
-Note that the socket timeout logic is set up on connection, so
-changing this value only affects *new* connections to the server, not
-any existing connections.
+注意，socket 的超时逻辑是在连接上设定的，所以更改这个值只影响服务器**新建**的连接，而不会影响任何已存在的连接。
 
-Set to 0 to disable any kind of automatic timeout behavior on incoming
-connections.
+设为 0 可禁用请求连接的一切自动超时行为。
 
