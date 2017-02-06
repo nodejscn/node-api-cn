@@ -5,31 +5,28 @@ added: v0.4.0
 * `name` {String}
 * `value` {String}
 
-Sets a single header value for implicit headers.  If this header already exists
-in the to-be-sent headers, its value will be replaced.  Use an array of strings
-here if you need to send multiple headers with the same name.
+为隐式消息头集合设置一个的消息头值。
+如果该消息头已经存在将要发送的消息头集合中，则该值会被覆盖。
+如果需要发送多个名称相同的消息头，则使用一个字符串数组。
 
-Example:
+例子：
 
 ```js
 response.setHeader('Content-Type', 'text/html');
 ```
 
-or
+或
 
 ```js
 response.setHeader('Set-Cookie', ['type=ninja', 'language=javascript']);
 ```
 
-Attempting to set a header field name or value that contains invalid characters
-will result in a [`TypeError`][] being thrown.
+试图设置一个包含无效字符的消息头字段名称或值会导致抛出一个 [`TypeError`]。
 
-When headers have been set with [`response.setHeader()`][], they will be merged with
-any headers passed to [`response.writeHead()`][], with the headers passed to
-[`response.writeHead()`][] given precedence.
+当消息头已使用 [`response.setHeader()`] 设置，它们会被与其他消息头合并传给 [`response.writeHead()`]，带消息头的 [`response.writeHead()`] 有更高优先级。
 
 ```js
-// returns content-type = text/plain
+// 返回 content-type = text/plain
 const server = http.createServer((req,res) => {
   res.setHeader('Content-Type', 'text/html');
   res.setHeader('X-Foo', 'bar');
