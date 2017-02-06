@@ -4,6 +4,5 @@ added: v5.7.0
 
 * {Boolean}
 
-A Boolean indicating whether or not the server is listening for
-connections.
+一个表明服务器是否正在监听连接的布尔值。
 
