@@ -4,7 +4,8 @@ added: v0.1.1
 
 * {Number}
 
-**Only valid for response obtained from [`http.ClientRequest`][].**
+**仅适用于从 [`http.ClientRequest`] 获得的响应。**
 
-The 3-digit HTTP response status code. E.G. `404`.
+3 位数字的 HTTP 响应状态码。
+如 `404`。
 
