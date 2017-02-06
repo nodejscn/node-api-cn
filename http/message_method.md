@@ -4,8 +4,9 @@ added: v0.1.1
 
 * {String}
 
-**Only valid for request obtained from [`http.Server`][].**
+**仅适用于从 [`http.Server`] 获得的请求。**
 
-The request method as a string. Read only. Example:
-`'GET'`, `'DELETE'`.
+请求方法是一个字符串。
+只读。
+例如：`'GET'`、`'DELETE'`。
 
