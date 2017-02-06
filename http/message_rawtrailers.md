@@ -4,6 +4,6 @@ added: v0.11.6
 
 * {Array}
 
-The raw request/response trailer keys and values exactly as they were
-received.  Only populated at the `'end'` event.
+接收到的原始的请求/响应报尾的键和值。
+只在 `'end'` 事件时填入。
 
