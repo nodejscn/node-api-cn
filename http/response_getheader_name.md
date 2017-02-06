@@ -3,13 +3,13 @@ added: v0.4.0
 -->
 
 * `name` {String}
-* Returns: {String}
+* 返回: {String}
 
-Reads out a header that's already been queued but not sent to the client.  Note
-that the name is case insensitive.  This can only be called before headers get
-implicitly flushed.
+读出已经排队但尚未发送到客户端的消息头。
+注意，名称不区分大小写。
+只能在消息头被隐式地刷新前调用。
 
-Example:
+例子：
 
 ```js
 var contentType = response.getHeader('content-type');
