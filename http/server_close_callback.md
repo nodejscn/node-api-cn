@@ -4,5 +4,5 @@ added: v0.1.90
 
 * `callback` {Function}
 
-Stops the server from accepting new connections.  See [`net.Server.close()`][].
+停止服务端接收新的连接。详见 [`net.Server.close()`]。
 
