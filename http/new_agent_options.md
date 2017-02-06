@@ -2,23 +2,19 @@
 added: v0.3.4
 -->
 
-* `options` {Object} Set of configurable options to set on the agent.
-  Can have the following fields:
-  * `keepAlive` {Boolean} Keep sockets around in a pool to be used by
-    other requests in the future. Default = `false`
-  * `keepAliveMsecs` {Integer} When using HTTP KeepAlive, how often
-    to send TCP KeepAlive packets over sockets being kept alive.
-    Default = `1000`.  Only relevant if `keepAlive` is set to `true`.
-  * `maxSockets` {Number} Maximum number of sockets to allow per
-    host.  Default = `Infinity`.
-  * `maxFreeSockets` {Number} Maximum number of sockets to leave open
-    in a free state.  Only relevant if `keepAlive` is set to `true`.
-    Default = `256`.
+* `options` {Object} 用于设置代理的配置选项的集合。可以有以下字段：
+  * `keepAlive` {Boolean} 保持池周围的 socket 在未来可被其他请求使用。默认 = `false`。
+  * `keepAliveMsecs` {Integer} 当使用 HTTP 的 KeepAlive 时，多久发送 TCP KeepAlive 数据包使得 socket 保持活跃。
+    默认 = `1000`。
+    仅当 `keepAlive` 被设为 `true` 有效。
+  * `maxSockets` {Number} 每个主机允许的最大 socket 数。默认= `Infinity`。
+  * `maxFreeSockets` {Number} 在空闲状态下允许打开的最大 socket 数。
+    仅当 `keepAlive` 被设为 `true` 有效。
+    默认 = `256`.
 
-The default [`http.globalAgent`][] that is used by [`http.request()`][] has all
-of these values set to their respective defaults.
+[`http.request()`] 使用的默认的 [`http.globalAgent`] 会将所有这些值设为各自的默认值。
 
-To configure any of them, you must create your own [`http.Agent`][] object.
+要配置其中任何一个，必须创建自己的 [`http.Agent`] 对象。
 
 ```js
 const http = require('http');
