@@ -2,16 +2,12 @@
 added: v0.1.94
 -->
 
-* `request` {http.IncomingMessage} Arguments for the HTTP request, as it is in
-  the [`'request'`][] event
-* `socket` {net.Socket} Network socket between the server and client
-* `head` {Buffer} The first packet of the upgraded stream (may be empty)
+* `request` {http.IncomingMessage} HTTP 请求的参数，与 [`'request'`] 事件的相同
+* `socket` {net.Socket} 服务器与客户端之间的网络 socket
+* `head` {Buffer} 升级流的第一个数据包（可能为空）
 
-Emitted each time a client requests an HTTP upgrade. If this event isn't
-listened for, then clients requesting an upgrade will have their connections
-closed.
+每当一个客户端请求一个 HTTP 升级时触发。
+如果该事件未被监听，则发送升级的客户端会关闭它们的连接。
 
-After this event is emitted, the request's socket will not have a `'data'`
-event listener, meaning you will need to bind to it in order to handle data
-sent to the server on that socket.
+当该事件被触发后，请求的 socket 不会有 `'data'` 事件监听器，也就是说需要绑定它以用来处理 socket 上被发送到服务器的数据。
 
