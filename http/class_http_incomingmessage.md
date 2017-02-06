@@ -2,11 +2,8 @@
 added: v0.1.17
 -->
 
-An `IncomingMessage` object is created by [`http.Server`][] or
-[`http.ClientRequest`][] and passed as the first argument to the [`'request'`][]
-and [`'response'`][] event respectively. It may be used to access response status,
-headers and data.
+`IncomingMessage` 对象由 [`http.Server`] 或 [`http.ClientRequest`] 创建，并作为第一个参数分别递给 [`'request'`] 和 [`'response'`] 事件。
+它可以用来访问响应状态、消息头、以及数据。
 
-It implements the [Readable Stream][] interface, as well as the
-following additional events, methods, and properties.
+它实现了[可读流]接口，还有以下额外的事件、方法、以及属性。
 
