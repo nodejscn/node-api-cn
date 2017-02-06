@@ -5,17 +5,13 @@ added: v0.9.12
 * `msecs` {Number}
 * `callback` {Function}
 
-Sets the timeout value for sockets, and emits a `'timeout'` event on
-the Server object, passing the socket as an argument, if a timeout
-occurs.
+为 socket 设置超时值。
+如果一个超时发生，则 Server 对象上会触发一个 `'timeout'` 事件，并传入该 socket 作为一个参数。
 
-If there is a `'timeout'` event listener on the Server object, then it
-will be called with the timed-out socket as an argument.
+如果 Server 对象上有 `'timeout'` 事件监听器，则它会被调用，并带上超时的 socket 作为一个参数。
 
-By default, the Server's timeout value is 2 minutes, and sockets are
-destroyed automatically if they time out.  However, if you assign a
-callback to the Server's `'timeout'` event, then you are responsible
-for handling socket timeouts.
+默认情况下，服务器的超时时间是 2 分钟，且超时后的 socket 会被自动销毁。
+但是，如果你为服务器的 `'timeout'` 事件分配了一个回调函数，则你需要负责处理 socket 的超时。
 
-Returns `server`.
+返回 `server`。
 
