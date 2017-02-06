@@ -4,16 +4,16 @@ added: v0.11.6
 
 * {Array}
 
-The raw request/response headers list exactly as they were received.
+接收到的原始请求/响应头列表。
 
-Note that the keys and values are in the same list.  It is *not* a
-list of tuples.  So, the even-numbered offsets are key values, and the
-odd-numbered offsets are the associated values.
+注意，键和值是在同一列表中。
+它**不是**一个元组列表。
+所以，偶数偏移量为键，奇数偏移量为对应的值。
 
-Header names are not lowercased, and duplicates are not merged.
+报头名称没有转换为小写，也没有合并去重。
 
 ```js
-// Prints something like:
+// 输出类似以下的东西：
 //
 // [ 'user-agent',
 //   'this is invalid because there can be only one',
