@@ -5,29 +5,25 @@ added: v0.1.29
 * `chunk` {String | Buffer}
 * `encoding` {String}
 * `callback` {Function}
-* Returns: {Boolean}
+* 返回: {Boolean}
 
-If this method is called and [`response.writeHead()`][] has not been called,
-it will switch to implicit header mode and flush the implicit headers.
+如果该方法被调用且 [`response.writeHead()`] 还未被调用，则它会切换到隐式消息头模式并刷新隐式消息头。
 
-This sends a chunk of the response body. This method may
-be called multiple times to provide successive parts of the body.
+它会发送一块响应主体。
+该方法可被多次调用，以便提供主体连续的部分。
 
-`chunk` can be a string or a buffer. If `chunk` is a string,
-the second parameter specifies how to encode it into a byte stream.
-By default the `encoding` is `'utf8'`. `callback` will be called when this chunk
-of data is flushed.
+`chunk` 可以是一个字符串或一个 buffer。
+如果 `chunk` 是一个字符串，则第二个参数指定如何将它编码成一个字节流。
+`encoding` 默认为 `'utf8'`。
+当数据块被刷新时，`callback` 会被调用。
 
-**Note**: This is the raw HTTP body and has nothing to do with
-higher-level multi-part body encodings that may be used.
+**注意**：这是原始的 HTTP 主体，且与可能使用的更高级别的多部分主体编码无关。
 
-The first time [`response.write()`][] is called, it will send the buffered
-header information and the first body to the client. The second time
-[`response.write()`][] is called, Node.js assumes you're going to be streaming
-data, and sends that separately. That is, the response is buffered up to the
-first chunk of body.
+[`response.write()`] 首次被调用时，它会发送缓冲的头信息和第一块主体到客户端。
+[`response.write()`] 第二次被调用时，Node.js 会假定你要流化数据，并将它们分别发送。
+响应会被缓冲到主体的第一个数据块。
 
-Returns `true` if the entire data was flushed successfully to the kernel
-buffer. Returns `false` if all or part of the data was queued in user memory.
-`'drain'` will be emitted when the buffer is free again.
+如果整个数据被成功刷新到内核缓冲区，则返回 `true`。
+如果全部或部分数据在用户内存中排队，则返回 `false`。
+当缓冲区再次空闲时，则触发 `'drain'` 事件。
 
