@@ -4,9 +4,9 @@ added: v0.4.0
 
 * `name` {String}
 
-Removes a header that's queued for implicit sending.
+从隐式发送的队列中移除一个消息头。
 
-Example:
+例子：
 
 ```js
 response.removeHeader('Content-Encoding');
