@@ -6,12 +6,12 @@ added: v0.1.30
 * `statusMessage` {String}
 * `headers` {Object}
 
-Sends a response header to the request. The status code is a 3-digit HTTP
-status code, like `404`. The last argument, `headers`, are the response headers.
-Optionally one can give a human-readable `statusMessage` as the second
-argument.
+发送一个响应头给请求。
+状态码是一个 3 个数字的 HTTP 状态代码，如 `404`。
+最后一个参数 `headers` 是响应头。
+第二个参数 `statusMessage` 是可选的。
 
-Example:
+例子：
 
 ```js
 var body = 'hello world';
@@ -20,18 +20,14 @@ response.writeHead(200, {
   'Content-Type': 'text/plain' });
 ```
 
-This method must only be called once on a message and it must
-be called before [`response.end()`][] is called.
+该方法在消息中只能被调用一次，且必须在 [`response.end()`] 被调用之前调用。
 
-If you call [`response.write()`][] or [`response.end()`][] before calling this,
-the implicit/mutable headers will be calculated and call this function for you.
+如果在调用该方法之前调用 [`response.write()`] 或 [`response.end()`]，则隐式或可变的消息头会被计算并调用该函数。
 
-When headers have been set with [`response.setHeader()`][], they will be merged with
-any headers passed to [`response.writeHead()`][], with the headers passed to
-[`response.writeHead()`][] given precedence.
+当消息头已使用 [`response.setHeader()`] 设置，它们会被与其他消息头合并传给 [`response.writeHead()`]，带消息头的 [`response.writeHead()`] 有更高优先级。
 
 ```js
-// returns content-type = text/plain
+// 返回 content-type = text/plain
 const server = http.createServer((req,res) => {
   res.setHeader('Content-Type', 'text/html');
   res.setHeader('X-Foo', 'bar');
@@ -40,13 +36,10 @@ const server = http.createServer((req,res) => {
 });
 ```
 
-Note that Content-Length is given in bytes not characters. The above example
-works because the string `'hello world'` contains only single byte characters.
-If the body contains higher coded characters then `Buffer.byteLength()`
-should be used to determine the number of bytes in a given encoding.
-And Node.js does not check whether Content-Length and the length of the body
-which has been transmitted are equal or not.
+注意，`Content-Length` 是以字节（而不是字符）为单位给出的。
+以上的例子有效是因为字符串 `'hello world'` 仅包含单字节字符。
+如果主体包含更高编码的字符，则 `Buffer.byteLength()` 应被用来确定在给定编码中的字节数。
+Node.js 不会检查 `Content-Length` 与已发送的主体长度是否相同。
 
-Attempting to set a header field name or value that contains invalid characters
-will result in a [`TypeError`][] being thrown.
+试图设置一个包含无效字符的消息头字段名称或值会导致抛出一个 [`TypeError`]。
 
