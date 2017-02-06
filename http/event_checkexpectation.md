@@ -5,10 +5,8 @@ added: v5.5.0
 * `request` {http.ClientRequest}
 * `response` {http.ServerResponse}
 
-Emitted each time a request with an HTTP `Expect` header is received, where the
-value is not `100-continue`. If this event isn't listened for, the server will
-automatically respond with a `417 Expectation Failed` as appropriate.
+每当接收到一个带有 HTTP `Expect` 请求头的请求时触发，其中值不是 `100-continue`。
+如果该事件未被监听，则服务器会自动响应 `417 Expectation Failed`。
 
-Note that when this event is emitted and handled, the [`'request'`][] event will
-not be emitted.
+注意，当该事件被触发且处理后，[`'request'`] 事件不会被触发。
 
