@@ -2,5 +2,5 @@
 added: v0.1.17
 -->
 
-This class inherits from [`net.Server`][] and has the following additional events:
+该类继承自 [`net.Server`]，且具有以下额外的事件：
 
