@@ -4,10 +4,12 @@ added: v0.1.90
 
 * {String}
 
-**Only valid for request obtained from [`http.Server`][].**
+**仅适用于从 [`http.Server`] 获得的请求。**
 
-Request URL string. This contains only the URL that is
-present in the actual HTTP request. If the request is:
+请求的 URL 字符串。
+仅包含 HTTP 请求实际存在的 URL。
+如果请求是：
+
 
 ```txt
 GET /status?name=ryan HTTP/1.1\r\n
@@ -15,14 +17,14 @@ Accept: text/plain\r\n
 \r\n
 ```
 
-Then `request.url` will be:
+则 `request.url` 会是：
 
 ```js
 '/status?name=ryan'
 ```
 
-If you would like to parse the URL into its parts, you can use
-`require('url').parse(request.url)`.  Example:
+如果想将 URL 解析成各个部分，可以使用 `require('url').parse(request.url)`。
+例子：
 
 ```txt
 $ node
@@ -35,9 +37,8 @@ $ node
 }
 ```
 
-If you would like to extract the parameters from the query string,
-you can use the `require('querystring').parse` function, or pass
-`true` as the second argument to `require('url').parse`.  Example:
+如果想从查询字符串中提取参数，可以使用 `require('querystring').parse` 函数，或传入 `true` 作为 `require('url').parse` 的第二个参数。
+例子：
 
 ```txt
 $ node
