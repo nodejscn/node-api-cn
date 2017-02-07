@@ -1,13 +1,11 @@
 
 <!--type=misc-->
 
-Node.js has several modules compiled into the binary.  These modules are
-described in greater detail elsewhere in this documentation.
+Node.js 有些模块会被编译成二进制。
+这些模块别的地方有更详细的描述。
 
-The core modules are defined within Node.js's source and are located in the
-`lib/` folder.
+核心模块定义在 Node.js 源代码的 `lib/` 目录下。
 
-Core modules are always preferentially loaded if their identifier is
-passed to `require()`.  For instance, `require('http')` will always
-return the built in HTTP module, even if there is a file by that name.
+`require()` 总是会优先加载核心模块。
+例如，`require('http')` 始终返回内置的 HTTP 模块，即使有同名文件。
 
