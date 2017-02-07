@@ -1,18 +1,14 @@
 
 <!-- type=misc -->
 
-When a file is run directly from Node.js, `require.main` is set to its
-`module`. That means that you can determine whether a file has been run
-directly by testing
+当 Node.js 直接运行一个文件时，`require.main` 会被设为它的 `module`。
+这意味着你可以通过如下检测直接确定一个文件是否已运行：
 
 ```js
 require.main === module
 ```
 
-For a file `foo.js`, this will be `true` if run via `node foo.js`, but
-`false` if run by `require('./foo')`.
+对于 `foo.js` 文件，如果通过 `node foo.js` 运行则为 `true`，但如果通过 `require('./foo')` 运行则为 `false`。
 
-Because `module` provides a `filename` property (normally equivalent to
-`__filename`), the entry point of the current application can be obtained
-by checking `require.main.filename`.
+因为 `module` 提供了一个 `filename` 属性（通常等同于 `__filename`），所以可以通过检查 `require.main.filename` 来获取当前应用程序的入口点。
 
