@@ -2,7 +2,7 @@
 added: v0.1.16
 -->
 
-* {Object} Module object
+* {Object} 模块对象
 
-The module that first required this one.
+最先引用该模块的模块。
 
