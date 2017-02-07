@@ -4,5 +4,5 @@ added: v0.1.16
 
 * {String}
 
-The fully resolved filename to the module.
+模块的完全解析后的文件名。
 
