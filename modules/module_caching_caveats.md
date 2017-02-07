@@ -1,15 +1,9 @@
 
 <!--type=misc-->
 
-Modules are cached based on their resolved filename.  Since modules may
-resolve to a different filename based on the location of the calling
-module (loading from `node_modules` folders), it is not a *guarantee*
-that `require('foo')` will always return the exact same object, if it
-would resolve to different files.
+模块是基于其解析的文件名进行缓存的。
+由于调用模块的位置的不同，模块可能被解析成不同的文件名（比如从 `node_modules` 目录加载），这样就不能保证 `require('foo')` 总能返回完全相同的对象。
 
-Additionally, on case-insensitive file systems or operating systems, different
-resolved filenames can point to the same file, but the cache will still treat
-them as different modules and will reload the file multiple times. For example,
-`require('./foo')` and `require('./FOO')` return two different objects,
-irrespective of whether or not `./foo` and `./FOO` are the same file.
+此外，在不区分大小写的文件系统或操作系统中，被解析成不同的文件名可以指向同一文件，但缓存仍然会将它们视为不同的模块，并多次重新加载。
+例如，`require('./foo')` 和 `require('./FOO')` 返回两个不同的对象，而不会管 `./foo` 和 `./FOO` 是否是相同的文件。
 
