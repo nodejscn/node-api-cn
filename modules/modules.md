@@ -1,22 +1,21 @@
 
-> Stability: 3 - Locked
+> 稳定性: 3 - 锁定的
 
 <!--name=module-->
 
-Node.js has a simple module loading system.  In Node.js, files and modules
-are in one-to-one correspondence (each file is treated as a separate module).
+Node.js 有一个简单的模块加载系统。
+在 Node.js 中，文件和模块是一一对应的（每个文件被视为一个独立的模块）。
 
-As an example, consider a file named `foo.js`:
+例子，假设有一个名为 `foo.js` 的文件：
 
 ```js
 const circle = require('./circle.js');
-console.log(`The area of a circle of radius 4 is ${circle.area(4)}`);
+console.log(`半径为 4 的圆的面积是 ${circle.area(4)}`);
 ```
 
-On the first line, `foo.js` loads the module `circle.js` that is in the same
-directory as `foo.js`.
+在第一行中，`foo.js` 加载了同一目录下的 `circle.js` 模块。
 
-Here are the contents of `circle.js`:
+`circle.js` 文件的内容为：
 
 ```js
 const PI = Math.PI;
@@ -26,31 +25,26 @@ exports.area = (r) => PI * r * r;
 exports.circumference = (r) => 2 * PI * r;
 ```
 
-The module `circle.js` has exported the functions `area()` and
-`circumference()`.  To add functions and objects to the root of your module,
-you can add them to the special `exports` object.
+`circle.js` 模块导出了 `area()` 和 `circumference()` 两个函数。
+要想添加函数和对象到模块根，可以将它们添加到特殊的 `exports` 对象。
 
-Variables local to the module will be private, because the module is wrapped
-in a function by Node.js (see [module wrapper](#modules_the_module_wrapper)).
-In this example, the variable `PI` is private to `circle.js`.
+模块内的本地变量是私有的，因为模块被 Node.js 包装在一个函数中（详见[模块包装器]）。
+在这个例子中，变量 `PI` 是 `circle.js` 私有的。
 
-If you want the root of your module's export to be a function (such as a
-constructor) or if you want to export a complete object in one assignment
-instead of building it one property at a time, assign it to `module.exports`
-instead of `exports`.
+如果希望模块根导出为一个函数（比如构造函数）或一次导出一个完整的对象而不是每次都创建一个属性，可以把它赋值给 `module.exports` 而不是 `exports`。
 
-Below, `bar.js` makes use of the `square` module, which exports a constructor:
+如下，`bar.js` 会用到 `square` 模块，`square` 导出一个构造函数：
 
 ```js
 const square = require('./square.js');
 var mySquare = square(2);
-console.log(`The area of my square is ${mySquare.area()}`);
+console.log(`正方形的面积是 ${mySquare.area()}`);
 ```
 
-The `square` module is defined in `square.js`:
+`square` 模块定义在 `square.js` 中：
 
 ```js
-// assigning to exports will not modify module, must use module.exports
+// 赋值给 `exports` 不会修改模块，必须使用 `module.exports`
 module.exports = (width) => {
   return {
     area: () => width * width
@@ -58,5 +52,5 @@ module.exports = (width) => {
 }
 ```
 
-The module system is implemented in the `require("module")` module.
+模块系统在 `require("module")` 模块中实现。
 
