@@ -1,31 +1,24 @@
 
 <!-- type=misc -->
 
-If the `NODE_PATH` environment variable is set to a colon-delimited list
-of absolute paths, then Node.js will search those paths for modules if they
-are not found elsewhere.  (Note: On Windows, `NODE_PATH` is delimited by
-semicolons instead of colons.)
+如果 `NODE_PATH` 环境变量被设为一个以冒号分割的绝对路径列表，则当在其他地方找不到模块时 Node.js 会搜索这些路径。
+（注意：在 Windows 系统中，`NODE_PATH` 是以分号间隔的。）
 
-`NODE_PATH` was originally created to support loading modules from
-varying paths before the current [module resolution][] algorithm was frozen.
+在当前的[模块解析]算法运行之前，`NODE_PATH` 最初是创建来支持从不同路径加载模块的。
 
-`NODE_PATH` is still supported, but is less necessary now that the Node.js
-ecosystem has settled on a convention for locating dependent modules.
-Sometimes deployments that rely on `NODE_PATH` show surprising behavior
-when people are unaware that `NODE_PATH` must be set.  Sometimes a
-module's dependencies change, causing a different version (or even a
-different module) to be loaded as the `NODE_PATH` is searched.
+虽然 `NODE_PATH` 仍然被支持，但现在不太需要，因为 Node.js 生态系统已制定了一套存放依赖模块的约定。
+有时当人们没意识到 `NODE_PATH` 必须被设置时，依赖 `NODE_PATH` 的部署会出现意料之外的行为。
+有时一个模块的依赖会改变，导致在搜索 `NODE_PATH` 时加载了不同的版本（甚至不同的模块）。
 
-Additionally, Node.js will search in the following locations:
+此外，Node.js 还会搜索以下位置：
 
 * 1: `$HOME/.node_modules`
 * 2: `$HOME/.node_libraries`
 * 3: `$PREFIX/lib/node`
 
-Where `$HOME` is the user's home directory, and `$PREFIX` is Node.js's
-configured `node_prefix`.
+其中 `$HOME` 是用户的主目录，`$PREFIX` 是 Node.js 里配置的 `node_prefix`。
 
-These are mostly for historic reasons.  **You are highly encouraged
-to place your dependencies locally in `node_modules` folders.**  They
-will be loaded faster, and more reliably.
+这些主要是历史原因。
+**强烈建议将所有的依赖放在 `node_modules` 目录。**
+它们将会更快地加载，且更可靠。
 
