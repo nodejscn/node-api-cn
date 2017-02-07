@@ -2,41 +2,36 @@
 added: v0.1.16
 -->
 
-The `exports` variable is available within a module's file-level scope, and is
-assigned the value of `module.exports` before the module is evaluated.
+`exports` 变量是在模块的文件级别作用域内有效的，它在模块被执行前被赋于 `module.exports` 的值。
 
-It allows a shortcut, so that `module.exports.f = ...` can be written more
-succinctly as `exports.f = ...`. However, be aware that like any variable, if a
-new value is assigned to `exports`, it is no longer bound to `module.exports`:
+它有一个快捷方式，以便 `module.exports.f = ...` 可以被更简洁地写成 `exports.f = ...`。
+注意，就像任何变量，如果一个新的值被赋值给 `exports`，它就不再绑定到 `module.exports`：
 
 ```js
-module.exports.hello = true; // Exported from require of module
-exports = { hello: false };  // Not exported, only available in the module
+module.exports.hello = true; // 从被引用的模块导出
+exports = { hello: false };  // 不导出，只在模块内有效
 ```
 
-When the `module.exports` property is being completely replaced by a new
-object, it is common to also reassign `exports`, for example:
+当 `module.exports` 属性被一个新的对象完全替代时，也会重新赋值 `exports`，例如：
 
 ```js
 module.exports = exports = function Constructor() {
-    // ... etc.
+    // ... 及其他
 ```
 
-To illustrate the behavior, imagine this hypothetical implementation of
-`require()`, which is quite similar to what is actually done by `require()`:
+为了解释这个行为，想象对 `require()` 的假设实现，它跟 `require()` 的实际实现相等类似：
 
 ```js
 function require(...) {
   var module = { exports: {} };
   ((module, exports) => {
-    // Your module code here. In this example, define a function.
+    // 你的模块代码在这。在这个例子中，定义了一个函数。
     function some_func() {};
     exports = some_func;
-    // At this point, exports is no longer a shortcut to module.exports, and
-    // this module will still export an empty default object.
+    // 此时，exports 不再是一个 module.exports 的快捷方式，
+    // 且这个模块依然导出一个空的默认对象。
     module.exports = some_func;
-    // At this point, the module will now export some_func, instead of the
-    // default object.
+    // 此时，该模块导出 some_func，而不是默认对象。
   })(module, module.exports);
   return module.exports;
 }
