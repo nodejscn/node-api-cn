@@ -4,6 +4,6 @@ added: v0.1.16
 
 * {String}
 
-The identifier for the module.  Typically this is the fully resolved
-filename.
+模块的标识符。
+通常是完全解析后的文件名。
 
