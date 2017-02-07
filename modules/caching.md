@@ -1,15 +1,12 @@
 
 <!--type=misc-->
 
-Modules are cached after the first time they are loaded.  This means
-(among other things) that every call to `require('foo')` will get
-exactly the same object returned, if it would resolve to the same file.
+模块在第一次加载后会被缓存。
+这也意味着（类似其他缓存机制）如果每次调用 `require('foo')` 都解析到同一文件，则返回相同的对象。
 
-Multiple calls to `require('foo')` may not cause the module code to be
-executed multiple times.  This is an important feature.  With it,
-"partially done" objects can be returned, thus allowing transitive
-dependencies to be loaded even when they would cause cycles.
+多次调用 `require(foo)` 不会导致模块的代码被执行多次。
+这是一个重要的特性。
+借助它, 可以返回“部分完成”的对象，从而允许加载传递的依赖, 即使它们会导致循环。
 
-If you want to have a module execute code multiple times, then export a
-function, and call that function.
+如果想要多次执行一个模块，可以导出一个函数，然后调用该函数。
 
