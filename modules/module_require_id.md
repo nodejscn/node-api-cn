@@ -3,15 +3,10 @@ added: v0.5.1
 -->
 
 * `id` {String}
-* Returns: {Object} `module.exports` from the resolved module
+* 返回: {Object} 已解析的模块的 `module.exports`
 
-The `module.require` method provides a way to load a module as if
-`require()` was called from the original module.
+`module.require` 方法提供了一种类似 `require()` 从原始模块被调用的加载模块的方式。
 
-Note that in order to do this, you must get a reference to the `module`
-object.  Since `require()` returns the `module.exports`, and the `module` is
-typically *only* available within a specific module's code, it must be
-explicitly exported in order to be used.
+注意，为了做到这个，你必须获得一个 `module` 对象的引用。
+因为 `require()` 会返回 `module.exports`，且 `module` **只**在一个特定的模块代码中有效，所以为了使用它，必须显式地导出。
 
-[`Error`]: errors.html#errors_class_error
-[module resolution]: #modules_all_together
