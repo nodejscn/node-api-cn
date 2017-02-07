@@ -1,63 +1,60 @@
 
 <!--type=misc-->
 
-When there are circular `require()` calls, a module might not have finished
-executing when it is returned.
+当循环调用 `require()` 时，一个模块可能在未完成执行时被返回。
 
-Consider this situation:
+例如以下情况:
 
 `a.js`:
 
 ```js
-console.log('a starting');
+console.log('a 开始');
 exports.done = false;
 const b = require('./b.js');
-console.log('in a, b.done = %j', b.done);
+console.log('在 a 中，b.done = %j', b.done);
 exports.done = true;
-console.log('a done');
+console.log('a 结束');
 ```
 
 `b.js`:
 
 ```js
-console.log('b starting');
+console.log('b 开始');
 exports.done = false;
 const a = require('./a.js');
-console.log('in b, a.done = %j', a.done);
+console.log('在 b 中，a.done = %j', a.done);
 exports.done = true;
-console.log('b done');
+console.log('b 结束');
 ```
 
 `main.js`:
 
 ```js
-console.log('main starting');
+console.log('main 开始');
 const a = require('./a.js');
 const b = require('./b.js');
-console.log('in main, a.done=%j, b.done=%j', a.done, b.done);
+console.log('在 main 中，a.done=%j，b.done=%j', a.done, b.done);
 ```
 
-When `main.js` loads `a.js`, then `a.js` in turn loads `b.js`.  At that
-point, `b.js` tries to load `a.js`.  In order to prevent an infinite
-loop, an **unfinished copy** of the `a.js` exports object is returned to the
-`b.js` module.  `b.js` then finishes loading, and its `exports` object is
-provided to the `a.js` module.
+当 `main.js` 加载 `a.js` 时，`a.js` 又加载 `b.js`。
+此时，`b.js` 会尝试去加载 `a.js`。
+为了防止无限的循环，会返回一个 `a.js` 的 `exports` 对象的 **未完成的副本** 给 `b.js` 模块。
+然后 `b.js` 完成加载，并将 `exports` 对象提供给 `a.js` 模块。
 
-By the time `main.js` has loaded both modules, they're both finished.
-The output of this program would thus be:
+当 `main.js` 加载这两个模块时，它们都已经完成加载。
+因此，该程序的输出会是：
 
 ```txt
 $ node main.js
-main starting
-a starting
-b starting
-in b, a.done = false
-b done
-in a, b.done = true
-a done
-in main, a.done=true, b.done=true
+main 开始
+a 开始
+b 开始
+在 b 中，a.done = false
+b 结束
+在 a 中，b.done = true
+a 结束
+在 main 中，a.done=true，b.done=true
 ```
 
-If you have cyclic module dependencies in your program, make sure to
-plan accordingly.
+如果你的程序里有循环的模块依赖，确保它们按计划执行。
 
