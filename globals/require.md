@@ -6,6 +6,6 @@ added: v0.1.13
 
 * {Function}
 
-To require modules. See the [Modules][] section.  `require` isn't actually a
-global but rather local to each module.
+用于引入模块。详见[模块]章节。
+`require` 实际上不是一个全部变量，而是每个模块内部的。
 
