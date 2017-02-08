@@ -4,5 +4,5 @@ added: v0.9.1
 
 <!-- type=global -->
 
-[`setImmediate`] is described in the [timers][] section.
+[`setImmediate`] 描述在[定时器]章节。
 
