@@ -6,17 +6,17 @@ added: v0.0.1
 
 * {String}
 
-The filename of the code being executed.  This is the resolved absolute path
-of this code file.  For a main program this is not necessarily the same
-filename used in the command line.  The value inside a module is the path
-to that module file.
+所执行的代码的文件名。
+这是代码文件的解析后的绝对路径。
+对于主程序而言，无需与在命令行中使用的文件名相同。
+在模块中此变量的值是模块文件的路径。
 
-Example: running `node example.js` from `/Users/mjr`
+例子，从 `/Users/mjr` 运行 `node example.js`：
 
 ```js
 console.log(__filename);
-// Prints: /Users/mjr/example.js
+// 输出: /Users/mjr/example.js
 ```
 
-`__filename` isn't actually a global but rather local to each module.
+`__filename` 实际上不是一个全局变量，而是每个模块内部的。
 
