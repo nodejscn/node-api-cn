@@ -6,5 +6,5 @@ added: v0.1.103
 
 * {Function}
 
-Used to handle binary data. See the [buffer section][].
+用于处理二进制数据。详见 [buffer 章节]。
 
