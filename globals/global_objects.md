@@ -1,10 +1,9 @@
 
 <!-- type=misc -->
 
-These objects are available in all modules. Some of these objects aren't
-actually in the global scope but in the module scope - this will be noted.
+这些对象在所有模块中都是可用的。
+有些对象实际上不在全局作用域内，而是在模块作用域内，这个在文档中会注明。
 
-The objects listed here are specific to Node.js. There are a number of
-[built-in objects][] that are part of the JavaScript language itself, which are
-also globally accessible.
+以下列出的对象是特定于 Node.js 的。
+有些[内置对象]是 JavaScript 语言本身的一部分，它们也可以全局访问。
 
