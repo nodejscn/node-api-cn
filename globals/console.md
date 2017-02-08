@@ -6,5 +6,6 @@ added: v0.1.100
 
 * {Object}
 
-Used to print to stdout and stderr. See the [`console`][] section.
+用于打印 `stdout` 和 `stderr`。
+详见 [`console`] 章节。
 
