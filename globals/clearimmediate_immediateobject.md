@@ -4,5 +4,5 @@ added: v0.9.1
 
 <!--type=global-->
 
-[`clearImmediate`] is described in the [timers][] section.
+[`clearImmediate`] 描述在[定时器]章节。
 
