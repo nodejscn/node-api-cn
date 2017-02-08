@@ -6,5 +6,5 @@ added: v0.1.7
 
 * {Object}
 
-The process object. See the [`process` object][] section.
+进程对象。详见 [`process` 对象]章节。
 
