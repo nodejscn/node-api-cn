@@ -4,11 +4,10 @@ added: v0.1.12
 
 <!-- type=var -->
 
-A reference to the `module.exports` that is shorter to type.
-See [module system documentation][] for details on when to use `exports` and
-when to use `module.exports`.
+`module.exports` 的一个简短的引用。
+何时使用 `exports` 与何时使用 `module.exports` 详见[模块系统文档]。
 
-`exports` isn't actually a global but rather local to each module.
+`exports` 实际上不是一个全局变量，而是每个模块内部的。
 
-See the [module system documentation][] for more information.
+详见[模块系统文档]。
 
