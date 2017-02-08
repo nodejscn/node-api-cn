@@ -6,11 +6,10 @@ added: v0.1.16
 
 * {Object}
 
-A reference to the current module. In particular
-`module.exports` is used for defining what a module exports and makes
-available through `require()`.
+当前模块的引用。
+具体地说，`module.exports` 用于定义一个模块导出什么，且通过 `require()` 引入。
 
-`module` isn't actually a global but rather local to each module.
+`module` 实际上不是一个全局变量，而是每个模块内部的。
 
-See the [module system documentation][] for more information.
+详见[模块系统文档]。
 
