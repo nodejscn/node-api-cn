@@ -4,5 +4,5 @@ added: v0.0.1
 
 <!--type=global-->
 
-[`clearTimeout`] is described in the [timers][] section.
+[`clearTimeout`] 描述在[定时器]章节。
 
