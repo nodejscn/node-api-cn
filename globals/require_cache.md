@@ -4,8 +4,7 @@ added: v0.3.0
 
 * {Object}
 
-Modules are cached in this object when they are required. By deleting a key
-value from this object, the next `require` will reload the module. Note that
-this does not apply to [native addons][], for which reloading will result in an
-Error.
+当模块被引入时，它们会缓存到这个对象。
+通过从该对象删除键值，下次调用 `require` 时会重新加载模块。
+注意，这不适用于[原生插件]，因为重新加载会导致错误。
 
