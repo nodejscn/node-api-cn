@@ -2,8 +2,7 @@
 added: v0.1.32
 -->
 
-`':'`-separated list of directories prefixed to the module search path.
+以 `':'` 分隔的有模块搜索路径作前缀的目录列表。
 
-_Note: on Windows, this is a `';'`-separated list instead._
-
+注意，在 Windows 中，列表是用 `';'` 分隔的。
 
