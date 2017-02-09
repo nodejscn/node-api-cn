@@ -2,5 +2,5 @@
 added: v0.11.14
 -->
 
-Throw errors for deprecations.
+抛出废弃的错误。
 
