@@ -2,6 +2,5 @@
 added: v2.4.0
 -->
 
-Track heap object allocations for heap snapshots.
-
+为堆快照追踪堆栈对象的分配。
 
