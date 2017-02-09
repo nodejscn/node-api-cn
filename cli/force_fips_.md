@@ -2,7 +2,7 @@
 added: v6.0.0
 -->
 
-Force FIPS-compliant crypto on startup. (Cannot be disabled from script code.)
-(Same requirements as `--enable-fips`)
-
+启动时强制使用符合 FIPS 标准的加密。
+（无法通过脚本代码禁用。）
+（要求同 `--enable-fips`）
 
