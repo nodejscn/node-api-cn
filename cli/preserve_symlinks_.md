@@ -2,16 +2,11 @@
 added: v6.3.0
 -->
 
-Instructs the module loader to preserve symbolic links when resolving and
-caching modules.
+当解析和缓存模块时，命令模块加载器保持符号连接。
 
-By default, when Node.js loads a module from a path that is symbolically linked
-to a different on-disk location, Node.js will dereference the link and use the
-actual on-disk "real path" of the module as both an identifier and as a root
-path to locate other dependency modules. In most cases, this default behavior
-is acceptable. However, when using symbolically linked peer dependencies, as
-illustrated in the example below, the default behavior causes an exception to
-be thrown if `moduleA` attempts to require `moduleB` as a peer dependency:
+默认情况下，当 Node.js 从一个被符号连接到另一块磁盘位置的路径加载一个模块时，Node.js 会解引用该连接，并使用模块的真实磁盘的实际路径，作为定位其他依赖模块的标识符和根路径。
+大多数情况下，默认行为是可接受的。
+但是，当使用符号连接的同行依赖，如下例子所描述的，如果 `moduleA` 试图引入 `moduleB` 作为一个同行依赖，默认行为就会抛出异常：
 
 ```text
 {appDir}
@@ -27,13 +22,8 @@ be thrown if `moduleA` attempts to require `moduleB` as a peer dependency:
      └── package.json
 ```
 
-The `--preserve-symlinks` command line flag instructs Node.js to use the
-symlink path for modules as opposed to the real path, allowing symbolically
-linked peer dependencies to be found.
+`--preserve-symlinks` 命令行标志命令 Node.js 使用模块的符号路径而不是真实路径，是符号连接的同行依赖能被找到。
 
-Note, however, that using `--preserve-symlinks` can have other side effects.
-Specifically, symbolically linked *native* modules can fail to load if those
-are linked from more than one location in the dependency tree (Node.js would
-see those as two separate modules and would attempt to load the module multiple
-times, causing an exception to be thrown).
-
+注意，使用 `--preserve-symlinks` 会有其他方面的影响。
+比如，如果符号连接的原生模块在依赖树里来自超过一个位置，它们会加载失败。
+（Node.js 会将它们视为两个独立的模块，且会试图多次加载模块，造成抛出异常。）
