@@ -2,6 +2,5 @@
 added: v0.8.0
 -->
 
-Silence deprecation warnings.
-
+静默废弃的警告。
 
