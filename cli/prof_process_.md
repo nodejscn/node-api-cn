@@ -2,6 +2,5 @@
 added: v6.0.0
 -->
 
-Process v8 profiler output generated using the v8 option `--prof`.
-
+处理 v8 分析器的输出，通过使用 v8 选项 `--prof` 生成。
 
