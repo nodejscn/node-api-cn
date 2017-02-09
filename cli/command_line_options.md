@@ -1,9 +1,8 @@
 
 <!--type=misc-->
 
-Node.js comes with a variety of CLI options. These options expose built-in
-debugging, multiple ways to execute scripts, and other helpful runtime options.
+Node.js 自带了各种命令行选项。
+这些选项对外暴露了内置调试、多种执行脚本的方式、以及其他有用的运行时选项。
 
-To view this documentation as a manual page in your terminal, run `man node`.
-
+要在终端中查看本文档作为操作手册，运行 `man node`。
 
