@@ -2,6 +2,5 @@
 added: v0.1.3
 -->
 
-Print node's version.
-
+打印 node 的版本号。
 
