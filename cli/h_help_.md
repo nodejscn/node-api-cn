@@ -2,7 +2,6 @@
 added: v0.1.3
 -->
 
-Print node command line options.
-The output of this option is less detailed than this document.
-
+打印 node 的命令行选项。
+此选项的输出不如本文档详细。
 
