@@ -2,5 +2,5 @@
 added: v6.0.0
 -->
 
-Print stack traces for process warnings (including deprecations).
+打印进程警告的堆栈跟踪（包括废弃警告）。
 
