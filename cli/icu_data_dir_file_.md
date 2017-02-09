@@ -2,5 +2,6 @@
 added: v0.11.15
 -->
 
-Specify ICU data load path. (overrides `NODE_ICU_DATA`)
+指定 ICU 数据的加载路径。
+（覆盖 `NODE_ICU_DATA`）
 
