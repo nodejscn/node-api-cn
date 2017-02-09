@@ -5,8 +5,7 @@
 
 `node --v8-options`
 
-Execute without arguments to start the [REPL][].
+执行时不带参数，会启动 [REPL]。
 
-_For more info about `node debug`, please see the [debugger][] documentation._
-
+关于 `node debug` 的更多信息，详见[调试器]文档。
 
