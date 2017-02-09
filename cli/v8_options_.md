@@ -2,10 +2,9 @@
 added: v0.1.3
 -->
 
-Print v8 command line options.
+打印 v8 命令行选项。
 
-Note: v8 options allow words to be separated by both dashes (`-`) or underscores
-(`_`).
+注意，v8 选项允许单词使用破折号（`-`）或下划线（`_`）分隔。
 
-For example, `--stack-trace-limit` is equivalent to `--stack_trace_limit`.
+例如，`--stack-trace-limit` 等同于 `--stack_trace_limit`。
 
