@@ -2,6 +2,5 @@
 added: v0.1.32
 -->
 
-`','`-separated list of core modules that should print debug information.
-
+以 `','` 分隔的应该打印调试信息的核心模块列表。
 
