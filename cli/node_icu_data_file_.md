@@ -2,7 +2,6 @@
 added: v0.11.15
 -->
 
-Data path for ICU (Intl object) data. Will extend linked-in data when compiled
-with small-icu support.
-
+ICU（Intl 对象）数据的数据路径。
+当使用 `small-icu` 编译时，扩展链接的数据。
 
