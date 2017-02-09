@@ -2,6 +2,5 @@
 added: v0.6.4
 -->
 
-Identical to `-e` but prints the result.
-
+与 `-e` 相同，但会打印结果。
 
