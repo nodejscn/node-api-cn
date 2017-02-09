@@ -2,13 +2,7 @@
 added: 6.4.0
 -->
 
-When set to `1`, writes to `stdout` and `stderr` will be non-blocking and
-asynchronous when outputting to a TTY on platforms which support async stdio.
-Setting this will void any guarantee that stdio will not be interleaved or
-dropped at program exit. **Use of this mode is not recommended.**
+当设为 `1` 时，当输出到一个支持异步输入输出的平台的 TTY 时，写入到 `stdout` 和 `stderr` 会是非阻塞与异步的。
+设置该值会使标准输入输出在程序退出时不会被交叉存取或丢弃。
+**不建议使用这个模式。**
 
-
-[Buffer]: buffer.html#buffer_buffer
-[debugger]: debugger.html
-[REPL]: repl.html
-[SlowBuffer]: buffer.html#buffer_class_slowbuffer
