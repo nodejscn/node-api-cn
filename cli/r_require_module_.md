@@ -2,9 +2,8 @@
 added: v1.6.0
 -->
 
-Preload the specified module at startup.
+在启动时预加载指定的模块。
 
-Follows `require()`'s module resolution
-rules. `module` may be either a path to a file, or a node module name.
-
+遵循 `require()` 的模块解析规则。
+`module` 可以是一个文件的路径，或一个 node 模块名称。
 
