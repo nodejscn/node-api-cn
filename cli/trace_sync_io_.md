@@ -2,7 +2,5 @@
 added: v2.1.0
 -->
 
-Prints a stack trace whenever synchronous I/O is detected after the first turn
-of the event loop.
-
+每当事件循环的第一帧之后检测到同步 I/O 时，打印堆栈跟踪。
 
