@@ -2,6 +2,5 @@
 added: v5.0.0
 -->
 
-Syntax check the script without executing.
-
+在不执行的情况下，对脚本进行语法检查。
 
