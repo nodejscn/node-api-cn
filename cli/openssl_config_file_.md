@@ -2,8 +2,6 @@
 added: v6.9.0
 -->
 
-Load an OpenSSL configuration file on startup. Among other uses, this can be
-used to enable FIPS-compliant crypto if Node.js is built with
-`./configure --openssl-fips`.
-
+启动时加载 OpenSSL 配置文件。
+在其他用途中，如果 Node.js 使用 `./configure --openssl-fips` 构建，它可以用于启用符合 FIPS 标准的加密。
 
