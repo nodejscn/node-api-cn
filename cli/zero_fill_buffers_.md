@@ -2,7 +2,5 @@
 added: v6.0.0
 -->
 
-Automatically zero-fills all newly allocated [Buffer][] and [SlowBuffer][]
-instances.
-
+自动用 0 填充所有新分配的 [Buffer] 和 [SlowBuffer] 实例。
 
