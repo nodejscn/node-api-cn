@@ -2,5 +2,5 @@
 added: v6.0.0
 -->
 
-Silence all process warnings (including deprecations).
+静默一切进程警告（包括废弃警告）。
 
