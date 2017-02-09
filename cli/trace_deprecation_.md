@@ -2,6 +2,5 @@
 added: v0.8.0
 -->
 
-Print stack traces for deprecations.
-
+打印废弃的堆栈跟踪。
 
