@@ -2,6 +2,5 @@
 added: v0.3.0
 -->
 
-When set to `1` colors will not be used in the REPL.
-
+当设为 `1` 时，不会在 REPL 中使用颜色。
 
