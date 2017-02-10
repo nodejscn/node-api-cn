@@ -1,6 +1,4 @@
 
-A timer in Node.js is an internal construct that calls a given function after
-a certain period of time. When a timer's function is called varies depending on
-which method was used to create the timer and what other work the Node.js
-event loop is doing.
+Node.js 中的计时器是一种会在一段时间后调用给定的函数的内部构造。
+定时器函数何时被调用取决于用来创建定时器的方法以及 Node.js 事件循环正在做的其他工作。
 
