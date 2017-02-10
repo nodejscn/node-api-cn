@@ -2,16 +2,7 @@
 added: v0.0.1
 -->
 
-* `timeout` {Timeout} A `Timeout` object as returned by [`setTimeout()`][].
+* `timeout` {Timeout} 一个 [`setTimeout()`] 返回的 `Timeout` 对象。 
 
-Cancels a `Timeout` object created by [`setTimeout()`][].
+取消一个由 [`setTimeout()`] 创建的 `Timeout` 对象。
 
-
-[the Node.js Event Loop]: https://github.com/nodejs/node/blob/master/doc/topics/event-loop-timers-and-nexttick.md
-[`TypeError`]: errors.html#errors_class_typeerror
-[`clearImmediate()`]: timers.html#timers_clearimmediate_immediate
-[`clearInterval()`]: timers.html#timers_clearinterval_timeout
-[`clearTimeout()`]: timers.html#timers_cleartimeout_timeout
-[`setImmediate()`]: timers.html#timers_setimmediate_callback_args
-[`setInterval()`]: timers.html#timers_setinterval_callback_delay_args
-[`setTimeout()`]: timers.html#timers_settimeout_callback_delay_args
