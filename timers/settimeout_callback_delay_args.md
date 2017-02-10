@@ -2,21 +2,18 @@
 added: v0.0.1
 -->
 
-* `callback` {Function} The function to call when the timer elapses.
-* `delay` {number} The number of milliseconds to wait before calling the
-  `callback`.
-* `...args` {any} Optional arguments to pass when the `callback` is called.
+* `callback` {Function} 当定时器到点时要调用的函数。
+* `delay` {number} 调用 `callback` 之前要等待的毫秒数。
+* `...args` {any} 当调用 `callback` 时要传入的可选参数。
 
-Schedules execution of a one-time `callback` after `delay` milliseconds.
-Returns a `Timeout` for use with [`clearTimeout()`][].
+预定在 `delay` 毫秒之后执行的单次 `callback`。
+返回一个用于 [`clearTimeout()`] 的 `Timeout`。
 
-The `callback` will likely not be invoked in precisely `delay` milliseconds.
-Node.js makes no guarantees about the exact timing of when callbacks will fire,
-nor of their ordering. The callback will be called as close as possible to the
-time specified.
+`callback` 可能不会精确地在 `delay` 毫秒被调用。
+Node.js 不能保证回调被触发的确切时间，也不能保证它们的顺序。
+回调会在尽可能接近所指定的时间上调用。
 
-*Note*: When `delay` is larger than `2147483647` or less than `1`, the `delay`
-will be set to `1`.
+注意：当 `delay` 大于 `2147483647` 或小于 `1` 时，`delay` 会被设为 `1`。
 
-If `callback` is not a function, a [`TypeError`][] will be thrown.
+如果 `callback` 不是一个函数，则抛出 [`TypeError`]。
 
