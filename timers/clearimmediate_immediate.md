@@ -2,8 +2,7 @@
 added: v0.9.1
 -->
 
-* `immediate` {Immediate} An `Immediate` object as returned by
-  [`setImmediate()`][].
+* `immediate` {Immediate} 一个 [`setImmediate()`] 返回的 `Immediate` 对象。 
 
-Cancels an `Immediate` object created by [`setImmediate()`][].
+取消一个由 [`setImmediate()`] 创建的 `Immediate` 对象。
 
