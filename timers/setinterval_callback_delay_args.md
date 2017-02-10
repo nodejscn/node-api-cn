@@ -2,16 +2,14 @@
 added: v0.0.1
 -->
 
-* `callback` {Function} The function to call when the timer elapses.
-* `delay` {number} The number of milliseconds to wait before calling the
-  `callback`.
-* `...args` {any} Optional arguments to pass when the `callback` is called.
+* `callback` {Function} 当定时器到点时要调用的函数。
+* `delay` {number} 调用 `callback` 之前要等待的毫秒数。
+* `...args` {any} 当调用 `callback` 时要传入的可选参数。
 
-Schedules repeated execution of `callback` every `delay` milliseconds.
-Returns a `Timeout` for use with [`clearInterval()`][].
+预定每隔 `delay` 毫秒重复执行的 `callback`。
+返回一个用于 [`clearInterval()`] 的 `Timeout`。
 
-When `delay` is larger than `2147483647` or less than `1`, the `delay` will be
-set to `1`.
+当 `delay` 大于 `2147483647` 或小于 `1` 时，`delay` 会被设为 `1`。
 
-If `callback` is not a function, a [`TypeError`][] will be thrown.
+如果 `callback` 不是一个函数，则抛出 [`TypeError`]。
 
