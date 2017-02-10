@@ -2,7 +2,7 @@
 added: v0.0.1
 -->
 
-* `timeout` {Timeout} A `Timeout` object as returned by [`setInterval()`][].
+* `timeout` {Timeout} 一个 [`setInterval()`] 返回的 `Timeout` 对象。 
 
-Cancels a `Timeout` object created by [`setInterval()`][].
+取消一个由 [`setInterval()`] 创建的 `Timeout` 对象。
 
