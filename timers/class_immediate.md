@@ -1,5 +1,4 @@
 
-This object is created internally and is returned from [`setImmediate()`][]. It
-can be passed to [`clearImmediate()`][] in order to cancel the scheduled
-actions.
+该对象是内部创建的，并从 [`setImmediate()`] 返回。
+它可以传给 [`clearImmediate()`] 以便取消预定的动作。
 
