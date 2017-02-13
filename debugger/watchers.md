@@ -1,10 +1,8 @@
 
-It is possible to watch expression and variable values while debugging. On
-every breakpoint, each expression from the watchers list will be evaluated
-in the current context and displayed immediately before the breakpoint's
-source code listing.
+可以在调试时监视表达式和变量的值。
+在每个断点上，监视器列表中的每个表达式都会在当前上下文中被执行，并在断点的源代码列表之前立即显示。
 
-To begin watching an expression, type `watch('my_expression')`. The command
-`watchers` will print the active watchers. To remove a watcher, type
-`unwatch('my_expression')`.
+输入 `watch('my_expression')` 开始监视一个表达式。
+`watchers` 命令会打印已激活的监视器。
+输入 `unwatch('my_expression')` 来移除一个监视器。
 
