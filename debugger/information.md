@@ -1,11 +1,9 @@
 
-* `backtrace`, `bt` - Print backtrace of current execution frame
-* `list(5)` - List scripts source code with 5 line context (5 lines before and
-after)
-* `watch(expr)` - Add expression to watch list
-* `unwatch(expr)` - Remove expression from watch list
-* `watchers` - List all watchers and their values (automatically listed on each
-breakpoint)
-* `repl` - Open debugger's repl for evaluation in debugging script's context
-* `exec expr` - Execute an expression in debugging script's context
+* `backtrace`, `bt` - 打印当前执行框架的回溯
+* `list(5)` - 列出脚本源代码的 5 行上下文（前后各 5 行）
+* `watch(expr)` - 添加表达式到监视列表
+* `unwatch(expr)` - 从监视列表移除表达式
+* `watchers` - 列出所有监视器和它们的值（每个断点会自动列出）
+* `repl` - 打开调试器的 repl，用于在所调试的脚本的上下文中进行执行
+* `exec expr` - 在所调试的脚本的上下文中执行一个表达式
 
