@@ -1,15 +1,12 @@
 
-**NOTE: This is an experimental feature.**
+**注意：这是一个试验的特性。**
 
-V8 Inspector integration allows attaching Chrome DevTools to Node.js
-instances for debugging and profiling.
+V8 的检查器集成可以附加 Chrome 的开发者工具到 Node.js 实例以用于调试和性能分析。
 
-V8 Inspector can be enabled by passing the `--inspect` flag when starting a
-Node.js application. It is also possible to supply a custom port with that flag,
-e.g. `--inspect=9222` will accept DevTools connections on port 9222.
+当启动一个 Node.js 应用时，V8 检查器可以通过传入 `--inspect` 标志启用。
+也可以通过该标志提供一个自定义的端口，如 `--inspect=9222` 会在 9222 端口接受开发者工具连接。
 
-To break on the first line of the application code, provide the `--debug-brk`
-flag in addition to `--inspect`.
+要想在应用代码的第一行断开，可以在除 `--inspect` 之外再提供 `--debug-brk` 标志。
 
 ```txt
 $ node --inspect index.js
@@ -19,4 +16,3 @@ To start debugging, open the following URL in Chrome:
     chrome-devtools://devtools/remote/serve_file/@60cd6e859b9f557d2312f5bf532f6aec5f284980/inspector.html?experiments=true&v8only=true&ws=localhost:9229/node
 ```
 
-[TCP-based protocol]: https://github.com/v8/v8/wiki/Debugging-Protocol
