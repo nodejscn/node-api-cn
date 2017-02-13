@@ -1,15 +1,11 @@
 
-* `setBreakpoint()`, `sb()` - Set breakpoint on current line
-* `setBreakpoint(line)`, `sb(line)` - Set breakpoint on specific line
-* `setBreakpoint('fn()')`, `sb(...)` - Set breakpoint on a first statement in
-functions body
-* `setBreakpoint('script.js', 1)`, `sb(...)` - Set breakpoint on first line of
-script.js
-* `clearBreakpoint('script.js', 1)`, `cb(...)` - Clear breakpoint in script.js
-on line 1
+* `setBreakpoint()`, `sb()` - 在当前行设置断点
+* `setBreakpoint(line)`, `sb(line)` - 在指定行设置断点
+* `setBreakpoint('fn()')`, `sb(...)` - 在函数体的第一条语句设置断点
+* `setBreakpoint('script.js', 1)`, `sb(...)` - 在 script.js 的第 1 行设置断点
+* `clearBreakpoint('script.js', 1)`, `cb(...)` - 清除 script.js 第 1 行的断点
 
-It is also possible to set a breakpoint in a file (module) that
-isn't loaded yet:
+也可以在一个还未被加载的文件（模块）中设置断点：
 
 ```txt
 $ node debug test/fixtures/break-in-module/main.js
