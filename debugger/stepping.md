@@ -1,7 +1,7 @@
 
-* `cont`, `c` - Continue execution
-* `next`, `n` - Step next
-* `step`, `s` - Step in
-* `out`, `o` - Step out
-* `pause` - Pause running code (like pause button in Developer Tools)
+* `cont`, `c` - 继续执行
+* `next`, `n` - 下一步
+* `step`, `s` - 跳进函数
+* `out`, `o` - 跳出函数
+* `pause` - 暂停运行代码（类似开发者工具中的暂停按钮）
 
