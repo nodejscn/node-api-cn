@@ -2,12 +2,11 @@
 added: v0.1.104
 -->
 
-Prints to `stderr` the string `'Trace :'`, followed by the [`util.format()`][]
-formatted message and stack trace to the current position in the code.
+打印字符串 `'Trace :'` 到 `stderr` ，并通过 [`util.format()`] 格式化消息与堆栈跟踪在代码中的当前位置。
 
 ```js
 console.trace('Show me');
-// Prints: (stack trace will vary based on where trace is called)
+// 打印: (堆栈跟踪会根据被调用的跟踪的位置而变化)
 //  Trace: Show me
 //    at repl:2:9
 //    at REPLServer.defaultEval (repl.js:248:27)
