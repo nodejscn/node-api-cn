@@ -1,33 +1,30 @@
 
-> Stability: 2 - Stable
+> 稳定性: 2 - 稳定的
 
-The `console` module provides a simple debugging console that is similar to the
-JavaScript console mechanism provided by web browsers.
+`console` 模块提供了一个简单的调试控制台，它与 Web 浏览器提供的 JavaScript 控制台的机制类似。
 
-The module exports two specific components:
+该模块导出两个特定组件：
 
-* A `Console` class with methods such as `console.log()`, `console.error()` and
-  `console.warn()` that can be used to write to any Node.js stream.
-* A global `console` instance configured to write to `stdout` and `stderr`.
-  Because this object is global, it can be used without calling
-  `require('console')`.
+* 一个 `Console` 类，包含 `console.log()` 、 `console.error()` 和 `console.warn()` 等方法，可以用于写入到任何 Node.js 流。
+* 一个全局的 `console` 实例，用于写入 `stdout` 和 `stderr`。
+  因为该对象是一个全局变量，所以使用时无需调用 `require('console')`。
 
-Example using the global `console`:
+例子：使用全局的 `console`：
 
 ```js
 console.log('hello world');
-// Prints: hello world, to stdout
+// 打印: hello world 到 stdout
 console.log('hello %s', 'world');
-// Prints: hello world, to stdout
-console.error(new Error('Whoops, something bad happened'));
-// Prints: [Error: Whoops, something bad happened], to stderr
+// 打印: hello world 到 stdout
+console.error(new Error('错误信息'));
+// 打印: [Error: 错误信息] 到 stderr
 
 const name = 'Will Robinson';
 console.warn(`Danger ${name}! Danger!`);
-// Prints: Danger Will Robinson! Danger!, to stderr
+// 打印: Danger Will Robinson! Danger! 到 stderr
 ```
 
-Example using the `Console` class:
+例子：使用 `Console` 类：
 
 ```js
 const out = getStreamSomehow();
@@ -35,18 +32,16 @@ const err = getStreamSomehow();
 const myConsole = new console.Console(out, err);
 
 myConsole.log('hello world');
-// Prints: hello world, to out
+// 打印: hello world 到 out
 myConsole.log('hello %s', 'world');
-// Prints: hello world, to out
-myConsole.error(new Error('Whoops, something bad happened'));
-// Prints: [Error: Whoops, something bad happened], to err
+// 打印: hello world 到 out
+myConsole.error(new Error('错误信息'));
+// 打印: [Error: 错误信息] 到 err
 
 const name = 'Will Robinson';
 myConsole.warn(`Danger ${name}! Danger!`);
-// Prints: Danger Will Robinson! Danger!, to err
+// 打印: Danger Will Robinson! Danger! 到 err
 ```
 
-While the API for the `Console` class is designed fundamentally around the
-browser `console` object, the `Console` in Node.js is *not* intended to
-duplicate the browser's functionality exactly.
+虽然 `Console` 类的 API 是根据浏览器的 `console` 对象设计的，但 Node.js 中的 `Console` 并没有完全复制浏览器中的功能。
 
