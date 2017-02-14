@@ -1,10 +1,7 @@
 
-The console functions are usually asynchronous unless the destination is a file.
-Disks are fast and operating systems normally employ write-back caching;
-it should be a very rare occurrence indeed that a write blocks, but it
-is possible.
+`console` 函数通常是异步的，除非目标是一个文件。
+带有高速磁盘的操作系统通常采用回写缓存；写入阻塞是一个非常罕见的情况，但存在可能性。
 
-Additionally, console functions are blocking when outputting to TTYs
-(terminals) on OS X as a workaround for the OS's very small, 1kb buffer size.
-This is to prevent interleaving between `stdout` and `stderr`.
+此外，当输出到 OS X 的 TTY（终端）时，因操作系统较小的 1kb 的缓存大小，`console` 函数会遭到阻塞。
+这是为了防止 `stdout` 和 `stderr` 的交叉存取。
 
