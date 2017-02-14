@@ -2,19 +2,18 @@
 added: v0.1.101
 -->
 
-Uses [`util.inspect()`][] on `obj` and prints the resulting string to `stdout`.
-This function bypasses any custom `inspect()` function defined on `obj`. An
-optional `options` object may be passed to alter certain aspects of the
-formatted string:
+在 `obj` 上使用 [`util.inspect()`] 并打印结果字符串到 `stdout`。
+该函数会绕过任何定义在 `obj` 上的自定义的 `inspect()` 函数。
+可选的 `options` 对象可以传入用于改变被格式化的字符串：
 
-- `showHidden` - if `true` then the object's non-enumerable and symbol
-properties will be shown too. Defaults to `false`.
+- `showHidden` - 如果为 `true`，则该对象中的不可枚举属性和 symbol 属性也会显示。默认为 `false`。
 
-- `depth` - tells [`util.inspect()`][] how many times to recurse while
-formatting the object. This is useful for inspecting large complicated objects.
-Defaults to `2`. To make it recurse indefinitely, pass `null`.
+- `depth` - 告诉 [`util.inspect()`] 函数当格式化对象时要递归多少次。
+这对于检查较大的复杂对象很有用。
+默认为 `2`。
+设为 `null` 可无限递归。
 
-- `colors` - if `true`, then the output will be styled with ANSI color codes.
-Defaults to `false`. Colors are customizable; see
-[customizing `util.inspect()` colors][].
+- `colors` - 如果为 `true`，则输出会带有 ANSI 颜色代码。
+默认为 `false`。
+颜色是可定制的，详见[定制 `util.inspect()` 颜色]。
 
