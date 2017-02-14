@@ -1,9 +1,7 @@
 
 <!--type=class-->
 
-The `Console` class can be used to create a simple logger with configurable
-output streams and can be accessed using either `require('console').Console`
-or `console.Console`:
+`Console` 类可用于创建一个具有可配置的输出流的简单记录器，可以通过 `require('console').Console` 或 `console.Console` 使用：
 
 ```js
 const Console = require('console').Console;
