@@ -2,36 +2,30 @@
 added: v0.1.101
 -->
 
-A simple assertion test that verifies whether `value` is truthy. If it is not,
-an `AssertionError` is thrown. If provided, the error `message` is formatted
-using [`util.format()`][] and used as the error message.
+一个简单的断言测试，验证 `value` 是否为真。
+如果不为真，则抛出 `AssertionError`。
+如果提供了 `message`，则使用 [`util.format()`] 格式化并作为错误信息使用。
 
 ```js
 console.assert(true, 'does nothing');
-// OK
+// 通过
 console.assert(false, 'Whoops %s', 'didn\'t work');
 // AssertionError: Whoops didn't work
 ```
 
-*Note: the `console.assert()` method is implemented differently in Node.js
-than the `console.assert()` method [available in browsers][web-api-assert].*
+注意：Node.js 中的 `console.assert()` 方法与[在浏览器中]的 `console.assert()` 方法的实现是不一样的。
 
-Specifically, in browsers, calling `console.assert()` with a falsy
-assertion will cause the `message` to be printed to the console without
-interrupting execution of subsequent code. In Node.js, however, a falsy
-assertion will cause an `AssertionError` to be thrown.
+具体地说，在浏览器中，用非真的断言调用 `console.assert()` 会导致 `message` 被打印到控制台但不会中断后续代码的执行。
+而在 Node.js 中，非真的断言会导致抛出 `AssertionError`。
 
-Functionality approximating that implemented by browsers can be implemented
-by extending Node.js' `console` and overriding the `console.assert()` method.
+可以通过扩展 Node.js 的 `console` 并重写 `console.assert()` 方法来实现与浏览器中类似的功能。
 
-In the following example, a simple module is created that extends and overrides
-the default behavior of `console` in Node.js.
+例子，创建一个简单的模块，并扩展与重写了 Node.js 中 `console` 的默认行为。
 
 ```js
 'use strict';
 
-// Creates a simple extension of console with a
-// new impl for assert without monkey-patching.
+// 用一个新的不带补丁的 assert 实现来创建一个简单的 console 扩展。
 const myConsole = Object.setPrototypeOf({
   assert(assertion, message, ...args) {
     try {
@@ -45,11 +39,11 @@ const myConsole = Object.setPrototypeOf({
 module.exports = myConsole;
 ```
 
-This can then be used as a direct replacement for the built in console:
+然后可以用来直接替换内置的 console：
 
 ```js
 const console = require('./myConsole');
-console.assert(false, 'this message will print, but no error thrown');
-console.log('this will also print');
+console.assert(false, '会打印这个消息，但不会抛出错误');
+console.log('这个也会打印');
 ```
 
