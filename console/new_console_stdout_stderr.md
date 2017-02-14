@@ -1,22 +1,23 @@
 
-Creates a new `Console` by passing one or two writable stream instances.
-`stdout` is a writable stream to print log or info output. `stderr`
-is used for warning or error output. If `stderr` isn't passed, warning and error
-output will be sent to `stdout`.
+通过传入一个或两个可写流实例，创建一个新的 `Console` 对象。
+`stdout` 是一个可写流，用于打印日志或输出信息。
+`stderr` 用于输出警告或错误。
+如果没有传入 `stderr` ，则警告或错误输出会被发送到 `stdout` 。
+
 
 ```js
 const output = fs.createWriteStream('./stdout.log');
 const errorOutput = fs.createWriteStream('./stderr.log');
-// custom simple logger
+// 自定义的简单记录器
 const logger = new Console(output, errorOutput);
-// use it like console
+// 像 console 一样使用
 var count = 5;
 logger.log('count: %d', count);
-// in stdout.log: count 5
+// stdout.log 中打印: count 5
 ```
 
-The global `console` is a special `Console` whose output is sent to
-[`process.stdout`][] and [`process.stderr`][]. It is equivalent to calling:
+全局的 `console` 是一个特殊的 `Console` 实例，它的输出会发送到 [`process.stdout`] 和 [`process.stderr`]。
+相当于调用：
 
 ```js
 new Console(process.stdout, process.stderr);
