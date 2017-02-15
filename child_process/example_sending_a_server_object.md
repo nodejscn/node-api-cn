@@ -1,37 +1,33 @@
 
-The `sendHandle` argument can be used, for instance, to pass the handle of
-a TCP server object to the child process as illustrated in the example below:
+`sendHandle` 参数可用于将一个 TCP server 对象句柄传给子进程，如下所示：
 
 ```js
 const child = require('child_process').fork('child.js');
 
-// Open up the server object and send the handle.
+// 开启 server 对象，并发送该句柄。
 const server = require('net').createServer();
 server.on('connection', (socket) => {
-  socket.end('handled by parent');
+  socket.end('被父进程处理');
 });
 server.listen(1337, () => {
   child.send('server', server);
 });
 ```
 
-The child would then receive the server object as:
+子进程接收 server 对象如下：
 
 ```js
 process.on('message', (m, server) => {
   if (m === 'server') {
     server.on('connection', (socket) => {
-      socket.end('handled by child');
+      socket.end('被子进程处理');
     });
   }
 });
 ```
 
-Once the server is now shared between the parent and child, some connections
-can be handled by the parent and some by the child.
+当服务器在父进程和子进程之间是共享的，则一些连接可被父进程处理，另一些可被子进程处理。
 
-While the example above uses a server created using the `net` module, `dgram`
-module servers use exactly the same workflow with the exceptions of listening on
-a `'message'` event instead of `'connection'` and using `server.bind()` instead of
-`server.listen()`. This is, however, currently only supported on UNIX platforms.
+上面的例子使用了一个 `net` 模块创建的服务器，而 `dgram` 模块的服务器使用完全相同的工作流程，但它监听一个 `'message'` 事件而不是 `'connection'` 事件，且使用 `server.bind` 而不是 `server.listen()`。
+目前仅 UNIX 平台支持这一点。
 
