@@ -2,31 +2,30 @@
 added: v0.1.90
 -->
 
-* `command` {String} The command to run
-* `args` {Array} List of string arguments
+* `command` {String} 要运行的命令
+* `args` {Array} 字符串参数列表
 * `options` {Object}
-  * `cwd` {String} Current working directory of the child process
-  * `env` {Object} Environment key-value pairs
-  * `argv0` {String} Explicitly set the value of `argv[0]` sent to the child
-    process. This will be set to `command` if not specified.
-  * `stdio` {Array|String} Child's stdio configuration. (See
-    [`options.stdio`][`stdio`])
-  * `detached` {Boolean} Prepare child to run independently of its parent
-    process. Specific behavior depends on the platform, see
-    [`options.detached`][])
-  * `uid` {Number} Sets the user identity of the process. (See setuid(2).)
-  * `gid` {Number} Sets the group identity of the process. (See setgid(2).)
-  * `shell` {Boolean|String} If `true`, runs `command` inside of a shell. Uses
-    `'/bin/sh'` on UNIX, and `'cmd.exe'` on Windows. A different shell can be
-    specified as a string. The shell should understand the `-c` switch on UNIX,
-    or `/s /c` on Windows. Defaults to `false` (no shell).
-* return: {ChildProcess}
+  * `cwd` {String} 子进程的当前工作目录
+  * `env` {Object} 环境变量键值对
+  * `argv0` {String} 显式地设置要发给子进程的 `argv[0]` 的值。
+    如果未指定，则设为 `command`。
+  * `stdio` {Array|String} 子进程的 stdio 配置。
+    （详见 [`options.stdio`]）
+  * `detached` {Boolean} 准备将子进程独立于父进程运行。
+    具体行为取决于平台。（详见 [`options.detached`]）
+  * `uid` {Number} 设置该进程的用户标识。（详见 setuid(2)）
+  * `gid` {Number} 设置该进程的组标识。（详见 setgid(2)）
+  * `shell` {Boolean|String} 如果为 `true`，则在一个 shell 中运行 `command`。
+    在 UNIX 上使用 `'/bin/sh'`，在 Windows 上使用 `'cmd.exe'`。
+    一个不同的 shell 可以被指定为字符串。
+    该 shell 应该理解 UNIX 上的 `-c` 开关、或 Windows 的 `/s /c`。
+    默认为 `false`（没有 shell）。
+* 返回: {ChildProcess}
 
-The `child_process.spawn()` method spawns a new process using the given
-`command`, with command line arguments in `args`. If omitted, `args` defaults
-to an empty array.
+`child_process.spawn()` 方法使用给定的 `command` 和 `args` 中的命令行参数来衍生一个新进程。
+如果省略 `args`，则默认为一个空数组。
 
-A third argument may be used to specify additional options, with these defaults:
+第三个参数可以用来指定额外的选项，默认如下：
 
 ```js
 {
@@ -35,14 +34,12 @@ A third argument may be used to specify additional options, with these defaults:
 }
 ```
 
-Use `cwd` to specify the working directory from which the process is spawned.
-If not given, the default is to inherit the current working directory.
+使用 `cwd` 来指定衍生的进程的工作目录。
+如果没有给出，则默认继承当前的工作目录。
 
-Use `env` to specify environment variables that will be visible to the new
-process, the default is [`process.env`][].
+使用 `env` 来指定环境变量，这会在新进程中可见，默认为 [`process.env`]。
 
-Example of running `ls -lh /usr`, capturing `stdout`, `stderr`, and the
-exit code:
+例子，运行 `ls -lh /usr`，捕获 `stdout`、`stderr`、以及退出码：
 
 ```js
 const spawn = require('child_process').spawn;
@@ -57,12 +54,11 @@ ls.stderr.on('data', (data) => {
 });
 
 ls.on('close', (code) => {
-  console.log(`child process exited with code ${code}`);
+  console.log(`子进程退出码：${code}`);
 });
 ```
 
-
-Example: A very elaborate way to run `ps ax | grep ssh`
+例子，一种执行 `'ps ax | grep ssh'` 的方法：
 
 ```js
 const spawn = require('child_process').spawn;
@@ -79,7 +75,7 @@ ps.stderr.on('data', (data) => {
 
 ps.on('close', (code) => {
   if (code !== 0) {
-    console.log(`ps process exited with code ${code}`);
+    console.log(`ps 进程退出码：${code}`);
   }
   grep.stdin.end();
 });
@@ -94,28 +90,23 @@ grep.stderr.on('data', (data) => {
 
 grep.on('close', (code) => {
   if (code !== 0) {
-    console.log(`grep process exited with code ${code}`);
+    console.log(`grep 进程退出码：${code}`);
   }
 });
 ```
 
-
-Example of checking for failed exec:
+例子，检测失败的执行：
 
 ```js
 const spawn = require('child_process').spawn;
 const child = spawn('bad_command');
 
 child.on('error', (err) => {
-  console.log('Failed to start child process.');
+  console.log('启动子进程失败。');
 });
 ```
 
-*Note: Certain platforms (OS X, Linux) will use the value of `argv[0]` for the
-process title while others (Windows, SunOS) will use `command`.*
+注意：某些平台（OS X, Linux）会使用 `argv[0]` 的值作为进程的标题，而其他平台（Windows, SunOS）则使用 `command`。
 
-*Note: Node.js currently overwrites `argv[0]` with `process.execPath` on
-startup, so `process.argv[0]` in a Node.js child process will not match the
-`argv0` parameter passed to `spawn` from the parent, retrieve it with the
-`process.argv0` property instead.*
+注意，Node.js 一般会在启动时用 `process.execPath` 重写 `argv[0]`，所以 Node.js 子进程中的 `process.argv[0]` 不会匹配从父进程传给 `spawn` 的 `argv0` 参数，可以使用 `process.argv0` 属性获取它。
 
