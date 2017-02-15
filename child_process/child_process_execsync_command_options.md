@@ -2,41 +2,31 @@
 added: v0.11.12
 -->
 
-* `command` {String} The command to run
+* `command` {String} 要运行的命令
 * `options` {Object}
-  * `cwd` {String} Current working directory of the child process
-  * `input` {String|Buffer} The value which will be passed as stdin to the
-    spawned process
-    - supplying this value will override `stdio[0]`
-  * `stdio` {String | Array} Child's stdio configuration. (Default: `'pipe'`)
-    - `stderr` by default will be output to the parent process' stderr unless
-      `stdio` is specified
-  * `env` {Object} Environment key-value pairs
-  * `shell` {String} Shell to execute the command with
-    (Default: `'/bin/sh'` on UNIX, `'cmd.exe'` on Windows, The shell should
-     understand the `-c` switch on UNIX or `/s /c` on Windows. On Windows,
-     command line parsing should be compatible with `cmd.exe`.)
-  * `uid` {Number} Sets the user identity of the process. (See setuid(2).)
-  * `gid` {Number} Sets the group identity of the process. (See setgid(2).)
-  * `timeout` {Number} In milliseconds the maximum amount of time the process
-    is allowed to run. (Default: `undefined`)
-  * `killSignal` {String} The signal value to be used when the spawned process
-    will be killed. (Default: `'SIGTERM'`)
-  * [`maxBuffer`][] {Number} largest amount of data (in bytes) allowed on
-    stdout or stderr - if exceeded child process is killed
-  * `encoding` {String} The encoding used for all stdio inputs and outputs.
-    (Default: `'buffer'`)
-* return: {Buffer|String} The stdout from the command
+  * `cwd` {String} 子进程的当前工作目录
+  * `input` {String|Buffer} 要作为 stdin 传给衍生进程的值
+    - 提供该值会覆盖 `stdio[0]`
+  * `stdio` {String | Array} 子进程的 stdio 配置。（默认: `'pipe'`）
+    - `stderr` 默认会输出到父进程中的 stderr，除非指定了 `stdio`
+  * `env` {Object} 环境变量键值对
+  * `shell` {String} 用于执行命令的 shell
+    （默认：在 UNIX 上为 `'/bin/sh'`，在 Windows 上为 `'cmd.exe'`。
+    该 shell 应该能够理解 UNIX 的 `-c` 开关或 Windows 的 `/s /c` 开关。
+    在 Windows 中，命令行的解析应与 `cmd.exe` 兼容。）
+  * `uid` {Number} 设置该进程的用户标识。（详见 setuid(2)）
+  * `gid` {Number} 设置该进程的组标识。（详见 setgid(2)）
+  * `timeout` {Number} 进程允许运行的最大时间数，以毫秒为单位。（默认: `undefined`）
+  * `killSignal` {String} 当衍生进程将被杀死时要使用的信号值。（默认: `'SIGTERM'`）
+  * [`maxBuffer`][] {Number} stdout 或 stderr 允许的最大数据量（以字节为单位）。
+    如果超过限制，则子进程会被终止
+  * `encoding` {String} 用于所有 stdio 输入和输出的编码。（默认: `'buffer'`）
+* 返回: {Buffer|String} 该命令的 stdout
 
-The `child_process.execSync()` method is generally identical to
-[`child_process.exec()`][] with the exception that the method will not return until
-the child process has fully closed. When a timeout has been encountered and
-`killSignal` is sent, the method won't return until the process has completely
-exited. *Note that if  the child process intercepts and handles the `SIGTERM`
-signal and doesn't exit, the parent process will wait until the child
-process has exited.*
+`child_process.execSync()` 方法与 [`child_process.exec()`] 基本相同，除了该方法直到子进程完全关闭后才返回。
+当遇到超时且发送了 `killSignal` 时，则该方法直到进程完全退出后才返回结果。
+注意，如果子进程拦截并处理了 `SIGTERM` 信号且没有退出，则父进程会一直等待直到子进程退出。
 
-If the process times out, or has a non-zero exit code, this method ***will***
-throw.  The [`Error`][] object will contain the entire result from
-[`child_process.spawnSync()`][]
+如果进程超时，或有一个非零的退出码，则该方法会抛出错误。
+[`Error`] 对象会包含从 [`child_process.spawnSync()`] 返回的整个结果。
 
