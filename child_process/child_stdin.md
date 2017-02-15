@@ -4,14 +4,12 @@ added: v0.1.90
 
 * {stream.Writable}
 
-A `Writable Stream` that represents the child process's `stdin`.
+一个代表子进程的 `stdin` 的可写流。
 
-*Note that if a child process waits to read all of its input, the child will not
-continue until this stream has been closed via `end()`.*
+注意，如果一个子进程正在等待读取所有的输入，则子进程不会继续直到流已通过 `end()` 关闭。
 
-If the child was spawned with `stdio[0]` set to anything other than `'pipe'`,
-then this will be `undefined`.
+如果子进程被衍生时 `stdio[0]` 被设为任何不是 `'pipe'` 的值，则这会是 `undefined`。
 
-`child.stdin` is an alias for `child.stdio[0]`. Both properties will refer to
-the same value.
+`child.stdin` 是 `child.stdio[0]` 的一个别名。
+这两个属性指向相同的值。
 
