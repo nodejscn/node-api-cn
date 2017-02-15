@@ -2,29 +2,28 @@
 added: v0.1.90
 -->
 
-* `command` {String} The command to run, with space-separated arguments
+* `command` {String} 要运行的命令，用空格分隔参数
 * `options` {Object}
-  * `cwd` {String} Current working directory of the child process
-  * `env` {Object} Environment key-value pairs
-  * `encoding` {String} (Default: `'utf8'`)
-  * `shell` {String} Shell to execute the command with
-    (Default: `'/bin/sh'` on UNIX, `'cmd.exe'` on Windows, The shell should
-     understand the `-c` switch on UNIX or `/s /c` on Windows. On Windows,
-     command line parsing should be compatible with `cmd.exe`.)
-  * `timeout` {Number} (Default: `0`)
-  * [`maxBuffer`][] {Number} largest amount of data (in bytes) allowed on
-    stdout or stderr - if exceeded child process is killed (Default: `200*1024`)
-  * `killSignal` {String} (Default: `'SIGTERM'`)
-  * `uid` {Number} Sets the user identity of the process. (See setuid(2).)
-  * `gid` {Number} Sets the group identity of the process. (See setgid(2).)
-* `callback` {Function} called with the output when process terminates
+  * `cwd` {String} 子进程的当前工作目录
+  * `env` {Object} 环境变量键值对
+  * `encoding` {String} （默认: `'utf8'`）
+  * `shell` {String} 用于执行命令的 shell
+    （默认：在 UNIX 上为 `'/bin/sh'`，在 Windows 上为 `'cmd.exe'`。
+    该 shell 应该能够理解 UNIX 的 `-c` 开关或 Windows 的 `/s /c` 开关。
+    在 Windows 中，命令行的解析应与 `cmd.exe` 兼容。）
+  * `timeout` {Number} （默认: `0`）
+  * [`maxBuffer`] {Number} stdout 或 stderr 允许的最大数据量（以字节为单位）。
+    如果超过限制，则子进程会被终止。（默认：`200*1024`）
+  * `killSignal` {String} （默认: `'SIGTERM'`）
+  * `uid` {Number} 设置该进程的用户标识。（详见 setuid(2)）
+  * `gid` {Number} 设置该进程的组标识。（详见 setgid(2)）
+* `callback` {Function} 当进程终止时调用，并带上输出。
   * `error` {Error}
   * `stdout` {String|Buffer}
   * `stderr` {String|Buffer}
-* Returns: {ChildProcess}
+* 返回: {ChildProcess}
 
-Spawns a shell then executes the `command` within that shell, buffering any
-generated output.
+衍生一个 shell，然后在 shell 中执行 `command`，且缓冲任何产生的输出。
 
 ```js
 const exec = require('child_process').exec;
@@ -38,22 +37,19 @@ exec('cat *.js bad_file | wc -l', (error, stdout, stderr) => {
 });
 ```
 
-If a `callback` function is provided, it is called with the arguments
-`(error, stdout, stderr)`. On success, `error` will be `null`.  On error,
-`error` will be an instance of [`Error`][]. The `error.code` property will be
-the exit code of the child process while `error.signal` will be set to the
-signal that terminated the process. Any exit code other than `0` is considered
-to be an error.
+如果提供了一个 `callback` 函数，则它被调用时会带上参数 `(error, stdout, stderr)`。
+当成功时，`error` 会是 `null`。
+当失败时，`error` 会是一个 [`Error`] 实例。
+`error.code` 属性会是子进程的退出码，`error.signal` 会被设为终止进程的信号。
+除 `0` 以外的任何退出码都被认为是一个错误。
 
-The `stdout` and `stderr` arguments passed to the callback will contain the
-stdout and stderr output of the child process. By default, Node.js will decode
-the output as UTF-8 and pass strings to the callback. The `encoding` option
-can be used to specify the character encoding used to decode the stdout and
-stderr output. If `encoding` is `'buffer'`, or an unrecognized character
-encoding, `Buffer` objects will be passed to the callback instead.
+传给回调的 `stdout` 和 `stderr` 参数会包含子进程的 stdout 和 stderr 的输出。
+默认情况下，Node.js 会解码输出为 UTF-8，并将字符串传给回调。
+`encoding` 选项可用于指定用于解码 stdout 和 stderr 输出的字符编码。
+如果 `encoding` 是 `'buffer'`、或一个无法识别的字符编码，则传入 `Buffer` 对象到回调函数。
 
-The `options` argument may be passed as the second argument to customize how
-the process is spawned. The default options are:
+`options` 参数可以作为第二个参数传入，用于自定义如何衍生进程。
+默认的选项是：
 
 ```js
 {
@@ -66,10 +62,7 @@ the process is spawned. The default options are:
 }
 ```
 
-If `timeout` is greater than `0`, the parent will send the the signal
-identified by the `killSignal` property (the default is `'SIGTERM'`) if the
-child runs longer than `timeout` milliseconds.
+如果 `timeout` 大于 `0`，当子进程运行超过 `timeout` 毫秒时，父进程就会发送由 `killSignal` 属性标识的信号（默认为 `'SIGTERM'`）。
 
-*Note: Unlike the exec(3) POSIX system call, `child_process.exec()` does not
-replace the existing process and uses a shell to execute the command.*
+注意：不像 POSIX 系统调用中的 exec(3)，`child_process.exec()` 不会替换现有的进程，且使用一个 shell 来执行命令。
 
