@@ -1,9 +1,8 @@
 
-> Stability: 2 - Stable
+> 稳定性: 2 - 稳定的
 
-The `child_process` module provides the ability to spawn child processes in
-a manner that is similar, but not identical, to popen(3). This capability
-is primarily provided by the [`child_process.spawn()`][] function:
+`child_process` 模块提供了衍生子进程的能力，它与 popen(3) 类似，但不完全相同。
+这个能力主要由 [`child_process.spawn()`] 函数提供：
 
 ```js
 const spawn = require('child_process').spawn;
@@ -18,40 +17,28 @@ ls.stderr.on('data', (data) => {
 });
 
 ls.on('close', (code) => {
-  console.log(`child process exited with code ${code}`);
+  console.log(`子进程退出码：${code}`);
 });
 ```
 
-By default, pipes for `stdin`, `stdout` and `stderr` are established between
-the parent Node.js process and the spawned child. It is possible to stream data
-through these pipes in a non-blocking way. *Note, however, that some programs
-use line-buffered I/O internally. While that does not affect Node.js, it can
-mean that data sent to the child process may not be immediately consumed.*
+默认情况下，在 Node.js 的父进程和衍生的子进程之间会建立 `stdin`、`stdout` 和 `stderr` 的管道。
+这使得数据可以以非阻塞的方式在这些管道流通。
+注意，有些程序会在内部使用行缓冲 I/O。
+虽然这并不影响 Node.js，但这意味着发送到子过程的数据可能无法被立即消费。
 
-The [`child_process.spawn()`][] method spawns the child process asynchronously,
-without blocking the Node.js event loop. The [`child_process.spawnSync()`][]
-function provides equivalent functionality in a synchronous manner that blocks
-the event loop until the spawned process either exits or is terminated.
+[`child_process.spawn()`] 方法会异步地衍生子进程，且不会阻塞 Node.js 的事件循环。
+[`child_process.spawnSync()`] 函数则以同步的方式提供了同样的功能，但会阻塞事件循环，直到衍生的子进程退出或终止。
 
-For convenience, the `child_process` module provides a handful of synchronous
-and asynchronous alternatives to [`child_process.spawn()`][] and
-[`child_process.spawnSync()`][].  *Note that each of these alternatives are
-implemented on top of [`child_process.spawn()`][] or [`child_process.spawnSync()`][].*
+为了方便起见，`child_process` 模块提供了一些同步和异步的替代方法用于  [`child_process.spawn()`] 和 [`child_process.spawnSync()`]。
+注意，每个替代方法都是在 [`child_process.spawn()`] 或 [`child_process.spawnSync()`] 的基础上实现的。
 
-  * [`child_process.exec()`][]: spawns a shell and runs a command within that shell,
-    passing the `stdout` and `stderr` to a callback function when complete.
-  * [`child_process.execFile()`][]: similar to [`child_process.exec()`][] except that
-    it spawns the command directly without first spawning a shell.
-  * [`child_process.fork()`][]: spawns a new Node.js process and invokes a
-    specified module with an IPC communication channel established that allows
-    sending messages between parent and child.
-  * [`child_process.execSync()`][]: a synchronous version of
-    [`child_process.exec()`][] that *will* block the Node.js event loop.
-  * [`child_process.execFileSync()`][]: a synchronous version of
-    [`child_process.execFile()`][] that *will* block the Node.js event loop.
 
-For certain use cases, such as automating shell scripts, the
-[synchronous counterparts][] may be more convenient. In many cases, however,
-the synchronous methods can have significant impact on performance due to
-stalling the event loop while spawned processes complete.
+  * [`child_process.exec()`]: 衍生一个 shell 并在 shell 上运行一个命令，当完成时会传入 `stdout` 和 `stderr` 到一个回调。
+  * [`child_process.execFile()`]: 和  [`child_process.exec()`] 类似，除了它直接衍生命令，且不用先衍生一个 shell。
+  * [`child_process.fork()`]: 衍生一个新的 Node.js 进程，并通过建立一个允许父进程和子进程之间相互发送信息的 IPC 通讯通道来调用一个指定的模块。
+  * [`child_process.execSync()`]: [`child_process.exec()`] 的一个同步版本，它会阻塞 Node.js 的事件循环。
+  * [`child_process.execFileSync()`]: [`child_process.execFile()`] 的一个同步版本，它会阻塞 Node.js 的事件循环。
+
+对于某些用例，如自动化的 shell 脚本，[同步的版本]可能更方便。
+大多数情况下，同步的方法会显著地影响性能，因为它拖延了事件循环直到衍生进程完成。
 
