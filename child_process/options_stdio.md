@@ -2,76 +2,57 @@
 added: v0.7.10
 -->
 
-The `options.stdio` option is used to configure the pipes that are established
-between the parent and child process. By default, the child's stdin, stdout,
-and stderr are redirected to corresponding [`child.stdin`][], [`child.stdout`][], and
-[`child.stderr`][] streams on the [`ChildProcess`][] object. This is equivalent to
-setting the `options.stdio` equal to `['pipe', 'pipe', 'pipe']`.
+`options.stdio` 选项用于配置子进程与父进程之间建立的管道。
+默认情况下，子进程的 stdin、 stdout 和 stderr 会重定向到 [`ChildProcess`] 对象上相应的 [`child.stdin`]、 [`child.stdout`] 和 [`child.stderr`] 流。
+这等同于将 `options.stdio` 设为 `['pipe', 'pipe', 'pipe']`。
 
-For convenience, `options.stdio` may be one of the following strings:
+为了方便起见，`options.stdio` 可以是以下字符串之一：
 
-* `'pipe'` - equivalent to `['pipe', 'pipe', 'pipe']` (the default)
-* `'ignore'` - equivalent to `['ignore', 'ignore', 'ignore']`
-* `'inherit'` - equivalent to `[process.stdin, process.stdout, process.stderr]`
-   or `[0,1,2]`
+* `'pipe'` - 等同于 `['pipe', 'pipe', 'pipe']` （默认）
+* `'ignore'` - 等同于 `['ignore', 'ignore', 'ignore']`
+* `'inherit'` - 等同于 `[process.stdin, process.stdout, process.stderr]` 或 `[0,1,2]`
 
-Otherwise, the value of `options.stdio` is an array where each index corresponds
-to an fd in the child. The fds 0, 1, and 2 correspond to stdin, stdout,
-and stderr, respectively. Additional fds can be specified to create additional
-pipes between the parent and child. The value is one of the following:
+另外，`option.stdio` 的值是一个每个索引都对应一个子进程 fd 的数组。
+fd 的 0、1 和 2 分别对应 stdin、stdout 和 stderr。
+额外的 fd 可以被指定来创建父进程和子进程之间的额外管道。
+该值是以下之一：
 
-1. `'pipe'` - Create a pipe between the child process and the parent process.
-   The parent end of the pipe is exposed to the parent as a property on the
-   `child_process` object as [`child.stdio[fd]`][`stdio`]. Pipes created for
-   fds 0 - 2 are also available as [`child.stdin`][], [`child.stdout`][]
-   and [`child.stderr`][], respectively.
-2. `'ipc'` - Create an IPC channel for passing messages/file descriptors
-   between parent and child. A [`ChildProcess`][] may have at most *one* IPC stdio
-   file descriptor. Setting this option enables the [`child.send()`][] method.
-   If the child writes JSON messages to this file descriptor, the
-   [`child.on('message')`][`'message'`] event handler will be triggered in the parent.
-   If the child is a Node.js process, the presence of an IPC channel will enable
-   [`process.send()`][], [`process.disconnect()`][], [`process.on('disconnect')`][], and
-   [`process.on('message')`] within the child.
-3. `'ignore'` - Instructs Node.js to ignore the fd in the child. While Node.js
-   will always open fds 0 - 2 for the processes it spawns, setting the fd to
-   `'ignore'` will cause Node.js to open `/dev/null` and attach it to the
-   child's fd.
-4. {Stream} object - Share a readable or writable stream that refers to a tty,
-   file, socket, or a pipe with the child process. The stream's underlying
-   file descriptor is duplicated in the child process to the fd that
-   corresponds to the index in the `stdio` array. Note that the stream must
-   have an underlying descriptor (file streams do not until the `'open'`
-   event has occurred).
-5. Positive integer - The integer value is interpreted as a file descriptor
-   that is is currently open in the parent process. It is shared with the child
-   process, similar to how {Stream} objects can be shared.
-6. `null`, `undefined` - Use default value. For stdio fds 0, 1 and 2 (in other
-   words, stdin, stdout, and stderr) a pipe is created. For fd 3 and up, the
-   default is `'ignore'`.
+1. `'pipe'` - 创建一个子进程和父进程之间的管道。
+    在管道的父端以 [`child.stdio[fd]`][`stdio`] 的形式作为 `child_process` 对象的一个属性暴露给父进程。
+    为 fd 创建的管道 0 - 2 也可分别作为 [`child.stdin`]、[`child.stdout`] 和 [`child.stderr`]。
+2. `'ipc'` - 创建一个用于父进程和子进程之间传递消息或文件描述符的 IPC 通道符。
+    一个 [`ChildProcess`] 最多只能有一个 IPC stdio 文件描述符。
+    设置该选项可启用 [`child.send()`] 方法。
+    如果子进程把 JSON 消息写入到该文件描述符，则 [`child.on('message')`] 事件句柄会被父进程触发。
+    如果子进程是一个 Node.js 进程，则一个已存在的 IPC 通道会在子进程中启用 [`process.send()`]、[`process.disconnect()`]、[`process.on('disconnect')`] 和 [`process.on('message')`]。
+3. `'ignore'` - 指示 Node.js 在子进程中忽略 fd。
+    由于 Node.js 总是会为它衍生的进程打开 fd 0 - 2，所以设置 fd 为 `'ignore'` 可以使 Node.js 打开 `/dev/null` 并将它附加到子进程的 fd 上。
+4. {Stream} 对象 - 共享一个指向子进程的 tty、文件、socket 或管道的可读或可写流。
+    流的底层文件描述符在子进程中是重复对应该 `stdio` 数组的索引的 fd。
+    注意，该流必须有一个底层描述符（文件流直到 `'open'` 事件发生才需要）。
+5. 正整数 - 整数值被解析为一个正在父进程中打开的文件描述符。
+    它和子进程共享，类似于 {Stream} 是如何被共享的。
+6. `null`, `undefined` - 使用默认值。
+    对于 stdio fd 0、1 和 2（换言之，stdin、stdout 和 stderr）而言是创建了一个管道。
+    对于 fd 3 及以上而言，默认值为 `'ignore'`。
 
-Example:
+例子：
 
 ```js
 const spawn = require('child_process').spawn;
 
-// Child will use parent's stdios
+// 子进程使用父进程的 stdios
 spawn('prg', [], { stdio: 'inherit' });
 
-// Spawn child sharing only stderr
+// 衍生的子进程只共享 stderr
 spawn('prg', [], { stdio: ['pipe', 'pipe', process.stderr] });
 
-// Open an extra fd=4, to interact with programs presenting a
-// startd-style interface.
+// 打开一个额外的 fd=4，用于与程序交互
 spawn('prg', [], { stdio: ['pipe', null, null, null, 'pipe'] });
 ```
 
-*It is worth noting that when an IPC channel is established between the
-parent and child processes, and the child is a Node.js process, the child
-is launched with the IPC channel unreferenced (using `unref()`) until the
-child registers an event handler for the [`process.on('disconnect')`][] event.
-This allows the child to exit normally without the process being held open
-by the open IPC channel.*
+注意，当在父进程和子进程之间建立了一个 IPC 通道，且子进程是一个 Node.js 进程，则子进程会带着未引用的 IPC 通道（使用 `unref()`）启动，直到子进程为 [`process.on('disconnect')`] 事件注册了一个事件句柄。
+这使得子进程可以在进程没有通过打开的 IPC 通道保持打开的情况下正常退出。
 
-See also: [`child_process.exec()`][] and [`child_process.fork()`][]
+详见 [`child_process.exec()`] 和 [`child_process.fork()`]。
 
