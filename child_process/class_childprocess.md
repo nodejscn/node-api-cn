@@ -2,11 +2,8 @@
 added: v2.2.0
 -->
 
-Instances of the `ChildProcess` class are [`EventEmitters`][`EventEmitter`] that represent
-spawned child processes.
+`ChildProcess` 类的实例是 [`EventEmitter`]，代表衍生的子进程。
 
-Instances of `ChildProcess` are not intended to be created directly. Rather,
-use the [`child_process.spawn()`][], [`child_process.exec()`][],
-[`child_process.execFile()`][], or [`child_process.fork()`][] methods to create
-instances of `ChildProcess`.
+`ChildProcess` 的实例不被直接创建。
+而是，使用 [`child_process.spawn()`]、[`child_process.exec()`]、[`child_process.execFile()`] 或 [`child_process.fork()`] 方法创建 `ChildProcess` 实例。
 
