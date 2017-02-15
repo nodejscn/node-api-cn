@@ -2,49 +2,38 @@
 added: v0.5.0
 -->
 
-* `modulePath` {String} The module to run in the child
-* `args` {Array} List of string arguments
+* `modulePath` {String} 要在子进程中运行的模块
+* `args` {Array} 字符串参数列表
 * `options` {Object}
-  * `cwd` {String} Current working directory of the child process
-  * `env` {Object} Environment key-value pairs
-  * `execPath` {String} Executable used to create the child process
-  * `execArgv` {Array} List of string arguments passed to the executable
-    (Default: `process.execArgv`)
-  * `silent` {Boolean} If `true`, stdin, stdout, and stderr of the child will be
-    piped to the parent, otherwise they will be inherited from the parent, see
-    the `'pipe'` and `'inherit'` options for [`child_process.spawn()`][]'s
-    [`stdio`][] for more details (Default: `false`)
-  * `stdio` {Array} Supports the array version of [`child_process.spawn()`][]'s
-    [`stdio`][] option. When this option is provided, it overrides `silent`.
-    The array must contain exactly one item with value `'ipc'` or an error will
-    be thrown. For instance `[0, 1, 2, 'ipc']`.
-  * `uid` {Number} Sets the user identity of the process. (See setuid(2).)
-  * `gid` {Number} Sets the group identity of the process. (See setgid(2).)
-* Returns: {ChildProcess}
+  * `cwd` {String} 子进程的当前工作目录
+  * `env` {Object} 环境变量键值对
+  * `execPath` {String} 用来创建子进程的执行路径
+  * `execArgv` {Array} 要传给执行路径的字符串参数列表
+    （默认: `process.execArgv`）
+  * `silent` {Boolean} 如果为 `true`，则子进程中的 stdin、 stdout 和 stderr 会被导流到父进程中，否则它们会继承自父进程，详见 [`child_process.spawn()`] 的 [`stdio`] 中的 `'pipe'` 和 `'inherit'` 选项。
+    （默认: `false`）
+  * `stdio` {Array} 支持 [`child_process.spawn()`] 的 [`stdio`] 选项的数组版本。
+    当提供了该选项，则它会覆盖 `silent`。
+    该数组必须包含一个值为 `'ipc'` 的子项，否则会抛出错误。
+    例如 `[0, 1, 2, 'ipc']`。
+  * `uid` {Number} 设置该进程的用户标识。（详见 setuid(2)）
+  * `gid` {Number} 设置该进程的组标识。（详见 setgid(2)）
+* 返回: {ChildProcess}
 
-The `child_process.fork()` method is a special case of
-[`child_process.spawn()`][] used specifically to spawn new Node.js processes.
-Like [`child_process.spawn()`][], a [`ChildProcess`][] object is returned. The returned
-[`ChildProcess`][] will have an additional communication channel built-in that
-allows messages to be passed back and forth between the parent and child. See
-[`child.send()`][] for details.
+`child_process.fork()` 方法是 [`child_process.spawn()`] 的一个特殊情况，专门用于衍生新的 Node.js 进程。
+跟 [`child_process.spawn()`] 一样返回一个 [`ChildProcess`] 对象。
+返回的 [`ChildProcess`] 会有一个额外的内置的通信通道，它允许消息在父进程和子进程之间来回传递。
+详见 [`child.send()`]。
 
-It is important to keep in mind that spawned Node.js child processes are
-independent of the parent with exception of the IPC communication channel
-that is established between the two. Each process has its own memory, with
-their own V8 instances. Because of the additional resource allocations
-required, spawning a large number of child Node.js processes is not
-recommended.
+衍生的 Node.js 子进程与两者之间建立的 IPC 通信信道的异常是独立于父进程的。
+每个进程都有自己的内存，使用自己的 V8 实例。
+由于需要额外的资源分配，因此不推荐衍生大量的 Node.js 进程。
 
-By default, `child_process.fork()` will spawn new Node.js instances using the
-[`process.execPath`][] of the parent process. The `execPath` property in the
-`options` object allows for an alternative execution path to be used.
+默认情况下，`child_process.fork()` 会使用父进程中的 [`process.execPath`] 衍生新的 Node.js 实例。
+`options` 对象中的 `execPath` 属性可以替换要使用的执行路径。
 
-Node.js processes launched with a custom `execPath` will communicate with the
-parent process using the file descriptor (fd) identified using the
-environment variable `NODE_CHANNEL_FD` on the child process. The input and
-output on this fd is expected to be line delimited JSON objects.
+使用自定义的 `execPath` 启动的 Node.js 进程，会使用子进程的环境变量 `NODE_CHANNEL_FD` 中指定的文件描述符（fd）与父进程通信。
+fd 上的输入和输出期望被分割成一行一行的 JSON 对象。
 
-*Note: Unlike the fork(2) POSIX system call, `child_process.fork()` does
-not clone the current process.*
+注意，不像 POSIX 系统回调中的 fork(2)，`child_process.fork()` 不会克隆当前进程。
 
