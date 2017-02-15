@@ -2,10 +2,9 @@
 added: v0.7.7
 -->
 
-* `code` {Number} the exit code if the child exited on its own.
-* `signal` {String} the signal by which the child process was terminated.
+* `code` {Number} 如果子进程退出自身，则该值是退出码。
+* `signal` {String} 子进程被终止时的信号。
 
-The `'close'` event is emitted when the stdio streams of a child process have
-been closed. This is distinct from the [`'exit'`][] event, since multiple
-processes might share the same stdio streams.
+当子进程的 stdio 流被关闭时会触发 `'close'` 事件。
+这与 [`'exit'`] 事件不同，因为多个进程可能共享同一 stdio 流。
 
