@@ -2,9 +2,8 @@
 added: v0.7.2
 -->
 
-* {Boolean} Set to `false` after `child.disconnect()` is called
+* {Boolean} 调用 `child.disconnect()` 后会被设为 `false`
 
-The `child.connected` property indicates whether it is still possible to send
-and receive messages from a child process. When `child.connected` is `false`, it
-is no longer possible to send or receive messages.
+`child.connected` 属性表明是否仍可以从一个子进程发送和接收消息。
+当 `child.connected` 为 `false` 时，则不能再发送或接收的消息。
 
