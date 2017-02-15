@@ -2,17 +2,17 @@
 added: v0.1.90
 -->
 
-* {Number} Integer
+* {Number} 整数
 
-Returns the process identifier (PID) of the child process.
+返回子进程的进程标识（PID）。
 
-Example:
+例子：
 
 ```js
 const spawn = require('child_process').spawn;
 const grep = spawn('grep', ['ssh']);
 
-console.log(`Spawned child pid: ${grep.pid}`);
+console.log(`衍生的子进程的 pid：${grep.pid}`);
 grep.stdin.end();
 ```
 
