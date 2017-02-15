@@ -4,38 +4,32 @@ added: v0.1.90
 
 * `signal` {String}
 
-The `child.kill()` methods sends a signal to the child process. If no argument
-is given, the process will be sent the `'SIGTERM'` signal. See signal(7) for
-a list of available signals.
+`child.kill()` 方法向子进程发送一个信号。
+如果没有给定参数，则进程会发送 `'SIGTERM'` 信号。
+查看 signal(7) 了解可用的信号列表。
 
 ```js
 const spawn = require('child_process').spawn;
 const grep = spawn('grep', ['ssh']);
 
 grep.on('close', (code, signal) => {
-  console.log(
-    `child process terminated due to receipt of signal ${signal}`);
+  console.log(`子进程收到信号 ${signal} 而终止`);
 });
 
-// Send SIGHUP to process
+// 发送 SIGHUP 到进程
 grep.kill('SIGHUP');
 ```
 
-The [`ChildProcess`][] object may emit an [`'error'`][] event if the signal cannot be
-delivered. Sending a signal to a child process that has already exited is not
-an error but may have unforeseen consequences. Specifically, if the process
-identifier (PID) has been reassigned to another process, the signal will be
-delivered to that process instead which can have unexpected results.
+如果信号没有被送达，[`ChildProcess`] 对象可能会触发一个 [`'error'`] 事件。
+向一个已经退出的子进程发送信号不是一个错误，但可能有无法预知的后果。
+特别是，如果进程的 PID 已经重新分配给其他进程，则信号会被发送到该进程，从而可能有意想不到的结果。
 
-Note that while the function is called `kill`, the signal delivered to the
-child process may not actually terminate the process.
+注意，当函数被调用 `kill` 时，已发送到子进程的信号可能没有实际终止该进程。
 
-See kill(2) for reference.
+详见 kill(2)。
 
-Also note: on Linux, child processes of child processes will not be terminated
-when attempting to kill their parent. This is likely to happen when running a
-new process in a shell or with use of the `shell` option of `ChildProcess`, such
-as in this example:
+注意：在 Linux 上，当试图杀死父进程时，子进程的子进程不会被终止。
+这有可能发生在当在一个 shell 中运行一个新进程时，或使用 `ChildProcess` 中的 `shell` 选项时，例如：
 
 ```js
 'use strict';
@@ -50,7 +44,7 @@ let child = spawn('sh', ['-c',
   });
 
 setTimeout(() => {
-  child.kill(); // does not terminate the node process in the shell
+  child.kill(); // 不会终止 shell 中的 node 进程
 }, 2000);
 ```
 
