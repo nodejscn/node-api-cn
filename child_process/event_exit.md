@@ -2,21 +2,18 @@
 added: v0.1.90
 -->
 
-* `code` {Number} the exit code if the child exited on its own.
-* `signal` {String} the signal by which the child process was terminated.
+* `code` {Number} 如果子进程退出自身，则该值是退出码。
+* `signal` {String} 子进程被终止时的信号。
 
-The `'exit'` event is emitted after the child process ends. If the process
-exited, `code` is the final exit code of the process, otherwise `null`. If the
-process terminated due to receipt of a signal, `signal` is the string name of
-the signal, otherwise `null`. One of the two will always be non-null.
+子进程结束后会触发 `'exit'` 事件。
+如果进程退出了，则 `code` 是进程的最终退出码，否则为 `null`。
+如果进程是收到的信号而终止的，则 `signal` 是信号的字符串名称，否则为 `null`。
+这两个总有一个是非空的。
 
-Note that when the `'exit'` event is triggered, child process stdio streams
-might still be open.
+注意，当 `'exit'` 事件被触发时，子进程的 stdio 流可能依然是打开的。
 
-Also, note that Node.js establishes signal handlers for `SIGINT` and
-`SIGTERM` and Node.js processes will not terminate immediately due to receipt
-of those signals. Rather, Node.js will perform a sequence of cleanup actions
-and then will re-raise the handled signal.
+另外，还要注意，Node.js 建立了 `SIGINT` 和 `SIGTERM` 的信号处理程序，且 Node.js 进程收到这些信号也不会立即终止。
+相反，Node.js 会执行一系列的清理操作后重新引发处理信号。
 
-See waitpid(2).
+详见 waitpid(2)。
 
