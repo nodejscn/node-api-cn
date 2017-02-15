@@ -2,8 +2,6 @@
 added: v0.7.2
 -->
 
-The `'disconnect'` event is emitted after calling the
-[`child.disconnect()`][] method in parent process or [`process.disconnect()`][] in child process. After
-disconnecting it is no longer possible to send or receive messages, and the
-[`child.connected`][] property is `false`.
+在父进程中调用 [`child.disconnect()`] 或在子进程中调用 [`process.disconnect()`] 后会触发 `'disconnect'` 事件。
+断开后就不能再发送或接收信息，且 [`child.connected`] 属性会被设为 `false`。
 
