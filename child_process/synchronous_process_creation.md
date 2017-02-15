@@ -1,10 +1,5 @@
 
-The [`child_process.spawnSync()`][], [`child_process.execSync()`][], and
-[`child_process.execFileSync()`][] methods are **synchronous** and **WILL** block
-the Node.js event loop, pausing execution of any additional code until the
-spawned process exits.
+[`child_process.spawnSync()`]、[`child_process.execSync()`] 和 [`child_process.execFileSync()`] 方法是**同步的**且**会**阻塞 Node.js 的事件循环，暂停任何额外代码的执行直到衍生的进程退出。
 
-Blocking calls like these are mostly useful for simplifying general purpose
-scripting tasks and for simplifying the loading/processing of application
-configuration at startup.
+像这样的阻塞调用有利于简化普通用途的脚本任务，且启动时有利于简化应用配置的加载/处理。
 
