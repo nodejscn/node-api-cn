@@ -1,14 +1,8 @@
 
-The [`child_process.spawn()`][], [`child_process.fork()`][], [`child_process.exec()`][],
-and [`child_process.execFile()`][] methods all follow the idiomatic asynchronous
-programming pattern typical of other Node.js APIs.
+[`child_process.spawn()`]、[`child_process.fork()`]、[`child_process.exec()`] 和 [`child_process.execFile()`] 方法都遵循与其他 Node.js API 一样的惯用的异步编程模式。
 
-Each of the methods returns a [`ChildProcess`][] instance. These objects
-implement the Node.js [`EventEmitter`][] API, allowing the parent process to
-register listener functions that are called when certain events occur during
-the life cycle of the child process.
+每个方法都返回一个 [`ChildProcess`] 实例。
+这些对象实现了 Node.js [`EventEmitter`] 的 API，允许父进程注册监听器函数，在子进程生命周期期间，当特定的事件发生时会调用这些函数。
 
-The [`child_process.exec()`][] and [`child_process.execFile()`][] methods additionally
-allow for an optional `callback` function to be specified that is invoked
-when the child process terminates.
+[`child_process.exec()`] 和 [`child_process.execFile()`] 返回可以额外指定一个可选的 `callback` 函数，当子进程结束时会被调用。
 
