@@ -4,11 +4,10 @@ added: v0.1.90
 
 * {stream.Readable}
 
-A `Readable Stream` that represents the child process's `stdout`.
+一个代表子进程的 `stdout` 的可读流。
 
-If the child was spawned with `stdio[1]` set to anything other than `'pipe'`,
-then this will be `undefined`.
+如果子进程被衍生时 `stdio[1]` 被设为任何不是 `'pipe'` 的值，则这会是 `undefined`。
 
-`child.stdout` is an alias for `child.stdio[1]`. Both properties will refer
-to the same value.
+`child.stdout` 是 `child.stdio[1]` 的一个别名。
+这两个属性指向相同的值。
 
