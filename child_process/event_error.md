@@ -1,15 +1,16 @@
 
-* `err` {Error} the error.
+* `err` {Error} 错误对象。
 
-The `'error'` event is emitted whenever:
+每当出现以下情况时触发 `'error'` 事件：
 
-1. The process could not be spawned, or
-2. The process could not be killed, or
-3. Sending a message to the child process failed.
+1. 进程无法被衍生；
 
-Note that the `'exit'` event may or may not fire after an error has occurred.
-If you are listening to both the `'exit'` and `'error'` events, it is important
-to guard against accidentally invoking handler functions multiple times.
+2. 进程无法被杀死；
 
-See also [`child.kill()`][] and [`child.send()`][].
+3. 向子进程发送信息失败。
+
+注意，在错误发生后，`'exit'` 事件可能会也可能不会触发。
+如果你同时监听了 `'exit'` 和 `'error'` 事件，谨防处理函数被多次调用。
+
+详见 [`child.kill()`] 和 [`child.send()`]。
 
