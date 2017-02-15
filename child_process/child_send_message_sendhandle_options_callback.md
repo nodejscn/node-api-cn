@@ -6,71 +6,58 @@ added: v0.5.9
 * `sendHandle` {Handle}
 * `options` {Object}
 * `callback` {Function}
-* Returns: {Boolean}
+* 返回: {Boolean}
 
-When an IPC channel has been established between the parent and child (
-i.e. when using [`child_process.fork()`][]), the `child.send()` method can be
-used to send messages to the child process. When the child process is a Node.js
-instance, these messages can be received via the [`process.on('message')`][] event.
+当父进程和子进程之间建立了一个 IPC 通道时（例如，使用 [`child_process.fork()`]），`child.send()` 方法可用于发送消息到子进程。
+当子进程是一个 Node.js 实例时，消息可以通过 [`process.on('message')`] 事件接收。
 
-For example, in the parent script:
+例子，父进程脚本如下：
 
 ```js
 const cp = require('child_process');
 const n = cp.fork(`${__dirname}/sub.js`);
 
 n.on('message', (m) => {
-  console.log('PARENT got message:', m);
+  console.log('父进程收到消息：', m);
 });
 
 n.send({ hello: 'world' });
 ```
 
-And then the child script, `'sub.js'` might look like this:
+然后是子进程脚本，`'sub.js'` 可能看上去像这样：
 
 ```js
 process.on('message', (m) => {
-  console.log('CHILD got message:', m);
+  console.log('子进程收到消息：', m);
 });
 
 process.send({ foo: 'bar' });
 ```
 
-Child Node.js processes will have a [`process.send()`][] method of their own that
-allows the child to send messages back to the parent.
+Node.js 中的子进程有一个自己的 [`process.send()`] 方法，允许子进程发送消息回父进程。
 
-There is a special case when sending a `{cmd: 'NODE_foo'}` message. All messages
-containing a `NODE_` prefix in its `cmd` property are considered to be reserved
-for use within Node.js core and will not be emitted in the child's
-[`process.on('message')`][] event. Rather, such messages are emitted using the
-`process.on('internalMessage')` event and are consumed internally by Node.js.
-Applications should avoid using such messages or listening for
-`'internalMessage'` events as it is subject to change without notice.
+当发送一个 `{cmd: 'NODE_foo'}` 消息时，是一个特例。
+所有在 `cmd` 属性里包含一个 `NODE_` 前缀的都会被认为是预留给 Node.js 核心代码内部使用的，且不会触发子进程的 [`process.on('message')`] 事件。
+而是，这种消息可使用 `process.on('internalMessage')` 事件触发，且被 Node.js 内部消费。
+应用程序应避免使用这种消息或监听 `'internalMessage'` 事件。
 
-The optional `sendHandle` argument that may be passed to `child.send()` is for
-passing a TCP server or socket object to the child process. The child will
-receive the object as the second argument passed to the callback function
-registered on the [`process.on('message')`][] event. Any data that is received
-and buffered in the socket will not be sent to the child.
+可选的 `sendHandle` 参数可能被传给 `child.send()`，它用于传入一个 TCP 服务器或 socket 对象给子进程。
+子进程会接收对象作为第二个参数，并传给注册在 [`process.on('message')`] 事件上的回调函数。
+socket 上接收或缓冲的任何数据不会被发送给子进程。
 
-The `options` argument, if present, is an object used to parameterize the
-sending of certain types of handles. `options` supports the following
-properties:
+`options` 参数，如果存在的话，是一个用于处理发送数据参数对象。`options` 支持以下属性：
 
-  * `keepOpen` - A Boolean value that can be used when passing instances of
-    `net.Socket`. When `true`, the socket is kept open in the sending process.
-    Defaults to `false`.
+  * `keepOpen` - 一个 Boolean 值，当传入 `net.Socket` 实例时可用。
+    当为 `true` 时，socket 在发送进程中保持打开。
+    默认为 `false`。
 
-The optional `callback` is a function that is invoked after the message is
-sent but before the child may have received it.  The function is called with a
-single argument: `null` on success, or an [`Error`][] object on failure.
+可选的 `callback` 是一个函数，它在消息发送之后、子进程收到消息之前被调用。
+该函数被调用时只有一个参数：成功时是 `null`，失败时是一个 [`Error`] 对象。
 
-If no `callback` function is provided and the message cannot be sent, an
-`'error'` event will be emitted by the [`ChildProcess`][] object. This can happen,
-for instance, when the child process has already exited.
+如果没有提供 `callback` 函数，且消息没被发送，则一个 `'error'` 事件将被 [`ChildProcess`] 对象触发。
+这是有可能发生的，例如当子进程已经退出时。
 
-`child.send()` will return `false` if the channel has closed or when the
-backlog of unsent messages exceeds a threshold that makes it unwise to send
-more. Otherwise, the method returns `true`. The `callback` function can be
-used to implement flow control.
+如果通道已关闭，或当未发送的消息的积压超过阈值使其无法发送更多时，`child.send()` 会返回 `false`。
+除此以外，该方法返回 `true`。
+`callback` 函数可用于实现流量控制。
 
