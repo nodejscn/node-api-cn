@@ -4,11 +4,10 @@ added: v0.1.90
 
 * {stream.Readable}
 
-A `Readable Stream` that represents the child process's `stderr`.
+一个代表子进程的 `stderr` 的可读流。
 
-If the child was spawned with `stdio[2]` set to anything other than `'pipe'`,
-then this will be `undefined`.
+如果子进程被衍生时 `stdio[2]` 被设为任何不是 `'pipe'` 的值，则这会是 `undefined`。
 
-`child.stderr` is an alias for `child.stdio[2]`. Both properties will refer to
-the same value.
+`child.stderr` 是 `child.stdio[2]` 的一个别名。
+这两个属性指向相同的值。
 
