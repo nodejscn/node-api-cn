@@ -1,15 +1,13 @@
 
-A subclass of `Error` that indicates that a provided argument was not within the
-set or range of acceptable values for a function; whether that is a numeric
-range, or outside the set of options for a given function parameter.
+`Error` 的一个子类，表明一个函数的一个给定的参数的值不在可接受的集合或范围内；
+无论是一个数字范围还是给定函数参数的选项的集合。
 
-For example:
+例子：
 
 ```js
 require('net').connect(-1);
-  // throws RangeError, port should be > 0 && < 65536
+  // 抛出 RangeError，端口应该是 > 0 && < 65536
 ```
 
-Node.js will generate and throw `RangeError` instances *immediately* as a form
-of argument validation.
+Node.js 会生成并以参数校验的形式立即抛出 `RangeError` 实例。
 
