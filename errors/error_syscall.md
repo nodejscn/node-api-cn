@@ -1,3 +1,3 @@
 
-Returns a string describing the [syscall][] that failed.
+返回一个描述失败的[系统调用]的字符串。
 
