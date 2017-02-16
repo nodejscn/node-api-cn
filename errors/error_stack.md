@@ -1,8 +1,7 @@
 
-Returns a string describing the point in the code at which the `Error` was
-instantiated.
+返回一个字符串，描述代码中 `Error` 被实例化的位置。
 
-For example:
+例子：
 
 ```txt
 Error: Things keep happening!
@@ -12,33 +11,27 @@ Error: Things keep happening!
    at increaseSynergy (/home/gbusey/actors.js:701:6)
 ```
 
-The first line is formatted as `<error class name>: <error message>`, and
-is followed by a series of stack frames (each line beginning with "at ").
-Each frame describes a call site within the code that lead to the error being
-generated. V8 attempts to display a name for each function (by variable name,
-function name, or object method name), but occasionally it will not be able to
-find a suitable name. If V8 cannot determine a name for the function, only
-location information will be displayed for that frame. Otherwise, the
-determined function name will be displayed with location information appended
-in parentheses.
+第一行会被格式化为 `<error class name>: <error message>`，且带上一系列栈帧（每一行都以 "at " 开头）。
+每一帧描述了一个代码中导致错误生成的调用点。
+V8 引擎会试图显示每个函数的名称（变量名、函数名、或对象的方法名），但偶尔也可能找不到一个合适的名称。
+如果 V8 引擎没法确定一个函数的名称，则只显示帧的位置信息。
+否则，在位置信息的旁边会显示明确的函数名。
 
-It is important to note that frames are **only** generated for JavaScript
-functions. If, for example, execution synchronously passes through a C++ addon
-function called `cheetahify`, which itself calls a JavaScript function, the
-frame representing the `cheetahify` call will **not** be present in the stack
-traces:
+注意，帧只由 JavaScript 函数产生。
+例如，同步地执行一个名为 `cheetahify` 的 C++ 插件，且插件自身调用一个 JavaScript 函数，代表 `cheetahify` 回调的栈帧不会出现在堆栈跟踪里：
+
 
 ```js
 const cheetahify = require('./native-binding.node');
 
 function makeFaster() {
-  // cheetahify *synchronously* calls speedy.
+  // cheetahify 同步地调用 speedy.
   cheetahify(function speedy() {
     throw new Error('oh no!');
   });
 }
 
-makeFaster(); // will throw:
+makeFaster(); // 会抛出：
   // /home/gbusey/file.js:6
   //     throw new Error('oh no!');
   //           ^
@@ -55,21 +48,15 @@ makeFaster(); // will throw:
   //     at node.js:906:3
 ```
 
-The location information will be one of:
+位置信息会是其中之一：
 
-* `native`, if the frame represents a call internal to V8 (as in `[].forEach`).
-* `plain-filename.js:line:column`, if the frame represents a call internal
-   to Node.js.
-* `/absolute/path/to/file.js:line:column`, if the frame represents a call in
-  a user program, or its dependencies.
+* `native`，帧表示一个 V8 引擎内部的调用（比如，`[].forEach`）。
+* `plain-filename.js:line:column`，帧表示一个 Node.js 内部的调用。
+* `/absolute/path/to/file.js:line:column`，帧表示一个用户程序或其依赖的调用。
 
-The string representing the stack trace is lazily generated when the
-`error.stack` property is **accessed**.
+代表堆栈跟踪的字符串是在 `error.stack` 属性被访问时才生成的。
 
-The number of frames captured by the stack trace is bounded by the smaller of
-`Error.stackTraceLimit` or the number of available frames on the current event
-loop tick.
+堆栈跟踪捕获的帧的数量是由 `Error.stackTraceLimit` 或当前事件循环中可用的帧数量的最小值界定的。
 
-System-level errors are generated as augmented `Error` instances, which are
-detailed [here](#errors_system_errors).
+系统级的错误是由扩展的 `Error` 实例产生的，详见[系统错误]。
 
