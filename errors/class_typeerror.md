@@ -1,13 +1,11 @@
 
-A subclass of `Error` that indicates that a provided argument is not an
-allowable type. For example, passing a function to a parameter which expects a
-string would be considered a TypeError.
+`Error` 的一个子类，表明提供的参数不是一个被允许的类型。
+例如，将一个函数传给一个期望字符串的参数会被视为一个 `TypeError`。
 
 ```js
 require('url').parse(() => { });
-  // throws TypeError, since it expected a string
+  // 抛出 TypeError，因为它期望的是一个字符串
 ```
 
-Node.js will generate and throw `TypeError` instances *immediately* as a form
-of argument validation.
+Node.js 会生成并以参数校验的形式立即抛出 `TypeError` 实例。
 
