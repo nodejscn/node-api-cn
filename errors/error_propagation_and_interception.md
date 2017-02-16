@@ -1,100 +1,76 @@
 
 <!--type=misc-->
 
-Node.js supports several mechanisms for propagating and handling errors that
-occur while an application is running. How these errors are reported and
-handled depends entirely on the type of Error and the style of the API that is
-called.
+Node.js 支持几种当应用程序运行时发生的错误的冒泡和处理的机制。
+如何报告和处理这些错误完全取决于错误的类型和被调用的 API 的风格。
 
-All JavaScript errors are handled as exceptions that *immediately* generate
-and throw an error using the standard JavaScript `throw` mechanism. These
-are handled using the [`try / catch` construct][try-catch] provided by the JavaScript
-language.
+所有 JavaScript 错误都会被作为异常处理，异常会立即产生并使用标准的 JavaScript `throw` 机制抛出一个错误。
+这些都是使用 JavaScript 语言提供的 [`try / catch` 语句]处理的。
+
 
 ```js
-// Throws with a ReferenceError because z is undefined
+// 抛出一个 ReferenceError，因为 z 为 undefined
 try {
   const m = 1;
   const n = m + z;
 } catch (err) {
-  // Handle the error here.
+  // 在这里处理错误。
 }
 ```
 
-Any use of the JavaScript `throw` mechanism will raise an exception that
-*must* be handled using `try / catch` or the Node.js process will exit
-immediately.
+JavaScript 的 `throw` 机制的任何使用都会引起异常，异常必须使用 `try / catch` 处理，否则 Node.js 进程会立即退出。
 
-With few exceptions, _Synchronous_ APIs (any blocking method that does not
-accept a `callback` function, such as [`fs.readFileSync`][]), will use `throw`
-to report errors.
+除了少数例外，同步的 API（任何不接受 `callback` 函数的阻塞方法，例如 [`fs.readFileSync`]）会使用 `throw` 报告错误。
 
-Errors that occur within _Asynchronous APIs_ may be reported in multiple ways:
+异步的 API 中发生的错误可能会以多种方式进行报告：
 
-- Most asynchronous methods that accept a `callback` function will accept an
-  `Error` object passed as the first argument to that function. If that first
-  argument is not `null` and is an instance of `Error`, then an error occurred
-  that should be handled.
+- 大多数的异步方法都接受一个 `callback` 函数，该函数会接受一个 `Error` 对象传入作为第一个参数。
+  如果第一个参数不是 `null` 而是一个 `Error` 实例，则说明发生了错误，应该进行处理。
 
   ```js
   const fs = require('fs');
-  fs.readFile('a file that does not exist', (err, data) => {
+  fs.readFile('一个不存在的文件', (err, data) => {
     if (err) {
-      console.error('There was an error reading the file!', err);
+      console.error('读取文件出错！', err);
       return;
     }
-    // Otherwise handle the data
+    // 否则处理数据
   });
   ```
-- When an asynchronous method is called on an object that is an `EventEmitter`,
-  errors can be routed to that object's `'error'` event.
+- 当一个异步方法被一个 `EventEmitter` 对象调用时，错误会被分发到对象的 `'error'` 事件上。
 
   ```js
   const net = require('net');
   const connection = net.connect('localhost');
 
-  // Adding an 'error' event handler to a stream:
+  // 添加一个 'error' 事件句柄到一个流：
   connection.on('error', (err) => {
-    // If the connection is reset by the server, or if it can't
-    // connect at all, or on any sort of error encountered by
-    // the connection, the error will be sent here.
+    // 如果连接被服务器重置，或无法连接，或发生任何错误，则错误会被发送到这里。 
     console.error(err);
   });
 
   connection.pipe(process.stdout);
   ```
 
-- A handful of typically asynchronous methods in the Node.js API may still
-  use the `throw` mechanism to raise exceptions that must be handled using
-  `try / catch`. There is no comprehensive list of such methods; please
-  refer to the documentation of each method to determine the appropriate
-  error handling mechanism required.
+- Node.js API 中有一小部分普通的异步方法仍可能使用 `throw` 机制抛出异常，且必须使用 `try / catch` 处理。
+  这些方法并没有一个完整的列表；请参阅各个方法的文档以确定所需的合适的错误处理机制。
 
-The use of the `'error'` event mechanism is most common for [stream-based][]
-and [event emitter-based][] APIs, which themselves represent a series of
-asynchronous operations over time (as opposed to a single operation that may
-pass or fail).
+`'error'` 事件机制的使用常见于[基于流]和[基于事件触发器]的 API，它们本身就代表了一系列的异步操作（相对于要么成功要么失败的单一操作）。
 
-For *all* `EventEmitter` objects, if an `'error'` event handler is not
-provided, the error will be thrown, causing the Node.js process to report an
-unhandled exception and  crash unless either: The [`domain`][domains] module is used
-appropriately or a handler has been registered for the
-[`process.on('uncaughtException')`][] event.
+对于所有的 `EventEmitter` 对象，如果没有提供一个 `'error'` 事件句柄，则错误会被抛出，并造成 Node.js 进程报告一个未处理的异常且随即崩溃，除非：
+适当地使用 [`domain`] 模块或已经注册了一个 [`process.on('uncaughtException')`] 事件的句柄。
 
 ```js
 const EventEmitter = require('events');
 const ee = new EventEmitter();
 
 setImmediate(() => {
-  // This will crash the process because no 'error' event
-  // handler has been added.
-  ee.emit('error', new Error('This will crash'));
+  // 这会使进程崩溃，因为还为添加 'error' 事件句柄。
+  ee.emit('error', new Error('这会崩溃'));
 });
 ```
 
-Errors generated in this way *cannot* be intercepted using `try / catch` as
-they are thrown *after* the calling code has already exited.
+这种方式产生的错误无法使用 `try / catch` 截获，因为它们是在调用的代码已经退出后抛出的。
 
-Developers must refer to the documentation for each method to determine
-exactly how errors raised by those methods are propagated.
+开发者必须查阅各个方法的文档以明确在错误发生时这些方法是如何冒泡的。
 
