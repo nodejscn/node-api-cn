@@ -1,14 +1,9 @@
 
-System errors are generated when exceptions occur within the program's
-runtime environment. Typically, these are operational errors that occur
-when an application violates an operating system constraint such as attempting
-to read a file that does not exist or when the user does not have sufficient
-permissions.
+系统错误是当程序运行环境中发生异常时产生的。
+特别是，当应用程序违反了操作系统的限制时发生的操作错误，例如试图读取一个不存在的文件或用户没有足够的权限。
 
-System errors are typically generated at the syscall level: an exhaustive list
-of error codes and their meanings is available by running `man 2 intro` or
-`man 3 errno` on most Unices; or [online][].
+系统错误通常产生于系统调用层级。
+在大多数 Unix 系统上，可通过运行 `man 2 intro`、`man 3 errno`、或[在线文档]获取错误代码的详细清单和含义。
 
-In Node.js, system errors are represented as augmented `Error` objects with
-added properties.
+系统错误是由扩展的 `Error` 对象加上附加属性表现的。
 
