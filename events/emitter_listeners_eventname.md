@@ -2,13 +2,13 @@
 added: v0.1.26
 -->
 
-Returns a copy of the array of listeners for the event named `eventName`.
+返回名为 `eventName` 的事件的监听器数组的副本。
 
 ```js
 server.on('connection', (stream) => {
   console.log('someone connected!');
 });
 console.log(util.inspect(server.listeners('connection')));
-// Prints: [ [Function] ]
+// 打印: [ [Function] ]
 ```
 
