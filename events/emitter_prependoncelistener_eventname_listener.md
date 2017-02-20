@@ -2,18 +2,17 @@
 added: v6.0.0
 -->
 
-* `eventName` {String|Symbol} The name of the event.
-* `listener` {Function} The callback function
+* `eventName` {String|Symbol} 事件名
+* `listener` {Function} 回调函数
 
-Adds a **one time** `listener` function for the event named `eventName` to the
-*beginning* of the listeners array. The next time `eventName` is triggered, this
-listener is removed, and then invoked.
+添加一个单次 `listener` 函数到名为 `eventName` 的事件的监听器数组的开头。
+下次触发 `eventName` 事件时，监听器会被移除，然后调用。
 
 ```js
 server.prependOnceListener('connection', (stream) => {
-  console.log('Ah, we have our first user!');
+  console.log('首次调用！');
 });
 ```
 
-Returns a reference to the `EventEmitter`, so that calls can be chained.
+返回一个 `EventEmitter` 引用，可以链式调用。
 
