@@ -2,7 +2,7 @@
 added: v3.2.0
 -->
 
-* `eventName` {String|Symbol} The name of the event being listened for
+* `eventName` {String|Symbol} 正在被监听的事件名
 
-Returns the number of listeners listening to the event named `eventName`.
+返回正在监听名为 `eventName` 的事件的监听器的数量。
 
