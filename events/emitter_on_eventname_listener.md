@@ -2,33 +2,31 @@
 added: v0.1.101
 -->
 
-* `eventName` {String|Symbol} The name of the event.
-* `listener` {Function} The callback function
+* `eventName` {String|Symbol} 事件名
+* `listener` {Function} 回调函数
 
-Adds the `listener` function to the end of the listeners array for the
-event named `eventName`. No checks are made to see if the `listener` has
-already been added. Multiple calls passing the same combination of `eventName`
-and `listener` will result in the `listener` being added, and called, multiple
-times.
+添加 `listener` 函数到名为 `eventName` 的事件的监听器数组的末尾。
+不会检查 `listener` 是否已被添加。
+多次调用并传入相同的 `eventName` 和 `listener` 会导致 `listener` 被添加与调用多次。
+
 
 ```js
 server.on('connection', (stream) => {
-  console.log('someone connected!');
+  console.log('有连接！');
 });
 ```
 
-Returns a reference to the `EventEmitter`, so that calls can be chained.
+返回一个 `EventEmitter` 引用，可以链式调用。
 
-By default, event listeners are invoked in the order they are added. The
-`emitter.prependListener()` method can be used as an alternative to add the
-event listener to the beginning of the listeners array.
+默认情况下，事件监听器会按照添加的顺序依次调用。
+`emitter.prependListener()` 方法可用于将事件监听器添加到监听器数组的开头。
 
 ```js
 const myEE = new EventEmitter();
 myEE.on('foo', () => console.log('a'));
 myEE.prependListener('foo', () => console.log('b'));
 myEE.emit('foo');
-// Prints:
+// 打印:
 //   b
 //   a
 ```
