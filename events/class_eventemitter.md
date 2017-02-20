@@ -2,12 +2,11 @@
 added: v0.1.26
 -->
 
-The `EventEmitter` class is defined and exposed by the `events` module:
+`EventEmitter` 类由 `events` 模块定义和开放的：
 
 ```js
 const EventEmitter = require('events');
 ```
 
-All EventEmitters emit the event `'newListener'` when new listeners are
-added and `'removeListener'` when existing listeners are removed.
+当新的监听器被添加时，所有的 EventEmitter 会触发 `'newListener'` 事件；当移除已存在的监听器时，则触发 `'removeListener'`。
 
