@@ -2,26 +2,23 @@
 added: v0.1.26
 -->
 
-* `eventName` {String|Symbol} The name of the event being listened for
-* `listener` {Function} The event handler function
+* `eventName` {String|Symbol} 要监听的事件的名称
+* `listener` {Function} 事件的句柄函数
 
-The `EventEmitter` instance will emit its own `'newListener'` event *before*
-a listener is added to its internal array of listeners.
+`EventEmitter` 实例会在一个监听器被添加到其内部监听器数组之前触发自身的 `'newListener'` 事件。
 
-Listeners registered for the `'newListener'` event will be passed the event
-name and a reference to the listener being added.
+注册了 `'newListener'` 事件的监听器会传入事件名与被添加的监听器的引用。
 
-The fact that the event is triggered before adding the listener has a subtle
-but important side effect: any *additional* listeners registered to the same
-`name` *within* the `'newListener'` callback will be inserted *before* the
-listener that is in the process of being added.
+事实上，在添加监听器之前触发事件有一个微妙但重要的副作用：
+`'newListener'` 回调中任何额外的被注册到相同名称的监听器会在监听器被添加之前被插入 。
+
 
 ```js
 const myEmitter = new MyEmitter();
-// Only do this once so we don't loop forever
+// 只处理一次，所以不会无限循环
 myEmitter.once('newListener', (event, listener) => {
   if (event === 'event') {
-    // Insert a new listener in front
+    // 在开头插入一个新的监听器
     myEmitter.on('event', () => {
       console.log('B');
     });
@@ -31,7 +28,7 @@ myEmitter.on('event', () => {
   console.log('A');
 });
 myEmitter.emit('event');
-// Prints:
+// 打印:
 //   B
 //   A
 ```
