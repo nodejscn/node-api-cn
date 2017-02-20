@@ -2,30 +2,29 @@
 added: v0.3.0
 -->
 
-* `eventName` {String|Symbol} The name of the event.
-* `listener` {Function} The callback function
+* `eventName` {String|Symbol} 事件名
+* `listener` {Function} 回调函数
 
-Adds a **one time** `listener` function for the event named `eventName`. The
-next time `eventName` is triggered, this listener is removed and then invoked.
+添加一个单次 `listener` 函数到名为 `eventName` 的事件。
+下次触发 `eventName` 事件时，监听器会被移除，然后调用。
 
 ```js
 server.once('connection', (stream) => {
-  console.log('Ah, we have our first user!');
+  console.log('首次调用！');
 });
 ```
 
-Returns a reference to the `EventEmitter`, so that calls can be chained.
+返回一个 `EventEmitter` 引用，可以链式调用。
 
-By default, event listeners are invoked in the order they are added. The
-`emitter.prependOnceListener()` method can be used as an alternative to add the
-event listener to the beginning of the listeners array.
+默认情况下，事件监听器会按照添加的顺序依次调用。
+`emitter.prependOnceListener()` 方法可用于将事件监听器添加到监听器数组的开头。
 
 ```js
 const myEE = new EventEmitter();
 myEE.once('foo', () => console.log('a'));
 myEE.prependOnceListener('foo', () => console.log('b'));
 myEE.emit('foo');
-// Prints:
+// 打印:
 //   b
 //   a
 ```
