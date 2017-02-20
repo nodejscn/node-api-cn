@@ -2,9 +2,7 @@
 added: v0.1.26
 -->
 
-Synchronously calls each of the listeners registered for the event named
-`eventName`, in the order they were registered, passing the supplied arguments
-to each.
+按监听器的注册顺序，同步地调用每个注册到名为 `eventName` 事件的监听器，并传入提供的参数。
 
-Returns `true` if the event had listeners, `false` otherwise.
+如果事件有监听器，则返回 `true` ，否则返回 `false`。
 
