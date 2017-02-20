@@ -2,8 +2,8 @@
 added: v0.9.3
 -->
 
-* `eventName` {String|Symbol} The event name
-* `listener` {Function} The event handler function
+* `eventName` {String|Symbol} 事件名
+* `listener` {Function} 事件句柄函数
 
-The `'removeListener'` event is emitted *after* the `listener` is removed.
+`'removeListener'` 事件在 `listener` 被移除后触发。
 
