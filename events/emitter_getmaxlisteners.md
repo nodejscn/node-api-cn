@@ -2,7 +2,5 @@
 added: v1.0.0
 -->
 
-Returns the current max listener value for the `EventEmitter` which is either
-set by [`emitter.setMaxListeners(n)`][] or defaults to
-[`EventEmitter.defaultMaxListeners`][].
+返回 `EventEmitter` 当前的最大监听器限制值，该值可以通过 [`emitter.setMaxListeners(n)`] 设置或默认为 [`EventEmitter.defaultMaxListeners`]。
 
