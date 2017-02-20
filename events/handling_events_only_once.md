@@ -1,6 +1,5 @@
 
-When a listener is registered using the `eventEmitter.on()` method, that
-listener will be invoked _every time_ the named event is emitted.
+当使用 `eventEmitter.on()` 方法注册监听器时，监听器会在每次触发命名事件时被调用。
 
 ```js
 const myEmitter = new MyEmitter();
@@ -9,14 +8,14 @@ myEmitter.on('event', () => {
   console.log(++m);
 });
 myEmitter.emit('event');
-// Prints: 1
+// 打印: 1
 myEmitter.emit('event');
-// Prints: 2
+// 打印: 2
 ```
 
-Using the `eventEmitter.once()` method, it is possible to register a listener
-that is called at most once for a particular event. Once the event is emitted,
-the listener is unregistered and *then* called.
+使用 `eventEmitter.once()` 方法时可以注册一个对于特定事件最多被调用一次的监听器。
+当事件被触发时，监听器会被注销，然后再调用。
+
 
 ```js
 const myEmitter = new MyEmitter();
@@ -25,8 +24,8 @@ myEmitter.once('event', () => {
   console.log(++m);
 });
 myEmitter.emit('event');
-// Prints: 1
+// 打印: 1
 myEmitter.emit('event');
-// Ignored
+// 忽略
 ```
 
