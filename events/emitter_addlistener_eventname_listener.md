@@ -2,5 +2,5 @@
 added: v0.1.26
 -->
 
-Alias for `emitter.on(eventName, listener)`.
+`emitter.on(eventName, listener)` 的别名。
 
