@@ -2,36 +2,27 @@
 added: v0.11.2
 -->
 
-By default, a maximum of `10` listeners can be registered for any single
-event. This limit can be changed for individual `EventEmitter` instances
-using the [`emitter.setMaxListeners(n)`][] method. To change the default
-for *all* `EventEmitter` instances, the `EventEmitter.defaultMaxListeners`
-property can be used.
+每个事件默认可以注册最多 10 个监听器。
+单个 `EventEmitter` 实例的限制可以使用 [`emitter.setMaxListeners(n)`] 方法改变。
+所有 `EventEmitter` 实例的默认值可以使用 `EventEmitter.defaultMaxListeners` 属性改变。
 
-Take caution when setting the `EventEmitter.defaultMaxListeners` because the
-change effects *all* `EventEmitter` instances, including those created before
-the change is made. However, calling [`emitter.setMaxListeners(n)`][] still has
-precedence over `EventEmitter.defaultMaxListeners`.
+设置 `EventEmitter.defaultMaxListeners` 要谨慎，因为会影响所有 `EventEmitter` 实例，包括之前创建的。
+因而，调用 [`emitter.setMaxListeners(n)`] 优先于 `EventEmitter.defaultMaxListeners`。
 
-Note that this is not a hard limit. The `EventEmitter` instance will allow
-more listeners to be added but will output a trace warning to stderr indicating
-that a "possible EventEmitter memory leak" has been detected. For any single
-`EventEmitter`, the `emitter.getMaxListeners()` and `emitter.setMaxListeners()`
-methods can be used to temporarily avoid this warning:
+注意，这不是一个硬性限制。
+`EventEmitter` 实例允许添加更多的监听器，但会向 `stderr` 输出跟踪警告，表明检测到一个可能的 EventEmitter 内存泄漏。
+对于任何单个 `EventEmitter` 实例，`emitter.getMaxListeners()` 和 `emitter.setMaxListeners()` 方法可用于暂时地消除此警告：
+
 
 ```js
 emitter.setMaxListeners(emitter.getMaxListeners() + 1);
 emitter.once('event', () => {
-  // do stuff
+  // 做些操作
   emitter.setMaxListeners(Math.max(emitter.getMaxListeners() - 1, 0));
 });
 ```
 
-The [`--trace-warnings`][] command line flag can be used to display the
-stack trace for such warnings.
+[`--trace-warnings`] 命令行标志可用于显示此类警告的堆栈跟踪。
 
-The emitted warning can be inspected with [`process.on('warning')`][] and will
-have the additional `emitter`, `type` and `count` properties, referring to
-the event emitter instance, the event’s name and the number of attached
-listeners, respectively.
+触发的警告可以使用 [`process.on('warning')`] 检查，还有额外的 `emitter`、`type` 和 `count` 属性，分别代表事件触发器实例的引用、事件的名称、和附加的监听器的数量。
 
