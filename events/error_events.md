@@ -1,41 +1,37 @@
 
-When an error occurs within an `EventEmitter` instance, the typical action is
-for an `'error'` event to be emitted. These are treated as special cases
-within Node.js.
+当 `EventEmitter` 实例中发生错误时，会触发一个 `'error'` 事件。
+这在 Node.js 中是特殊情况。
 
-If an `EventEmitter` does _not_ have at least one listener registered for the
-`'error'` event, and an `'error'` event is emitted, the error is thrown, a
-stack trace is printed, and the Node.js process exits.
+如果 `EventEmitter` 没有为 `'error'` 事件注册至少一个监听器，则当 `'error'` 事件触发时，会抛出错误、打印堆栈跟踪、且退出 Node.js 进程。
 
 ```js
 const myEmitter = new MyEmitter();
 myEmitter.emit('error', new Error('whoops!'));
-// Throws and crashes Node.js
+// 抛出错误，并使 Node.js 奔溃
 ```
 
-To guard against crashing the Node.js process, a listener can be registered
-on the [`process` object's `uncaughtException` event][] or the [`domain`][] module
-can be used. (_Note, however, that the `domain` module has been deprecated_)
+为了防止 Node.js 进程崩溃，可以在 [`process` 对象的 `uncaughtException` 事件]上注册监听器，或使用 [`domain`] 模块。
+（注意，`domain` 模块已被废弃）
 
 ```js
 const myEmitter = new MyEmitter();
 
 process.on('uncaughtException', (err) => {
-  console.log('whoops! there was an error');
+  console.log('有错误');
 });
 
 myEmitter.emit('error', new Error('whoops!'));
-// Prints: whoops! there was an error
+// 打印: 有错误
 ```
 
-As a best practice, listeners should always be added for the `'error'` events.
+作为最佳实践，应该始终为 `'error'` 事件注册监听器。
 
 ```js
 const myEmitter = new MyEmitter();
 myEmitter.on('error', (err) => {
-  console.log('whoops! there was an error');
+  console.log('有错误');
 });
 myEmitter.emit('error', new Error('whoops!'));
-// Prints: whoops! there was an error
+// 打印: 有错误
 ```
 
