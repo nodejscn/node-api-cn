@@ -2,22 +2,11 @@
 added: v0.3.5
 -->
 
-By default EventEmitters will print a warning if more than `10` listeners are
-added for a particular event. This is a useful default that helps finding
-memory leaks. Obviously, not all events should be limited to just 10 listeners.
-The `emitter.setMaxListeners()` method allows the limit to be modified for this
-specific `EventEmitter` instance. The value can be set to `Infinity` (or `0`)
-to indicate an unlimited number of listeners.
+默认情况下，如果为特定事件添加了超过 `10` 个监听器，则 `EventEmitter` 会打印一个警告。
+此限制有助于寻找内存泄露。
+但是，并不是所有的事件都要被限为 `10` 个。
+`emitter.setMaxListeners()` 方法允许修改指定的 `EventEmitter` 实例的限制。
+值设为 `Infinity`（或 `0`）表明不限制监听器的数量。
 
-Returns a reference to the `EventEmitter`, so that calls can be chained.
+返回一个 `EventEmitter` 引用，可以链式调用。
 
-[`net.Server`]: net.html#net_class_net_server
-[`fs.ReadStream`]: fs.html#fs_class_fs_readstream
-[`emitter.setMaxListeners(n)`]: #events_emitter_setmaxlisteners_n
-[`EventEmitter.defaultMaxListeners`]: #events_eventemitter_defaultmaxlisteners
-[`emitter.listenerCount()`]: #events_emitter_listenercount_eventname
-[`domain`]: domain.html
-[`process` object's `uncaughtException` event]: process.html#process_event_uncaughtexception
-[`process.on('warning')`]: process.html#process_event_warning
-[stream]: stream.html
-[`--trace-warnings`]: cli.html#cli_trace_warnings
