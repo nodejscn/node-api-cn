@@ -1,15 +1,12 @@
 
-The `eventEmitter.emit()` method allows an arbitrary set of arguments to be
-passed to the listener functions. It is important to keep in mind that when an
-ordinary listener function is called by the `EventEmitter`, the standard `this`
-keyword is intentionally set to reference the `EventEmitter` to which the
-listener is attached.
+`eventEmitter.emit()` 方法允许将任意参数传给监听器函数。
+当一个普通的监听器函数被 `EventEmitter` 调用时，标准的 `this` 关键词会被设置指向监听器所附加的 `EventEmitter`。
 
 ```js
 const myEmitter = new MyEmitter();
 myEmitter.on('event', function(a, b) {
   console.log(a, b, this);
-  // Prints:
+  // 打印:
   //   a b MyEmitter {
   //     domain: null,
   //     _events: { event: [Function] },
@@ -19,14 +16,13 @@ myEmitter.on('event', function(a, b) {
 myEmitter.emit('event', 'a', 'b');
 ```
 
-It is possible to use ES6 Arrow Functions as listeners, however, when doing so,
-the `this` keyword will no longer reference the `EventEmitter` instance:
+也可以使用 ES6 的箭头函数作为监听器。但是这样 `this` 关键词就不再指向 `EventEmitter` 实例：
 
 ```js
 const myEmitter = new MyEmitter();
 myEmitter.on('event', (a, b) => {
   console.log(a, b, this);
-  // Prints: a b {}
+  // 打印: a b {}
 });
 myEmitter.emit('event', 'a', 'b');
 ```
