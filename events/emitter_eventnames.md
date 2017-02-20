@@ -2,8 +2,8 @@
 added: v6.0.0
 -->
 
-Returns an array listing the events for which the emitter has registered
-listeners. The values in the array will be strings or Symbols.
+返回一个列出触发器已注册监听器的事件的数组。
+数组中的值为字符串或符号。 
 
 ```js
 const EventEmitter = require('events');
@@ -15,6 +15,6 @@ const sym = Symbol('symbol');
 myEE.on(sym, () => {});
 
 console.log(myEE.eventNames());
-// Prints: [ 'foo', 'bar', Symbol(symbol) ]
+// 打印: [ 'foo', 'bar', Symbol(symbol) ]
 ```
 
