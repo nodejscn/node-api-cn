@@ -2,8 +2,6 @@
 added: v0.5.8
 -->
 
-The `tty.ReadStream` class is a subclass of `net.Socket` that represents the
-readable side of a TTY. In normal circumstances `process.stdin` will be the
-only `tty.ReadStream` instance in a Node.js process and there should be no
-reason to create additional instances.
+`tty.ReadStream` 类是 `net.Socket` 的一个子类，表示一个 TTY 的可读部分。
+正常情况下，`process.stdin` 是一个 Node.js 进程中唯一的 `tty.ReadStream` 实例，没有理由创建更多的实例。
 
