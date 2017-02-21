@@ -1,5 +1,5 @@
 
-> Stability: 0 - Deprecated
+> 稳定性: 0 - 废弃的
 
 **The version of the punycode module bundled in Node.js is being deprecated**.
 In a future major version of Node.js this module will be removed. Users
