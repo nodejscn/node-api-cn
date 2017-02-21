@@ -3,15 +3,10 @@ added: v0.1.25
 -->
 * `str` {String}
 
+`querystring.unescape()` 方法对给定的 `str` 上的 URL 百分号编码的字符执行解码。
 
-The `querystring.unescape()` method performs decoding of URL percent-encoded
-characters on the given `str`.
+`querystring.unescape()` 方法是供 `querystring.parse()` 使用的，且通常不被直接使用。
+它之所以对外开放，是为了在需要时可以通过给 `querystring.unescape` 赋值一个函数来重写解码的实现。
 
-The `querystring.unescape()` method is used by `querystring.parse()` and is
-generally not expected to be used directly. It is exported primarily to allow
-application code to provide a replacement decoding implementation if
-necessary by assigning `querystring.unescape` to an alternative function.
+`querystring.unescape()` 方法默认使用 JavaScript 内置的 `decodeURIComponent()` 方法来解码。
 
-By default, the `querystring.unescape()` method will attempt to use the
-JavaScript built-in `decodeURIComponent()` method to decode. If that fails,
-a safer equivalent that does not throw on malformed URLs will be used.
