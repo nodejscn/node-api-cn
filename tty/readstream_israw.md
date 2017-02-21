@@ -2,6 +2,6 @@
 added: v0.7.7
 -->
 
-A `boolean` that is `true` if the TTY is currently configured to operate as a
-raw device. Defaults to `false`.
+一个 `boolean` 值，如果 TTY 当前被配置成作为一个原始设备来操作，则返回 `true`。
+默认为 `false`。
 
