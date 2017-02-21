@@ -2,9 +2,7 @@
 added: v0.1.99
 -->
 
-* `buffer` {Buffer} A `Buffer` containing the bytes to decode.
+* `buffer` {Buffer} 一个包含了要解码的字节的 `Buffer`。
 
-Returns a decoded string, ensuring that any incomplete multibyte characters at
-the end of the `Buffer` are omitted from the returned string and stored in an
-internal buffer for the next call to `stringDecoder.write()` or
-`stringDecoder.end()`.
+返回一个解码后的字符串，并确保 `Buffer` 末尾的任何不完整的多字节字符从返回的字符串中被过滤并保存在一个内部的 buffer 中用于下次调用 `stringDecoder.write()` 或 `stringDecoder.end()`。
+
