@@ -2,36 +2,29 @@
 added: v0.1.25
 -->
 
-* `obj` {Object} The object to serialize into a URL query string
-* `sep` {String} The substring used to delimit key and value pairs in the
-  query string. Defaults to `'&'`.
-* `eq` {String}. The substring used to delimit keys and values in the
-  query string. Defaults to `'='`.
+* `obj` {Object} 要序列化成一个 URL 查询字符串的对象。
+* `sep` {String} 用于界定查询字符串中的键值对的子字符串。默认为 `'&'`。
+* `eq` {String} 用于界定查询字符串中的键与值的子字符串。默认为 `'='`。
 * `options`
-  * `encodeURIComponent` {Function} The function to use when converting
-    URL-unsafe characters to percent-encoding in the query string. Defaults to
-    `querystring.escape()`.
+  * `encodeURIComponent` {Function} 当把对 URL 不安全的字符转换成查询字符串中的百分号编码时使用的函数。默认为 `querystring.escape()`。
 
-The `querystring.stringify()` method produces a URL query string from a
-given `obj` by iterating through the object's "own properties".
+`querystring.stringify()` 方法通过遍历对象的自有属性，从一个给定的 `obj` 产生一个 URL 查询字符串。
 
-For example:
+例子：
 
 ```js
 querystring.stringify({ foo: 'bar', baz: ['qux', 'quux'], corge: '' })
-// returns 'foo=bar&baz=qux&baz=quux&corge='
+// 返回 'foo=bar&baz=qux&baz=quux&corge='
 
 querystring.stringify({foo: 'bar', baz: 'qux'}, ';', ':')
-// returns 'foo:bar;baz:qux'
+// 返回 'foo:bar;baz:qux'
 ```
 
-By default, characters requiring percent-encoding within the query string will
-be encoded as UTF-8. If an alternative encoding is required, then an alternative
-`encodeURIComponent` option will need to be specified as illustrated in the
-following example:
+默认情况下，查询字符串中需要百分号编码的字符会作为 UTF-8 被编码。
+如果需要的是另一种编码，则 `encodeURIComponent` 选项需要被指定，如以下例子：
 
 ```js
-// Assuming gbkEncodeURIComponent function already exists,
+// 假设 gbkEncodeURIComponent 函数已存在。
 
 querystring.stringify({ w: '中文', foo: 'bar' }, null, null,
   { encodeURIComponent: gbkEncodeURIComponent })
