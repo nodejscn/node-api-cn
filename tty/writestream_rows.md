@@ -2,6 +2,6 @@
 added: v0.7.7
 -->
 
-A `number` specifying the number of rows the TTY currently has. This property
-is updated whenever the `'resize'` event is emitted.
+一个 `number`，指明 TTY 当前具有的行数。
+当 `'resize'` 事件被触发时，该属性会被更新。
 
