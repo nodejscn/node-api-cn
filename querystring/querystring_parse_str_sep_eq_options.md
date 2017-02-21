@@ -2,22 +2,16 @@
 added: v0.1.25
 -->
 
-* `str` {String} The URL query string to parse
-* `sep` {String} The substring used to delimit key and value pairs in the
-  query string. Defaults to `'&'`.
-* `eq` {String}. The substring used to delimit keys and values in the
-  query string. Defaults to `'='`.
+* `str` {String} 要解析的 URL 查询字符串。
+* `sep` {String} 用于界定查询字符串中的键值对的子字符串。默认为 `'&'`。
+* `eq` {String} 用于界定查询字符串中的键与值的子字符串。默认为 `'='`。
 * `options` {Object}
-  * `decodeURIComponent` {Function} The function to use when decoding
-    percent-encoded characters in the query string. Defaults to
-    `querystring.unescape()`.
-  * `maxKeys` {number} Specifies the maximum number of keys to parse.
-    Defaults to `1000`. Specify `0` to remove key counting limitations.
+  * `decodeURIComponent` {Function} 当解码查询字符串中百分号编码的字符时使用的函数。默认为 `querystring.unescape()`。
+  * `maxKeys` {number} 指定要解析的键的最大数量。默认为 `1000`。指定为 `0` 则移除键数的限制。
 
-The `querystring.parse()` method parses a URL query string (`str`) into a
-collection of key and value pairs.
+`querystring.parse()` 方法能把一个 URL 查询字符串（`str`）解析成一个键值对的集合。
 
-For example, the query string `'foo=bar&abc=xyz&abc=123'` is parsed into:
+例子，查询字符串 `'foo=bar&abc=xyz&abc=123'` 被解析成：
 
 ```js
 {
@@ -26,18 +20,14 @@ For example, the query string `'foo=bar&abc=xyz&abc=123'` is parsed into:
 }
 ```
 
-*Note*: The object returned by the `querystring.parse()` method _does not_
-prototypically extend from the JavaScript `Object`. This means that the
-typical `Object` methods such as `obj.toString()`, `obj.hasOwnProperty()`,
-and others are not defined and *will not work*.
+注意：`querystring.parse()` 方法返回的对象不继承自 JavaScript 的 `Object`。
+这意味着典型的 `Object` 方法如 `obj.toString()`、`obj.hasOwnProperty()` 等没有被定义且无法使用。
 
-By default, percent-encoded characters within the query string will be assumed
-to use UTF-8 encoding. If an alternative character encoding is used, then an
-alternative `decodeURIComponent` option will need to be specified as illustrated
-in the following example:
+默认情况下，查询字符串中的百分号编码的字符会被认为使用了 UTF-8 编码。
+如果使用的是另一种字符编码，则 `decodeURIComponent` 选项需要被指定，如以下例子：
 
 ```js
-// Assuming gbkDecodeURIComponent function already exists...
+// 假设 gbkDecodeURIComponent 函数已存在。
 
 querystring.parse('w=%D6%D0%CE%C4&foo=bar', null, null,
   { decodeURIComponent: gbkDecodeURIComponent })
