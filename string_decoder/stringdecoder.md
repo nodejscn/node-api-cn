@@ -1,15 +1,13 @@
 
-> Stability: 2 - Stable
+> 稳定性: 2 - 稳定的
 
-The `string_decoder` module provides an API for decoding `Buffer` objects into
-strings in a manner that preserves encoded multi-byte UTF-8 and UTF-16
-characters. It can be accessed using:
+`string_decoder` 模块提供了一个 API，用于解码 `Buffer` 对象成字符串。它可以通过以下方式被使用：
 
 ```js
 const StringDecoder = require('string_decoder').StringDecoder;
 ```
 
-The following example shows the basic use of the `StringDecoder` class.
+以下例子展示了 `StringDecoder` 类的基本用法。
 
 ```js
 const StringDecoder = require('string_decoder').StringDecoder;
@@ -22,13 +20,10 @@ const euro = Buffer.from([0xE2, 0x82, 0xAC]);
 console.log(decoder.write(euro));
 ```
 
-When a `Buffer` instance is written to the `StringDecoder` instance, an
-internal buffer is used to ensure that the decoded string does not contain
-any incomplete multibyte characters. These are held in the buffer until the
-next call to `stringDecoder.write()` or until `stringDecoder.end()` is called.
+当一个 `Buffer` 实例被写入 `StringDecoder` 实例时，一个内部的 buffer 会被用于确保解码后的字符串不包含任何不完整的多字节字符。
+不完整的多字节字符被保存在 buffer 中，直到下次调用 `stringDecoder.write()` 或直到 `stringDecoder.end()` 被调用。
 
-In the following example, the three UTF-8 encoded bytes of the European Euro
-symbol (`€`) are written over three separate operations:
+以下例子中，欧元符号（`€`）的三个 UTF-8 编码的字节被分成三次操作写入：
 
 ```js
 const StringDecoder = require('string_decoder').StringDecoder;
