@@ -1,20 +1,17 @@
 
-> Stability: 2 - Stable
+> 稳定性: 2 - 稳定的
 
-The `tty` module provides the `tty.ReadStream` and `tty.WriteStream` classes.
-In most cases, it will not be necessary or possible to use this module directly.
-However, it can be accessed using:
+`tty` 模块提供了 `tty.ReadStream` 类和 `tty.WriteStream` 类。
+大多数情况下无需直接使用此模块。
+它可以通过以下方式使用：
 
 ```js
 const tty = require('tty');
 ```
 
-When Node.js detects that it is being run inside a text terminal ("TTY")
-context, the `process.stdin` will, by default, be initialized as an instance of
-`tty.ReadStream` and both `process.stdout` and `process.stderr` will, by
-default be instances of `tty.WriteStream`. The preferred method of determining
-whether Node.js is being run within a TTY context is to check that the value of
-the `process.stdout.isTTY` property is `true`:
+当 Node.js 检测到它正被运行在一个文本终端（TTY）的上下文中时，则 `process.stdin` 默认会被初始化为一个 `tty.ReadStream` 实例，`process.stdout` 和 `process.stderr` 默认会被初始化为一个 `tty.WriteStream` 实例。
+判断 Node.js 是否正被运行在一个 TTY 上下文中的首选方法是去检查 `process.stdout.isTTY` 属性的值是否为 `true`：
+
 
 ```sh
 $ node -p -e "Boolean(process.stdout.isTTY)"
@@ -23,6 +20,5 @@ $ node -p -e "Boolean(process.stdout.isTTY)" | cat
 false
 ```
 
-In most cases, there should be little to no reason for an application to
-create instances of the `tty.ReadStream` and `tty.WriteStream` classes.
+大多数情况下，应用程序几乎没有理由创建 `tty.ReadStream` 类和 `tty.WriteStream` 类的实例。
 
