@@ -2,13 +2,12 @@
 added: v0.7.7
 -->
 
-The `'resize'` event is emitted whenever either of the `writeStream.columns`
-or `writeStream.rows` properties have changed. No arguments are passed to the
-listener callback when called.
+当 `writeStream.columns` 属性或 `writeStream.rows` 属性发生变化时触发 `'resize'` 事件。
+监听器回调没有参数传入。
 
 ```js
 process.stdout.on('resize', () => {
-  console.log('screen size has changed!');
+  console.log('屏幕大小已改变！');
   console.log(`${process.stdout.columns}x${process.stdout.rows}`);
 });
 ```
