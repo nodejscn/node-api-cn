@@ -2,7 +2,7 @@
 added: v0.5.8
 -->
 
-* `fd` {number} A numeric file descriptor
+* `fd` {number} 一个数值型的文件描述符。
 
-The `tty.isatty()` method returns `true` if the given `fd` is associated with
-a TTY and `false` if is not.
+如果给定的 `fd` 与一个 TTY 相关联，则 `tty.isatty()` 方法返回 `true`，否则返回 `false`。
+
