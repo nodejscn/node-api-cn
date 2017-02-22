@@ -24,15 +24,16 @@ Ephemeral methods may have some performance drawbacks, because key generation
 is expensive.
 
 To use Perfect Forward Secrecy using `DHE` with the `tls` module, it is required
-to generate Diffie-Hellman parameters. The following illustrates the use of the
-OpenSSL command-line interface to generate such parameters:
+to generate Diffie-Hellman parameters and specify them with the `dhparam`
+option to [`tls.createSecureContext()`][]. The following illustrates the use of
+the OpenSSL command-line interface to generate such parameters:
 
 ```sh
 openssl dhparam -outform PEM -out dhparam.pem 2048
 ```
 
 If using Perfect Forward Secrecy using `ECDHE`, Diffie-Hellman parameters are
-not required and a default ECDHE curve will be used. The `ecdheCurve` property
-can be used when creating a TLS Server to specify the name of an
-alternative curve to use.
+not required and a default ECDHE curve will be used. The `ecdhCurve` property
+can be used when creating a TLS Server to specify the name of an alternative
+curve to use, see [`tls.createServer()`] for more info.
 

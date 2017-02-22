@@ -60,6 +60,8 @@ where `secure_socket` has the same API as `pair.cleartext`.
 
 [OpenSSL cipher list format documentation]: https://www.openssl.org/docs/man1.0.2/apps/ciphers.html#CIPHER-LIST-FORMAT
 [Chrome's 'modern cryptography' setting]: https://www.chromium.org/Home/chromium-security/education/tls#TOC-Cipher-Suites
+[OpenSSL Options]: crypto.html#crypto_openssl_options
+[modifying the default cipher suite]: #tls_modifying_the_default_tls_cipher_suite
 [specific attacks affecting larger AES key sizes]: https://www.schneier.com/blog/archives/2009/07/another_new_aes.html
 [`crypto.getCurves()`]: crypto.html#crypto_crypto_getcurves
 [`tls.createServer()`]: #tls_tls_createserver_options_secureconnectionlistener
