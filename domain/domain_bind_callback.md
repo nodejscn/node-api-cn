@@ -1,6 +1,6 @@
 
 * `callback` {Function} The callback function
-* return: {Function} The bound function
+* Returns: {Function} The bound function
 
 The returned function will be a wrapper around the supplied callback
 function.  When the returned function is called, any errors that are

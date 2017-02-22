@@ -1,6 +1,6 @@
 
 * `callback` {Function} The callback function
-* return: {Function} The intercepted function
+* Returns: {Function} The intercepted function
 
 This method is almost identical to [`domain.bind(callback)`][].  However, in
 addition to catching thrown errors, it will also intercept [`Error`][]
