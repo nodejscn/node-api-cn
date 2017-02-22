@@ -11,11 +11,11 @@ const spawn = require('child_process').spawn;
 const bat = spawn('cmd.exe', ['/c', 'my.bat']);
 
 bat.stdout.on('data', (data) => {
-  console.log(data);
+  console.log(data.toString());
 });
 
 bat.stderr.on('data', (data) => {
-  console.log(data);
+  console.log(data.toString());
 });
 
 bat.on('exit', (code) => {
@@ -33,7 +33,7 @@ exec('my.bat', (err, stdout, stderr) => {
 });
 
 // 文件名带有空格的脚本：
-const bat = spawn('"my script.cmd"', ['a', 'b'], { shell:true });
+const bat = spawn('"my script.cmd"', ['a', 'b'], { shell: true });
 // 或：
 exec('"my script.cmd" a b', (err, stdout, stderr) => {
   // ...

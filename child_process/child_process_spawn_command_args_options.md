@@ -25,6 +25,9 @@ added: v0.1.90
 `child_process.spawn()` 方法使用给定的 `command` 和 `args` 中的命令行参数来衍生一个新进程。
 如果省略 `args`，则默认为一个空数组。
 
+注意：不要把未经检查的用户输入传入到该函数。
+任何包括 shell 元字符的输入都可被用于触发任何命令的执行。
+
 第三个参数可以用来指定额外的选项，默认如下：
 
 ```js
@@ -81,7 +84,7 @@ ps.on('close', (code) => {
 });
 
 grep.stdout.on('data', (data) => {
-  console.log(`${data}`);
+  console.log(data.toString());
 });
 
 grep.stderr.on('data', (data) => {

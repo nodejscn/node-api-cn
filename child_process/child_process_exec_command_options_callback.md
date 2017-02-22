@@ -14,7 +14,7 @@ added: v0.1.90
   * `timeout` {Number} （默认: `0`）
   * [`maxBuffer`] {Number} stdout 或 stderr 允许的最大数据量（以字节为单位）。
     如果超过限制，则子进程会被终止。（默认：`200*1024`）
-  * `killSignal` {String} （默认: `'SIGTERM'`）
+  * `killSignal` {String|Integer} （默认: `'SIGTERM'`）
   * `uid` {Number} 设置该进程的用户标识。（详见 setuid(2)）
   * `gid` {Number} 设置该进程的组标识。（详见 setgid(2)）
 * `callback` {Function} 当进程终止时调用，并带上输出。
@@ -24,6 +24,9 @@ added: v0.1.90
 * 返回: {ChildProcess}
 
 衍生一个 shell，然后在 shell 中执行 `command`，且缓冲任何产生的输出。
+
+注意：不要把未经检查的用户输入传入到该函数。
+任何包括 shell 元字符的输入都可被用于触发任何命令的执行。
 
 ```js
 const exec = require('child_process').exec;

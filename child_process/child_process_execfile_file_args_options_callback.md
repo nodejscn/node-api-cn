@@ -11,7 +11,7 @@ added: v0.1.91
   * `timeout` {Number} （默认: `0`）
   * [`maxBuffer`] {Number} stdout 或 stderr 允许的最大数据量（以字节为单位）。
     如果超过限制，则子进程会被终止。（默认：`200*1024`）
-  * `killSignal` {String} （默认: `'SIGTERM'`）
+  * `killSignal` {String|Integer} （默认: `'SIGTERM'`）
   * `uid` {Number} 设置该进程的用户标识。（详见 setuid(2)）
   * `gid` {Number} 设置该进程的组标识。（详见 setgid(2)）
 * `callback` {Function} 当进程终止时调用，并带上输出。

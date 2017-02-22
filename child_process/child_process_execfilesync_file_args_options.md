@@ -14,7 +14,7 @@ added: v0.11.12
   * `uid` {Number} 设置该进程的用户标识。（详见 setuid(2)）
   * `gid` {Number} 设置该进程的组标识。（详见 setgid(2)）
   * `timeout` {Number} 进程允许运行的最大时间数，以毫秒为单位。（默认: `undefined`）
-  * `killSignal` {String} 当衍生进程将被杀死时要使用的信号值。（默认: `'SIGTERM'`）
+  * `killSignal` {String|Integer} 当衍生进程将被杀死时要使用的信号值。（默认: `'SIGTERM'`）
   * [`maxBuffer`] {Number} stdout 或 stderr 允许的最大数据量（以字节为单位）。
     如果超过限制，则子进程会被终止
   * `encoding` {String} 用于所有 stdio 输入和输出的编码。（默认: `'buffer'`）

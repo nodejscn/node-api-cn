@@ -35,7 +35,7 @@ grep.kill('SIGHUP');
 'use strict';
 const spawn = require('child_process').spawn;
 
-let child = spawn('sh', ['-c',
+const child = spawn('sh', ['-c',
   `node -e "setInterval(() => {
       console.log(process.pid, 'is alive')
     }, 500);"`
