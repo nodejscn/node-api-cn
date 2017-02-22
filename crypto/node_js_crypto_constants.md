@@ -59,4 +59,4 @@
 [RFC 3526]: https://www.rfc-editor.org/rfc/rfc3526.txt
 [stream]: stream.html
 [stream-writable-write]: stream.html#stream_writable_write_chunk_encoding_callback
-[Crypto Constants]: #crypto_crypto_constants
+[Crypto Constants]: #crypto_crypto_constants_1
