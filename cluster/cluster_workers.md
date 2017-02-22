@@ -16,7 +16,7 @@ before last `'disconnect'` or `'exit'` event is emitted.
 ```js
 // Go through all workers
 function eachWorker(callback) {
-  for (var id in cluster.workers) {
+  for (const id in cluster.workers) {
     callback(cluster.workers[id]);
   }
 }
@@ -30,7 +30,7 @@ the worker's unique id is the easiest way to find the worker.
 
 ```js
 socket.on('data', (id) => {
-  var worker = cluster.workers[id];
+  const worker = cluster.workers[id];
 });
 ```
 

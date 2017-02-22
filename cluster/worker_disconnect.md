@@ -30,8 +30,8 @@ the `'disconnect'` event has not been emitted after some time.
 
 ```js
 if (cluster.isMaster) {
-  var worker = cluster.fork();
-  var timeout;
+  const worker = cluster.fork();
+  let timeout;
 
   worker.on('listening', (address) => {
     worker.send('shutdown');
@@ -47,7 +47,7 @@ if (cluster.isMaster) {
 
 } else if (cluster.isWorker) {
   const net = require('net');
-  var server = net.createServer((socket) => {
+  const server = net.createServer((socket) => {
     // connections never end
   });
 

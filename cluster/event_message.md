@@ -20,27 +20,27 @@ const http = require('http');
 if (cluster.isMaster) {
 
   // Keep track of http requests
-  var numReqs = 0;
+  let numReqs = 0;
   setInterval(() => {
-    console.log('numReqs =', numReqs);
+    console.log(`numReqs = ${numReqs}`);
   }, 1000);
 
   // Count requests
   function messageHandler(msg) {
-    if (msg.cmd && msg.cmd == 'notifyRequest') {
+    if (msg.cmd && msg.cmd === 'notifyRequest') {
       numReqs += 1;
     }
   }
 
   // Start workers and listen for messages containing notifyRequest
   const numCPUs = require('os').cpus().length;
-  for (var i = 0; i < numCPUs; i++) {
+  for (let i = 0; i < numCPUs; i++) {
     cluster.fork();
   }
 
-  Object.keys(cluster.workers).forEach((id) => {
+  for (const id in cluster.workers) {
     cluster.workers[id].on('message', messageHandler);
-  });
+  }
 
 } else {
 

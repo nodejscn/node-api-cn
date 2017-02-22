@@ -8,7 +8,7 @@ When a new worker is forked the cluster module will emit a `'fork'` event.
 This can be used to log worker activity, and create your own timeout.
 
 ```js
-var timeouts = [];
+const timeouts = [];
 function errorMsg() {
   console.error('Something must be wrong with the connection ...');
 }

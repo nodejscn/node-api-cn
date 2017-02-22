@@ -19,7 +19,7 @@ This example will echo back all messages from the master:
 
 ```js
 if (cluster.isMaster) {
-  var worker = cluster.fork();
+  const worker = cluster.fork();
   worker.send('hi there');
 
 } else if (cluster.isWorker) {
