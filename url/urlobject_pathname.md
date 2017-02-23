@@ -1,10 +1,8 @@
 
-The `pathname` property consists of the entire path section of the URL. This
-is everything following the `host` (including the `port`) and before the start
-of the `query` or `hash` components, delimited by either the ASCII question
-mark (`?`) or hash (`#`) characters.
+`pathname` 属性包含 URL 的整个路径部分。
+它跟在 `host` （包括 `port`）后面，排在 `query` 或 `hash` 组成部分的前面且被 ASCII 问号（`?`）或哈希字符（`#`）分隔。
 
-For example `'/p/a/t/h'`
+例如：`'/p/a/t/h'`
 
-No decoding of the path string is performed.
+不会对路径字符串执行解码。
 
