@@ -1,5 +1,5 @@
 
-The `port` property is the numeric port portion of the `host` component.
+`port` 属性是 `host` 组成部分中的数值型的端口部分。
 
-For example: `'8080'`
+例如：`'8080'`
 
