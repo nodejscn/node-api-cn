@@ -1,8 +1,7 @@
 
-The `path` property is a concatenation of the `pathname` and `search`
-components.
+`path` 属性是一个 `pathname` 与 `search` 组成部分的串接。
 
-For example: `'/p/a/t/h?query=string'`
+例如：`'/p/a/t/h?query=string'`
 
-No decoding of the `path` is performed.
+不会对 `path` 执行解码。
 
