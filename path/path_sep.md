@@ -4,22 +4,22 @@ added: v0.7.9
 
 * {String}
 
-Provides the platform-specific path segment separator:
+提供了平台特定的路径片段分隔符：
 
-* `\` on Windows
-* `/` on POSIX
+* Windows 上是 `\`
+* POSIX 上是 `/`
 
-For example on POSIX:
+例如，在 POSIX 上：
 
 ```js
 'foo/bar/baz'.split(path.sep)
-// Returns: ['foo', 'bar', 'baz']
+// 返回: ['foo', 'bar', 'baz']
 ```
 
-On Windows:
+在 Windows 上：
 
 ```js
 'foo\\bar\\baz'.split(path.sep)
-// Returns: ['foo', 'bar', 'baz']
+// 返回: ['foo', 'bar', 'baz']
 ```
 
