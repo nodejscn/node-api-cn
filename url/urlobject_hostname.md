@@ -1,6 +1,5 @@
 
-The `hostname` property is the lower-cased host name portion of the `host`
-component *without* the `port` included.
+`hostname` 属性是 `host` 组成部分排除 `port` 之后的小写的主机名部分。
 
-For example: `'host.com'`
+例如：`'host.com'`
 
