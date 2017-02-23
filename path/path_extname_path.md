@@ -3,32 +3,29 @@ added: v0.1.25
 -->
 
 * `path` {String}
-* Returns: {String}
+* 返回: {String}
 
-The `path.extname()` method returns the extension of the `path`, from the last
-occurrence of the `.` (period) character to end of string in the last portion of
-the `path`.  If there is no `.` in the last portion of the `path`, or if the
-first character of the basename of `path` (see `path.basename()`) is `.`, then
-an empty string is returned.
+`path.extname()` 方法返回 `path` 的扩展名，即从 `path` 的最后一部分中的最后一个 `.`（句号）字符到字符串结束。
+如果 `path` 的最后一部分没有 `.` 或 `path` 的文件名（见 `path.basename()`）的第一个字符是 `.`，则返回一个空字符串。
 
-For example:
+例子：
 
 ```js
 path.extname('index.html')
-// Returns: '.html'
+// 返回: '.html'
 
 path.extname('index.coffee.md')
-// Returns: '.md'
+// 返回: '.md'
 
 path.extname('index.')
-// Returns: '.'
+// 返回: '.'
 
 path.extname('index')
-// Returns: ''
+// 返回: ''
 
 path.extname('.index')
-// Returns: ''
+// 返回: ''
 ```
 
-A [`TypeError`][] is thrown if `path` is not a string.
+如果 `path` 不是一个字符串，则抛出 [`TypeError`]。
 
