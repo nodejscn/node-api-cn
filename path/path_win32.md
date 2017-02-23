@@ -4,14 +4,8 @@ added: v0.11.15
 
 * {Object}
 
-The `path.win32` property provides access to Windows-specific implementations
-of the `path` methods.
+`path.win32` 属性提供了 `path` 方法针对 Windows 的实现。
 
-*Note*: On Windows, both the forward slash (`/`) and backward slash (`\`)
-characters are accepted as path delimiters; however, only the backward slash
-(`\`) will be used in return values.
+注意：在 Windows 上，斜杠字符（`/`）和反斜杠字符（`\`）都可作为路径分隔符；
+但返回值中只用到反斜杠（`\`）。
 
-[`path.posix`]: #path_path_posix
-[`path.win32`]: #path_path_win32
-[`path.parse()`]: #path_path_parse_path
-[`TypeError`]: errors.html#errors_class_typeerror
