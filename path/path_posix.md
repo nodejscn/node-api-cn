@@ -4,6 +4,5 @@ added: v0.11.15
 
 * {Object}
 
-The `path.posix` property provides access to POSIX specific implementations
-of the `path` methods.
+`path.posix` 属性提供了 `path` 方法针对 POSIX 的实现。
 
