@@ -3,12 +3,11 @@ added: v0.11.15
 -->
 
 * `path` {String}
-* Returns: {Object}
+* 返回: {Object}
 
-The `path.parse()` method returns an object whose properties represent
-significant elements of the `path`.
+`path.parse()` 方法返回一个对象，对象的属性表示 `path` 的元素。
 
-The returned object will have the following properties:
+返回的对象有以下属性：
 
 * `root` {String}
 * `dir` {String}
@@ -16,11 +15,11 @@ The returned object will have the following properties:
 * `ext` {String}
 * `name` {String}
 
-For example on POSIX:
+例如，在 POSIX 上：
 
 ```js
 path.parse('/home/user/dir/file.txt')
-// Returns:
+// 返回:
 // {
 //    root : "/",
 //    dir : "/home/user/dir",
@@ -37,14 +36,14 @@ path.parse('/home/user/dir/file.txt')
 │ root │              │ name │ ext │
 "  /    home/user/dir / file  .txt "
 └──────┴──────────────┴──────┴─────┘
-(all spaces in the "" line should be ignored -- they are purely for formatting)
+(请无视以上字符串中的空格，它们只是为了布局)
 ```
 
-On Windows:
+在 Windows 上：
 
 ```js
 path.parse('C:\\path\\dir\\file.txt')
-// Returns:
+// 返回:
 // {
 //    root : "C:\\",
 //    dir : "C:\\path\\dir",
@@ -61,8 +60,8 @@ path.parse('C:\\path\\dir\\file.txt')
 │ root │              │ name │ ext │
 " C:\      path\dir   \ file  .txt "
 └──────┴──────────────┴──────┴─────┘
-(all spaces in the "" line should be ignored -- they are purely for formatting)
+(请无视以上字符串中的空格，它们只是为了布局)
 ```
 
-A [`TypeError`][] is thrown if `path` is not a string.
+如果 `path` 不是一个字符串，则抛出 [`TypeError`]。
 
