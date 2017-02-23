@@ -1,8 +1,7 @@
 
-> Stability: 2 - Stable
+> 稳定性: 2 - 稳定的
 
-The `path` module provides utilities for working with file and directory paths.
-It can be accessed using:
+`path` 模块提供了一些工具函数，用于处理文件与目录的路径。可以通过以下方式使用：
 
 ```js
 const path = require('path');
