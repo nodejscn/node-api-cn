@@ -1,11 +1,9 @@
 
-A URL string is a structured string containing multiple meaningful components.
-When parsed, a URL object is returned containing properties for each of these
-components.
+一个 URL 字符串是一个结构化的字符串，它包含多个有意义的组成部分。
+当被解析时，会返回一个 URL 对象，它包含每个组成部分作为属性。
 
-The following details each of the components of a parsed URL. The example
-`'http://user:pass@host.com:8080/p/a/t/h?query=string#hash'` is used to
-illustrate each.
+以下详情描述了一个解析后的 URL 的每个组成部分。
+例子，`'http://user:pass@host.com:8080/p/a/t/h?query=string#hash'`：
 
 ```txt
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -18,7 +16,7 @@ illustrate each.
 │          ││           │          │      │          │ │    query     │       │
 "  http:   // user:pass @ host.com : 8080   /p/a/t/h  ?  query=string   #hash "
 │          ││           │          │      │          │ │              │       │
-└──────────┴┴────���──────┴──────────┴──────┴──────────┴─┴──────────────┴───────┘
-(all spaces in the "" line should be ignored -- they are purely for formatting)
+└──────────┴┴───────────┴──────────┴──────┴──────────┴─┴──────────────┴───────┘
+(请忽略字符串中的空格，它们只是为了格式化)
 ```
 
