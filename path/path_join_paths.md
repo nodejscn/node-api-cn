@@ -2,25 +2,23 @@
 added: v0.1.16
 -->
 
-* `...paths` {String} A sequence of path segments
-* Returns: {String}
+* `...paths` {String} 一个路径片段的序列
+* 返回: {String}
 
-The `path.join()` method joins all given `path` segments together using the
-platform specific separator as a delimiter, then normalizes the resulting path.
+`path.join()` 方法使用平台特定的分隔符把全部给定的 `path` 片段连接到一起，并规范化生成的路径。
 
-Zero-length `path` segments are ignored. If the joined path string is a
-zero-length string then `'.'` will be returned, representing the current
-working directory.
+长度为零的 `path` 片段会被忽略。
+如果连接后的路径字符串是一个长度为零的字符串，则返回 `'.'`，表示当前工作目录。
 
-For example:
+例子：
 
 ```js
 path.join('/foo', 'bar', 'baz/asdf', 'quux', '..')
-// Returns: '/foo/bar/baz/asdf'
+// 返回: '/foo/bar/baz/asdf'
 
 path.join('foo', {}, 'bar')
-// throws TypeError: Arguments to path.join must be strings
+// 抛出 TypeError: path.join 的参数必须为字符串
 ```
 
-A [`TypeError`][] is thrown if any of the path segments is not a string.
+如果任一路径片段不是一个字符串，则抛出 [`TypeError`]。
 
