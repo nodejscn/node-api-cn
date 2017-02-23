@@ -3,13 +3,13 @@ added: v0.11.2
 -->
 
 * `path` {String}
-* Returns: {Boolean}
+* 返回: {Boolean}
 
-The `path.isAbsolute()` method determines if `path` is an absolute path.
+`path.isAbsolute()` 方法会判定 `path` 是否为一个绝对路径。
 
-If the given `path` is a zero-length string, `false` will be returned.
+如果给定的 `path` 是一个长度为零的字符串，则返回 `false`。
 
-For example on POSIX:
+例如，在 POSIX 上：
 
 ```js
 path.isAbsolute('/foo/bar') // true
@@ -18,7 +18,7 @@ path.isAbsolute('qux/')     // false
 path.isAbsolute('.')        // false
 ```
 
-On Windows:
+在 Windows 上：
 
 ```js
 path.isAbsolute('//server')    // true
@@ -30,5 +30,5 @@ path.isAbsolute('bar/baz')     // false
 path.isAbsolute('.')           // false
 ```
 
-A [`TypeError`][] is thrown if `path` is not a string.
+如果 `path` 不是一个字符串，则抛出 [`TypeError`]。
 
