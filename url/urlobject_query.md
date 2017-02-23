@@ -1,11 +1,9 @@
 
-The `query` property is either the query string without the leading ASCII
-question mark (`?`), or an object returned by the [`querystring`][] module's
-`parse()` method. Whether the `query` property is a string or object is
-determined by the `parseQueryString` argument passed to `url.parse()`.
+`query` 属性是不含开头 ASCII 问号（`?`）的查询字符串，或一个被 [`querystring`] 模块的 `parse()` 方法返回的对象。
+`query` 属性是一个字符串还是一个对象是由传入 `url.parse()` 的 `parseQueryString` 参数决定的。
 
-For example: `'query=string'` or `{'query': 'string'}`
+例如：`'query=string'` or `{'query': 'string'}`
 
-If returned as a string, no decoding of the query string is performed. If
-returned as an object, both keys and values are decoded.
+如果返回一个字符串，则不会对查询字符串执行解码。
+如果返回一个对象，则键和值都会被解码。
 
