@@ -1,8 +1,7 @@
 
-The `search` property consists of the entire "query string" portion of the
-URL, including the leading ASCII question mark (`?`) character.
+`search` 属性包含 URL 的整个查询字符串部分，包括开头的 ASCII 问号字符（`?`）。
 
-For example: `'?query=string'`
+例如：`'?query=string'`
 
-No decoding of the query string is performed.
+不会对查询字符串执行解码。
 
