@@ -1,16 +1,10 @@
 
-URLs are only permitted to contain a certain range of characters. Spaces (`' '`)
-and the following characters will be automatically escaped in the
-properties of URL objects:
+URL 只被允许包含一个特定范围的字符串。
+URL 对象的属性中的空格（`' '`）和以下字符会被自动转义。
 
 ```txt
 < > " ` \r \n \t { } | \ ^ '
 ```
 
-For example, the ASCII space character (`' '`) is encoded as `%20`. The ASCII
-forward slash (`/`) character is encoded as `%3C`.
-
-
-[`Error`]: errors.html#errors_class_error
-[`querystring`]: querystring.html
-[`TypeError`]: errors.html#errors_class_typeerror
+例如，ASCII 空格字符（`' '`）被编码成 `%20`。
+ASCII 斜杠字符（`/`）被编码成 `%3C`。
