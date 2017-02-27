@@ -2,17 +2,13 @@
 added: v0.1.25
 -->
 
-* `urlString` {String} The URL string to parse.
-* `parseQueryString` {Boolean} If `true`, the `query` property will always
-  be set to an object returned by the [`querystring`][] module's `parse()`
-  method. If `false`, the `query` property on the returned URL object will be an
-  unparsed, undecoded string. Defaults to `false`.
-* `slashesDenoteHost` {Boolean} If `true`, the first token after the literal
-  string `//` and preceding the next `/` will be interpreted as the `host`.
-  For instance, given `//foo/bar`, the result would be
-  `{host: 'foo', pathname: '/bar'}` rather than `{pathname: '//foo/bar'}`.
-  Defaults to `false`.
+* `urlString` {String} 要解析的 URL 字符串。
+* `parseQueryString` {Boolean} 如果为 `true`，则 `query` 属性总会通过 [`querystring`] 模块的 `parse()` 方法生成一个对象。
+  如果为 `false`，则返回的 URL 对象上的 `query` 属性会是一个未解析、未解码的字符串。
+  默认为 `false`。
+* `slashesDenoteHost` {Boolean} 如果为 `true`，则 `//` 之后至下一个 `/` 之前的字符串会被解析作为 `host`。
+  例如，`//foo/bar` 会被解析为 `{host: 'foo', pathname: '/bar'}` 而不是 `{pathname: '//foo/bar'}`。
+  默认为 `false`。
 
-The `url.parse()` method takes a URL string, parses it, and returns a URL
-object.
+`url.parse()` 方法会解析一个 URL 字符串并返回一个 URL 对象。
 
