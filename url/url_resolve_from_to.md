@@ -2,13 +2,12 @@
 added: v0.1.25
 -->
 
-* `from` {String} The Base URL being resolved against.
-* `to` {String} The HREF URL being resolved.
+* `from` {String} 解析时相对的基本 URL。
+* `to` {String} 要解析的超链接 URL。
 
-The `url.resolve()` method resolves a target URL relative to a base URL in a
-manner similar to that of a Web browser resolving an anchor tag HREF.
+`url.resolve()` 方法会以一种 Web 浏览器解析超链接的方式把一个目标 URL 解析成相对于一个基础 URL。
 
-For example:
+例子：
 
 ```js
 url.resolve('/one/two/three', 'four')         // '/one/two/four'
