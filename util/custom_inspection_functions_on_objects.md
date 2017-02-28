@@ -1,9 +1,7 @@
 
 <!-- type=misc -->
 
-Objects may also define their own `[util.inspect.custom](depth, opts)`
-(or, equivalently `inspect(depth, opts)`) function that `util.inspect()` will
-invoke and use the result of when inspecting the object:
+对象可以定义自己的 `[util.inspect.custom](depth, opts)`（或 `inspect(depth, opts)`） 函数，`util.inspect()` 会调用并使用查看对象时的结果：
 
 ```js
 const util = require('util');
@@ -22,7 +20,7 @@ class Box {
       depth: options.depth === null ? null : options.depth - 1
     });
 
-    // Five space padding because that's the size of "Box< ".
+    // 五个空格的填充，因为那是 "Box< " 的大小。
     const padding = ' '.repeat(5);
     const inner = util.inspect(this.value, newOptions).replace(/\n/g, '\n' + padding);
     return options.stylize('Box', 'special') + '< ' + inner + ' >';
@@ -32,37 +30,34 @@ class Box {
 const box = new Box(true);
 
 util.inspect(box);
-// Returns: "Box< true >"
+// 返回: "Box< true >"
 ```
 
-Custom `[util.inspect.custom](depth, opts)` functions typically return a string
-but may return a value of any type that will be formatted accordingly by
-`util.inspect()`.
+自定义的 `[util.inspect.custom](depth, opts)` 函数通常返回一个字符串，但也可以返回一个任何类型的值，它会相应地被 `util.inspect()` 格式化。
 
 ```js
 const util = require('util');
 
-const obj = { foo: 'this will not show up in the inspect() output' };
+const obj = { foo: '这个不会出现在 inspect() 的输出中' };
 obj[util.inspect.custom] = function(depth) {
   return { bar: 'baz' };
 };
 
 util.inspect(obj);
-// Returns: "{ bar: 'baz' }"
+// 返回: "{ bar: 'baz' }"
 ```
 
-A custom inspection method can alternatively be provided by exposing
-an `inspect(depth, opts)` method on the object:
+一个自定义的查看方法可以通过在一个对象上开放一个 `inspect(depth, opts)` 方法来提供：
 
 ```js
 const util = require('util');
 
-const obj = { foo: 'this will not show up in the inspect() output' };
+const obj = { foo: '这个不会出现在 inspect() 的输出中' };
 obj.inspect = function(depth) {
   return { bar: 'baz' };
 };
 
 util.inspect(obj);
-// Returns: "{ bar: 'baz' }"
+// 返回: "{ bar: 'baz' }"
 ```
 
