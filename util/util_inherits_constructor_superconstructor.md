@@ -2,19 +2,17 @@
 added: v0.3.0
 -->
 
-_Note: usage of `util.inherits()` is discouraged. Please use the ES6 `class` and
-`extends` keywords to get language level inheritance support. Also note that
-the two styles are [semantically incompatible][]._
+注意，不建议使用 `util.inherits()`。
+请使用 ES6 的 `class` 和 `extends` 关键词获得语言层面的继承支持。
+注意，这两种方式是[语义上不兼容的]。
 
 * `constructor` {Function}
 * `superConstructor` {Function}
 
-Inherit the prototype methods from one [constructor][] into another.  The
-prototype of `constructor` will be set to a new object created from
-`superConstructor`.
+从一个[构造函数]中继承原型方法到另一个。
+`constructor` 的原型会被设置到一个从 `superConstructor` 创建的新对象上。
 
-As an additional convenience, `superConstructor` will be accessible
-through the `constructor.super_` property.
+`superConstructor` 可通过 `constructor.super_` 属性访问。
 
 ```js
 const util = require('util');
@@ -36,12 +34,12 @@ console.log(stream instanceof EventEmitter); // true
 console.log(MyStream.super_ === EventEmitter); // true
 
 stream.on('data', (data) => {
-  console.log(`Received data: "${data}"`);
+  console.log(`接收的数据："${data}"`);
 });
-stream.write('It works!'); // Received data: "It works!"
+stream.write('运作良好！'); // 接收的数据："运作良好！"
 ```
 
-ES6 example using `class` and `extends`
+例子：使用 ES6 的 `class` 和 `extends`：
 
 ```js
 const EventEmitter = require('events');
@@ -58,9 +56,9 @@ class MyStream extends EventEmitter {
 const stream = new MyStream();
 
 stream.on('data', (data) => {
-  console.log(`Received data: "${data}"`);
+  console.log(`接收的数据："${data}"`);
 });
-stream.write('With ES6');
+stream.write('使用 ES6');
 
 ```
 
