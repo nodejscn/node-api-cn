@@ -89,7 +89,7 @@ fs.access('myfile', (err) => {
 });
 ```
 
-**写入（推荐）**
+**读取（推荐）**
 
 ```js
 fs.open('myfile', 'r', (err, fd) => {
