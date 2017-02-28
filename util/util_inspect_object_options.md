@@ -2,35 +2,33 @@
 added: v0.3.0
 -->
 
-* `object` {any} Any JavaScript primitive or Object.
+* `object` {any} 任何 JavaScript 原始值或对象。
 * `options` {Object}
-  * `showHidden` {boolean} If `true`, the `object`'s non-enumerable symbols and
-    properties will be included in the formatted result. Defaults to `false`.
-  * `depth` {number} Specifies the number of times to recurse while formatting
-    the `object`. This is useful for inspecting large complicated objects.
-    Defaults to `2`. To make it recurse indefinitely pass `null`.
-  * `colors` {boolean} If `true`, the output will be styled with ANSI color
-    codes. Defaults to `false`. Colors are customizable, see
-    [Customizing `util.inspect` colors][].
-  * `customInspect` {boolean} If `false`, then custom `inspect(depth, opts)`
-    functions exported on the `object` being inspected will not be called.
-    Defaults to `true`.
-  * `showProxy` {boolean} If `true`, then objects and functions that are
-    `Proxy` objects will be introspected to show their `target` and `handler`
-    objects. Defaults to `false`.
-  * `maxArrayLength` {number} Specifies the maximum number of array and
-    `TypedArray` elements to include when formatting. Defaults to `100`. Set to
-    `null` to show all array elements. Set to `0` or negative to show no array
-    elements.
-  * `breakLength` {number} The length at which an object's keys are split
-    across multiple lines. Set to `Infinity` to format an object as a single
-    line. Defaults to 60 for legacy compatibility.
+  * `showHidden` {boolean} 如果为 `true`，则 `object` 的不可枚举的符号与属性也会被包括在格式化后的结果中。
+    默认为 `false`。
+  * `depth` {number} 指定格式化 `object` 时递归的次数。
+    这对查看大型复杂对象很有用。
+    默认为 `2`。
+    若要无限地递归则传入 `null`。
+  * `colors` {boolean} 如果为 `true`，则输出样式使用 ANSI 颜色代码。
+    默认为 `false`。
+    颜色可自定义，详见[自定义 `util.inspect` 颜色]。
+  * `customInspect` {boolean} 如果为 `false`，则 `object` 上自定义的 `inspect(depth, opts)` 函数不会被调用。
+    默认为 `true`。
+  * `showProxy` {boolean} 如果为 `true`，则 `Proxy` 对象的对象和函数会展示它们的 `target` 和 `handler` 对象。
+    默认为 `false`。
+  * `maxArrayLength` {number} 指定格式化时数组和 `TypedArray` 元素能包含的最大数量。
+    默认为 `100`。
+    设为 `null` 则显式全部数组元素。
+    设为 `0` 或负数则不显式数组元素。
+  * `breakLength` {number} 一个对象的键被拆分成多行的长度。
+    设为 `Infinity` 则格式化一个对象为单行。
+    默认为 `60`。
 
-The `util.inspect()` method returns a string representation of `object` that is
-primarily useful for debugging. Additional `options` may be passed that alter
-certain aspects of the formatted string.
+`util.inspect()` 方法返回 `object` 的字符串表示，主要用于调试。
+附加的 `options` 可用于改变格式化字符串的某些方面。
 
-The following example inspects all properties of the `util` object:
+例子，查看 `util` 对象的所有属性：
 
 ```js
 const util = require('util');
@@ -38,7 +36,5 @@ const util = require('util');
 console.log(util.inspect(util, { showHidden: true, depth: null }));
 ```
 
-Values may supply their own custom `inspect(depth, opts)` functions, when
-called these receive the current `depth` in the recursive inspection, as well as
-the options object passed to `util.inspect()`.
+当调用到达递归查看的当前 `depth` 时，值支持自定义的 `inspect(depth, opts)` 函数，传入 `util.inspect()` 的选项对象也一样。
 
