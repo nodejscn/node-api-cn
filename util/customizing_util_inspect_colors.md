@@ -1,13 +1,11 @@
 
 <!-- type=misc -->
 
-Color output (if enabled) of `util.inspect` is customizable globally
-via the `util.inspect.styles` and `util.inspect.colors` properties.
+可以通过 `util.inspect.styles` 和 `util.inspect.colors` 属性全局地自定义 `util.inspect` 的颜色输出（如果已启用）。
 
-`util.inspect.styles` is a map associating a style name to a color from
-`util.inspect.colors`.
+`util.inspect.styles` 是一个映射，关联一个样式名到一个 `util.inspect.colors` 颜色。
 
-The default styles and associated colors are:
+默认的样式与关联的颜色有：
 
  * `number` - `yellow`
  * `boolean` - `yellow`
@@ -16,13 +14,11 @@ The default styles and associated colors are:
  * `regexp` - `red`
  * `null` - `bold`
  * `undefined` - `grey`
- * `special` - `cyan` (only applied to functions at this time)
- * `name` - (no styling)
+ * `special` - `cyan` （暂时只用于函数）
+ * `name` - （无样式）
 
-The predefined color codes are: `white`, `grey`, `black`, `blue`, `cyan`,
-`green`, `magenta`, `red` and `yellow`. There are also `bold`, `italic`,
-`underline` and `inverse` codes.
+预定义的颜色代码有：`white`、`grey`、`black`、`blue`、`cyan`、`green`、`magenta``red` 和 `yellow`。
+还有 `bold`、`italic`、`underline` 和 `inverse` 代码。
 
-Color styling uses ANSI control codes that may not be supported on all
-terminals.
+颜色样式使用 ANSI 控制码，可能不是所有终端都支持。
 
