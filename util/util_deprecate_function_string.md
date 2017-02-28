@@ -2,8 +2,7 @@
 added: v0.8.0
 -->
 
-The `util.deprecate()` method wraps the given `function` or class in such a way that
-it is marked as deprecated.
+`util.deprecate()` 方法会包装给定的 `function` 或类，并标记为废弃的。
 
 ```js
 const util = require('util');
@@ -12,29 +11,18 @@ exports.puts = util.deprecate(function() {
   for (var i = 0, len = arguments.length; i < len; ++i) {
     process.stdout.write(arguments[i] + '\n');
   }
-}, 'util.puts: Use console.log instead');
+}, 'util.puts: 使用 console.log 代替');
 ```
 
-When called, `util.deprecate()` will return a function that will emit a
-`DeprecationWarning` using the `process.on('warning')` event. By default,
-this warning will be emitted and printed to `stderr` exactly once, the first
-time it is called. After the warning is emitted, the wrapped `function`
-is called.
+当被调用时，`util.deprecate()` 会返回一个函数，这个函数会使用 `process.on('warning')` 事件触发一个 `DeprecationWarning`。
+默认情况下，警告只在首次被调用时才会被触发并打印到 `stderr`。
+警告被触发之后，被包装的 `function` 会被调用。
 
-If either the `--no-deprecation` or `--no-warnings` command line flags are
-used, or if the `process.noDeprecation` property is set to `true` *prior* to
-the first deprecation warning, the `util.deprecate()` method does nothing.
+如果使用了 `--no-deprecation` 或 `--no-warnings` 命令行标记，或 `process.noDeprecation` 属性在首次废弃警告之前被设为 `true`，则 `util.deprecate()` 方法什么也不做。
 
-If the `--trace-deprecation` or `--trace-warnings` command line flags are set,
-or the `process.traceDeprecation` property is set to `true`, a warning and a
-stack trace are printed to `stderr` the first time the deprecated function is
-called.
+如果设置了 `--trace-deprecation` 或 `--trace-warnings` 命令行标记，或 `process.traceDeprecation` 属性被设为 `true`，则废弃的函数首次被调用时会把警告与堆栈追踪打印到 `stderr`。
 
-If the `--throw-deprecation` command line flag is set, or the
-`process.throwDeprecation` property is set to `true`, then an exception will be
-thrown when the deprecated function is called.
+如果设置了 `--throw-deprecation` 命令行标记，或 `process.throwDeprecation` 属性被设为 `true`，则当废弃的函数被调用时会抛出一个异常。
 
-The `--throw-deprecation` command line flag and `process.throwDeprecation`
-property take precedence over `--trace-deprecation` and
-`process.traceDeprecation`.
+`--throw-deprecation` 命令行标记和 `process.throwDeprecation` 属性优先于 `--trace-deprecation` 和 `process.traceDeprecation`。
 
