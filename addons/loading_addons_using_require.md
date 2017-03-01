@@ -1,14 +1,8 @@
 
-The filename extension of the compiled Addon binary is `.node` (as opposed
-to `.dll` or `.so`). The [`require()`][require] function is written to look for
-files with the `.node` file extension and initialize those as dynamically-linked
-libraries.
+编译后的二进制插件的文件扩展名是 `.node`（而不是 `.dll` 或 `.so`）。
+[`require()`] 函数用于查找具有 `.node` 文件扩展名的文件，并初始化为动态链接库。
 
-When calling [`require()`][require], the `.node` extension can usually be
-omitted and Node.js will still find and initialize the Addon. One caveat,
-however, is that Node.js will first attempt to locate and load modules or
-JavaScript files that happen to share the same base name. For instance, if
-there is a file `addon.js` in the same directory as the binary `addon.node`,
-then [`require('addon')`][require] will give precedence to the `addon.js` file
-and load it instead.
+当调用 [`require()`] 时，`.node` 拓展名通常可被省略，Node.js 仍会找到并初始化该插件。
+注意，Node.js 会优先尝试查找并加载同名的模块或 JavaScript 文件。
+例如，如果与二进制的 `addon.node` 同一目录下有一个 `addon.js` 文件，则 [`require('addon')`] 会优先加载 `addon.js` 文件。
 
