@@ -1,11 +1,8 @@
 
-Addons will typically expose objects and functions that can be accessed from
-JavaScript running within Node.js. When functions are invoked from JavaScript,
-the input arguments and return value must be mapped to and from the C/C++
-code.
+插件通常会开放一些对象和函数，供运行在 Node.js 中的 JavaScript 访问。
+当从 JavaScript 调用函数时，输入参数和返回值必须与 C/C++ 代码相互映射。
 
-The following example illustrates how to read function arguments passed from
-JavaScript and how to return a result:
+以下例子描述了如何读取从 JavaScript 传入的函数参数与如何返回结果：
 
 ```cpp
 // addon.cc
@@ -22,33 +19,31 @@ using v8::Object;
 using v8::String;
 using v8::Value;
 
-// This is the implementation of the "add" method
-// Input arguments are passed using the
-// const FunctionCallbackInfo<Value>& args struct
+// 这是 "add" 方法的实现
+// 输入参数使用 const FunctionCallbackInfo<Value>& args 结构传入
 void Add(const FunctionCallbackInfo<Value>& args) {
   Isolate* isolate = args.GetIsolate();
 
-  // Check the number of arguments passed.
+  // 检查传入的参数的个数
   if (args.Length() < 2) {
-    // Throw an Error that is passed back to JavaScript
+    // 抛出一个错误并传回到 JavaScript
     isolate->ThrowException(Exception::TypeError(
-        String::NewFromUtf8(isolate, "Wrong number of arguments")));
+        String::NewFromUtf8(isolate, "参数的数量错误")));
     return;
   }
 
-  // Check the argument types
+  // 检查参数的类型
   if (!args[0]->IsNumber() || !args[1]->IsNumber()) {
     isolate->ThrowException(Exception::TypeError(
-        String::NewFromUtf8(isolate, "Wrong arguments")));
+        String::NewFromUtf8(isolate, "参数错误")));
     return;
   }
 
-  // Perform the operation
+  // 执行操作
   double value = args[0]->NumberValue() + args[1]->NumberValue();
   Local<Number> num = Number::New(isolate, value);
 
-  // Set the return value (using the passed in
-  // FunctionCallbackInfo<Value>&)
+  // 设置返回值
   args.GetReturnValue().Set(num);
 }
 
@@ -61,7 +56,7 @@ NODE_MODULE(addon, Init)
 }  // namespace demo
 ```
 
-Once compiled, the example Addon can be required and used from within Node.js:
+但已被编译，示例插件就可以在 Node.js 中引入和使用：
 
 ```js
 // test.js
