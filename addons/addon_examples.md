@@ -1,11 +1,9 @@
 
-Following are some example Addons intended to help developers get started. The
-examples make use of the V8 APIs. Refer to the online [V8 reference][v8-docs]
-for help with the various V8 calls, and V8's [Embedder's Guide][] for an
-explanation of several concepts used such as handles, scopes, function
-templates, etc.
+以下是一些插件示例，用于帮助开发者入门。
+这些例子使用了 V8 的 API。
+查看在线的 [V8 文档]有助于了解各种 V8 调用，V8 的[嵌入器指南]解释了句柄、作用域和函数模板等的一些概念。
 
-Each of these examples using the following `binding.gyp` file:
+每个示例都使用以下的 `binding.gyp` 文件：
 
 ```json
 {
@@ -18,15 +16,14 @@ Each of these examples using the following `binding.gyp` file:
 }
 ```
 
-In cases where there is more than one `.cc` file, simply add the additional
-filename to the `sources` array. For example:
+如果有一个以上的 `.cc` 文件，则只需添加额外的文件名到 `sources` 数组。
+例如：
 
 ```json
 "sources": ["addon.cc", "myexample.cc"]
 ```
 
-Once the `binding.gyp` file is ready, the example Addons can be configured and
-built using `node-gyp`:
+当 `binding.gyp` 文件准备就绪，则插件示例可以使用 `node-gyp` 进行配置和构建：
 
 ```console
 $ node-gyp configure build
