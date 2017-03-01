@@ -1,12 +1,11 @@
 
-This "Hello world" example is a simple Addon, written in C++, that is the
-equivalent of the following JavaScript code:
+“Hello World” 示例是一个简单的插件，用 C++ 编写，相当于以下 JavaScript 代码：
 
 ```js
 module.exports.hello = () => 'world';
 ```
 
-First, create the file `hello.cc`:
+首先，创建 `hello.cc` 文件：
 
 ```cpp
 // hello.cc
@@ -35,20 +34,16 @@ NODE_MODULE(addon, init)
 }  // namespace demo
 ```
 
-Note that all Node.js Addons must export an initialization function following
-the pattern:
+注意，所有的 Node.js 插件必须导出一个如下模式的初始化函数：
 
 ```cpp
 void Initialize(Local<Object> exports);
 NODE_MODULE(module_name, Initialize)
 ```
 
-There is no semi-colon after `NODE_MODULE` as it's not a function (see
-`node.h`).
+`NODE_MODULE` 后面没有分号，因为它不是一个函数（详见 `node.h`）。
 
-The `module_name` must match the filename of the final binary (excluding
-the .node suffix).
+`module_name` 必须匹配最终的二进制文件名（不包括 .node 后缀）。
 
-In the `hello.cc` example, then, the initialization function is `init` and the
-Addon module name is `addon`.
+在 `hello.cc` 示例中，初始化函数是 `init`，插件模块名是 `addon`。
 
