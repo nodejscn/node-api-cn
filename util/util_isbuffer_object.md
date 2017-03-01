@@ -3,7 +3,7 @@ added: v0.11.5
 deprecated: v4.0.0
 -->
 
-> Stability: 0 - Deprecated: Use [`Buffer.isBuffer()`][] instead.
+> 稳定性: 0 - 废弃的: 使用 [`Buffer.isBuffer()`] 代替。
 
 * `object` {any}
 
