@@ -2,18 +2,17 @@
 added: v6.4.0
 -->
 
-The `defaultOptions` value allows customization of the default options used by
-`util.inspect`. This is useful for functions like `console.log` or
-`util.format` which implicitly call into `util.inspect`. It shall be set to an
-object containing one or more valid [`util.inspect()`][] options. Setting
-option properties directly is also supported.
+`defaultOptions` 值允许对被 `util.inspect` 使用的默认选项进行自定义。
+这对 `console.log` 或 `util.format` 等显式调用 `util.inspect` 的函数很有用。
+它需被设为一个对象，包含一个或多个有效的 [`util.inspect()`] 选项。
+也支持直接设置选项的属性。
 
 ```js
 const util = require('util');
 const arr = Array(101);
 
-console.log(arr); // logs the truncated array
+console.log(arr); // 打印截断的数组
 util.inspect.defaultOptions.maxArrayLength = null;
-console.log(arr); // logs the full array
+console.log(arr); // 打印完整的数组
 ```
 
