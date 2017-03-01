@@ -1,15 +1,9 @@
 
-Each of the examples illustrated in this document make direct use of the
-Node.js and V8 APIs for implementing Addons. It is important to understand
-that the V8 API can, and has, changed dramatically from one V8 release to the
-next (and one major Node.js release to the next). With each change, Addons may
-need to be updated and recompiled in order to continue functioning. The Node.js
-release schedule is designed to minimize the frequency and impact of such
-changes but there is little that Node.js can do currently to ensure stability
-of the V8 APIs.
+文档中所示的每个例子都直接使用 Node.js 和 V8 的 API 来实现插件。
+V8 的 API 可能并且已经与下一个 V8 的发行版本有显著的变化。
+伴随着每次变化，插件为了能够继续工作，可能需要进行更新和重新编译。
+Node.js 的发布计划会尽量减少这种变化的频率和影响，但 Node.js 目前可以确保 V8 API 的稳定性。
 
-The [Native Abstractions for Node.js][] (or `nan`) provide a set of tools that
-Addon developers are recommended to use to keep compatibility between past and
-future releases of V8 and Node.js. See the `nan` [examples][] for an
-illustration of how it can be used.
+[Node.js 的原生抽象]（或称为 `nan`）提供了一组工具，建议插件开发者使用这些工具来保持插件在过往与将来的 V8 和 Node.js 的版本之间的兼容性。
+查看 [`nan` 示例]了解它是如何被使用的。
 
