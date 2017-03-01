@@ -1,4 +1,4 @@
 
-The following APIs have been deprecated and should no longer be used. Existing
-applications and modules should be updated to find alternative approaches.
+以下 API 已被废弃，不应该再被使用。
+现存的应用和模块应该使用替代方法更新。
 
