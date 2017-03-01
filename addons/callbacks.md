@@ -1,7 +1,6 @@
 
-It is common practice within Addons to pass JavaScript functions to a C++
-function and execute them from there. The following example illustrates how
-to invoke such callbacks:
+把 JavaScript 函数传入到一个 C++ 函数并在那里执行它们，这在插件里是常见的做法。
+以下例子描述了如何调用这些回调：
 
 ```cpp
 // addon.cc
@@ -35,12 +34,10 @@ NODE_MODULE(addon, Init)
 }  // namespace demo
 ```
 
-Note that this example uses a two-argument form of `Init()` that receives
-the full `module` object as the second argument. This allows the Addon
-to completely overwrite `exports` with a single function instead of
-adding the function as a property of `exports`.
+注意，该例子使用了一个带有两个参数的 `Init()`，它接收完整的 `module` 对象作为第二个参数。
+这使得插件可以用一个单一的函数完全地重写 `exports`，而不是添加函数作为 `exports` 的属性。
 
-To test it, run the following JavaScript:
+为了验证它，运行以下 JavaScript：
 
 ```js
 // test.js
@@ -48,9 +45,9 @@ const addon = require('./build/Release/addon');
 
 addon((msg) => {
   console.log(msg);
-// Prints: 'hello world'
+// 打印: 'hello world'
 });
 ```
 
-Note that, in this example, the callback function is invoked synchronously.
+注意，在这个例子中，回调函数是被同步地调用。
 
