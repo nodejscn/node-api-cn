@@ -1,40 +1,25 @@
 
-Node.js Addons are dynamically-linked shared objects, written in C or C++, that
-can be loaded into Node.js using the [`require()`][require] function, and used
-just as if they were an ordinary Node.js module. They are used primarily to
-provide an interface between JavaScript running in Node.js and C/C++ libraries.
+Node.js 插件是用 C 或 C++ 编写的动态链接共享对象，可以使用 [`require()`] 函数加载到 Node.js 中，且像普通的 Node.js 模块一样被使用。
+它们主要用于为运行于 Node.js 的 JavaScript 和 C/C++ 库之间提供接口。
 
-At the moment, the method for implementing Addons is rather complicated,
-involving knowledge of several components and APIs :
+目前用于实现插件的方法相当复杂，涉及多个组件和 API 的知识：
 
- - V8: the C++ library Node.js currently uses to provide the
-   JavaScript implementation. V8 provides the mechanisms for creating objects,
-   calling functions, etc. V8's API is documented mostly in the
-   `v8.h` header file (`deps/v8/include/v8.h` in the Node.js source
-   tree), which is also available [online][v8-docs].
+ - V8：Node.js 当前用于提供 JavaScript 实现的 C++ 库。
+  V8 提供了用于创建对象、调用函数等机制。
+  V8 的 API 文档主要在 `v8.h` 头文件中（Node.js 源代码中的 `deps/v8/include/v8.h`），也可以在查看 [V8 在线文档]。
 
- - [libuv][]: The C library that implements the Node.js event loop, its worker
-   threads and all of the asynchronous behaviors of the platform. It also
-   serves as a cross-platform abstraction library, giving easy, POSIX-like
-   access across all major operating systems to many common system tasks, such
-   as interacting with the filesystem, sockets, timers and system events. libuv
-   also provides a pthreads-like threading abstraction that may be used to
-   power more sophisticated asynchronous Addons that need to move beyond the
-   standard event loop. Addon authors are encouraged to think about how to
-   avoid blocking the event loop with I/O or other time-intensive tasks by
-   off-loading work via libuv to non-blocking system operations, worker threads
-   or a custom use of libuv's threads.
+ - [libuv]：实现了 Node.js 的事件循环、工作线程、与平台所有的的异步操作的 C 库。
+  它也是一个跨平台的抽象库，使所有主流操作系统中可以像 POSIX 一样访问常用的系统任务，比如与文件系统、socket、定时器和系统事件的交互。
+  libuv 还提供了一个类似 POSIX 多线程的线程抽象，可被用于强化更复杂的需要超越标准事件循环的异步插件。
+  鼓励插件开发者多思考如何通过在 libuv 的非阻塞系统操作、工作线程、或自定义的 libuv 线程中降低工作负载来避免在 I/O 或其他时间密集型任务中阻塞事件循环。
 
- - Internal Node.js libraries. Node.js itself exports a number of C/C++ APIs
-   that Addons can use &mdash; the most important of which is the
-   `node::ObjectWrap` class.
+ - 内置的 Node.js 库。Node.js 自身开放了一些插件可以使用的 C/C++ API。
+  其中最重要的是 `node::ObjectWrap` 类。
 
- - Node.js includes a number of other statically linked libraries including
-   OpenSSL. These other libraries are located in the `deps/` directory in the
-   Node.js source tree. Only the V8 and OpenSSL symbols are purposefully
-   re-exported by Node.js and may be used to various extents by Addons.
-   See [Linking to Node.js' own dependencies][] for additional information.
+ - Node.js 包含一些其他的静态链接库，如 OpenSSL。
+  这些库位于 Node.js 源代码中的 `deps/` 目录。
+  只有 V8 和 OpenSSL 符号是被 Node.js 有目的地再导出，并且通过插件被用于不同的场景。
+  更多信息请查看[链接到 Node.js 自身的依赖]。
 
-All of the following examples are available for [download][] and may
-be used as a starting-point for your own Addon.
+以下例子可从 [Node 插件示例]下载，并作为你自己插件的起点。
 
