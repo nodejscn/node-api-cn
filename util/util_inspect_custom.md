@@ -2,6 +2,5 @@
 added: v6.6.0
 -->
 
-A Symbol that can be used to declare custom inspect functions, see
-[Custom inspection functions on Objects][].
+一个符号，可被用于声明自定义的查看函数，详见[自定义对象的查看函数]。
 
