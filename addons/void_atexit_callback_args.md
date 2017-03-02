@@ -1,16 +1,14 @@
 
-* `callback`: `void (*)(void*)` - A pointer to the function to call at exit.
-* `args`: `void*` - A pointer to pass to the callback at exit.
+* `callback`: `void (*)(void*)` - 一个退出时调用的函数的指针。
+* `args`: `void*` - 一个退出时传递给回调的指针。
 
-Registers exit hooks that run after the event loop has ended but before the VM
-is killed.
+注册的 AtExit 钩子会在事件循环结束之后但虚拟机被终止之前退出。
 
-AtExit takes two parameters: a pointer to a callback function to run at exit,
-and a pointer to untyped context data to be passed to that callback.
+AtExit 有两个参数：一个退出时运行的回调函数的指针，和一个要传入回调的无类型的上下文数据的指针。
 
-Callbacks are run in last-in first-out order.
+回调按照后进先出的顺序运行。
 
-The following `addon.cc` implements AtExit:
+以下 `addon.cc` 实现了 AtExit：
 
 ```cpp
 // addon.cc
@@ -62,21 +60,10 @@ NODE_MODULE(addon, init);
 }  // namespace demo
 ```
 
-Test in JavaScript by running:
+测试：
 
 ```js
 // test.js
 const addon = require('./build/Release/addon');
 ```
 
-[bindings]: https://github.com/TooTallNate/node-bindings
-[download]: https://github.com/nodejs/node-addon-examples
-[Embedder's Guide]: https://developers.google.com/v8/embed
-[examples]: https://github.com/nodejs/nan/tree/master/examples/
-[installation instructions]: https://github.com/nodejs/node-gyp#installation
-[libuv]: https://github.com/libuv/libuv
-[Linking to Node.js' own dependencies]: #addons_linking_to_node_js_own_dependencies
-[Native Abstractions for Node.js]: https://github.com/nodejs/nan
-[node-gyp]: https://github.com/nodejs/node-gyp
-[require]: globals.html#globals_require
-[v8-docs]: https://v8docs.nodesource.com/
