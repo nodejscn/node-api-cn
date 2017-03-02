@@ -1,8 +1,6 @@
 
-In addition to wrapping and returning C++ objects, it is possible to pass
-wrapped objects around by unwrapping them with the Node.js helper function
-`node::ObjectWrap::Unwrap`. The following examples shows a function `add()`
-that can take two `MyObject` objects as input arguments:
+除了包装和返回 C++ 对象，也可以通过使用 Node.js 的辅助函数 `node::ObjectWrap::Unwrap` 进行去包装来传递包装的对象。
+以下例子展示了一个 `add()` 函数，它可以把两个 `MyObject` 对象作为输入参数：
 
 ```cpp
 // addon.cc
@@ -48,8 +46,7 @@ NODE_MODULE(addon, InitAll)
 }  // namespace demo
 ```
 
-In `myobject.h`, a new public method is added to allow access to private values
-after unwrapping the object.
+在 `myobject.h` 中，新增了一个新的公共方法用于在去包装对象后访问私有值。
 
 ```cpp
 // myobject.h
@@ -81,7 +78,7 @@ class MyObject : public node::ObjectWrap {
 #endif
 ```
 
-The implementation of `myobject.cc` is similar to before:
+`myobject.cc` 中的实现类似之前的例子：
 
 ```cpp
 // myobject.cc
@@ -122,13 +119,13 @@ void MyObject::New(const FunctionCallbackInfo<Value>& args) {
   Isolate* isolate = args.GetIsolate();
 
   if (args.IsConstructCall()) {
-    // Invoked as constructor: `new MyObject(...)`
+    // 像构造函数一样调用：`new MyObject(...)`
     double value = args[0]->IsUndefined() ? 0 : args[0]->NumberValue();
     MyObject* obj = new MyObject(value);
     obj->Wrap(args.This());
     args.GetReturnValue().Set(args.This());
   } else {
-    // Invoked as plain function `MyObject(...)`, turn into construct call.
+    // 像普通方法 `MyObject(...)` 一样调用，转为构造调用。
     const int argc = 1;
     Local<Value> argv[argc] = { args[0] };
     Local<Context> context = isolate->GetCurrentContext();
@@ -155,7 +152,7 @@ void MyObject::NewInstance(const FunctionCallbackInfo<Value>& args) {
 }  // namespace demo
 ```
 
-Test it with:
+测试：
 
 ```js
 // test.js
@@ -166,6 +163,6 @@ const obj2 = addon.createObject(20);
 const result = addon.add(obj1, obj2);
 
 console.log(result);
-// Prints: 30
+// 打印: 30
 ```
 
