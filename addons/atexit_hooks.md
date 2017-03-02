@@ -1,5 +1,4 @@
 
-An "AtExit" hook is a function that is invoked after the Node.js event loop
-has ended but before the JavaScript VM is terminated and Node.js shuts down.
-"AtExit" hooks are registered using the `node::AtExit` API.
+“AtExit” 钩子是一个函数，它在 Node.js 事件循环结束后、但在 JavaScript 虚拟机被终止与 Node.js 关闭前被调用。
+“AtExit” 钩子使用 `node::AtExit` API 注册。
 
