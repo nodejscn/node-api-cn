@@ -1,7 +1,6 @@
 
-Addons can create and return new objects from within a C++ function as
-illustrated in the following example. An object is created and returned with a
-property `msg` that echoes the string passed to `createObject()`:
+插件可从 C++ 函数中创建并返回新的对象，如以下例子所示。
+一个带有 `msg` 属性的对象被创建并返回，该属性会输出传入 `createObject()` 的字符串：
 
 ```cpp
 // addon.cc
@@ -34,7 +33,7 @@ NODE_MODULE(addon, Init)
 }  // namespace demo
 ```
 
-To test it in JavaScript:
+在 JavaScript 中测试它：
 
 ```js
 // test.js
@@ -43,7 +42,7 @@ const addon = require('./build/Release/addon');
 const obj1 = addon('hello');
 const obj2 = addon('world');
 console.log(obj1.msg, obj2.msg);
-// Prints: 'hello world'
+// 打印: 'hello world'
 ```
 
 
