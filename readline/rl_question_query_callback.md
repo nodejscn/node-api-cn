@@ -2,30 +2,23 @@
 added: v0.3.3
 -->
 
-* `query` {String} A statement or query to write to `output`, prepended to the
-  prompt.
-* `callback` {Function} A callback function that is invoked with the user's
-  input in response to the `query`.
+* `query` {String} 一个在提示符之前、要写入 `output` 的叙述或询问。
+* `callback` {Function} 一个回调函数，它会被调用并带上用户响应 `query` 的输入。
 
-The `rl.question()` method displays the `query` by writing it to the `output`,
-waits for user input to be provided on `input`, then invokes the `callback`
-function passing the provided input as the first argument.
+`rl.question()` 方法通过写入到 `output` 来展示 `query`，并等待用户提供到 `input` 的输入，然后调用 `callback` 函数并传入提供的输入作为第一个参数。
 
-When called, `rl.question()` will resume the `input` stream if it has been
-paused.
+当被调用时，如果 `input` 流已被暂停，则 `rl.question()` 会恢复 `input` 流。
 
-If the `readline.Interface` was created with `output` set to `null` or
-`undefined` the `query` is not written.
+如果 `readline.Interface` 被创建时 `output` 被设为 `null` 或 `undefined`，则 `query` 不会被写入。
 
-Example usage:
+例子：
 
 ```js
-rl.question('What is your favorite food?', (answer) => {
-  console.log(`Oh, so your favorite food is ${answer}`);
+rl.question('你最喜欢的食物是什么？', (answer) => {
+  console.log(`你最喜欢的食物是 ${answer}`);
 });
 ```
 
-*Note*: The `callback` function passed to `rl.question()` does not follow the
-typical pattern of accepting an `Error` object or `null` as the first argument.
-The `callback` is called with the provided answer as the only argument.
+注意：传入的 `rl.question()` 的 `callback` 函数不遵循接受一个 `Error` 对象或 `null` 作为第一个参数的标准模式。
+`callback` 被调用时只带上提供的答案作为唯一的参数。
 
