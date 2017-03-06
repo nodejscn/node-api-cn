@@ -2,6 +2,7 @@
 added: v0.3.4
 -->
 
-`rl.pause()` 函数中止输入流，如果稍后还需要的话，它允许被唤醒。
+`rl.pause()` 方法会暂停 `input` 流，且稍后需要时可被恢复。
 
-调用 `rl.pause()` 不会立刻中止 `readline.Interface` 实例创建的其它事件（包括 `'line'`）。
+调用 `rl.pause()` 不会立刻暂停其他事件（包括 `'line'`）被 `readline.Interface` 实例触发。
+
