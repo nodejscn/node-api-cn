@@ -4,31 +4,27 @@ added: v0.1.98
 
 * `data` {String}
 * `key` {Object}
-  * `ctrl` {boolean} `true` to indicate the `<ctrl>` key.
-  * `meta` {boolean} `true` to indicate the `<Meta>` key.
-  * `shift` {boolean} `true` to indicate the `<Shift>` key.
-  * `name` {String} The name of the a key.
+  * `ctrl` {boolean} 如果为 `true` 则表示 `<ctrl>` 键。
+  * `meta` {boolean} 如果为 `true` 则表示 `<Meta>` 键。
+  * `shift` {boolean} 如果为 `true` 则表示 `<Shift>` 键。
+  * `name` {String} 一个按键的名称。
 
-The `rl.write()` method will write either `data` or a key sequence  identified
-by `key` to the `output`. The `key` argument is supported only if `output` is
-a [TTY][] text terminal.
+`rl.write()` 方法会把 `data` 或一个由 `key` 指定的按键序列写入到 `output`。
+只有当 `output` 是一个 [TTY] 文本终端时，`key` 参数才被支持。
 
-If `key` is specified, `data` is ignored.
+如果指定了 `key`，则 `data` 会被忽略。
 
-When called, `rl.write()` will resume the `input` stream if it has been
-paused.
+当被调用时，如果 `input` 流已被暂停，则 `rl.write()` 会恢复 `input` 流。
 
-If the `readline.Interface` was created with `output` set to `null` or
-`undefined` the `data` and `key` are not written.
+如果 `readline.Interface` 被创建时 `output` 被设为 `null` 或 `undefined`，则 `data` 和 `key` 不会被写入。
 
-For example:
+例子：
 
 ```js
-rl.write('Delete this!');
-// Simulate Ctrl+u to delete the line written previously
+rl.write('删除这个！');
+// 模拟 Ctrl+u 删除写入的前一行。
 rl.write(null, {ctrl: true, name: 'u'});
 ```
 
-*Note*: The `rl.write()` method will write the data to the `readline`
-Interface's `input` *as if it were provided by the user*.
+注意：`rl.write()` 方法会写入数据到 `readline` 接口的 `input`，犹如它是用户提供的。
 
