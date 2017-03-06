@@ -1,36 +1,35 @@
 
 <!--type=misc-->
 
-Almost all Node.js applications, no matter how simple, use streams in some
-manner. The following is an example of using streams in a Node.js application
-that implements an HTTP server:
+几乎所有的 Node.js 应用，不管多么简单，都在某种程度上使用了流。
+下面是在 Node.js 应用中使用流实现的一个简单的 HTTP 服务器：
 
 ```js
 const http = require('http');
 
 const server = http.createServer( (req, res) => {
-  // req is an http.IncomingMessage, which is a Readable Stream
-  // res is an http.ServerResponse, which is a Writable Stream
+  // req 是 http.IncomingMessage 的实例，这是一个 Readable Stream
+  // res 是 http.ServerResponse 的实例，这是一个 Writable Stream
 
   let body = '';
-  // Get the data as utf8 strings.
-  // If an encoding is not set, Buffer objects will be received.
-  req.setEncoding('utf8');
+  // 接收数据为 utf8 字符串，
+  // 如果没有设置字符编码，将接收到 Buffer 对象。
+  req.setEncoding('utf8');
 
-  // Readable streams emit 'data' events once a listener is added
+  // 如果监听了 'data' 事件，Readable streams 触发 'data' 事件 
   req.on('data', (chunk) => {
     body += chunk;
   });
 
-  // the end event indicates that the entire body has been received
+  // end 事件表明整个 body 都接收完毕了 
   req.on('end', () => {
     try {
       const data = JSON.parse(body);
-      // write back something interesting to the user:
-      res.write(typeof data);
+      // 发送一些信息给用户
+      res.write(typeof data);
       res.end();
     } catch (er) {
-      // uh oh!  bad json!
+      // json 数据解析失败 
       res.statusCode = 400;
       return res.end(`error: ${er.message}`);
     }
@@ -47,22 +46,18 @@ server.listen(1337);
 // error: Unexpected token o
 ```
 
-[Writable][] streams (such as `res` in the example) expose methods such as
-`write()` and `end()` that are used to write data onto the stream.
+[Writable][] 流 (比如例子中的 `res`) 暴露了一些方法，比如
+`write()` 和 `end()` 。这些方法可以将数据写入到流中。
 
-[Readable][] streams use the [`EventEmitter`][] API for notifying application
-code when data is available to be read off the stream. That available data can
-be read from the stream in multiple ways.
+当流中的数据可以读取时，[Readable][] 流使用 [`EventEmitter`][] API 来通知应用。
+这些数据可以使用多种方法从流中读取。
 
-Both [Writable][] and [Readable][] streams use the [`EventEmitter`][] API in
-various ways to communicate the current state of the stream.
+[Writable][] 和 [Readable][] 流都使用了 [`EventEmitter`][] API ，通过多种方式，
+与流的当前状态进行交互。
 
-[Duplex][] and [Transform][] streams are both [Writable][] and [Readable][].
+[Duplex][] 和 [Transform][] 都是同时满足 [Writable][] 和 [Readable][] 。
 
-Applications that are either writing data to or consuming data from a stream
-are not required to implement the stream interfaces directly and will generally
-have no reason to call `require('stream')`.
+对于只是简单写入数据到流和从流中消费数据的应用来说，
+不要求直接实现流接口，通常也不需要调用 `require('stream')`。
 
-Developers wishing to implement new types of streams should refer to the
-section [API for Stream Implementers][].
-
+需要实现两种类型流的开发者可以参考 [API for Stream Implementers][]。
