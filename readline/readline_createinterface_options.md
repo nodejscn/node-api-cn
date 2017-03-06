@@ -3,27 +3,23 @@ added: v0.1.98
 -->
 
 * `options` {Object}
-  * `input` {Readable} The [Readable][] stream to listen to. This option is
-    *required*.
-  * `output` {Writable} The [Writable][] stream to write readline data to.
-  * `completer` {Function} An optional function used for Tab autocompletion.
-  * `terminal` {boolean} `true` if the `input` and `output` streams should be
-    treated like a TTY, and have ANSI/VT100 escape codes written to it.
-    Defaults to checking `isTTY` on the `output` stream upon instantiation.
-  * `historySize` {number} maximum number of history lines retained. To disable
-    the history set this value to `0`. Defaults to `30`. This option makes sense
-    only if `terminal` is set to `true` by the user or by an internal `output`
-    check, otherwise the history caching mechanism is not initialized at all.
-  * `prompt` - the prompt string to use. Default: `'> '`
-  * `crlfDelay` {number} If the delay between `\r` and `\n` exceeds
-    `crlfDelay` milliseconds, both `\r` and `\n` will be treated as separate
-    end-of-line input. Default to `100` milliseconds.
-    `crlfDelay` will be coerced to `[100, 2000]` range.
+  * `input` {Readable} 要监听的[可读流]。该选项是必需的。
+  * `output` {Writable} 要写入逐行读取数据的[可写流]。
+  * `completer` {Function} 一个可选的函数，用于 Tab 自动补全。
+  * `terminal` {boolean} 如果 `input` 和 `output` 应被当作一个 TTY，且要写入 ANSI/VT100 转换的代码，则设为 `true`。
+    默认为实例化时在 `output` 流上检查 `isTTY`。
+  * `historySize` {number} 保留的历史行数的最大数量。
+    设为 `0` 可禁用历史记录。
+    默认为 `30`。
+    该选项只有当 `terminal` 被用户或内部 `output` 设为 `true` 时才有意义，否则历史缓存机制不会被初始化。
+  * `prompt` - 要使用的提示字符串。默认为 `'> '`。
+  * `crlfDelay` {number} 如果 `\r` 与 `\n` 之间的延迟超过 `crlfDelay` 毫秒，则 `\r` 和 `\n` 都会被当作换行分隔符。
+    默认为 `100` 毫秒。
+    `crlfDelay` 的范围为 `[100, 2000]`。
 
-The `readline.createInterface()` method creates a new `readline.Interface`
-instance.
+`readline.createInterface()` 方法会创建一个新的 `readline.Interface` 实例。
 
-For example:
+例子：
 
 ```js
 const readline = require('readline');
@@ -33,17 +29,13 @@ const rl = readline.createInterface({
 });
 ```
 
-Once the `readline.Interface` instance is created, the most common case is to
-listen for the `'line'` event:
+一旦 `readline.Interface` 实例被创建，最常见的用法是监听 `'line'` 事件：
 
 ```js
 rl.on('line', (line) => {
-  console.log(`Received: ${line}`);
+  console.log(`接收到：${line}`);
 });
 ```
 
-If `terminal` is `true` for this instance then the `output` stream will get
-the best compatibility if it defines an `output.columns` property and emits
-a `'resize'` event on the `output` if or when the columns ever change
-([`process.stdout`][] does this automatically when it is a TTY).
+如果该实例的 `terminal` 为 `true`，则若它定义了一个 `output.columns` 属性则 `output` 流会获得最佳兼容性，且如果或当列发生变化时，`output` 上触发一个 `'resize'` 事件（当它为一个 TTY 时，[`process.stdout`] 会自动处理这个）。
 
