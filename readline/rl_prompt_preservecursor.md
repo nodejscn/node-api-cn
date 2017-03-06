@@ -2,16 +2,11 @@
 added: v0.1.98
 -->
 
-* `preserveCursor` {boolean} If `true`, prevents the cursor placement from
-  being reset to `0`.
+* `preserveCursor` {boolean} 如果为 `true`，则阻止光标落点被设为 `0`。
 
-The `rl.prompt()` method writes the `readline.Interface` instances configured
-`prompt` to a new line in `output` in order to provide a user with a new
-location at which to provide input.
+`rl.prompt()` 方法会在 `output` 流中新的一行写入 `readline.Interface` 实例配置后的 `prompt`，用于为用户提供一个可供输入的新的位置。
 
-When called, `rl.prompt()` will resume the `input` stream if it has been
-paused.
+当被调用时，如果 `input` 流已被暂停，则 `rl.prompt()` 会恢复 `input` 流。
 
-If the `readline.Interface` was created with `output` set to `null` or
-`undefined` the prompt is not written.
+如果 `readline.Interface` 被创建时 `output` 被设为 `null` 或 `undefined`，则提示不会被写入。
 
