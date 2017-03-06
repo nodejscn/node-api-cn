@@ -2,17 +2,14 @@
 added: v0.1.98
 -->
 
-The `'close'` event is emitted when one of the following occur:
+当以下之一发生时，触发 `'close'` 事件：
 
-* The `rl.close()` method is called and the `readline.Interface` instance has
-  relinquished control over the `input` and `output` streams;
-* The `input` stream receives its `'end'` event;
-* The `input` stream receives `<ctrl>-D` to signal end-of-transmission (EOT);
-* The `input` stream receives `<ctrl>-C` to signal `SIGINT` and there is no
-  `SIGINT` event listener registered on the `readline.Interface` instance.
+* `rl.close()` 方法被调用，且 `readline.Interface` 实例已撤回对 `input` 流和 `output` 流的控制；
+* `input` 流接收到 `'end'` 事件；
+* `input` 流接收到表示结束传输的 `<ctrl>-D`；
+* `input` 流接收到表示 `SIGINT` 的 `<ctrl>-C`，且 `readline.Interface` 实例上没有注册 `SIGINT` 事件监听器。
 
-The listener function is called without passing any arguments.
+监听器函数被调用时不传入任何参数。
 
-The `readline.Interface` instance should be considered to be "finished" once
-the `'close'` event is emitted.
+当 `'close'` 事件被触发时，`readline.Interface` 实例应当被视为已结束。
 
