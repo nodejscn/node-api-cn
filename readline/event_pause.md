@@ -2,19 +2,18 @@
 added: v0.7.5
 -->
 
-The `'pause'` event is emitted when one of the following occur:
+当以下之一发生时触发 `'pause'` 事件：
 
-* The `input` stream is paused.
-* The `input` stream is not paused and receives the `SIGCONT` event. (See
-  events [`SIGTSTP`][] and [`SIGCONT`][])
+* `input` 流被暂停。
+* `input` 流不是暂停的，且接收到 `SIGCONT` 事件。（详见 [`SIGTSTP`] 事件和 [`SIGCONT`] 事件）
 
-The listener function is called without passing any arguments.
+监听器函数被调用时不传入任何参数。
 
-For example:
+例子：
 
 ```js
 rl.on('pause', () => {
-  console.log('Readline paused.');
+  console.log('Readline 被暂停。');
 });
 ```
 
