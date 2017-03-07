@@ -1,12 +1,11 @@
 
-There are four fundamental stream types within Node.js:
+Node.js 中有四种基本的流类型：
 
-* [Readable][] - streams from which data can be read (for example
-  [`fs.createReadStream()`][]).
-* [Writable][] - streams to which data can be written (for example
-  [`fs.createWriteStream()`][]).
-* [Duplex][] - streams that are both Readable and Writable (for example
-  [`net.Socket`][]).
-* [Transform][] - Duplex streams that can modify or transform the data as it
-  is written and read (for example [`zlib.createDeflate()`][]).
+* [Readable][] - 可读的流 (例如
+  [`fs.createReadStream()`][]).
+* [Writable][] - 可写的流 (例如
+  [`fs.createWriteStream()`][]).
+* [Duplex][] - 可读写的流 (例如
+  [`net.Socket`][]).
+* [Transform][] - 在读写过程中可以修改和变换数据的 Duplex 流  (例如 [`zlib.createDeflate()`][]).
 
