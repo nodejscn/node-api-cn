@@ -2,5 +2,5 @@
 added: v0.5.9
 -->
 
-Global instance of [`https.Agent`][] for all HTTPS client requests.
+[`https.Agent`][] 是所有HTTPS客户端请求的全局实例.
 
