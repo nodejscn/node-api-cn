@@ -2,12 +2,11 @@
 added: v0.3.6
 -->
 
-Like [`http.get()`][] but for HTTPS.
+类似[`http.get()`][]，但是却是用于HTTPS的.
 
-`options` can be an object or a string. If `options` is a string, it is
-automatically parsed with [`url.parse()`][].
+参数`options` 可以是一个对象或是一个字符串. 如果参数`options` 是一个字符串, 它自动被[`url.parse()`][]所解析.
 
-Example:
+例子:
 
 ```js
 const https = require('https');

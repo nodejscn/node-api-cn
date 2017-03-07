@@ -2,6 +2,4 @@
 added: v0.4.5
 -->
 
-An Agent object for HTTPS similar to [`http.Agent`][].  See [`https.request()`][]
-for more information.
-
+HTTPS的一个类似于[`http.Agent`][]的代理对象，查看See [`https.request()`][]获取更多信息。

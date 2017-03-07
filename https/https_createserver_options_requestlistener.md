@@ -2,11 +2,10 @@
 added: v0.3.4
 -->
 
-Returns a new HTTPS web server object. The `options` is similar to
-[`tls.createServer()`][].  The `requestListener` is a function which is
-automatically added to the `'request'` event.
+返回一个新的HTTPS网络服务器对象. 参数`options` 类似于
+[`tls.createServer()`][].  参数 `requestListener` 是一个自动被加到`'request'` 事件中的函数.
 
-Example:
+例子:
 
 ```js
 // curl -k https://localhost:8000/
@@ -24,7 +23,7 @@ https.createServer(options, (req, res) => {
 }).listen(8000);
 ```
 
-Or
+或者
 
 ```js
 const https = require('https');
