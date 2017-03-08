@@ -4,8 +4,6 @@ added: v0.9.4
 
 * {Error}
 
-The `'error'` event is emitted if an error occurred while writing or piping
-data. The listener callback is passed a single `Error` argument when called.
+`'error'` 事件在写入数据出错或者使用管道出错时触发。事件发生时，回掉函数仅会接收到一个 `Error` 参数。
 
-*Note*: The stream is not closed when the `'error'` event is emitted.
-
+*注意*: `'error'` 事件发生时，流并不会关闭。
