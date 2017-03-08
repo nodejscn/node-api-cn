@@ -2,4 +2,4 @@
 added: v0.11.2
 -->
 
-查看 [`http.Server#setTimeout()`][].
+查看 [`http.Server#setTimeout()`]。

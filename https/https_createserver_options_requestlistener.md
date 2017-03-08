@@ -2,8 +2,9 @@
 added: v0.3.4
 -->
 
-返回一个新的HTTPS网络服务器对象. 参数`options` 类似于
-[`tls.createServer()`][].  参数 `requestListener` 是一个自动被加到`'request'` 事件中的函数.
+返回一个新的 HTTPS 网络服务器对象。
+参数 `options` 类似于 [`tls.createServer()`]。
+参数 `requestListener` 是一个自动被加到 `'request'` 事件中的函数。
 
 例子:
 
