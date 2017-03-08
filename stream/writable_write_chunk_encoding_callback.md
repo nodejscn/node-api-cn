@@ -2,25 +2,17 @@
 added: v0.9.4
 -->
 
-* `chunk` {String|Buffer} The data to write
-* `encoding` {String} The encoding, if `chunk` is a String
-* `callback` {Function} Callback for when this chunk of data is flushed
-* Returns: {Boolean} `false` if the stream wishes for the calling code to
-  wait for the `'drain'` event to be emitted before continuing to write
-  additional data; otherwise `true`.
+* `chunk` {String|Buffer} 要写入的数据
+* `encoding` {String} 如果 `chunk` 是字符串，这里指定字符编码
+* `callback` {Function} 缓冲数据输出时的回调函数
+* 返回： {Boolean} 如果流需要等待 `'drain'` 事件触发才能继续写入数据，这里将返回 `false` ； 否则返回 `true`。
 
-The `writable.write()` method writes some data to the stream, and calls the
-supplied `callback` once the data has been fully handled. If an error
-occurs, the `callback` *may or may not* be called with the error as its
-first argument. To reliably detect write errors, add a listener for the
-`'error'` event.
+`writable.write()` 方法向流中写入数据，并在数据处理完成后调用 `callback` 。如果有错误发生， `callback` *不一定* 会接收到这个错误作为第一个参数。要确保可靠地检测到写入错误，应该监听
+`'error'` 事件。
 
-The return value is `true` if the internal buffer does not exceed
-`highWaterMark` configured when the stream was created after admitting `chunk`.
-If `false` is returned, further attempts to write data to the stream should
-stop until the [`'drain'`][] event is emitted. However, the `false` return
-value is only advisory and the writable stream will unconditionally accept and
-buffer `chunk` even if it has not not been allowed to drain.
+在确认了 `chunk` 后，如果内部缓冲区的大小没有超出创建流时设定的
+`highWaterMark` 阈值，函数将返回 `true` 。
+如果返回值为 `false` ，应该停止向流中写入数据，直到 [`'drain'`][] 事件被触发。然而，`false` 这个返回值只是建议性的，写入流仍将无条件地接收并缓存 `chunk` 数据，即是 [`'drain'`][] 事件还没有触发。
 
-A Writable stream in object mode will always ignore the `encoding` argument.
+对象模式的写入流将忽略 `encoding` 参数。
 
