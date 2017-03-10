@@ -2,9 +2,8 @@
 added: v0.11.15
 -->
 
-* `encoding` {String} The new default encoding
-* Returns: `this`
+* `encoding` {String} 新的默认编码
+* 返回： `this`
 
-The `writable.setDefaultEncoding()` method sets the default `encoding` for a
-[Writable][] stream.
+`writable.setDefaultEncoding()` 用于为 [Writable][] 设置 `encoding`。
 

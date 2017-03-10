@@ -1,8 +1,7 @@
 
-Writable streams are an abstraction for a *destination* to which data is
-written.
+Writable streams 是 *destination* 的一种抽象，这种 *destination* 允许数据写入。
 
-Examples of [Writable][] streams include:
+[Writable][] 的例子包括了：
 
 * [HTTP requests, on the client][]
 * [HTTP responses, on the server][]
@@ -13,15 +12,13 @@ Examples of [Writable][] streams include:
 * [child process stdin][]
 * [`process.stdout`][], [`process.stderr`][]
 
-*Note*: Some of these examples are actually [Duplex][] streams that implement
-the [Writable][] interface.
+*注意*: 上面的某些例子事实上是 [Duplex][] 流，只是实现了 [Writable][] 接口。
 
-All [Writable][] streams implement the interface defined by the
-`stream.Writable` class.
+所有 [Writable][] 流都实现了
+`stream.Writable` 类定义的接口。
 
-While specific instances of [Writable][] streams may differ in various ways,
-all Writable streams follow the same fundamental usage pattern as illustrated
-in the example below:
+尽管特定的 [Writable][] 流的实现可能略有差别，
+所有的 Writable streams 都可以按一种基本模式进行使用，如下面例子所示：
 
 ```js
 const myStream = getWritableStreamSomehow();

@@ -2,5 +2,5 @@
 added: v0.1.90
 -->
 
-See [`http.close()`][] for details.
+查看 [`http.close()`] 获取细节。
 

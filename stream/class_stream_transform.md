@@ -4,11 +4,9 @@ added: v0.9.4
 
 <!--type=class-->
 
-Transform streams are [Duplex][] streams where the output is in some way
-related to the input. Like all [Duplex][] streams, Transform streams
-implement both the [Readable][] and [Writable][] interfaces.
+变换流（Transform streams） 是一种 [Duplex][] 流。它的输出与输入是通过某种方式关联的。和所有 [Duplex][] 流一样，变换流同时实现了 [Readable][] 和 [Writable][] 接口。
 
-Examples of Transform streams include:
+变换流的实例包括：
 
 * [zlib streams][zlib]
 * [crypto streams][crypto]

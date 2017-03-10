@@ -2,8 +2,7 @@
 added: v0.9.4
 -->
 
-The `'finish'` event is emitted after the [`stream.end()`][stream-end] method
-has been called, and all data has been flushed to the underlying system.
+在调用了 [`stream.end()`][stream-end] 方法，且缓冲区数据都已经传给底层系统（underlying system）之后， `'finish'` 事件将被触发。
 
 ```js
 const writer = getWritableStreamSomehow();

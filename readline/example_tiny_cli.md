@@ -1,13 +1,12 @@
 
-The following example illustrates the use of `readline.Interface` class to
-implement a small command-line interface:
+例子，使用 `readline.Interface` 类实现一个简单的命令行界面：
 
 ```js
 const readline = require('readline');
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
-  prompt: 'OHAI> '
+  prompt: '请输入> '
 });
 
 rl.prompt();
@@ -18,12 +17,12 @@ rl.on('line', (line) => {
       console.log('world!');
       break;
     default:
-      console.log(`Say what? I might have heard '${line.trim()}'`);
+      console.log(`你输入的是：'${line.trim()}'`);
       break;
   }
   rl.prompt();
 }).on('close', () => {
-  console.log('Have a great day!');
+  console.log('再见!');
   process.exit(0);
 });
 ```

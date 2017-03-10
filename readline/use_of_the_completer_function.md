@@ -1,23 +1,21 @@
 
-When called, the `completer` function is provided the current line entered by
-the user, and is expected to return an Array with 2 entries:
+当被调用时，用户输入的当前行会被提供给 `completer` 函数，并返回一个包含以下两个条目的数组：
 
-* An Array with matching entries for the completion.
-* The substring that was used for the matching.
+* 一个包含匹配补全输入的数组。
+* 用于匹配的子字符串。
 
-For instance: `[[substr1, substr2, ...], originalsubstring]`.
+例如：`[[substr1, substr2, ...], originalsubstring]`。
 
 ```js
 function completer(line) {
   const completions = '.help .error .exit .quit .q'.split(' ');
   const hits = completions.filter((c) => { return c.indexOf(line) === 0 });
-  // show all completions if none found
+  // 如果没匹配到则展示全部补全
   return [hits.length ? hits : completions, line];
 }
 ```
 
-The `completer` function can be called asynchronously if it accepts two
-arguments:
+如果 `completer` 函数接受两个参数，则可被异步地调用：
 
 ```js
 function completer(linePartial, callback) {

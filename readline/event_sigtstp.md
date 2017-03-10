@@ -2,28 +2,24 @@
 added: v0.7.5
 -->
 
-The `'SIGTSTP'` event is emitted when the `input` stream receives a `<ctrl>-Z`
-input, typically known as `SIGTSTP`. If there are no `SIGTSTP` event listeners
-registered when the `input` stream receives a `SIGTSTP`, the Node.js process
-will be sent to the background.
+每当 `input` 流接收到一个 `<ctrl>-Z` 输入（通常被称为 `SIGTSTP`）时，触发 `'SIGTSTP'` 事件。
+当 `input` 流接收到一个 `SIGTSTP` 时，如果没有注册 `'SIGTSTP'` 事件监听器，则 Node.js 进程会被发送到后台。
 
-When the program is resumed using fg(1), the `'pause'` and `SIGCONT` events
-will be emitted. These can be used to resume the `input` stream.
+当程序使用 fg(1) 恢复时，`'pause'` 和 `SIGCONT` 事件会被触发。
+这可被用来恢复 `input` 流。
 
-The `'pause'` and `'SIGCONT'` events will not be emitted if the `input` was
-paused before the process was sent to the background.
+如果 `input` 流在进程被发送到后台之前被暂停，则 `'pause'` 和 `SIGCONT` 事件不会被触发。
 
-The listener function is invoked without passing any arguments.
+监听器函数被调用时不传入任何参数。
 
-For example:
+例子：
 
 ```js
 rl.on('SIGTSTP', () => {
-  // This will override SIGTSTP and prevent the program from going to the
-  // background.
-  console.log('Caught SIGTSTP.');
+  // 这会重写 SIGTSTP，且防止程序进入后台。
+  console.log('捕获 SIGTSTP。');
 });
 ```
 
-*Note*: The `'SIGTSTP'` event is _not_ supported on Windows.
+注意：Windows 系统不支持 `'SIGTSTP'` 事件。
 
