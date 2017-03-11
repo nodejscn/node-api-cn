@@ -1,10 +1,6 @@
-
-It is possible to create and run multiple REPL instances against a single
-running instance of Node.js that share a single `global` object but have
-separate I/O interfaces.
-
-The following example, for instance, provides separate REPLs on `stdin`, a Unix
-socket, and a TCP socket:
+可以在一个Node.js中创建并运行多个REPL的实例。它们共享一个`global`对象但是有独立的
+I/O端口。
+接下来的一个例子中，给每个独立的REPL提供`stdin`，Unix socket和一个TCP socket。
 
 ```js
 const net = require('net');
@@ -40,19 +36,14 @@ net.createServer((socket) => {
 }).listen(5001);
 ```
 
-Running this application from the command line will start a REPL on stdin.
-Other REPL clients may connect through the Unix socket or TCP socket. `telnet`,
-for instance, is useful for connecting to TCP sockets, while `socat` can be used
-to connect to both Unix and TCP sockets.
+从命令行运行这个程序将启动一个stdin REPL。其他REPL客户端将连接到Unix socket和TCP socket。
+举个例子，TCP sockets的连接使用`terminal`非常方便，而Unix和TCP sockets的连接使用`socat`非常好。
 
-By starting a REPL from a Unix socket-based server instead of stdin, it is
-possible to connect to a long-running Node.js process without restarting it.
+通过从Unix的socket服务器启动一个REPL而不是从stdin，可以这样连接到一个长期运行的Node.js进程，避免重启。
 
-For an example of running a "full-featured" (`terminal`) REPL over
-a `net.Server` and `net.Socket` instance, see: https://gist.github.com/2209310
+例程：运行“完整特性”（`terminal`）REPL，从`net.Server`和`net.Socket`的实例，参见：https://gist.github.com/2209310
 
-For an example of running a REPL instance over curl(1),
-see: https://gist.github.com/2053342
+例程：运行REPL的实例，从curl(1)，参见：https://gist.github.com/2053342
 
 [stream]: stream.html
 [`util.inspect()`]: util.html#util_util_inspect_object_options

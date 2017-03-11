@@ -1,8 +1,5 @@
-
-As a user is typing input into the REPL prompt, pressing the `<enter>` key will
-send the current line of input to the `eval` function. In order to support
-multi-line input, the eval function can return an instance of `repl.Recoverable`
-to the provided callback function:
+假如一个用户键入信息到REPL提示行，按下`<enter>`键将会把当前行的输入发送到`eval`函数。
+为了支持多行输入，`eval`函数可以返回一个`repl.Recoverable`的实例来提供回调功能：
 
 ```js
 function eval(cmd, context, filename, callback) {

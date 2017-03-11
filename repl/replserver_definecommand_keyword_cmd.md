@@ -2,19 +2,16 @@
 added: v0.3.0
 -->
 
-* `keyword` {String} The command keyword (*without* a leading `.` character).
-* `cmd` {Object|Function} The function to invoke when the command is processed.
+* `keyword` {String} 命令关键字（*除了*先导的`.`字符）。
+* `cmd` {Object|Function} 当命令被执行完后调用的函数。
 
-The `replServer.defineCommand()` method is used to add new `.`-prefixed commands
-to the REPL instance. Such commands are invoked by typing a `.` followed by the
-`keyword`. The `cmd` is either a Function or an object with the following
-properties:
+`replServer.defineCommand()`函数是用来增加新的`.`前缀的命令到REPL实例中。这些命
+令通过输入一个`.`加`keyword`的指令来调用。`cmd`既是一个函数也是一个对象，具备以下属性：
 
-* `help` {String} Help text to be displayed when `.help` is entered (Optional).
-* `action` {Function} The function to execute, optionally accepting a single
-  string argument.
+* `help` {String} 输入`.help`后显示帮助文字（可选）。
+* `action` {Function} 命令要执行的函数，可选接受一个string参数。
 
-The following example shows two new commands added to the REPL instance:
+接下来的例子展示两个新的命令，增加到REPL实例中：
 
 ```js
 const repl = require('repl');
@@ -35,7 +32,7 @@ replServer.defineCommand('saybye', function() {
 });
 ```
 
-The new commands can then be used from within the REPL instance:
+接下来，可以在REPL实例中使用新的命令：
 
 ```txt
 > .sayhello Node.js User

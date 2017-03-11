@@ -1,7 +1,6 @@
+Node.js自身也使用`repl`模块，用来提供执行自身JavaScript代码的交互界面。不带任何参
+数执行Node.js二进制代码（或者使用`-i`参数）
 
-Node.js itself uses the `repl` module to provide its own interactive interface
-for executing JavaScript. This can be used by executing the Node.js binary
-without passing any arguments (or by passing the `-i` argument):
 
 ```js
 $ node
