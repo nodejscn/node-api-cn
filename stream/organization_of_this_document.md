@@ -1,6 +1,2 @@
 
-This document is divided into two primary sections with a third section for
-additional notes. The first section explains the elements of the stream API that
-are required to *use* streams within an application. The second section explains
-the elements of the API that are required to *implement* new types of streams.
-
+本文档主要分为两节，第三节是一些额外的注意事项。第一节阐述了在应用中和 *使用* 流相关的 API 。 第二节阐述了和 *实现* 新的流类型相关的 API 。

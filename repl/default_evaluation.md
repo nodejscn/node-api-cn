@@ -1,6 +1,4 @@
 
-By default, all instances of `repl.REPLServer` use an evaluation function that
-evaluates JavaScript expressions and provides access to Node.js' built-in
-modules. This default behavior can be overridden by passing in an alternative
-evaluation function when the `repl.REPLServer` instance is created.
+默认情况下，所有 `repl.REPLServer` 实例使用了一个解释函数，它可以解释 JavaScript 表达式、提供对 Node.js 内置模块的访问。
+当 `repl.REPLServer` 实例被创建时可以传入一个替换的解释函数，覆盖其默认的功能。
 

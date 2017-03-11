@@ -2,14 +2,12 @@
 added: v0.7.7
 -->
 
-The `'exit'` event is emitted when the REPL is exited either by receiving the
-`.exit` command as input, the user pressing `<ctrl>-C` twice to signal `SIGINT`,
-or by pressing `<ctrl>-D` to signal `'end'` on the input stream. The listener
-callback is invoked without any arguments.
+当接收到 `.exit` 命令、或按下两次 `<ctrl>-C` 发出 `SIGINT` 信号、或按下 `<ctrl>-D` 发出 `'end'` 信号而使 REPL 被退出时，触发 `'exit'` 事件。
+监听器的回调函数被调用时不带任何参数。
 
 ```js
 replServer.on('exit', () => {
-  console.log('Received "exit" event from repl!');
+  console.log('从 REPL 接收到 "exit" 事件！');
   process.exit();
 });
 ```

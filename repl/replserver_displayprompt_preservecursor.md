@@ -4,16 +4,11 @@ added: v0.1.91
 
 * `preserveCursor` {Boolean}
 
-The `replServer.displayPrompt()` method readies the REPL instance for input
-from the user, printing the configured `prompt` to a new line in the `output`
-and resuming the `input` to accept new input.
+`replServer.displayPrompt()` 方法会准备好 REPL 实例用于用户输入、打印配置的 `prompt` 到 `output` 中新的一行、恢复 `input` 来接收新的输入。
 
-When multi-line input is being entered, an ellipsis is printed rather than the
-'prompt'.
+当正在键入多行输入时，会打印省略号而不是提示符。
 
-When `preserveCursor` is `true`, the cursor placement will not be reset to `0`.
+当 `preserveCursor` 为 `true` 时，光标落点不会被重置为 `0`。
 
-The `replServer.displayPrompt` method is primarily intended to be called from
-within the action function for commands registered using the
-`replServer.defineCommand()` method.
+`replServer.displayPrompt` 方法主要被使用 `replServer.defineCommand()` 方法注册的命令的 `action` 函数调用。
 

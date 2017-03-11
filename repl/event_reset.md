@@ -2,14 +2,11 @@
 added: v0.11.0
 -->
 
-The `'reset'` event is emitted when the REPL's context is reset. This occurs
-whenever the `.clear` command is received as input *unless* the REPL is using
-the default evaluator and the `repl.REPLServer` instance was created with the
-`useGlobal` option set to `true`. The listener callback will be called with a
-reference to the `context` object as the only argument.
+当 REPL 的上下文被重置时，触发 `'reset'` 事件。
+每当接收到 `.clear` 命令时会触发该事件，除非 REPL 正在使用默认的解释器并且 `repl.REPLServer` 实例被创建时 `useGlobal` 选项被设为 `true`。
+监听器的回调函数被调用时会带上 `context` 对象作为惟一的参数。
 
-This can be used primarily to re-initialize REPL context to some pre-defined
-state as illustrated in the following simple example:
+这主要被用于重新初始化 REPL 上下文，使之达到某些预定义的状态，如下面的例子：
 
 ```js
 const repl = require('repl');
@@ -24,8 +21,7 @@ initializeContext(r.context);
 r.on('reset', initializeContext);
 ```
 
-When this code is executed, the global `'m'` variable can be modified but then
-reset to its initial value using the `.clear` command:
+当代码被执行时，全局的 `'m'` 变量可以被修改，但随后的 `.clear` 命令会把它重置回初始值：
 
 ```js
 $ ./node example.js

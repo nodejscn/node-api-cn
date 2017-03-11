@@ -6,6 +6,5 @@ added: v0.7.7
 * `x` {number}
 * `y` {number}
 
-The `readline.cursorTo()` method moves cursor to the specified position in a
-given [TTY][] `stream`.
+`readline.cursorTo()` 方法会移动光标到给定的 [TTY] `stream` 中指定的位置。
 

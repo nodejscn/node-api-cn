@@ -2,5 +2,4 @@
 added: v0.11.2
 -->
 
-See [`http.Server#timeout`][].
-
+查看 [`http.Server#timeout`]。
