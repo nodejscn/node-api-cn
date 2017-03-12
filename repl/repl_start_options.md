@@ -2,45 +2,30 @@
 added: v0.1.91
 -->
 
-* `options` {Object}
-  * `prompt` {String} The input prompt to display. Defaults to `> `.
-  * `input` {Readable} The Readable stream from which REPL input will be read.
-    Defaults to `process.stdin`.
-  * `output` {Writable} The Writable stream to which REPL output will be
-    written. Defaults to `process.stdout`.
-  * `terminal` {boolean} If `true`, specifies that the `output` should be
-    treated as a a TTY terminal, and have ANSI/VT100 escape codes written to it.
-    Defaults to checking the value of the `isTTY` property on the `output`
-    stream upon instantiation.
-  * `eval` {Function} The function to be used when evaluating each given line
-    of input. Defaults to an async wrapper for the JavaScript `eval()`
-    function.  An `eval` function can error with `repl.Recoverable` to indicate
-    the input was incomplete and prompt for additional lines.
-  * `useColors` {boolean} If `true`, specifies that the default `writer`
-    function should include ANSI color styling to REPL output. If a custom
-    `writer` function is provided then this has no effect. Defaults to the
-     REPL instances `terminal` value.
-  * `useGlobal` {boolean} If `true`, specifies that the default evaluation
-     function will use the JavaScript `global` as the context as opposed to
-     creating a new separate context for the REPL instance. Defaults to `false`.
-  * `ignoreUndefined` {boolean} If `true`, specifies that the default writer
-     will not output the return value of a command if it evaluates to
-     `undefined`. Defaults to `false`.
-  * `writer` {Function} The function to invoke to format the output of each
-     command before writing to `output`. Defaults to [`util.inspect()`][].
-  * `completer` {Function} An optional function used for custom Tab auto
-     completion. See [`readline.InterfaceCompleter`][] for an example.
-  * `replMode` - A flag that specifies whether the default evaluator executes
-    all JavaScript commands in strict mode, default mode, or a hybrid mode
-    ("magic" mode.) Acceptable values are:
-    * `repl.REPL_MODE_SLOPPY` - evaluates expressions in sloppy mode.
-    * `repl.REPL_MODE_STRICT` - evaluates expressions in strict mode. This is
-      equivalent to prefacing every repl statement with `'use strict'`.
-    * `repl.REPL_MODE_MAGIC` - attempt to evaluates expressions in default
-      mode.  If expressions fail to parse, re-try in strict mode.
-  * `breakEvalOnSigint` - Stop evaluating the current piece of code when
-    `SIGINT` is received, i.e. `Ctrl+C` is pressed. This cannot be used together
-    with a custom `eval` function. Defaults to `false`.
+* `选项` {Object}
+  * `prompt` {String} 输入行显示的提示符。默认为`> `。
+  * `input` {Readable} 可读的输入流，REPL的输入可以从哪里读取。默认是`process.stdin`。
+  * `output` {Writable} 可写的输出流，REPL的输出可以写到哪里。默认是`process.stdout`。
+  * `terminal` {boolean} 如果是`true`，规定`output`必须当作TTY终端来处理，并且可以使用
+    ANSI/VT100转意编码写入。默认在初始化时，跟随`output`的`isTTY`属性的值。
+  * `eval` {Function} 当每个输入的行被解释时调用该函数。默认是JavaScript `eval()`函数的异
+    步封装。`eval`函数可以使用`repl.Recoverable`抛出异常，用以提示不完整输入以及提示附加信息。
+  * `useColors` {boolean} 如果是`true`，规定默认的`writer`函数必须在REPL输出中包含ANSI颜色风
+    格。如果使用用户定义的`writer`函数，那么该参数无效。默认使用REPL实例的`terminal`属性的值。
+  * `useGlobal` {boolean} 如果是`true`，规定默认的解释函数使用JavaScript `global`，作为上下文
+    （context）而不是为REPL实例创建一个新的独立的上下文。默认是`false`。
+  * `ignoreUndefined` {boolean} 如果是`true`，规定默认的writer不再输出命令返回的`undefined`值。
+     默认是`false`。
+  * `writer` {Function} 在写出至`output`之前，该函数被调用用来格式化每个命令的输出。默认是
+    [`util.inspect()`][].
+  * `completer` {Function} 是一个可选函数，用来自定义Tab键自动完成功能。参见实例[`readline.InterfaceCompleter`][]。
+  * `replMode` - 一个标志位，用来指定默认的解释器用何种方式执行JavaScript命令。可选strict模式，
+    默认模式或综合模式("魔术"模式)。可以接受的值有：
+    * `repl.REPL_MODE_SLOPPY` - 使用sloppy模式解释表达式。
+    * `repl.REPL_MODE_STRICT` - 使用strict模式解释表达式。该模式等同于在每个repl声明前加上`'use strict'`。
+    * `repl.REPL_MODE_MAGIC` - 尝试使用默认模式解释表达式。如果表达式解释出错，再使用strict模式重试。
+  * `breakEvalOnSigint` - 收到`SIGINT`后，停止解释当前代码。比如，按下`Ctrl+C`。不能和自定义的`eval`函数
+     共同使用。默认值是`false`。
 
-The `repl.start()` method creates and starts a `repl.REPLServer` instance.
+`repl.start()`函数创建并启动一个`repl.REPLServer`实例。
 
