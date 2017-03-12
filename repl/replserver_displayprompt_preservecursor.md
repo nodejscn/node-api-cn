@@ -4,11 +4,11 @@ added: v0.1.91
 
 * `preserveCursor` {Boolean}
 
-`replServer.displayPrompt()`方法让REPL实例做好用户输入的准备，在`输出`界面中新的一行打印
-设置好的`提示符`，然后返回`输入`等待新的输入。
-进入多行输入模式后，显示省略符号而不是`提示符`。
+`replServer.displayPrompt()` 方法会让 REPL 实例做好用户输入的准备，打印配置的 `prompt` 到 `output` 中新的一行，然后返回 `input` 等待新的输入。
 
-当`preserveCursor`为`true`,游标位置会被复位到`0`。
+当正在键入多行输入时，会打印省略号而不是提示符。
 
-`replServer.displayPrompt`方法主要是用在`replServer.defineCommand()`函数注册的命令中
-的`action`函数中被调用。
+当 `preserveCursor` 为 `true` 时，游标位置不会被复位到 `0`。
+
+`replServer.displayPrompt` 方法主要被使用 `replServer.defineCommand()` 方法注册的命令的 `action` 函数调用。
+

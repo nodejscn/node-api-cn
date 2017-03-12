@@ -1,7 +1,7 @@
 
-默认的解释器提供了获取所有全局存在的变量的途径。
+默认的解释器提供了获取存在于全局作用域中的任何变量的途径。
 可以通过给每个 `REPLServer` 绑定的 `context` 对象指定变量，来显式地把变量暴露给 REPL。
-举例如下：
+例如：
 
 ```js
 const repl = require('repl');
@@ -10,7 +10,7 @@ var msg = 'message';
 repl.start('> ').context.m = msg;
 ```
 
-`context` 对象的属性表现为 REPL 中的本地变量：
+`context` 对象的属性表现为 REPL 中的局部变量：
 
 ```js
 $ node repl_test.js
@@ -18,8 +18,8 @@ $ node repl_test.js
 'message'
 ```
 
-需要注意，默认情况下 `context` 的属性*不是*只读的。
-如要指定只读的全局变量，`context` 属性必须使用 `Object.defineProperty()`:
+注意，默认情况下 `context` 的属性不是只读的。
+要指定只读的全局变量，`context` 的属性必须使用 `Object.defineProperty()` 来定义:
 
 ```js
 const repl = require('repl');
