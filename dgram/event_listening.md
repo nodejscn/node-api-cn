@@ -2,6 +2,5 @@
 added: v0.1.99
 -->
 
-The `'listening'` event is emitted whenever a socket begins listening for
-datagram messages. This occurs as soon as UDP sockets are created.
+当一个 socket 开始监听数据包信息时，`'listening'`事件将被触发。该事件会在创建 UDP socket 之后被立即触发。
 
