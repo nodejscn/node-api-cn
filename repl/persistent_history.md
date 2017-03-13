@@ -1,4 +1,4 @@
 
-默认情况下，Node.js REPL模块会在`node` REPL会话间隔期间保存历史记录，会把输入保存为
-一个`.node_repl_history`文件到用户目录下。修改环境变量为`NODE_REPL_HISTORY=""`可以
-禁用该功能。
+默认情况下，Node.js REPL 模块会把 `node` REPL 会话之间的历史记录保存到用户目录中的 `.node_repl_history` 文件。
+修改环境变量 `NODE_REPL_HISTORY=""` 可以禁用该功能。
+

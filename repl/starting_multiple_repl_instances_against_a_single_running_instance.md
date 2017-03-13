@@ -1,6 +1,7 @@
-可以在一个Node.js中创建并运行多个REPL的实例。它们共享一个`global`对象但是有独立的
-I/O端口。
-接下来的一个例子中，给每个独立的REPL提供`stdin`，Unix socket和一个TCP socket。
+
+可以在一个 Node.js 实例中创建并运行多个 REPL 实例，它们共享一个 `global` 对象但有独立的 I/O 接口。
+
+例子，在 `stdin`、Unix socket、和 TCP socket 上分别提供了独立的 REPL：
 
 ```js
 const net = require('net');
@@ -8,7 +9,7 @@ const repl = require('repl');
 var connections = 0;
 
 repl.start({
-  prompt: 'Node.js via stdin> ',
+  prompt: 'Node.js 使用 stdin> ',
   input: process.stdin,
   output: process.stdout
 });
@@ -16,7 +17,7 @@ repl.start({
 net.createServer((socket) => {
   connections += 1;
   repl.start({
-    prompt: 'Node.js via Unix socket> ',
+    prompt: 'Node.js 使用 Unix socket> ',
     input: socket,
     output: socket
   }).on('exit', () => {
@@ -27,7 +28,7 @@ net.createServer((socket) => {
 net.createServer((socket) => {
   connections += 1;
   repl.start({
-    prompt: 'Node.js via TCP socket> ',
+    prompt: 'Node.js 使用 TCP socket> ',
     input: socket,
     output: socket
   }).on('exit', () => {
@@ -36,16 +37,13 @@ net.createServer((socket) => {
 }).listen(5001);
 ```
 
-从命令行运行这个程序将启动一个stdin REPL。其他REPL客户端将连接到Unix socket和TCP socket。
-举个例子，TCP sockets的连接使用`terminal`非常方便，而Unix和TCP sockets的连接使用`socat`非常好。
+从命令行运行这个应用会在 stdin 上启动一个 REPL。
+其他 REPL 客户端可以通过 Unix socket 或 TCP socket 进行连接。
+例如，可以使用 `telnet` 连接到 TCP socket，使用 `socat` 连接到 Unix socket 或 TCP socket。
 
-通过从Unix的socket服务器启动一个REPL而不是从stdin，可以这样连接到一个长期运行的Node.js进程，避免重启。
+通过从一个基于 Unix socket 的服务器（而不是 stdin）启动一个 REPL，可以连接到一个长期运行的 Node.js 进程而无需重启它。
 
-例程：运行“完整特性”（`terminal`）REPL，从`net.Server`和`net.Socket`的实例，参见：https://gist.github.com/2209310
+例子，在一个 `net.Server` 实例和一个 `net.Socket` 实例上运行一个全特性的（`terminal`）REPL，详见：https://gist.github.com/2209310
 
-例程：运行REPL的实例，从curl(1)，参见：https://gist.github.com/2053342
+例子，在 curl(1) 上运行一个 REPL 实例，详见：https://gist.github.com/2053342
 
-[stream]: stream.html
-[`util.inspect()`]: util.html#util_util_inspect_object_options
-[`readline.Interface`]: readline.html#readline_class_interface
-[`readline.InterfaceCompleter`]: readline.html#readline_use_of_the_completer_function
