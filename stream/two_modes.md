@@ -24,6 +24,6 @@
 *注意*: 为了向后兼容，取消 [`'data'`][] 事件监听并 **不会** 自动将流暂停。同时，如果存在管道目标（pipe destination），且目标状态变为可以接收数据（drain and ask for
 more data），调用了 [`stream.pause()`][stream-pause] 方法也并不保证流会一直 *保持* 暂停状态。
 
-*注意*: 如果 [Readable][] 切换到 flowing 模式，且没有消费者处理流中的数据，这些数据将会丢失。 This can occur,
+*注意*: 如果 [Readable][] 切换到 flowing 模式，且没有消费者处理流中的数据，这些数据将会丢失。
 比如， 调用了 `readable.resume()` 方法却没有监听 `'data'` 事件，或是取消了 `'data'` 事件监听，就有可能出现这种情况。
 
