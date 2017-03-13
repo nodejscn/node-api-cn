@@ -2,11 +2,9 @@
 added: v0.9.4
 -->
 
-* Returns: `this`
+* 返回： `this`
 
-The `readable.pause()` method will cause a stream in flowing mode to stop
-emitting [`'data'`][] events, switching out of flowing mode. Any data that
-becomes available will remain in the internal buffer.
+`readable.pause()` 方法将会使 flowing 模式的流停止触发 [`'data'`][] 事件， 进而切出 flowing 模式。任何可用的数据都将保存在内部缓存中。
 
 ```js
 const readable = getReadableStreamSomehow();

@@ -4,10 +4,7 @@ added: v0.9.4
 
 * {Error}
 
-The `'error'` event may be emitted by a Readable implementation at any time.
-Typically, this may occur if the underlying stream in unable to generate data
-due to an underlying internal failure, or when a stream implementation attempts
-to push an invalid chunk of data.
+`'error'` 事件可以在任何时候在可读流实现（Readable implementation）上触发。
+通常，这会在底层系统内部出错从而不能产生数据，或当流的实现试图传递错误数据时发生。
 
-The listener callback will be passed a single `Error` object.
-
+回调函数将接收到一个 `Error` 对象。

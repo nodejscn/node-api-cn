@@ -2,9 +2,7 @@
 added: v0.9.4
 -->
 
-The `'close'` event is emitted when the stream and any of its underlying
-resources (a file descriptor, for example) have been closed. The event indicates
-that no more events will be emitted, and no further computation will occur.
+`'close'` 事件将在流或其底层资源（比如一个文件）关闭后触发。`'close'` 事件触发后，该流将不会再触发任何事件。
 
-Not all [Readable][] streams will emit the `'close'` event.
+不是所有 [Readable][] 都会触发 `'close'` 事件。
 
