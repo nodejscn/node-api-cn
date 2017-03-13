@@ -1,5 +1,5 @@
 
-例子，使用 Node.js 编写的一个 [web 服务器]，响应返回 `'Hello World'`：
+例子，一个使用 Node.js 编写的 [web 服务器]，响应返回 `'Hello World'`：
 
 ```js
 const http = require('http');
@@ -25,5 +25,5 @@ $ node example.js
 服务器运行在 http://127.0.0.1:3000/
 ```
 
-文档中全部的例子都可以用类似的方法运行。
+文档中所有例子都可以用类似的方法运行。
 

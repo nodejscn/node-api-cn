@@ -1,6 +1,6 @@
 
-当用户正在 REPL 中输入时，按下 `<enter>` 键会把当前输入行发送到 `eval` 函数。
-为了支持多行输入，解释函数可以返回一个 `repl.Recoverable` 实例，用以提供回调函数：
+当用户正在 REPL 中输入时，按下 `<enter>` 键会把当前行的输入发送到 `eval` 函数。
+为了支持多行输入，`eval` 函数可以返回一个 `repl.Recoverable` 实例给提供的回调函数：
 
 ```js
 function eval(cmd, context, filename, callback) {
