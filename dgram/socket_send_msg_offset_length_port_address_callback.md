@@ -2,49 +2,28 @@
 added: v0.1.99
 -->
 
-* `msg` {Buffer|String|Array} Message to be sent
-* `offset` {Number} Integer. Optional. Offset in the buffer where the message starts.
-* `length` {Number} Integer. Optional. Number of bytes in the message.
-* `port` {Number} Integer. Destination port.
-* `address` {String} Destination hostname or IP address.
-* `callback` {Function} Called when the message has been sent. Optional.
+* `msg` {Buffer|String|Array} 要发送的消息
+* `offset` {Number} 整数。可选。指定消息的开头在 buffer 中的偏移量。
+* `length` {Number} 整数。可选。消息的字节数。
+* `port` {Number} 整数。目标端口。
+* `address` {String} 目标主机名或 IP 地址。
+* `callback` {Function} 当消息被发送时会被调用。可选的。
 
-Broadcasts a datagram on the socket. The destination `port` and `address` must
-be specified.
+在 socket 上发送一个数据包。目标`port`和`address`须被指定。
 
-The `msg` argument contains the message to be sent.
-Depending on its type, different behavior can apply. If `msg` is a `Buffer`,
-the `offset` and `length` specify the offset within the `Buffer` where the
-message begins and the number of bytes in the message, respectively.
-If `msg` is a `String`, then it is automatically converted to a `Buffer`
-with `'utf8'` encoding. With messages that
-contain  multi-byte characters, `offset` and `length` will be calculated with
-respect to [byte length][] and not the character position.
-If `msg` is an array, `offset` and `length` must not be specified.
+`msg`参数包含了要发送的消息。根据消息的类型可以有不同的做法。如果`msg`是一个`Buffer`，则`offset`和`length`指定了消息在`Buffer`中对应的偏移量和字节数。如果`msg`是一个`String`，那么它会被自动地按照`utf8`编码转换为`Buffer`。对于包含了多字节字符的消息，`offset`和`length`会根据对应的[byte length][]进行计算，而不是根据字符的位置。如果`msg`是一个数组，那么`offset`和`length`必须都不能被指定。
 
-The `address` argument is a string. If the value of `address` is a host name,
-DNS will be used to resolve the address of the host. If the `address` is not
-specified or is an empty string, `'127.0.0.1'` or `'::1'` will be used instead.
+`address`参数是一个字符串。若`address`的值是一个主机名，则 DNS 会被用来解析主机的地址。若`address`未被指定或是一个空字符串，则`'127.0.0.1'`或`'::1'`会被使用。
 
-If the socket has not been previously bound with a call to `bind`, the socket
-is assigned a random port number and is bound to the "all interfaces" address
-(`'0.0.0.0'` for `udp4` sockets, `'::0'` for `udp6` sockets.)
+若在之前 socket 未通过调用`bind`方法进行绑定，socket 将会被一个随机的端口号赋值并绑定到“所有接口”的地址上（对于`udp4` socket 是`'0.0.0.0'`，对于`udp6` socket 是`'::0'`）。
 
-An optional `callback` function  may be specified to as a way of reporting
-DNS errors or for determining when it is safe to reuse the `buf` object.
-Note that DNS lookups delay the time to send for at least one tick of the
-Node.js event loop.
+可以指定一个可选的`callback`方法来汇报 DNS 错误或判断可以安全地重用`buf`对象的时机。注意，在 Node.js 事件循环中，DNS 查询会对发送造成至少 1 tick 的延迟。
 
-The only way to know for sure that the datagram has been sent is by using a
-`callback`. If an error occurs and a `callback` is given, the error will be
-passed as the first argument to the `callback`. If a `callback` is not given,
-the error is emitted as an `'error'` event on the `socket` object.
+确定数据包被发送的唯一方式就是指定`callback`。若在`callback`被指定的情况下有错误发生，该错误会作为`callback`的第一个参数。若`callback`未被指定，该错误会以`'error'`事件的方式投射到`socket`对象上。
 
-Offset and length are optional, but if you specify one you would need to
-specify the other. Also, they are supported only when the first
-argument is a `Buffer`.
+偏移量和长度是可选的，但如其中一个被指定则另一个也必须被指定。另外，他们只在第一个参数是`Buffer`的情况下才能被使用。
 
-Example of sending a UDP packet to a random port on `localhost`;
+一个发送 UDP 包到`localhost`上的某个随机端口的例子：
 
 ```js
 const dgram = require('dgram');
@@ -55,7 +34,7 @@ client.send(message, 41234, 'localhost', (err) => {
 });
 ```
 
-Example of sending a UDP packet composed of multiple buffers to a random port on `localhost`;
+一个发送包含多个 buffer 的 UDP 包到`localhost`上的某个随机端口的例子：
 
 ```js
 const dgram = require('dgram');
@@ -67,33 +46,17 @@ client.send([buf1, buf2], 41234, 'localhost', (err) => {
 });
 ```
 
-Sending multiple buffers might be faster or slower depending on your
-application and operating system: benchmark it. Usually it is faster.
+发送多个 buffer 的速度取决于你的应用和操作系统：最好是测试一下。一般来说发送多个 buffer 会更快。
 
-**A Note about UDP datagram size**
+**关于 UDP 包大小的注意事项**
 
-The maximum size of an `IPv4/v6` datagram depends on the `MTU`
-(_Maximum Transmission Unit_) and on the `Payload Length` field size.
+`IPv4/v6`数据包的最大尺寸取决于`MTU`(_Maximum Transmission Unit_, 最大传输单元)与`Payload Length`字段大小。
 
-- The `Payload Length` field is `16 bits` wide, which means that a normal
-  payload exceed 64K octets _including_ the internet header and data
-  (65,507 bytes = 65,535 − 8 bytes UDP header − 20 bytes IP header);
-  this is generally true for loopback interfaces, but such long datagram
-  messages are impractical for most hosts and networks.
+- `Payload Length`字段有`16 位`宽，指一个超过 64K 的_包含_ IP 头部和数据的负载 (65,507 字节 = 65,535 − 8 字节 UDP 头 − 20 字节 IP 头部)；通常对于环回地址来说是这样，但这个长度的数据包对于大多数的主机和网络来说不切实际。
 
-- The `MTU` is the largest size a given link layer technology can support for
-  datagram messages. For any link, `IPv4` mandates a minimum `MTU` of `68`
-  octets, while the recommended `MTU` for IPv4 is `576` (typically recommended
-  as the `MTU` for dial-up type applications), whether they arrive whole or in
-  fragments.
+- `MTU`指的是数据链路层为数据包提供的最大大小。对于任意链路，`IPv4`所托管的`MTU`最小为`68`个字节，推荐为`576`（典型地，作为拨号上网应用的推荐值），无论它们是完整地还是分块地抵达。
 
-  For `IPv6`, the minimum `MTU` is `1280` octets, however, the mandatory minimum
-  fragment reassembly buffer size is `1500` octets. The value of `68` octets is
-  very small, since most current link layer technologies, like Ethernet, have a
-  minimum `MTU` of `1500`.
+  对于`IPv6`，`MTU`的最小值是`1280`个字节，然而，受托管的最小的碎片重组缓冲大小为`1500`个字节。现今大多数的数据链路层技术（如以太网），都有`1500`的`MTU`最小值，因而`68`个字节显得非常小。
 
-It is impossible to know in advance the MTU of each link through which
-a packet might travel. Sending a datagram greater than the receiver `MTU` will
-not work because the packet will get silently dropped without informing the
-source that the data did not reach its intended recipient.
+要提前知道数据包可能经过的每个链路的 MTU 是不可能的。发送大于接受者`MTU`大小的数据包将不会起作用，因为数据包会被静默地丢失，而不会通知发送者该包未抵达目的地。
 
