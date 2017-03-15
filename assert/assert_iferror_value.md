@@ -2,8 +2,8 @@
 added: v0.1.97
 -->
 
-如果 `value` 的值为真，抛出 `value`。
-当测试回调函数的 `error` 参数时非常有用。
+如果 `value` 为真，则抛出 `value`。
+可用于测试回调函数的 `error` 参数。
 
 ```js
 const assert = require('assert');
