@@ -2,9 +2,7 @@
 added: v0.2.0
 -->
 
-Set this property to reject connections when the server's connection count gets
-high.
+设定这个属性，当服务器的连接超过此值时，新的连接将被拒绝。
 
-It is not recommended to use this option once a socket has been sent to a child
-with [`child_process.fork()`][].
+一旦连接已经用[`child_process.fork()`][]被发送到子进程时，它不被推荐使用。
 

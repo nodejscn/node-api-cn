@@ -6,36 +6,31 @@ added: v0.1.90
 * `backlog` {Number}
 * `callback` {Function}
 
-Start a local socket server listening for connections on the given `path`.
+在给定的`path`路径上，开启一个监听连接的本地socket服务器。
 
-This function is asynchronous.  When the server has been bound,
-[`'listening'`][] event will be emitted.  The last parameter `callback`
-will be added as a listener for the [`'listening'`][] event.
 
-On UNIX, the local domain is usually known as the UNIX domain. The path is a
-filesystem path name. It gets truncated to `sizeof(sockaddr_un.sun_path)`
-bytes, decreased by 1. It varies on different operating system between 91 and
-107 bytes. The typical values are 107 on Linux and 103 on OS X. The path is
-subject to the same naming conventions and permissions checks as would be done
-on file creation, will be visible in the filesystem, and will *persist until
-unlinked*.
+这个函数是异步的. 当服务器被已经绑定时[`'listening'`][] 事件将被触发。最后一个参数
+`callback` 将被添加为[`'listening'`][]事件的监听器.
 
-On Windows, the local domain is implemented using a named pipe. The path *must*
-refer to an entry in `\\?\pipe\` or `\\.\pipe\`. Any characters are permitted,
-but the latter may do some processing of pipe names, such as resolving `..`
-sequences. Despite appearances, the pipe name space is flat.  Pipes will *not
-persist*, they are removed when the last reference to them is closed. Do not
-forget JavaScript string escaping requires paths to be specified with
-double-backslashes, such as:
+在UNIX上, 本地域通常被称为UNIX域. 路径是文件系统路径名。
+它被截断至`sizeof(sockaddr_un.sun_path)`个字节，减去一。
+它根据操作系统的不同，在91和107个字节之间变动。典型的值为在Linux上
+为107，在OS X上为103.路径遵循相同的命名规则和权限检查，这会在文件生成的时候进行，
+可以在文件系统中可视，并且*直到不连接的时候才被允许*。
+
+在Windows系统上，本地域用具名管道实现。路径*必须*是`\\?\pipe\`或`\\.\pipe\`的入口。
+任何字符都是允许的，但是有一些处理可能会影响管道的名字，例如解析`..`序列。
+无论表现如何，管道命名空间是平的。管道*不允许*被移除，当他们的最后一个引用被关闭的时候。
+不要忘记JavaScript字符串转义需要路径用双斜线，例如
 
 ```js
 net.createServer().listen(
     path.join('\\\\?\\pipe', process.cwd(), 'myctl'))
 ```
 
-The parameter `backlog` behaves the same as in
-[`server.listen([port][, hostname][, backlog][, callback])`][`server.listen(port, host, backlog, callback)`].
+`backlog`参数表现地跟
+[`server.listen([port][, hostname][, backlog][, callback])`][`server.listen(port, host, backlog, callback)`]一样。
 
-*Note*: The `server.listen()` method may be called multiple times. Each
-subsequent call will *re-open* the server using the provided options.
+*注意*: `server.listen()`方法可以被多次调用。每个随后的调用将
+用提供的参数*重新打开*服务器.
 

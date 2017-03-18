@@ -2,9 +2,8 @@
 added: v0.9.1
 -->
 
-Calling `unref` on a server will allow the program to exit if this is the only
-active server in the event system. If the server is already `unref`d calling
-`unref` again will have no effect.
+在服务器上调用 `unref`将允许程序当这是事件系统中唯一存活的服务器时退出。
+如果服务器已经是`unref`，再次调用`unref`没有任何效应.
 
-Returns `server`.
+返回`server`.
 

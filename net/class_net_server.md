@@ -2,7 +2,6 @@
 added: v0.1.90
 -->
 
-This class is used to create a TCP or local server.
+本类用于创建TCP或本地服务器.
 
-`net.Server` is an [`EventEmitter`][] with the following events:
-
+`net.Server` 是一个有着一下事件的[`EventEmitter`][] :

@@ -2,17 +2,16 @@
 added: v0.1.90
 -->
 
-Sets the socket to timeout after `timeout` milliseconds of inactivity on
-the socket. By default `net.Socket` do not have a timeout.
+在不活动的socket`timeout`几毫秒之后，设置socket为超时。
+默认，`net.Socket`没有超时。
 
-When an idle timeout is triggered the socket will receive a [`'timeout'`][]
-event but the connection will not be severed. The user must manually [`end()`][]
-or [`destroy()`][] the socket.
+当一个空闲的超时被触发时，socket将收到[`'timeout'`][]事件，但是连接并不会停止。
+用户必须手动的[`end()`][]或者[`destroy()`][]这个socket。
 
-If `timeout` is 0, then the existing idle timeout is disabled.
+如果`timeout`的值为0，那么存在的空闲的超时将被禁止。
 
-The optional `callback` parameter will be added as a one time listener for the
-[`'timeout'`][] event.
 
-Returns `socket`.
+可选的`callback`参数将被添加为[`'timeout'`][]事件的一次行监听器。
+
+返回`socket`.
 

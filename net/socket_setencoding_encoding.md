@@ -2,6 +2,6 @@
 added: v0.1.90
 -->
 
-Set the encoding for the socket as a [Readable Stream][]. See
-[`stream.setEncoding()`][] for more information.
+把socket的编码设置为[Readable Stream][]. 查看
+[`stream.setEncoding()`][] 获取更多信息.
 

@@ -2,18 +2,15 @@
 added: v0.1.90
 -->
 
-A factory function, which returns a new [`net.Socket`][] and automatically
-connects with the supplied `options`.
+一个生产器函数，将返回一个新的 [`net.Socket`][] 并且自动的根据所提供的`options` 参数进行连接。
 
-The options are passed to both the [`net.Socket`][] constructor and the
-[`socket.connect`][] method.
+options参数将被传递到[`net.Socket`][]构造函数和[`socket.connect`][]方法两个地方。
 
-Passing `timeout` as an option will call [`socket.setTimeout()`][] after the socket is created, but before it is connecting.
+在socket创建之后，连接建立之前，传递`timeout`作为参数将调用[`socket.setTimeout()`][]。
 
-The `connectListener` parameter will be added as a listener for the
-[`'connect'`][] event once.
+`connectListener`参数将一次被用作监听器来监听[`'connect'`][]事件。
 
-Here is an example of a client of the previously described echo server:
+下面有一个例子来阐述之前描述过的响应服务器的客户端的用法
 
 ```js
 const net = require('net');
@@ -31,8 +28,7 @@ client.on('end', () => {
 });
 ```
 
-To connect on the socket `/tmp/echo.sock` the second line would just be
-changed to
+为了连接`/tmp/echo.sock`的socket，第二行应改为
 
 ```js
 const client = net.connect({path: '/tmp/echo.sock'});

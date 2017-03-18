@@ -2,8 +2,8 @@
 added: v0.9.7
 -->
 
-Asynchronously get the number of concurrent connections on the server. Works
-when sockets were sent to forks.
+异步的获取服务器当前共同存在的连接的数目。
+当sockets被发送forks时工作。
 
-Callback should take two arguments `err` and `count`.
+Callback参数可以是`err` 或者 `count`。
 

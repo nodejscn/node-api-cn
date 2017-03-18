@@ -2,6 +2,5 @@
 added: v5.7.0
 -->
 
-A Boolean indicating whether or not the server is listening for
-connections.
+一个布尔值，代表服务器是否在监听连接。
 

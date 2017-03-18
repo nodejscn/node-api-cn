@@ -4,6 +4,4 @@ added: v0.1.90
 
 * {Error}
 
-Emitted when an error occurs.  The [`'close'`][] event will be called directly
-following this event.  See example in discussion of `server.listen`.
-
+当错误发生时被触发.  [`'close'`][] 事件紧接着被触发。在`server.listen`的讨论中查看相关例子。
