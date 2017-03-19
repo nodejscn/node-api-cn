@@ -3,13 +3,11 @@
 
 <!--name=vm-->
 
-The `vm` module provides APIs for compiling and running code within V8 Virtual
-Machine contexts. It can be accessed using:
+`vm`模块提供了一系列API用于在V8引擎的环境中编译和运行代码。它可以被如下使用：
 
 ```js
 const vm = require('vm');
 ```
 
-JavaScript code can be compiled and run immediately or compiled, saved, and run
-later.
+JavaScript代码可以被立刻编译，保存并运行。
 
