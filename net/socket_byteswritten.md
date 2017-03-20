@@ -2,5 +2,5 @@
 added: v0.5.3
 -->
 
-The amount of bytes sent.
+发送的字节的数量.
 

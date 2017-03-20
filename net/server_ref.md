@@ -2,9 +2,9 @@
 added: v0.9.1
 -->
 
-Opposite of `unref`, calling `ref` on a previously `unref`d server will *not*
-let the program exit if it's the only server left (the default behavior). If
-the server is `ref`d calling `ref` again will have no effect.
+与`unref`相反, 在一个原先是`unref`的服务器上调用 `ref` 将*不会*允许程序退出 
+即使它是唯一剩下的服务器（默认行为）。如果服务器已经是`ref`的了，再次调用`ref`将
+不会产生效果。
 
-Returns `server`.
+返回`server`.
 

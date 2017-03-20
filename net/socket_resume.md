@@ -1,3 +1,3 @@
 
-Resumes reading after a call to [`pause()`][].
+在调用[`pause()`][]之后恢复读取.
 

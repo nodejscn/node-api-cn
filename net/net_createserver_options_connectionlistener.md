@@ -2,10 +2,9 @@
 added: v0.5.0
 -->
 
-Creates a new server. The `connectionListener` argument is
-automatically set as a listener for the [`'connection'`][] event.
+创建一个新的服务器。`connectionListener` 参数将一次被用作监听器来监听[`'connection'`][]事件。
 
-`options` is an object with the following defaults:
+`options` 是一个对象，有以下默认属性:
 
 ```js
 {
@@ -14,18 +13,15 @@ automatically set as a listener for the [`'connection'`][] event.
 }
 ```
 
-If `allowHalfOpen` is `true`, then the socket won't automatically send a FIN
-packet when the other end of the socket sends a FIN packet. The socket becomes
-non-readable, but still writable. You should call the [`end()`][] method explicitly.
-See [`'end'`][] event for more information.
+如果 `allowHalfOpen` 是 `true`, 那么socket不会自动的发送一个FIN包，即使socket的另一端
+发送了FIN包。socket变成不可读但是可写的。你应该显式地调用 [`end()`][] 方法。
+查看 [`'end'`][]事件获取更多信息。
 
-If `pauseOnConnect` is `true`, then the socket associated with each incoming
-connection will be paused, and no data will be read from its handle. This allows
-connections to be passed between processes without any data being read by the
-original process. To begin reading data from a paused socket, call [`resume()`][].
+如果 `pauseOnConnect` 是 `true`, 那么与每个连入的连接的socket将会暂停，
+并且不能从其中读取任何数据。这允许将在进程中传递的连接不会被原始进程读取数据。 
+为了从暂停的socket中开始读取数据，调用[`resume()`][].
 
-Here is an example of an echo server which listens for connections
-on port 8124:
+下面有关于响应服务器的一个例子，监听连接的8124端口。
 
 ```js
 const net = require('net');
@@ -46,14 +42,13 @@ server.listen(8124, () => {
 });
 ```
 
-Test this by using `telnet`:
+通过`telnet`来进行测试:
 
 ```sh
 telnet localhost 8124
 ```
 
-To listen on the socket `/tmp/echo.sock` the third line from the last would
-just be changed to
+为了监听 `/tmp/echo.sock`socket，从倒数第三行起，应改为
 
 ```js
 server.listen('/tmp/echo.sock', () => {
@@ -61,7 +56,7 @@ server.listen('/tmp/echo.sock', () => {
 });
 ```
 
-Use `nc` to connect to a UNIX domain socket server:
+用`nc` 来连接UNIX域socket服务器:
 
 ```js
 nc -U /tmp/echo.sock

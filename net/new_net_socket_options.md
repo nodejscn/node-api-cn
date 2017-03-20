@@ -2,9 +2,9 @@
 added: v0.3.4
 -->
 
-Construct a new socket object.
+构造一个新的socket对象。
 
-`options` is an object with the following defaults:
+`options` 是一个对象，有着以下默认值:
 
 ```js
 {
@@ -15,10 +15,10 @@ Construct a new socket object.
 }
 ```
 
-`fd` allows you to specify the existing file descriptor of socket.
-Set `readable` and/or `writable` to `true` to allow reads and/or writes on this
-socket (NOTE: Works only when `fd` is passed).
-About `allowHalfOpen`, refer to `createServer()` and `'end'` event.
+`fd` 允许你指定socket的存在的文件描述器。
+设定 `readable` 和/或 `writable` 为 `true` 来允许在这个socket上进行读和/或写。
+(注意: 只有当 `fd` 被传参时，才工作).
+关于 `allowHalfOpen`, 请参照 `createServer()` 和 `'end'` 事件.
 
-`net.Socket` instances are [`EventEmitter`][] with the following events:
+`net.Socket` 是 [`EventEmitter`][] 实例，有以下事件:
 

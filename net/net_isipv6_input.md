@@ -1,8 +1,7 @@
 <!-- YAML
 added: v0.3.0
 -->
-
-Returns true if input is a version 6 IP address, otherwise returns false.
+如果输入是IPv6地址的话，返回true, 否则返回false。
 
 [`'close'`]: #net_event_close
 [`'connect'`]: #net_event_connect

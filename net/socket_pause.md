@@ -1,4 +1,4 @@
 
-Pauses the reading of data. That is, [`'data'`][] events will not be emitted.
-Useful to throttle back an upload.
+暂停读取数据。意味着, [`'data'`][] 事件将不会被触发.
+对上传进行限制时有用.
 

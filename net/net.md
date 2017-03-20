@@ -1,7 +1,5 @@
 
-> Stability: 2 - Stable
+> Stability: 2 - 稳定的
 
-The `net` module provides you with an asynchronous network wrapper. It contains
-functions for creating both servers and clients (called streams). You can include
-this module with `require('net');`.
+`net` 模块给你提供了一个异步的网络封装. 它包含创建服务器和客户端（称为流）的功能。你可以这样使用这个模块 `require('net');`.
 

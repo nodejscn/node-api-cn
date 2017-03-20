@@ -2,11 +2,11 @@
 added: v0.11.3
 -->
 
-Emitted after resolving the hostname but before connecting.
-Not applicable to UNIX sockets.
+在解析域名之后，进行连接之前被触发。 
+不能用于UNIX sockets. 
 
-* `err` {Error|Null} The error object.  See [`dns.lookup()`][].
-* `address` {String} The IP address.
-* `family` {String|Null} The address type.  See [`dns.lookup()`][].
-* `host` {String} The hostname.
+* `err` {Error|Null} 错误对象.  查看 [`dns.lookup()`][].
+* `address` {String} IP地址.
+* `family` {String|Null} IP地址类型.  See [`dns.lookup()`][].
+* `host` {String} 域名.
 

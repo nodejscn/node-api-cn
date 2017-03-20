@@ -2,6 +2,6 @@
 added: v0.1.90
 -->
 
-As [`socket.connect(options[, connectListener])`][`socket.connect(options, connectListener)`],
-with options as either `{port: port, host: host}` or `{path: path}`.
+作为[`socket.connect(options[, connectListener])`][`socket.connect(options, connectListener)`],
+options参数有`{port: port, host: host}` 或者 `{path: path}`.
 
