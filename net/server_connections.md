@@ -3,7 +3,7 @@ added: v0.2.0
 deprecated: v0.9.7
 -->
 
-> Stability: 0 - 已废弃的: 用 [`server.getConnections()`][] 代替.
+> 稳定性: 0 - 废弃的: 使用 [`server.getConnections()`] 代替。
 
 服务器上现在同时存在的连接的数目.
 
