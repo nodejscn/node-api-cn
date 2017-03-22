@@ -27,7 +27,7 @@ let code =
  vm.runInThisContext(code)(require);
  ```
 
-*Note*: The `require()` in the above case shares the state with context it is
-passed from. This may introduce risks when untrusted code is executed, e.g.
-altering objects from the calling thread's context in unwanted ways.
+*Note*: The `require()` in the above case shares the state with the context it
+is passed from. This may introduce risks when untrusted code is executed, e.g.
+altering objects in the context in unwanted ways.
 
