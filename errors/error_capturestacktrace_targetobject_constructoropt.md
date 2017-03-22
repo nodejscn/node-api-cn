@@ -1,4 +1,7 @@
 
+* `targetObject` {Object}
+* `constructorOpt` {Function}
+
 在 `targetObject` 上创建一个 `.stack` 属性，当访问时返回一个表示代码中调用 `Error.captureStackTrace()` 的位置的字符串。
 
 ```js

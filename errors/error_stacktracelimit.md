@@ -1,4 +1,6 @@
 
+* {Number}
+
 `Error.stackTraceLimit` 属性指定了堆栈跟踪收集的栈帧数量（无论是 `new Error().stack` 或 `Error.captureStackTrace(obj)` 产生的）。
 
 默认值为 `10` ，但可设为任何有效的 JavaScript 数值。

@@ -1,4 +1,6 @@
 
+* `message` {String}
+
 新建一个 `Error` 实例，并设置 `error.message` 属性以提供文本信息。
 如果 `message` 传的是一个对象，则会调用 `message.toString()` 生成文本信息。
 `error.stack` 属性表示被调用的 `new Error()` 在代码中的位置。
