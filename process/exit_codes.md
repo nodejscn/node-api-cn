@@ -44,6 +44,7 @@ cases:
   the high-order bit, and then contain the value of the signal code.
 
 
+[`'exit'`]: #process_event_exit
 [`'finish'`]: stream.html#stream_event_finish
 [`'message'`]: child_process.html#child_process_event_message
 [`'rejectionHandled'`]: #process_event_rejectionhandled
@@ -65,14 +66,15 @@ cases:
 [`promise.catch()`]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch
 [`require.main`]: modules.html#modules_accessing_the_main_module
 [`setTimeout(fn, 0)`]: timers.html#timers_settimeout_callback_delay_args
+[note on process I/O]: process.html#process_a_note_on_process_i_o
 [process_emit_warning]: #process_process_emitwarning_warning_name_ctor
 [process_warning]: #process_event_warning
 [Signal Events]: #process_signal_events
 [Stream compatibility]: stream.html#stream_compatibility_with_older_node_js_versions
 [TTY]: tty.html#tty_tty
-[Writable]: stream.html
-[Readable]: stream.html
+[Writable]: stream.html#stream_writable_streams
+[Readable]: stream.html#stream_readable_streams
 [Child Process]: child_process.html
 [Cluster]: cluster.html
-[`process.exitCode`]: #processexitcode-1
+[`process.exitCode`]: #process_process_exitcode
 [LTS]: https://github.com/nodejs/LTS/
