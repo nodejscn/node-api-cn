@@ -6,8 +6,11 @@
 该模块导出两个特定组件：
 
 * 一个 `Console` 类，包含 `console.log()` 、 `console.error()` 和 `console.warn()` 等方法，可以用于写入到任何 Node.js 流。
-* 一个全局的 `console` 实例，用于写入 `stdout` 和 `stderr`。
-  因为该对象是一个全局变量，所以使用时无需调用 `require('console')`。
+* 一个全局的 `console` 实例，用于写入 [`process.stdout`] 和 [`process.stderr`]。
+  全局的 `console` 使用时无需调用 `require('console')`。
+
+注意：全局的 console 对象的方法既不总是同步的（如浏览器中类似的 API），也不总是异步的（如其他 Node.js 流）。
+详见 [关于 process I/O]。
 
 例子：使用全局的 `console`：
 
@@ -42,6 +45,4 @@ const name = 'Will Robinson';
 myConsole.warn(`Danger ${name}! Danger!`);
 // 打印: Danger Will Robinson! Danger! 到 err
 ```
-
-虽然 `Console` 类的 API 是根据浏览器的 `console` 对象设计的，但 Node.js 中的 `Console` 并没有完全复制浏览器中的功能。
 
