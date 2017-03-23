@@ -10,7 +10,7 @@ const buf = Buffer.from([1, 2, 3]);
 //   1
 //   2
 //   3
-for (var b of buf) {
+for (const b of buf) {
   console.log(b);
 }
 ```

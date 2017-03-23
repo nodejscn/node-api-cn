@@ -16,7 +16,7 @@ added: v0.3.0
 ```js
 const buf1 = Buffer.allocUnsafe(26);
 
-for (var i = 0 ; i < 26 ; i++) {
+for (let i = 0 ; i < 26 ; i++) {
   // 97 是 'a' 的十进制 ASCII 值 
   buf1[i] = i + 97;
 }

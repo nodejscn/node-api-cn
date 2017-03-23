@@ -15,14 +15,14 @@ added: v5.10.0
 例子：
 
 ```js
-const buf = Buffer.allocUnsafe(5);
+const buf = Buffer.allocUnsafe(10);
 
-// 输出: (内容可能不同): <Buffer 78 e0 82 02 01>
+// 输出: (内容可能不同): <Buffer a0 8b 28 3f 01 00 00 00 50 32>
 console.log(buf);
 
 buf.fill(0);
 
-// 输出: <Buffer 00 00 00 00 00>
+// 输出: <Buffer 00 00 00 00 00 00 00 00 00 00>
 console.log(buf);
 ```
 

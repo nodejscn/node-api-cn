@@ -18,14 +18,14 @@ are unknown and *could contain sensitive data*. Use
 Example:
 
 ```js
-const buf = new Buffer(5);
+const buf = new Buffer(10);
 
-// Prints: (contents may vary): <Buffer 78 e0 82 02 01>
+// Prints: (contents may vary): <Buffer 48 21 4b 00 00 00 00 00 30 dd>
 console.log(buf);
 
 buf.fill(0);
 
-// Prints: <Buffer 00 00 00 00 00>
+// Prints: <Buffer 00 00 00 00 00 00 00 00 00 00>
 console.log(buf);
 ```
 

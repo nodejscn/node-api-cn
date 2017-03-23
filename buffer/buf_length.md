@@ -27,7 +27,7 @@ console.log(buf.length);
 例子：
 
 ```js
-var buf = Buffer.allocUnsafe(10);
+let buf = Buffer.allocUnsafe(10);
 
 buf.write('abcdefghj', 0, 'ascii');
 

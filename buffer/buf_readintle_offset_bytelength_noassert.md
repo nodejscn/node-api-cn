@@ -17,10 +17,10 @@ added: v0.11.15
 ```js
 const buf = Buffer.from([0x12, 0x34, 0x56, 0x78, 0x90, 0xab]);
 
-// 输出: 1234567890ab
+// 输出: -546f87a9cbee
 console.log(buf.readIntLE(0, 6).toString(16));
 
-// 输出: -546f87a9cbee
+// 输出: 1234567890ab
 console.log(buf.readIntBE(0, 6).toString(16));
 
 // 抛出异常: RangeError: Index out of range

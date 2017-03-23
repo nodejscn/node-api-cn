@@ -20,7 +20,7 @@ added: v1.5.0
 const buf = Buffer.from('this is a buffer');
 
 // 输出: 0
-console.log(buf.indexOf('this')));
+console.log(buf.indexOf('this'));
 
 // 输出: 2
 console.log(buf.indexOf('is'));
@@ -46,5 +46,29 @@ console.log(utf16Buffer.indexOf('\u03a3', 0, 'ucs2'));
 
 // 输出: 6
 console.log(utf16Buffer.indexOf('\u03a3', -4, 'ucs2'));
+```
+
+If `value` is not a string, number, or `Buffer`, this method will throw a
+`TypeError`. If `value` is a number, it will be coerced to a valid byte value,
+an integer between 0 and 255.
+
+If `byteOffset` is not a number, it will be coerced to a number. Any arguments
+that coerce to `NaN` or 0, like `{}`, `[]`, `null` or `undefined`, will search
+the whole buffer. This behavior matches [`String#indexOf()`].
+
+```js
+const b = Buffer.from('abcdef');
+
+// Passing a value that's a number, but not a valid byte
+// Prints: 2, equivalent to searching for 99 or 'c'
+console.log(b.indexOf(99.9));
+console.log(b.indexOf(256 + 99));
+
+// Passing a byteOffset that coerces to NaN or 0
+// Prints: 1, searching the whole buffer
+console.log(b.indexOf('b', undefined));
+console.log(b.indexOf('b', {}));
+console.log(b.indexOf('b', null));
+console.log(b.indexOf('b', []));
 ```
 
