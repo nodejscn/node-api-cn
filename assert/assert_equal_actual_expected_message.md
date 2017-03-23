@@ -1,6 +1,9 @@
 <!-- YAML
 added: v0.1.21
 -->
+* `actual` {any}
+* `expected` {any}
+* `message` {any}
 
 使用相等运算符（`==`）测试 `actual` 参数与 `expected` 参数是否相等。
 

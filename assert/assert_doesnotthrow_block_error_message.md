@@ -1,6 +1,9 @@
 <!-- YAML
 added: v0.1.21
 -->
+* `block` {Function}
+* `error` {RegExp|Function}
+* `message` {any}
 
 断言 `block` 函数不会抛出错误。
 查看 [assert.throws()](#assert_assert_throws_block_error_message) 了解更多。

@@ -1,6 +1,9 @@
 <!-- YAML
 added: v0.1.21
 -->
+* `actual` {any}
+* `expected` {any}
+* `message` {any}
 
 测试是否不深度相等。
 与 [`assert.deepEqual()`] 相反。

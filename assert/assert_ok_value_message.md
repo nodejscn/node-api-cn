@@ -1,6 +1,8 @@
 <!-- YAML
 added: v0.1.21
 -->
+* `value` {any}
+* `message` {any}
 
 测试 `value` 是否为真值。
 相当于 `assert.equal(!!value, true, message)`。

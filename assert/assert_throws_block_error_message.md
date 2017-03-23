@@ -1,6 +1,9 @@
 <!-- YAML
 added: v0.1.21
 -->
+* `block` {Function}
+* `error` {RegExp|Function}
+* `message` {any}
 
 期望 `block` 函数抛出错误。
 

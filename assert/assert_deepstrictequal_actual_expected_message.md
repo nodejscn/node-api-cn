@@ -1,6 +1,9 @@
 <!-- YAML
 added: v1.2.0
 -->
+* `actual` {any}
+* `expected` {any}
+* `message` {any}
 
 大多数情况下与 `assert.deepEqual()` 一样，但有两个例外。
 首先，原始值使用全等运算符（`===`）比较。

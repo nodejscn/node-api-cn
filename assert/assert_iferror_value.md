@@ -1,6 +1,7 @@
 <!-- YAML
 added: v0.1.97
 -->
+* `value` {any}
 
 如果 `value` 为真，则抛出 `value`。
 可用于测试回调函数的 `error` 参数。

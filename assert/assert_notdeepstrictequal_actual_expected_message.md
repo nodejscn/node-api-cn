@@ -1,6 +1,9 @@
 <!-- YAML
 added: v1.2.0
 -->
+* `actual` {any}
+* `expected` {any}
+* `message` {any}
 
 测试是否不深度全等。
 与 [`assert.deepStrictEqual()`] 相反。
