@@ -11,7 +11,7 @@ added: v0.0.2
 
 写入 `buffer` 到 `fd` 指定的文件。
 
-`offset` 和 `length` 决定 buffer 中被写入的部分。
+`offset` 决定 buffer 中被写入的部分，`length` 是一个整数，指定要写入的字节数。
 
 `position` 指向从文件开始写入数据的位置的偏移量。
 如果 `typeof position !== 'number'`，则数据从当前位置写入。详见 pwrite(2)。
