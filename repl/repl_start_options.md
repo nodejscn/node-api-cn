@@ -2,7 +2,7 @@
 added: v0.1.91
 -->
 
-* `options` {Object}
+* `options` {Object | String}
   * `prompt` {String} 要显示的输入提示符。默认为 `> `。
   * `input` {Readable} REPL 输入要被读取的可读流。默认为 `process.stdin`。
   * `output` {Writable} REPL 输出要被写入的可写流。默认为 `process.stdout`。
@@ -31,4 +31,13 @@ added: v0.1.91
     默认为 `false`。
 
 `repl.start()` 方法创建并启动一个 `repl.REPLServer` 实例。
+
+如果 `options` 是一个字符串，则它指定了输入提示符：
+
+```js
+const repl = require('repl');
+
+// 一个 Unix 风格的提示符
+repl.start('$ ');
+```
 
