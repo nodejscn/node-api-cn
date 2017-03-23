@@ -20,15 +20,7 @@ Alternatively, `options` can be an object containing these properties:
 * `all`: {Boolean} - When `true`, the callback returns all resolved addresses
   in an array, otherwise returns a single address. Defaults to `false`.
 
-All properties are optional. An example usage of options is shown below.
-
-```js
-{
-  family: 4,
-  hints: dns.ADDRCONFIG | dns.V4MAPPED,
-  all: false
-}
-```
+All properties are optional.
 
 The `callback` function has arguments `(err, address, family)`. `address` is a
 string representation of an IPv4 or IPv6 address. `family` is either the
@@ -50,4 +42,23 @@ with addresses, and vice versa. This implementation can have subtle but
 important consequences on the behavior of any Node.js program. Please take some
 time to consult the [Implementation considerations section][] before using
 `dns.lookup()`.
+
+Example usage:
+
+```js
+const dns = require('dns');
+const options = {
+  family: 6,
+  hints: dns.ADDRCONFIG | dns.V4MAPPED,
+};
+dns.lookup('example.com', options, (err, address, family) =>
+  console.log('address: %j family: IPv%s', address, family));
+// address: "2606:2800:220:1:248:1893:25c8:1946" family: IPv6
+
+// When options.all is true, the result will be an Array.
+options.all = true;
+dns.lookup('example.com', options, (err, addresses) =>
+  console.log('addresses: %j', addresses));
+// addresses: [{"address":"2606:2800:220:1:248:1893:25c8:1946","family":6}]
+```
 
