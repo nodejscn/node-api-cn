@@ -28,6 +28,7 @@
 [`crypto.createHash()`]: #crypto_crypto_createhash_algorithm
 [`crypto.createHmac()`]: #crypto_crypto_createhmac_algorithm_key
 [`crypto.createSign()`]: #crypto_crypto_createsign_algorithm
+[`crypto.createVerify()`]: #crypto_crypto_createverify_algorithm
 [`crypto.getCurves()`]: #crypto_crypto_getcurves
 [`crypto.getHashes()`]: #crypto_crypto_gethashes
 [`crypto.pbkdf2()`]: #crypto_crypto_pbkdf2_password_salt_iterations_keylen_digest_callback

@@ -9,6 +9,6 @@ Example:
 
 ```js
 const hashes = crypto.getHashes();
-console.log(hashes); // ['sha', 'sha1', 'sha1WithRSAEncryption', ...]
+console.log(hashes); // ['DSA', 'DSA-SHA', 'DSA-SHA1', ...]
 ```
 

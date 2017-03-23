@@ -4,7 +4,7 @@ It is possible for Node.js to be built without including support for the
 error being thrown.
 
 ```js
-var crypto;
+let crypto;
 try {
   crypto = require('crypto');
 } catch (err) {

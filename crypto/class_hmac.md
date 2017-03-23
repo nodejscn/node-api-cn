@@ -20,7 +20,7 @@ const crypto = require('crypto');
 const hmac = crypto.createHmac('sha256', 'a secret');
 
 hmac.on('readable', () => {
-  var data = hmac.read();
+  const data = hmac.read();
   if (data)
     console.log(data.toString('hex'));
     // Prints:
