@@ -2,7 +2,7 @@
 added: v0.11.12
 -->
 
-Decompress a Buffer or string with Unzip.
+Decompress a [Buffer][] or string with [Unzip][].
 
 [`Accept-Encoding`]: https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.3
 [`Content-Encoding`]: https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11
