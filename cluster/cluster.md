@@ -1,12 +1,7 @@
 
-> Stability: 2 - Stable
-
-A single instance of Node.js runs in a single thread. To take advantage of
-multi-core systems the user will sometimes want to launch a cluster of Node.js
-processes to handle the load.
-
-The cluster module allows you to easily create child processes that
-all share server ports.
+> 稳定性：2 -稳定
+Node.js的一个实例运行在一个单独的线程上。用多核系统的用户有时会想扩展一个Node.js的集群，去处理负载。
+cluster模块可以让您轻松创建所有共享服务器端口的子进程。
 
 ```js
 const cluster = require('cluster');
@@ -36,8 +31,7 @@ if (cluster.isMaster) {
 }
 ```
 
-Running Node.js will now share port 8000 between the workers:
-
+运行Node.js就能看到在8000端口下的所有进程：
 ```txt
 $ node server.js
 Master 3596 is running
@@ -47,6 +41,4 @@ Worker 6056 started
 Worker 5644 started
 ```
 
-Please note that on Windows, it is not yet possible to set up a named pipe
-server in a worker.
-
+请注意，在Windows上，还不能建立一个命名管道。
