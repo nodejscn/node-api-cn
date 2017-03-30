@@ -1,6 +1,8 @@
 
-> 稳定性：2 -稳定
+> 稳定性: 2 - 稳定的
+
 Node.js的一个实例运行在一个单独的线程上。用多核系统的用户有时会想扩展一个Node.js的集群，去处理负载。
+
 cluster模块可以让您轻松创建所有共享服务器端口的子进程。
 
 ```js
@@ -32,6 +34,7 @@ if (cluster.isMaster) {
 ```
 
 运行Node.js就能看到在8000端口下的所有进程：
+
 ```txt
 $ node server.js
 Master 3596 is running
