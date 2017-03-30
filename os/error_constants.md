@@ -1,3 +1,3 @@
 
-The following error constants are exported by `os.constants.errno`:
+下面的错误常量由 `os.constants.errno` 给出:
 

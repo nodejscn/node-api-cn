@@ -2,12 +2,12 @@
 added: v0.5.0
 -->
 
-The `os.arch()` method returns a string identifying the operating system CPU
-architecture *for which the Node.js binary was compiled*.
+`os.arch()`方法返回一个字符串, 表明*Node.js 二进制编译* 所用的
+操作系统CPU架构.
 
-The current possible values are: `'arm'`, `'arm64'`, `'ia32'`, `'mips'`,
-`'mipsel'`, `'ppc'`, `'ppc64'`, `'s390'`, `'s390x'`, `'x32'`, `'x64'`,  and
+现在可能的值有: `'arm'`, `'arm64'`, `'ia32'`, `'mips'`,
+`'mipsel'`, `'ppc'`, `'ppc64'`, `'s390'`, `'s390x'`, `'x32'`, `'x64'`,  和
 `'x86'`.
 
-Equivalent to [`process.arch`][].
+等价于 [`process.arch`][].
 

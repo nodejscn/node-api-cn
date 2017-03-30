@@ -1,7 +1,6 @@
 
 * {Object}
 
-Returns an object containing commonly used operating system specific constants
-for error codes, process signals, and so on. The specific constants currently
-defined are described in [OS Constants][].
+返回一个对象包含普遍用于错误码,处理信号等的操作系统相关的特定常量.
+现在, 这些特定的常量的定义被描述在[OS Constants][].
 

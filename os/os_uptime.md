@@ -4,9 +4,7 @@ added: v0.3.3
 
 * Returns: {Integer}
 
-The `os.uptime()` method returns the system uptime in number of seconds.
+`os.uptime()` 方法在几秒内返回操作系统的上线时间.
 
-*Note*: Within Node.js' internals, this number is represented as a `double`.
-However, fractional seconds are not returned and the value can typically be
-treated as an integer.
-
+*注意*: 在 Node.js' 内部, 这个数值是用 `double` 来表示的.
+然而, 小数秒数不会被返回, 因此其值通常被认为是整数.
