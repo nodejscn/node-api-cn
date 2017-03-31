@@ -1,4 +1,4 @@
 
-The following constants are exported by `os.constants`. **Note:** Not all
-constants will be available on every operating system.
+下面的常量被`os.constants` 所输出. **注意:** 
+并不是所有的常量在每一个操作系统上都是可用的.
 

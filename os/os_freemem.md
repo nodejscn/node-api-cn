@@ -4,6 +4,6 @@ added: v0.3.3
 
 * Returns: {Integer}
 
-The `os.freemem()` method returns the amount of free system memory in bytes as
-an integer.
+`os.freemem()` 方法以整数的形式回空闲系统内存
+的字节数.
 

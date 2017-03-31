@@ -4,19 +4,18 @@ added: v0.3.3
 
 * Returns: {Array}
 
-The `os.cpus()` method returns an array of objects containing information about
-each CPU/core installed.
+`os.cpus()` 方法放回一个对象数组, 包含安装的每个CPU/CPU核的信息. 
 
-The properties included on each object include:
+下面的属性包含在每个对象中:
 
 * `model` {String}
-* `speed` {number} (in MHz)
+* `speed` {number} (兆赫兹为单位)
 * `times` {Object}
-  * `user` {number} The number of milliseconds the CPU has spent in user mode.
-  * `nice` {number} The number of milliseconds the CPU has spent in nice mode.
-  * `sys` {number} The number of milliseconds the CPU has spent in sys mode.
-  * `idle` {number} The number of milliseconds the CPU has spent in idle mode.
-  * `irq` {number} The number of milliseconds the CPU has spent in irq mode.
+  * `user` {number} CPU花费在用户模式下的毫秒时间数.
+  * `nice` {number} CPU花费在良好模式下的毫秒时间数.
+  * `sys` {number} CPU花费在系统模式下的毫秒时间数.
+  * `idle` {number} CPU花费在空闲模式下的毫秒时间数.
+  * `irq` {number} CPU花费在中断请求模式下的毫秒时间数.
 
 For example:
 
@@ -113,6 +112,6 @@ For example:
 ]
 ```
 
-*Note*: Because `nice` values are UNIX-specific, on Windows the `nice` values of
-all processors are always 0.
+*注意*: 因为`nice`的值是UNIX相关的, 在Windows系统上,
+所有处理器的 `nice` 值总是0.
 

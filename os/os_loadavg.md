@@ -4,13 +4,10 @@ added: v0.3.3
 
 * Returns: {Array}
 
-The `os.loadavg()` method returns an array containing the 1, 5, and 15 minute
-load averages.
+`os.loadavg()`方法返回一个数组,包含1, 5, 15分钟平均负载.
 
-The load average is a measure of system activity, calculated by the operating
-system and expressed as a fractional number.  As a rule of thumb, the load
-average should ideally be less than the number of logical CPUs in the system.
-
-The load average is a UNIX-specific concept with no real equivalent on
-Windows platforms. On Windows, the return value is always `[0, 0, 0]`.
+平均负载是系统活动的测量,由操作系统计算得出,表达为一个分数.
+一般来说,平均负载应该理想地比系统的逻辑CPU的数目要少.
+平均负载是UNIX相关的概念,在Windows平台上没有对应的概念.
+在Windows上,其返回值总是`[0, 0, 0]`.
 

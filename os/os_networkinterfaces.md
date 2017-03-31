@@ -4,22 +4,22 @@ added: v0.6.0
 
 * Returns: {Object}
 
-The `os.networkInterfaces()` method returns an object containing only network
-interfaces that have been assigned a network address.
+`os.networkInterfaces()`方法返回一个对象,包含只有被赋予网络地址的网络接口. 
 
-Each key on the returned object identifies a network interface. The associated
-value is an array of objects that each describe an assigned network address.
+在返回对象的每个关键词都指明了一个网络接口.
 
-The properties available on the assigned network address object include:
+返回的值是一个对象数组, 每个都描述了赋予的网络地址.
 
-* `address` {String} The assigned IPv4 or IPv6 address
-* `netmask` {String} The IPv4 or IPv6 network mask
-* `family` {String} Either `IPv4` or `IPv6`
-* `mac` {String} The MAC address of the network interface
-* `internal` {boolean} `true` if the network interface is a loopback or
-  similar interface that is not remotely accessible; otherwise `false`
-* `scopeid` {number} The numeric IPv6 scope ID (only specified when `family`
-  is `IPv6`)
+被赋予网络地址的对象包含的属性:
+
+* `address` {String} 被赋予的 IPv4 或 IPv6 地址
+* `netmask` {String}  IPv4 或 IPv6 子网掩码
+* `family` {String}  `IPv4` 或 `IPv6`
+* `mac` {String} 网络接口的MAC地址
+* `internal` {boolean} 如果 网络接口是loopback或相似的远程不能用的接口时,
+值为`true`,否则为`false`
+* `scopeid` {number} IPv6 数字领域识别码 (只有当 `family`
+是`IPv6`时可用)
 
 ```js
 {

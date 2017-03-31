@@ -4,10 +4,9 @@ added: v0.3.3
 
 * Returns: {String}
 
-The `os.release()` method returns a string identifying the operating system
-release.
+`os.release()`方法返回一个字符串, 指定操作系统的发行版.
 
-*Note*: On POSIX systems, the operating system release is determined by calling
-uname(3). On Windows, `GetVersionExW()` is used. Please see
-https://en.wikipedia.org/wiki/Uname#Examples for more information.
+*注意*: 在POSIX系统上, 操作系统发行版是通过
+调用uname(3)得到的. 在 Windows系统上, 用`GetVersionExW()` . 请查看
+https://en.wikipedia.org/wiki/Uname#Examples 获取更多信息.
 
