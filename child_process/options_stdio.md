@@ -51,7 +51,7 @@ spawn('prg', [], { stdio: ['pipe', 'pipe', process.stderr] });
 spawn('prg', [], { stdio: ['pipe', null, null, null, 'pipe'] });
 ```
 
-注意，当在父进程和子进程之间建立了一个 IPC 通道，且子进程是一个 Node.js 进程，则子进程会带着未引用的 IPC 通道（使用 `unref()`）启动，直到子进程为 [`process.on('disconnect')`] 事件注册了一个事件句柄。
+当在父进程和子进程之间建立了一个 IPC 通道，且子进程是一个 Node.js 进程，则子进程会带着未引用的 IPC 通道（使用 `unref()`）启动，直到子进程为 [`process.on('disconnect')`] 事件或 [`process.on('message')`] 事件注册了一个事件句柄。
 这使得子进程可以在进程没有通过打开的 IPC 通道保持打开的情况下正常退出。
 
 详见 [`child_process.exec()`] 和 [`child_process.fork()`]。

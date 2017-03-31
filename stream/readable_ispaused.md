@@ -2,12 +2,10 @@
 added: v0.11.14
 -->
 
-* Returns: {Boolean}
+* 返回： {Boolean}
 
-The `readable.isPaused()` method returns the current operating state of the
-Readable. This is used primarily by the mechanism that underlies the
-`readable.pipe()` method. In most typical cases, there will be no reason to
-use this method directly.
+`readable.isPaused()` 方法返回可读流的当前操作状态。 该方法主要是在
+`readable.pipe()` 方法的底层机制中用到。大多数情况下，没有必要直接使用该方法。
 
 ```js
 const readable = new stream.Readable

@@ -21,7 +21,7 @@ const buf = Buffer.from([0, 5]);
 console.log(buf.readInt16BE());
 
 // 输出: 1280
-console.log(buf.readInt16LE(1));
+console.log(buf.readInt16LE());
 
 // 抛出异常: RangeError: Index out of range
 console.log(buf.readInt16LE(1));

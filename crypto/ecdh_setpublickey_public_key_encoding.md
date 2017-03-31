@@ -31,12 +31,13 @@ alice.setPrivateKey(
 );
 
 // Bob uses a newly generated cryptographically strong
-// pseudorandom key pair bob.generateKeys();
+// pseudorandom key pair
+bob.generateKeys();
 
-const alice_secret = alice.computeSecret(bob.getPublicKey(), null, 'hex');
-const bob_secret = bob.computeSecret(alice.getPublicKey(), null, 'hex');
+const aliceSecret = alice.computeSecret(bob.getPublicKey(), null, 'hex');
+const bobSecret = bob.computeSecret(alice.getPublicKey(), null, 'hex');
 
-// alice_secret and bob_secret should be the same shared secret value
-console.log(alice_secret === bob_secret);
+// aliceSecret and bobSecret should be the same shared secret value
+console.log(aliceSecret === bobSecret);
 ```
 

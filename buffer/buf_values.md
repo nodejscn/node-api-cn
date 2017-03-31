@@ -19,7 +19,7 @@ const buf = Buffer.from('buffer');
 //   102
 //   101
 //   114
-for (var value of buf.values()) {
+for (const value of buf.values()) {
   console.log(value);
 }
 
@@ -30,7 +30,7 @@ for (var value of buf.values()) {
 //   102
 //   101
 //   114
-for (var value of buf) {
+for (const value of buf) {
   console.log(value);
 }
 ```

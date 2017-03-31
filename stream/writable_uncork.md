@@ -2,13 +2,9 @@
 added: v0.11.2
 -->
 
-The `writable.uncork()` method flushes all data buffered since
-[`stream.cork()`][] was called.
+`writable.uncork()` 将输出在 [`stream.cork()`][] 方法被调用之后缓冲在内存中的所有数据。
 
-When using `writable.cork()` and `writable.uncork()` to manage the buffering
-of writes to a stream, it is recommended that calls to `writable.uncork()` be
-deferred using `process.nextTick()`. Doing so allows batching of all
-`writable.write()` calls that occur within a given Node.js event loop phase.
+如果使用 [`writable.cork()`] 和 `writable.uncork()` 来管理写入缓存，建议使用 `process.nextTick()` 来延迟调用 `writable.uncork()` 方法。通过这种方式，可以对单个 Node.js 事件循环中调用的所有 `writable.write()` 方法进行批处理。
 
 ```js
 stream.cork();
@@ -17,9 +13,7 @@ stream.write('data ');
 process.nextTick(() => stream.uncork());
 ```
 
-If the `writable.cork()` method is called multiple times on a stream, the same
-number of calls to `writable.uncork()` must be called to flush the buffered
-data.
+如果一个流多次调用了 [`writable.cork()`] 方法，那么也必须调用同样次数的 `writable.uncork()` 方法以输出缓冲区数据。
 
 ```js
 stream.cork();
@@ -28,8 +22,10 @@ stream.cork();
 stream.write('data ');
 process.nextTick(() => {
   stream.uncork();
-  // The data will not be flushed until uncork() is called a second time.
+  // 之前的数据只有在 uncork() 被二次调用后才会输出
   stream.uncork();
 });
 ```
+
+也可查看 [`writable.cork()`]。
 

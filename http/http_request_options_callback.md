@@ -19,13 +19,12 @@ added: v0.3.6
   * `headers` {Object} 一个包含请求头的对象。
   * `auth` {String} 基本身份验证，如 `'user:password'` 来计算 Authorization 头。
   * `agent` {http.Agent|Boolean} 控制 [`Agent`] 的行为。
-    当使用 Agent 是，请求默认为 `Connection: keep-alive`。
     可能的值有：
    * `undefined` (默认): 对该主机和端口使用 [`http.globalAgent`]。
    * `Agent` 对象：显式地使用传入的 `Agent`。
-   * `false`: 不对连接池使用 Agent，默认请求 `Connection: close`。
+   * `false`: 产生一个新的使用默认值的 `Agent`。
   * `createConnection` {Function} 当不使用 `agent` 选项时，产生一个用于请求的 socket/stream 的函数。
-    这可以用于避免创建一个自定义的 Agent 类，只是为了覆盖默认的 `createConnection` 函数。详见 [`agent.createConnection()`]。
+    这可以用于避免创建一个自定义的 `Agent` 类，只是为了覆盖默认的 `createConnection` 函数。详见 [`agent.createConnection()`]。
   * `timeout` {Integer}: 一个数值，指定 socket 超时的毫秒数。
     它会在 socket 被连接时设置超时。
 * `callback` {Function}
@@ -92,7 +91,7 @@ req.end();
 
 * 发送一个 `'Connection: keep-alive'` 会通知 Node.js，服务器的连接应一直持续到下一个请求。
 
-* 发送一个 `'Content-length'` 请求头会禁用默认的块编码。
+* 发送一个 `'Content-Length'` 请求头会禁用默认的块编码。
 
 * 发送一个 `'Expect'` 请求头会立即发送请求头。
   通常情况下，当发送 `'Expect: 100-continue'` 时，应该设置一个超时并监听 `'continue'` 事件。

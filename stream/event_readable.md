@@ -2,24 +2,18 @@
 added: v0.9.4
 -->
 
-The `'readable'` event is emitted when there is data available to be read from
-the stream. In some cases, attaching a listener for the `'readable'` event will
-cause some amount of data to be read into an internal buffer.
+`'readable'` 事件将在流中有数据可供读取时触发。在某些情况下，为 `'readable'` 事件添加回调将会导致一些数据被读取到内部缓存中。
 
 ```javascript
 const readable = getReadableStreamSomehow();
 readable.on('readable', () => {
-  // there is some data to read now
+  // 有一些数据可读了
 });
 ```
-The `'readable'` event will also be emitted once the end of the stream data
-has been reached but before the `'end'` event is emitted.
+当到达流数据尾部时， `'readable'` 事件也会触发。触发顺序在 `'end'` 事件之前。
 
-Effectively, the `'readable'` event indicates that the stream has new
-information: either new data is available or the end of the stream has been
-reached. In the former case, [`stream.read()`][stream-read] will return the
-available data. In the latter case, [`stream.read()`][stream-read] will return
-`null`. For instance, in the following example, `foo.txt` is an empty file:
+事实上， `'readable'` 事件表明流有了新的动态：要么是有了新的数据，要么是到了流的尾部。 对于前者， [`stream.read()`][stream-read] 将返回可用的数据。而对于后者， [`stream.read()`][stream-read] 将返回
+`null`。 例如，下面的例子中的 `foo.txt` 是一个空文件：
 
 ```js
 const fs = require('fs');
@@ -32,7 +26,7 @@ rr.on('end', () => {
 });
 ```
 
-The output of running this script is:
+上面交脚本的输出如下：
 
 ```txt
 $ node test.js
@@ -40,6 +34,5 @@ readable: null
 end
 ```
 
-*Note*: In general, the `readable.pipe()` and `'data'` event mechanisms are
-preferred over the use of the `'readable'` event.
+*注意*： 通常情况下， 应该使用 `readable.pipe()` 方法和 `'data'` 事件机制，而不是 `'readable'` 事件。
 

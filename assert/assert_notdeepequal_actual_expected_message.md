@@ -1,9 +1,12 @@
 <!-- YAML
 added: v0.1.21
 -->
+* `actual` {any}
+* `expected` {any}
+* `message` {any}
 
-测试 `actual` 和 `expected` 参数是否不深度相等。
-与 [assert.deepEqual()](#assert_assert_deepequal_actual_expected_message) 相反。
+测试是否不深度相等。
+与 [`assert.deepEqual()`] 相反。
 
 ```js
 const assert = require('assert');
@@ -39,5 +42,5 @@ assert.notDeepEqual(obj1, obj4);
 ```
 
 如果两个值深度相等，则抛出一个带有 `message` 属性的 `AssertionError`，其中 `message` 属性的值等于传入的 `message` 参数的值。
-如果 `message` 参数为 `undefined`，则输出默认的错误信息。
+如果 `message` 参数为 `undefined`，则赋予默认的错误信息。
 

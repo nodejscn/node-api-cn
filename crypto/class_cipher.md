@@ -20,9 +20,9 @@ Example: Using `Cipher` objects as streams:
 const crypto = require('crypto');
 const cipher = crypto.createCipher('aes192', 'a password');
 
-var encrypted = '';
+let encrypted = '';
 cipher.on('readable', () => {
-  var data = cipher.read();
+  const data = cipher.read();
   if (data)
     encrypted += data.toString('hex');
 });
@@ -54,7 +54,7 @@ Example: Using the [`cipher.update()`][] and [`cipher.final()`][] methods:
 const crypto = require('crypto');
 const cipher = crypto.createCipher('aes192', 'a password');
 
-var encrypted = cipher.update('some clear text data', 'utf8', 'hex');
+let encrypted = cipher.update('some clear text data', 'utf8', 'hex');
 encrypted += cipher.final('hex');
 console.log(encrypted);
 // Prints: ca981be48e90867604588e75d04feabb63cc007a8f8ad89b10616ed84d815504

@@ -1,6 +1,5 @@
 
-The default evaluator will, by default, assign the result of the most recently
-evaluated expression to the special variable `_` (underscore).
+默认的解释器会把最近一次解释的表达式的结果赋值给变量 `_` （下划线）。
 
 ```js
 > [ 'a', 'b', 'c' ]
@@ -11,5 +10,5 @@ evaluated expression to the special variable `_` (underscore).
 4
 ```
 
-Explicitly setting `_` to a value will disable this behavior.
+显式地设置 `_` 为某个值能禁用该特性。
 

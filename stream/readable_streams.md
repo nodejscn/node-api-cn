@@ -1,8 +1,7 @@
 
-Readable streams are an abstraction for a *source* from which data is
-consumed.
+可读流（Readable streams）是对提供数据的 *源头* （source）的抽象。
 
-Examples of Readable streams include:
+可读流的例子包括：
 
 * [HTTP responses, on the client][http-incoming-message]
 * [HTTP requests, on the server][http-incoming-message]
@@ -13,6 +12,6 @@ Examples of Readable streams include:
 * [child process stdout and stderr][]
 * [`process.stdin`][]
 
-All [Readable][] streams implement the interface defined by the
-`stream.Readable` class.
+所有的 [Readable][] 都实现了
+`stream.Readable` 类定义的接口。
 

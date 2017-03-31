@@ -2,26 +2,15 @@
 added: v0.9.4
 -->
 
-* `chunk` {Buffer|String|any} The chunk of data. For streams that are not
-  operating in object mode, the chunk will be either a string or `Buffer`.
-  For streams that are in object mode, the chunk can be any JavaScript value
-  other than `null`.
+* `chunk` {Buffer|String|any} 数据片段。对于非对象模式的可读流，这是一个字符串或者 `Buffer`。
+  对于对象模式的可读流，这可以是除 `null` 以外的任意类型 JavaScript 值。
 
-The `'data'` event is emitted whenever the stream is relinquishing ownership of
-a chunk of data to a consumer. This may occur whenever the stream is switched
-in flowing mode by calling `readable.pipe()`, `readable.resume()`, or by
-attaching a listener callback to the `'data'` event. The `'data'` event will
-also be emitted whenever the `readable.read()` method is called and a chunk of
-data is available to be returned.
+`'data'` 事件会在流将数据传递给消费者时触发。当流转换到 flowing 模式时会触发该事件。调用 `readable.pipe()`， `readable.resume()` 方法，或为 `'data'` 事件添加回调可以将流转换到 flowing 模式。 `'data'` 事件也会在调用 `readable.read()` 方法并有数据返回时触发。
 
-Attaching a `'data'` event listener to a stream that has not been explicitly
-paused will switch the stream into flowing mode. Data will then be passed as
-soon as it is available.
+在没有明确暂停的流上添加 `'data'` 事件监听会将流转换为 flowing 模式。 数据会在可用时尽快传递给下个流程。
 
-The listener callback will be passed the chunk of data as a string if a default
-encoding has been specified for the stream using the
-`readable.setEncoding()` method; otherwise the data will be passed as a
-`Buffer`.
+如果调用 `readable.setEncoding()` 方法明确为流指定了默认编码，回调函数将接收到一个字符串，否则接收到的数据将是一个
+`Buffer` 实例。
 
 ```js
 const readable = getReadableStreamSomehow();

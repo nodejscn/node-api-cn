@@ -3,11 +3,7 @@ added: v0.6.9
 -->
 
 * `multicastAddress` {String}
-* `multicastInterface` {String}, Optional
+* `multicastInterface` {String}, 可选的
 
-Tells the kernel to join a multicast group at the given `multicastAddress` and
-`multicastInterface` using the `IP_ADD_MEMBERSHIP` socket option. If the
-`multicastInterface` argument is not specified, the operating system will choose
-one interface and will add membership to it. To add membership to every
-available interface, call `addMembership` multiple times, once per interface.
+通知内核将`multicastAddress`和`multicastInterface`提供的多路传送集合通过`IP_ADD_MEMBERSHIP`这个 socket 选项结合起来。若`multicastInterface`参数未指定，操作系统将会选择一个接口并向其添加成员。要为所有可用的接口添加成员，可以在每个接口上调用一次`addMembership`方法。
 

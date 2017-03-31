@@ -2,12 +2,9 @@
 added: v0.9.4
 -->
 
-* `src` {[Readable][] Stream} The source stream that
-  [unpiped][`stream.unpipe()`] this writable
+* `src` {[Readable][] Stream} [unpiped][`stream.unpipe()`] 当前可写流的源流
 
-The `'unpipe'` event is emitted when the [`stream.unpipe()`][] method is called
-on a [Readable][] stream, removing this [Writable][] from its set of
-destinations.
+在 [Readable][] 上调用 [`stream.unpipe()`][] 方法，从目标流向中移除当前 [Writable][] 时，将会触发 `'unpipe'` 事件。
 
 ```js
 const writer = getWritableStreamSomehow();

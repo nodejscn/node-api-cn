@@ -1,10 +1,7 @@
 
-It is possible to create and run multiple REPL instances against a single
-running instance of Node.js that share a single `global` object but have
-separate I/O interfaces.
+可以在一个 Node.js 实例中创建并运行多个 REPL 实例，它们共享一个 `global` 对象但有独立的 I/O 接口。
 
-The following example, for instance, provides separate REPLs on `stdin`, a Unix
-socket, and a TCP socket:
+例子，在 `stdin`、Unix socket、和 TCP socket 上分别提供了独立的 REPL：
 
 ```js
 const net = require('net');
@@ -12,7 +9,7 @@ const repl = require('repl');
 var connections = 0;
 
 repl.start({
-  prompt: 'Node.js via stdin> ',
+  prompt: 'Node.js 使用 stdin> ',
   input: process.stdin,
   output: process.stdout
 });
@@ -20,7 +17,7 @@ repl.start({
 net.createServer((socket) => {
   connections += 1;
   repl.start({
-    prompt: 'Node.js via Unix socket> ',
+    prompt: 'Node.js 使用 Unix socket> ',
     input: socket,
     output: socket
   }).on('exit', () => {
@@ -31,7 +28,7 @@ net.createServer((socket) => {
 net.createServer((socket) => {
   connections += 1;
   repl.start({
-    prompt: 'Node.js via TCP socket> ',
+    prompt: 'Node.js 使用 TCP socket> ',
     input: socket,
     output: socket
   }).on('exit', () => {
@@ -40,21 +37,13 @@ net.createServer((socket) => {
 }).listen(5001);
 ```
 
-Running this application from the command line will start a REPL on stdin.
-Other REPL clients may connect through the Unix socket or TCP socket. `telnet`,
-for instance, is useful for connecting to TCP sockets, while `socat` can be used
-to connect to both Unix and TCP sockets.
+从命令行运行这个应用会在 stdin 上启动一个 REPL。
+其他 REPL 客户端可以通过 Unix socket 或 TCP socket 进行连接。
+例如，可以使用 `telnet` 连接到 TCP socket，使用 `socat` 连接到 Unix socket 或 TCP socket。
 
-By starting a REPL from a Unix socket-based server instead of stdin, it is
-possible to connect to a long-running Node.js process without restarting it.
+通过从一个基于 Unix socket 的服务器（而不是 stdin）启动一个 REPL，可以连接到一个长期运行的 Node.js 进程而无需重启它。
 
-For an example of running a "full-featured" (`terminal`) REPL over
-a `net.Server` and `net.Socket` instance, see: https://gist.github.com/2209310
+例子，在一个 `net.Server` 实例和一个 `net.Socket` 实例上运行一个全特性的（`terminal`）REPL，详见：https://gist.github.com/2209310
 
-For an example of running a REPL instance over curl(1),
-see: https://gist.github.com/2053342
+例子，在 curl(1) 上运行一个 REPL 实例，详见：https://gist.github.com/2053342
 
-[stream]: stream.html
-[`util.inspect()`]: util.html#util_util_inspect_object_options
-[`readline.Interface`]: readline.html#readline_class_interface
-[`readline.InterfaceCompleter`]: readline.html#readline_use_of_the_completer_function

@@ -18,7 +18,7 @@ const buf = Buffer.from('buffer');
 //   3
 //   4
 //   5
-for (var key of buf.keys()) {
+for (const key of buf.keys()) {
   console.log(key);
 }
 ```

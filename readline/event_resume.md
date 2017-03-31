@@ -2,13 +2,15 @@
 added: v0.7.5
 -->
 
-The `'resume'` event is emitted whenever the `input` stream is resumed.
+每当 `input` 流被恢复时触发 `'resume'` 事件。
 
-The listener function is called without passing any arguments.
+监听器函数被调用时不传入任何参数。
+
+例子：
 
 ```js
 rl.on('resume', () => {
-  console.log('Readline resumed.');
+  console.log('Readline 被恢复。');
 });
 ```
 

@@ -1,7 +1,5 @@
 
-A common use case for `readline` is to consume input from a filesystem
-[Readable][] stream one line at a time, as illustrated in the following
-example:
+例子，从一个文件系统[可读流]中每次一行地消耗输入：
 
 ```js
 const readline = require('readline');
@@ -12,14 +10,7 @@ const rl = readline.createInterface({
 });
 
 rl.on('line', (line) => {
-  console.log(`Line from file: ${line}`);
+  console.log(`文件的单行内容：${line}`);
 });
 ```
 
-[`process.stdin`]: process.html#process_process_stdin
-[`process.stdout`]: process.html#process_process_stdout
-[Writable]: stream.html
-[Readable]: stream.html
-[TTY]: tty.html
-[`SIGTSTP`]: readline.html#readline_event_sigtstp
-[`SIGCONT`]: readline.html#readline_event_sigcont

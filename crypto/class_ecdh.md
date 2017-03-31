@@ -14,17 +14,17 @@ const assert = require('assert');
 
 // Generate Alice's keys...
 const alice = crypto.createECDH('secp521r1');
-const alice_key = alice.generateKeys();
+const aliceKey = alice.generateKeys();
 
 // Generate Bob's keys...
 const bob = crypto.createECDH('secp521r1');
-const bob_key = bob.generateKeys();
+const bobKey = bob.generateKeys();
 
 // Exchange and generate the secret...
-const alice_secret = alice.computeSecret(bob_key);
-const bob_secret = bob.computeSecret(alice_key);
+const aliceSecret = alice.computeSecret(bobKey);
+const bobSecret = bob.computeSecret(aliceKey);
 
-assert(alice_secret, bob_secret);
+assert.strictEqual(aliceSecret.toString('hex'), bobSecret.toString('hex'));
   // OK
 ```
 

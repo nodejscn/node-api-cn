@@ -2,7 +2,7 @@
 added: v0.1.90
 -->
 
-* `target` {Buffer} 要拷贝进的 `Buffer` 。
+* `target` {Buffer|Uint8Array} 要拷贝进的 `Buffer` 或 [`Uint8Array`]。
 * `targetStart` {Integer} `target` 中开始拷贝进的偏移量。
   **默认:** `0`
 * `sourceStart` {Integer} `buf` 中开始拷贝的偏移量。
@@ -37,7 +37,7 @@ console.log(buf2.toString('ascii', 0, 25));
 ```js
 const buf = Buffer.allocUnsafe(26);
 
-for (var i = 0 ; i < 26 ; i++) {
+for (let i = 0 ; i < 26 ; i++) {
   // 97 是 'a' 的十进制 ASCII 值
   buf[i] = i + 97;
 }

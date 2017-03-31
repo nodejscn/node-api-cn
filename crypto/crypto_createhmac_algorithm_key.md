@@ -22,7 +22,7 @@ const hmac = crypto.createHmac('sha256', 'a secret');
 
 const input = fs.createReadStream(filename);
 input.on('readable', () => {
-  var data = input.read();
+  const data = input.read();
   if (data)
     hmac.update(data);
   else {

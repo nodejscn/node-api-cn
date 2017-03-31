@@ -1,3 +1,3 @@
 
-查看 [`http.listen()`][] 获取细节.
+查看 [`http.listen()`] 获取细节。
 

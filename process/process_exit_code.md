@@ -4,10 +4,11 @@ added: v0.1.13
 
 * `code` {Integer} The exit code. Defaults to `0`.
 
-The `process.exit()` method instructs Node.js to terminate the process as
-quickly as possible with the specified exit `code`. If the `code` is omitted,
-exit uses either the 'success' code `0` or the value of `process.exitCode` if
-specified.
+The `process.exit()` method instructs Node.js to terminate the process
+synchronously with an exit status of `code`. If `code` is omitted, exit uses
+either the 'success' code `0` or the value of `process.exitCode` if it has been
+set.  Node.js will not terminate until all the [`'exit'`] event listeners are
+called.
 
 To exit with a 'failure' code:
 
@@ -40,7 +41,7 @@ if (someConditionNotMet()) {
 ```
 
 The reason this is problematic is because writes to `process.stdout` in Node.js
-are sometimes *non-blocking* and may occur over multiple ticks of the Node.js
+are sometimes *asynchronous* and may occur over multiple ticks of the Node.js
 event loop. Calling `process.exit()`, however, forces the process to exit
 *before* those additional writes to `stdout` can be performed.
 

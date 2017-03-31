@@ -2,23 +2,20 @@
 added: v0.7.5
 -->
 
-The `'SIGCONT'` event is emitted when a Node.js process previously moved into
-the background using `<ctrl>-Z` (i.e. `SIGTSTP`) is then brought back to the
-foreground using fg(1).
+当一个 Node.js 进程使用 `<ctrl>-Z`（也就是 `SIGTSTP`）移入后台之后再使用 fg(1) 移回前台时，触发 `'SIGCONT'` 事件。
 
-If the `input` stream was paused *before* the `SIGTSTP` request, this event will
-not be emitted.
+如果 `input` 流在 `SIGTSTP` 请求之前被暂停，则事件不会被触发。
 
-The listener function is invoked without passing any arguments.
+监听器函数被调用时不传入任何参数。
 
-For example:
+例子：
 
 ```js
 rl.on('SIGCONT', () => {
-  // `prompt` will automatically resume the stream
+  // `prompt` 会自动恢复流
   rl.prompt();
 });
 ```
 
-*Note*: The `'SIGCONT'` event is _not_ supported on Windows.
+注意：Windows 系统不支持 `'SIGCONT'` 事件。
 

@@ -3,13 +3,9 @@ added: v0.6.9
 -->
 
 * `multicastAddress` {String}
-* `multicastInterface` {String}, Optional
+* `multicastInterface` {String}, 可选的
 
-Instructs the kernel to leave a multicast group at `multicastAddress` using the
-`IP_DROP_MEMBERSHIP` socket option. This method is automatically called by the
-kernel when the socket is closed or the process terminates, so most apps will
-never have reason to call this.
+引导内核通过`IP_DROP_MEMBERSHIP`这个 socket 选项删除`multicastAddress`指定的多路传送集合。当 socket 被关闭或进程被终止时，该方法会被内核自动调用，所以大多数的应用都不用自行调用该方法。
 
-If `multicastInterface` is not specified, the operating system will attempt to
-drop membership on all valid interfaces.
+若`multicastInterface`未指定，操作系统会尝试删除所有可用接口上的成员。
 

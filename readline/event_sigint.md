@@ -2,18 +2,16 @@
 added: v0.3.0
 -->
 
-The `'SIGINT'` event is emitted whenever the `input` stream receives a
-`<ctrl>-C` input, known typically as `SIGINT`. If there are no `'SIGINT'` event
-listeners registered when the `input` stream receives a `SIGINT`, the `'pause'`
-event will be emitted.
+每当 `input` 流接收到一个 `<ctrl>-C` 输入（通常被称为 `SIGINT`）时，触发 `'SIGINT'` 事件。
+当 `input` 流接收到一个 `SIGINT` 时，如果没有注册 `'SIGINT'` 事件监听器，则 `'pause'` 事件会被触发。
 
-The listener function is invoked without passing any arguments.
+监听器函数被调用时不传入任何参数。
 
-For example:
+例子：
 
 ```js
 rl.on('SIGINT', () => {
-  rl.question('Are you sure you want to exit?', (answer) => {
+  rl.question('确定要退出吗？', (answer) => {
     if (answer.match(/^y(es)?$/i)) rl.pause();
   });
 });

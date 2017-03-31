@@ -2,5 +2,5 @@
 added: v0.11.12
 -->
 
-Decompress a Buffer or string with Inflate.
+Decompress a [Buffer][] or string with [Inflate][].
 

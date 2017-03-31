@@ -8,6 +8,6 @@ Example:
 
 ```js
 const curves = crypto.getCurves();
-console.log(curves); // ['secp256k1', 'secp384r1', ...]
+console.log(curves); // ['Oakley-EC2N-3', 'Oakley-EC2N-4', ...]
 ```
 

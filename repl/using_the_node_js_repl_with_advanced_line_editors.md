@@ -1,9 +1,8 @@
 
-For advanced line-editors, start Node.js with the environmental variable
-`NODE_NO_READLINE=1`. This will start the main and debugger REPL in canonical
-terminal settings which will allow you to use with `rlwrap`.
+对于高级的行编辑器，可以使用环境变量 `NODE_NO_READLINE=1` 来启动 Node.js。
+这会以标准的终端配置来启动主 REPL 和调试 REPL，可以使用 `rlwrap`。
 
-For example, you could add this to your bashrc file:
+例如，你可以在你的 bashrc 文件中添加：
 
 ```text
 alias node="env NODE_NO_READLINE=1 rlwrap node"

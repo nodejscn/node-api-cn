@@ -1,10 +1,8 @@
 
-When a new `repl.REPLServer` is created, a custom evaluation function may be
-provided. This can be used, for instance, to implement fully customized REPL
-applications.
+当创建一个新的 `repl.REPLServer` 时，可以提供一个自定义的解释函数。
+这可以用于实现完全定制化的 REPL 应用。
 
-The following illustrates a hypothetical example of a REPL that performs
-translation of text from one language to another:
+例子，一个执行文本翻译的 REPL：
 
 ```js
 const repl = require('repl');

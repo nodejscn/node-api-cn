@@ -1,40 +1,33 @@
 
-The following special commands are supported by all REPL instances:
+所有 REPL 的实例都支持下列特殊命令：
 
-* `.break` - When in the process of inputting a multi-line expression, entering
-  the `.break` command (or pressing the `<ctrl>-C` key combination) will abort
-  further input or processing of that expression.
-* `.clear` - Resets the REPL `context` to an empty object and clears any
-  multi-line expression currently being input.
-* `.exit` - Close the I/O stream, causing the REPL to exit.
-* `.help` - Show this list of special commands.
-* `.save` - Save the current REPL session to a file:
+* `.break` - 在输入一个多行表达式的过程中，输入 `.break` 命令（或按下 `<ctrl>-C` 组合键）将终止表达式的继续输入。
+* `.clear` - 重置 REPL 的 `context` 为一个空对象，并清除当前正输入的所有多行表达式。
+* `.exit` - 关闭输入输出流，退出 REPL。
+* `.help` - 显示特定命令的帮助列表。
+* `.save` - 保存当前 REPL 会话到一个文件：
   `> .save ./file/to/save.js`
-* `.load` - Load a file into the current REPL session.
+* `.load` - 读取一个文件到当前 REPL 会话。
   `> .load ./file/to/load.js`
-* `.editor` - Enter editor mode (`<ctrl>-D` to finish, `<ctrl>-C` to cancel)
+* `.editor` 进入编辑模式（`<ctrl>-D` 完成，`<ctrl>-C` 取消）
 
 ```js
 > .editor
-// Entering editor mode (^D to finish, ^C to cancel)
+// 进入编辑模式（^D 完成，^C 取消）
 function welcome(name) {
-  return `Hello ${name}!`;
+  return `你好 ${name}！`;
 }
 
-welcome('Node.js User');
+welcome('Node.js 用户');
 
 // ^D
-'Hello Node.js User!'
+'你好 Node.js 用户！'
 >
 ```
 
-The following key combinations in the REPL have these special effects:
+REPL 中下列按键组合有特殊作用：
 
-* `<ctrl>-C` - When pressed once, has the same effect as the `.break` command.
-  When pressed twice on a blank line, has the same effect as the `.exit`
-  command.
-* `<ctrl>-D` - Has the same effect as the `.exit` command.
-* `<tab>` - When pressed on a blank line, displays global and local(scope)
-  variables. When pressed while entering other input, displays relevant
-  autocompletion options.
+* `<ctrl>-C` - 当按下一次时，与 `.break` 命令的效果一样。当在空白行按下两次时，与 `.exit` 命令的效果一样。
+* `<ctrl>-D` - 与 `.exit` 命令的效果一样。
+* `<tab>` - 当在空白行按下时，显示全局和本地作用域内的变量。当在输入时按下，显示相关的自动补全选项。
 

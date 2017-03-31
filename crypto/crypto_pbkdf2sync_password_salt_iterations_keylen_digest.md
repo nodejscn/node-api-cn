@@ -23,7 +23,7 @@ Example:
 ```js
 const crypto = require('crypto');
 const key = crypto.pbkdf2Sync('secret', 'salt', 100000, 512, 'sha512');
-console.log(key.toString('hex'));  // 'c5e478d...1469e50'
+console.log(key.toString('hex'));  // '3745e48...aa39b34'
 ```
 
 An array of supported digest functions can be retrieved using

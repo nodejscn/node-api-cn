@@ -20,7 +20,7 @@ const crypto = require('crypto');
 const hash = crypto.createHash('sha256');
 
 hash.on('readable', () => {
-  var data = hash.read();
+  const data = hash.read();
   if (data)
     console.log(data.toString('hex'));
     // Prints:

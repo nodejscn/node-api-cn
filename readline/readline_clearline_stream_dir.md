@@ -4,11 +4,9 @@ added: v0.7.7
 
 * `stream` {Writable}
 * `dir` {number}
-  * `-1` - to the left from cursor
-  * `1` - to the right from cursor
-  * `0` - the entire line
+  * `-1` - 光标左边
+  * `1` - 光标右边
+  * `0` - 整行
 
-The `readline.clearLine()` method clears current line of given [TTY][] stream
-in a specified direction identified by `dir`.
-
+`readline.clearLine()` 方法会以 `dir` 指定的方向清除给定的 [TTY] 流的当前行。
 

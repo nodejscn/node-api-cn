@@ -9,7 +9,7 @@ This category contains only one function: [`dns.lookup()`][]. **Developers
 looking to perform name resolution in the same way that other applications on
 the same operating system behave should use [`dns.lookup()`][].**
 
-For example, looking up `nodejs.org`.
+For example, looking up `iana.org`.
 
 ```js
 const dns = require('dns');
@@ -17,6 +17,7 @@ const dns = require('dns');
 dns.lookup('nodejs.org', (err, addresses, family) => {
   console.log('addresses:', addresses);
 });
+// address: "192.0.43.8" family: IPv4
 ```
 
 2) Functions that connect to an actual DNS server to perform name resolution,
@@ -27,13 +28,13 @@ functions do not use the same set of configuration files used by
 developers who do not want to use the underlying operating system's facilities
 for name resolution, and instead want to _always_ perform DNS queries.
 
-Below is an example that resolves `'nodejs.org'` then reverse resolves the IP
+Below is an example that resolves `'archive.org'` then reverse resolves the IP
 addresses that are returned.
 
 ```js
 const dns = require('dns');
 
-dns.resolve4('nodejs.org', (err, addresses) => {
+dns.resolve4('archive.org', (err, addresses) => {
   if (err) throw err;
 
   console.log(`addresses: ${JSON.stringify(addresses)}`);

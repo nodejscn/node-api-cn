@@ -2,26 +2,19 @@
 added: v0.9.4
 -->
 
-* `chunk` {String|Buffer|any} Optional data to write. For streams not operating
-  in object mode, `chunk` must be a string or a `Buffer`. For object mode
-  streams, `chunk` may be any JavaScript value other than `null`.
-* `encoding` {String} The encoding, if `chunk` is a String
-* `callback` {Function} Optional callback for when the stream is finished
+* `chunk` {String|Buffer|any} 可选的，需要写入的数据。对于非对象模式下的流， `chunk` 必须是字符串或者 `Buffer`。对于对象模式下的流， `chunk` 可以是任意的 JavaScript 值，除了 `null`。
+* `encoding` {String} 如果 `chunk` 是字符串，这里指定字符编码。
+* `callback` {Function} 可选的，流结束时的回调函数。
 
-Calling the `writable.end()` method signals that no more data will be written
-to the [Writable][]. The optional `chunk` and `encoding` arguments allow one
-final additional chunk of data to be written immediately before closing the
-stream. If provided, the optional `callback` function is attached as a listener
-for the [`'finish'`][] event.
+调用 `writable.end()` 方法表明接下来没有数据要被写入 [Writable][]。通过传入可选的 `chunk` 和 `encoding` 参数，可以在关闭流之前再写入一段数据。如果传入了可选的 `callback` 函数，它将作为 [`'finish'`][] 事件的回调函数。
 
-Calling the [`stream.write()`][stream-write] method after calling
-[`stream.end()`][stream-end] will raise an error.
+在调用了 [`stream.end()`][stream-end] 方法之后，再调用 [`stream.write()`][stream-write] 方法将会导致错误。
 
 ```js
-// write 'hello, ' and then end with 'world!'
+// 写入 'hello, ' ，并用 'world!' 来结束写入
 const file = fs.createWriteStream('example.txt');
 file.write('hello, ');
 file.end('world!');
-// writing more now is not allowed!
+// 后面不允许再写入数据！
 ```
 

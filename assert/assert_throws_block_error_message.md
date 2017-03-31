@@ -1,60 +1,63 @@
 <!-- YAML
 added: v0.1.21
 -->
+* `block` {Function}
+* `error` {RegExp|Function}
+* `message` {any}
 
 期望 `block` 函数抛出错误。
 
-如果指定 `error`，它可以是一个构造函数、[正则表达式](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions)、或校验函数。
+如果指定了 `error`，`error` 可以是构造函数、[正则表达式]、或自定义的验证函数。
 
-如果指定 `message`，当 `block` 函数抛出错误时，`message` 会作为错误信息传给 `AssertionError`。
+如果指定了 `message`，则当 `block` 不抛出错误时，`message` 会作为 `AssertionError` 的错误信息。
 
-使用构造函数的例子：
+例子，使用构造函数验证实例：
 
 ```js
 assert.throws(
   () => {
-    throw new Error('Wrong value');
+    throw new Error('错误信息');
   },
   Error
 );
 ```
 
-使用正则表达式的例子：
+例子，使用 [正则表达式] 验证错误信息：
 
 ```js
 assert.throws(
   () => {
-    throw new Error('Wrong value');
+    throw new Error('错误信息');
   },
-  /value/
+  /错误/
 );
 ```
 
-使用自定义校验函数的例子：
+例子，自定义的错误验证函数：
 
 ```js
 assert.throws(
   () => {
-    throw new Error('Wrong value');
+    throw new Error('错误信息');
   },
   function(err) {
-    if ( (err instanceof Error) && /value/.test(err) ) {
+    if ( (err instanceof Error) && /错误/.test(err) ) {
       return true;
     }
   },
-  'unexpected error'
+  '不是期望的错误'
 );
 ```
 
-注意，`error` 参数不能是字符串。
-如果第二个参数是字符串，则视为不传 `error` 参数，传入的字符串会被当作是 `message` 的值。
-这可能会引起误解：
+注意，`error` 不能是一个字符串。
+如果第二个参数是一个字符串，则视为省略 `error` 参数，传入的字符串会被用于 `message`。
+这点比较容易搞错：
 
 ```js
 // 这是错误的！不要这么做！
-assert.throws(myFunction, 'missing foo', 'did not throw with expected message');
+assert.throws(myFunction, '错误', '没有抛出期望的信息');
 
 // 应该这么做。
-assert.throws(myFunction, /missing foo/, 'did not throw with expected message');
+assert.throws(myFunction, /错误/, '没有抛出期望的信息');
 ```
 
