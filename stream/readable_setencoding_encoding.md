@@ -2,7 +2,7 @@
 added: v0.9.4
 -->
 
-* `encoding` {String} 用使用的编码
+* `encoding` {String} 要使用的编码
 * Returns: `this`
 
 The `readable.setEncoding()` method sets the default character encoding for
