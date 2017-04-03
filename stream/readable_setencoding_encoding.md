@@ -14,7 +14,7 @@ output data will be interpreted as UTF-8 data, and passed as strings. Calling
 `readable.setEncoding('hex')` will cause the data to be encoded in hexadecimal
 string format.
 
-设置编码会使得该函数返回指定编码的字符串而不是`Buffer`对象
+设置编码会使得该流数据返回指定编码的字符串而不是`Buffer`对象。例如，调用`readable.setEncoding('utf-8')`会使得输出数据作为UTF-8数据解析，并作为字符串返回
 
 The Readable stream will properly handle multi-byte characters delivered through
 the stream that would otherwise become improperly decoded if simply pulled from
