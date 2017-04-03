@@ -16,15 +16,8 @@ string format.
 
 设置编码会使得该流数据返回指定编码的字符串而不是`Buffer`对象。例如，调用`readable.setEncoding('utf-8')`会使得输出数据作为UTF-8数据解析，并作为字符串返回。调用`readable.setEncoding('hex')`使得数据被编码成16进制字符串格式。
 
-The Readable stream will properly handle multi-byte characters delivered through
-the stream that would otherwise become improperly decoded if simply pulled from
-the stream as `Buffer` objects.
 
 可读流会妥善处理多字节字符，如果仅仅直接从流中取出`Buffer`对象，很可能会导致错误解码。
-
-Encoding can be disabled by calling `readable.setEncoding(null)`. This approach
-is useful when working with binary data or with large multi-byte strings spread
-out over multiple chunks.
 
 调用`readable.setEncoding(null)`可以禁止编码。该方法在处理二进制数据或大字节字符串分割为许多块时非常有用。
 
