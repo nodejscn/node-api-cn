@@ -5,8 +5,7 @@ added: v0.9.4
 * `encoding` {String} 要使用的编码
 * Returns: `this`
 
-The `readable.setEncoding()` method sets the default character encoding for
-data read from the Readable stream.
+`readble.setEncoding()` 方法会为从Readable stream 读入的数据设置默认字符编码
 
 Setting an encoding causes the stream data
 to be returned as string of the specified encoding rather than as `Buffer`
