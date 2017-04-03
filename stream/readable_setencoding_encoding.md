@@ -20,7 +20,7 @@ The Readable stream will properly handle multi-byte characters delivered through
 the stream that would otherwise become improperly decoded if simply pulled from
 the stream as `Buffer` objects.
 
-可读流
+可读流会妥善处理多字节字符，如果仅仅直接从流中取出`Buffer`对象，很可能会导致错误解码。
 
 Encoding can be disabled by calling `readable.setEncoding(null)`. This approach
 is useful when working with binary data or with large multi-byte strings spread
