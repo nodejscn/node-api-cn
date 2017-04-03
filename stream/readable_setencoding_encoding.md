@@ -2,7 +2,6 @@
 added: v0.9.4
 -->
 
-* `encoding` {String} The encoding to use.
 * `encoding` {String} 用使用的编码
 * Returns: `this`
 
