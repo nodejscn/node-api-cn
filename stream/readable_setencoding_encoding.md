@@ -26,6 +26,8 @@ Encoding can be disabled by calling `readable.setEncoding(null)`. This approach
 is useful when working with binary data or with large multi-byte strings spread
 out over multiple chunks.
 
+调用`readable.setEncoding(null)`可以禁止编码。该方法在处理二进制数据或大字节字符串分割为许多块时非常有用。
+
 ```js
 const readable = getReadableStreamSomehow();
 readable.setEncoding('utf8');
