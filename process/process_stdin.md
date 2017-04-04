@@ -1,7 +1,7 @@
 
 * {Stream}
 
-执行`process.stdin` 会返回一个[只读][http://nodejs.cn/api/stream.html#stream_readable_streams]流 等同于 `stdin` (fd `0`).
+执行`process.stdin` 会返回一个 [可读流]，等同于 `stdin` (fd `0`).
 
 举个例子:
 
@@ -20,8 +20,8 @@ process.stdin.on('end', () => {
 });
 ```
 
-`process.stdin` 返回的 [只读][http://nodejs.cn/api/stream.html#stream_readable_streams] 流, 可以在`旧`模式下使用,兼容node v0.10
-更多信息查看[流的兼容性][http://nodejs.cn/api/stream.html#stream_compatibility_with_older_node_js_versions].
+`process.stdin` 返回的 [可读流], 可以在`旧`模式下使用,兼容node v0.10。
+更多信息查看[流的兼容性]。
 
 *注意*: 在"旧模式下" `stdin`流 默认是暂停的.所以必须通过执行`.stdin.resume()`来恢复它.
 同时`process.stdin.resume()`会切换到`旧模式`
