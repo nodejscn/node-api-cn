@@ -1,8 +1,6 @@
 
 <!--type=example-->
 
-The following is a basic example of a Readable stream that emits the numerals
-from 1 to 1,000,000 in ascending order, and then ends.
 以下是可读流的一个基本例子，触发数字1到1,000,000升序，然后结束
 ```js
 const Readable = require('stream').Readable;
