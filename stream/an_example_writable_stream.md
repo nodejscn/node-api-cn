@@ -1,8 +1,4 @@
-
-The following illustrates a rather simplistic (and somewhat pointless) custom
-Writable stream implementation. While this specific Writable stream instance
-is not of any real particular usefulness, the example illustrates each of the
-required elements of a custom [Writable][] stream instance:
+下面说明了一个相当简单（有点无意义）的可写流实现。虽然这个具体的可写流实例没有任何真正的特殊用途，但该示例说明了一个自定义流实例所需要的元素：
 
 ```js
 const Writable = require('stream').Writable;
@@ -21,4 +17,6 @@ class MyWritable extends Writable {
   }
 }
 ```
+
+
 
