@@ -4,6 +4,6 @@ added: v0.3.8
 
 * `flag` {Boolean}
 
-Sets or clears the `IP_MULTICAST_LOOP` socket option.  When set to `true`,
-multicast packets will also be received on the local interface.
+设置或清除 `IP_MULTICAST_LOOP` socket 选项。当设置为 `true`, 多播数据包也将在本地接口接收。
+
 
