@@ -4,6 +4,4 @@ added: v0.6.9
 
 * `flag` {Boolean}
 
-Sets or clears the `SO_BROADCAST` socket option.  When set to `true`, UDP
-packets may be sent to a local interface's broadcast address.
-
+设置或清除 `SO_BROADCAST` socket 选项。当设置为 `true`, UDP包可能会被发送到一个本地接口的广播地址
