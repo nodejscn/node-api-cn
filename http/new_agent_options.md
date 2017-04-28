@@ -2,19 +2,20 @@
 added: v0.3.4
 -->
 
-* `options` {Object} 用于设置代理的配置选项的集合。可以有以下字段：
-  * `keepAlive` {Boolean} 保持 socket 即使没有请求，以便它们可被将来的请求使用而无需重新建立一个 TCP 连接。默认 = `false`。
-  * `keepAliveMsecs` {Integer} 当使用 `keepAlive` 选项时，指定 TCP `Keep-Alive` 数据包的 [初始延迟]。
-    当 `keepAlive` 选项为 `false` 或 `undefined` 时忽视该选项。
-    默认 = `1000`。
-  * `maxSockets` {Number} 每个主机允许的最大 socket 数。默认= `Infinity`。
-  * `maxFreeSockets` {Number} 在空闲状态下允许打开的最大 socket 数。
-    仅当 `keepAlive` 被设为 `true` 有效。
-    默认 = `256`.
+* `options` {Object} 代理的配置选项。有以下字段：
+  * `keepAlive` {Boolean} 保持 socket 可用即使没有请求，以便它们可被将来的请求使用而无需重新建立一个 TCP 连接。默认为 `false`。
+  * `keepAliveMsecs` {Integer} 当使用了 `keepAlive` 选项时，该选项指定 TCP `Keep-Alive` 数据包的 [初始延迟]。
+    当 `keepAlive` 选项为 `false` 或 `undefined` 时，该选项无效。
+    默认为 `1000`。
+  * `maxSockets` {Number} 每个主机允许的最大 socket 数量。
+    默认为 `Infinity`。
+  * `maxFreeSockets` {Number} 在空闲状态下允许打开的最大 socket 数量。
+    仅当 `keepAlive` 为 `true` 时才有效。
+    默认为 `256`。
 
-[`http.request()`] 使用的默认的 [`http.globalAgent`] 会将所有这些值设为各自的默认值。
+[`http.request()`] 使用的默认 [`http.globalAgent`] 的选项均为各自的默认值。
 
-要配置其中任何一个，必须创建自己的 [`http.Agent`] 实例。
+若要配置其中任何一个，则需要创建自己的 [`http.Agent`] 实例。
 
 ```js
 const http = require('http');

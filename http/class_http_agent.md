@@ -2,34 +2,22 @@
 added: v0.3.4
 -->
 
-An `Agent` is responsible for managing connection persistence
-and reuse for HTTP clients. It maintains a queue of pending requests
-for a given host and port, reusing a single socket connection for each
-until the queue is empty, at which time the socket is either destroyed
-or put into a pool where it is kept to be used again for requests to the
-same host and port. Whether it is destroyed or pooled depends on the
-`keepAlive` [option](#http_new_agent_options).
+`Agent` 负责为 HTTP 客户端管理连接的持续与复用。
+它为一个给定的主机与端口维护着一个等待请求的队列，且为每个请求重复使用一个单一的 socket 连接直到队列为空，此时 socket 会被销毁或被放入一个连接池中，在连接池中等待被有着相同主机与端口的请求再次使用。
+是否被销毁或被放入连接池取决于 [`keepAlive` 选项]。
 
-Pooled connections have TCP Keep-Alive enabled for them, but servers may
-still close idle connections, in which case they will be removed from the
-pool and a new connection will be made when a new HTTP request is made for
-that host and port. Servers may also refuse to allow multiple requests
-over the same connection, in which case the connection will have to be
-remade for every request and cannot be pooled. The `Agent` will still make
-the requests to that server, but each one will occur over a new connection.
+连接池中的连接的 TCP Keep-Alive 是开启的，但服务器仍然可能关闭闲置的连接，在这种情况下，这些连接会被移出连接池，且当一个新的 HTTP 请求被创建时再为指定的主机与端口创建一个新的连接。
+服务器也可能拒绝允许同一连接上有多个请求，在这种情况下，连接会为每个请求重新创建，且不能被放入连接池。
+`Agent` 仍然会创建请求到服务器，但每个请求会出现在一个新的连接。
 
-When a connection is closed by the client or the server, it is removed
-from the pool. Any unused sockets in the pool will be unrefed so as not
-to keep the Node.js process running when there are no outstanding requests.
-(see [socket.unref()]).
+但一个连接被客户端或服务器关闭时，它会被移出连接池。
+连接池中任何未被使用的 socket 会被释放，从而使 Node.js 进程在没有请求时不用保持运行。
+（查看 [socket.unref()]）。
 
-It is good practice, to [`destroy()`][] an `Agent` instance when it is no
-longer in use, because unused sockets consume OS resources.
+当 `Agent` 实例不再被使用时，建议 [`destroy()`] 它，因为未被使用的 socket 也会消耗操作系统资源。
 
-Sockets are removed from an agent's pool when the socket emits either
-a `'close'` event or an `'agentRemove'` event. This means that if
-you intend to keep one HTTP request open for a long time and don't
-want it to stay in the pool you can do something along the lines of:
+当 socket 触发 `'close'` 事件或 `'agentRemove'` 事件时，它会被移出代理池。
+这意味着如果你打算长时间保持打开一个 HTTP 请求且不想它留着连接池中，则可以如下处理：
 
 ```js
 http.get(options, (res) => {
@@ -39,10 +27,8 @@ http.get(options, (res) => {
 });
 ```
 
-You may also use an agent for an individual request. By providing
-`{agent: false}` as an option to the `http.get()` or `http.request()`
-functions, a one-time use `Agent` with default options will be used
-for the client connection.
+你也可以为一个单独的请求使用一个代理。
+使用 `{agent: false}` 作为 `http.get()` 函数或 `http.request()` 函数的选项，则会为客户端连接创建一个默认配置的一次性使用的 `Agent`。
 
 `agent:false`:
 
