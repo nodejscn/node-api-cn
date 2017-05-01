@@ -2,7 +2,7 @@
 <!-- type=misc -->
 
 当 Node.js 直接运行一个文件时，`require.main` 会被设为它的 `module`。
-这意味着你可以通过如下检测直接确定一个文件是否已运行：
+这意味着你可以通过如下检测确定一个文件是否直接运行：
 
 ```js
 require.main === module
