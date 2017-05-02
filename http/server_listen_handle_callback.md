@@ -5,7 +5,7 @@ added: v0.5.10
 * `handle` {Object}
 * `callback` {Function}
 
-`handle` 对象可以被设为一个服务器或 socket (任何以下划线开头的 `_handle` 成员)、或一个 `{fd: <n>}` 对象。
+`handle` 对象可以被设为一个服务器或 socket、或一个 `{fd: <n>}` 对象。
 
 这会使服务器以指定的句柄接受连接，但假定文件描述符或句柄已经被绑定到了端口或者域 socket。
 
