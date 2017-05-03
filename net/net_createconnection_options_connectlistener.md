@@ -10,7 +10,8 @@ options参数将被传递到[`net.Socket`][]构造函数和[`socket.connect`][]�
 
 `connectListener`参数将一次被用作监听器来监听[`'connect'`][]事件。
 
-下面有一个例子来阐述之前描述过的响应服务器的客户端的用法
+Following is an example of a client of the echo server described
+in the [`net.createServer()`][] section:
 
 ```js
 const net = require('net');

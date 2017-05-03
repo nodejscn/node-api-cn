@@ -16,7 +16,7 @@ added: v0.1.31
 例子：
 
 ```js
-fs.symlink('./foo', './new-port');
+fs.symlink('./foo', './new-port', callback);
 ```
 
 它创建了一个名为 "new-port" 且指向 "foo" 的符号链接。

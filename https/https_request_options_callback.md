@@ -14,14 +14,14 @@ added: v0.3.6
 ```js
 const https = require('https');
 
-var options = {
+const options = {
   hostname: 'encrypted.google.com',
   port: 443,
   path: '/',
   method: 'GET'
 };
 
-var req = https.request(options, (res) => {
+const req = https.request(options, (res) => {
   console.log('状态码：', res.statusCode);
   console.log('请求头：', res.headers);
 
@@ -78,7 +78,7 @@ req.end();
 例子:
 
 ```js
-var options = {
+const options = {
   hostname: 'encrypted.google.com',
   port: 443,
   path: '/',
@@ -88,8 +88,8 @@ var options = {
 };
 options.agent = new https.Agent(options);
 
-var req = https.request(options, (res) => {
-  ...
+const req = https.request(options, (res) => {
+  // ...
 });
 ```
 
@@ -98,7 +98,7 @@ var req = https.request(options, (res) => {
 例子:
 
 ```js
-var options = {
+const options = {
   hostname: 'encrypted.google.com',
   port: 443,
   path: '/',
@@ -108,8 +108,8 @@ var options = {
   agent: false
 };
 
-var req = https.request(options, (res) => {
-  ...
+const req = https.request(options, (res) => {
+  // ...
 });
 ```
 

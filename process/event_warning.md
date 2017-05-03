@@ -35,7 +35,7 @@ too many listeners have been added to an event
 
 ```txt
 $ node
-> event.defaultMaxListeners = 1;
+> events.defaultMaxListeners = 1;
 > process.on('foo', () => {});
 > process.on('foo', () => {});
 > (node:38638) Warning: Possible EventEmitter memory leak detected. 2 foo
@@ -48,7 +48,7 @@ adds a custom handler to the `'warning'` event:
 ```txt
 $ node --no-warnings
 > var p = process.on('warning', (warning) => console.warn('Do not do that!'));
-> event.defaultMaxListeners = 1;
+> events.defaultMaxListeners = 1;
 > process.on('foo', () => {});
 > process.on('foo', () => {});
 > Do not do that!

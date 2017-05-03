@@ -10,7 +10,7 @@ added: v0.1.90
 例子:
 
 ```js
-var server = net.createServer((socket) => {
+const server = net.createServer((socket) => {
   socket.end('goodbye\n');
 }).on('error', (err) => {
   // handle errors here

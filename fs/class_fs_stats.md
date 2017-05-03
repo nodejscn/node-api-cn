@@ -15,7 +15,7 @@ added: v0.1.21
 对于一个普通文件，[`util.inspect(stats)`] 会返回一个类似如下的字符串：
 
 ```js
-{
+Stats {
   dev: 2114,
   ino: 48064969,
   mode: 33188,
@@ -29,8 +29,8 @@ added: v0.1.21
   atime: Mon, 10 Oct 2011 23:24:11 GMT,
   mtime: Mon, 10 Oct 2011 23:24:11 GMT,
   ctime: Mon, 10 Oct 2011 23:24:11 GMT,
-  birthtime: Mon, 10 Oct 2011 23:24:11 GMT
-}
+  birthtime: Mon, 10 Oct 2011 23:24:11 GMT }
+  
 ```
 
 注意，`atime`、`mtime`、`birthtime` 和 `ctime` 是 [`Date`] 对象的实例，比较这些对象的值需要使用适当的方法。

@@ -3,7 +3,7 @@
 
 ```js
 const myEmitter = new MyEmitter();
-var m = 0;
+let m = 0;
 myEmitter.on('event', () => {
   console.log(++m);
 });
@@ -19,7 +19,7 @@ myEmitter.emit('event');
 
 ```js
 const myEmitter = new MyEmitter();
-var m = 0;
+let m = 0;
 myEmitter.once('event', () => {
   console.log(++m);
 });

@@ -7,7 +7,7 @@
 
 ```js
 const err = new Error('错误信息');
-console.log(err.message);
+console.error(err.message);
 // 打印: 错误信息
 ```
 

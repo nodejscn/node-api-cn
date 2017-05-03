@@ -11,15 +11,15 @@
 const fs = require('fs');
 
 function nodeStyleCallback(err, data) {
- if (err) {
-   console.error('有一个错误', err);
-   return;
- }
- console.log(data);
+  if (err) {
+    console.error('There was an error', err);
+    return;
+  }
+  console.log(data);
 }
 
 fs.readFile('/some/file/that/does-not-exist', nodeStyleCallback);
-fs.readFile('/some/file/that/does-exist', nodeStyleCallback)
+fs.readFile('/some/file/that/does-exist', nodeStyleCallback);
 ```
 
 JavaScript 的 `try / catch` 机制无法用于捕获由异步 API 引起的错误。
@@ -37,14 +37,14 @@ try {
       throw err;
     }
   });
-} catch(err) {
+} catch (err) {
   // 这不会捕获到抛出！
-  console.log(err);
+  console.error(err);
 }
 ```
 
 这无法使用，因为传给 `fs.readFile()` 的回调函数是被异步地调用。
-当回调被调用时，周围的代码（包括 `try { } catch(err) { }` 区域）已经退出。
+当回调被调用时，周围的代码（包括 `try { } catch (err) { }` 区域）已经退出。
 大多数情况下，在回调内抛出一个错误会使 Node.js 进程崩溃。
 如果[域]已启用，或已在 `process.on('uncaughtException')` 注册了一个句柄，则这些错误可被捕获。
 

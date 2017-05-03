@@ -1,5 +1,5 @@
 
-> 稳定性: 3 - 锁定的
+> 稳定性: 2 - 稳定的
 
 <!--name=module-->
 
@@ -18,7 +18,7 @@ console.log(`半径为 4 的圆的面积是 ${circle.area(4)}`);
 `circle.js` 文件的内容为：
 
 ```js
-const PI = Math.PI;
+const { PI } = Math;
 
 exports.area = (r) => PI * r * r;
 
@@ -37,7 +37,7 @@ exports.circumference = (r) => 2 * PI * r;
 
 ```js
 const square = require('./square.js');
-var mySquare = square(2);
+const mySquare = square(2);
 console.log(`正方形的面积是 ${mySquare.area()}`);
 ```
 
@@ -49,8 +49,8 @@ module.exports = (width) => {
   return {
     area: () => width * width
   };
-}
+};
 ```
 
-模块系统在 `require("module")` 模块中实现。
+模块系统在 `require('module')` 模块中实现。
 

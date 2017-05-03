@@ -44,8 +44,8 @@ server.listen(8124, () => {
 
 通过`telnet`来进行测试:
 
-```sh
-telnet localhost 8124
+```console
+$ telnet localhost 8124
 ```
 
 为了监听 `/tmp/echo.sock`socket，从倒数第三行起，应改为
@@ -58,7 +58,7 @@ server.listen('/tmp/echo.sock', () => {
 
 用`nc` 来连接UNIX域socket服务器:
 
-```js
-nc -U /tmp/echo.sock
+```console
+$ nc -U /tmp/echo.sock
 ```
 

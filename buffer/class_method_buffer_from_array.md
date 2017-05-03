@@ -9,7 +9,7 @@ added: v5.10.0
 例子：
 
 ```js
-// 创建一个新的包含字符串 'buffer' 的 ASCII 字节的 Buffer
+// 创建一个新的包含字符串 'buffer' 的 UTF-8 字节的 Buffer
 const buf = Buffer.from([0x62, 0x75, 0x66, 0x66, 0x65, 0x72]);
 ```
 

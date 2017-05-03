@@ -25,7 +25,7 @@ added: v0.1.90
 
 ```js
 net.createServer().listen(
-    path.join('\\\\?\\pipe', process.cwd(), 'myctl'))
+    path.join('\\\\?\\pipe', process.cwd(), 'myctl'));
 ```
 
 `backlog`参数表现地跟

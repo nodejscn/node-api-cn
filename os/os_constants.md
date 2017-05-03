@@ -1,3 +1,6 @@
+<!-- YAML
+added: v6.3.0
+-->
 
 * {Object}
 

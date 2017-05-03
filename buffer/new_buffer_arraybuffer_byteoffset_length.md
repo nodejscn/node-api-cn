@@ -4,15 +4,16 @@ deprecated: v6.0.0
 
 > 稳定性: 0 - 废弃的: 使用 [`Buffer.from(arrayBuffer[, byteOffset [, length]])`][`Buffer.from(arrayBuffer)`] 代替。
 
-* `arrayBuffer` {ArrayBuffer} The `.buffer` property of a [`TypedArray`] or
-  [`ArrayBuffer`]
-* `byteOffset` {Integer} Where to start copying from `arrayBuffer`. **Default:** `0`
-* `length` {Integer} How many bytes to copy from `arrayBuffer`.
+* `arrayBuffer` {ArrayBuffer} An [`ArrayBuffer`] or the `.buffer` property of a
+  [`TypedArray`].
+* `byteOffset` {Integer} Index of first byte to expose. **Default:** `0`
+* `length` {Integer} Number of bytes to expose.
   **Default:** `arrayBuffer.length - byteOffset`
 
-When passed a reference to the `.buffer` property of a [`TypedArray`] instance,
-the newly created `Buffer` will share the same allocated memory as the
-[`TypedArray`].
+This creates a view of the [`ArrayBuffer`] without copying the underlying
+memory. For example, when passed a reference to the `.buffer` property of a
+[`TypedArray`] instance, the newly created `Buffer` will share the same
+allocated memory as the [`TypedArray`].
 
 The optional `byteOffset` and `length` arguments specify a memory range within
 the `arrayBuffer` that will be shared by the `Buffer`.

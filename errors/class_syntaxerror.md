@@ -8,7 +8,7 @@
 ```js
 try {
   require('vm').runInThisContext('binary ! isNotOk');
-} catch(err) {
+} catch (err) {
   // err 是一个 SyntaxError
 }
 ```

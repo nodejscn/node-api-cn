@@ -1,9 +1,10 @@
 
 * {Stream}
 
- `process.stdout`标准输出流。
- 作用：把数据输出到计算机的终端设备。
- 数据包括：文字、图像、声音等。
+The `process.stdout` property returns a stream connected to
+`stdout` (fd `1`). It is a [`net.Socket`][] (which is a [Duplex][]
+stream) unless fd `1` refers to a file, in which case it is
+a [Writable][] stream.
 
 例1： 将输入流数据输出到输出流，即输出到终端。
 

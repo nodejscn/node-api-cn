@@ -41,8 +41,8 @@ fs.mkdtemp(tmpDir, (err, folder) => {
 });
 
 // 该方法是 *正确的*：
-const path = require('path');
-fs.mkdtemp(tmpDir + path.sep, (err, folder) => {
+const { sep } = require('path');
+fs.mkdtemp(`${tmpDir}${sep}`, (err, folder) => {
   if (err) throw err;
   console.log(folder);
   // 会输出类似于 `/tmp/abc123`。

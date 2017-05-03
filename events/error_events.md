@@ -17,7 +17,7 @@ myEmitter.emit('error', new Error('whoops!'));
 const myEmitter = new MyEmitter();
 
 process.on('uncaughtException', (err) => {
-  console.log('有错误');
+  console.error('有错误');
 });
 
 myEmitter.emit('error', new Error('whoops!'));
@@ -29,7 +29,7 @@ myEmitter.emit('error', new Error('whoops!'));
 ```js
 const myEmitter = new MyEmitter();
 myEmitter.on('error', (err) => {
-  console.log('有错误');
+  console.error('有错误');
 });
 myEmitter.emit('error', new Error('whoops!'));
 // 打印: 有错误

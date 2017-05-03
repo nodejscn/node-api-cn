@@ -22,16 +22,16 @@ module.exports = exports = function Constructor() {
 为了解释这个行为，想象对 `require()` 的假设实现，它跟 `require()` 的实际实现相等类似：
 
 ```js
-function require(...) {
-  var module = { exports: {} };
+function require(/* ... */) {
+  const module = { exports: {} };
   ((module, exports) => {
     // 你的模块代码在这。在这个例子中，定义了一个函数。
-    function some_func() {};
-    exports = some_func;
+    function someFunc() {}
+    exports = someFunc;
     // 此时，exports 不再是一个 module.exports 的快捷方式，
     // 且这个模块依然导出一个空的默认对象。
-    module.exports = some_func;
-    // 此时，该模块导出 some_func，而不是默认对象。
+    module.exports = someFunc;
+    // 此时，该模块导出 someFunc，而不是默认对象。
   })(module, module.exports);
   return module.exports;
 }

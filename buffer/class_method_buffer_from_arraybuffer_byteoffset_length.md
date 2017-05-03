@@ -2,12 +2,12 @@
 added: v5.10.0
 -->
 
-* `arrayBuffer` {ArrayBuffer} [`TypedArray`] 或 [`ArrayBuffer`] 的 `.buffer` 属性
-* `byteOffset` {Integer} 从 `arrayBuffer` 开始拷贝的位置。 **默认:** `0`
-* `length` {Integer} 从 `arrayBuffer` 拷贝多少字节。
-  **默认:** `arrayBuffer.length - byteOffset`
+* `arrayBuffer` {ArrayBuffer} 一个 [`ArrayBuffer`]，或一个 [`TypedArray`] 的 `.buffer` 属性。
+* `byteOffset` {Integer} 开始拷贝的索引。默认为 `0`。
+* `length` {Integer} 拷贝的字节数。默认为 `arrayBuffer.length - byteOffset`。
 
-当传入一个 [`TypedArray`] 实例的 `.buffer` 属性的引用时，这个新建的 `Buffer` 会像 [`TypedArray`] 那样共享同一分配的内存。
+This creates a view of the [`ArrayBuffer`] without copying the underlying memory. 
+例如，当传入一个 [`TypedArray`] 实例的 `.buffer` 属性的引用时，这个新建的 `Buffer` 会像 [`TypedArray`] 那样共享同一分配的内存。
 
 例子：
 

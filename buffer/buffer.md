@@ -29,10 +29,10 @@ const buf3 = Buffer.allocUnsafe(10);
 // 创建一个包含 [0x1, 0x2, 0x3] 的 Buffer。
 const buf4 = Buffer.from([1, 2, 3]);
 
-// 创建一个包含 ASCII 字节数组 [0x74, 0x65, 0x73, 0x74] 的 Buffer。
-const buf5 = Buffer.from('test');
-
 // 创建一个包含 UTF-8 字节数组 [0x74, 0xc3, 0xa9, 0x73, 0x74] 的 Buffer。
-const buf6 = Buffer.from('tést', 'utf8');
+const buf5 = Buffer.from('tést');
+
+// 创建一个包含 Latin-1 字节数组 [0x74, 0xe9, 0x73, 0x74] 的 Buffer。
+const buf6 = Buffer.from('tést', 'latin-1');
 ```
 

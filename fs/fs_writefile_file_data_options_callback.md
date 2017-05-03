@@ -20,7 +20,7 @@ added: v0.1.29
 ```js
 fs.writeFile('message.txt', 'Hello Node.js', (err) => {
   if (err) throw err;
-  console.log('It\'s saved!');
+  console.log('The file has been saved!');
 });
 ```
 

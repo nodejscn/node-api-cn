@@ -1,7 +1,10 @@
 
 * {Stream}
 
-执行`process.stdin` 会返回一个 [可读流]，等同于 `stdin` (fd `0`).
+The `process.stdin` property returns a stream connected to
+`stdin` (fd `0`). It is a [`net.Socket`][] (which is a [Duplex][]
+stream) unless fd `0` refers to a file, in which case it is
+a [Readable][] stream.
 
 举个例子:
 
@@ -20,7 +23,7 @@ process.stdin.on('end', () => {
 });
 ```
 
-`process.stdin` 返回的 [可读流], 可以在`旧`模式下使用,兼容node v0.10。
+`process.stdin` 返回的 [Duplex] 流, 可以在`旧`模式下使用,兼容node v0.10。
 更多信息查看[流的兼容性]。
 
 *注意*: 在"旧模式下" `stdin`流 默认是暂停的.所以必须通过执行`.stdin.resume()`来恢复它.

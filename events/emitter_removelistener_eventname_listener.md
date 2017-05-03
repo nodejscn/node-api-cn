@@ -5,7 +5,7 @@ added: v0.1.26
 从名为 `eventName` 的事件的监听器数组中移除指定的 `listener`。
 
 ```js
-var callback = (stream) => {
+const callback = (stream) => {
   console.log('有连接！');
 };
 server.on('connection', callback);
@@ -23,12 +23,12 @@ server.removeListener('connection', callback);
 ```js
 const myEmitter = new MyEmitter();
 
-var callbackA = () => {
+const callbackA = () => {
   console.log('A');
   myEmitter.removeListener('event', callbackB);
 };
 
-var callbackB = () => {
+const callbackB = () => {
   console.log('B');
 };
 
