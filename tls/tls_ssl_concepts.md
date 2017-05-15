@@ -1,51 +1,34 @@
 
-The TLS/SSL is a public/private key infrastructure (PKI). For most common
-cases, each client and server must have a *private key*.
+TLS/SSL是public/private key infrastructure (PKI).大部分情况下，每个服务器和客户端都应该有一个*私钥*。
 
-Private keys can be generated in multiple ways. The example below illustrates
-use of the OpenSSL command-line interface to generate a 2048-bit RSA private
-key:
-
+私钥能有多种生成方式，下面举一个例子。
+用OpenSSL的命令行来生成一个2048位的RSA私钥：
 ```sh
 openssl genrsa -out ryans-key.pem 2048
 ```
 
-With TLS/SSL, all servers (and some clients) must have a *certificate*.
-Certificates are *public keys* that correspond to a private key, and that are
-digitally signed either by a Certificate Authority or by the owner of the
-private key (such certificates are referred to as "self-signed"). The first
-step to obtaining a certificate is to create a *Certificate Signing Request*
-(CSR) file.
+通过TLS/SSL,所有的服务器（和一些客户端）必须要一个*证书*。
+证书是相似于私钥的*公钥*,它由CA或者私钥拥有者数字签名，特别地，私钥拥有者所签名的被称为自签名。
+获取证书的第一步是生成一个*证书申请文件（CSR)*
 
-The OpenSSL command-line interface can be used to generate a CSR for a private
-key:
-
+用OpenSSL能生成一个私钥的CSR文件：
 ```sh
 openssl req -new -sha256 -key ryans-key.pem -out ryans-csr.pem
 ```
-
-Once the CSR file is generated, it can either be sent to a Certificate
-Authority for signing or used to generate a self-signed certificate.
-
-Creating a self-signed certificate using the OpenSSL command-line interface
-is illustrated in the example below:
-
+CSR文件被生成以后，它既能被CA签名也能被用户自签名。
+用OpenSSL生成一个自签名证书的命令如下：
 ```sh
 openssl x509 -req -in ryans-csr.pem -signkey ryans-key.pem -out ryans-cert.pem
 ```
-
-Once the certificate is generated, it can be used to generate a `.pfx` or
-`.p12` file:
-
+证书被生成以后，它又能用来生成一个`.pfx`或者`.p12`文件：
 ```sh
 openssl pkcs12 -export -in ryans-cert.pem -inkey ryans-key.pem \
       -certfile ca-cert.pem -out ryans.pfx
 ```
 
-Where:
+命令行参数:
 
-* `in`: is the signed certificate
-* `inkey`: is the associated private key
-* `certfile`: is a concatenation of all Certificate Authority (CA) certs into
-   a single file, e.g. `cat ca1-cert.pem ca2-cert.pem > ca-cert.pem`
+* `in`: 被签名的证书
+* `inkey`: 有关的私钥
+* `certfile`: 签入文件的证书串，比如： `cat ca1-cert.pem ca2-cert.pem > ca-cert.pem`
 
