@@ -4,10 +4,10 @@ added: v0.1.27
 
 * {Object}
 
-The `process.env` property returns an object containing the user environment.
+`process.env`属性返回一个包含用户环境信息的对象
 See environ(7).
 
-An example of this object looks like:
+例如这样的对象:
 
 ```js
 {
@@ -24,25 +24,22 @@ An example of this object looks like:
 }
 ```
 
-It is possible to modify this object, but such modifications will not be
-reflected outside the Node.js process. In other words, the following example
-would not work:
+可以修改这个对象，但是下面例子的做法是不会生效的：
 
-```console
+```命令行修改
 $ node -e 'process.env.foo = "bar"' && echo $foo
 ```
 
-While the following will:
+下面的做法会生效：
 
-```js
+```js文件中修改
 process.env.foo = 'bar';
 console.log(process.env.foo);
 ```
 
-Assigning a property on `process.env` will implicitly convert the value
-to a string.
+在`process.env`中新增一个属性，会将属性值转换成字符串
 
-Example:
+例如:
 
 ```js
 process.env.test = null;
@@ -53,9 +50,9 @@ console.log(process.env.test);
 // => 'undefined'
 ```
 
-Use `delete` to delete a property from `process.env`.
+用 `delete`从`process.env`中删除一个属性
 
-Example:
+例如:
 
 ```js
 process.env.TEST = 1;
@@ -64,9 +61,9 @@ console.log(process.env.TEST);
 // => undefined
 ```
 
-On Windows operating systems, environment variables are case-insensitive.
+在Windows系统下，环境变量是不区分大小写的
 
-Example:
+例如:
 
 ```js
 process.env.TEST = 1;
