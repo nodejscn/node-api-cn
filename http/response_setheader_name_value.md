@@ -5,9 +5,9 @@ added: v0.4.0
 * `name` {String}
 * `value` {String}
 
-为隐式消息头集合设置一个的消息头值。
-如果该消息头已经存在将要发送的消息头集合中，则该值会被覆盖。
-如果需要发送多个名称相同的消息头，则使用一个字符串数组。
+为一个隐式的响应头设置值。
+如果该响应头已存在，则值会被覆盖。
+如果要发送多个名称相同的响应头，则使用字符串数组。
 
 例子：
 
@@ -21,9 +21,9 @@ response.setHeader('Content-Type', 'text/html');
 response.setHeader('Set-Cookie', ['type=ninja', 'language=javascript']);
 ```
 
-试图设置一个包含无效字符的消息头字段名称或值会导致抛出一个 [`TypeError`]。
+如果响应头字段的名称或值包含无效字符，则抛出 [`TypeError`] 错误。
 
-当消息头已使用 [`response.setHeader()`] 设置，它们会被与其他消息头合并传给 [`response.writeHead()`]，带消息头的 [`response.writeHead()`] 有更高优先级。
+[`response.setHeader()`] 设置的响应头会与 [`response.writeHead()`] 设置的响应头合并，且 [`response.writeHead()`] 的优先。
 
 ```js
 // 返回 content-type = text/plain
