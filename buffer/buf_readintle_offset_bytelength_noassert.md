@@ -10,7 +10,7 @@ added: v0.11.15
 从 `buf` 中指定的 `offset` 读取 `byteLength` 个字节，且读取的值会被解析为二进制补码值。
 最高支持48位精度。
 
-设置 `noAssert` 为 `true` 则 `offset` 可超出 `buf` 的末尾，但后果是不确定的。
+设置 `noAssert` 为 `true` 则 `offset` 可超出 `buf` 的最后一位字节，但后果是不确定的。
 
 例子：
 
