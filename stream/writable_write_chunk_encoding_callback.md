@@ -13,29 +13,19 @@ added: v0.9.4
 在确认了 `chunk` 后，如果内部缓冲区的大小小于创建流时设定的 `highWaterMark` 阈值，函数将返回 `true` 。
 如果返回值为 `false` ，应该停止向流中写入数据，直到 [`'drain'`][] 事件被触发。
 
-While a stream is not draining, calls to `write()` will buffer `chunk`, and
-return false. Once all currently buffered chunks are drained (accepted for
-delivery by the operating system), the `'drain'` event will be emitted.
-It is recommended that once write() returns false, no more chunks be written
-until the `'drain'` event is emitted. While calling `write()` on a stream that
-is not draining is allowed, Node.js will buffer all written chunks until
-maximum memory usage occurs, at which point it will abort unconditionally.
-Even before it aborts, high memory usage will cause poor garbage collector
-performance and high RSS (which is not typically released back to the system,
-even after the memory is no longer required). Since TCP sockets may never
-drain if the remote peer does not read the data, writing a socket that is
-not draining may lead to a remotely exploitable vulnerability.
+当一个流不处在 drain 的状态， 对 `write()` 的调用会缓存数据块， 并且返回 false。
+一旦所有当前所有缓存的数据块都排空了（被操作系统接受来进行输出）， 那么 `'drain'` 事件就会被触发。
+我们建议， 一旦 write() 返回 false， 在 `'drain'` 事件触发前， 不能写入任何数据块。 
+然而，当流不处在 `'drain'` 状态时， 调用 `write()` 是被允许的， Node.js 会缓存所有已经写入的数据块， 
+直到达到最大内存占用， 这时它会无条件中止。 甚至在它中止之前， 高内存占用将会导致差的垃圾回收器的性能和高的系统相对敏感性
+（即使内存不在需要，也通常不会被释放回系统）。 如果远程的另一端没有读取数据， TCP sockets 可能永远也不会 drain ， 
+所以写入到一个不会drain的socket可能会导致远程可利用的漏洞。 
 
-Writing data while the stream is not draining is particularly
-problematic for a [Transform][], because the `Transform` streams are paused
-by default until they are piped or an `'data'` or `'readable'` event handler
-is added.
+对于一个 [Transform][], 写入数据到一个不会drain的流尤其成问题， 因为 `Transform` 流默认被暂停， 直到它们被pipe或者被添加了
+ `'data'` 或 `'readable'` event handler。 
 
-If the data to be written can be generated or fetched on demand, it is
-recommended to encapsulate the logic into a [Readable][] and use
-[`stream.pipe()`][]. However, if calling `write()` is preferred, it is
-possible to respect backpressure and avoid memory issues using the
-the [`'drain'`][] event:
+如果将要被写入的数据可以根据需要生成或者取得，我们建议将逻辑封装为一个 [Readable][] 流并且使用 
+[`stream.pipe()`][]。 但是如果调用 `write()` 优先, 那么可以使用 [`'drain'`][] 事件来防止回压并且避免内存问题:
 
 ```js
 function write (data, cb) {
