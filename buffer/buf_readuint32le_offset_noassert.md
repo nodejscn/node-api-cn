@@ -6,9 +6,9 @@ added: v0.5.5
 * `noAssert` {Boolean} 是否跳过 `offset` 检验？**默认:** `false`
 * 返回: {Integer}
 
-用指定的尾数格式（`readUInt32BE()` 返回大尾数，`readUInt32LE()` 返回小尾数）从 `buf` 中指定的 `offset` 读取一个无符号的32位整数值。
+用指定的字节序格式（`readUInt32BE()` 返回大端序，`readUInt32LE()` 返回小端序）从 `buf` 中指定的 `offset` 读取一个无符号的32位整数值。
 
-设置 `noAssert` 为 `true` 则 `offset` 可超出 `buf` 的末尾，但后果是不确定的。
+设置 `noAssert` 为 `true` 则 `offset` 可超出 `buf` 的最后一位字节，但后果是不确定的。
 
 例子：
 
