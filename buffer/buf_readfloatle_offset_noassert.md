@@ -6,7 +6,7 @@ added: v0.11.15
 * `noAssert` {Boolean} 是否跳过 `offset` 检验？**默认:** `false`
 * 返回: {Number}
 
-用指定的节序格式（`readFloatBE()` 返回大端序，`readFloatLE()` 返回小端序）从 `buf` 中指定的 `offset` 读取一个32位浮点值。
+用指定的字节序格式（`readFloatBE()` 返回大端序，`readFloatLE()` 返回小端序）从 `buf` 中指定的 `offset` 读取一个32位浮点值。
 
 设置 `noAssert` 为 `true` 则 `offset` 可超出 `buf` 的最后一位字节，但后果是不确定的。
 
