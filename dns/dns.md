@@ -1,15 +1,11 @@
 
-> Stability: 2 - Stable
+> 稳定性: 2 - 稳定的
 
-The `dns` module contains functions belonging to two different categories:
+`dns`模块包含两个类型的函数：
 
-1) Functions that use the underlying operating system facilities to perform
-name resolution, and that do not necessarily perform any network communication.
-This category contains only one function: [`dns.lookup()`][]. **Developers
-looking to perform name resolution in the same way that other applications on
-the same operating system behave should use [`dns.lookup()`][].**
+1) 使用底层操作系统工具进行域名解析的函数，并不须要进行网络通信。这类函数只有一个：[`dns.lookup()`][]。** 如果希望在相同系统中与其他应用程序执行域名解析的行为一致，请使用[`dns.lookup()`][]函数 **
 
-For example, looking up `iana.org`.
+例如，查找`iana.org`
 
 ```js
 const dns = require('dns');
@@ -20,16 +16,9 @@ dns.lookup('nodejs.org', (err, addresses, family) => {
 // address: "192.0.43.8" family: IPv4
 ```
 
-2) Functions that connect to an actual DNS server to perform name resolution,
-and that _always_ use the network to perform DNS queries. This category
-contains all functions in the `dns` module _except_ [`dns.lookup()`][]. These
-functions do not use the same set of configuration files used by
-[`dns.lookup()`][] (e.g. `/etc/hosts`). These functions should be used by
-developers who do not want to use the underlying operating system's facilities
-for name resolution, and instead want to _always_ perform DNS queries.
+2) 连接到实际DNS服务器进行域名解析的函数，并且始终使用网络执行DNS查询。这类函数包含除[`dns.lookup()`][]以外的所有`dns`模块中的函数。这类函数并未使用与[`dns.lookup()`][]相同的配置文件(例如： `/etc/hosts`)。 这类函数适合于那些不想使用底层操作系统工具进行域名解析，而是想使用网络执行DNS查询的开发者。
 
-Below is an example that resolves `'archive.org'` then reverse resolves the IP
-addresses that are returned.
+下面有一个解析`'archive.org'`的示例，然后反向解析返回的IP地址。
 
 ```js
 const dns = require('dns');
@@ -50,6 +39,6 @@ dns.resolve4('archive.org', (err, addresses) => {
 });
 ```
 
-There are subtle consequences in choosing one over the other, please consult
-the [Implementation considerations section][] for more information.
+两者之间的选择会产生微妙的结果，更多信息请查询[Implementation considerations section][]章节。
+
 
