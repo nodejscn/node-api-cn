@@ -2,6 +2,5 @@
 added: v0.11.3
 -->
 
-Returns an array of IP address strings that are being used for name
-resolution.
+返回一组用于域名解析的IP地址(类型为字符串)数组。
 
