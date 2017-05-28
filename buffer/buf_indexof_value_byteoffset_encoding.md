@@ -52,9 +52,12 @@ If `value` is not a string, number, or `Buffer`, this method will throw a
 `TypeError`. If `value` is a number, it will be coerced to a valid byte value,
 an integer between 0 and 255.
 
-If `byteOffset` is not a number, it will be coerced to a number. Any arguments
-that coerce to `NaN` or 0, like `{}`, `[]`, `null` or `undefined`, will search
-the whole buffer. This behavior matches [`String#indexOf()`].
+如果 `value` 不是一个字符串， 数字， 或者 `Buffer`， 该方法会抛出一个
+`TypeError` 异常， 如果 `value` 是一个数字， 它将会被强制转换成一个有效的 byte 值， 
+该值介于0到255之间。 
+
+如果 `byteOffset` 不是一个数字， 它将会被强制转换成一个数字。  任何对 `NaN` or 0, like `{}`, `[]`, `null` or `undefined`， 
+的参数， 将会搜索整个 buffer。 该行为和 [`String#indexOf()`] 保持一致。 
 
 ```js
 const b = Buffer.from('abcdef');

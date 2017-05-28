@@ -10,9 +10,8 @@ added: v0.1.90
 返回一个字符串的实际字节长度。
 这与 [`String.prototype.length`] 不同，因为那返回字符串的**字符**数。
 
-*Note* that for `'base64'` and `'hex'`, this function assumes valid input. For
-strings that contain non-Base64/Hex-encoded data (e.g. whitespace), the return
-value might be greater than the length of a `Buffer` created from the string.
+*注意* 对于 `'base64'` 和 `'hex'`， 该函数假定有效的输入。 对于包含 non-Base64/Hex-encoded 数据的字符串 (e.g. 空格)， 返回值可能大于
+从字符串中创建的 `Buffer` 的长度。 
 
 例子：
 
