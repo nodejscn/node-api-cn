@@ -9,34 +9,34 @@ added: v0.3.6
   * `family` {Number} 当解析 `host` 和 `hostname` 时使用的 IP 地址族。
     有效值是 `4` 或 `6`。当未指定时，则同时使用 IP v4 和 v6。
   * `port` {Number} 远程服务器的端口。默认为 `80`。
-  * `localAddress` {String} 要绑定到网络连接的本地接口。
-  * `socketPath` {String} Unix 域 Socket（使用 host:port 或 socketPath 的其中之一）。
-  * `method` {String} 一个指定 HTTP 请求方法的字符串。默认为 `'GET'`。
+  * `localAddress` {String} 为网络连接绑定的本地接口。
+  * `socketPath` {String} Unix 域 Socket（使用 host:port 或 socketPath）。
+  * `method` {String} 指定 HTTP 请求方法的字符串。默认为 `'GET'`。
   * `path` {String} 请求的路径。默认为 `'/'`。
     应包括查询字符串（如有的话）。如 `'/index.html?page=12'`。
     当请求的路径中包含非法字符时，会抛出异常。
     目前只有空字符会被拒绝，但未来可能会变化。
-  * `headers` {Object} 一个包含请求头的对象。
-  * `auth` {String} 基本身份验证，如 `'user:password'` 来计算 Authorization 头。
+  * `headers` {Object} 包含请求头的对象。
+  * `auth` {String} 基本身份验证，如 `'user:password'` 用来计算 `Authorization` 请求头。
   * `agent` {http.Agent|Boolean} 控制 [`Agent`] 的行为。
     可能的值有：
    * `undefined` (默认): 对该主机和端口使用 [`http.globalAgent`]。
    * `Agent` 对象：显式地使用传入的 `Agent`。
-   * `false`: 产生一个新的使用默认值的 `Agent`。
-  * `createConnection` {Function} 当不使用 `agent` 选项时，产生一个用于请求的 socket/stream 的函数。
-    这可以用于避免创建一个自定义的 `Agent` 类，只是为了覆盖默认的 `createConnection` 函数。详见 [`agent.createConnection()`]。
-  * `timeout` {Integer}: 一个数值，指定 socket 超时的毫秒数。
-    它会在 socket 被连接时设置超时。
+   * `false`: 创建一个新的使用默认值的 `Agent`。
+  * `createConnection` {Function} 当不使用 `agent` 选项时，为请求创建一个 socket 或流。
+    这可以用于避免仅仅创建一个自定义的 `Agent` 类来覆盖默认的 `createConnection` 函数。详见 [`agent.createConnection()`]。
+  * `timeout` {Integer}: 指定 socket 超时的毫秒数。
+    它设置了 socket 等待连接的超时时间。
 * `callback` {Function}
 * 返回: {http.ClientRequest}
 
-Node.js 维护每台服务器的多个连接来进行 HTTP 请求。
+Node.js 为每台服务器维护多个连接来进行 HTTP 请求。
 该函数允许显式地发出请求。
 
 `options` 可以是一个对象或一个字符串。
 如果 `options` 是一个字符串，它会被自动使用 [`url.parse()`] 解析。
 
-可选的 `callback` 参数会被添加为 [`'response'`] 事件的单次监听器。
+可选的 `callback` 参数会作为单次监听器被添加到 [`'response'`] 事件。
 
 `http.request()` 返回一个 [`http.ClientRequest`] 类的实例。
 `ClientRequest` 实例是一个可写流。
@@ -61,11 +61,11 @@ var options = {
 };
 
 var req = http.request(options, (res) => {
-  console.log(`STATUS: ${res.statusCode}`);
-  console.log(`HEADERS: ${JSON.stringify(res.headers)}`);
+  console.log(`状态码: ${res.statusCode}`);
+  console.log(`响应头: ${JSON.stringify(res.headers)}`);
   res.setEncoding('utf8');
   res.on('data', (chunk) => {
-    console.log(`主体: ${chunk}`);
+    console.log(`响应主体: ${chunk}`);
   });
   res.on('end', () => {
     console.log('响应中已无数据。');
@@ -89,13 +89,13 @@ req.end();
 
 以下是需要注意的几个特殊的请求头。
 
-* 发送一个 `'Connection: keep-alive'` 会通知 Node.js，服务器的连接应一直持续到下一个请求。
+* 发送 `'Connection: keep-alive'` 会通知 Node.js，服务器的连接应一直持续到下一个请求。
 
-* 发送一个 `'Content-Length'` 请求头会禁用默认的块编码。
+* 发送 `'Content-Length'` 请求头会禁用默认的块编码。
 
-* 发送一个 `'Expect'` 请求头会立即发送请求头。
-  通常情况下，当发送 `'Expect: 100-continue'` 时，应该设置一个超时并监听 `'continue'` 事件。
+* 发送 `'Expect'` 请求头会立即发送请求头。
+  通常情况下，当发送 `'Expect: 100-continue'` 时，应该设置超时时间并监听 `'continue'` 事件。
   详见 RFC2616 章节 8.2.3。
 
-* 发送一个 Authorization 请求头会覆盖使用 `auth` 选项计算基本身份验证。
+* 发送 `Authorization` 请求头会替代 `auth` 选项计算基本身份验证。
 

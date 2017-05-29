@@ -6,11 +6,11 @@ added: v0.3.6
 * `callback` {Function}
 * 返回: {http.ClientRequest}
 
-因为大多数请求都是 GET 请求且不带主体，所以 Node.js 提供了这个便捷的方法。
+因为大多数请求都是 GET 请求且不带请求主体，所以 Node.js 提供了该便捷方法。
 该方法与 [`http.request()`] 唯一的区别是它设置请求方法为 GET 且自动调用 `req.end()`。
 注意，响应数据必须在回调中被消耗，原因详见 [`http.ClientRequest`] 章节。
 
-`callback` 被调用时只有一个参数，它是 [`http.IncomingMessage`] 的一个实例。
+`callback` 被调用时只传入一个参数，该参数是 [`http.IncomingMessage`] 的一个实例。
 
 一个获取 JSON 的例子：
 

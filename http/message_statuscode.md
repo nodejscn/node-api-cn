@@ -4,8 +4,8 @@ added: v0.1.1
 
 * {Number}
 
-**仅适用于从 [`http.ClientRequest`] 获得的响应。**
+**仅在 [`http.ClientRequest`] 返回的响应中有效。**
 
-3 位数字的 HTTP 响应状态码。
+返回一个三位数的 HTTP 响应状态码。
 如 `404`。
 

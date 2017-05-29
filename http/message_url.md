@@ -4,10 +4,10 @@ added: v0.1.90
 
 * {String}
 
-**仅适用于从 [`http.Server`] 获得的请求。**
+**仅在 [`http.Server`] 返回的请求中有效。**
 
-请求的 URL 字符串。
-仅包含 HTTP 请求实际存在的 URL。
+返回请求的 URL 字符串。
+仅包含实际 HTTP 请求中的 URL。
 如果请求是：
 
 
