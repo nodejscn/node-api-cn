@@ -27,6 +27,6 @@ readable.on('readable', () => {
 
 无论`size`参数的值是什么，对象模式中的可读流将始终返回调用[`readable.read(size)`][stream-read]的单个项目。
 
-*注意：*如果`readable.read()`方法返回一个数据块，那么一个`'data'`事件也将被发送。
+*注意*：如果`readable.read()`方法返回一个数据块，那么一个`'data'`事件也将被发送。
 
 *注意*：在已经被发出的[`'end'`] []事件后调用[`stream.read（[size]）`] [stream-read]事件将返回`null`。不会抛出运行时错误。
