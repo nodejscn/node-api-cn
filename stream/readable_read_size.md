@@ -5,23 +5,14 @@ added: v0.9.4
 * `size` {Number} Optional argument to specify how much data to read.
 * Return {String|Buffer|Null}
 
-The `readable.read()` method pulls some data out of the internal buffer and
-returns it. If no data available to be read, `null` is returned. By default,
-the data will be returned as a `Buffer` object unless an encoding has been
-specified using the `readable.setEncoding()` method or the stream is operating
-in object mode.
+`readable.read（）`方法从内部缓冲区中抽出并返回一些数据。 如果没有可读的数据，返回null。`readable.read()`方法默认数据将作为“Buffer”对象返回
+，除非已经使用`readable.setEncoding（）`方法设置编码或流运行在对象模式。
 
-The optional `size` argument specifies a specific number of bytes to read. If
-`size` bytes are not available to be read, `null` will be returned *unless*
-the stream has ended, in which case all of the data remaining in the internal
-buffer will be returned (*even if it exceeds `size` bytes*).
+可选的`size`参数指定要读取的特定数量的字节。如果`size`字节不可读，将返回`null`*除非*流已经结束，在这种情况下所有保留在内部缓冲区的数据将被返回（*即使它超过`size` 字节 *）
 
-If the `size` argument is not specified, all of the data contained in the
-internal buffer will be returned.
+如果没有指定`size`参数，则内部缓冲区包含的所有数据将返回。
 
-The `readable.read()` method should only be called on Readable streams operating
-in paused mode. In flowing mode, `readable.read()` is called automatically until
-the internal buffer is fully drained.
+`readable.read()`方法只应该在暂停模式下的可读流上运行。在流模式下，`readable.read()`自动调用直到内部缓冲区的数据完全耗尽。
 
 ```js
 const readable = getReadableStreamSomehow();
@@ -32,18 +23,10 @@ readable.on('readable', () => {
   }
 });
 ```
+一般来说，建议开发人员避免使用`'readable'`事件和`readable.read（）`方法，使用`readable.pipe()`或`'data'`事件代替。
 
-In general, it is recommended that developers avoid the use of the `'readable'`
-event and the `readable.read()` method in favor of using either
-`readable.pipe()` or the `'data'` event.
+无论`size`参数的值是什么，对象模式中的可读流将始终返回调用[`readable.read(size)`][stream-read]的单个项目。
 
-A Readable stream in object mode will always return a single item from
-a call to [`readable.read(size)`][stream-read], regardless of the value of the
-`size` argument.
+*注意：*如果`readable.read()`方法返回一个数据块，那么一个`'data'`事件也将被发送。
 
-*Note:* If the `readable.read()` method returns a chunk of data, a `'data'`
-event will also be emitted.
-
-*Note*: Calling [`stream.read([size])`][stream-read] after the [`'end'`][]
-event has been emitted will return `null`. No runtime error will be raised.
-
+*注意*：在已经被发出的[`'end'`] []事件后调用[`stream.read（[size]）`] [stream-read]事件将返回`null`。不会抛出运行时错误。
