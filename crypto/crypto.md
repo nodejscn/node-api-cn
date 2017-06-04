@@ -1,10 +1,9 @@
 
-> Stability: 2 - Stable
+> 稳定性: 2 - 稳定的
 
-The `crypto` module provides cryptographic functionality that includes a set of
-wrappers for OpenSSL's hash, HMAC, cipher, decipher, sign and verify functions.
+`crypto`模块提供了加密功能包括OpenSSL的哈希，HMAC，密码，解密，签名和验证功能的一系列封装。
 
-Use `require('crypto')` to access this module.
+使用`require('crypto')`来访问这个模块。
 
 ```js
 const crypto = require('crypto');
