@@ -2,7 +2,7 @@
 added: v0.6.1
 -->
 
-* `domain` {String}
+* `domain` {string}
 
 The `punycode.toASCII()` method converts a Unicode string representing an
 Internationalized Domain Name to [Punycode][]. Only the non-ASCII parts of the

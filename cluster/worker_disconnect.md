@@ -1,6 +1,12 @@
 <!-- YAML
 added: v0.7.7
+changes:
+  - version: v7.3.0
+    pr-url: https://github.com/nodejs/node/pull/10019
+    description: This method now returns a reference to `worker`.
 -->
+
+* Returns: {Worker} A reference to `worker`.
 
 In a worker, this function will close all servers, wait for the `'close'` event on
 those servers, and then disconnect the IPC channel.

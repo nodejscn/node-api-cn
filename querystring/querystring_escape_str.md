@@ -2,7 +2,7 @@
 added: v0.1.25
 -->
 
-* `str` {String}
+* `str` {string}
 
 `querystring.escape()` 方法对给定的 `str` 执行 URL 百分号编码。
 

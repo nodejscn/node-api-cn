@@ -2,7 +2,7 @@
 added: v0.5.0
 -->
 
-* {String}
+* {string}
 
 The `process.arch` property returns a String identifying the processor
 architecture that the Node.js process is currently running on. For instance

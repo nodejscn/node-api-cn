@@ -1,8 +1,15 @@
 <!-- YAML
 added: v0.9.11
+changes:
+  - version: v8.0.0
+    pr-url: https://github.com/nodejs/node/pull/11608
+    description: The `chunk` argument can now be a `Uint8Array` instance.
 -->
 
-* `chunk` {Buffer|String} Chunk of data to unshift onto the read queue
+* `chunk` {Buffer|Uint8Array|string|any} Chunk of data to unshift onto the
+  read queue. For streams not operating in object mode, `chunk` must be a
+  string, `Buffer` or `Uint8Array`. For object mode streams, `chunk` may be
+  any JavaScript value other than `null`.
 
 The `readable.unshift()` method pushes a chunk of data back into the internal
 buffer. This is useful in certain situations where a stream is being consumed by
@@ -25,14 +32,14 @@ function parseHeader(stream, callback) {
   stream.on('error', callback);
   stream.on('readable', onReadable);
   const decoder = new StringDecoder('utf8');
-  var header = '';
+  let header = '';
   function onReadable() {
-    var chunk;
+    let chunk;
     while (null !== (chunk = stream.read())) {
-      var str = decoder.write(chunk);
+      const str = decoder.write(chunk);
       if (str.match(/\n\n/)) {
         // found the header boundary
-        var split = str.split(/\n\n/);
+        const split = str.split(/\n\n/);
         header += split.shift();
         const remaining = split.join('\n\n');
         const buf = Buffer.from(remaining, 'utf8');

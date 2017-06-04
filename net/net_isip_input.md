@@ -2,7 +2,7 @@
 added: v0.3.0
 -->
 
-测试输入是否是IP地址。如果是非法字符串，返回0；
-如果是IPv4地址，返回4，如果是IPv6地址，返回6.
+Tests if input is an IP address. Returns 0 for invalid strings,
+returns 4 for IP version 4 addresses, and returns 6 for IP version 6 addresses.
 
 

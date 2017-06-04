@@ -8,10 +8,10 @@ Node.js 包含一个进程外的调试工具，可以通过[基于 TCP 的协议
 
 ```txt
 $ node debug myscript.js
-< debugger listening on port 5858
-connecting... ok
+< Debugger listening on 127.0.0.1:5858
+connecting to 127.0.0.1:5858 ... ok
 break in /home/indutny/Code/git/indutny/myscript.js:1
-  1 x = 5;
+> 1 global.x = 5;
   2 setTimeout(() => {
   3   debugger;
 debug>
@@ -21,9 +21,10 @@ Node.js 的调试器客户端还未支持全部特性，但可以做些简单的
 
 在脚本的源代码中插入 `debugger;` 语句，则会在代码的那个位置启用一个断点：
 
+<!-- eslint-disable no-debugger -->
 ```js
 // myscript.js
-x = 5;
+global.x = 5;
 setTimeout(() => {
   debugger;
   console.log('world');
@@ -31,29 +32,29 @@ setTimeout(() => {
 console.log('hello');
 ```
 
-一旦运行调试器，则会在第 4 行出现一个断点：
+一旦运行调试器，则会在第 3 行出现一个断点：
 
 ```txt
 $ node debug myscript.js
-< debugger listening on port 5858
-connecting... ok
+< Debugger listening on 127.0.0.1:5858
+connecting to 127.0.0.1:5858 ... ok
 break in /home/indutny/Code/git/indutny/myscript.js:1
-  1 x = 5;
+> 1 global.x = 5;
   2 setTimeout(() => {
   3   debugger;
 debug> cont
 < hello
 break in /home/indutny/Code/git/indutny/myscript.js:3
-  1 x = 5;
+  1 global.x = 5;
   2 setTimeout(() => {
-  3   debugger;
+> 3   debugger;
   4   console.log('world');
   5 }, 1000);
 debug> next
 break in /home/indutny/Code/git/indutny/myscript.js:4
   2 setTimeout(() => {
   3   debugger;
-  4   console.log('world');
+> 4   console.log('world');
   5 }, 1000);
   6 console.log('hello');
 debug> repl
@@ -63,11 +64,11 @@ Press Ctrl + C to leave debug repl
 > 2+2
 4
 debug> next
-< world
 break in /home/indutny/Code/git/indutny/myscript.js:5
+< world
   3   debugger;
   4   console.log('world');
-  5 }, 1000);
+> 5 }, 1000);
   6 console.log('hello');
   7
 debug> quit

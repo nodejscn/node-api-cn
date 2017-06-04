@@ -2,8 +2,8 @@
 added: v0.9.4
 -->
 
-* `user` {String|number} The user name or numeric identifier.
-* `extra_group` {String|number} A group name or numeric identifier.
+* `user` {string|number} The user name or numeric identifier.
+* `extra_group` {string|number} A group name or numeric identifier.
 
 The `process.initgroups()` method reads the `/etc/group` file and initializes
 the group access list, using all groups of which the user is a member. This is
@@ -20,6 +20,6 @@ process.setgid(1000);                     // drop root gid
 console.log(process.getgroups());         // [ 27, 30, 46, 1000 ]
 ```
 
-*Note*: This function is only available on POSIX platforms (i.e. not Windows or
-Android)
+*Note*: This function is only available on POSIX platforms (i.e. not Windows
+or Android).
 

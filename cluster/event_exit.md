@@ -2,8 +2,8 @@
 added: v0.11.2
 -->
 
-* `code` {Number} the exit code, if it exited normally.
-* `signal` {String} the name of the signal (e.g. `'SIGHUP'`) that caused
+* `code` {number} the exit code, if it exited normally.
+* `signal` {string} the name of the signal (e.g. `'SIGHUP'`) that caused
   the process to be killed.
 
 Similar to the `cluster.on('exit')` event, but specific to this worker.

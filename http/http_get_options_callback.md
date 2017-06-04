@@ -2,7 +2,9 @@
 added: v0.3.6
 -->
 
-* `options` {Object}
+* `options` {Object | string} Accepts the same `options` as
+  [`http.request()`][], with the `method` always set to `GET`.
+  Properties that are inherited from the prototype are ignored.
 * `callback` {Function}
 * 返回: {http.ClientRequest}
 
@@ -16,19 +18,19 @@ added: v0.3.6
 
 ```js
 http.get('http://nodejs.org/dist/index.json', (res) => {
-  const statusCode = res.statusCode;
+  const { statusCode } = res;
   const contentType = res.headers['content-type'];
 
   let error;
   if (statusCode !== 200) {
-    error = new Error(`请求失败。\n` +
+    error = new Error('请求失败。\n' +
                       `状态码: ${statusCode}`);
   } else if (!/^application\/json/.test(contentType)) {
-    error = new Error(`无效的 content-type.\n` +
+    error = new Error('无效的 content-type.\n' +
                       `期望 application/json 但获取的是 ${contentType}`);
   }
   if (error) {
-    console.log(error.message);
+    console.error(error.message);
     // 消耗响应数据以释放内存
     res.resume();
     return;
@@ -36,17 +38,17 @@ http.get('http://nodejs.org/dist/index.json', (res) => {
 
   res.setEncoding('utf8');
   let rawData = '';
-  res.on('data', (chunk) => rawData += chunk);
+  res.on('data', (chunk) => { rawData += chunk; });
   res.on('end', () => {
     try {
-      let parsedData = JSON.parse(rawData);
+      const parsedData = JSON.parse(rawData);
       console.log(parsedData);
     } catch (e) {
-      console.log(e.message);
+      console.error(e.message);
     }
   });
 }).on('error', (e) => {
-  console.log(`错误: ${e.message}`);
+  console.error(`错误: ${e.message}`);
 });
 ```
 

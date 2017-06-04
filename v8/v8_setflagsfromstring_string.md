@@ -20,6 +20,3 @@ v8.setFlagsFromString('--trace_gc');
 setTimeout(function() { v8.setFlagsFromString('--notrace_gc'); }, 60e3);
 ```
 
-[V8]: https://developers.google.com/v8/
-[here]: https://github.com/thlorenz/v8-flags/blob/master/flags-0.11.md
-[`GetHeapSpaceStatistics`]: https://v8docs.nodesource.com/node-5.0/d5/dda/classv8_1_1_isolate.html#ac673576f24fdc7a33378f8f57e1d13a4

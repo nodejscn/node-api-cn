@@ -14,9 +14,11 @@ exports = { hello: false };  // 不导出，只在模块内有效
 
 当 `module.exports` 属性被一个新的对象完全替代时，也会重新赋值 `exports`，例如：
 
+<!-- eslint-disable func-name-matching -->
 ```js
 module.exports = exports = function Constructor() {
-    // ... 及其他
+  // ... 及其他
+};
 ```
 
 为了解释这个行为，想象对 `require()` 的假设实现，它跟 `require()` 的实际实现相等类似：
@@ -25,7 +27,7 @@ module.exports = exports = function Constructor() {
 function require(/* ... */) {
   const module = { exports: {} };
   ((module, exports) => {
-    // 你的模块代码在这。在这个例子中，定义了一个函数。
+    // 模块代码在这。在这个例子中，定义了一个函数。
     function someFunc() {}
     exports = someFunc;
     // 此时，exports 不再是一个 module.exports 的快捷方式，

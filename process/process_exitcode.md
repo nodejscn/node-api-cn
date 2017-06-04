@@ -2,7 +2,7 @@
 added: v0.11.8
 -->
 
-* {Integer}
+* {integer}
 
 A number which will be the process exit code, when the process either
 exits gracefully, or is exited via [`process.exit()`][] without specifying

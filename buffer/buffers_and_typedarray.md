@@ -1,3 +1,9 @@
+<!-- YAML
+changes:
+  - version: v3.0.0
+    pr-url: https://github.com/nodejs/node/pull/2002
+    description: The `Buffer`s class now inherits from `Uint8Array`.
+-->
 
 `Buffer` 实例也是 [`Uint8Array`] 实例。
 但是与 ECMAScript 2015 中的 TypedArray 规范还是有些微妙的不同。

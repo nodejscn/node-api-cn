@@ -1,5 +1,12 @@
 <!-- YAML
 added: v0.1.98
+changes:
+  - version: v6.3.0
+    pr-url: https://github.com/nodejs/node/pull/7125
+    description: The `prompt` option is supported now.
+  - version: v6.0.0
+    pr-url: https://github.com/nodejs/node/pull/6352
+    description: The `historySize` option can be `0` now.
 -->
 
 * `options` {Object}
@@ -16,6 +23,9 @@ added: v0.1.98
   * `crlfDelay` {number} 如果 `\r` 与 `\n` 之间的延迟超过 `crlfDelay` 毫秒，则 `\r` 和 `\n` 都会被当作换行分隔符。
     默认为 `100` 毫秒。
     `crlfDelay` 的范围为 `[100, 2000]`。
+  * `removeHistoryDuplicates` {boolean} If `true`, when a new input line added
+    to the history list duplicates an older one, this removes the older line
+    from the list. Defaults to `false`.
 
 `readline.createInterface()` 方法会创建一个新的 `readline.Interface` 实例。
 

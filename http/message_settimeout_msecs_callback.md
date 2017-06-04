@@ -2,7 +2,7 @@
 added: v0.5.9
 -->
 
-* `msecs` {Number}
+* `msecs` {number}
 * `callback` {Function}
 
 调用 `message.connection.setTimeout(msecs, callback)`。

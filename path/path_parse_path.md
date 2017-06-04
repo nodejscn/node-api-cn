@@ -2,31 +2,30 @@
 added: v0.11.15
 -->
 
-* `path` {String}
+* `path` {string}
 * 返回: {Object}
 
 `path.parse()` 方法返回一个对象，对象的属性表示 `path` 的元素。
+Trailing directory separators are ignored, see [`path.sep`][].
 
 返回的对象有以下属性：
 
-* `root` {String}
-* `dir` {String}
-* `base` {String}
-* `ext` {String}
-* `name` {String}
+* `root` {string}
+* `dir` {string}
+* `base` {string}
+* `ext` {string}
+* `name` {string}
 
 例如，在 POSIX 上：
 
 ```js
-path.parse('/home/user/dir/file.txt')
+path.parse('/home/user/dir/file.txt');
 // 返回:
-// {
-//    root : "/",
-//    dir : "/home/user/dir",
-//    base : "file.txt",
-//    ext : ".txt",
-//    name : "file"
-// }
+// { root: '/',
+//   dir: '/home/user/dir',
+//   base: 'file.txt',
+//   ext: '.txt',
+//   name: 'file' }
 ```
 
 ```text
@@ -42,15 +41,13 @@ path.parse('/home/user/dir/file.txt')
 在 Windows 上：
 
 ```js
-path.parse('C:\\path\\dir\\file.txt')
+path.parse('C:\\path\\dir\\file.txt');
 // 返回:
-// {
-//    root : "C:\\",
-//    dir : "C:\\path\\dir",
-//    base : "file.txt",
-//    ext : ".txt",
-//    name : "file"
-// }
+// { root: 'C:\\',
+//   dir: 'C:\\path\\dir',
+//   base: 'file.txt',
+//   ext: '.txt',
+//   name: 'file' }
 ```
 
 ```text

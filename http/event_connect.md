@@ -9,7 +9,7 @@ added: v0.7.0
 每当服务器响应 `CONNECT` 请求时触发。
 如果该事件未被监听，则接收到 `CONNECT` 方法的客户端会关闭连接。
 
-例子，用一对客户端和服务端来展示如何监听 `'connect'` 事件：
+例子，用一对客户端和服务端来演示如何监听 `'connect'` 事件：
 
 ```js
 const http = require('http');
@@ -17,14 +17,14 @@ const net = require('net');
 const url = require('url');
 
 // 创建一个 HTTP 代理服务器
-var proxy = http.createServer( (req, res) => {
+const proxy = http.createServer((req, res) => {
   res.writeHead(200, {'Content-Type': 'text/plain'});
   res.end('okay');
 });
 proxy.on('connect', (req, cltSocket, head) => {
   // 连接到一个服务器
-  var srvUrl = url.parse(`http://${req.url}`);
-  var srvSocket = net.connect(srvUrl.port, srvUrl.hostname, () => {
+  const srvUrl = url.parse(`http://${req.url}`);
+  const srvSocket = net.connect(srvUrl.port, srvUrl.hostname, () => {
     cltSocket.write('HTTP/1.1 200 Connection Established\r\n' +
                     'Proxy-agent: Node.js-Proxy\r\n' +
                     '\r\n');
@@ -38,14 +38,14 @@ proxy.on('connect', (req, cltSocket, head) => {
 proxy.listen(1337, '127.0.0.1', () => {
 
   // 发送一个请求到代理服务器
-  var options = {
+  const options = {
     port: 1337,
     hostname: '127.0.0.1',
     method: 'CONNECT',
     path: 'www.google.com:80'
   };
 
-  var req = http.request(options);
+  const req = http.request(options);
   req.end();
 
   req.on('connect', (res, socket, head) => {

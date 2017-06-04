@@ -1,3 +1,10 @@
+<!-- YAML
+added: v2.5.0
+changes:
+  - version: v6.0.0
+    pr-url: https://github.com/nodejs/node/pull/5361
+    description: The `worker` parameter is passed now; see below for details.
+-->
 
 * `worker` {cluster.Worker}
 * `message` {Object}
@@ -10,8 +17,9 @@ See [child_process event: 'message'][].
 Before Node.js v6.0, this event emitted only the message and the handle,
 but not the worker object, contrary to what the documentation stated.
 
-If you need to support older versions and don't need the worker object,
-you can work around the discrepancy by checking the number of arguments:
+If support for older versions is required but a worker object is not
+required, it is possible to work around the discrepancy by checking the
+number of arguments:
 
 ```js
 cluster.on('message', (worker, message, handle) => {

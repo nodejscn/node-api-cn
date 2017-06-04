@@ -2,7 +2,7 @@
 added: v0.1.90
 -->
 
-* {Number} 整数
+* {number} 整数
 
 返回子进程的进程标识（PID）。
 

@@ -1,5 +1,13 @@
 <!-- YAML
 added: v0.3.2
+changes:
+  - version: v8.0.0
+    pr-url: https://github.com/nodejs/node/pull/11984
+    description: The `ALPNProtocols` and `NPNProtocols` options can
+                 be `Uint8Array`s now.
+  - version: v5.0.0
+    pr-url: https://github.com/nodejs/node/pull/2564
+    description: ALPN options are supported now.
 -->
 
 * `options` {Object}
@@ -10,13 +18,23 @@ added: v0.3.2
   * `requestCert` {boolean} If `true` the server will request a certificate from
     clients that connect and attempt to verify that certificate. Defaults to
     `false`.
-  * `rejectUnauthorized` {boolean} If `true` the server will reject any
+  * `rejectUnauthorized` {boolean} If not `false` the server will reject any
     connection which is not authorized with the list of supplied CAs. This
-    option only has an effect if `requestCert` is `true`. Defaults to `false`.
-  * `NPNProtocols` {string[]|Buffer} An array of strings or a `Buffer` naming
-    possible NPN protocols. (Protocols should be ordered by their priority.)
-  * `ALPNProtocols` {string[]|Buffer} An array of strings or a `Buffer` naming
-    possible ALPN protocols. (Protocols should be ordered by their priority.)
+    option only has an effect if `requestCert` is `true`. Defaults to `true`.
+  * `NPNProtocols` {string[]|Buffer[]|Uint8Array[]|Buffer|Uint8Array}
+    An array of strings, Buffer`s or `Uint8Array`s, or a single `Buffer` or
+    `Uint8Array` containing supported NPN protocols. `Buffer`s should have the
+    format `[len][name][len][name]...` e.g. `0x05hello0x05world`, where the
+    first byte is the length of the next protocol name. Passing an array is
+    usually much simpler, e.g. `['hello', 'world']`.
+    (Protocols should be ordered by their priority.)
+  * `ALPNProtocols`: {string[]|Buffer[]|Uint8Array[]|Buffer|Uint8Array}
+    An array of strings, `Buffer`s or `Uint8Array`s, or a single `Buffer` or
+    `Uint8Array` containing the supported ALPN protocols. `Buffer`s should have
+    the format `[len][name][len][name]...` e.g. `0x05hello0x05world`, where the
+    first byte is the length of the next protocol name. Passing an array is
+    usually much simpler, e.g. `['hello', 'world']`.
+    (Protocols should be ordered by their priority.)
     When the server receives both NPN and ALPN extensions from the client,
     ALPN takes precedence over NPN and the server does not send an NPN
     extension to the client.
@@ -31,14 +49,16 @@ added: v0.3.2
     server will time out. See [SSL_CTX_set_timeout] for more details.
   * `ticketKeys`: A 48-byte `Buffer` instance consisting of a 16-byte prefix,
     a 16-byte HMAC key, and a 16-byte AES key. This can be used to accept TLS
-    session tickets on multiple instances of the TLS server. *Note* that this is
-    automatically shared between `cluster` module workers.
+    session tickets on multiple instances of the TLS server.
   * ...: Any [`tls.createSecureContext()`][] options can be provided. For
     servers, the identity options (`pfx` or `key`/`cert`) are usually required.
 * `secureConnectionListener` {Function}
 
 Creates a new [tls.Server][].  The `secureConnectionListener`, if provided, is
 automatically set as a listener for the [`'secureConnection'`][] event.
+
+*Note*: The `ticketKeys` options is automatically shared between `cluster`
+module workers.
 
 The following illustrates a simple echo server:
 

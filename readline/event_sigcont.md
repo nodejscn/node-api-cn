@@ -2,7 +2,7 @@
 added: v0.7.5
 -->
 
-当一个 Node.js 进程使用 `<ctrl>-Z`（也就是 `SIGTSTP`）移入后台之后再使用 fg(1) 移回前台时，触发 `'SIGCONT'` 事件。
+当一个 Node.js 进程使用 `<ctrl>-Z`（也就是 `SIGTSTP`）移入后台之后再使用 fg(1p) 移回前台时，触发 `'SIGCONT'` 事件。
 
 如果 `input` 流在 `SIGTSTP` 请求之前被暂停，则事件不会被触发。
 

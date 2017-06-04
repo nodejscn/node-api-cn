@@ -2,7 +2,7 @@
 added: v0.3.3
 -->
 
-* Returns: {String}
+* Returns: {string}
 
 `os.release()`方法返回一个字符串, 指定操作系统的发行版.
 

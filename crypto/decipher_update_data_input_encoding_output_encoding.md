@@ -1,6 +1,13 @@
 <!-- YAML
 added: v0.1.94
+changes:
+  - version: v6.0.0
+    pr-url: https://github.com/nodejs/node/pull/5522
+    description: The default `input_encoding` changed from `binary` to `utf8`.
 -->
+- `data` {string | Buffer | TypedArray | DataView}
+- `input_encoding` {string}
+- `output_encoding` {string}
 
 Updates the decipher with `data`. If the `input_encoding` argument is given,
 its value must be one of `'latin1'`, `'base64'`, or `'hex'` and the `data`

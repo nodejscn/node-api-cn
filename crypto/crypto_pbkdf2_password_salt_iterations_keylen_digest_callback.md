@@ -1,6 +1,26 @@
 <!-- YAML
 added: v0.5.5
+changes:
+  - version: v8.0.0
+    pr-url: https://github.com/nodejs/node/pull/11305
+    description: The `digest` parameter is always required now.
+  - version: v6.0.0
+    pr-url: https://github.com/nodejs/node/pull/4047
+    description: Calling this function without passing the `digest` parameter
+                 is deprecated now and will emit a warning.
+  - version: v6.0.0
+    pr-url: https://github.com/nodejs/node/pull/5522
+    description: The default encoding for `password` if it is a string changed
+                 from `binary` to `utf8`.
 -->
+- `password` {string}
+- `salt` {string}
+- `iterations` {number}
+- `keylen` {number}
+- `digest` {string}
+- `callback` {Function}
+  - `err` {Error}
+  - `derivedKey` {Buffer}
 
 Provides an asynchronous Password-Based Key Derivation Function 2 (PBKDF2)
 implementation. A selected HMAC digest algorithm specified by `digest` is
@@ -23,9 +43,9 @@ Example:
 
 ```js
 const crypto = require('crypto');
-crypto.pbkdf2('secret', 'salt', 100000, 512, 'sha512', (err, key) => {
+crypto.pbkdf2('secret', 'salt', 100000, 512, 'sha512', (err, derivedKey) => {
   if (err) throw err;
-  console.log(key.toString('hex'));  // '3745e48...aa39b34'
+  console.log(derivedKey.toString('hex'));  // '3745e48...aa39b34'
 });
 ```
 

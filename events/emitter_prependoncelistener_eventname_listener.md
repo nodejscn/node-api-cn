@@ -2,7 +2,7 @@
 added: v6.0.0
 -->
 
-* `eventName` {String|Symbol} 事件名
+* `eventName` {any} 事件名
 * `listener` {Function} 回调函数
 
 添加一个单次 `listener` 函数到名为 `eventName` 的事件的监听器数组的开头。

@@ -1,6 +1,9 @@
 <!-- YAML
 added: v0.3.6
 -->
+- `options` {Object | string} Accepts the same `options` as
+  [`https.request()`][], with the `method` always set to `GET`.
+- `callback` {Function}
 
 类似 [`http.get()`]，但是用于 HTTPS。
 

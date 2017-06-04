@@ -1,3 +1,9 @@
+<!-- YAML
+changes:
+  - version: v5.11.0
+    pr-url: https://github.com/nodejs/node/pull/6093
+    description: Added support for `SIGINFO`.
+-->
 
 下面的信号常量由 `os.constants.signals` 给出:
 

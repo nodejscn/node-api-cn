@@ -1,13 +1,21 @@
 <!-- YAML
 added: v0.5.10
+changes:
+  - version: v7.6.0
+    pr-url: https://github.com/nodejs/node/pull/10739
+    description: The `filename` parameter can be a WHATWG `URL` object using
+                 `file:` protocol. Support is currently still *experimental*.
+  - version: v7.0.0
+    pr-url: https://github.com/nodejs/node/pull/7831
+    description: The passed `options` object will never be modified.
 -->
 
-* `filename` {String | Buffer}
-* `options` {String | Object}
-  * `persistent` {Boolean} 指明如果文件正在被监视，进程是否应该继续运行。默认 = `true`
-  * `recursive` {Boolean} 指明是否全部子目录应该被监视，或只是当前目录。
+* `filename` {string|Buffer|URL}
+* `options` {string|Object}
+  * `persistent` {boolean} 指明如果文件正在被监视，进程是否应该继续运行。默认 = `true`
+  * `recursive` {boolean} 指明是否全部子目录应该被监视，或只是当前目录。
     适用于当一个目录被指定时，且只在支持的平台（详见 [Caveats]）。默认 = `false`
-  * `encoding` {String} 指定用于传给监听器的文件名的字符编码。默认 = `'utf8'`
+  * `encoding` {string} 指定用于传给监听器的文件名的字符编码。默认 = `'utf8'`
 * `listener` {Function}
 
 监视 `filename` 的变化，`filename` 可以是一个文件或一个目录。

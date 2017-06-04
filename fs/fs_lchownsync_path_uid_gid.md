@@ -2,9 +2,9 @@
 deprecated: v0.4.7
 -->
 
-* `path` {String | Buffer}
-* `uid` {Integer}
-* `gid` {Integer}
+* `path` {string|Buffer}
+* `uid` {integer}
+* `gid` {integer}
 
 同步的 lchown(2)。返回 `undefined`。
 

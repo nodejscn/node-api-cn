@@ -1,6 +1,9 @@
 <!-- YAML
 added: v0.1.101
 -->
+* `value` {any}
+* `message` {any}
+* `...args` {any}
 
 一个简单的断言测试，验证 `value` 是否为真。
 如果不为真，则抛出 `AssertionError`。
@@ -22,6 +25,7 @@ console.assert(false, 'Whoops %s', 'didn\'t work');
 
 例子，创建一个简单的模块，并扩展与重写了 Node.js 中 `console` 的默认行为。
 
+<!-- eslint-disable func-name-matching -->
 ```js
 'use strict';
 

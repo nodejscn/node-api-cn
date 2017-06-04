@@ -2,9 +2,10 @@
 added: v0.1.90
 -->
 
-禁止Nagele算法。默认TCP连接使用Nagle算法，它们在发送数据之前先缓存。
-设置`noDelay`为`true`将在`socket.write()`每次被调用时，立即发送数据。
-`noDelay` 默认为 `true`.
+Disables the Nagle algorithm. By default TCP connections use the Nagle
+algorithm, they buffer data before sending it off. Setting `true` for
+`noDelay` will immediately fire off data each time `socket.write()` is called.
+`noDelay` defaults to `true`.
 
-返回 `socket`.
+Returns `socket`.
 

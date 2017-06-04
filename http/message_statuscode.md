@@ -2,7 +2,7 @@
 added: v0.1.1
 -->
 
-* {Number}
+* {number}
 
 **仅在 [`http.ClientRequest`] 返回的响应中有效。**
 

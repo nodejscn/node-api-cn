@@ -4,8 +4,8 @@
 在执行模块代码之前，Node.js 会使用一个如下的函数包装器将其包装：
 
 ```js
-(function (exports, require, module, __filename, __dirname) {
-// 你的模块代码实际上在这里
+(function(exports, require, module, __filename, __dirname) {
+// 模块的代码实际上在这里
 });
 ```
 

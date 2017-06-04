@@ -2,7 +2,7 @@
 added: v0.1.15
 -->
 
-* {Integer}
+* {integer}
 
 The `process.pid` property returns the PID of the process.
 

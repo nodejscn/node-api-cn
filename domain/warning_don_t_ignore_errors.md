@@ -1,7 +1,7 @@
 
 <!-- type=misc -->
 
-Domain error handlers are not a substitute for closing down your
+Domain error handlers are not a substitute for closing down a
 process when an error occurs.
 
 By the very nature of how [`throw`][] works in JavaScript, there is almost
@@ -9,8 +9,8 @@ never any way to safely "pick up where you left off", without leaking
 references, or creating some other sort of undefined brittle state.
 
 The safest way to respond to a thrown error is to shut down the
-process.  Of course, in a normal web server, you might have many
-connections open, and it is not reasonable to abruptly shut those down
+process. Of course, in a normal web server, there may be many
+open connections, and it is not reasonable to abruptly shut those down
 because an error was triggered by someone else.
 
 The better approach is to send an error response to the request that
@@ -54,11 +54,11 @@ const cluster = require('cluster');
 const PORT = +process.env.PORT || 1337;
 
 if (cluster.isMaster) {
-  // In real life, you'd probably use more than just 2 workers,
+  // A more realistic scenario would have more than 2 workers,
   // and perhaps not put the master and worker in the same file.
   //
-  // You can also of course get a bit fancier about logging, and
-  // implement whatever custom logic you need to prevent DoS
+  // It is also possible to get a bit fancier about logging, and
+  // implement whatever custom logic is needed to prevent DoS
   // attacks and other bad behavior.
   //
   // See the options in the cluster documentation.
@@ -89,7 +89,7 @@ if (cluster.isMaster) {
     d.on('error', (er) => {
       console.error(`error ${er.stack}`);
 
-      // Note: we're in dangerous territory!
+      // Note: We're in dangerous territory!
       // By definition, something unexpected occurred,
       // which we probably didn't want.
       // Anything can happen now!  Be very careful!
@@ -135,7 +135,7 @@ if (cluster.isMaster) {
 }
 
 // This part is not important.  Just an example routing thing.
-// You'd put your fancy application logic here.
+// Put fancy application logic here.
 function handleRequest(req, res) {
   switch (req.url) {
     case '/error':
@@ -143,7 +143,7 @@ function handleRequest(req, res) {
       setTimeout(() => {
         // Whoops!
         flerb.bark();
-      });
+      }, timeout);
       break;
     default:
       res.end('ok');

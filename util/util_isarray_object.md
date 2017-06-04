@@ -16,7 +16,7 @@ const util = require('util');
 
 util.isArray([]);
 // Returns: true
-util.isArray(new Array);
+util.isArray(new Array());
 // Returns: true
 util.isArray({});
 // Returns: false

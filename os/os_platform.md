@@ -2,7 +2,7 @@
 added: v0.5.0
 -->
 
-* Returns: {String}
+* Returns: {string}
 
 `os.platform()` 方法返回一个字符串, 指定Node.js编译时的操作系统平台
 

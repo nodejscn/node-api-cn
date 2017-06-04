@@ -1,9 +1,14 @@
 <!-- YAML
 added: v0.1.30
+changes:
+  - version: v5.11.0, v4.4.5
+    pr-url: https://github.com/nodejs/node/pull/6291
+    description: A `RangeError` is thrown if `statusCode` is not a number in
+                 the range `[100, 999]`.
 -->
 
-* `statusCode` {Number}
-* `statusMessage` {String}
+* `statusCode` {number}
+* `statusMessage` {string}
 * `headers` {Object}
 
 发送一个响应头给请求。
@@ -14,7 +19,7 @@ added: v0.1.30
 例子：
 
 ```js
-var body = 'hello world';
+const body = 'hello world';
 response.writeHead(200, {
   'Content-Length': Buffer.byteLength(body),
   'Content-Type': 'text/plain' });
@@ -28,7 +33,7 @@ response.writeHead(200, {
 
 ```js
 // 返回 content-type = text/plain
-const server = http.createServer((req,res) => {
+const server = http.createServer((req, res) => {
   res.setHeader('Content-Type', 'text/html');
   res.setHeader('X-Foo', 'bar');
   res.writeHead(200, {'Content-Type': 'text/plain'});

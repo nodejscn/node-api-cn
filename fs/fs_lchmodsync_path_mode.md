@@ -2,8 +2,8 @@
 deprecated: v0.4.7
 -->
 
-* `path` {String | Buffer}
-* `mode` {Integer}
+* `path` {string|Buffer}
+* `mode` {integer}
 
 同步的 lchmod(2)。返回 `undefined`。
 

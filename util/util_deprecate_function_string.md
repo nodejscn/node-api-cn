@@ -8,7 +8,7 @@ added: v0.8.0
 const util = require('util');
 
 exports.puts = util.deprecate(function() {
-  for (var i = 0, len = arguments.length; i < len; ++i) {
+  for (let i = 0, len = arguments.length; i < len; ++i) {
     process.stdout.write(arguments[i] + '\n');
   }
 }, 'util.puts: 使用 console.log 代替');

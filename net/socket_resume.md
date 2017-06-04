@@ -1,3 +1,3 @@
 
-在调用[`pause()`][]之后恢复读取.
+Resumes reading after a call to [`socket.pause()`][].
 

@@ -1,6 +1,10 @@
 <!-- YAML
 added: v0.1.90
 -->
+- `hostname` {string}
+- `callback` {Function}
+  - `err` {Error}
+  - `addresses` {string[]}
 
 Uses the DNS protocol to resolve name server records (`NS` records) for the
 `hostname`. The `addresses` argument passed to the `callback` function will

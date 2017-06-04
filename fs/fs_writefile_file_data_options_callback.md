@@ -1,13 +1,24 @@
 <!-- YAML
 added: v0.1.29
+changes:
+  - version: v7.4.0
+    pr-url: https://github.com/nodejs/node/pull/10382
+    description: The `data` parameter can now be a `Uint8Array`.
+  - version: v7.0.0
+    pr-url: https://github.com/nodejs/node/pull/7897
+    description: The `callback` parameter is no longer optional. Not passing
+                 it will emit a deprecation warning.
+  - version: v5.0.0
+    pr-url: https://github.com/nodejs/node/pull/3163
+    description: The `file` parameter can be a file descriptor now.
 -->
 
-* `file` {String | Buffer | Integer} 文件名或文件描述符
-* `data` {String | Buffer}
-* `options` {Object | String}
-  * `encoding` {String | Null} 默认 = `'utf8'`
-  * `mode` {Integer} 默认 = `0o666`
-  * `flag` {String} 默认 = `'w'`
+* `file` {string|Buffer|integer} 文件名或文件描述符
+* `data` {string|Buffer|Uint8Array}
+* `options` {Object|string}
+  * `encoding` {string|null} 默认 = `'utf8'`
+  * `mode` {integer} 默认 = `0o666`
+  * `flag` {string} 默认 = `'w'`
 * `callback` {Function}
 
 异步地写入数据到文件，如果文件已经存在，则替代文件。

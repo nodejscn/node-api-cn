@@ -1,6 +1,8 @@
 <!-- YAML
 added: v0.1.94
 -->
+- `algorithm` {string}
+- `password` {string | Buffer | TypedArray | DataView}
 
 Creates and returns a `Decipher` object that uses the given `algorithm` and
 `password` (key).

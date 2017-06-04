@@ -2,8 +2,8 @@
 added: v0.3.4
 -->
 
-* `...paths` {String} 一个路径或路径片段的序列
-* 返回: {String}
+* `...paths` {string} 一个路径或路径片段的序列
+* 返回: {string}
 
 `path.resolve()` 方法会把一个路径或路径片段的序列解析为一个绝对路径。
 
@@ -21,13 +21,13 @@ added: v0.3.4
 例子：
 
 ```js
-path.resolve('/foo/bar', './baz')
+path.resolve('/foo/bar', './baz');
 // 返回: '/foo/bar/baz'
 
-path.resolve('/foo/bar', '/tmp/file/')
+path.resolve('/foo/bar', '/tmp/file/');
 // 返回: '/tmp/file'
 
-path.resolve('wwwroot', 'static_files/png/', '../gif/image.gif')
+path.resolve('wwwroot', 'static_files/png/', '../gif/image.gif');
 // 如果当前工作目录为 /home/myself/node，
 // 则返回 '/home/myself/node/wwwroot/static_files/gif/image.gif'
 ```

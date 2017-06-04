@@ -2,7 +2,7 @@
 added: v0.5.1
 -->
 
-* `string` {String}
+* `string` {string}
 
 The `punycode.decode()` method converts a [Punycode][] string of ASCII-only
 characters to the equivalent string of Unicode codepoints.

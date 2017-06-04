@@ -2,7 +2,7 @@
 added: v0.1.90
 -->
 
-* `signal` {String}
+* `signal` {string}
 
 `child.kill()` 方法向子进程发送一个信号。
 如果没有给定参数，则进程会发送 `'SIGTERM'` 信号。
@@ -35,13 +35,17 @@ grep.kill('SIGHUP');
 'use strict';
 const spawn = require('child_process').spawn;
 
-const child = spawn('sh', ['-c',
-  `node -e "setInterval(() => {
+const child = spawn(
+  'sh',
+  [
+    '-c',
+    `node -e "setInterval(() => {
       console.log(process.pid, 'is alive')
     }, 500);"`
   ], {
     stdio: ['inherit', 'inherit', 'inherit']
-  });
+  }
+);
 
 setTimeout(() => {
   child.kill(); // 不会终止 shell 中的 node 进程

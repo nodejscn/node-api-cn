@@ -2,7 +2,7 @@
 added: v0.1.31
 -->
 
-* `filename` {String | Buffer}
+* `filename` {string|Buffer}
 * `listener` {Function}
 
 停止监视 `filename` 文件的变化。

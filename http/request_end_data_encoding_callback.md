@@ -2,8 +2,8 @@
 added: v0.1.90
 -->
 
-* `data` {String | Buffer}
-* `encoding` {String}
+* `data` {string|Buffer}
+* `encoding` {string}
 * `callback` {Function}
 
 结束发送请求。

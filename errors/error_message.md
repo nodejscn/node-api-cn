@@ -1,5 +1,5 @@
 
-* {String}
+* {string}
 
 `error.message` 属性是错误的字符串描述，通过调用 `new Error(message)` 设置。
 传给构造函数的 `message` 也会出现在 `Error` 的堆栈跟踪的第一行。

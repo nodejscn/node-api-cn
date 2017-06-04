@@ -2,7 +2,7 @@
 added: v0.1.1
 -->
 
-* {String}
+* {string}
 
 **仅在 [`http.Server`] 返回的请求中有效。**
 

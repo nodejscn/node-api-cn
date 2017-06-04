@@ -1,5 +1,19 @@
 <!-- YAML
 added: v0.11.3
+changes:
+  - version: v8.0.0
+    pr-url: https://github.com/nodejs/node/pull/12839
+    description: The `lookup` option is supported now.
+  - version: v8.0.0
+    pr-url: https://github.com/nodejs/node/pull/11984
+    description: The `ALPNProtocols` and `NPNProtocols` options can
+                 be `Uint8Array`s now.
+  - version: v5.3.0, v4.7.0
+    pr-url: https://github.com/nodejs/node/pull/4246
+    description: The `secureContext` option is supported now.
+  - version: v5.0.0
+    pr-url: https://github.com/nodejs/node/pull/2564
+    description: ALPN options are supported now.
 -->
 
 * `options` {Object}
@@ -14,20 +28,22 @@ added: v0.11.3
     connection/disconnection/destruction of `socket` is the user's
     responsibility, calling `tls.connect()` will not cause `net.connect()` to be
     called.
-  * `rejectUnauthorized` {boolean} If `true`, the server certificate is verified
+  * `rejectUnauthorized` {boolean} If not `false`, the server certificate is verified
     against the list of supplied CAs. An `'error'` event is emitted if
     verification fails; `err.code` contains the OpenSSL error code. Defaults to
     `true`.
-  * `NPNProtocols` {string[]|Buffer[]} An array of strings or `Buffer`s
-    containing supported NPN protocols. `Buffer`s should have the format
-    `[len][name][len][name]...` e.g. `0x05hello0x05world`, where the first
-    byte is the length of the next protocol name. Passing an array is usually
-    much simpler, e.g. `['hello', 'world']`.
-  * `ALPNProtocols`: {string[]|Buffer[]} An array of strings or `Buffer`s
-    containing the supported ALPN protocols. `Buffer`s should have the format
-    `[len][name][len][name]...` e.g. `0x05hello0x05world`, where the first byte
-    is the length of the next protocol name. Passing an array is usually much
-    simpler: `['hello', 'world']`.)
+  * `NPNProtocols` {string[]|Buffer[]|Uint8Array[]|Buffer|Uint8Array}
+    An array of strings, Buffer`s or `Uint8Array`s, or a single `Buffer` or
+    `Uint8Array` containing supported NPN protocols. `Buffer`s should have the
+    format `[len][name][len][name]...` e.g. `0x05hello0x05world`, where the
+    first byte is the length of the next protocol name. Passing an array is
+    usually much simpler, e.g. `['hello', 'world']`.
+  * `ALPNProtocols`: {string[]|Buffer[]|Uint8Array[]|Buffer|Uint8Array}
+    An array of strings, `Buffer`s or `Uint8Array`s, or a single `Buffer` or
+    `Uint8Array` containing the supported ALPN protocols. `Buffer`s should have
+    the format `[len][name][len][name]...` e.g. `0x05hello0x05world`, where the
+    first byte is the length of the next protocol name. Passing an array is
+    usually much simpler, e.g. `['hello', 'world']`.
   * `servername`: {string} Server name for the SNI (Server Name Indication) TLS
     extension.
   * `checkServerIdentity(servername, cert)` {Function} A callback function
@@ -42,11 +58,10 @@ added: v0.11.3
   * `secureContext`: Optional TLS context object created with
     [`tls.createSecureContext()`][]. If a `secureContext` is _not_ provided, one
     will be created by passing the entire `options` object to
-    `tls.createSecureContext()`. *Note*: In effect, all
-    [`tls.createSecureContext()`][] options can be provided, but they will be
-    _completely ignored_ unless the `secureContext` option is missing.
-  * ...: Optional [`tls.createSecureContext()`][] options can be provided, see
-    the `secureContext` option for more information.
+    `tls.createSecureContext()`.
+  * `lookup`: {Function} Custom lookup function. Defaults to [`dns.lookup()`][].
+  * ...: Optional [`tls.createSecureContext()`][] options that are used if the
+    `secureContext` option is missing, otherwise they are ignored.
 * `callback` {Function}
 
 The `callback` function, if specified, will be added as a listener for the
@@ -108,5 +123,4 @@ socket.on('end', () => {
   server.close();
 });
 ```
-
 

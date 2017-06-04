@@ -5,7 +5,7 @@ added: v0.1.21
 * `expected` {any}
 * `message` {any}
 
-使用全等运算符（`===`）测试是否全等。
+使用 [全等运算符]（`===`）测试是否全等。
 
 ```js
 const assert = require('assert');

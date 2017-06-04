@@ -2,7 +2,7 @@
 added: v0.1.90
 -->
 
-* `path` {String}
+* `path` {string}
 * `callback` {Function}
 
 启动一个 UNIX socket 服务器，并在给定的 `path` 上监听连接。

@@ -1,7 +1,7 @@
 <!-- YAML
 added: v0.1.25
 -->
-* `str` {String}
+* `str` {string}
 
 `querystring.unescape()` 方法对给定的 `str` 上的 URL 百分号编码的字符执行解码。
 

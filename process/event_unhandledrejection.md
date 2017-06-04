@@ -1,5 +1,13 @@
 <!-- YAML
 added: v1.4.1
+changes:
+  - version: v7.0.0
+    pr-url: https://github.com/nodejs/node/pull/8217
+    description: Not handling Promise rejections has been deprecated.
+  - version: v6.6.0
+    pr-url: https://github.com/nodejs/node/pull/8223
+    description: Unhandled Promise rejections have been will now emit
+                 a process warning.
 -->
 
 The `'unhandledRejection`' event is emitted whenever a `Promise` is rejected and
@@ -20,7 +28,7 @@ For example:
 
 ```js
 process.on('unhandledRejection', (reason, p) => {
-  console.log('Unhandled Rejection at: Promise', p, 'reason:', reason);
+  console.log('Unhandled Rejection at:', p, 'reason:', reason);
   // application specific logging, throwing an error, or other logic here
 });
 
@@ -38,7 +46,7 @@ function SomeResource() {
   this.loaded = Promise.reject(new Error('Resource not yet loaded!'));
 }
 
-var resource = new SomeResource();
+const resource = new SomeResource();
 // no .catch or .then on resource.loaded for at least a turn
 ```
 

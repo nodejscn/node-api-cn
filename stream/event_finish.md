@@ -6,7 +6,7 @@ added: v0.9.4
 
 ```js
 const writer = getWritableStreamSomehow();
-for (var i = 0; i < 100; i ++) {
+for (let i = 0; i < 100; i++) {
   writer.write(`hello, #${i}!\n`);
 }
 writer.end('This is the end\n');

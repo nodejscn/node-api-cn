@@ -1,11 +1,23 @@
 <!-- YAML
 added: v0.9.4
+changes:
+  - version: v8.0.0
+    pr-url: https://github.com/nodejs/node/pull/11608
+    description: The `chunk` argument can now be a `Uint8Array` instance.
+  - version: v6.0.0
+    pr-url: https://github.com/nodejs/node/pull/6170
+    description: Passing `null` as the `chunk` parameter will always be
+                 considered invalid now, even in object mode.
 -->
 
-* `chunk` {String|Buffer} 要写入的数据
-* `encoding` {String} 如果 `chunk` 是字符串，这里指定字符编码
+* `chunk` {string|Buffer|Uint8Array|any} 要写入的数据。可选的。
+  For streams
+  not operating in object mode, `chunk` must be a string, `Buffer` or
+  `Uint8Array`. For object mode streams, `chunk` may be any JavaScript value
+  other than `null`.
+* `encoding` {string} 如果 `chunk` 是字符串，这里指定字符编码
 * `callback` {Function} 缓冲数据输出时的回调函数
-* 返回： {Boolean} 如果流需要等待 `'drain'` 事件触发才能继续写入数据，这里将返回 `false` ； 否则返回 `true`。
+* 返回： {boolean} 如果流需要等待 `'drain'` 事件触发才能继续写入数据，这里将返回 `false` ； 否则返回 `true`。
 
 `writable.write()` 方法向流中写入数据，并在数据处理完成后调用 `callback` 。如果有错误发生， `callback` *不一定* 会接收到这个错误作为第一个参数。要确保可靠地检测到写入错误，应该监听
 `'error'` 事件。
@@ -28,18 +40,18 @@ added: v0.9.4
 [`stream.pipe()`][]。 但是如果调用 `write()` 优先, 那么可以使用 [`'drain'`][] 事件来防止回压并且避免内存问题:
 
 ```js
-function write (data, cb) {
+function write(data, cb) {
   if (!stream.write(data)) {
-    stream.once('drain', cb)
+    stream.once('drain', cb);
   } else {
-    process.nextTick(cb)
+    process.nextTick(cb);
   }
 }
 
 // Wait for cb to be called before doing any other write.
 write('hello', () => {
-  console.log('write completed, do more writes now')
-})
+  console.log('write completed, do more writes now');
+});
 ```
 
 对象模式的写入流将忽略 `encoding` 参数。

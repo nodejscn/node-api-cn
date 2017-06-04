@@ -2,22 +2,28 @@
 added: v0.11.14
 -->
 
-* `options` {Object} - 必须. 支持以下参数：
-  * `port` {Number} - 可选.
-  * `host` {String} - 可选.
-  * `backlog` {Number} - 可选.
-  * `path` {String} - 可选.
-  * `exclusive` {Boolean} - 可选.
-* `callback` {Function} - 可选.
+* `options` {Object} Required. Supports the following properties:
+  * `port` {number}
+  * `host` {string}
+  * `path` {string} Will be ignored if `port` is specified. See
+    [Identifying paths for IPC connections][].
+  * `backlog` {number} Common parameter of [`server.listen()`][]
+    functions
+  * `exclusive` {boolean} Default to `false`
+* `callback` {Function} Common parameter of [`server.listen()`][]
+  functions
 
-`port`, `host`, 和 `backlog` 是 `options` 的参数,
-可选的 callback 函数, 表现的好像它们在调用
-[`server.listen([port][, hostname][, backlog][, callback])`][`server.listen(port, host, backlog, callback)`].
-另外,  `path` 参数可以用于确定UNIX套接字。
+If `port` is specified, it behaves the same as
+[`server.listen([port][, hostname][, backlog][, callback])`][`server.listen(port, host)`].
+Otherwise, if `path` is specified, it behaves the same as
+[`server.listen(path[, backlog][, callback])`][`server.listen(path)`].
+If none of them is specified, an error will be thrown.
 
-如果 `exclusive` 是 `false` (默认), 那么cluster的worker对象将利用相同的基础处理方法，
-允许共享连接处理机制。当`exclusive` 是 `true`, 处理方法不被共享，企图共享端口将导致错误。
-下面是一个监听专用端口的例子：
+If `exclusive` is `false` (default), then cluster workers will use the same
+underlying handle, allowing connection handling duties to be shared. When
+`exclusive` is `true`, the handle is not shared, and attempted port sharing
+results in an error. An example which listens on an exclusive port is
+shown below.
 
 ```js
 server.listen({
@@ -26,7 +32,4 @@ server.listen({
   exclusive: true
 });
 ```
-
-*注意*: `server.listen()` 方法可能被多次调用. 每个随后的
-调用将利用提供的参数 *重新打开* 服务器。
 

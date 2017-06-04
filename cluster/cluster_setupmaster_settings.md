@@ -1,12 +1,16 @@
 <!-- YAML
 added: v0.7.1
+changes:
+  - version: v6.4.0
+    pr-url: https://github.com/nodejs/node/pull/7838
+    description: The `stdio` option is supported now.
 -->
 
 * `settings` {Object}
-  * `exec` {String} file path to worker file.  (Default=`process.argv[1]`)
+  * `exec` {string} file path to worker file.  (Default=`process.argv[1]`)
   * `args` {Array} string arguments passed to worker.
     (Default=`process.argv.slice(2)`)
-  * `silent` {Boolean} whether or not to send output to parent's stdio.
+  * `silent` {boolean} whether or not to send output to parent's stdio.
     (Default=`false`)
   * `stdio` {Array} Configures the stdio of forked processes. When this option
     is provided, it overrides `silent`.

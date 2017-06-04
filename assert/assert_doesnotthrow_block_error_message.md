@@ -1,5 +1,12 @@
 <!-- YAML
 added: v0.1.21
+changes:
+  - version: v5.11.0, v4.4.5
+    pr-url: https://github.com/nodejs/node/pull/2407
+    description: The `message` parameter is respected now.
+  - version: v4.2.0
+    pr-url: https://github.com/nodejs/node/pull/3276
+    description: The `error` parameter can now be an arrow function.
 -->
 * `block` {Function}
 * `error` {RegExp|Function}

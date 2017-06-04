@@ -1,3 +1,4 @@
 
-一个布尔值，表明连接是否被破坏。一旦连接被破坏，
-就没有数据可以用它来传输。
+A Boolean value that indicates if the connection is destroyed or not. Once a
+connection is destroyed no further data can be transferred using it.
+

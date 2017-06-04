@@ -1,12 +1,16 @@
 <!-- YAML
 added: v0.11.3
+changes:
+  - version: v5.10.0
+    pr-url: https://github.com/nodejs/node/pull/5598
+    description: The `host` parameter is supported now.
 -->
 
-在解析域名之后，进行连接之前被触发。 
-不能用于UNIX sockets. 
+Emitted after resolving the hostname but before connecting.
+Not applicable to UNIX sockets.
 
-* `err` {Error|Null} 错误对象.  查看 [`dns.lookup()`][].
-* `address` {String} IP地址.
-* `family` {String|Null} IP地址类型.  See [`dns.lookup()`][].
-* `host` {String} 域名.
+* `err` {Error|null} The error object.  See [`dns.lookup()`][].
+* `address` {string} The IP address.
+* `family` {string|null} The address type.  See [`dns.lookup()`][].
+* `host` {string} The hostname.
 

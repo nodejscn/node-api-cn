@@ -1,5 +1,5 @@
 
-* {Number}
+* {number}
 
 `Error.stackTraceLimit` 属性指定了堆栈跟踪收集的栈帧数量（无论是 `new Error().stack` 或 `Error.captureStackTrace(obj)` 产生的）。
 

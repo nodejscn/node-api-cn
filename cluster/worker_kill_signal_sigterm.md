@@ -2,7 +2,7 @@
 added: v0.9.12
 -->
 
-* `signal` {String} Name of the kill signal to send to the worker
+* `signal` {string} Name of the kill signal to send to the worker
   process.
 
 This function will kill the worker. In the master, it does this by disconnecting

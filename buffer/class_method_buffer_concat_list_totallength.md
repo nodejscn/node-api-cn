@@ -1,9 +1,13 @@
 <!-- YAML
 added: v0.7.11
+changes:
+  - version: v8.0.0
+    pr-url: https://github.com/nodejs/node/pull/10236
+    description: The elements of `list` can now be `Uint8Array`s.
 -->
 
-* `list` {Array} 要合并的 `Buffer` 实例的数组
-* `totalLength` {Integer} 合并时 `list` 中 `Buffer` 实例的总长度
+* `list` {Array} 要合并的 `Buffer` 或 [`Uint8Array`] 实例的数组
+* `totalLength` {integer} 合并时 `list` 中 `Buffer` 实例的总长度
 * 返回: {Buffer}
 
 返回一个合并了 `list` 中所有 `Buffer` 实例的新建的 `Buffer` 。
@@ -12,6 +16,10 @@ added: v0.7.11
 
 如果没有提供 `totalLength` ，则从 `list` 中的 `Buffer` 实例计算得到。
 为了计算 `totalLength` 会导致需要执行额外的循环，所以提供明确的长度会运行更快。
+
+If `totalLength` is provided, it is coerced to an unsigned integer. If the
+combined length of the `Buffer`s in `list` exceeds `totalLength`, the result is
+truncated to `totalLength`.
 
 例子：从一个包含三个 `Buffer` 实例的数组创建为一个单一的 `Buffer`。
 

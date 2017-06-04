@@ -2,8 +2,8 @@
 added: v0.8.6
 -->
 
-* `path` {String | Buffer}
-* `len` {Integer} 默认 = `0`
+* `path` {string|Buffer}
+* `len` {integer} 默认 = `0`
 
 同步的 truncate(2)。
 返回 `undefined`。

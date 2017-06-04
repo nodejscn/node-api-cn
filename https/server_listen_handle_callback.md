@@ -1,0 +1,4 @@
+
+- `handle` {Object}
+- `callback` {Function}
+

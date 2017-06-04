@@ -4,7 +4,7 @@
 * `callback` {Function} A callback function (optionally with an error
   argument) to be invoked when processing is complete for the supplied chunks.
 
-*Note*: **This function MUST NOT be called by application code directly.** It
+*Note*: This function MUST NOT be called by application code directly. It
 should be implemented by child classes, and called only by the internal Writable
 class methods only.
 

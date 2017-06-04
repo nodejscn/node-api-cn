@@ -1,13 +1,23 @@
+<!-- YAML
+changes:
+  - version: v8.0.0
+    pr-url: https://github.com/nodejs/node/pull/11608
+    description: The `chunk` argument can now be a `Uint8Array` instance.
+-->
 
-* `chunk` {Buffer|Null|String} Chunk of data to push into the read queue
-* `encoding` {String} Encoding of String chunks.  Must be a valid
+* `chunk` {Buffer|Uint8Array|string|null|any} Chunk of data to push into the
+  read queue. For streams not operating in object mode, `chunk` must be a
+  string, `Buffer` or `Uint8Array`. For object mode streams, `chunk` may be
+  any JavaScript value.
+* `encoding` {string} Encoding of string chunks.  Must be a valid
   Buffer encoding, such as `'utf8'` or `'ascii'`
-* Returns {Boolean} `true` if additional chunks of data may continued to be
+* Returns {boolean} `true` if additional chunks of data may continued to be
   pushed; `false` otherwise.
 
-When `chunk` is a `Buffer` or `string`, the `chunk` of data will be added to the
-internal queue for users of the stream to consume. Passing `chunk` as `null`
-signals the end of the stream (EOF), after which no more data can be written.
+When `chunk` is a `Buffer`, `Uint8Array` or `string`, the `chunk` of data will
+be added to the internal queue for users of the stream to consume.
+Passing `chunk` as `null` signals the end of the stream (EOF), after which no
+more data can be written.
 
 When the Readable is operating in paused mode, the data added with
 `readable.push()` can be read out by calling the

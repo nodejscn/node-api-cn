@@ -4,7 +4,8 @@ added: v0.1.90
 
 * {Error}
 
-当错误发生时触发。
-不像 [`net.Socket`]，[`'close'`] 事件不会紧接该事件触发，除非 [`server.close()`] 被手动调用。
-可在 [`server.listen()`] 的讨论中查看相关例子。
+Emitted when an error occurs. Unlike [`net.Socket`][], the [`'close'`][]
+event will **not** be emitted directly following this event unless
+[`server.close()`][] is manually called. See the example in discussion of
+[`server.listen()`][].
 

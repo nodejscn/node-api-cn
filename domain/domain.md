@@ -1,3 +1,10 @@
+<!-- YAML
+changes:
+  - version: v8.0.0
+    pr-url: https://github.com/nodejs/node/pull/12489
+    description: Handlers for `Promise`s are now invoked in the domain in which
+                 the first promise of a chain was created.
+-->
 
 > 稳定性: 0 - 废弃的
 

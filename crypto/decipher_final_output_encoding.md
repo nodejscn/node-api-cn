@@ -1,6 +1,7 @@
 <!-- YAML
 added: v0.1.94
 -->
+- `output_encoding` {string}
 
 Returns any remaining deciphered contents. If `output_encoding`
 parameter is one of `'latin1'`, `'ascii'` or `'utf8'`, a string is returned.

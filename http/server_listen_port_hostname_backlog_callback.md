@@ -2,13 +2,18 @@
 added: v0.1.90
 -->
 
-* `port` {Number}
-* `hostname` {String}
-* `backlog` {Number}
+* `port` {number}
+* `hostname` {string}
+* `backlog` {number}
 * `callback` {Function}
 
 开始在指定的 `port` 和 `hostname` 上接受连接。
-如果省略了 `hostname`，则当 IPv6 可用时，服务器会接受 IPv6 地址（`::`）的连接，否则接受 IPv4 地址（`0.0.0.0`）的连接。
+如果省略了 `hostname`，则当 IPv6 可用时，服务器会接受 [未指定的 IPv6 地址]（`::`）的连接，否则接受 [未指定的 IPv4 地址]（`0.0.0.0`）的连接。
+
+*Note*: In most operating systems, listening to the
+[unspecified IPv6 address][] (`::`) may cause the `net.Server` to also listen on
+the [unspecified IPv4 address][] (`0.0.0.0`).
+
 如果省略了 `port` 或值为 `0`，则操作系统会分配一个随机的端口，该端口可在 `'listening'` 事件被触发后使用 `server.address().port` 获取。
 
 若要监听一个 UNIX socket，则需提供文件名而不是端口和主机名。

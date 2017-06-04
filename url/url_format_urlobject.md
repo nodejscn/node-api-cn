@@ -2,7 +2,7 @@
 added: v0.1.25
 -->
 
-* `urlObject` {Object | String} 一个 URL 对象（就像 `url.parse()` 返回的）。
+* `urlObject` {Object|string} 一个 URL 对象（就像 `url.parse()` 返回的）。
   如果是一个字符串，则通过 `url.parse()` 转换为一个对象。
 
 `url.format()` 方法返回一个从 `urlObject` 格式化后的 URL 字符串。

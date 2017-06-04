@@ -2,7 +2,7 @@
 added: v0.5.0
 -->
 
-* 返回: {String}
+* 返回: {string}
 
 `os.arch()`方法返回一个字符串, 表明*Node.js 二进制编译* 所用的
 操作系统CPU架构.

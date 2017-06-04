@@ -9,13 +9,13 @@ added: v0.1.94
 每当服务器响应 `upgrade` 请求时触发。
 如果该事件未被监听，则接收到 `upgrade` 请求头的客户端会关闭连接。
 
-例子，用一对客户端和服务端来展示如何监听 `'upgrade'` 事件：
+例子，用一对客户端和服务端来演示如何监听 `'upgrade'` 事件：
 
 ```js
 const http = require('http');
 
 // 创建一个 HTTP 服务器
-var srv = http.createServer( (req, res) => {
+const srv = http.createServer( (req, res) => {
   res.writeHead(200, {'Content-Type': 'text/plain'});
   res.end('okay');
 });
@@ -32,7 +32,7 @@ srv.on('upgrade', (req, socket, head) => {
 srv.listen(1337, '127.0.0.1', () => {
 
   // 发送一个请求
-  var options = {
+  const options = {
     port: 1337,
     hostname: '127.0.0.1',
     headers: {
@@ -41,7 +41,7 @@ srv.listen(1337, '127.0.0.1', () => {
     }
   };
 
-  var req = http.request(options);
+  const req = http.request(options);
   req.end();
 
   req.on('upgrade', (res, socket, upgradeHead) => {

@@ -19,12 +19,14 @@ $ node --harmony script.js --version
 
 Results in `process.execArgv`:
 
+<!-- eslint-disable semi -->
 ```js
 ['--harmony']
 ```
 
 And `process.argv`:
 
+<!-- eslint-disable semi -->
 ```js
 ['/usr/local/bin/node', 'script.js', '--version']
 ```

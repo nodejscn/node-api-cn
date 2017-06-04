@@ -2,7 +2,7 @@
 added: v0.1.28
 -->
 
-* Returns: {Integer}
+* Returns: {integer}
 
 The `process.getuid()` method returns the numeric user identity of the process.
 (See getuid(2).)
@@ -13,6 +13,6 @@ if (process.getuid) {
 }
 ```
 
-*Note*: This function is only available on POSIX platforms (i.e. not Windows or
-Android)
+*Note*: This function is only available on POSIX platforms (i.e. not Windows
+or Android).
 

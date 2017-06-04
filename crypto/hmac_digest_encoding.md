@@ -1,6 +1,7 @@
 <!-- YAML
 added: v0.1.94
 -->
+- `encoding` {string}
 
 Calculates the HMAC digest of all of the data passed using [`hmac.update()`][].
 The `encoding` can be `'hex'`, `'latin1'` or `'base64'`. If `encoding` is

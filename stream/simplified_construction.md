@@ -1,3 +1,6 @@
+<!-- YAML
+added: v1.2.0
+-->
 
 For many simple cases, it is possible to construct a stream without relying on
 inheritance. This can be accomplished by directly creating instances of the

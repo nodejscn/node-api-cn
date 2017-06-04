@@ -22,7 +22,7 @@ For example:
 ```js
 const OldReader = require('./old-api-module.js').OldReader;
 const Readable = require('stream').Readable;
-const oreader = new OldReader;
+const oreader = new OldReader();
 const myReader = new Readable().wrap(oreader);
 
 myReader.on('readable', () => {

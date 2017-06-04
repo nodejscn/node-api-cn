@@ -17,3 +17,16 @@ Node.js 不能保证回调被触发的确切时间，也不能保证它们的顺
 
 如果 `callback` 不是一个函数，则抛出 [`TypeError`]。
 
+*Note*: This method has a custom variant for promises that is available using
+[`util.promisify()`][]:
+
+```js
+const util = require('util');
+const setTimeoutPromise = util.promisify(setTimeout);
+
+setTimeoutPromise(40, 'foobar').then((value) => {
+  // value === 'foobar' (passing values is optional)
+  // This is executed after about 40 milliseconds.
+});
+```
+

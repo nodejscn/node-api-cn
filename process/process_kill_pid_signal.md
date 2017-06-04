@@ -3,7 +3,7 @@ added: v0.0.6
 -->
 
 * `pid` {number} A process ID
-* `signal` {String|number} The signal to send, either as a string or number.
+* `signal` {string|number} The signal to send, either as a string or number.
   Defaults to `'SIGTERM'`.
 
 The `process.kill()` method sends the `signal` to the process identified by
@@ -17,9 +17,9 @@ case, a signal of `0` can be used to test for the existence of a process.
 Windows platforms will throw an error if the `pid` is used to kill a process
 group.
 
-*Note*:Even though the name of this function is `process.kill()`, it is really
-just a signal sender, like the `kill` system call.  The signal sent may do
-something other than kill the target process.
+*Note*: Even though the name of this function is `process.kill()`, it is
+really just a signal sender, like the `kill` system call.  The signal sent may
+do something other than kill the target process.
 
 For example:
 
@@ -36,6 +36,6 @@ setTimeout(() => {
 process.kill(process.pid, 'SIGHUP');
 ```
 
-*Note*: When `SIGUSR1` is received by a Node.js process, Node.js will start the
-debugger, see [Signal Events][].
+*Note*: When `SIGUSR1` is received by a Node.js process, Node.js will start
+the debugger, see [Signal Events][].
 

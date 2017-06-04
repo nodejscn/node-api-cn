@@ -27,6 +27,7 @@ JavaScript 的 `throw` 机制的任何使用都会引起异常，异常必须使
 - 大多数的异步方法都接受一个 `callback` 函数，该函数会接受一个 `Error` 对象传入作为第一个参数。
   如果第一个参数不是 `null` 而是一个 `Error` 实例，则说明发生了错误，应该进行处理。
 
+<!-- eslint-disable no-useless-return -->
   ```js
   const fs = require('fs');
   fs.readFile('一个不存在的文件', (err, data) => {

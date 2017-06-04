@@ -9,24 +9,26 @@
 
 ```txt
 $ node debug test/fixtures/break-in-module/main.js
-< debugger listening on port 5858
-connecting to port 5858... ok
+< Debugger listening on 127.0.0.1:5858
+connecting to 127.0.0.1:5858 ... ok
 break in test/fixtures/break-in-module/main.js:1
-  1 var mod = require('./mod.js');
+> 1 const mod = require('./mod.js');
   2 mod.hello();
   3 mod.hello();
-debug> setBreakpoint('mod.js', 23)
+debug> setBreakpoint('mod.js', 2)
 Warning: script 'mod.js' was not loaded yet.
-  1 var mod = require('./mod.js');
+> 1 const mod = require('./mod.js');
   2 mod.hello();
   3 mod.hello();
+  4 debugger;
+  5
+  6 });
 debug> c
-break in test/fixtures/break-in-module/mod.js:23
- 21
- 22 exports.hello = () => {
- 23   return 'hello from module';
- 24 };
- 25
+break in test/fixtures/break-in-module/mod.js:2
+  1 exports.hello = function() {
+> 2   return 'hello from module';
+  3 };
+  4
 debug>
 ```
 

@@ -2,8 +2,19 @@
 added: v0.1.90
 -->
 
-一个生成器函数，返回一个新的 Unix [`net.Socket`][] 并且自动的
-连接到所提供的`path`参数.
+* `path` {string} Path the socket should connect to. Will be passed to
+  [`socket.connect(path[, connectListener])`][`socket.connect(path)`].
+  See [Identifying paths for IPC connections][].
+* `connectListener` {Function} Common parameter of the
+  [`net.createConnection()`][] functions, an "once" listener for the
+  `'connect'` event on the initiating socket. Will be passed to
+  [`socket.connect(path[, connectListener])`][`socket.connect(path)`].
+* Returns: {net.Socket} The newly created socket used to start the connection.
 
-`connectListener`参数将一次被用作监听器来监听[`'connect'`][]事件。
+Initiates an [IPC][] connection.
+
+This function creates a new [`net.Socket`][] with all options set to default,
+immediately initiates connection with
+[`socket.connect(path[, connectListener])`][`socket.connect(path)`],
+then returns the `net.Socket` that starts the connection.
 

@@ -1,30 +1,30 @@
 <!-- YAML
 added: v0.1.27
 -->
+- `hostname` {string} Hostname to resolve.
+- `rrtype` {string} Resource record type. Default: `'A'`.
+- `callback` {Function}
+  - `err` {Error}
+  - `records` {string[] | Object[] | string[][] | Object}
 
-Uses the DNS protocol to resolve a hostname (e.g. `'nodejs.org'`) into an
-array of the record types specified by `rrtype`.
+Uses the DNS protocol to resolve a hostname (e.g. `'nodejs.org'`) into an array
+of the resource records. The `callback` function has arguments
+`(err, records)`. When successful, `records` will be an array of resource
+records. The type and structure of individual results varies based on `rrtype`:
 
-Valid values for `rrtype` are:
+|  `rrtype` | `records` contains             | Result type | Shorthand method         |
+|-----------|--------------------------------|-------------|--------------------------|
+| `'A'`     | IPv4 addresses (default)       | {string}    | [`dns.resolve4()`][]     |
+| `'AAAA'`  | IPv6 addresses                 | {string}    | [`dns.resolve6()`][]     |
+| `'CNAME'` | canonical name records         | {string}    | [`dns.resolveCname()`][] |
+| `'MX'`    | mail exchange records          | {Object}    | [`dns.resolveMx()`][]    |
+| `'NAPTR'` | name authority pointer records | {Object}    | [`dns.resolveNaptr()`][] |
+| `'NS'`    | name server records            | {string}    | [`dns.resolveNs()`][]    |
+| `'PTR'`   | pointer records                | {string}    | [`dns.resolvePtr()`][]   |
+| `'SOA'`   | start of authority records     | {Object}    | [`dns.resolveSoa()`][]   |
+| `'SRV'`   | service records                | {Object}    | [`dns.resolveSrv()`][]   |
+| `'TXT'`   | text records                   | {string}    | [`dns.resolveTxt()`][]   |
 
- * `'A'` - IPV4 addresses, default
- * `'AAAA'` - IPV6 addresses
- * `'MX'` - mail exchange records
- * `'TXT'` - text records
- * `'SRV'` - SRV records
- * `'PTR'` - PTR records
- * `'NS'` - name server records
- * `'CNAME'` - canonical name records
- * `'SOA'` - start of authority record
- * `'NAPTR'` - name authority pointer record
-
-The `callback` function has arguments `(err, addresses)`. When successful,
-`addresses` will be an array, except when resolving an SOA record which returns
-an object structured in the same manner as one returned by the
-[`dns.resolveSoa()`][] method. The type of each item in `addresses` is
-determined by the record type, and described in the documentation for the
-corresponding lookup methods.
-
-On error, `err` is an [`Error`][] object, where `err.code` is
-one of the error codes listed [here](#dns_error_codes).
+On error, `err` is an [`Error`][] object, where `err.code` is one of the
+[DNS error codes](#dns_error_codes).
 

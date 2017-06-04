@@ -2,7 +2,7 @@
 added: v0.1.26
 -->
 
-* `eventName` {String|Symbol} 要监听的事件的名称
+* `eventName` {any} 要监听的事件的名称
 * `listener` {Function} 事件的句柄函数
 
 `EventEmitter` 实例会在一个监听器被添加到其内部监听器数组之前触发自身的 `'newListener'` 事件。

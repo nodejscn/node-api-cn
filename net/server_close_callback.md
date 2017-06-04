@@ -2,7 +2,10 @@
 added: v0.1.90
 -->
 
-使服务器停止接受新连接，只保持现存的连接。这个函数是异步的，当所有连接
-断开时，服务器关闭并且发出[`'close'`][]事件。一旦`'close'`事件发生，可选的
-`callback`参数将被调用。不像`'close'`事件一样，它将在错误之后被调用，因为
-它唯一的缘由是服务器还没打开呢，就被关闭。
+Stops the server from accepting new connections and keeps existing
+connections. This function is asynchronous, the server is finally
+closed when all connections are ended and the server emits a [`'close'`][] event.
+The optional `callback` will be called once the `'close'` event occurs. Unlike
+that event, it will be called with an Error as its only argument if the server
+was not open when it was closed.
+

@@ -1,5 +1,5 @@
 
-* {String}
+* {string}
 
 `error.stack` 属性是一个字符串，描述代码中 `Error` 被实例化的位置。
 

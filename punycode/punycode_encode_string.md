@@ -2,7 +2,7 @@
 added: v0.5.1
 -->
 
-* `string` {String}
+* `string` {string}
 
 The `punycode.encode()` method converts a string of Unicode codepoints to a
 [Punycode][] string of ASCII-only characters.

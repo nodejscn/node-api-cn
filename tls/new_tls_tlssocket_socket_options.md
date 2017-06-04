@@ -1,5 +1,9 @@
 <!-- YAML
 added: v0.11.4
+changes:
+  - version: v5.0.0
+    pr-url: https://github.com/nodejs/node/pull/2564
+    description: ALPN options are supported now.
 -->
 
 * `socket` {net.Socket} An instance of [`net.Socket`][]
@@ -22,7 +26,10 @@ added: v0.11.4
     will be emitted on the socket before establishing a secure communication
   * `secureContext`: Optional TLS context object created with
     [`tls.createSecureContext()`][]. If a `secureContext` is _not_ provided, one
-    will be created by calling [`tls.createSecureContext()`][] with no options.
+    will be created by passing the entire `options` object to
+    `tls.createSecureContext()`.
+  * ...: Optional [`tls.createSecureContext()`][] options that are used if the
+    `secureContext` option is missing, otherwise they are ignored.
 
 Construct a new `tls.TLSSocket` object from an existing TCP socket.
 

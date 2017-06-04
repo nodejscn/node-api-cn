@@ -2,7 +2,7 @@
 added: v0.1.91
 -->
 
-* `preserveCursor` {Boolean}
+* `preserveCursor` {boolean}
 
 `replServer.displayPrompt()` 方法会让 REPL 实例做好用户输入的准备，打印配置的 `prompt` 到 `output` 中新的一行，然后返回 `input` 等待新的输入。
 

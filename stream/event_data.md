@@ -2,7 +2,7 @@
 added: v0.9.4
 -->
 
-* `chunk` {Buffer|String|any} 数据片段。对于非对象模式的可读流，这是一个字符串或者 `Buffer`。
+* `chunk` {Buffer|string|any} 数据片段。对于非对象模式的可读流，这是一个字符串或者 `Buffer`。
   对于对象模式的可读流，这可以是除 `null` 以外的任意类型 JavaScript 值。
 
 `'data'` 事件会在流将数据传递给消费者时触发。当流转换到 flowing 模式时会触发该事件。调用 `readable.pipe()`， `readable.resume()` 方法，或为 `'data'` 事件添加回调可以将流转换到 flowing 模式。 `'data'` 事件也会在调用 `readable.read()` 方法并有数据返回时触发。

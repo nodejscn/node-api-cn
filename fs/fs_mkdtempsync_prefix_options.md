@@ -2,9 +2,9 @@
 added: v5.10.0
 -->
 
-* `prefix` {String}
-* `options` {String | Object}
-  * `encoding` {String} 默认 = `'utf8'`
+* `prefix` {string}
+* `options` {string|Object}
+  * `encoding` {string} 默认 = `'utf8'`
 
 [`fs.mkdtemp()`] 的同步版本。
 返回创建的目录的路径。

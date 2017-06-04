@@ -2,7 +2,7 @@
 added: v0.5.8
 -->
 
-`kind` defaults to `zlib.Z_FULL_FLUSH`.
+`kind` defaults to `zlib.constants.Z_FULL_FLUSH`.
 
 Flush pending data. Don't call this frivolously, premature flushes negatively
 impact the effectiveness of the compression algorithm.

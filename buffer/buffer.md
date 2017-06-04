@@ -33,6 +33,6 @@ const buf4 = Buffer.from([1, 2, 3]);
 const buf5 = Buffer.from('tést');
 
 // 创建一个包含 Latin-1 字节数组 [0x74, 0xe9, 0x73, 0x74] 的 Buffer。
-const buf6 = Buffer.from('tést', 'latin-1');
+const buf6 = Buffer.from('tést', 'latin1');
 ```
 

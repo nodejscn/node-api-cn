@@ -2,9 +2,9 @@
 added: v0.5.0
 -->
 
-* `offset` {Integer} 开始读取的位置，必须满足：`0 <= offset <= buf.length - 1`
-* `noAssert` {Boolean} 是否跳过 `offset` 检验？**默认:** `false`
-* 返回: {Integer}
+* `offset` {integer} 开始读取的位置，必须满足：`0 <= offset <= buf.length - 1`
+* `noAssert` {boolean} 是否跳过 `offset` 检验？**默认:** `false`
+* 返回: {integer}
 
 从 `buf` 中指定的 `offset` 读取一个无符号的8位整数值。
 

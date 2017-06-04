@@ -2,7 +2,7 @@
 added: v0.1.13
 -->
 
-* `code` {Integer} The exit code. Defaults to `0`.
+* `code` {integer} The exit code. Defaults to `0`.
 
 The `process.exit()` method instructs Node.js to terminate the process
 synchronously with an exit status of `code`. If `code` is omitted, exit uses

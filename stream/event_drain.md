@@ -12,7 +12,7 @@ function writeOneMillionTimes(writer, data, encoding, callback) {
   let i = 1000000;
   write();
   function write() {
-    var ok = true;
+    let ok = true;
     do {
       i--;
       if (i === 0) {

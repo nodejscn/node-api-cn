@@ -2,6 +2,8 @@
 added: v0.11.14
 -->
 
+> Stability: 0 - Deprecated. An alternative is in development.
+
 * `code` {string} The JavaScript code to compile and run.
 
 The `vm.runInDebugContext()` method compiles and executes `code` inside the V8

@@ -5,7 +5,7 @@ added: v0.1.21
 * `expected` {any}
 * `message` {any}
 
-使用不等运算符（`!=`）测试是否不相等。
+使用 [不等运算符]（`!=`）测试是否不相等。
 
 ```js
 const assert = require('assert');

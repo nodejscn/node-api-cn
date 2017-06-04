@@ -12,15 +12,16 @@ added: v0.6.0
 
 被赋予网络地址的对象包含的属性:
 
-* `address` {String} 被赋予的 IPv4 或 IPv6 地址
-* `netmask` {String}  IPv4 或 IPv6 子网掩码
-* `family` {String}  `IPv4` 或 `IPv6`
-* `mac` {String} 网络接口的MAC地址
+* `address` {string} 被赋予的 IPv4 或 IPv6 地址
+* `netmask` {string}  IPv4 或 IPv6 子网掩码
+* `family` {string}  `IPv4` 或 `IPv6`
+* `mac` {string} 网络接口的MAC地址
 * `internal` {boolean} 如果 网络接口是loopback或相似的远程不能用的接口时,
 值为`true`,否则为`false`
 * `scopeid` {number} IPv6 数字领域识别码 (只有当 `family`
 是`IPv6`时可用)
 
+<!-- eslint-disable -->
 ```js
 {
   lo: [

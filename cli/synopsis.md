@@ -1,5 +1,5 @@
 
-`node [options] [v8 options] [script.js | -e "script"] [arguments]`
+`node [options] [v8 options] [script.js | -e "script" | -] [--] [arguments]`
 
 `node debug [script.js | -e "script" | <host>:<port>] …`
 

@@ -3,7 +3,10 @@ added: v0.11.8
 -->
 
 * `options` {Object}
-  * `rejectUnauthorized` {boolean}
+  * `rejectUnauthorized` {boolean} If not `false`, the server certificate is verified
+    against the list of supplied CAs. An `'error'` event is emitted if
+    verification fails; `err.code` contains the OpenSSL error code. Defaults to
+    `true`.
   * `requestCert`
 * `callback` {Function} A function that will be called when the renegotiation
   request has been completed.

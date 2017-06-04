@@ -2,14 +2,20 @@
 added: v0.3.8
 -->
 
-`net.Socket` 有这样的一个性质，即 `socket.write()` 总是在运行。这是为了帮助用户运行地更快。
-计算机不能总是保持一定量的数据写入socket--网络连接肯能会变慢。Node.js将内部的把要写入socket的
-数据排队，然后在可能的时候将之通过网络发出。(在内部，它在socket文件描述器上轮询，等待可写）
+`net.Socket` has the property that `socket.write()` always works. This is to
+help users get up and running quickly. The computer cannot always keep up
+with the amount of data that is written to a socket - the network connection
+simply might be too slow. Node.js will internally queue up the data written to a
+socket and send it out over the wire when it is possible. (Internally it is
+polling on the socket's file descriptor for being writable).
 
-这样内部缓存的结果是使用的内存将增长。这个性质表明了当前缓存的等待被发送的字符的数量。
-（字符的数量近似与等待被写的字节的数目，但是缓存中可能包含字符串，字符串是懒散编码的，
-因此字节的确切的数目是未知的）
+The consequence of this internal buffering is that memory may grow. This
+property shows the number of characters currently buffered to be written.
+(Number of characters is approximately equal to the number of bytes to be
+written, but the buffer may contain strings, and the strings are lazily
+encoded, so the exact number of bytes is not known.)
 
-体验过大的或增长的`bufferSize`的用户应该在他们的程序中试图用[`pause()`][]和[`resume()`][]
-"限制" 数据的增长。
+Users who experience large or growing `bufferSize` should attempt to
+"throttle" the data flows in their program with
+[`socket.pause()`][] and [`socket.resume()`][].
 

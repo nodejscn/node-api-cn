@@ -6,5 +6,6 @@
   值两头的空格键会被去掉。
  - `NODE_REPL_HISTORY_SIZE` - 默认为 `1000`。控制历史记录的最大行数。必须是正数。
  - `NODE_REPL_MODE` - 可以是 `sloppy`、`strict` 或 `magic`。
-  默认为 `magic`，在严格模式中会自动运行 "strict mode only" 声明。
+  Defaults to `sloppy`, which will allow non-strict mode code to be run. `magic` is
+   **deprecated** and treated as an alias of `sloppy`.
 

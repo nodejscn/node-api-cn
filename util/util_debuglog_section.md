@@ -2,7 +2,7 @@
 added: v0.11.3
 -->
 
-* `section` {String} 一个字符串，指定要为应用的哪些部分创建 `debuglog` 函数。
+* `section` {string} 一个字符串，指定要为应用的哪些部分创建 `debuglog` 函数。
   `debuglog` 函数要为哪些应用创建。
 * 返回: {Function} 日志函数
 

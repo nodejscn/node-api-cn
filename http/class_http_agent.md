@@ -17,7 +17,7 @@ added: v0.3.4
 当 `Agent` 实例不再被使用时，建议 [`destroy()`] 它，因为未被使用的 socket 也会消耗操作系统资源。
 
 当 socket 触发 `'close'` 事件或 `'agentRemove'` 事件时，它会被移出代理池。
-这意味着如果你打算长时间保持打开一个 HTTP 请求且不想它留着连接池中，则可以如下处理：
+当打算长时间保持打开一个 HTTP 请求且不想它留着连接池中，则可以如下处理：
 
 ```js
 http.get(options, (res) => {
@@ -27,7 +27,7 @@ http.get(options, (res) => {
 });
 ```
 
-你也可以为一个单独的请求使用一个代理。
+代理也可被用于单独的请求。
 使用 `{agent: false}` 作为 `http.get()` 函数或 `http.request()` 函数的选项，则会为客户端连接创建一个默认配置的一次性使用的 `Agent`。
 
 `agent:false`:

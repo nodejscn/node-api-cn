@@ -1,9 +1,18 @@
 <!-- YAML
 added: v0.3.0
+changes:
+  - version: v7.1.0, v6.9.2
+    pr-url: https://github.com/nodejs/node/pull/9341
+    description: Coercing the offsets to integers now handles values outside
+                 the 32-bit integer range properly.
+  - version: v7.0.0
+    pr-url: https://github.com/nodejs/node/pull/9101
+    description: All offsets are now coerced to integers before doing any
+                 calculations with them.
 -->
 
-* `start` {Integer} 新建的 `Buffer` 开始的位置。 **默认:** `0`
-* `end` {Integer} 新建的 `Buffer` 结束的位置（不包含）。
+* `start` {integer} 新建的 `Buffer` 开始的位置。 **默认:** `0`
+* `end` {integer} 新建的 `Buffer` 结束的位置（不包含）。
   **默认:** [`buf.length`]
 * 返回: {Buffer}
 
@@ -16,7 +25,7 @@ added: v0.3.0
 ```js
 const buf1 = Buffer.allocUnsafe(26);
 
-for (let i = 0 ; i < 26 ; i++) {
+for (let i = 0; i < 26; i++) {
   // 97 是 'a' 的十进制 ASCII 值 
   buf1[i] = i + 97;
 }

@@ -3,7 +3,7 @@ added: v6.0.0
 -->
 
 * `options` {Object}
-  * `encoding` {String} 用于解释结果字符串的字符编码.
+  * `encoding` {string} 用于解释结果字符串的字符编码.
     如果`encoding` 被设置为`'buffer'`, `username`, `shell`, 和 `homedir`
     的值将成为 `Buffer`的实例. (默认是: 'utf8')
 * Returns: {Object}

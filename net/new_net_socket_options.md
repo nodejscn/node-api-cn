@@ -2,23 +2,20 @@
 added: v0.3.4
 -->
 
-构造一个新的socket对象。
+Creates a new socket object.
 
-`options` 是一个对象，有着以下默认值:
+* `options` {Object} Available options are:
+  * `fd`: {number} If specified, wrap around an existing socket with
+    the given file descriptor, otherwise a new socket will be created.
+  * `allowHalfOpen` {boolean} Indicates whether half-opened TCP connections
+    are allowed. See [`net.createServer()`][] and the [`'end'`][] event
+    for details. Defaults to `false`.
+  * `readable` {boolean} Allow reads on the socket when a `fd` is passed,
+    otherwise ignored. Defaults to `false`.
+  * `writable` {boolean} Allow reads on the socket when a `fd` is passed,
+    otherwise ignored. Defaults to `false`.
+* Returns: {net.Socket}
 
-```js
-{
-  fd: null,
-  allowHalfOpen: false,
-  readable: false,
-  writable: false
-}
-```
-
-`fd` 允许你指定socket的存在的文件描述器。
-设定 `readable` 和/或 `writable` 为 `true` 来允许在这个socket上进行读和/或写。
-(注意: 只有当 `fd` 被传参时，才工作).
-关于 `allowHalfOpen`, 请参照 [`net.createServer()`] 和 [`'end'`] 事件.
-
-`net.Socket` 是 [`EventEmitter`][] 实例，有以下事件:
+The newly created socket can be either a TCP socket or a streaming [IPC][]
+endpoint, depending on what it [`connect()`][`socket.connect()`] to.
 

@@ -1,5 +1,9 @@
 <!-- YAML
 added: v0.1.26
+changes:
+  - version: v1.8.1
+    pr-url: https://github.com/nodejs/node/pull/1077
+    description: Additional arguments after `callback` are now supported.
 -->
 
 * `callback` {Function}
@@ -38,7 +42,7 @@ function MyThing(options) {
   });
 }
 
-var thing = new MyThing();
+const thing = new MyThing();
 thing.getReadyForStuff();
 
 // thing.startDoingStuff() gets called now, not before.
@@ -86,7 +90,7 @@ function definitelyAsync(arg, cb) {
 }
 ```
 
-*Note*: the next tick queue is completely drained on each pass of the
+*Note*: The next tick queue is completely drained on each pass of the
 event loop **before** additional I/O is processed.  As a result,
 recursively setting nextTick callbacks will block any I/O from
 happening, just like a `while(true);` loop.

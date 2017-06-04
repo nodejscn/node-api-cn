@@ -1,5 +1,6 @@
 
-* {String}
+* {string}
 
-`error.code` 属性是一个表示错误码的字符串，总是 `E` 带上一串大写字母。
+The `error.code` property is a string label that identifies the kind of error.
+See [Node.js Error Codes][] for details about specific codes.
 

@@ -19,7 +19,7 @@ util.isObject(null);
 // Returns: false
 util.isObject({});
 // Returns: true
-util.isObject(function(){});
+util.isObject(function() {});
 // Returns: false
 ```
 

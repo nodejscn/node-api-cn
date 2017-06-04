@@ -2,13 +2,24 @@
 added: v0.1.90
 -->
 
-一个生产器函数，将返回一个新的 [`net.Socket`][] 并且自动的根据所提供的`options` 参数进行连接。
+* `options` {Object} Required. Will be passed to both the
+  [`new net.Socket([options])`][`new net.Socket(options)`] call and the
+  [`socket.connect(options[, connectListener])`][`socket.connect(options)`]
+  method.
+* `connectListener` {Function} Common parameter of the
+  [`net.createConnection()`][] functions. If supplied, will be added as
+  a listener for the [`'connect'`][] event on the returned socket once.
+* Returns: {net.Socket} The newly created socket used to start the connection.
 
-options参数将被传递到[`net.Socket`][]构造函数和[`socket.connect`][]方法两个地方。
+For available options, see
+[`new net.Socket([options])`][`new net.Socket(options)`]
+and [`socket.connect(options[, connectListener])`][`socket.connect(options)`].
 
-在socket创建之后，连接建立之前，传递`timeout`作为参数将调用[`socket.setTimeout()`][]。
+Additional options:
 
-`connectListener`参数将一次被用作监听器来监听[`'connect'`][]事件。
+* `timeout` {number} If set, will be used to call
+  [`socket.setTimeout(timeout)`][] after the socket is created, but before
+  it starts the connection.
 
 Following is an example of a client of the echo server described
 in the [`net.createServer()`][] section:
@@ -29,9 +40,10 @@ client.on('end', () => {
 });
 ```
 
-为了连接`/tmp/echo.sock`的socket，第二行应改为
+To connect on the socket `/tmp/echo.sock` the second line would just be
+changed to
 
 ```js
-const client = net.connect({path: '/tmp/echo.sock'});
+const client = net.createConnection({path: '/tmp/echo.sock'});
 ```
 

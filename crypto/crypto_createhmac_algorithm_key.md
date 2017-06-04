@@ -1,6 +1,8 @@
 <!-- YAML
 added: v0.1.94
 -->
+- `algorithm` {string}
+- `key` {string | Buffer | TypedArray | DataView}
 
 Creates and returns an `Hmac` object that uses the given `algorithm` and `key`.
 

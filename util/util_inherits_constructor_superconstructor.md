@@ -1,5 +1,9 @@
 <!-- YAML
 added: v0.3.0
+changes:
+  - version: v5.0.0
+    pr-url: https://github.com/nodejs/node/pull/3455
+    description: The `constructor` parameter can refer to an ES6 class now.
 -->
 
 注意，不建议使用 `util.inherits()`。

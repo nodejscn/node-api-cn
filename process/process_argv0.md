@@ -2,7 +2,7 @@
 added: 6.4.0
 -->
 
-* {String}
+* {string}
 
 The `process.argv0` property stores a read-only copy of the original value of
 `argv[0]` passed when Node.js starts.

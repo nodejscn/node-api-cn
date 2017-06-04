@@ -1,11 +1,16 @@
 <!-- YAML
 added: v0.0.2
+changes:
+  - version: v7.6.0
+    pr-url: https://github.com/nodejs/node/pull/10739
+    description: The `path` parameter can be a WHATWG `URL` object using
+                 `file:` protocol. Support is currently still *experimental*.
 deprecated: v1.0.0
 -->
 
 > 稳定性: 0 - 废弃的: 使用 [`fs.stat()`] 或 [`fs.access()`] 代替。
 
-* `path` {String | Buffer}
+* `path` {string|Buffer|URL}
 * `callback` {Function}
 
 Test whether or not the given path exists by checking with the file system.

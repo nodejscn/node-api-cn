@@ -14,6 +14,7 @@ const Transform = require('stream').Transform;
 class MyTransform extends Transform {
   constructor(options) {
     super(options);
+    // ...
   }
 }
 ```

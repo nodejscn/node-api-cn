@@ -1,12 +1,16 @@
 <!-- YAML
 added: v5.10.0
+changes:
+  - version: v7.0.0
+    pr-url: https://github.com/nodejs/node/pull/7079
+    description: Passing a negative `size` will now throw an error.
 -->
 
-* `size` {Integer} 新建的 `Buffer` 期望的长度
+* `size` {integer} 新建的 `Buffer` 期望的长度
 
-分配一个大小为 `size` 字节的新建的**没有用0填充**的 `Buffer` 。
-`size` 必须小于或等于 [`buffer.kMaxLength`] 的值，否则将抛出 [`RangeError`] 错误。
-如果 `size` 小于或等于0，则创建一个长度为0的 `Buffer` 。
+分配一个大小为 `size` 字节的新建的 `Buffer` 。
+如果 `size` 大于 [`buffer.kMaxLength`] 或小于 0，则抛出 [`RangeError`] 错误。
+如果 `size` 为 0，则创建一个长度为 0 的 `Buffer`。
 
 以这种方式创建的 `Buffer` 实例的底层内存是**未初始化**的。
 新创建的 `Buffer` 的内容是未知的，且**可能包含敏感数据**。

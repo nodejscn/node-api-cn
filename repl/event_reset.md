@@ -15,7 +15,7 @@ function initializeContext(context) {
   context.m = 'test';
 }
 
-var r = repl.start({prompt: '>'});
+const r = repl.start({prompt: '> '});
 initializeContext(r.context);
 
 r.on('reset', initializeContext);
@@ -23,17 +23,18 @@ r.on('reset', initializeContext);
 
 当代码被执行时，全局的 `'m'` 变量可以被修改，但随后的 `.clear` 命令会把它重置回初始值：
 
+<!-- eslint-disable -->
 ```js
 $ ./node example.js
->m
+> m
 'test'
->m = 1
+> m = 1
 1
->m
+> m
 1
->.clear
+> .clear
 Clearing context...
->m
+> m
 'test'
 >
 ```

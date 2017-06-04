@@ -1,12 +1,23 @@
 <!-- YAML
 added: v0.0.2
+changes:
+  - version: v7.4.0
+    pr-url: https://github.com/nodejs/node/pull/10382
+    description: The `buffer` parameter can now be a `Uint8Array`.
+  - version: v7.2.0
+    pr-url: https://github.com/nodejs/node/pull/7856
+    description: The `offset` and `length` parameters are optional now.
+  - version: v7.0.0
+    pr-url: https://github.com/nodejs/node/pull/7897
+    description: The `callback` parameter is no longer optional. Not passing
+                 it will emit a deprecation warning.
 -->
 
-* `fd` {Integer}
-* `buffer` {String | Buffer}
-* `offset` {Integer}
-* `length` {Integer}
-* `position` {Integer}
+* `fd` {integer}
+* `buffer` {Buffer|Uint8Array}
+* `offset` {integer}
+* `length` {integer}
+* `position` {integer}
 * `callback` {Function}
 
 写入 `buffer` 到 `fd` 指定的文件。
@@ -16,7 +27,10 @@ added: v0.0.2
 `position` 指向从文件开始写入数据的位置的偏移量。
 如果 `typeof position !== 'number'`，则数据从当前位置写入。详见 pwrite(2)。
 
-回调有三个参数 `(err, written, buffer)`，其中 `written` 指定从 `buffer` 写入了多少**字节**。
+回调有三个参数 `(err, bytesWritten, buffer)`，其中 `bytesWritten` 指定从 `buffer` 写入了多少**字节**。
+
+If this method is invoked as its [`util.promisify()`][]ed version, it returns
+a Promise for an object with `bytesWritten` and `buffer` properties.
 
 注意，多次对同一文件使用 `fs.write` 且不等待回调，是不安全的。
 对于这种情况，强烈推荐使用 `fs.createWriteStream`。

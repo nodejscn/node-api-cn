@@ -1,5 +1,9 @@
 <!-- YAML
 added: v0.3.1
+changes:
+  - version: v6.3.0
+    pr-url: https://github.com/nodejs/node/pull/6635
+    description: The `breakOnSigint` option is supported now.
 -->
 
 * `contextifiedSandbox` {Object} A [contextified][] object as returned by the
@@ -44,7 +48,7 @@ const sandbox = {
 const script = new vm.Script('count += 1; name = "kitty";');
 
 const context = new vm.createContext(sandbox);
-for (var i = 0; i < 10; ++i) {
+for (let i = 0; i < 10; ++i) {
   script.runInContext(context);
 }
 
@@ -52,4 +56,8 @@ console.log(util.inspect(sandbox));
 
 // { animal: 'cat', count: 12, name: 'kitty' }
 ```
+
+*Note*: Using the `timeout` or `breakOnSigint` options will result in new
+event loops and corresponding threads being started, which have a non-zero
+performance overhead.
 

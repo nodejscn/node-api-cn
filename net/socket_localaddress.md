@@ -2,6 +2,8 @@
 added: v0.9.6
 -->
 
-远程客户端连接的本地IP地址的字符串表示。 例如, 如果你监听`'0.0.0.0'` 而客户端连接的是
-`'192.168.1.1'`, 最后的值是 `'192.168.1.1'`.
+The string representation of the local IP address the remote client is
+connecting on. For example, in a server listening on `'0.0.0.0'`, if a client
+connects on `'192.168.1.1'`, the value of `socket.localAddress` would be
+`'192.168.1.1'`.
 

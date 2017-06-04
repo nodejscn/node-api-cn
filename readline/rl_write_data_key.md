@@ -2,12 +2,12 @@
 added: v0.1.98
 -->
 
-* `data` {String}
+* `data` {string}
 * `key` {Object}
   * `ctrl` {boolean} 如果为 `true` 则表示 `<ctrl>` 键。
   * `meta` {boolean} 如果为 `true` 则表示 `<Meta>` 键。
   * `shift` {boolean} 如果为 `true` 则表示 `<Shift>` 键。
-  * `name` {String} 一个按键的名称。
+  * `name` {string} 一个按键的名称。
 
 `rl.write()` 方法会把 `data` 或一个由 `key` 指定的按键序列写入到 `output`。
 只有当 `output` 是一个 [TTY] 文本终端时，`key` 参数才被支持。

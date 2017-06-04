@@ -13,6 +13,6 @@ if (process.geteuid) {
 }
 ```
 
-*Note*: This function is only available on POSIX platforms (i.e. not Windows or
-Android)
+*Note*: This function is only available on POSIX platforms (i.e. not Windows
+or Android).
 

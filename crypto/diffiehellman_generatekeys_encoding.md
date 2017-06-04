@@ -1,6 +1,7 @@
 <!-- YAML
 added: v0.5.0
 -->
+- `encoding` {string}
 
 Generates private and public Diffie-Hellman key values, and returns
 the public key in the specified `encoding`. This key should be

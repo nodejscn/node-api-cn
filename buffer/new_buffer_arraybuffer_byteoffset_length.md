@@ -1,13 +1,24 @@
 <!-- YAML
+added: v3.0.0
 deprecated: v6.0.0
+changes:
+  - version: v7.2.1
+    pr-url: https://github.com/nodejs/node/pull/9529
+    description: Calling this constructor no longer emits a deprecation warning.
+  - version: v7.0.0
+    pr-url: https://github.com/nodejs/node/pull/8169
+    description: Calling this constructor emits a deprecation warning now.
+  - version: v6.0.0
+    pr-url: https://github.com/nodejs/node/pull/4682
+    description: The `byteOffset` and `length` parameters are supported now.
 -->
 
 > 稳定性: 0 - 废弃的: 使用 [`Buffer.from(arrayBuffer[, byteOffset [, length]])`][`Buffer.from(arrayBuffer)`] 代替。
 
 * `arrayBuffer` {ArrayBuffer} An [`ArrayBuffer`] or the `.buffer` property of a
   [`TypedArray`].
-* `byteOffset` {Integer} Index of first byte to expose. **Default:** `0`
-* `length` {Integer} Number of bytes to expose.
+* `byteOffset` {integer} Index of first byte to expose. **Default:** `0`
+* `length` {integer} Number of bytes to expose.
   **Default:** `arrayBuffer.length - byteOffset`
 
 This creates a view of the [`ArrayBuffer`] without copying the underlying

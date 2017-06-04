@@ -1,11 +1,19 @@
 <!-- YAML
 added: v0.1.90
+changes:
+  - version: v7.0.0
+    pr-url: https://github.com/nodejs/node/pull/8946
+    description: Passing invalid input will now throw an error.
+  - version: v5.10.0
+    pr-url: https://github.com/nodejs/node/pull/5255
+    description: The `string` parameter can now be any `TypedArray`, `DataView`
+                 or `ArrayBuffer`.
 -->
 
-* `string` {String | Buffer | TypedArray | DataView | ArrayBuffer} 要计算长度的值
-* `encoding` {String} 如果 `string` 是字符串，则这是它的字符编码。
+* `string` {string|Buffer|TypedArray|DataView|ArrayBuffer} 要计算长度的值
+* `encoding` {string} 如果 `string` 是字符串，则这是它的字符编码。
   **默认:** `'utf8'`
-* 返回: {Integer} `string` 包含的字节数
+* 返回: {integer} `string` 包含的字节数
 
 返回一个字符串的实际字节长度。
 这与 [`String.prototype.length`] 不同，因为那返回字符串的**字符**数。
@@ -24,6 +32,4 @@ console.log(`${str}: ${str.length} 个字符, ` +
 ```
 
 当 `string` 是一个 `Buffer`/[`DataView`]/[`TypedArray`]/[`ArrayBuffer`] 时，返回实际的字节长度。
-
-否则，会转换为 `String` 并返回字符串的字节长度。
 

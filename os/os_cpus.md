@@ -8,7 +8,7 @@ added: v0.3.3
 
 下面的属性包含在每个对象中:
 
-* `model` {String}
+* `model` {string}
 * `speed` {number} (兆赫兹为单位)
 * `times` {Object}
   * `user` {number} CPU花费在用户模式下的毫秒时间数.
@@ -19,6 +19,7 @@ added: v0.3.3
 
 For example:
 
+<!-- eslint-disable semi -->
 ```js
 [
   {

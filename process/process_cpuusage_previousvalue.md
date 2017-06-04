@@ -5,8 +5,8 @@ added: v6.1.0
 * `previousValue` {Object} A previous return value from calling
   `process.cpuUsage()`
 * Returns: {Object}
-    * `user` {Integer}
-    * `system` {Integer}
+    * `user` {integer}
+    * `system` {integer}
 
 The `process.cpuUsage()` method returns the user and system CPU time usage of
 the current process, in an object with properties `user` and `system`, whose

@@ -1,13 +1,17 @@
 <!-- YAML
 added: v6.0.0
+changes:
+  - version: v8.0.0
+    pr-url: https://github.com/nodejs/node/pull/10236
+    description: The `value` can now be a `Uint8Array`.
 -->
 
-* `value` {String | Buffer | Integer} 要搜索的值
-* `byteOffset` {Integer} `buf` 中开始搜索的位置。
+* `value` {string|Buffer|Uint8Array|integer} 要搜索的值
+* `byteOffset` {integer} `buf` 中开始搜索的位置。
   **默认:** [`buf.length`]` - 1`
-* `encoding` {String} 如果 `value` 是一个字符串，则这是它的字符编码。
+* `encoding` {string} 如果 `value` 是一个字符串，则这是它的字符编码。
   **默认:** `'utf8'`
-* 返回: {Integer} `buf` 中 `value` 最后一次出现的索引，如果 `buf` 没包含 `value` 则返回 `-1`
+* 返回: {integer} `buf` 中 `value` 最后一次出现的索引，如果 `buf` 没包含 `value` 则返回 `-1`
 
 与 [`buf.indexOf()`] 类似，除了 `buf` 是从后往前搜索而不是从前往后。
 
@@ -73,4 +77,6 @@ console.log(b.lastIndexOf('b', {}));
 console.log(b.lastIndexOf('b', null));
 console.log(b.lastIndexOf('b', []));
 ```
+
+If `value` is an empty string or empty `Buffer`, `byteOffset` will be returned.
 

@@ -2,8 +2,17 @@
 added: v0.3.4
 -->
 
-这个对象是TCP或者本地socket的一个抽象。`net.Socket`实例实现了
-一个双工流接口。它们可以由用户创建用于客户端（和[`connect()`][]），
-或者是由Node.js创建，用于通过一个服务器的`'connection'`事件传参给用户。
+This class is an abstraction of a TCP socket or a streaming [IPC][] endpoint
+(uses named pipes on Windows, and UNIX domain sockets otherwise). A
+`net.Socket` is also a [duplex stream][], so it can be both readable and
+writable, and it is also a [`EventEmitter`][].
 
+A `net.Socket` can be created by the user and used directly to interact with
+a server. For example, it is returned by [`net.createConnection()`][],
+so the user can use it to talk to the server.
+
+It can also be be created by Node.js and passed to the user when a connection
+is received. For example, it is passed to the listeners of a
+[`'connection'`][] event emitted on a [`net.Server`][], so the user can use
+it to interact with the client.
 

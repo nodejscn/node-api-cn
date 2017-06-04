@@ -1,6 +1,7 @@
 <!-- YAML
 added: v0.1.92
 -->
+- `encoding` {string}
 
 Calculates the digest of all of the data passed to be hashed (using the
 [`hash.update()`][] method). The `encoding` can be `'hex'`, `'latin1'` or

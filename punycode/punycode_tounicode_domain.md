@@ -2,7 +2,7 @@
 added: v0.6.1
 -->
 
-* `domain` {String}
+* `domain` {string}
 
 The `punycode.toUnicode()` method converts a string representing a domain name
 containing [Punycode][] encoded characters into Unicode. Only the [Punycode][]

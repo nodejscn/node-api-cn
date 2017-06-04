@@ -1,5 +1,19 @@
 <!-- YAML
 added: v0.3.0
+changes:
+  - version: v6.6.0
+    pr-url: https://github.com/nodejs/node/pull/8174
+    description: Custom inspection functions can now return `this`.
+  - version: v6.3.0
+    pr-url: https://github.com/nodejs/node/pull/7499
+    description: The `breakLength` option is supported now.
+  - version: v6.1.0
+    pr-url: https://github.com/nodejs/node/pull/6334
+    description: The `maxArrayLength` option is supported now; in particular,
+                 long arrays are truncated by default.
+  - version: v6.1.0
+    pr-url: https://github.com/nodejs/node/pull/6465
+    description: The `showProxy` option is supported now.
 -->
 
 * `object` {any} 任何 JavaScript 原始值或对象。

@@ -1,10 +1,15 @@
 <!-- YAML
 added: v0.0.2
+changes:
+  - version: v7.6.0
+    pr-url: https://github.com/nodejs/node/pull/10739
+    description: The `path` parameter can be a WHATWG `URL` object using `file:`
+                 protocol. Support is currently still *experimental*.
 -->
 
-* `path` {String | Buffer}
-* `flags` {String | Number}
-* `mode` {Integer}
+* `path` {string|Buffer|URL}
+* `flags` {string|number}
+* `mode` {integer}
 * `callback` {Function}
 
 异步地打开文件。详见 open(2)。
@@ -54,11 +59,11 @@ added: v0.0.2
 内核会忽略位置参数，并总是附加数据到文件的末尾。
 
 注意：`fs.open()` 某些标志的行为是与平台相关的。
-因此，在 OS X 和 Linux 下用 `'a+'` 标志打开一个目录（见下面的例子），会返回一个错误。
+因此，在 macOS 和 Linux 下用 `'a+'` 标志打开一个目录（见下面的例子），会返回一个错误。
 与此相反，在 Windows 和 FreeBSD，则会返回一个文件描述符。
 
 ```js
-// OS X 与 Linux
+// macOS 与 Linux
 fs.open('<directory>', 'a+', (err, fd) => {
   // => [Error: EISDIR: illegal operation on a directory, open <directory>]
 });

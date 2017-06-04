@@ -19,7 +19,7 @@ server.on('message', (msg, rinfo) => {
 });
 
 server.on('listening', () => {
-  var address = server.address();
+  const address = server.address();
   console.log(`服务器监听 ${address.address}:${address.port}`);
 });
 

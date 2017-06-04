@@ -13,14 +13,13 @@ if (process.getuid && process.setuid) {
   try {
     process.setuid(501);
     console.log(`New uid: ${process.getuid()}`);
-  }
-  catch (err) {
+  } catch (err) {
     console.log(`Failed to set uid: ${err}`);
   }
 }
 ```
 
-*Note*: This function is only available on POSIX platforms (i.e. not Windows or
-Android)
+*Note*: This function is only available on POSIX platforms (i.e. not Windows
+or Android).
 
 

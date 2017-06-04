@@ -1,6 +1,8 @@
 <!-- YAML
 added: v0.1.26
 -->
+- `eventName` {any}
+- `listener` {Function}
 
 从名为 `eventName` 的事件的监听器数组中移除指定的 `listener`。
 

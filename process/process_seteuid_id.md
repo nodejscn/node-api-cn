@@ -2,7 +2,7 @@
 added: v2.0.0
 -->
 
-* `id` {String|number} A user name or ID
+* `id` {string|number} A user name or ID
 
 The `process.seteuid()` method sets the effective user identity of the process.
 (See seteuid(2).) The `id` can be passed as either a numeric ID or a username
@@ -15,13 +15,12 @@ if (process.geteuid && process.seteuid) {
   try {
     process.seteuid(501);
     console.log(`New uid: ${process.geteuid()}`);
-  }
-  catch (err) {
+  } catch (err) {
     console.log(`Failed to set uid: ${err}`);
   }
 }
 ```
 
-*Note*: This function is only available on POSIX platforms (i.e. not Windows or
-Android)
+*Note*: This function is only available on POSIX platforms (i.e. not Windows
+or Android).
 

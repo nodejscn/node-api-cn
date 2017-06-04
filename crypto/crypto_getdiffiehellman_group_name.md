@@ -1,6 +1,7 @@
 <!-- YAML
 added: v0.7.5
 -->
+- `group_name` {string}
 
 Creates a predefined `DiffieHellman` key exchange object. The
 supported groups are: `'modp1'`, `'modp2'`, `'modp5'` (defined in

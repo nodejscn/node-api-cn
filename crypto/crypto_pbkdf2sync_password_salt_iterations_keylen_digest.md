@@ -1,6 +1,20 @@
 <!-- YAML
 added: v0.9.3
+changes:
+  - version: v6.0.0
+    pr-url: https://github.com/nodejs/node/pull/4047
+    description: Calling this function without passing the `digest` parameter
+                 is deprecated now and will emit a warning.
+  - version: v6.0.0
+    pr-url: https://github.com/nodejs/node/pull/5522
+    description: The default encoding for `password` if it is a string changed
+                 from `binary` to `utf8`.
 -->
+- `password` {string}
+- `salt` {string}
+- `iterations` {number}
+- `keylen` {number}
+- `digest` {string}
 
 Provides a synchronous Password-Based Key Derivation Function 2 (PBKDF2)
 implementation. A selected HMAC digest algorithm specified by `digest` is

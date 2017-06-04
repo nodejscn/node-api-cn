@@ -1,7 +1,7 @@
 
-* `size` {Number} Number of bytes to read asynchronously
+* `size` {number} Number of bytes to read asynchronously
 
-*Note*: **This function MUST NOT be called by application code directly.** It
+*Note*: This function MUST NOT be called by application code directly. It
 should be implemented by child classes, and called only by the internal Readable
 class methods only.
 

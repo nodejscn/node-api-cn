@@ -1,11 +1,18 @@
 <!-- YAML
 deprecated: v6.0.0
+changes:
+  - version: v7.2.1
+    pr-url: https://github.com/nodejs/node/pull/9529
+    description: Calling this constructor no longer emits a deprecation warning.
+  - version: v7.0.0
+    pr-url: https://github.com/nodejs/node/pull/8169
+    description: Calling this constructor emits a deprecation warning now.
 -->
 
 > 稳定性: 0 - 废弃的: 使用 [`Buffer.from(string[, encoding])`][`Buffer.from(string)`] 代替。
 
-* `string` {String} String to encode
-* `encoding` {String} The encoding of `string`. **Default:** `'utf8'`
+* `string` {string} String to encode
+* `encoding` {string} The encoding of `string`. **Default:** `'utf8'`
 
 Creates a new `Buffer` containing the given JavaScript string `string`. If
 provided, the `encoding` parameter identifies the character encoding of `string`.

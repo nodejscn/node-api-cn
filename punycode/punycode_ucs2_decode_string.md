@@ -2,7 +2,7 @@
 added: v0.7.0
 -->
 
-* `string` {String}
+* `string` {string}
 
 The `punycode.ucs2.decode()` method returns an array containing the numeric
 codepoint values of each Unicode symbol in the string.

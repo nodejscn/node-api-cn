@@ -24,7 +24,7 @@ function MyError() {
 }
 
 // 没传入 MyError 到 captureStackTrace，MyError 帧会显示在 .stack 属性。
-// 通过传入构造函数，可以省略该帧及其之上的所有帧。
+// 通过传入构造函数，可以省略该帧，且保留其下面的所有帧。
 new MyError().stack;
 ```
 

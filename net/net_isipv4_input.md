@@ -2,6 +2,6 @@
 added: v0.3.0
 -->
 
-如果输入是IPv4地址的话，返回true, 否则返回false。
+Returns true if input is a version 4 IP address, otherwise returns false.
 
 

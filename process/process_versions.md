@@ -1,5 +1,9 @@
 <!-- YAML
 added: v0.2.0
+changes:
+  - version: v4.2.0
+    pr-url: https://github.com/nodejs/node/pull/3102
+    description: The `icu` property is now supported.
 -->
 
 * {Object}
@@ -13,8 +17,9 @@ to load modules that were compiled against a different module ABI version.
 console.log(process.versions);
 ```
 
-Will generate output similar to:
+Will generate an object similar to:
 
+<!-- eslint-disable -->
 ```js
 {
   http_parser: '2.3.0',
@@ -25,7 +30,9 @@ Will generate output similar to:
   ares: '1.10.0-DEV',
   modules: '43',
   icu: '55.1',
-  openssl: '1.0.1k'
-}
+  openssl: '1.0.1k',
+  unicode: '8.0',
+  cldr: '29.0',
+  tz: '2016b' }
 ```
 

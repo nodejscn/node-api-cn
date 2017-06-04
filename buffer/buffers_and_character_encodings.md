@@ -1,3 +1,12 @@
+<!-- YAML
+changes:
+  - version: v6.4.0
+    pr-url: https://github.com/nodejs/node/pull/7111
+    description: Introduced `latin1` as an alias for `binary`.
+  - version: v5.0.0
+    pr-url: https://github.com/nodejs/node/pull/2859
+    description: Removed the deprecated `raw` and `raws` encodings.
+-->
 
 `Buffer` 实例一般用于表示编码字符的序列，比如 UTF-8 、 UCS2 、 Base64 、或十六进制编码的数据。
 通过使用显式的字符编码，就可以在 `Buffer` 实例与普通的 JavaScript 字符串之间进行相互转换。

@@ -1,5 +1,11 @@
 <!-- YAML
 added: v0.1.94
+changes:
+  - version: v6.0.0
+    pr-url: https://github.com/nodejs/node/pull/4557
+    description: The default action of calling `.destroy()` on the `socket`
+                 will no longer take place if there are listeners attached
+                 for `clientError`.
 -->
 
 * `exception` {Error}

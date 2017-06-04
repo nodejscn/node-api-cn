@@ -2,7 +2,7 @@
 added: v0.5.3
 -->
 
-* `format` {String} 一个类似 `printf` 的格式字符串。
+* `format` {string} 一个类似 `printf` 的格式字符串。
 
 `util.format()` 方法返回一个格式化后的字符串，使用第一个参数作为一个类似 `printf` 的格式。
 
@@ -11,7 +11,9 @@ added: v0.5.3
 支持的占位符有：
 
 * `%s` - 字符串。
-* `%d` - 数值（包括整数和浮点数）。
+* `%d` - 数值（整数或浮点数）。
+* `%i` - Integer.
+* `%f` - Floating point value.
 * `%j` - JSON。如果参数包含循环引用，则用字符串 `'[Circular]'` 替换。
 * `%%` - 单个百分号（`'%'`）。不消耗参数。
 
@@ -33,5 +35,12 @@ util.format('%s:%s', 'foo', 'bar', 'baz'); // 'foo:bar baz'
 
 ```js
 util.format(1, 2, 3); // '1 2 3'
+```
+
+If only one argument is passed to `util.format()`, it is returned as it is
+without any formatting.
+
+```js
+util.format('%% %s'); // '%% %s'
 ```
 

@@ -2,7 +2,7 @@
 added: v0.1.3
 -->
 
-* {String}
+* {string}
 
 The `process.version` property returns the Node.js version string.
 

@@ -13,12 +13,12 @@ class Counter extends Readable {
   }
 
   _read() {
-    var i = this._index++;
+    const i = this._index++;
     if (i > this._max)
       this.push(null);
     else {
-      var str = '' + i;
-      var buf = Buffer.from(str, 'ascii');
+      const str = '' + i;
+      const buf = Buffer.from(str, 'ascii');
       this.push(buf);
     }
   }

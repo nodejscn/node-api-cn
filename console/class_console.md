@@ -1,3 +1,10 @@
+<!-- YAML
+changes:
+  - version: v8.0.0
+    pr-url: https://github.com/nodejs/node/pull/9744
+    description: Errors that occur while writing to the underlying streams
+                 will now be ignored.
+-->
 
 <!--type=class-->
 
@@ -5,6 +12,9 @@
 
 ```js
 const Console = require('console').Console;
+```
+
+```js
 const Console = console.Console;
 ```
 

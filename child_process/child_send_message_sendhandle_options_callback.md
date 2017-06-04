@@ -1,12 +1,23 @@
 <!-- YAML
 added: v0.5.9
+changes:
+  - version: v5.8.0
+    pr-url: https://github.com/nodejs/node/pull/5283
+    description: The `options` parameter, and the `keepOpen` option
+                 in particular, is supported now.
+  - version: v5.0.0
+    pr-url: https://github.com/nodejs/node/pull/3516
+    description: This method returns a boolean for flow control now.
+  - version: v4.0.0
+    pr-url: https://github.com/nodejs/node/pull/2620
+    description: The `callback` parameter is supported now.
 -->
 
 * `message` {Object}
 * `sendHandle` {Handle}
 * `options` {Object}
 * `callback` {Function}
-* 返回: {Boolean}
+* 返回: {boolean}
 
 当父进程和子进程之间建立了一个 IPC 通道时（例如，使用 [`child_process.fork()`]），`child.send()` 方法可用于发送消息到子进程。
 当子进程是一个 Node.js 实例时，消息可以通过 [`process.on('message')`] 事件接收。

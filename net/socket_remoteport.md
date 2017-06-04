@@ -2,6 +2,6 @@
 added: v0.5.10
 -->
 
-远程端口的数字表示.例如,
+The numeric representation of the remote port. For example,
 `80` or `21`.
 

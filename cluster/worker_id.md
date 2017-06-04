@@ -2,7 +2,7 @@
 added: v0.8.0
 -->
 
-* {Number}
+* {number}
 
 Each new worker is given its own unique id, this id is stored in the
 `id`.

@@ -2,7 +2,7 @@
 added: v0.1.31
 -->
 
-* `id` {String|number} The group name or ID
+* `id` {string|number} The group name or ID
 
 The `process.setgid()` method sets the group identity of the process. (See
 setgid(2).)  The `id` can be passed as either a numeric ID or a group name
@@ -15,13 +15,12 @@ if (process.getgid && process.setgid) {
   try {
     process.setgid(501);
     console.log(`New gid: ${process.getgid()}`);
-  }
-  catch (err) {
+  } catch (err) {
     console.log(`Failed to set gid: ${err}`);
   }
 }
 ```
 
-*Note*: This function is only available on POSIX platforms (i.e. not Windows or
-Android)
+*Note*: This function is only available on POSIX platforms (i.e. not Windows
+or Android).
 

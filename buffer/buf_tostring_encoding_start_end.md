@@ -2,11 +2,11 @@
 added: v0.1.90
 -->
 
-* `encoding` {String} 解码使用的字符编码。**默认:** `'utf8'`
-* `start` {Integer} 开始解码的字节偏移量。**默认:** `0`
-* `end` {Integer} 结束解码的字节偏移量（不包含）。
+* `encoding` {string} 解码使用的字符编码。**默认:** `'utf8'`
+* `start` {integer} 开始解码的字节偏移量。**默认:** `0`
+* `end` {integer} 结束解码的字节偏移量（不包含）。
   **默认:** [`buf.length`]
-* 返回: {String}
+* 返回: {string}
 
 根据 `encoding` 指定的字符编码解码 `buf` 成一个字符串。
 `start` 和 `end` 可传入用于只解码 `buf` 的一部分。
@@ -16,7 +16,7 @@ added: v0.1.90
 ```js
 const buf1 = Buffer.allocUnsafe(26);
 
-for (let i = 0 ; i < 26 ; i++) {
+for (let i = 0; i < 26; i++) {
   // 97 是 'a' 的十进制 ASCII 值
   buf1[i] = i + 97;
 }

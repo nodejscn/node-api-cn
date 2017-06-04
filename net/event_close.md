@@ -2,5 +2,6 @@
 added: v0.5.0
 -->
 
-当服务器关闭时被触发。注意：如果还有连接存在的话，直到所有的连接都关闭时，这个事件才被触发。
+Emitted when the server closes. Note that if connections exist, this
+event is not emitted until all connections are ended.
 

@@ -1,11 +1,15 @@
 <!-- YAML
 added: v0.5.0
+changes:
+  - version: v5.7.0
+    pr-url: https://github.com/nodejs/node/pull/4935
+    description: The `encoding` parameter is supported now.
 -->
 
-* `value` {String | Buffer | Integer} 用来填充 `buf` 的值
-* `offset` {Integer} 开始填充 `buf` 的位置。**默认:** `0`
-* `end` {Integer} 结束填充 `buf` 的位置（不包含）。**默认:** [`buf.length`]
-* `encoding` {String} 如果 `value` 是一个字符串，则这是它的字符编码。
+* `value` {string|Buffer|integer} 用来填充 `buf` 的值
+* `offset` {integer} 开始填充 `buf` 的位置。**默认:** `0`
+* `end` {integer} 结束填充 `buf` 的位置（不包含）。**默认:** [`buf.length`]
+* `encoding` {string} 如果 `value` 是一个字符串，则这是它的字符编码。
   **默认:** `'utf8'`
 * 返回: {Buffer} `buf` 的引用
 

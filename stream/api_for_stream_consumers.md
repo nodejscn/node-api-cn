@@ -7,7 +7,7 @@
 ```js
 const http = require('http');
 
-const server = http.createServer( (req, res) => {
+const server = http.createServer((req, res) => {
   // req 是 http.IncomingMessage 的实例，这是一个 Readable Stream
   // res 是 http.ServerResponse 的实例，这是一个 Writable Stream
 
@@ -38,12 +38,12 @@ const server = http.createServer( (req, res) => {
 
 server.listen(1337);
 
-// $ curl localhost:1337 -d '{}'
+// $ curl localhost:1337 -d "{}"
 // object
-// $ curl localhost:1337 -d '"foo"'
+// $ curl localhost:1337 -d "\"foo\""
 // string
-// $ curl localhost:1337 -d 'not json'
-// error: Unexpected token o
+// $ curl localhost:1337 -d "not json"
+// error: Unexpected token o in JSON at position 1
 ```
 
 [Writable][] 流 (比如例子中的 `res`) 暴露了一些方法，比如

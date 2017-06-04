@@ -5,13 +5,14 @@ added: v0.7.0
 * `worker` {cluster.Worker}
 * `address` {Object}
 
-After calling `listen()` from a worker, when the `'listening'` event is emitted on
-the server, a `'listening'` event will also be emitted on `cluster` in the master.
+After calling `listen()` from a worker, when the `'listening'` event is emitted
+on the server a `'listening'` event will also be emitted on `cluster` in the
+master.
 
-The event handler is executed with two arguments, the `worker` contains the worker
-object and the `address` object contains the following connection properties:
-`address`, `port` and `addressType`. This is very useful if the worker is listening
-on more than one address.
+The event handler is executed with two arguments, the `worker` contains the
+worker object and the `address` object contains the following connection
+properties: `address`, `port` and `addressType`. This is very useful if the
+worker is listening on more than one address.
 
 ```js
 cluster.on('listening', (worker, address) => {

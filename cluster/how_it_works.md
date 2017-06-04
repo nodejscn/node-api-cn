@@ -34,27 +34,24 @@ Node.js process and a cluster worker differs:
    idea of what the number 7 file descriptor references.
 2. `server.listen(handle)` Listening on handles explicitly will cause
    the worker to use the supplied handle, rather than talk to the master
-   process.  If the worker already has the handle, then it's presumed
-   that you know what you are doing.
+   process.
 3. `server.listen(0)` Normally, this will cause servers to listen on a
    random port.  However, in a cluster, each worker will receive the
    same "random" port each time they do `listen(0)`.  In essence, the
-   port is random the first time, but predictable thereafter.  If you
-   want to listen on a unique port, generate a port number based on the
-   cluster worker ID.
+   port is random the first time, but predictable thereafter. To listen
+   on a unique port, generate a port number based on the cluster worker ID.
 
-There is no routing logic in Node.js, or in your program, and no shared
-state between the workers.  Therefore, it is important to design your
-program such that it does not rely too heavily on in-memory data objects
-for things like sessions and login.
+*Note*: Node.js does not provide routing logic. It is, therefore important to
+design an application such that it does not rely too heavily on in-memory data
+objects for things like sessions and login.
 
 Because workers are all separate processes, they can be killed or
-re-spawned depending on your program's needs, without affecting other
+re-spawned depending on a program's needs, without affecting other
 workers.  As long as there are some workers still alive, the server will
 continue to accept connections.  If no workers are alive, existing connections
-will be dropped and new connections will be refused.  Node.js does not
-automatically manage the number of workers for you, however.  It is your
-responsibility to manage the worker pool for your application's needs.
+will be dropped and new connections will be refused. Node.js does not
+automatically manage the number of workers, however. It is the application's
+responsibility to manage the worker pool based on its own needs.
 
 
 

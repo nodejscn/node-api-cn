@@ -1,6 +1,10 @@
 <!-- YAML
 added: v0.1.27
 -->
+- `hostname` {string}
+- `callback` {Function}
+  - `err` {Error}
+  - `addresses` {string[][]}
 
 Uses the DNS protocol to resolve text queries (`TXT` records) for the
 `hostname`. The `addresses` argument passed to the `callback` function is

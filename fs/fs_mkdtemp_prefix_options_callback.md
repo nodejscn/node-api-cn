@@ -1,10 +1,18 @@
 <!-- YAML
 added: v5.10.0
+changes:
+  - version: v7.0.0
+    pr-url: https://github.com/nodejs/node/pull/7897
+    description: The `callback` parameter is no longer optional. Not passing
+                 it will emit a deprecation warning.
+  - version: v6.2.1
+    pr-url: https://github.com/nodejs/node/pull/6828
+    description: The `callback` parameter is optional now.
 -->
 
-* `prefix` {String}
-* `options` {String | Object}
-  * `encoding` {String} 默认 = `'utf8'`
+* `prefix` {string}
+* `options` {string|Object}
+  * `encoding` {string} 默认 = `'utf8'`
 * `callback` {Function}
 
 创建一个唯一的临时目录。

@@ -1,12 +1,16 @@
 <!-- YAML
 added: v0.1.16
+changes:
+  - version: v7.2.0
+    pr-url: https://github.com/nodejs/node/pull/9587
+    description: Added `external` to the returned object.
 -->
 
 * Returns: {Object}
-    * `rss` {Integer}
-    * `heapTotal` {Integer}
-    * `heapUsed` {Integer}
-    * `external` {Integer}
+    * `rss` {integer}
+    * `heapTotal` {integer}
+    * `heapUsed` {integer}
+    * `external` {integer}
 
 The `process.memoryUsage()` method returns an object describing the memory usage
 of the Node.js process measured in bytes.
@@ -19,6 +23,7 @@ console.log(process.memoryUsage());
 
 Will generate:
 
+<!-- eslint-disable -->
 ```js
 {
   rss: 4935680,

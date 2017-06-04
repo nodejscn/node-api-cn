@@ -1,10 +1,15 @@
 <!-- YAML
 added: v0.1.31
+changes:
+  - version: v7.6.0
+    pr-url: https://github.com/nodejs/node/pull/10739
+    description: The `path` parameter can be a WHATWG `URL` object using `file:`
+                 protocol. Support is currently still *experimental*.
 -->
 
-* `path` {String | Buffer}
-* `options` {String | Object}
-  * `encoding` {String} 默认 = `'utf8'`
+* `path` {string|Buffer|URL}
+* `options` {string|Object}
+  * `encoding` {string} 默认 = `'utf8'`
 
 同步的 readlink(2)。
 返回符号链接的字符串值。

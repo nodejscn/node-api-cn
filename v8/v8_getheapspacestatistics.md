@@ -1,5 +1,9 @@
 <!-- YAML
 added: v6.0.0
+changes:
+  - version: v7.5.0
+    pr-url: https://github.com/nodejs/node/pull/10186
+    description: Support values exceeding the 32-bit unsigned integer range.
 -->
 
 Returns statistics about the V8 heap spaces, i.e. the segments which make up

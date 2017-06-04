@@ -5,7 +5,7 @@ added: v0.1.21
 * `expected` {any}
 * `message` {any}
 
-使用不全等运算符（`!==`）测试是否不全等。
+使用 [不全等运算符]（`!==`）测试是否不全等。
 
 ```js
 const assert = require('assert');

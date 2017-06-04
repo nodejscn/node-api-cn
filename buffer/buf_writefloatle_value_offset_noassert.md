@@ -2,10 +2,10 @@
 added: v0.11.15
 -->
 
-* `value` {Number} 要写入 `buf` 的数值
-* `offset` {Integer} 开始写入的位置，必须满足：`0 <= offset <= buf.length - 4`
-* `noAssert` {Boolean} 是否跳过 `value` 和 `offset` 检验？**默认:** `false`
-* 返回: {Integer} `offset` 加上写入的字节数
+* `value` {number} 要写入 `buf` 的数值
+* `offset` {integer} 开始写入的位置，必须满足：`0 <= offset <= buf.length - 4`
+* `noAssert` {boolean} 是否跳过 `value` 和 `offset` 检验？**默认:** `false`
+* 返回: {integer} `offset` 加上写入的字节数
 
 用指定的字节序格式（`writeFloatBE()` 写入大端序，`writeFloatLE()` 写入小端序）写入 `value` 到 `buf` 中指定的 `offset` 位置。
 `value` 应当是一个有效的32位浮点值。

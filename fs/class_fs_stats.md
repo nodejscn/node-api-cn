@@ -14,7 +14,7 @@ added: v0.1.21
 
 对于一个普通文件，[`util.inspect(stats)`] 会返回一个类似如下的字符串：
 
-```js
+```console
 Stats {
   dev: 2114,
   ino: 48064969,

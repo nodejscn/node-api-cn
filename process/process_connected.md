@@ -2,7 +2,7 @@
 added: v0.7.2
 -->
 
-* {Boolean}
+* {boolean}
 
 If the Node.js process is spawned with an IPC channel (see the [Child Process][]
 and [Cluster][] documentation), the `process.connected` property will return

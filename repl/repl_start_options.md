@@ -1,9 +1,13 @@
 <!-- YAML
 added: v0.1.91
+changes:
+  - version: v5.8.0
+    pr-url: https://github.com/nodejs/node/pull/5388
+    description: The `options` parameter is optional now.
 -->
 
-* `options` {Object | String}
-  * `prompt` {String} 要显示的输入提示符。默认为 `> `。
+* `options` {Object|string}
+  * `prompt` {string} 要显示的输入提示符。默认为 `> `（末尾有一个空格）。
   * `input` {Readable} REPL 输入要被读取的可读流。默认为 `process.stdin`。
   * `output` {Writable} REPL 输出要被写入的可写流。默认为 `process.stdout`。
   * `terminal` {boolean} 如果为 `true`，则指定 `output` 应被当作一个 TTY 终端，并且可以使用 ANSI/VT100 转义码写入。
@@ -21,11 +25,13 @@ added: v0.1.91
     默认为 [`util.inspect()`]。
   * `completer` {Function} 可选的函数，用来自定义 Tab 键的自动补全。
     详见 [`readline.InterfaceCompleter`]。
-  * `replMode` - 一个标志位，指定默认的解释器使用严格模式、默认模式、或混合模式中的哪一种来执行 JavaScript 命令。
+  * `replMode` {symbol} 一个标志位，指定默认的解释器使用严格模式或默认（sloppy）模式来执行 JavaScript 命令。
     可选的值有：
     * `repl.REPL_MODE_SLOPPY` - 使用默认模式解释表达式。
     * `repl.REPL_MODE_STRICT` - 使用严格模式解释表达式。该模式等同于在每个 repl 声明前加上 `'use strict'`。
-    * `repl.REPL_MODE_MAGIC` - 先尝试使用默认模式解释表达式，如果表达式解释出错，再使用严格模式重试。
+    * `repl.REPL_MODE_MAGIC` - This value is **deprecated**, since enhanced
+      spec compliance in V8 has rendered magic mode unnecessary. It is now
+      equivalent to `repl.REPL_MODE_SLOPPY` (documented above).
   * `breakEvalOnSigint` - 当接收到 `SIGINT` 时停止解释当前代码，比如按下 `Ctrl+C`。
     不能与自定义的 `eval` 函数同时使用。
     默认为 `false`。

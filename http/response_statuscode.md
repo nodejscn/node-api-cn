@@ -2,7 +2,7 @@
 added: v0.4.0
 -->
 
-* {Number}
+* {number}
 
 当使用隐式的响应头时（没有显式地调用 [`response.writeHead()`]），该属性控制响应头刷新时将被发送到客户端的状态码。
 

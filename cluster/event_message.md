@@ -5,8 +5,9 @@ added: v0.7.0
 * `message` {Object}
 * `handle` {undefined|Object}
 
-Similar to the `cluster.on('message')` event, but specific to this worker. In a
-worker you can also use `process.on('message')`.
+Similar to the `cluster.on('message')` event, but specific to this worker.
+
+Within a worker, `process.on('message)` may also be used.
 
 See [`process` event: `'message'`][].
 

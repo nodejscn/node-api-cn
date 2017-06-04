@@ -24,9 +24,10 @@ local scope, but does have access to the current `global` object.
 The following example illustrates using both `vm.runInThisContext()` and
 the JavaScript [`eval()`][] function to run the same code:
 
+<!-- eslint-disable prefer-const -->
 ```js
 const vm = require('vm');
-var localVar = 'initial value';
+let localVar = 'initial value';
 
 const vmResult = vm.runInThisContext('localVar = "vm";');
 console.log('vmResult:', vmResult);

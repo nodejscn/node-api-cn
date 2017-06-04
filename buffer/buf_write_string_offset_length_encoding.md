@@ -2,11 +2,11 @@
 added: v0.1.90
 -->
 
-* `string` {String} 要写入 `buf` 的字符串
-* `offset` {Integer} 开始写入 `string` 的位置。**默认:** `0`
-* `length` {Integer} 要写入的字节数。**默认:** `buf.length - offset`
-* `encoding` {String} `string` 的字符编码。**默认:** `'utf8'`
-* 返回: {Integer} 写入的字节数
+* `string` {string} 要写入 `buf` 的字符串
+* `offset` {integer} 开始写入 `string` 的位置。**默认:** `0`
+* `length` {integer} 要写入的字节数。**默认:** `buf.length - offset`
+* `encoding` {string} `string` 的字符编码。**默认:** `'utf8'`
+* 返回: {integer} 写入的字节数
 
 根据 `encoding` 的字符编码写入 `string` 到 `buf` 中的 `offset` 位置。
 `length` 参数是写入的字节数。

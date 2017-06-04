@@ -26,5 +26,5 @@ rl.question('你认为 Node.js 中文网怎么样？', (answer) => {
 });
 ```
 
-注意，当调用该代码时，Node.js 程序不会终止，直到 `readline.Interface` 被关闭，因为接口在等待 `input` 流中要被接收的数据。
+注意：当调用该代码时，Node.js 程序不会终止，直到 `readline.Interface` 被关闭，因为接口在等待 `input` 流中要被接收的数据。
 

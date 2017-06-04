@@ -1,6 +1,11 @@
 <!-- YAML
 added: v0.1.101
 -->
+* `obj` {any}
+* `options` {Object}
+  * `showHidden` {boolean}
+  * `depth` {number}
+  * `colors` {boolean}
 
 在 `obj` 上使用 [`util.inspect()`] 并打印结果字符串到 `stdout`。
 该函数会绕过任何定义在 `obj` 上的自定义的 `inspect()` 函数。

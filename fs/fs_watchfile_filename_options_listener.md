@@ -1,11 +1,16 @@
 <!-- YAML
 added: v0.1.31
+changes:
+  - version: v7.6.0
+    pr-url: https://github.com/nodejs/node/pull/10739
+    description: The `filename` parameter can be a WHATWG `URL` object using
+                 `file:` protocol. Support is currently still *experimental*.
 -->
 
-* `filename` {String | Buffer}
+* `filename` {string|Buffer|URL}
 * `options` {Object}
-  * `persistent` {Boolean}
-  * `interval` {Integer}
+  * `persistent` {boolean}
+  * `interval` {integer}
 * `listener` {Function}
 
 监视 `filename` 的变化。

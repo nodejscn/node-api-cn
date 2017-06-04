@@ -4,7 +4,7 @@ added: v0.1.27
 
 <!-- type=var -->
 
-* {String}
+* {string}
 
 当前模块的目录名。
 等同于 [`__filename`] 的 [`path.dirname()`]。

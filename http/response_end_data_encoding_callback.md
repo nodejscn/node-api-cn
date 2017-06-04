@@ -2,8 +2,8 @@
 added: v0.1.90
 -->
 
-* `data` {String | Buffer}
-* `encoding` {String}
+* `data` {string | Buffer}
+* `encoding` {string}
 * `callback` {Function}
 
 该方法会通知服务器，所有响应头和响应主体都已被发送，即服务器将其视为已完成。

@@ -1,16 +1,35 @@
 <!-- YAML
 added: v0.1.92
+changes:
+  - version: v8.0.0
+    pr-url: https://github.com/nodejs/node/pull/11705
+    description: Support for RSASSA-PSS and additional options was added.
 -->
+- `private_key` {string | Object}
+  - `key` {string}
+  - `passphrase` {string}
+- `output_format` {string}
 
 Calculates the signature on all the data passed through using either
 [`sign.update()`][] or [`sign.write()`][stream-writable-write].
 
 The `private_key` argument can be an object or a string. If `private_key` is a
 string, it is treated as a raw key with no passphrase. If `private_key` is an
-object, it is interpreted as a hash containing two properties:
+object, it must contain one or more of the following properties:
 
-* `key` : {String} - PEM encoded private key
-* `passphrase` : {String} - passphrase for the private key
+* `key`: {string} - PEM encoded private key (required)
+* `passphrase`: {string} - passphrase for the private key
+* `padding`: {integer} - Optional padding value for RSA, one of the following:
+  * `crypto.constants.RSA_PKCS1_PADDING` (default)
+  * `crypto.constants.RSA_PKCS1_PSS_PADDING`
+
+  Note that `RSA_PKCS1_PSS_PADDING` will use MGF1 with the same hash function
+  used to sign the message as specified in section 3.1 of [RFC 4055][].
+* `saltLength`: {integer} - salt length for when padding is
+  `RSA_PKCS1_PSS_PADDING`. The special value
+  `crypto.constants.RSA_PSS_SALTLEN_DIGEST` sets the salt length to the digest
+  size, `crypto.constants.RSA_PSS_SALTLEN_MAX_SIGN` (default) sets it to the
+  maximum permissible value.
 
 The `output_format` can specify one of `'latin1'`, `'hex'` or `'base64'`. If
 `output_format` is provided a string is returned; otherwise a [`Buffer`][] is

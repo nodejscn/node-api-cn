@@ -1,5 +1,9 @@
 <!-- YAML
 added: v0.7.10
+changes:
+  - version: v3.3.1
+    pr-url: https://github.com/nodejs/node/pull/2727
+    description: The value `0` is now accepted as a file descriptor.
 -->
 
 `options.stdio` 选项用于配置子进程与父进程之间建立的管道。

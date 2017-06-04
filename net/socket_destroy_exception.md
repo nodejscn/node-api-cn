@@ -2,7 +2,9 @@
 added: v0.1.90
 -->
 
-确保没有更多的I/O操作在这个socket上。只有必要的以防出错（解析错误等等）。
+Ensures that no more I/O activity happens on this socket. Only necessary in
+case of errors (parse error or so).
 
-如果`exception`被指定，[`'error'`][]将被触发并且，任何监听此事件的监听器都会收到
-`exception`为参数。
+If `exception` is specified, an [`'error'`][] event will be emitted and any
+listeners for that event will receive `exception` as an argument.
+

@@ -2,19 +2,25 @@
 added: v0.1.90
 -->
 
-在特定的`port`和`hostname`开始接受连接. 如果`hostname`被省略，当IPv6可用的时候，服务器将
-接受所有的IPv6地址(`::`)或者所有的 IPv4 地址 (`0.0.0.0`)。省略端口参数，或者用的端口值为`0`，
-将被操作系统赋予一个任意的端口，这可以在`'listening'`事件被触发后，用`server.address().port`
-来获取。
+Begin accepting connections on the specified `port` and `hostname`. If the
+`hostname` is omitted, the server will accept connections on any IPv6 address
+(`::`) when IPv6 is available, or any IPv4 address (`0.0.0.0`) otherwise.
+Omit the port argument, or use a port value of `0`, to have the operating system
+assign a random port, which can be retrieved by using `server.address().port`
+after the `'listening'` event has been emitted.
 
-Backlog 是等待连接的队列长度的最大值。实际的长度在Linux上将由操作系统通过系统设置如
-`tcp_max_syn_backlog` 和 `somaxconn` 来确定。默认值为511（而不是512）。
+Backlog is the maximum length of the queue of pending connections.
+The actual length will be determined by the OS through sysctl settings such as
+`tcp_max_syn_backlog` and `somaxconn` on Linux. The default value of this
+parameter is 511 (not 512).
 
-这个函数是异步的。网服务器被绑定时，[`'listening'`][]事件被触发。最后一个参数，
-`callback`将被加做[`'listening'`][]事件的监听器。
+This function is asynchronous.  When the server has been bound,
+[`'listening'`][] event will be emitted.  The last parameter `callback`
+will be added as a listener for the [`'listening'`][] event.
 
-一些用户运行的一个问题是得到`EADDRINUSE`错误。这意味这另一个服务器已经运行在请求的端口。
-处理这个问题的一个方式是等待一秒再次尝试运行：
+One issue some users run into is getting `EADDRINUSE` errors. This means that
+another server is already running on the requested port. One way of handling this
+would be to wait a second and then try again:
 
 ```js
 server.on('error', (e) => {
@@ -28,8 +34,8 @@ server.on('error', (e) => {
 });
 ```
 
-(注意: Node.js中所有的socket都被设置为`SO_REUSEADDR`.)
+(Note: All sockets in Node.js are set `SO_REUSEADDR`.)
 
-*注意*: `server.listen()`方法可以被多次调用。每个随后的调用将
-用提供的参数*重新打开*服务器.
+*Note*: The `server.listen()` method may be called multiple times. Each
+subsequent call will *re-open* the server using the provided options.
 

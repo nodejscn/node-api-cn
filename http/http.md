@@ -9,6 +9,7 @@ Node.js 中的 HTTP 接口被设计成支持协议的多种特性，这些特性
 
 HTTP 消息头由一个对象表示，例如：
 
+<!-- eslint-disable -->
 ```js
 { 'content-length': '123',
   'content-type': 'text/plain',
@@ -28,6 +29,7 @@ HTTP 消息头由一个对象表示，例如：
 接收到的原始消息头保存在 `rawHeaders` 属性中，它是一个 `[key, value, key2, value2, ...]` 数组。
 例如，上面的消息头对象可能有一个类似以下的 `rawHeaders` 列表：
 
+<!-- eslint-disable semi -->
 ```js
 [ 'ConTent-Length', '123456',
   'content-LENGTH', '123',

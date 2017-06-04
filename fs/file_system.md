@@ -7,7 +7,7 @@
 通过 `require('fs')` 使用该模块。
 所有的方法都有异步和同步的形式。
 
-异步形式始终以完成回调作为它最后一个参数。
+异步的形式总是以一个完成回调作为最后一个参数。
 传给完成回调的参数取决于具体方法，但第一个参数总是留给异常。
 如果操作成功完成，则第一个参数会是 `null` 或 `undefined`。
 
@@ -69,6 +69,9 @@ fs.rename('/tmp/hello', '/tmp/world', (err) => {
 大部分 fs 函数会让你忽略回调参数。
 如果你这么做，一个默认的回调将用于抛出错误。
 为了追踪原始的调用点，可设置 `NODE_DEBUG` 环境变量：
+
+*Note*: Omitting the callback function on asynchronous fs functions is
+deprecated and may result in an error being thrown in the future.
 
 ```txt
 $ cat script.js

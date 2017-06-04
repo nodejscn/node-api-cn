@@ -1,5 +1,13 @@
 
-> 稳定性: 2 - 稳定的
+> Stability: 2 - Stable
 
-`net` 模块给你提供了一个异步的网络封装. 它包含创建服务器和客户端（称为流）的功能。你可以这样使用这个模块 `require('net');`.
+The `net` module provides an asynchronous network API for creating stream-based
+TCP or [IPC][] servers ([`net.createServer()`][]) and clients
+([`net.createConnection()`][]).
+
+It can be accessed using:
+
+```js
+const net = require('net');
+```
 

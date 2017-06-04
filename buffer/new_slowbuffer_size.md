@@ -4,11 +4,11 @@ deprecated: v6.0.0
 
 > 稳定性: 0 - 废弃的: 使用 [`Buffer.allocUnsafeSlow()`] 代替。
 
-* `size` {Integer} The desired length of the new `SlowBuffer`
+* `size` {integer} The desired length of the new `SlowBuffer`
 
-Allocates a new `SlowBuffer` of `size` bytes. The `size` must be less than
-or equal to the value of [`buffer.kMaxLength`]. Otherwise, a [`RangeError`] is
-thrown. A zero-length `Buffer` will be created if `size <= 0`.
+Allocates a new `Buffer` of `size` bytes.  If the `size` is larger than
+[`buffer.kMaxLength`] or smaller than 0, a [`RangeError`] will be thrown.
+A zero-length `Buffer` will be created if `size` is 0.
 
 The underlying memory for `SlowBuffer` instances is *not initialized*. The
 contents of a newly created `SlowBuffer` are unknown and could contain

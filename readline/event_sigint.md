@@ -11,7 +11,7 @@ added: v0.3.0
 
 ```js
 rl.on('SIGINT', () => {
-  rl.question('确定要退出吗？', (answer) => {
+  rl.question('确定要退出吗？ ', (answer) => {
     if (answer.match(/^y(es)?$/i)) rl.pause();
   });
 });

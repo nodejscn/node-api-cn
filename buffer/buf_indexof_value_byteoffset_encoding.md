@@ -1,17 +1,25 @@
 <!-- YAML
 added: v1.5.0
+changes:
+  - version: v8.0.0
+    pr-url: https://github.com/nodejs/node/pull/10236
+    description: The `value` can now be a `Uint8Array`.
+  - version: v5.7.0, v4.4.0
+    pr-url: https://github.com/nodejs/node/pull/4803
+    description: When `encoding` is being passed, the `byteOffset` parameter
+                 is no longer required.
 -->
 
-* `value` {String | Buffer | Integer} 要搜索的值
-* `byteOffset` {Integer} `buf` 中开始搜索的位置。**默认:** `0`
-* `encoding` {String} 如果 `value` 是一个字符串，则这是它的字符编码。
+* `value` {string|Buffer|Uint8Array|integer} 要搜索的值
+* `byteOffset` {integer} `buf` 中开始搜索的位置。**默认:** `0`
+* `encoding` {string} 如果 `value` 是一个字符串，则这是它的字符编码。
   **默认:** `'utf8'`
-* 返回: {Integer} `buf` 中 `value` 首次出现的索引，如果 `buf` 没包含 `value` 则返回 `-1`
+* 返回: {integer} `buf` 中 `value` 首次出现的索引，如果 `buf` 没包含 `value` 则返回 `-1`
 
 如果 `value` 是：
 
   * 字符串，则 `value` 根据 `encoding` 的字符编码进行解析。
-  * `Buffer`，则 `value` 会被作为一个整体使用。如果要比较部分 `Buffer` 可使用 [`buf.slice()`]。
+  * `Buffer` 或 [`Uint8Array`]，则 `value` 会被作为一个整体使用。如果要比较部分 `Buffer`，可使用 [`buf.slice()`]。
   * 数值, 则 `value` 会解析为一个 `0` 至 `255` 之间的无符号八位整数值。
 
 例子：
@@ -74,4 +82,8 @@ console.log(b.indexOf('b', {}));
 console.log(b.indexOf('b', null));
 console.log(b.indexOf('b', []));
 ```
+
+If `value` is an empty string or empty `Buffer` and `byteOffset` is less
+than `buf.length`, `byteOffset` will be returned. If `value` is empty and
+`byteOffset` is at least `buf.length`, `buf.length` will be returned.
 

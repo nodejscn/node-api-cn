@@ -5,9 +5,12 @@ deprecated: v5.2.0
 
 > Stability: 0 - Deprecated
 
+- `public_key` {string | Buffer | TypedArray | DataView}
+- `encoding` {string}
+
 Sets the EC Diffie-Hellman public key. Key encoding can be `'latin1'`,
 `'hex'` or `'base64'`. If `encoding` is provided `public_key` is expected to
-be a string; otherwise a [`Buffer`][] is expected.
+be a string; otherwise a [`Buffer`][], `TypedArray`, or `DataView` is expected.
 
 Note that there is not normally a reason to call this method because `ECDH`
 only requires a private key and the other party's public key to compute the

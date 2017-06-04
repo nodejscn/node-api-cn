@@ -2,7 +2,7 @@
 added: v0.1.101
 -->
 
-* `ttl` {Number} Integer
+* `ttl` {number} Integer
 
 Sets the `IP_TTL` socket option. While TTL generally stands for "Time to Live",
 in this context it specifies the number of IP hops that a packet is allowed to

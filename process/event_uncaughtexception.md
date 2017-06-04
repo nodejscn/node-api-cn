@@ -15,7 +15,7 @@ For example:
 
 ```js
 process.on('uncaughtException', (err) => {
-  fs.writeSync(1, `Caught exception: ${err}`);
+  fs.writeSync(1, `Caught exception: ${err}\n`);
 });
 
 setTimeout(() => {

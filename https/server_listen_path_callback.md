@@ -1,0 +1,4 @@
+
+- `path` {string}
+- `callback` {Function}
+

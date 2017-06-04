@@ -2,10 +2,10 @@
 added: v5.10.0
 -->
 
-* `size` {Integer} 新建的 `Buffer` 期望的长度
-* `fill` {String | Buffer | Integer} 用来预填充新建的 `Buffer` 的值。
+* `size` {integer} 新建的 `Buffer` 期望的长度
+* `fill` {string|Buffer|integer} 用来预填充新建的 `Buffer` 的值。
   **默认:** `0`
-* `encoding` {String} 如果 `fill` 是字符串，则该值是它的字符编码。
+* `encoding` {string} 如果 `fill` 是字符串，则该值是它的字符编码。
   **默认:** `'utf8'`
 
 分配一个大小为 `size` 字节的新建的 `Buffer` 。
@@ -20,8 +20,9 @@ const buf = Buffer.alloc(5);
 console.log(buf);
 ```
 
-`size` 必须小于或等于 [`buffer.kMaxLength`] 的值，否则会抛出 [`RangeError`] 错误。
-如果 `size` 小于或等于0，则创建一个长度为0的 `Buffer` 。
+分配一个大小为 `size` 字节的新建的 `Buffer` 。
+如果 `size` 大于 [`buffer.kMaxLength`] 或小于 0，则抛出 [`RangeError`] 错误。
+如果 `size` 为 0，则创建一个长度为 0 的 `Buffer`。
 
 如果指定了 `fill` ，则会调用 [`buf.fill(fill)`] 初始化分配的 `Buffer` 。
 

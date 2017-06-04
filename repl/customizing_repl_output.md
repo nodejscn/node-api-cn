@@ -8,10 +8,10 @@
 ```js
 const repl = require('repl');
 
-const r = repl.start({prompt: '>', eval: myEval, writer: myWriter});
+const r = repl.start({prompt: '> ', eval: myEval, writer: myWriter});
 
 function myEval(cmd, context, filename, callback) {
-  callback(null,cmd);
+  callback(null, cmd);
 }
 
 function myWriter(output) {

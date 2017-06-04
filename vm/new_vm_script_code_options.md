@@ -1,5 +1,10 @@
 <!-- YAML
 added: v0.3.1
+changes:
+  - version: v5.7.0
+    pr-url: https://github.com/nodejs/node/pull/4777
+    description: The `cachedData` and `produceCachedData` options are
+                 supported now.
 -->
 
 * `code` {string} The JavaScript code to compile.

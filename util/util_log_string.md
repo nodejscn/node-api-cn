@@ -5,7 +5,7 @@ deprecated: v6.0.0
 
 > 稳定性: 0 - 废弃的: 使用第三方模块代替。
 
-* `string` {String}
+* `string` {string}
 
 The `util.log()` method prints the given `string` to `stdout` with an included
 timestamp.

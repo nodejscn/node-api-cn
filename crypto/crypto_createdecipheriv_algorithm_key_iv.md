@@ -1,6 +1,9 @@
 <!-- YAML
 added: v0.1.94
 -->
+- `algorithm` {string}
+- `key` {string | Buffer | TypedArray | DataView}
+- `iv` {string | Buffer | TypedArray | DataView}
 
 Creates and returns a `Decipher` object that uses the given `algorithm`, `key`
 and initialization vector (`iv`).

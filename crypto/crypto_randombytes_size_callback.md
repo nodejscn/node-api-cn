@@ -1,6 +1,10 @@
 <!-- YAML
 added: v0.5.8
 -->
+- `size` {number}
+- `callback` {Function}
+  - `err` {Error}
+  - `buf` {Buffer}
 
 Generates cryptographically strong pseudo-random data. The `size` argument
 is a number indicating the number of bytes to generate.

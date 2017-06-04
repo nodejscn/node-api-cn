@@ -6,7 +6,7 @@ implement streams using JavaScript's prototypal inheritance model.
 
 First, a stream developer would declare a new JavaScript class that extends one
 of the four basic stream classes (`stream.Writable`, `stream.Readable`,
-`stream.Duplex`, or `stream.Transform`), making sure the call the appropriate
+`stream.Duplex`, or `stream.Transform`), making sure they call the appropriate
 parent class constructor:
 
 ```js
@@ -15,6 +15,7 @@ const Writable = require('stream').Writable;
 class MyWritable extends Writable {
   constructor(options) {
     super(options);
+    // ...
   }
 }
 ```
@@ -55,7 +56,8 @@ on the type of stream being created, as detailed in the chart below:
       <p>[Writable](#stream_class_stream_writable)</p>
     </td>
     <td>
-      <p><code>[_write][stream-_write]</code>, <code>[_writev][stream-_writev]</code></p>
+      <p><code>[_write][stream-_write]</code>, <code>[_writev][stream-_writev]</code>,
+      <code>[_final][stream-_final]</code></p>
     </td>
   </tr>
   <tr>
@@ -66,7 +68,8 @@ on the type of stream being created, as detailed in the chart below:
       <p>[Duplex](#stream_class_stream_duplex)</p>
     </td>
     <td>
-      <p><code>[_read][stream-_read]</code>, <code>[_write][stream-_write]</code>, <code>[_writev][stream-_writev]</code></p>
+      <p><code>[_read][stream-_read]</code>, <code>[_write][stream-_write]</code>, <code>[_writev][stream-_writev]</code>,
+      <code>[_final][stream-_final]</code></p>
     </td>
   </tr>
   <tr>
@@ -77,7 +80,8 @@ on the type of stream being created, as detailed in the chart below:
       <p>[Transform](#stream_class_stream_transform)</p>
     </td>
     <td>
-      <p><code>[_transform][stream-_transform]</code>, <code>[_flush][stream-_flush]</code></p>
+      <p><code>[_transform][stream-_transform]</code>, <code>[_flush][stream-_flush]</code>,
+      <code>[_final][stream-_final]</code></p>
     </td>
   </tr>
 </table>

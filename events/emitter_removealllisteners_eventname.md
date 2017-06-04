@@ -1,6 +1,7 @@
 <!-- YAML
 added: v0.1.26
 -->
+- `eventName` {any}
 
 移除全部或指定 `eventName` 的监听器。
 

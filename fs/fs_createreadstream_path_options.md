@@ -1,16 +1,27 @@
 <!-- YAML
 added: v0.1.31
+changes:
+  - version: v7.6.0
+    pr-url: https://github.com/nodejs/node/pull/10739
+    description: The `path` parameter can be a WHATWG `URL` object using
+                 `file:` protocol. Support is currently still *experimental*.
+  - version: v7.0.0
+    pr-url: https://github.com/nodejs/node/pull/7831
+    description: The passed `options` object will never be modified.
+  - version: v2.3.0
+    pr-url: https://github.com/nodejs/node/pull/1845
+    description: The passed `options` object can be a string now.
 -->
 
-* `path` {String | Buffer}
-* `options` {String | Object}
-  * `flags` {String}
-  * `encoding` {String}
-  * `fd` {Integer}
-  * `mode` {Integer}
-  * `autoClose` {Boolean}
-  * `start` {Integer}
-  * `end` {Integer}
+* `path` {string|Buffer|URL}
+* `options` {string|Object}
+  * `flags` {string}
+  * `encoding` {string}
+  * `fd` {integer}
+  * `mode` {integer}
+  * `autoClose` {boolean}
+  * `start` {integer}
+  * `end` {integer}
 
 返回一个新建的 [`ReadStream`] 对象（详见[可读流]）。
 
@@ -19,13 +30,13 @@ added: v0.1.31
 `options` 是一个带有以下默认值的对象或字符串：
 
 ```js
-{
+const defaults = {
   flags: 'r',
   encoding: null,
   fd: null,
   mode: 0o666,
   autoClose: true
-}
+};
 ```
 
 `options` 可以包括 `start` 和 `end` 值，使其可以从文件读取一定范围的字节而不是整个文件。
@@ -38,7 +49,7 @@ added: v0.1.31
 注意，`fd` 应该是阻塞的；非阻塞的 `fd` 们应该传给 [`net.Socket`]。
 
 如果 `autoClose` 为 `false`，则文件描述符不会被关闭，即使有错误。
-你需要负责关闭它，并且确保没有文件描述符泄漏。
+应用程序需要负责关闭它，并且确保没有文件描述符泄漏。
 如果 `autoClose` 被设置为 `true`（默认），则在 `error` 或 `end` 时，文件描述符会被自动关闭。
 
 `mode` 用于设置文件模式（权限和粘结位），但仅限创建文件时。

@@ -3,12 +3,12 @@ added: v0.11.15
 -->
 
 * `pathObject` {Object}
-  * `dir` {String}
-  * `root` {String}
-  * `base` {String}
-  * `name` {String}
-  * `ext` {String}
-* 返回: {String}
+  * `dir` {string}
+  * `root` {string}
+  * `base` {string}
+  * `name` {string}
+  * `ext` {string}
+* 返回: {string}
 
 `path.format()` 方法会从一个对象返回一个路径字符串。
 与 [`path.parse()`] 相反。
@@ -53,8 +53,8 @@ path.format({
 
 ```js
 path.format({
-  dir : "C:\\path\\dir",
-  base : "file.txt"
+  dir: 'C:\\path\\dir',
+  base: 'file.txt'
 });
 // 返回: 'C:\\path\\dir\\file.txt'
 ```

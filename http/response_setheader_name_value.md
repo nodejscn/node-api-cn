@@ -2,8 +2,8 @@
 added: v0.4.0
 -->
 
-* `name` {String}
-* `value` {String}
+* `name` {string}
+* `value` {string | string[]}
 
 为一个隐式的响应头设置值。
 如果该响应头已存在，则值会被覆盖。
@@ -27,7 +27,7 @@ response.setHeader('Set-Cookie', ['type=ninja', 'language=javascript']);
 
 ```js
 // 返回 content-type = text/plain
-const server = http.createServer((req,res) => {
+const server = http.createServer((req, res) => {
   res.setHeader('Content-Type', 'text/html');
   res.setHeader('X-Foo', 'bar');
   res.writeHead(200, {'Content-Type': 'text/plain'});

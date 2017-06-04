@@ -11,6 +11,7 @@ running the `./configure` script.
 
 An example of the possible output looks like:
 
+<!-- eslint-disable -->
 ```js
 {
   target_defaults:

@@ -2,22 +2,24 @@
 added: v0.1.91
 -->
 
-* `file` {String} 要运行的可执行文件的名称或路径
+* `file` {string} 要运行的可执行文件的名称或路径
 * `args` {Array} 字符串参数列表
 * `options` {Object}
-  * `cwd` {String} 子进程的当前工作目录
+  * `cwd` {string} 子进程的当前工作目录
   * `env` {Object} 环境变量键值对
-  * `encoding` {String} （默认: `'utf8'`）
-  * `timeout` {Number} （默认: `0`）
-  * [`maxBuffer`] {Number} stdout 或 stderr 允许的最大数据量（以字节为单位）。
-    如果超过限制，则子进程会被终止。（默认：`200*1024`）
-  * `killSignal` {String|Integer} （默认: `'SIGTERM'`）
-  * `uid` {Number} 设置该进程的用户标识。（详见 setuid(2)）
-  * `gid` {Number} 设置该进程的组标识。（详见 setgid(2)）
+  * `encoding` {string} （默认: `'utf8'`）
+  * `timeout` {number} （默认: `0`）
+  * [`maxBuffer`] {number} stdout 或 stderr 允许的最大字节数。
+    默认为 `200*1024`。
+    如果超过限制，则子进程会被终止。
+    See caveat at [`maxBuffer` and Unicode][].
+  * `killSignal` {string|integer} （默认: `'SIGTERM'`）
+  * `uid` {number} 设置该进程的用户标识。（详见 setuid(2)）
+  * `gid` {number} 设置该进程的组标识。（详见 setgid(2)）
 * `callback` {Function} 当进程终止时调用，并带上输出。
   * `error` {Error}
-  * `stdout` {String|Buffer}
-  * `stderr` {String|Buffer}
+  * `stdout` {string|Buffer}
+  * `stderr` {string|Buffer}
 * 返回: {ChildProcess}
 
 `child_process.execFile()` 函数类似 [`child_process.exec()`]，除了不衍生一个 shell。
@@ -40,4 +42,17 @@ const child = execFile('node', ['--version'], (error, stdout, stderr) => {
 默认情况下，Node.js 会解码输出为 UTF-8，并将字符串传给回调。
 `encoding` 选项可用于指定用于解码 stdout 和 stderr 输出的字符编码。
 如果 `encoding` 是 `'buffer'`、或一个无法识别的字符编码，则传入 `Buffer` 对象到回调函数。
+
+If this method is invoked as its [`util.promisify()`][]ed version, it returns
+a Promise for an object with `stdout` and `stderr` properties.
+
+```js
+const util = require('util');
+const execFile = util.promisify(require('child_process').execFile);
+async function getVersion() {
+  const {stdout} = await execFile('node', ['--version']);
+  console.log(stdout);
+}
+getVersion();
+```
 

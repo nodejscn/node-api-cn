@@ -5,13 +5,14 @@
 
 ```js
 const repl = require('repl');
-var msg = 'message';
+const msg = 'message';
 
 repl.start('> ').context.m = msg;
 ```
 
 `context` 对象的属性表现为 REPL 中的局部变量：
 
+<!-- eslint-disable -->
 ```js
 $ node repl_test.js
 > m
@@ -23,7 +24,7 @@ $ node repl_test.js
 
 ```js
 const repl = require('repl');
-var msg = 'message';
+const msg = 'message';
 
 const r = repl.start('> ');
 Object.defineProperty(r.context, 'm', {

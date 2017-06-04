@@ -11,7 +11,7 @@ myEmitter.emit('error', new Error('whoops!'));
 ```
 
 为了防止 Node.js 进程崩溃，可以在 [`process` 对象的 `uncaughtException` 事件]上注册监听器，或使用 [`domain`] 模块。
-（注意，`domain` 模块已被废弃）
+（注意，`domain` 模块已被废弃。）
 
 ```js
 const myEmitter = new MyEmitter();

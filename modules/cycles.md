@@ -56,5 +56,6 @@ a 结束
 在 main 中，a.done=true，b.done=true
 ```
 
-如果你的程序里有循环的模块依赖，确保它们按计划执行。
+Careful planning is required to allow cyclic module dependencies to work
+correctly within an application.
 

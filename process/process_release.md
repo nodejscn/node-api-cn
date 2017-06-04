@@ -1,5 +1,9 @@
 <!-- YAML
 added: v3.0.0
+changes:
+  - version: v4.2.0
+    pr-url: https://github.com/nodejs/node/pull/3212
+    description: The `lts` property is now supported.
 -->
 
 The `process.release` property returns an Object containing metadata related to
@@ -8,29 +12,24 @@ tarball.
 
 `process.release` contains the following properties:
 
-* `name` {String} A value that will always be `'node'` for Node.js. For
+* `name` {string} A value that will always be `'node'` for Node.js. For
   legacy io.js releases, this will be `'io.js'`.
-* `lts`: a string with a value indicating the _codename_ of the LTS (Long-term
-  Support) line the current release is part of. This property only exists for
-  LTS releases and is `undefined` for all other release types, including stable
-  releases. Current valid values are:
-  - `"Argon"` for the v4.x LTS line beginning with v4.2.0.
-  - `"Boron"` for the v6.x LTS line beginning with v6.9.0.
-* `sourceUrl` {String} an absolute URL pointing to a _`.tar.gz`_ file containing
+* `sourceUrl` {string} an absolute URL pointing to a _`.tar.gz`_ file containing
   the source code of the current release.
-* `headersUrl`{String} an absolute URL pointing to a _`.tar.gz`_ file containing
+* `headersUrl`{string} an absolute URL pointing to a _`.tar.gz`_ file containing
   only the source header files for the current release. This file is
   significantly smaller than the full source file and can be used for compiling
   Node.js native add-ons.
-* `libUrl` {String} an absolute URL pointing to a _`node.lib`_ file matching the
+* `libUrl` {string} an absolute URL pointing to a _`node.lib`_ file matching the
   architecture and version of the current release. This file is used for
   compiling Node.js native add-ons. _This property is only present on Windows
   builds of Node.js and will be missing on all other platforms._
-* `lts` {String} a string label identifying the [LTS][] label for this release.
+* `lts` {string} a string label identifying the [LTS][] label for this release.
   If the Node.js release is not an LTS release, this will be `undefined`.
 
 For example:
 
+<!-- eslint-disable -->
 ```js
 {
   name: 'node',
