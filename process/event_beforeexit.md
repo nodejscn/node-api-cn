@@ -2,18 +2,11 @@
 added: v0.11.12
 -->
 
-The `'beforeExit'` event is emitted when Node.js empties its event loop and has
-no additional work to schedule. Normally, the Node.js process will exit when
-there is no work scheduled, but a listener registered on the `'beforeExit'`
-event can make asynchronous calls, and thereby cause the Node.js process to
-continue.
+当Node.js的事件循环数组已经为空，并且没有额外的工作被添加进来，事件`'beforeExit'`会被触发。
+正常情况下，如果没有额外的工作被添加到事件循环数组，Node.js进程会结束。但是如果`'beforeExit'`事件绑定的监听器的回调函数中，含有一个可以进行异步调用的操作，那么Node.js进程会继续运行。
 
-The listener callback function is invoked with the value of
-[`process.exitCode`][] passed as the only argument.
+[`process.exitCode`][] 作为唯一的参数值传递给`'beforeExit'`事件监听器的回调函数。
 
-The `'beforeExit'` event is *not* emitted for conditions causing explicit
-termination, such as calling [`process.exit()`][] or uncaught exceptions.
+如果进程由于显式的原因而将要终止，例如直接调用[`process.exit()`][]或抛出未捕获的异常，`'beforeExit'`事件不会被触发。
 
-The `'beforeExit'` should *not* be used as an alternative to the `'exit'` event
-unless the intention is to schedule additional work.
-
+除非本意就是需要添加额外的工作(比如通过监听器进行异步调用)到事件循环数组，否则不应该用`'beforeExit'`事件替代`'exit'`事件。
