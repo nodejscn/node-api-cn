@@ -2,20 +2,15 @@
 added: v0.1.7
 -->
 
-The `'exit'` event is emitted when the Node.js process is about to exit as a
-result of either:
+两种情况下`'exit'`事件会被触发：
+* 显式调用`process.exit()`方法，使得Node.js进程即将结束；
+* Node.js事件循环数组中不再有额外的工作，使得Node.js进程即将结束。
 
-* The `process.exit()` method being called explicitly;
-* The Node.js event loop no longer having any additional work to perform.
+在上述两种情况下，没有任何方法可以阻止事件循环的结束,一旦所有与`'exit'`事件绑定的监听器执行完成，Node.js的进程会终止。
 
-There is no way to prevent the exiting of the event loop at this point, and once
-all `'exit'` listeners have finished running the Node.js process will terminate.
+`'exit'`事件监听器的回调函数，只有一个入参，这个参数的值可以是[`process.exitCode`][]的属性值，或者是调用[`process.exit()`]方法时传入的`exitCode`值。
 
-The listener callback function is invoked with the exit code specified either
-by the [`process.exitCode`][] property, or the `exitCode` argument passed to the
-[`process.exit()`] method, as the only argument.
-
-For example:
+例如:
 
 ```js
 process.on('exit', (code) => {
@@ -23,10 +18,8 @@ process.on('exit', (code) => {
 });
 ```
 
-Listener functions **must** only perform **synchronous** operations. The Node.js
-process will exit immediately after calling the `'exit'` event listeners
-causing any additional work still queued in the event loop to be abandoned.
-In the following example, for instance, the timeout will never occur:
+`'exit'`事件监听器的回调函数，**只允许**包含**同步**操作。所有监听器的回调函数被调用后，任何在事件循环数组中排队的工作都会被强制丢弃，然后Nodje.js进程会立即结束。
+例如在下例中，timeout操作永远不会被执行(因为不是同步操作)。
 
 ```js
 process.on('exit', (code) => {
@@ -35,4 +28,3 @@ process.on('exit', (code) => {
   }, 0);
 });
 ```
-
