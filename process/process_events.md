@@ -1,3 +1,3 @@
 
-The `process` object is an instance of [`EventEmitter`][].
+ `process` 对象是[`EventEmitter`][]的实例.
 
