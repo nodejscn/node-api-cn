@@ -5,7 +5,7 @@ added: v0.11.2
 每个事件默认可以注册最多 10 个监听器。
 单个 `EventEmitter` 实例的限制可以使用 [`emitter.setMaxListeners(n)`] 方法改变。
 所有 `EventEmitter` 实例的默认值可以使用 `EventEmitter.defaultMaxListeners` 属性改变。
-If this value is not a positive number, a `TypeError` will be thrown.
+如果这个值不是正数, 那将抛出 `TypeError`错误.
 
 设置 `EventEmitter.defaultMaxListeners` 要谨慎，因为会影响所有 `EventEmitter` 实例，包括之前创建的。
 因而，调用 [`emitter.setMaxListeners(n)`] 优先于 `EventEmitter.defaultMaxListeners`。
