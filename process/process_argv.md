@@ -4,14 +4,9 @@ added: v0.1.27
 
 * {Array}
 
-The `process.argv` property returns an array containing the command line
-arguments passed when the Node.js process was launched. The first element will
-be [`process.execPath`]. See `process.argv0` if access to the original value of
-`argv[0]` is needed.  The second element will be the path to the JavaScript
-file being executed. The remaining elements will be any additional command line
-arguments.
+`process.argv` 属性返回一个数组，这个数组包含了启动Node.js进程时的命令行参数。第一个元素为[`process.execPath`]。如果需要获取`argv[0]`的值请参见  `process.argv0`。第二个元素为当前执行的JavaScript文件路径。剩余的元素为其他命令行参数。
 
-For example, assuming the following script for `process-args.js`:
+如以下`process-args.js`文件内的脚本:
 
 ```js
 // print process.argv
@@ -20,13 +15,13 @@ process.argv.forEach((val, index) => {
 });
 ```
 
-Launching the Node.js process as:
+当启动以下Node.js进程时：
 
 ```console
 $ node process-args.js one two=three four
 ```
 
-Would generate the output:
+将输出：
 
 ```text
 0: /usr/local/bin/node
