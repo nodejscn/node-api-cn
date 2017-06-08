@@ -1,11 +1,10 @@
 
-> Stability: 2 - Stable
+> 稳定性: 2 - 稳定
 
-The `net` module provides an asynchronous network API for creating stream-based
-TCP or [IPC][] servers ([`net.createServer()`][]) and clients
-([`net.createConnection()`][]).
+`net`模块提供了一个用于创建基于tcp或[IPC][] servers ([`net.createServer()`][])和clients([`net.createConnection()`][])
+的异步api
 
-It can be accessed using:
+通过以下方式引入:
 
 ```js
 const net = require('net');
