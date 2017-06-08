@@ -2,16 +2,13 @@
 added: v0.1.90
 -->
 
-Returns the bound address, the address family name, and port of the server
-as reported by the operating system if listening on an IP socket.
-Useful to find which port was assigned when getting an OS-assigned address.
-Returns an object with `port`, `family`, and `address` properties:
-`{ port: 12346, family: 'IPv4', address: '127.0.0.1' }`
+如果在IP socket上监听,则返回绑定的ip地址, 地址族和操作系统报告的服务端口
+在找到操作系统分配的地址时，找到指定的端口是有用的.返回一个有 `port`, `family`, 和 `address` 属性:
+`{ port: 12346, family: 'IPv4', address: '127.0.0.1' }`的对象
 
-For a server listening on a pipe or UNIX domain socket, the name is returned
-as a string.
+对于在管道或UNIX域套接字上侦听的server,该名称将返回为字符串
 
-Example:
+例子:
 
 ```js
 const server = net.createServer((socket) => {
@@ -27,5 +24,5 @@ server.listen(() => {
 });
 ```
 
-Don't call `server.address()` until the `'listening'` event has been emitted.
+只有到了 `'listening'` 事件被触发时候.才可以调用 `server.address()` 
 
