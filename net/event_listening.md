@@ -2,5 +2,5 @@
 added: v0.1.90
 -->
 
-Emitted when the server has been bound after calling [`server.listen()`][].
+当服务被绑定后调用 [`server.listen()`][].
 
