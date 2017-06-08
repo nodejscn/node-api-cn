@@ -4,11 +4,9 @@ added: v8.0.0
 
 * `original` {Function}
 
-Takes a function following the common Node.js callback style, i.e. taking a
-`(err, value) => ...` callback as the last argument, and returns a version
-that returns promises.
+让一个遵循通常的 Node.js 回调风格的函数， 即 `(err, value) => ...` 回调函数是最后一个参数, 返回一个返回值是一个 promise 版本的函数。
 
-For example:
+例如：
 
 ```js
 const util = require('util');
@@ -22,7 +20,7 @@ stat('.').then((stats) => {
 });
 ```
 
-Or, equivalently using `async function`s:
+或者，使用`async function`获得等效的效果:
 
 ```js
 const util = require('util');
@@ -36,10 +34,7 @@ async function callStat() {
 }
 ```
 
-If there is an `original[util.promisify.custom]` property present, `promisify`
-will return its value, see [Custom promisified functions][].
+如果原本就有 `original[util.promisify.custom]` 属性, `promisify` 会返回它的值， 查阅 [Custom promisified functions][].
 
-`promisify()` assumes that `original` is a function taking a callback as its
-final argument in all cases, and the returned function will result in undefined
-behavior if it does not.
+`promisify()` 会在所有情况下假定 `original` 是一个最后的参数是回调函数的函数，如果它不是，那么返回的函数的返回值为 undefined。 
 
