@@ -31,8 +31,7 @@ changes:
 assert.deepEqual(Error('a'), Error('b'));
 ```
 
-An exception is made for [`Map`][] and [`Set`][]. Maps and Sets have their
-contained items compared too, as expected.
+[`Map`][] 和 [`Set`][]例外。Maps 和 Sets 包含我们期望的被比较的项目。
 
 深度相等意味着子对象的可枚举的自身属性也会被比较：
 
