@@ -2,12 +2,10 @@
 added: v0.1.8
 -->
 
-* Returns: {string}
-
-The `process.cwd()` method returns the current working directory of the Node.js
-process.
+* 返回: {string}
+ 
+`process cwd()` 方法返回 Node.js 进程当前工作的目录。
 
 ```js
-console.log(`Current directory: ${process.cwd()}`);
+console.log('Current directory: ${process.cwd()}');
 ```
-
