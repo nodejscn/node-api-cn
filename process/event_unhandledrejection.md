@@ -10,21 +10,17 @@ changes:
                  a process warning.
 -->
 
-The `'unhandledRejection`' event is emitted whenever a `Promise` is rejected and
-no error handler is attached to the promise within a turn of the event loop.
-When programming with Promises, exceptions are encapsulated as "rejected
-promises". Rejections can be caught and handled using [`promise.catch()`][] and
-are propagated through a `Promise` chain. The `'unhandledRejection'` event is
-useful for detecting and keeping track of promises that were rejected whose
-rejections have not yet been handled.
+如果在事件循环的一次轮询中，一个`Promise`被rejected，并且此`Promise`没有绑定错误处理器，`'unhandledRejection`事件会被触发。
+当使用Promises进行编程时，异常会以"rejected promises"的形式封装。Rejections可以被[`promise.catch()`][]捕获并处理，并且在`Promise` chain
+中传播。`'unhandledRejection`事件在探测和跟踪promises被rejected，并且rejections未被处理的场景中是很有用的。
 
-The listener function is called with the following arguments:
+此事件监听器的回调函数被传递如下参数:
 
-* `reason` {Error|any} The object with which the promise was rejected
-  (typically an [`Error`][] object).
-* `p` the `Promise` that was rejected.
+* `reason` {Error|any} 此对象包含了promise被rejected的相关信息
+  (典型情况下，是一个 [`Error`][] 对象).
+* `p` 被rejected的promise对象
 
-For example:
+例如:
 
 ```js
 process.on('unhandledRejection', (reason, p) => {
@@ -37,8 +33,7 @@ somePromise.then((res) => {
 }); // no `.catch` or `.then`
 ```
 
-The following will also trigger the `'unhandledRejection'` event to be
-emitted:
+如下代码也会触发`'unhandledRejection'`事件
 
 ```js
 function SomeResource() {
@@ -50,10 +45,7 @@ const resource = new SomeResource();
 // no .catch or .then on resource.loaded for at least a turn
 ```
 
-In this example case, it is possible to track the rejection as a developer error
-as would typically be the case for other `'unhandledRejection'` events. To
-address such failures, a non-operational
-[`.catch(() => { })`][`promise.catch()`] handler may be attached to
-`resource.loaded`, which would prevent the `'unhandledRejection'` event from
-being emitted. Alternatively, the [`'rejectionHandled'`][] event may be used.
+在例子中，可以像在其他`'unhandledRejection'`事件的典型场景中一样，跟踪开发者错误导致的rejection。
+为了解决这样的错误，`resource.loaded`中可以加一个不做任何操作的[`.catch(() => { })`][`promise.catch()`]处理器，
+这样可以阻止`'unhandledRejection'`事件的触发。或者也可以使用[`'rejectionHandled'`][]事件来解决。
 
