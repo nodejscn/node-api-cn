@@ -1,25 +1,15 @@
 
-Note that `'uncaughtException'` is a crude mechanism for exception handling
-intended to be used only as a last resort. The event *should not* be used as
-an equivalent to `On Error Resume Next`. Unhandled exceptions inherently mean
-that an application is in an undefined state. Attempting to resume application
-code without properly recovering from the exception can cause additional
-unforeseen and unpredictable issues.
+需要注意，如果打算使用`'uncaughtException'`事件作为异常处理的最后补救机制，这是非常粗糙的设计方式。
+此事件*不应该*当作`出了错误就恢复让它继续`的等价机制。
+未处理异常本身就意味着应用已经处于了未定义的状态。如果基于这种状态，尝试恢复应用正常进行，可能会造成未知或不可预测的问题。
 
-Exceptions thrown from within the event handler will not be caught. Instead the
-process will exit with a non-zero exit code and the stack trace will be printed.
-This is to avoid infinite recursion.
+此事件的监听器回调函数中抛出的异常，不会被捕获。为了避免出现无限循环的情况，进程会以非零的状态码结束，并打印堆栈信息。
 
-Attempting to resume normally after an uncaught exception can be similar to
-pulling out of the power cord when upgrading a computer -- nine out of ten
-times nothing happens - but the 10th time, the system becomes corrupted.
+如果在出现未捕获异常时，尝试去恢复应用，可能出现的结果与电脑升级时拔掉电源线出现的结果类似 -- 10次中有9次不会出现问题，但是第10次可能系统会出现错误。
 
-The correct use of `'uncaughtException'` is to perform synchronous cleanup
-of allocated resources (e.g. file descriptors, handles, etc) before shutting
-down the process. **It is not safe to resume normal operation after
-`'uncaughtException'`.**
+正确使用`'uncaughtException'`事件的方式，是用它在进程结束前执行一些已分配资源(比如文件描述符，句柄等等)的同步清理操作。
+**触发`'uncaughtException'`事件后，用它来尝试恢复应用正常运行的操作是不安全的**
 
-To restart a crashed application in a more reliable way, whether `uncaughtException`
-is emitted or not, an external monitor should be employed in a separate process
-to detect application failures and recover or restart as needed.
+想让一个已经崩溃的应用正常运行，更可靠的方式应该是启动另外一个进程来监测/探测应用是否出错，
+无论`uncaughtException`事件是否被触发，如果监测到应用出错，则恢复或重启应用。
 
