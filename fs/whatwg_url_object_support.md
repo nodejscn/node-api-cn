@@ -2,11 +2,10 @@
 added: v7.6.0
 -->
 
-> Stability: 1 - Experimental
+> 稳定性: 1 - 实验性的
 
-For most `fs` module functions, the `path` or `filename` argument may be passed
-as a WHATWG [`URL`][] object. Only [`URL`][] objects using the `file:` protocol
-are supported.
+对于大多数 `fs` 模块的函数， `path` 或者 `filename` 参数可以当作一个 WHATWG [`URL`][] 对象传入。
+只有 [`URL`][] 对象使用被支持的 `file:` 协议。
 
 ```js
 const fs = require('fs');
@@ -16,13 +15,12 @@ const fileUrl = new URL('file:///tmp/hello');
 fs.readFileSync(fileUrl);
 ```
 
-*Note*: `file:` URLs are always absolute paths.
+*注意*： `file:` URLS 必须是绝对路径。
 
-Using WHATWG [`URL`][] objects might introduce platform-specific behaviors.
+使用 WHATWG [`URL`][] 对象在不同的平台会有特定的行为。
 
-On Windows, `file:` URLs with a hostname convert to UNC paths, while `file:`
-URLs with drive letters convert to local absolute paths. `file:` URLs without a
-hostname nor a drive letter will result in a throw :
+在 Windows 上， 携带主机名的 `file:` URLs 被转换为 UNC 路径， 而有硬盘盘符的 `file:` URLs 会被转换成
+本地绝对路径。既没有主机名，也没有盘符的 `file:` URLs 在转换时会抛出错误。
 
 ```js
 // On Windows :
@@ -41,11 +39,9 @@ fs.readFileSync(new URL('file:///c/p/a/t/h/file'));
 // TypeError [ERR_INVALID_FILE_URL_PATH]: File URL path must be absolute
 ```
 
-*Note*: `file:` URLs with drive letters must use `:` as a separator just after
-the drive letter. Using another separator will result in a throw.
+*注意*： 携带盘符的 `file:` URLs 必须使用 `:` 作为盘符后的分隔符。使用其他符号会抛出错误。
 
-On all other platforms, `file:` URLs with a hostname are unsupported and will
-result in a throw:
+在其他所有的平台上， 都不支持携带主机名的 `file:` URLs，且会抛出错误。 
 
 ```js
 // On other platforms:
@@ -60,8 +56,7 @@ fs.readFileSync(new URL('file://hostname/p/a/t/h/file'));
 fs.readFileSync(new URL('file:///tmp/hello'));
 ```
 
-A `file:` URL having encoded slash characters will result in a throw on all
-platforms:
+当 `file:` URL 包含已经编码的斜线符号会在所有平台抛出错误。
 
 ```js
 // On Windows
@@ -76,7 +71,8 @@ fs.readFileSync(new URL('file:///p/a/t/h/%2f'));
 /* TypeError [ERR_INVALID_FILE_URL_PATH]: File URL path must not include encoded
 / characters */
 ```
-On Windows, `file:` URLs having encoded backslash will result in a throw:
+
+在 Windows 上， 携带已编码的反斜线 `file:` URLs 在编码是会抛出错误。
 
 ```js
 // On Windows
