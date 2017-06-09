@@ -1,5 +1,5 @@
 
-See [`net.createServer([options][, connectionListener])`][`net.createServer()`].
+查看 [`net.createServer([options][, connectionListener])`][`net.createServer()`].
 
-`net.Server` is an [`EventEmitter`][] with the following events:
+`net.Server` is an [`EventEmitter`][]实现了以下事件:
 
