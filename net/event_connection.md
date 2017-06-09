@@ -2,8 +2,8 @@
 added: v0.1.90
 -->
 
-* {net.Socket} The connection object
+* {net.Socket}  connection 对象
 
-Emitted when a new connection is made. `socket` is an instance of
-`net.Socket`.
+当一个新的connection建立的时候触发. `socket` 是一个
+`net.Socket`的实例对象.
 
