@@ -2,14 +2,12 @@
 added: v0.5.10
 -->
 
-If the Node.js process is spawned with an IPC channel (see the [Child Process][]
-and [Cluster][] documentation), the `'message'` event is emitted whenever a
-message sent by a parent process using [`childprocess.send()`][] is received by
-the child process.
+如果Node.js进程是由IPC channel的方式创建的(see the [Child Process][]，
+and [Cluster][] documentation)，当子进程收到父进程的的消息时(消息通过[`childprocess.send()`][]发送），
+会触发`'message'`事件。
 
-The listener callback is invoked with the following arguments:
-* `message` {Object} a parsed JSON object or primitive value
-* `sendHandle` {Handle object} a [`net.Socket`][] or [`net.Server`][] object, or
-  undefined.
+`'message'`事件监听器的回调函数中被传递的参数如下：
+* `message`{Object} 解析的JSON对象，或primitive值
+* `sendHandle` {Handle object} 一个[`net.Socket`][] 或 [`net.Server`][]对象，或undefined。
 
 
