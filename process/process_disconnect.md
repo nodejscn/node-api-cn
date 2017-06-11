@@ -2,14 +2,8 @@
 added: v0.7.2
 -->
 
-If the Node.js process is spawned with an IPC channel (see the [Child Process][]
-and [Cluster][] documentation), the `process.disconnect()` method will close the
-IPC channel to the parent process, allowing the child process to exit gracefully
-once there are no other connections keeping it alive.
+如果 Node.js 进程是从IPC频道派生出来的（具体看 [Child Process][] 和  [Cluster][] 的文档）, `process.disconnect()`函数会关闭到父进程的IPC频道，以允许子进程一旦没有其他链接来保持活跃就优雅地关闭。
 
-The effect of calling `process.disconnect()` is that same as calling the parent
-process's [`ChildProcess.disconnect()`][].
+调用`process.disconnect()`的效果和父进程调用`ChildProcess.disconnect()`的一样[`ChildProcess.disconnect()`][].
 
-If the Node.js process was not spawned with an IPC channel,
-`process.disconnect()` will be `undefined`.
-
+如果 Node.js 进程不是从IPC频道派生出来的，那调用`process.disconnect()`函数的结果是`undefined`. 
