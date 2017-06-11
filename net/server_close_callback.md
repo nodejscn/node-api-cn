@@ -2,10 +2,6 @@
 added: v0.1.90
 -->
 
-Stops the server from accepting new connections and keeps existing
-connections. This function is asynchronous, the server is finally
-closed when all connections are ended and the server emits a [`'close'`][] event.
-The optional `callback` will be called once the `'close'` event occurs. Unlike
-that event, it will be called with an Error as its only argument if the server
-was not open when it was closed.
+停止 server接受建立新的connections并保持已经存在的connections.此功能是异步的,当所有的connections关闭同时server响应 [`'close'`][]事件的时候,server将会最终关闭.
+一旦`'close'`发生将会调用可选的回调函数. 与该事件不同, 如果服务器在关闭时未打开，则将使用错误作为唯一参数。
 
