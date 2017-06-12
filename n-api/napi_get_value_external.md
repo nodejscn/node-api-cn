@@ -8,12 +8,12 @@ napi_status napi_get_value_external(napi_env env,
 ```
 
 - `[in] env`: The environment that the API is invoked under.
-- `[in] value`: `napi_value` representing JavaScript External value.
-- `[out] result`: Pointer to the data wrapped by the JavaScript External value.
+- `[in] value`: `napi_value` representing JavaScript external value.
+- `[out] result`: Pointer to the data wrapped by the JavaScript external value.
 
 Returns `napi_ok` if the API succeeded. If a non-external `napi_value` is
 passed in it returns `napi_invalid_arg`.
 
-This API returns the pointer to the data wrapped by the JavaScript
-External value
+This API retrieves the external data pointer that was previously passed to
+`napi_create_external()`.
 

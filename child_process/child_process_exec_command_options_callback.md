@@ -43,7 +43,7 @@ exec('echo "The \\$HOME variable is $HOME"');
 任何包括 shell 元字符的输入都可被用于触发任何命令的执行。
 
 ```js
-const exec = require('child_process').exec;
+const { exec } = require('child_process');
 exec('cat *.js bad_file | wc -l', (error, stdout, stderr) => {
   if (error) {
     console.error(`exec error: ${error}`);
@@ -93,7 +93,7 @@ const util = require('util');
 const exec = util.promisify(require('child_process').exec);
 
 async function lsExample() {
-  const {stdout, stderr} = await exec('ls');
+  const { stdout, stderr } = await exec('ls');
   console.log('stdout:', stdout);
   console.log('stderr:', stderr);
 }

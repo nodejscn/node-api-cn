@@ -1,5 +1,9 @@
 <!-- YAML
 added: v0.1.21
+changes:
+  - version: v8.1.0
+    pr-url: https://github.com/nodejs/node/pull/13173
+    description: Added times as numbers.
 -->
 
 从 [`fs.stat()`]、[`fs.lstat()`] 和 [`fs.fstat()`] 及其同步版本返回的对象都是该类型。
@@ -26,14 +30,20 @@ Stats {
   size: 527,
   blksize: 4096,
   blocks: 8,
+  atimeMs: 1318289051000.1,
+  mtimeMs: 1318289051000.1,
+  ctimeMs: 1318289051000.1,
+  birthtimeMs: 1318289051000.1,
   atime: Mon, 10 Oct 2011 23:24:11 GMT,
   mtime: Mon, 10 Oct 2011 23:24:11 GMT,
   ctime: Mon, 10 Oct 2011 23:24:11 GMT,
   birthtime: Mon, 10 Oct 2011 23:24:11 GMT }
-  
 ```
 
-注意，`atime`、`mtime`、`birthtime` 和 `ctime` 是 [`Date`] 对象的实例，比较这些对象的值需要使用适当的方法。
-对于大多数一般用途，[`getTime()`] 会返回 **1970年1月1日 00:00:00 UTC** 至今已过的毫秒数，且该整数应该满足任何对比，当然也有可用于显示模糊信息的其他方法。
-详见 [MDN JavaScript 手册]。
+*Note*: `atimeMs`, `mtimeMs`, `ctimeMs`, `birthtimeMs` are [numbers][MDN-Number]
+that hold the corresponding times in milliseconds. Their precision is platform
+specific. `atime`, `mtime`, `ctime`, and `birthtime` are [`Date`][MDN-Date]
+object alternate representations of the various times. The `Date` and number
+values are not connected. Assigning a new number value, or mutating the `Date`
+value, will not be reflected in the corresponding alternate representation.
 

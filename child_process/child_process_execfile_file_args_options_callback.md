@@ -29,7 +29,7 @@ added: v0.1.91
 由于没有衍生 shell，因此不支持像 I/O 重定向和文件查找这样的行为。
 
 ```js
-const execFile = require('child_process').execFile;
+const { execFile } = require('child_process');
 const child = execFile('node', ['--version'], (error, stdout, stderr) => {
   if (error) {
     throw error;
@@ -50,7 +50,7 @@ a Promise for an object with `stdout` and `stderr` properties.
 const util = require('util');
 const execFile = util.promisify(require('child_process').execFile);
 async function getVersion() {
-  const {stdout} = await execFile('node', ['--version']);
+  const { stdout } = await execFile('node', ['--version']);
   console.log(stdout);
 }
 getVersion();

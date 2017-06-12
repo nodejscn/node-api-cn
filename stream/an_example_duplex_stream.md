@@ -8,7 +8,7 @@ incoming written data via the [Writable][] interface that is read back out
 via the [Readable][] interface.
 
 ```js
-const Duplex = require('stream').Duplex;
+const { Duplex } = require('stream');
 const kSource = Symbol('source');
 
 class MyDuplex extends Duplex {

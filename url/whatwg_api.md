@@ -27,7 +27,7 @@ using the [Punycode][] algorithm. Note, however, that a hostname *may* contain
 *both* Punycode encoded and percent-encoded characters. For example:
 
 ```js
-const URL = require('url').URL;
+const { URL } = require('url');
 const myURL = new URL('https://%CF%80.com/foo');
 console.log(myURL.href);
   // Prints https://xn--1xa.com/foo

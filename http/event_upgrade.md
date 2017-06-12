@@ -16,7 +16,7 @@ const http = require('http');
 
 // 创建一个 HTTP 服务器
 const srv = http.createServer( (req, res) => {
-  res.writeHead(200, {'Content-Type': 'text/plain'});
+  res.writeHead(200, { 'Content-Type': 'text/plain' });
   res.end('okay');
 });
 srv.on('upgrade', (req, socket, head) => {

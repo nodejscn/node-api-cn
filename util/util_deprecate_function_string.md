@@ -4,6 +4,7 @@ added: v0.8.0
 
 `util.deprecate()` 方法会包装给定的 `function` 或类，并标记为废弃的。
 
+<!-- eslint-disable prefer-rest-params -->
 ```js
 const util = require('util');
 

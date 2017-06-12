@@ -4,6 +4,7 @@
 Gets and sets the fragment portion of the URL.
 
 ```js
+const { URL } = require('url');
 const myURL = new URL('https://example.org/foo#bar');
 console.log(myURL.hash);
   // Prints #bar

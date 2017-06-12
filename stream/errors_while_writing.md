@@ -8,7 +8,7 @@ on how the stream is being used.  Using the callback ensures consistent and
 predictable handling of errors.
 
 ```js
-const Writable = require('stream').Writable;
+const { Writable } = require('stream');
 
 const myWritable = new Writable({
   write(chunk, encoding, callback) {

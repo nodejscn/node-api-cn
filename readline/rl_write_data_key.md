@@ -23,7 +23,7 @@ added: v0.1.98
 ```js
 rl.write('删除这个！');
 // 模拟 Ctrl+u 删除写入的前一行。
-rl.write(null, {ctrl: true, name: 'u'});
+rl.write(null, { ctrl: true, name: 'u' });
 ```
 
 注意：`rl.write()` 方法会写入数据到 `readline` 接口的 `input`，犹如它是用户提供的。

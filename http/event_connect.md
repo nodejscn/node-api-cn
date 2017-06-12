@@ -18,7 +18,7 @@ const url = require('url');
 
 // 创建一个 HTTP 代理服务器
 const proxy = http.createServer((req, res) => {
-  res.writeHead(200, {'Content-Type': 'text/plain'});
+  res.writeHead(200, { 'Content-Type': 'text/plain' });
   res.end('okay');
 });
 proxy.on('connect', (req, cltSocket, head) => {

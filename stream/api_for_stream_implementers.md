@@ -10,7 +10,7 @@ of the four basic stream classes (`stream.Writable`, `stream.Readable`,
 parent class constructor:
 
 ```js
-const Writable = require('stream').Writable;
+const { Writable } = require('stream');
 
 class MyWritable extends Writable {
   constructor(options) {

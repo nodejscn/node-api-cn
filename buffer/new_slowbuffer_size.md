@@ -17,7 +17,7 @@ sensitive data. Use [`buf.fill(0)`][`buf.fill()`] to initialize a `SlowBuffer` t
 Example:
 
 ```js
-const SlowBuffer = require('buffer').SlowBuffer;
+const { SlowBuffer } = require('buffer');
 
 const buf = new SlowBuffer(5);
 

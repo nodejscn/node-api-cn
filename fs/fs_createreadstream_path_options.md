@@ -57,7 +57,7 @@ const defaults = {
 例子，从一个 100 字节长的文件中读取最后 10 个字节：
 
 ```js
-fs.createReadStream('sample.txt', {start: 90, end: 99});
+fs.createReadStream('sample.txt', { start: 90, end: 99 });
 ```
 
 如果 `options` 是一个字符串，则它指定了字符编码。

@@ -9,6 +9,7 @@ with the same name is preserved.
 This method can be used, in particular, to increase cache hits.
 
 ```js
+const { URLSearchParams } = require('url');
 const params = new URLSearchParams('query[]=abc&type=search&query[]=123');
 params.sort();
 console.log(params.toString());

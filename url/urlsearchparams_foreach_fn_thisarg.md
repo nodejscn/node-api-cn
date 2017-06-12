@@ -5,7 +5,7 @@
 Iterates over each name-value pair in the query and invokes the given function.
 
 ```js
-const URL = require('url').URL;
+const { URL } = require('url');
 const myURL = new URL('https://example.org/?a=b&c=d');
 myURL.searchParams.forEach((value, name, searchParams) => {
   console.log(name, value, myURL.searchParams === searchParams);

@@ -50,3 +50,11 @@ For example:
 #include <node_api.h>
 ```
 
+As the feature is experimental it must be enabled with the
+following command line
+[option](https://nodejs.org/dist/latest-v8.x/docs/api/cli.html#cli_napi_modules):
+
+```bash
+--napi-modules
+```
+

@@ -34,5 +34,6 @@ readable: null
 end
 ```
 
-*注意*： 通常情况下， 应该使用 `readable.pipe()` 方法和 `'data'` 事件机制，而不是 `'readable'` 事件。
+*注意*： 通常情况下，`readable.pipe()` 方法和 `'data'` 事件机制比 `'readable'` 事件更容易理解。
+However, handling `'readable'` might result in increased throughput.
 

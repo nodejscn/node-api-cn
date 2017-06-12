@@ -1,8 +1,12 @@
 <!-- YAML
 added: v0.3.6
+changes:
+  - version: v7.5.0
+    pr-url: https://github.com/nodejs/node/pull/10638
+    description: The `options` parameter can be a WHATWG `URL` object.
 -->
 
-* `options` {Object | string}
+* `options` {Object | string | URL}
   * `protocol` {string} 使用的协议。默认为 `http:`。
   * `host` {string} 请求发送至的服务器的域名或 IP 地址。默认为 `localhost`。
   * `hostname` {string} `host` 的别名。为了支持 [`url.parse()`]，`hostname` 优于 `host`。
@@ -33,8 +37,9 @@ added: v0.3.6
 Node.js 为每台服务器维护多个连接来进行 HTTP 请求。
 该函数允许显式地发出请求。
 
-`options` 可以是一个对象或一个字符串。
+`options` 可以是一个对象、或字符串、或 [`URL`] 对象。
 如果 `options` 是一个字符串，它会被自动使用 [`url.parse()`] 解析。
+If it is a [`URL`][] object, it will be automatically converted to an ordinary `options` object.
 
 可选的 `callback` 参数会作为单次监听器被添加到 [`'response'`] 事件。
 
@@ -98,4 +103,16 @@ req.end();
   详见 RFC2616 章节 8.2.3。
 
 * 发送 `Authorization` 请求头会替代 `auth` 选项计算基本身份验证。
+
+Example using a [`URL`][] as `options`:
+
+```js
+const { URL } = require('url');
+
+const options = new URL('http://abc:xyz@example.com');
+
+const req = http.request(options, (res) => {
+  // ...
+});
+```
 

@@ -9,6 +9,7 @@ This method is automatically called when an `URL` object is serialized
 with [`JSON.stringify()`][].
 
 ```js
+const { URL } = require('url');
 const myURLs = [
   new URL('https://www.example.com'),
   new URL('https://test.example.org')

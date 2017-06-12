@@ -20,7 +20,7 @@ added: v0.7.10
 例子，一个长期运行的进程，为了忽视父进程的终止，通过分离且忽视其父进程的 `stdio` 文件描述符来实现：
 
 ```js
-const spawn = require('child_process').spawn;
+const { spawn } = require('child_process');
 
 const child = spawn(process.argv[0], ['child_program.js'], {
   detached: true,
@@ -34,7 +34,7 @@ child.unref();
 
 ```js
 const fs = require('fs');
-const spawn = require('child_process').spawn;
+const { spawn } = require('child_process');
 const out = fs.openSync('./out.log', 'a');
 const err = fs.openSync('./out.log', 'a');
 

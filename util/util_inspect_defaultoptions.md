@@ -9,7 +9,7 @@ added: v6.4.0
 
 ```js
 const util = require('util');
-const arr = Array(101);
+const arr = Array(101).fill(0);
 
 console.log(arr); // 打印截断的数组
 util.inspect.defaultOptions.maxArrayLength = null;

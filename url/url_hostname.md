@@ -6,6 +6,7 @@ Gets and sets the hostname portion of the URL. The key difference between
 port.
 
 ```js
+const { URL } = require('url');
 const myURL = new URL('https://example.org:81/foo');
 console.log(myURL.hostname);
   // Prints example.org

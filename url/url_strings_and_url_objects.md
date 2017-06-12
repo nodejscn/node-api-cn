@@ -42,7 +42,7 @@ properties of a WHATWG `URL` object.
 Parsing the URL string using the WHATWG API:
 
 ```js
-const URL = require('url').URL;
+const { URL } = require('url');
 const myURL =
   new URL('https://user:pass@sub.host.com:8080/p/a/t/h?query=string#hash');
 ```

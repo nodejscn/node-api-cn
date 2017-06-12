@@ -14,7 +14,7 @@
 For example:
 
 ```js
-const Duplex = require('stream').Duplex;
+const { Duplex } = require('stream');
 
 class MyDuplex extends Duplex {
   constructor(options) {
@@ -27,7 +27,7 @@ class MyDuplex extends Duplex {
 Or, when using pre-ES6 style constructors:
 
 ```js
-const Duplex = require('stream').Duplex;
+const { Duplex } = require('stream');
 const util = require('util');
 
 function MyDuplex(options) {
@@ -41,7 +41,7 @@ util.inherits(MyDuplex, Duplex);
 Or, using the Simplified Constructor approach:
 
 ```js
-const Duplex = require('stream').Duplex;
+const { Duplex } = require('stream');
 
 const myDuplex = new Duplex({
   read(size) {

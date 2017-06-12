@@ -4,6 +4,7 @@
 Gets and sets the port portion of the URL.
 
 ```js
+const { URL } = require('url');
 const myURL = new URL('https://example.org:8888');
 console.log(myURL.port);
   // Prints 8888

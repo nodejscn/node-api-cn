@@ -23,8 +23,8 @@ class Box {
     // 五个空格的填充，因为那是 "Box< " 的大小。
     const padding = ' '.repeat(5);
     const inner = util.inspect(this.value, newOptions)
-                      .replace(/\n/g, '\n' + padding);
-    return options.stylize('Box', 'special') + '< ' + inner + ' >';
+                      .replace(/\n/g, `\n${padding}`);
+    return `${options.stylize('Box', 'special')}< ${inner} >`;
   }
 }
 

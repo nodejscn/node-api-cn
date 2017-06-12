@@ -23,6 +23,7 @@ to start projecting the TypedArray.
 Returns `napi_ok` if the API succeeded.
 
 This API returns various properties of a typed array.
-Warning: Use caution while using this API since the underlying data buffer
+
+*Warning*: Use caution while using this API since the underlying data buffer
 is managed by the VM
 

@@ -9,7 +9,7 @@ that accepts JavaScript numbers that are converted to hexadecimal strings on
 the Readable side.
 
 ```js
-const Transform = require('stream').Transform;
+const { Transform } = require('stream');
 
 // All Transform streams are also Duplex Streams
 const myTransform = new Transform({

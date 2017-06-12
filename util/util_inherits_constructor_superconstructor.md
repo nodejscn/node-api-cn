@@ -49,9 +49,6 @@ stream.write('运作良好！'); // 接收的数据："运作良好！"
 const EventEmitter = require('events');
 
 class MyStream extends EventEmitter {
-  constructor() {
-    super();
-  }
   write(data) {
     this.emit('data', data);
   }

@@ -4,6 +4,7 @@
 Gets and sets the serialized query portion of the URL.
 
 ```js
+const { URL } = require('url');
 const myURL = new URL('https://example.org/abc?123');
 console.log(myURL.search);
   // Prints ?123

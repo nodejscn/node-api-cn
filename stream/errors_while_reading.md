@@ -8,7 +8,7 @@ consistent and predictable handling of errors.
 
 <!-- eslint-disable no-useless-return -->
 ```js
-const Readable = require('stream').Readable;
+const { Readable } = require('stream');
 
 const myReadable = new Readable({
   read(size) {

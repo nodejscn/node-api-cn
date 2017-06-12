@@ -7,7 +7,7 @@
 
 ```js
 // 仅限 Windows 系统
-const spawn = require('child_process').spawn;
+const { spawn } = require('child_process');
 const bat = spawn('cmd.exe', ['/c', 'my.bat']);
 
 bat.stdout.on('data', (data) => {
@@ -25,7 +25,7 @@ bat.on('exit', (code) => {
 
 ```js
 // 或
-const exec = require('child_process').exec;
+const { exec } = require('child_process');
 exec('my.bat', (err, stdout, stderr) => {
   if (err) {
     console.error(err);

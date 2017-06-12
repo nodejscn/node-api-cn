@@ -13,7 +13,7 @@ added: v0.5.8
 
 ```js
 // 例子，处理 fs.watch 监听器
-fs.watch('./tmp', {encoding: 'buffer'}, (eventType, filename) => {
+fs.watch('./tmp', { encoding: 'buffer' }, (eventType, filename) => {
   if (filename)
     console.log(filename);
     // 输出: <Buffer ...>

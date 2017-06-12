@@ -16,7 +16,7 @@
 For example:
 
 ```js
-const Readable = require('stream').Readable;
+const { Readable } = require('stream');
 
 class MyReadable extends Readable {
   constructor(options) {
@@ -30,7 +30,7 @@ class MyReadable extends Readable {
 Or, when using pre-ES6 style constructors:
 
 ```js
-const Readable = require('stream').Readable;
+const { Readable } = require('stream');
 const util = require('util');
 
 function MyReadable(options) {
@@ -44,7 +44,7 @@ util.inherits(MyReadable, Readable);
 Or, using the Simplified Constructor approach:
 
 ```js
-const Readable = require('stream').Readable;
+const { Readable } = require('stream');
 
 const myReadable = new Readable({
   read(size) {

@@ -52,7 +52,7 @@ const defaults = {
 例子，运行 `ls -lh /usr`，捕获 `stdout`、`stderr`、以及退出码：
 
 ```js
-const spawn = require('child_process').spawn;
+const { spawn } = require('child_process');
 const ls = spawn('ls', ['-lh', '/usr']);
 
 ls.stdout.on('data', (data) => {
@@ -71,7 +71,7 @@ ls.on('close', (code) => {
 例子，一种执行 `'ps ax | grep ssh'` 的方法：
 
 ```js
-const spawn = require('child_process').spawn;
+const { spawn } = require('child_process');
 const ps = spawn('ps', ['ax']);
 const grep = spawn('grep', ['ssh']);
 
@@ -108,7 +108,7 @@ grep.on('close', (code) => {
 例子，检测失败的执行：
 
 ```js
-const spawn = require('child_process').spawn;
+const { spawn } = require('child_process');
 const child = spawn('bad_command');
 
 child.on('error', (err) => {

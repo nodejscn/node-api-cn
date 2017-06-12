@@ -43,7 +43,7 @@ fd 的 0、1 和 2 分别对应 stdin、stdout 和 stderr。
 例子：
 
 ```js
-const spawn = require('child_process').spawn;
+const { spawn } = require('child_process');
 
 // 子进程使用父进程的 stdios
 spawn('prg', [], { stdio: 'inherit' });

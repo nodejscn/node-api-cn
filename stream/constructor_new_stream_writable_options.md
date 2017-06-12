@@ -23,7 +23,7 @@
 For example:
 
 ```js
-const Writable = require('stream').Writable;
+const { Writable } = require('stream');
 
 class MyWritable extends Writable {
   constructor(options) {
@@ -37,7 +37,7 @@ class MyWritable extends Writable {
 Or, when using pre-ES6 style constructors:
 
 ```js
-const Writable = require('stream').Writable;
+const { Writable } = require('stream');
 const util = require('util');
 
 function MyWritable(options) {
@@ -51,7 +51,7 @@ util.inherits(MyWritable, Writable);
 Or, using the Simplified Constructor approach:
 
 ```js
-const Writable = require('stream').Writable;
+const { Writable } = require('stream');
 
 const myWritable = new Writable({
   write(chunk, encoding, callback) {

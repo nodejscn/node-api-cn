@@ -48,6 +48,7 @@ console.log(params.toString());
 new URLSearchParams([
   ['user', 'abc', 'error']
 ]);
-  // Throws TypeError: Each query pair must be a name/value tuple
+  // Throws TypeError [ERR_INVALID_TUPLE]:
+  //        Each query pair must be an iterable [name, value] tuple
 ```
 

@@ -25,6 +25,7 @@ napi_status napi_wrap(napi_env env,
 Returns `napi_ok` if the API succeeded.
 
 Wraps a native instance in JavaScript object of the corresponding type.
+The native instance can be retrieved later using `napi_unwrap()`.
 
 When JavaScript code invokes a constructor for a class that was defined using
 `napi_define_class()`, the `napi_callback` for the constructor is invoked.
@@ -42,9 +43,13 @@ The optional returned reference is initially a weak reference, meaning it
 has a reference count of 0. Typically this reference count would be incremented
 temporarily during async operations that require the instance to remain valid.
 
-Caution: The optional returned reference (if obtained) should be deleted via
-[`napi_delete_reference`][] ONLY in response to the finalize callback invocation.
-(If it is deleted before then, then the finalize callback may never be
-invoked.) Therefore when obtaining a reference a finalize callback is also
+*Caution*: The optional returned reference (if obtained) should be deleted via
+[`napi_delete_reference`][] ONLY in response to the finalize callback
+invocation. (If it is deleted before then, then the finalize callback may never
+be invoked.) Therefore, when obtaining a reference a finalize callback is also
 required in order to enable correct proper of the reference.
+
+*Note*: This API may modify the prototype chain of the wrapper object.
+Afterward, additional manipulation of the wrapper's prototype chain may cause
+`napi_unwrap()` to fail.
 

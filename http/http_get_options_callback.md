@@ -1,8 +1,12 @@
 <!-- YAML
 added: v0.3.6
+changes:
+  - version: v7.5.0
+    pr-url: https://github.com/nodejs/node/pull/10638
+    description: The `options` parameter can be a WHATWG `URL` object.
 -->
 
-* `options` {Object | string} Accepts the same `options` as
+* `options` {Object | string | URL} Accepts the same `options` as
   [`http.request()`][], with the `method` always set to `GET`.
   Properties that are inherited from the prototype are ignored.
 * `callback` {Function}

@@ -13,6 +13,6 @@ Boolean.
 Returns `napi_ok` if the API succeeded. If a non-boolean `napi_value` is
 passed in it returns `napi_boolean_expected`.
 
-This API returns C boolean primitive equivalent of the given JavaScript
-Boolea
+This API returns the C boolean primitive equivalent of the given JavaScript
+Boolean.
 

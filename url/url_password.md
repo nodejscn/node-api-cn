@@ -4,6 +4,7 @@
 Gets and sets the password portion of the URL.
 
 ```js
+const { URL } = require('url');
 const myURL = new URL('https://abc:xyz@example.com');
 console.log(myURL.password);
   // Prints xyz

@@ -9,7 +9,7 @@ added: v0.1.90
 查看 signal(7) 了解可用的信号列表。
 
 ```js
-const spawn = require('child_process').spawn;
+const { spawn } = require('child_process');
 const grep = spawn('grep', ['ssh']);
 
 grep.on('close', (code, signal) => {
@@ -33,7 +33,7 @@ grep.kill('SIGHUP');
 
 ```js
 'use strict';
-const spawn = require('child_process').spawn;
+const { spawn } = require('child_process');
 
 const child = spawn(
   'sh',

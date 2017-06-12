@@ -10,7 +10,7 @@ objects and passing appropriate methods as constructor options.
 For example:
 
 ```js
-const Writable = require('stream').Writable;
+const { Writable } = require('stream');
 
 const myWritable = new Writable({
   write(chunk, encoding, callback) {

@@ -13,6 +13,9 @@ napi_status napi_unwrap(napi_env env,
 
 Returns `napi_ok` if the API succeeded.
 
+Retrieves a native instance that was previously wrapped in a JavaScript
+object using `napi_wrap()`.
+
 When JavaScript code invokes a method or property accessor on the class, the
 corresponding `napi_callback` is invoked. If the callback is for an instance
 method or accessor, then the `this` argument to the callback is the wrapper

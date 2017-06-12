@@ -20,8 +20,8 @@ libraries.
 For example:
 
 ```js
-const OldReader = require('./old-api-module.js').OldReader;
-const Readable = require('stream').Readable;
+const { OldReader } = require('./old-api-module.js');
+const { Readable } = require('stream');
 const oreader = new OldReader();
 const myReader = new Readable().wrap(oreader);
 

@@ -17,7 +17,7 @@ added: v0.3.0
 ```js
 const repl = require('repl');
 
-const replServer = repl.start({prompt: '> '});
+const replServer = repl.start({ prompt: '> ' });
 replServer.defineCommand('sayhello', {
   help: '打招呼',
   action(name) {

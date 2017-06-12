@@ -5,7 +5,7 @@
 这个能力主要由 [`child_process.spawn()`] 函数提供：
 
 ```js
-const spawn = require('child_process').spawn;
+const { spawn } = require('child_process');
 const ls = spawn('ls', ['-lh', '/usr']);
 
 ls.stdout.on('data', (data) => {

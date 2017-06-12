@@ -17,7 +17,8 @@ Returns `napi_ok` if the API succeeded.
 
 This API is used to retrieve the underlying data buffer of an ArrayBuffer and
 its length.
-WARNING: Use caution while using this API. The lifetime of the underlying data
+
+*WARNING*: Use caution while using this API. The lifetime of the underlying data
 buffer is managed by the ArrayBuffer even after it's returned. A
 possible safe way to use this API is in conjunction with [`napi_create_reference`][],
 which can be used to guarantee control over the lifetime of the
