@@ -2,6 +2,5 @@
 added: v0.7.0
 -->
 
-The `process.abort()` method causes the Node.js process to exit immediately and
-generate a core file.
+`process.abort()`方法会事Node.js进程立即结束，并生成一个core文件。
 
