@@ -2,21 +2,16 @@
 added: v6.0.0
 -->
 
-The `'warning'` event is emitted whenever Node.js emits a process warning.
+任何时候Node.js发出进程告警，都会触发`'warning'`事件。
 
-A process warning is similar to an error in that it describes exceptional
-conditions that are being brought to the user's attention. However, warnings
-are not part of the normal Node.js and JavaScript error handling flow.
-Node.js can emit warnings whenever it detects bad coding practices that could
-lead to sub-optimal application performance, bugs or security vulnerabilities.
+进程告警与进程错误的相似之处，在于两者都描述了需要引起用户注意的异常条件。
+区别在于，告警不是Node.js和Javascript错误处理流程的正式组成部分。
+一旦探测到可能导致应用性能问题，缺陷或安全隐患相关的代码实践，Node.js就可发出告警。
 
-The listener function is called with a single `warning` argument whose value is
-an `Error` object. There are three key properties that describe the warning:
-
-* `name` {string} The name of the warning (currently `Warning` by default).
-* `message` {string} A system-provided description of the warning.
-* `stack` {string} A stack trace to the location in the code where the warning
-  was issued.
+`'warning'`事件监听器的回调函数，参数只有一个，其值为`Error` 对象。此对象有三个重要的属性用来描述告警：
+* `name` {string} 告警的名称(目前默认值是 `Warning`)。
+* `message` {string} 系统提供的对此告警的描述。
+* `stack` {string} 当告警触发时，包含代码位置的堆栈信息。
 
 ```js
 process.on('warning', (warning) => {
@@ -26,12 +21,10 @@ process.on('warning', (warning) => {
 });
 ```
 
-By default, Node.js will print process warnings to `stderr`. The `--no-warnings`
-command-line option can be used to suppress the default console output but the
-`'warning'` event will still be emitted by the `process` object.
+默认Node.js会打印进程告警到`stderr`。使用`--no-warnings`的命令行选项可以阻止默认从console输出信息，
+但是`'warning'`事件仍然会被`process`对象发出。
 
-The following example illustrates the warning that is printed to `stderr` when
-too many listeners have been added to an event
+下面的例子展示了当一个事件绑定了太多的监听器时，输出到`stderr`的告警。
 
 ```txt
 $ node
@@ -42,8 +35,7 @@ $ node
 detected. 2 foo listeners added. Use emitter.setMaxListeners() to increase limit
 ```
 
-In contrast, the following example turns off the default warning output and
-adds a custom handler to the `'warning'` event:
+与上述相反，如下例子关闭了默认的告警输出，并且给`'warning'`事件添加了一个定制的处理器。
 
 ```txt
 $ node --no-warnings
@@ -54,18 +46,12 @@ $ node --no-warnings
 > Do not do that!
 ```
 
-The `--trace-warnings` command-line option can be used to have the default
-console output for warnings include the full stack trace of the warning.
+`--trace-warnings`命令行选项可以让默认的console输出告警信息时，包含告警的全部堆栈信息。
 
-Launching Node.js using the `--throw-deprecation` command line flag will
-cause custom deprecation warnings to be thrown as exceptions.
+使用`--throw-deprecation`命令行选项标志启动Node.js，会使得custom deprecation warning作为异常信息抛出来。
 
-Using the `--trace-deprecation` command line flag will cause the custom
-deprecation to be printed to `stderr` along with the stack trace.
+使用`--trace-deprecation`命令行选项标志，会使得custom deprecation warning打印到`stderr`，包括其堆栈信息。
 
-Using the `--no-deprecation` command line flag will suppress all reporting
-of the custom deprecation.
+使用`--trace-deprecation`命令行选项标志，会阻止报告所有的custom deprecation warning。
 
-The `*-deprecation` command line flags only affect warnings that use the name
-`DeprecationWarning`.
-
+`*-deprecation` 命令行选项标志，只会影响使用名字为`DeprecationWarning`的告警。
