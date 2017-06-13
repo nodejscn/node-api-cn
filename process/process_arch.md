@@ -4,8 +4,7 @@ added: v0.5.0
 
 * {string}
 
-The `process.arch` property returns a String identifying the processor
-architecture that the Node.js process is currently running on. For instance
+`process.arch`属性返回一个标识Node.js在其上运行的处理器架构的字符串。例如
 `'arm'`, `'ia32'`, or `'x64'`.
 
 ```js
