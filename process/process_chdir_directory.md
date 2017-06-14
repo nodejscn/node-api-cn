@@ -4,9 +4,7 @@ added: v0.1.17
 
 * `directory` {string}
 
-The `process.chdir()` method changes the current working directory of the
-Node.js process or throws an exception if doing so fails (for instance, if
-the specified `directory` does not exist).
+`process.chdir()`方法变更Node.js进程的当前工作目录，或者当如此做失败时抛出异常(例如，如果指定的目录不存在)。
 
 ```js
 console.log(`Starting directory: ${process.cwd()}`);
