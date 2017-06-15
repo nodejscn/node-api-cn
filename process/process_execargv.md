@@ -4,27 +4,24 @@ added: v0.7.7
 
 * {Object}
 
-The `process.execArgv` property returns the set of Node.js-specific command-line
-options passed when the Node.js process was launched. These options do not
-appear in the array returned by the [`process.argv`][] property, and do not
-include the Node.js executable, the name of the script, or any options following
-the script name. These options are useful in order to spawn child processes with
-the same execution environment as the parent.
+`process.execArgv` 属性返回当Node.js进程被启动时，Node.js特定的命令行选项。
+这些选项在[`process.argv`][]属性返回的数组中不会出现，并且这些选项中不会包括Node.js的可执行脚本名称或者任何在脚本名称后面出现的选项。
+这些选项在创建子进程时是有用的，因为他们包含了与父进程一样的执行环境信息。
 
-For example:
+例如:
 
 ```console
 $ node --harmony script.js --version
 ```
 
-Results in `process.execArgv`:
+`process.execArgv`的结果:
 
 <!-- eslint-disable semi -->
 ```js
 ['--harmony']
 ```
 
-And `process.argv`:
+`process.argv`的结果:
 
 <!-- eslint-disable semi -->
 ```js

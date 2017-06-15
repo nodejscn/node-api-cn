@@ -4,10 +4,9 @@ added: v0.1.100
 
 * {string}
 
-The `process.execPath` property returns the absolute pathname of the executable
-that started the Node.js process.
+`process.execPath` 属性，返回启动Node.js进程的可执行文件所在的绝对路径。
 
-For example:
+例如:
 
 <!-- eslint-disable semi -->
 ```js
