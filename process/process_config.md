@@ -4,12 +4,10 @@ added: v0.7.7
 
 * {Object}
 
-The `process.config` property returns an Object containing the JavaScript
-representation of the configure options used to compile the current Node.js
-executable. This is the same as the `config.gypi` file that was produced when
-running the `./configure` script.
+`process.config` 属性返回一个Javascript对象。此对象描述了用于编译当前Node.js执行程序时涉及的配置项信息。
+这与执行`./configure`脚本生成的`config.gypi`文件结果是一样的。
 
-An example of the possible output looks like:
+可能的输出样例:
 
 <!-- eslint-disable -->
 ```js
@@ -39,7 +37,6 @@ An example of the possible output looks like:
 }
 ```
 
-*Note*: The `process.config` property is **not** read-only and there are
-existing modules in the ecosystem that are known to extend, modify, or entirely
-replace the value of `process.config`.
+*注意*： `process.config`属性值**不是**只读的，在Node.js生态系统中已经有模块扩展，修改或完全替换了`process.config`的值。
+
 

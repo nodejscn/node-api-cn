@@ -4,11 +4,10 @@ added: v0.7.2
 
 * {boolean}
 
-If the Node.js process is spawned with an IPC channel (see the [Child Process][]
-and [Cluster][] documentation), the `process.connected` property will return
-`true` so long as the IPC channel is connected and will return `false` after
-`process.disconnect()` is called.
+如果Node.js进程是由IPC channel方式创建的(see the [Child Process][] and [Cluster][] documentation)，
+只要IPC channel保持连接，`process.connected`属性就会返回`true`。
+`process.disconnect()`被调用后，此属性会返回`false`。
 
-Once `process.connected` is `false`, it is no longer possible to send messages
-over the IPC channel using `process.send()`.
+`process.connected`如果为`false`，则不能通过IPC channel使用`process.send()`发送信息。
+
 
