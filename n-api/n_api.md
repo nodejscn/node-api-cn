@@ -33,26 +33,20 @@ N-API 文档的结构如下：
 * [对象封装]
 * [异步操作]
 
-The N-API is a C API that ensures ABI stability across Node.js versions
-and different compiler levels. However, we also understand that a C++
-API can be easier to use in many cases. To support these cases we expect
-there to be one or more C++ wrapper modules that provide an inlineable C++
-API. Binaries built with these wrapper modules will depend on the symbols
-for the N-API C based functions exported by Node.js. These wrappers are not
-part of N-API, nor will they be maintained as part of Node.js. One such
-example is: [node-api](https://github.com/nodejs/node-api).
+N-API 是一个 C 语言的 API，它能确保应用二进制接口（ABI）在不同 Node.js 版本与不同编译器级别之间保持稳定。
+但是在许多情况下，C++ 的 API 更容易使用。
+为了支持这些情况，我们期望有一个或多个 C++ 封装的模块提供可内联的 C++ API。
+用这些模块构建的二进制文件会依赖于 N-API C 的符号文件。
+这些模块不是 N-API 的一部分，也不是 Node.js 的一部分。
+例子可见 [node-api]。
 
-In order to use the N-API functions, include the file
-[node_api.h](https://github.com/nodejs/node/blob/master/src/node_api.h)
-which is located in the src directory in the node development tree.
-For example:
+为了使用 N-API 函数，需要引入 [node_api.h] 文件。
+例如：
 ```C
 #include <node_api.h>
 ```
 
-As the feature is experimental it must be enabled with the
-following command line
-[option](https://nodejs.org/dist/latest-v8.x/docs/api/cli.html#cli_napi_modules):
+因为该特性是试验性的，所以需要使用命令行选项 [`--napi-modules`] 启用：
 
 ```bash
 --napi-modules
