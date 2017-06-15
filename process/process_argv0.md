@@ -13,3 +13,4 @@ $ bash -c 'exec -a customArgv0 ./node'
 '/Volumes/code/external/node/out/Release/node'
 > process.argv0
 'customArgv0'
+```
