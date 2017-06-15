@@ -2,17 +2,13 @@
 added: v6.0.0
 -->
 
-* `warning` {string|Error} The warning to emit.
-* `type` {string} When `warning` is a String, `type` is the name to use
-  for the *type* of warning being emitted. Default: `Warning`.
-* `code` {string} A unique identifier for the warning instance being emitted.
-* `ctor` {Function} When `warning` is a String, `ctor` is an optional
-  function used to limit the generated stack trace. Default
-  `process.emitWarning`
+* `warning` {string|Error} 发出的警告。
+* `type` {string} 如果 `warning` 是String, `type` 是警告类型的名字。 默认值: `Warning`。
+* `code` {string} 当前警告的唯一标识符。
+* `ctor` {Function} 如果`warning`是String，`ctor`是可选的function，用于限制生成的堆栈信息。默认`process.emitWarning`
 
-The `process.emitWarning()` method can be used to emit custom or application
-specific process warnings. These can be listened for by adding a handler to the
-[`process.on('warning')`][process_warning] event.
+`process.emitWarning()`方法可用于发出定制的或应用特定的进程警告。
+可以通过给[`process.on('warning')`][process_warning]事件增加处理器，监听这些警告。
 
 ```js
 // Emit a warning using a string.
@@ -31,9 +27,7 @@ process.emitWarning('Something happened!', 'CustomWarning', 'WARN001');
 // Emits: (node:56338) [WARN001] CustomWarning: Something happened!
 ```
 
-In each of the previous examples, an `Error` object is generated internally by
-`process.emitWarning()` and passed through to the
-[`process.on('warning')`][process_warning] event.
+在上面例子中，`process.emitWarning()`内部生成了一个`Error`对象，并传递给[`process.on('warning')`][process_warning]事件。
 
 ```js
 process.on('warning', (warning) => {
@@ -44,9 +38,7 @@ process.on('warning', (warning) => {
 });
 ```
 
-If `warning` is passed as an `Error` object, it will be passed through to the
-`process.on('warning')` event handler unmodified (and the optional `type`,
-`code` and `ctor` arguments will be ignored):
+如果`warning`参数值是一个`Error`对象，它会被透传给`process.on('warning')`的事件监听器(可选参数值`type`，`code` and `ctor`会被忽略)：
 
 ```js
 // Emit a warning using an Error object.
@@ -59,19 +51,15 @@ process.emitWarning(myWarning);
 // Emits: (node:56338) [WARN001] CustomWarning: Something happened!
 ```
 
-A `TypeError` is thrown if `warning` is anything other than a string or `Error`
-object.
+如果`warning`的参数值不是string或`Error`，会抛出 `TypeError`。
 
-Note that while process warnings use `Error` objects, the process warning
-mechanism is **not** a replacement for normal error handling mechanisms.
+需要注意的是，使用`Error`对象做为进程警告，**并不是**常用的错误处理机制的替代方式。
 
-The following additional handling is implemented if the warning `type` is
-`DeprecationWarning`:
+如果警告`type`是`DeprecationWarning`，会涉及如下额外的处理：
 
-* If the `--throw-deprecation` command-line flag is used, the deprecation
-  warning is thrown as an exception rather than being emitted as an event.
-* If the `--no-deprecation` command-line flag is used, the deprecation
-  warning is suppressed.
-* If the `--trace-deprecation` command-line flag is used, the deprecation
-  warning is printed to `stderr` along with the full stack trace.
+* 如果命令行标识包含`--throw-deprecation`，deprecation warning会作为异常抛出，而不是作为事件被发出。
+
+* 如果命令行标识包含`--no-deprecation`，deprecation warning会被忽略。
+
+* 如果命令行标识包含`--trace-deprecation`，deprecation warning及其全部堆栈信息会被打印到`stderr`。
 
