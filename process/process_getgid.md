@@ -4,8 +4,7 @@ added: v0.1.31
 
 * Returns: {Object}
 
-The `process.getgid()` method returns the numerical group identity of the
-process. (See getgid(2).)
+`process.getgid()`方法返回Node.js进程的数字标记的组身份(See getgid(2))。
 
 ```js
 if (process.getgid) {
@@ -13,7 +12,6 @@ if (process.getgid) {
 }
 ```
 
-*Note*: This function is only available on POSIX platforms (i.e. not Windows
-or Android).
+*注意*：这个函数只在POSIX平台有效(在Windows或Android平台无效)。
 
 

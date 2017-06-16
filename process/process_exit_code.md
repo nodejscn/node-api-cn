@@ -2,35 +2,27 @@
 added: v0.1.13
 -->
 
-* `code` {integer} The exit code. Defaults to `0`.
+* `code` {integer} 结束状态码。默认为`0`。
 
-The `process.exit()` method instructs Node.js to terminate the process
-synchronously with an exit status of `code`. If `code` is omitted, exit uses
-either the 'success' code `0` or the value of `process.exitCode` if it has been
-set.  Node.js will not terminate until all the [`'exit'`] event listeners are
-called.
+`process.exit()`方法以结束状态码`code`指令Node.js同步终止进程。
+如果`code`未提供，此exit方法要么使用'success' 状态码 `0`，要么使用`process.exitCode`属性值，前提是此属性已被设置。
+Node.js在所有[`'exit'`]事件监听器都被调用了以后，才会终止进程。
 
-To exit with a 'failure' code:
+使用一个'failure'状态码结束的例子:
 
 ```js
 process.exit(1);
 ```
 
-The shell that executed Node.js should see the exit code as `1`.
+执行Node.js的shell应该会得到结束状态码`1`。
 
-It is important to note that calling `process.exit()` will force the process to
-exit as quickly as possible *even if there are still asynchronous operations
-pending* that have not yet completed fully, *including* I/O operations to
-`process.stdout` and `process.stderr`.
+需要特别注意的是，调用`process.exit()`会强制进程尽快结束，*即使仍然有很多处于等待中的异步操作*没有全部执行完成，
+*包括*输出到`process.stdout`和`process.stderr`的I/O操作。
 
-In most situations, it is not actually necessary to call `process.exit()`
-explicitly. The Node.js process will exit on its own *if there is no additional
-work pending* in the event loop. The `process.exitCode` property can be set to
-tell the process which exit code to use when the process exits gracefully.
+在大多数情况下，显式调用`process.exit()`是没有必要的。如果在事件轮询队列中没有处于等待中的工作，Node.js进程会自行结束。
+当进程正常结束时，`process.exitCode`属性可以被设置，以便于告知进程使用哪个结束状态码。
 
-For instance, the following example illustrates a *misuse* of the
-`process.exit()` method that could lead to data printed to stdout being
-truncated and lost:
+如下例子说明了一个 *错误使用* `process.exit()`方法的场景，会导致输出到stdout的数据清空或丢失：
 
 ```js
 // This is an example of what *not* to do:
@@ -40,14 +32,10 @@ if (someConditionNotMet()) {
 }
 ```
 
-The reason this is problematic is because writes to `process.stdout` in Node.js
-are sometimes *asynchronous* and may occur over multiple ticks of the Node.js
-event loop. Calling `process.exit()`, however, forces the process to exit
-*before* those additional writes to `stdout` can be performed.
+这个例子中出现问题的原因在于，Node.js中写入到`process.stdout`的操作有时是异步的，并可能在Node.js事件轮询的多个ticks中出现。
+调用`process.exit()`会使得在写入`stdout`的额外操作执行*之前*，进程就被强制结束了。
 
-Rather than calling `process.exit()` directly, the code *should* set the
-`process.exitCode` and allow the process to exit naturally by avoiding
-scheduling any additional work for the event loop:
+与直接调用`process.exit()`相比，代码*应该*设置`process.exitCode`并允许进程自然的结束，以免事件轮询队列中存在额外的工作：
 
 ```js
 // How to properly set the exit code while letting
@@ -58,7 +46,5 @@ if (someConditionNotMet()) {
 }
 ```
 
-If it is necessary to terminate the Node.js process due to an error condition,
-throwing an *uncaught* error and allowing the process to terminate accordingly
-is safer than calling `process.exit()`.
+如果出现错误情况，而有必要结束Node.js进程，抛出一个*uncaught*错误并且允许进程正常结束的处理方式，要比调用`process.exit()`安全的多。
 

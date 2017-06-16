@@ -4,8 +4,7 @@ added: v0.1.28
 
 * Returns: {integer}
 
-The `process.getuid()` method returns the numeric user identity of the process.
-(See getuid(2).)
+`process.getuid()`方法返回Node.js进程的数字标记的用户身份(See getuid(2))。
 
 ```js
 if (process.getuid) {
@@ -13,6 +12,5 @@ if (process.getuid) {
 }
 ```
 
-*Note*: This function is only available on POSIX platforms (i.e. not Windows
-or Android).
+*注意*：这个函数只在POSIX平台有效(在Windows或Android平台无效)。
 

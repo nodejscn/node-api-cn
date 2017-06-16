@@ -2,8 +2,7 @@
 added: v2.0.0
 -->
 
-The `process.getegid()` method returns the numerical effective group identity
-of the Node.js process. (See getegid(2).)
+`process.getegid()`方法返回Node.js进程的有效数字标记的组身份(See getegid(2))。
 
 ```js
 if (process.getegid) {
@@ -11,6 +10,5 @@ if (process.getegid) {
 }
 ```
 
-*Note*: This function is only available on POSIX platforms (i.e. not Windows
-or Android).
+*注意*：这个函数只在POSIX平台有效(在Windows或Android平台无效)。
 
