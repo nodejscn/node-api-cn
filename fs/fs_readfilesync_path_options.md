@@ -7,7 +7,7 @@ changes:
                  protocol. Support is currently still *experimental*.
   - version: v5.0.0
     pr-url: https://github.com/nodejs/node/pull/3163
-    description: The `file` parameter can be a file descriptor now.
+    description: The `path` parameter can be a file descriptor now.
 -->
 
 * `path` {string|Buffer|URL|integer} 文件名或文件描述符
@@ -15,8 +15,8 @@ changes:
   * `encoding` {string|null} 默认 = `null`
   * `flag` {string} 默认 = `'r'`
 
-[`fs.readFile`] 的同步版本。
-返回 `file` 的内容。
+[`fs.readFile()`] 的同步版本。
+返回 `path` 的内容。
 
 如果指定了 `encoding` 选项，则该函数返回一个字符串，否则返回一个 buffer。
 

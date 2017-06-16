@@ -1,6 +1,8 @@
 ```C
 typedef struct {
+  // One of utf8name or name should be NULL.
   const char* utf8name;
+  napi_value name;
 
   napi_callback method;
   napi_callback getter;
@@ -12,7 +14,12 @@ typedef struct {
 } napi_property_descriptor;
 ```
 
-- `utf8name`: String describing the key for the property, encoded as UTF8.
+- `utf8name`: Optional String describing the key for the property,
+encoded as UTF8. One of `utf8name` or `name` must be provided for the
+property.
+- `name`: Optional napi_value that points to a JavaScript string or symbol
+to be used as the key for the property.  One of `utf8name` or `name` must
+be provided for the property.
 - `value`: The value that's retrieved by a get access of the property if the
  property is a data property. If this is passed in, set `getter`, `setter`,
  `method` and `data` to `NULL` (since these members won't be used).

@@ -11,6 +11,10 @@ added: v0.7.7
 
 如果 `stream` 是一个 [TTY]，则它必须为原始模式。
 
+*Note*: This is automatically called by any readline instance on its `input`
+if the `input` is a terminal. Closing the `readline` instance does not stop
+the `input` from emitting `'keypress'` events.
+
 ```js
 readline.emitKeypressEvents(process.stdin);
 if (process.stdin.isTTY)

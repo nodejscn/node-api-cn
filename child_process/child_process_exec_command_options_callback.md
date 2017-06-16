@@ -84,7 +84,9 @@ const defaults = {
 注意：不像 POSIX 系统调用中的 exec(3)，`child_process.exec()` 不会替换现有的进程，且使用一个 shell 来执行命令。
 
 If this method is invoked as its [`util.promisify()`][]ed version, it returns
-a Promise for an object with `stdout` and `stderr` properties.
+a Promise for an object with `stdout` and `stderr` properties. In case of an
+error, a rejected promise is returned, with the same `error` object given in the
+callback, but with an additional two properties `stdout` and `stderr`.
 
 For example:
 

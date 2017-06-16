@@ -14,7 +14,7 @@ changes:
     description: 当成功时，`callback` 被调用时会带上 `null` 作为 `error` 参数的值。
   - version: v5.0.0
     pr-url: https://github.com/nodejs/node/pull/3163
-    description: 参数 `file` 可以是一个文件描述符。
+    description: 参数 `path` 可以是一个文件描述符。
 -->
 
 * `path` {string|Buffer|URL|integer} 文件名或文件描述符。
