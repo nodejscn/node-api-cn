@@ -1,10 +1,9 @@
 
 <!--type=misc-->
 
-All of these take a [`Buffer`][], [`TypedArray`][], [`DataView`][], or string as
-the first argument, an optional second argument to supply options to the `zlib`
-classes and will call the supplied callback with `callback(error, result)`.
+所有这些方法都将 [`Buffer`][], [`TypeArray`][], [`DataView`][], 或者字符串作为第一个
+参数, 一个回调函数作为可选的第二个参数提供给 `zlib` 类, 会在 `callback(error, result)`
+中调用.
 
-Every method has a `*Sync` counterpart, which accept the same arguments, but
-without a callback.
+每一个方法相对应的都有一个接受相同参数, 但是没有回调的 `*Sync` 版本. 
 
