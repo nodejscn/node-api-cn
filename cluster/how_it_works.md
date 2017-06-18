@@ -1,57 +1,23 @@
 
 <!--type=misc-->
 
-The worker processes are spawned using the [`child_process.fork()`][] method,
-so that they can communicate with the parent via IPC and pass server
-handles back and forth.
+工作进程由[`child_process.fork()`][]方法创建，因此它们可以使用IPC和父进程通信，从而使各进程交替处理连接服务。
 
-The cluster module supports two methods of distributing incoming
-connections.
+cluster模块支持两种连接分发模式（将新连接安排给某一工作进程处理）。
 
-The first one (and the default one on all platforms except Windows),
-is the round-robin approach, where the master process listens on a
-port, accepts new connections and distributes them across the workers
-in a round-robin fashion, with some built-in smarts to avoid
-overloading a worker process.
+第一种方法（也是除Windows外所有平台的默认方法），是循环法。由主进程负责监听端口，接收新连接后再将连接循环分发给工作进程。在分发中使用了一些内置技巧防止工作进程任务过载。
 
-The second approach is where the master process creates the listen
-socket and sends it to interested workers. The workers then accept
-incoming connections directly.
+第二种方法是，主进程创建监听socket后发送给感兴趣的工作进程，由工作进程负责直接接收连接。
 
-The second approach should, in theory, give the best performance.
-In practice however, distribution tends to be very unbalanced due
-to operating system scheduler vagaries. Loads have been observed
-where over 70% of all connections ended up in just two processes,
-out of a total of eight.
+理论上第二种方法应该是效率最佳的，但在实际情况下，由于操作系统调度机制的难以捉摸，会使分发变得不稳定。我们遇到过这种情况：8个进程中的2个，分担了70%的负载。
 
-Because `server.listen()` hands off most of the work to the master
-process, there are three cases where the behavior between a normal
-Node.js process and a cluster worker differs:
+因为`server.listen()`将大部分工作交给主进程完成，因此导致普通Node.js进程与cluster作业进程差异的情况有三种：
+1. `server.listen({fd: 7})`由于文件描述符“7”是传递给父进程的，这个文件被监听后，将文件句柄（handle）传递给工作进程，而不是文件描述符“7”本身。
+2. `server.listen(handle)` 明确监听句柄，会导致工作进程直接使用该句柄，而不是和父进程通信。
+3. `server.listen(0)` 正常情况下，这种调用会导致server在随机端口上监听。但在cluster模式中，所有工作进程每次调用`listen(0)`时会收到相同的“随机”端口。实质上，这种端口只在第一次分配时随机，之后就变得可预料。如果要使用独立端口的话，应该根据工作进程的ID来生成端口号。
 
-1. `server.listen({fd: 7})` Because the message is passed to the master,
-   file descriptor 7 **in the parent** will be listened on, and the
-   handle passed to the worker, rather than listening to the worker's
-   idea of what the number 7 file descriptor references.
-2. `server.listen(handle)` Listening on handles explicitly will cause
-   the worker to use the supplied handle, rather than talk to the master
-   process.
-3. `server.listen(0)` Normally, this will cause servers to listen on a
-   random port.  However, in a cluster, each worker will receive the
-   same "random" port each time they do `listen(0)`.  In essence, the
-   port is random the first time, but predictable thereafter. To listen
-   on a unique port, generate a port number based on the cluster worker ID.
+*注意*：Node.js不支持路由逻辑。因此在设计应用时，不应该过分依赖内存数据对象（如sessions和login等）。
 
-*Note*: Node.js does not provide routing logic. It is, therefore important to
-design an application such that it does not rely too heavily on in-memory data
-objects for things like sessions and login.
-
-Because workers are all separate processes, they can be killed or
-re-spawned depending on a program's needs, without affecting other
-workers.  As long as there are some workers still alive, the server will
-continue to accept connections.  If no workers are alive, existing connections
-will be dropped and new connections will be refused. Node.js does not
-automatically manage the number of workers, however. It is the application's
-responsibility to manage the worker pool based on its own needs.
-
+由于各工作进程是独立的进程，它们可以根据需要随时关闭或重新生成，而不影响其他进程的正常运行。只要有存活的工作进程，服务器就可以继续处理连接。如果没有存活的工作进程，现有连接会丢失，新的连接也会被拒绝。Node.js不会自动管理工作进程的数量，而应该由具体的应用根据实际需要来管理进程池。
 
 
