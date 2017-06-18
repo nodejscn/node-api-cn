@@ -4,19 +4,14 @@ added: v0.5.8
 
 <!--type=misc-->
 
-All of the constants defined in `zlib.h` are also defined on
-`require('zlib').constants`. In the normal course of operations, it will not be
-necessary to use these  constants. They are documented so that their presence is
-not surprising. This section is taken almost directly from the
-[zlib documentation][].  See <http://zlib.net/manual.html#Constants> for more
-details.
+这些被定义在 `zlib.h` 的全部常量同时也被定义在 `require('zlib').constants` 常量上.
+不需要在正常的操作中使用这些常量. 记录他们为了使他们的存在并不奇怪. 这个章节几乎直接取自[zlib documentation].
+参阅 <http://zlib.net/mamual.html#Constants> 获取更多信息.
 
-*Note*: Previously, the constants were available directly from
-`require('zlib')`, for instance `zlib.Z_NO_FLUSH`. Accessing the constants
-directly from the module is currently still possible but should be considered
-deprecated.
+*注意*: 以前, 可以直接从 `require('zlib')` 中获取到这些常量, 例如 `zlib.Z_NO_FLUSH`. 
+目前仍然可以从模块中直接访问这些常量, 但是不推荐使用.
 
-Allowed flush values.
+可接受的 flush 值.
 
 * `zlib.constants.Z_NO_FLUSH`
 * `zlib.constants.Z_PARTIAL_FLUSH`
@@ -26,9 +21,7 @@ Allowed flush values.
 * `zlib.constants.Z_BLOCK`
 * `zlib.constants.Z_TREES`
 
-Return codes for the compression/decompression functions. Negative
-values are errors, positive values are used for special but normal
-events.
+返回压缩/解压函数的返回值. 发送错误时为负值, 正值用于特殊但正常的事件.
 
 * `zlib.constants.Z_OK`
 * `zlib.constants.Z_STREAM_END`
@@ -40,14 +33,14 @@ events.
 * `zlib.constants.Z_BUF_ERROR`
 * `zlib.constants.Z_VERSION_ERROR`
 
-Compression levels.
+压缩等级.
 
 * `zlib.constants.Z_NO_COMPRESSION`
 * `zlib.constants.Z_BEST_SPEED`
 * `zlib.constants.Z_BEST_COMPRESSION`
 * `zlib.constants.Z_DEFAULT_COMPRESSION`
 
-Compression strategy.
+压缩策略
 
 * `zlib.constants.Z_FILTERED`
 * `zlib.constants.Z_HUFFMAN_ONLY`
