@@ -1,9 +1,9 @@
 
 > 稳定性: 2 - 稳定的
 
-`crypto`模块提供了加密功能包括OpenSSL的哈希，HMAC，密码，解密，签名和验证功能的一系列封装。
+`crypto` 模块提供了加密功能，包含对 OpenSSL 的哈希、HMAC、加密、解密、签名、以及验证功能的一整套封装。
 
-使用`require('crypto')`来访问这个模块。
+使用 `require('crypto')` 来访问该模块。
 
 ```js
 const crypto = require('crypto');

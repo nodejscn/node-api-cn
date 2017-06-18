@@ -3,8 +3,8 @@
 
 <!-- type=misc -->
 
-Node.js 包含一个进程外的调试工具，可以通过[基于 TCP 的协议]和内置调试客户端访问。
-要使用它，可以带上 `debug` 参数启动 Node.js，并带上需要调试的脚本的路径；然后会显示一个提示，表明成功启动调试器：
+Node.js 包含一个进程外的调试工具，可以通过一个基于 TCP 协议且内置的调试客户端访问。
+要使用它，需要以 `debug` 参数启动 Node.js，并带上需要调试的脚本的路径；然后会出现一个提示，表明已成功启动调试器：
 
 ```txt
 $ node debug myscript.js
@@ -27,12 +27,12 @@ Node.js 的调试器客户端还未支持全部特性，但可以做些简单的
 global.x = 5;
 setTimeout(() => {
   debugger;
-  console.log('world');
+  console.log('世界');
 }, 1000);
-console.log('hello');
+console.log('你好');
 ```
 
-一旦运行调试器，则会在第 3 行出现一个断点：
+一旦运行调试器，则在第 3 行会出现一个断点：
 
 ```txt
 $ node debug myscript.js
@@ -43,20 +43,20 @@ break in /home/indutny/Code/git/indutny/myscript.js:1
   2 setTimeout(() => {
   3   debugger;
 debug> cont
-< hello
+< 你好
 break in /home/indutny/Code/git/indutny/myscript.js:3
   1 global.x = 5;
   2 setTimeout(() => {
 > 3   debugger;
-  4   console.log('world');
+  4   console.log('世界');
   5 }, 1000);
 debug> next
 break in /home/indutny/Code/git/indutny/myscript.js:4
   2 setTimeout(() => {
   3   debugger;
-> 4   console.log('world');
+> 4   console.log('世界');
   5 }, 1000);
-  6 console.log('hello');
+  6 console.log('你好');
 debug> repl
 Press Ctrl + C to leave debug repl
 > x
@@ -65,11 +65,11 @@ Press Ctrl + C to leave debug repl
 4
 debug> next
 break in /home/indutny/Code/git/indutny/myscript.js:5
-< world
+< 世界
   3   debugger;
-  4   console.log('world');
+  4   console.log('世界');
 > 5 }, 1000);
-  6 console.log('hello');
+  6 console.log('你好');
   7
 debug> quit
 ```
@@ -78,5 +78,5 @@ debug> quit
 `next` 命令用于步入下一行。
 输入 `help` 可查看其他可用的命令。
 
-按下 `enter` 键且不输入命令，可重复上一个调试命令。
+按下 `enter` 键且不输入命令，则可重复上一个调试命令。
 
