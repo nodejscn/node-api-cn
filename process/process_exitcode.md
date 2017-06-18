@@ -4,11 +4,8 @@ added: v0.11.8
 
 * {integer}
 
-A number which will be the process exit code, when the process either
-exits gracefully, or is exited via [`process.exit()`][] without specifying
-a code.
+当进程正常结束，或通过[`process.exit()`][]结束但未传递参数时，此数值标识进程结束的状态码。
 
-Specifying a code to [`process.exit(code)`][`process.exit()`] will override any
-previous setting of `process.exitCode`.
+给[`process.exit(code)`][`process.exit()`]指定一个状态码，会覆盖`process.exitCode`的原有值。
 
 

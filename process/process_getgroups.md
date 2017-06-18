@@ -4,10 +4,9 @@ added: v0.9.4
 
 * Returns: {Array}
 
-The `process.getgroups()` method returns an array with the supplementary group
-IDs. POSIX leaves it unspecified if the effective group ID is included but
+`process.getgroups()`方法返回数组，其中包含了补充的组ID。
+POSIX leaves it unspecified if the effective group ID is included but
 Node.js ensures it always is.
 
-*Note*: This function is only available on POSIX platforms (i.e. not Windows
-or Android).
+*注意*：这个函数只在POSIX平台有效(在Windows或Android平台无效)。
 
