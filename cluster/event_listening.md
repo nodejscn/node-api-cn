@@ -4,7 +4,7 @@ added: v0.7.0
 
 * `address` {Object}
 
-Similar to the `cluster.on('listening')` event, but specific to this worker.
+和`cluster.on('listening')`事件类似，但针对特定的工作进程。
 
 ```js
 cluster.fork().on('listening', (address) => {
@@ -12,5 +12,4 @@ cluster.fork().on('listening', (address) => {
 });
 ```
 
-It is not emitted in the worker.
-
+本事件不会在工作进程内触发。
