@@ -3,13 +3,12 @@ added: v0.7.9
 -->
 
 * `worker` {cluster.Worker}
-* `code` {number} the exit code, if it exited normally.
-* `signal` {string} the name of the signal (e.g. `'SIGHUP'`) that caused
-  the process to be killed.
+* `code` {number} 正常退出情况下，是退出代码.
+* `signal` {string} 导致进程被kill的信号名称 (例如 `'SIGHUP'`)
 
-When any of the workers die the cluster module will emit the `'exit'` event.
+当任何一个工作进程关闭的时候，cluster模块都将触发`'exit'`事件。
 
-This can be used to restart the worker by calling `.fork()` again.
+可以被用来重启工作进程（）通过调用`.fork()`）。
 
 ```js
 cluster.on('exit', (worker, code, signal) => {
@@ -19,5 +18,5 @@ cluster.on('exit', (worker, code, signal) => {
 });
 ```
 
-See [child_process event: 'exit'][].
+详见： [child_process event: 'exit'][]。
 
