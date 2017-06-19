@@ -2,7 +2,7 @@
 added: v0.7.3
 -->
 
-This event is the same as the one provided by [`child_process.fork()`][].
+此事件和 [`child_process.fork()`][]提供的error事件相同。
 
-Within a worker, `process.on('error')` may also be used.
+在一个工作进程中，可以使用`process.on('error')`
 

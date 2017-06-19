@@ -2,11 +2,10 @@
 added: v0.11.2
 -->
 
-* `code` {number} the exit code, if it exited normally.
-* `signal` {string} the name of the signal (e.g. `'SIGHUP'`) that caused
-  the process to be killed.
+* `code` {number} 若正常退出，表示退出代码.
+* `signal` {string} 引发进程被kill的信号名称（如`'SIGHUP'`）.
 
-Similar to the `cluster.on('exit')` event, but specific to this worker.
+和`cluster.on('exit')`事件类似，但针对特定的工作进程。
 
 ```js
 const worker = cluster.fork();

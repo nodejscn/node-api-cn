@@ -4,10 +4,8 @@ added: v0.7.0
 
 * `worker` {cluster.Worker}
 
-After forking a new worker, the worker should respond with an online message.
-When the master receives an online message it will emit this event.
-The difference between `'fork'` and `'online'` is that fork is emitted when the
-master forks a worker, and 'online' is emitted when the worker is running.
+当新建一个工作进程后，工作进程应当响应一个online消息给主进程。当主进程收到online消息后触发这个事件。
+ `'fork'` 事件和 `'online'`事件的不同之处在于，前者是在主进程新建工作进程后触发，而后者是在工作进程运行的时候触发。
 
 ```js
 cluster.on('online', (worker) => {

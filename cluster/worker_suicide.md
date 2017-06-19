@@ -9,13 +9,11 @@ changes:
 
 > Stability: 0 - Deprecated: Use [`worker.exitedAfterDisconnect`][] instead.
 
-An alias to [`worker.exitedAfterDisconnect`][].
+和 [`worker.exitedAfterDisconnect`][] 等价.
 
-Set by calling `.kill()` or `.disconnect()`. Until then, it is `undefined`.
+调用`.kill()` 或`.disconnect()`被设置，否则一直是 `undefined`。
 
-The boolean `worker.suicide` is used to distinguish between voluntary
-and accidental exit, the master may choose not to respawn a worker based on
-this value.
+ `worker.suicide`用于区分自发退出或被动退出，主进程可根据这个值来决定是否重新衍生新的工作进程。
 
 ```js
 cluster.on('exit', (worker, code, signal) => {
@@ -28,6 +26,5 @@ cluster.on('exit', (worker, code, signal) => {
 worker.kill();
 ```
 
-This API only exists for backwards compatibility and will be removed in the
-future.
+这个API只是为了向后兼容，未来会删除。
 

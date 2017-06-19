@@ -2,17 +2,13 @@
 added: v0.9.12
 -->
 
-* `signal` {string} Name of the kill signal to send to the worker
-  process.
+* `signal` {string} 被发送kill信号的工作进程名称。
 
-This function will kill the worker. In the master, it does this by disconnecting
-the `worker.process`, and once disconnected, killing with `signal`. In the
-worker, it does it by disconnecting the channel, and then exiting with code `0`.
+这个方法将会kill工作进程。在主进程中，通过断开与`worker.process`的连接来实现，一旦断开连接后，通过`signal`来杀死工作进程。在工作进程中，通过断开IPC管道来实现，然后以代码`0`退出进程。
 
-Causes `.exitedAfterDisconnect` to be set.
+将导致`.exitedAfterDisconnect`被设置。
 
-This method is aliased as `worker.destroy()` for backwards compatibility.
+为向后兼容，这个方法与`worker.destroy()`等义。
 
-Note that in a worker, `process.kill()` exists, but it is not this function,
-it is [`kill`][].
+需要注意的是，在工作进程中有一个方法`process.kill()` ，这个方法本方法不同，本方法是[`kill`][]。
 

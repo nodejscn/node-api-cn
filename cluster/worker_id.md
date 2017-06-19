@@ -4,9 +4,7 @@ added: v0.8.0
 
 * {number}
 
-Each new worker is given its own unique id, this id is stored in the
-`id`.
+每一个新衍生的工作进程都会被赋予自己独一无二的编号，这个编号就是储存在`id`里面。
 
-While a worker is alive, this is the key that indexes it in
-cluster.workers
+当工作进程还存活时，`id`可以作为在cluster.workers中的索引。
 

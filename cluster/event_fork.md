@@ -4,8 +4,8 @@ added: v0.7.0
 
 * `worker` {cluster.Worker}
 
-When a new worker is forked the cluster module will emit a `'fork'` event.
-This can be used to log worker activity, and create a custom timeout.
+当新的工作进程被fork时，cluster模块将触发`'fork'`事件。
+可以被用来记录工作进程活动，产生一个自定义的timeout。
 
 ```js
 const timeouts = [];

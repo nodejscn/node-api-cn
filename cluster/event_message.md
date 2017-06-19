@@ -5,14 +5,13 @@ added: v0.7.0
 * `message` {Object}
 * `handle` {undefined|Object}
 
-Similar to the `cluster.on('message')` event, but specific to this worker.
+和`cluster.on('message')`事件类似，但针对特定的工作进程。
 
-Within a worker, `process.on('message)` may also be used.
+在工作进程内，可以使用`process.on('message)` 
 
-See [`process` event: `'message'`][].
+详见 [`process` event: `'message'`][].
 
-As an example, here is a cluster that keeps count of the number of requests
-in the master process using the message system:
+在下面这个例子中，我们使用message机制来实现主进程统计cluster中请求数量的功能。
 
 ```js
 const cluster = require('cluster');
