@@ -7,21 +7,14 @@ changes:
 -->
 
 * {Object}
-  * `execArgv` {Array} list of string arguments passed to the Node.js
-    executable. (Default=`process.execArgv`)
-  * `exec` {string} file path to worker file.  (Default=`process.argv[1]`)
-  * `args` {Array} string arguments passed to worker.
-    (Default=`process.argv.slice(2)`)
-  * `silent` {boolean} whether or not to send output to parent's stdio.
-    (Default=`false`)
-  * `stdio` {Array} Configures the stdio of forked processes. Because the
-    cluster module relies on IPC to function, this configuration must contain an
-    `'ipc'` entry. When this option is provided, it overrides `silent`.
-  * `uid` {number} Sets the user identity of the process. (See setuid(2).)
-  * `gid` {number} Sets the group identity of the process. (See setgid(2).)
+  * `execArgv` {Array} 传递给Node.js可执行文件的参数列表。 (Default=`process.execArgv`)
+  * `exec` {string} worker文件路径。 (Default=`process.argv[1]`)
+  * `args` {Array} 传递给worker的参数。(Default=`process.argv.slice(2)`)
+  * `silent` {boolean} 是否需要发送输出值父进程的stdio。(Default=`false`)
+  * `stdio` {Array} 配置fork进程的stdio。  由于cluster模块运行依赖于IPC，这个配置必须包含`'ipc'`。当提供了这个选项后，将撤销`silent`。
+  * `uid` {number} 设置进程的user标识符。 (见 setuid(2).)
+  * `gid` {number} 设置进程的group标识符。 (见 setgid(2).)
 
-After calling `.setupMaster()` (or `.fork()`) this settings object will contain
-the settings, including the default values.
+调用`.setupMaster()` (或 `.fork()`)后，这个settings对象将会包含这些设置项，包括默认值。
 
-This object is not intended to be changed or set manually.
-
+这个对象不打算被修改或手动设置。
