@@ -5,14 +5,9 @@ added: v0.7.0
 * `worker` {cluster.Worker}
 * `address` {Object}
 
-After calling `listen()` from a worker, when the `'listening'` event is emitted
-on the server a `'listening'` event will also be emitted on `cluster` in the
-master.
+当一个工作进程调用`listen()`后，工作进程上的server会触发`'listening'` 事件，同时主进程上的 `cluster` 也会被触发`'listening'`事件。
 
-The event handler is executed with two arguments, the `worker` contains the
-worker object and the `address` object contains the following connection
-properties: `address`, `port` and `addressType`. This is very useful if the
-worker is listening on more than one address.
+事件处理器使用两个参数来执行，其中`worker`包含了工作进程对象，`address` 包含了以下连接属性： `address`、`port` 和 `addressType`。当工作进程同时监听多个地址时，这些参数非常有用。
 
 ```js
 cluster.on('listening', (worker, address) => {
@@ -21,7 +16,7 @@ cluster.on('listening', (worker, address) => {
 });
 ```
 
-The `addressType` is one of:
+`addressType` 可选值包括:
 
 * `4` (TCPv4)
 * `6` (TCPv6)
