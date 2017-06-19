@@ -2,7 +2,7 @@
 added: v0.7.0
 -->
 
-Similar to the `cluster.on('online')` event, but specific to this worker.
+和`cluster.on('online')`事件类似，但针对特定的工作进程。
 
 ```js
 cluster.fork().on('online', () => {
@@ -10,5 +10,5 @@ cluster.fork().on('online', () => {
 });
 ```
 
-It is not emitted in the worker.
+本事件不会在工作进程内部被触发。
 
