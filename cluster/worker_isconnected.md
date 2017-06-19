@@ -2,7 +2,6 @@
 added: v0.11.14
 -->
 
-This function returns `true` if the worker is connected to its master via its
-IPC channel, `false` otherwise. A worker is connected to its master after it
-has been created. It is disconnected after the `'disconnect'` event is emitted.
+当工作进程通过IPC管道连接至主进程时，这个方法返回`true`，否则返回`false`。
 
+一个工作进程在创建后会自动连接到它的主进程，当`'disconnect'` 事件被触发时才会断开连接。
