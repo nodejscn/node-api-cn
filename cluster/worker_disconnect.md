@@ -8,31 +8,19 @@ changes:
 
 * Returns: {Worker} A reference to `worker`.
 
-In a worker, this function will close all servers, wait for the `'close'` event on
-those servers, and then disconnect the IPC channel.
+在一个工作进程内，调用此方法会关闭所有的server，并等待这些server的 `'close'`事件执行，然后关闭IPC管道。
 
-In the master, an internal message is sent to the worker causing it to call
-`.disconnect()` on itself.
+在主进程内，会给工作进程发送一个内部消息，导致工作进程自身调用`.disconnect()`。
 
-Causes `.exitedAfterDisconnect` to be set.
+会设置`.exitedAfterDisconnect` 。
 
-Note that after a server is closed, it will no longer accept new connections,
-but connections may be accepted by any other listening worker. Existing
-connections will be allowed to close as usual. When no more connections exist,
-see [`server.close()`][], the IPC channel to the worker will close allowing it to
-die gracefully.
+需要注意的是，当一个server关闭后，它将不再接收新的连接，但新连接会被其他正在监听的工作进程接收。已建立的连接可以正常关闭。当所有连接都关闭后，通往该工作进程的IPC管道将会关闭，允许工作进程优雅地死掉，详见 [`server.close()`][]。
 
-The above applies *only* to server connections, client connections are not
-automatically closed by workers, and disconnect does not wait for them to close
-before exiting.
+以上情况只针对服务端连接，工作进程不会自动关闭客户端连接，disconnect方法在退出前并不会等待客户端连接关闭。
 
-Note that in a worker, `process.disconnect` exists, but it is not this function,
-it is [`disconnect`][].
+需要注意的是，我们这里的方法是[`disconnect`][]，同时还有一个不一样的方法`process.disconnect`，大家不要混淆了。
 
-Because long living server connections may block workers from disconnecting, it
-may be useful to send a message, so application specific actions may be taken to
-close them. It also may be useful to implement a timeout, killing a worker if
-the `'disconnect'` event has not been emitted after some time.
+由于长时间运行的服务端连接可能导致工作进程的disconnect方法阻塞，我们可以采用发送消息的方法，让应用采取相应的动作来关闭连接。也可以通过设置timeout，当`'disconnect'`事件在某段时间后仍没有触发时关闭工作进程。
 
 ```js
 if (cluster.isMaster) {
