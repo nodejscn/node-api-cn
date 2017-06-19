@@ -2,6 +2,5 @@
 added: v0.11.14
 -->
 
-This function returns `true` if the worker's process has terminated (either
-because of exiting or being signaled). Otherwise, it returns `false`.
+当工作进程被终止时（包括自动退出或被发送信号），这个方法返回`true` ，否则返回`false`。
 
