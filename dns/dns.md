@@ -1,24 +1,28 @@
 
 > 稳定性: 2 - 稳定的
 
-`dns`模块包含两个类型的函数：
+`dns` 模块包含两类函数：
 
-1) 使用底层操作系统工具进行域名解析的函数，并不须要进行网络通信。这类函数只有一个：[`dns.lookup()`][]。**如果希望在相同系统中与其他应用程序执行域名解析的行为一致，请使用[`dns.lookup()`][]函数**
+1) 第一类函数，使用底层操作系统工具进行域名解析，且无需进行网络通信。
+这类函数只有一个：[`dns.lookup()`]。
 
-例如，查找`iana.org`
+例子，查找 `iana.org`：
 
 ```js
 const dns = require('dns');
 
 dns.lookup('iana.org', (err, address, family) => {
-  console.log('address: %j family: IPv%s', address, family);
+  console.log('IP 地址: %j 地址族: IPv%s', address, family);
 });
-// address: "192.0.43.8" family: IPv4
+// IP 地址: "192.0.43.8" 地址族: IPv4
 ```
 
-2) 连接到实际DNS服务器进行域名解析的函数，并且始终使用网络执行DNS查询。这类函数包含除[`dns.lookup()`][]以外的所有`dns`模块中的函数。这类函数并未使用与[`dns.lookup()`][]相同的配置文件(例如： `/etc/hosts`)。 这类函数适合于那些不想使用底层操作系统工具进行域名解析，而是想使用网络执行DNS查询的开发者。
+2) 第二类函数，连接到一个真实的 DNS 服务器进行域名解析，且始终使用网络进行 DNS 查询。
+这类函数包含了 `dns` 模块中除 [`dns.lookup()`] 以外的所有函数。
+这些函数使用与 `dns.lookup()` 不同的配置文件（例如 `/etc/hosts`）。
+这类函数适合于那些不想使用底层操作系统工具进行域名解析、而是想使用网络进行 DNS 查询的开发者。
 
-下面有一个解析`'archive.org'`的示例，然后反向解析返回的IP地址。
+例子，解析 `'archive.org'` 然后逆向解析返回的 IP 地址：
 
 ```js
 const dns = require('dns');
@@ -26,19 +30,19 @@ const dns = require('dns');
 dns.resolve4('archive.org', (err, addresses) => {
   if (err) throw err;
 
-  console.log(`addresses: ${JSON.stringify(addresses)}`);
+  console.log(`IP 地址: ${JSON.stringify(addresses)}`);
 
   addresses.forEach((a) => {
     dns.reverse(a, (err, hostnames) => {
       if (err) {
         throw err;
       }
-      console.log(`reverse for ${a}: ${JSON.stringify(hostnames)}`);
+      console.log(`IP 地址 ${a} 逆向解析到域名: ${JSON.stringify(hostnames)}`);
     });
   });
 });
 ```
 
-两者之间的选择会产生微妙的结果，更多信息请查询[Implementation considerations section][]章节。
+两类函数有微妙的差别，详见 [实现上的注意事项]。
 
 
