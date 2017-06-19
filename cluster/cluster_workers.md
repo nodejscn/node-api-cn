@@ -4,14 +4,10 @@ added: v0.7.0
 
 * {Object}
 
-A hash that stores the active worker objects, keyed by `id` field. Makes it
-easy to loop through all the workers. It is only available in the master
-process.
+这是一个哈希表，储存了活跃的工作进程对象，`id`作为key。有了它，可以方便地遍历所有工作进程。只能在主进程中调用。
 
-A worker is removed from cluster.workers after the worker has disconnected _and_
-exited. The order between these two events cannot be determined in advance.
-However, it is guaranteed that the removal from the cluster.workers list happens
-before last `'disconnect'` or `'exit'` event is emitted.
+工作进程断开连接以及退出后，将会从cluster.workers里面移除。这两个事件的先后顺序并不能预先确定，但可以保证的是，
+cluster.workers的移除工作在`'disconnect'` 和 `'exit'`两个事件中的最后一个触发之前完成。
 
 ```js
 // Go through all workers
@@ -24,8 +20,7 @@ eachWorker((worker) => {
   worker.send('big announcement to all workers');
 });
 ```
-
-Using the worker's unique id is the easiest way to locate the worker.
+使用工作进程的id来进行定位索引是最方便的！
 
 ```js
 socket.on('data', (id) => {
