@@ -4,7 +4,7 @@ added: v0.7.0
 
 * {Object}
 
-A reference to the current worker object. Not available in the master process.
+当前工作进程对象的引用，对于主进程则无效。
 
 ```js
 const cluster = require('cluster');
