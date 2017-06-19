@@ -11,10 +11,9 @@ changes:
 
 <!--type=misc-->
 
-Each class takes an `options` object.  All options are optional.
+每一个类都有一个 `options` 对象. 所有的选项都是可选的.
 
-Note that some options are only relevant when compressing, and are
-ignored by the decompression classes.
+注意一些选项只与压缩相关, 会被解压类忽视.
 
 * `flush` {integer} (default: `zlib.constants.Z_NO_FLUSH`)
 * `finishFlush` {integer} (default: `zlib.constants.Z_FINISH`)
@@ -27,6 +26,4 @@ ignored by the decompression classes.
   default)
 * `info` {boolean} (If `true`, returns an object with `buffer` and `engine`)
 
-See the description of `deflateInit2` and `inflateInit2` at
-<http://zlib.net/manual.html#Advanced> for more information on these.
-
+更多信息查阅在 <http://zlib.net/manual.html#Advanced> 关于 `deflateInit2` 以及 `inflateInit2` 的描述， 
