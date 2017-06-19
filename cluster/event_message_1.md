@@ -10,16 +10,13 @@ changes:
 * `message` {Object}
 * `handle` {undefined|Object}
 
-Emitted when the cluster master receives a message from any worker.
+当cluster主进程接收任意工作进程发送的消息后被触发。
 
-See [child_process event: 'message'][].
+详见： [child_process event: 'message'][]。
 
-Before Node.js v6.0, this event emitted only the message and the handle,
-but not the worker object, contrary to what the documentation stated.
+和文档情况相反的是：在Node.js v6.0版本之前，这个事件仅仅接受两个参数：消息和handle，而没有工作进程对象。
 
-If support for older versions is required but a worker object is not
-required, it is possible to work around the discrepancy by checking the
-number of arguments:
+如果要兼容旧版本并且不需要工作进程对象的情况下，可以通过判断参数数量来实现兼容。
 
 ```js
 cluster.on('message', (worker, message, handle) => {
