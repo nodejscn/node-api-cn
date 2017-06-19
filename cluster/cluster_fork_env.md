@@ -3,7 +3,7 @@ added: v0.6.0
 -->
 
 * `env` {Object} 增加进程环境变量，以Key/value对的形式。
-* return {cluster.Worker}Key/value
+* return {cluster.Worker}
 
 衍生一个新的工作进程。
 
