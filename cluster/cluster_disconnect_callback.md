@@ -2,15 +2,13 @@
 added: v0.7.7
 -->
 
-* `callback` {Function} called when all workers are disconnected and handles are
-  closed
+* `callback` {Function} 当所有工作进程都断开连接并且所有handle关闭的时候调用。
 
-Calls `.disconnect()` on each worker in `cluster.workers`.
+在`cluster.workers`的每个工作进程中调用 `.disconnect()`。
 
-When they are disconnected all internal handles will be closed, allowing the
-master process to die gracefully if no other event is waiting.
+当所有工作进程断开连接后，所有内部handle将会关闭，这个时候如果没有等待事件的话，运行主进程优雅地关闭。
 
-The method takes an optional callback argument which will be called when finished.
+这个方法可以选择添加一个回调参数，当结束时会调用这个回调函数。
 
-This can only be called from the master process.
+这个方法只能由主进程调用。
 
