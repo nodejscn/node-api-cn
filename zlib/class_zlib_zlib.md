@@ -2,6 +2,4 @@
 added: v0.5.8
 -->
 
-Not exported by the `zlib` module. It is documented here because it is the base
-class of the compressor/decompressor classes.
-
+没有被 `zlib` 模块导出. 它被记录于此因为它是 compressor/decompressor 类的基础类.
