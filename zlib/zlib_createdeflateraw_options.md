@@ -2,9 +2,8 @@
 added: v0.5.8
 -->
 
-Returns a new [DeflateRaw][] object with an [options][].
+返回一个带有 [options][] 的 新的 [DeflateRaw][] 对象.
 
-*Note*: The zlib library rejects requests for 256-byte windows (i.e.,
-`{ windowBits: 8 }` in `options`). An `Error` will be thrown when creating
-a [DeflateRaw][] object with this specific value of the `windowBits` option.
+*注意*: zlib 库拒绝 256-字节的 windows 的请求 (即 `{windowBits: 8}` in `options`).
+当创建具有这个特定 `windowBits` 值的 [DeflateRaw][] 对象时, 会抛出一个 `Error` 
 
