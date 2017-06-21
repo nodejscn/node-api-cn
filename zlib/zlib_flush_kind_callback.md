@@ -2,13 +2,10 @@
 added: v0.5.8
 -->
 
-`kind` defaults to `zlib.constants.Z_FULL_FLUSH`.
+`kind` 默认为 `zlib.constants.Z_FULL_FLUSH`.
 
-Flush pending data. Don't call this frivolously, premature flushes negatively
-impact the effectiveness of the compression algorithm.
+刷新挂起的数据. 不要轻易的调用这个方法, 过早的刷新会对压缩算法造成负面影响.
 
-Calling this only flushes data from the internal `zlib` state, and does not
-perform flushing of any kind on the streams level. Rather, it behaves like a
-normal call to `.write()`, i.e. it will be queued up behind other pending
-writes and will only produce output when data is being read from the stream.
-
+执行这个操作只会从 `zlib` 内部状态刷新数据, 不会在流级别上执行任何类型的刷新. 相反, 它的表现
+类似正常的 `.write()` 调用. 即它将在队列中其他数据写入操作之后执行，并且只会在从流中读取数据之后
+才产生输出。
