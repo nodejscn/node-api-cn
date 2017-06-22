@@ -2,22 +2,18 @@
 added: v0.7.6
 -->
 
-* `time` {Array} The result of a previous call to `process.hrtime()`
+* `time` {Array} 上一次调用`process.hrtime()`的结果
 * Returns: {Array}
 
-The `process.hrtime()` method returns the current high-resolution real time
-in a `[seconds, nanoseconds]` tuple Array, where `nanoseconds` is the
-remaining part of the real time that can't be represented in second precision.
+`process.hrtime()`方法`返回当前时间以[seconds, nanoseconds]` tuple Array表示的高精度解析值，
+`nanoseconds`是当前时间无法使用秒的精度表示的剩余部分。
 
-`time` is an optional parameter that must be the result of a previous
-`process.hrtime()` call to diff with the current time. If the parameter
-passed in is not a tuple Array, a `TypeError` will be thrown. Passing in a
-user-defined array instead of the result of a previous call to
-`process.hrtime()` will lead to undefined behavior.
+`time` 是可选参数，传入的值是上一次调用`process.hrtime()`返回的结果，用于与当次调用做差值计算。
+如果此参数传入的不是一个tuple Array，会抛出`TypeError`。
+给此参数传入一个用户定义的数组，而不是传入上次调用`process.hrtime()`的结果，会导致未定义的行为。
 
-These times are relative to an arbitrary time in the
-past, and not related to the time of day and therefore not subject to clock
-drift. The primary use is for measuring performance between intervals:
+`process.hrtime()`返回的时间，都是相对于过去某一时刻的值，与一天中的时钟时间没有关系，因此不受制于时钟偏差。
+此方法最主要的作用是衡量间隔操作的性能：
 
 ```js
 const NS_PER_SEC = 1e9;
