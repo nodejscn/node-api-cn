@@ -2,6 +2,4 @@
 added: v0.11.4
 -->
 
-Dynamically update the compression level and compression strategy.
-Only applicable to deflate algorithm.
-
+动态更新压缩等级和压缩策略. 只对解压算法有效.
