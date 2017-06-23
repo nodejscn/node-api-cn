@@ -11,10 +11,6 @@ added: v0.0.6
 
 如果目标`pid`不存在，该方法会抛出错误。作为一个特殊例子，信号`0`可以用于测试进程是否存在。
 在Windows平台中，如果`pid`用于kill进程组，会抛出错误。
-This method will throw an error if the target `pid` does not exist. As a special
-case, a signal of `0` can be used to test for the existence of a process.
-Windows platforms will throw an error if the `pid` is used to kill a process
-group.
 
 *注意*：即使这个函数的名称是`process.kill()`,它其实只是发送信号，这点与`kill`系统调用类似。
 发送的信号可能是做一些与kill目标进程无关的事情。
