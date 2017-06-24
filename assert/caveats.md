@@ -1,25 +1,23 @@
 
-For the following cases, consider using ES2015 [`Object.is()`][],
-which uses the [SameValueZero][] comparison.
+对于以下情况，如使用 [SameValueZero][] 作比较， 请优先考虑使用 ES2015 的 [`Object.is()`][]
 
 ```js
 const a = 0;
 const b = -a;
 assert.notStrictEqual(a, b);
-// AssertionError: 0 !== -0
-// Strict Equality Comparison doesn't distinguish between -0 and +0...
+// 断言错误: 0 !== -0
+// 不全等比较方法 不能区分 -0 和 +0 的差异
 assert(!Object.is(a, b));
-// but Object.is() does!
+// 但 Object.is() 可以
 
 const str1 = 'foo';
 const str2 = 'foo';
 assert.strictEqual(str1 / 1, str2 / 1);
-// AssertionError: NaN === NaN
-// Strict Equality Comparison can't be used to check NaN...
+// 断言错误: NaN === NaN
+// 不全等比较方法 不能用来检查 NaN
 assert(Object.is(str1 / 1, str2 / 1));
-// but Object.is() can!
+// 但 Object.is() 可以
 ```
 
-For more information, see
-[MDN's guide on equality comparisons and sameness][mdn-equality-guide].
+你可以访问 [MDN's guide on equality comparisons and sameness][mdn-equality-guide] 以便获取更多信息
 
