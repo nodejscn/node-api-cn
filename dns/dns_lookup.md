@@ -1,20 +1,5 @@
+在底层,`dns.lookup()`使用操作系统设施与大多数其他程序相同。例如，`dns.lookup()`几乎总是解析给定的主机名与`ping`命令一样。在许多类POSIX操作系统中，
+`dns.lookup()`函数的行为可以通过改变`nsswitch.conf(5)`并且/或`resolv.conf(5)`设置进行改变，但是需要注意改变这些文件就意味着改变所有正在这个操作系统中运行
+的所有进程的行为。
 
-Under the hood, [`dns.lookup()`][] uses the same operating system facilities
-as most other programs. For instance, [`dns.lookup()`][] will almost always
-resolve a given name the same way as the `ping` command. On most POSIX-like
-operating systems, the behavior of the [`dns.lookup()`][] function can be
-modified by changing settings in nsswitch.conf(5) and/or resolv.conf(5),
-but note that changing these files will change the behavior of _all other
-programs running on the same operating system_.
-
-Though the call to `dns.lookup()` will be asynchronous from JavaScript's
-perspective, it is implemented as a synchronous call to getaddrinfo(3) that
-runs on libuv's threadpool. Because libuv's threadpool has a fixed size, it
-means that if for whatever reason the call to getaddrinfo(3) takes a long
-time, other operations that could run on libuv's threadpool (such as filesystem
-operations) will experience degraded performance. In order to mitigate this
-issue, one potential solution is to increase the size of libuv's threadpool by
-setting the `'UV_THREADPOOL_SIZE'` environment variable to a value greater than
-`4` (its current default value). For more information on libuv's threadpool, see
-[the official libuv documentation][].
-
+尽管以异步`JavaScript`的角度来调用`dns.lookup()`,但在内部`libuv`底层线程池中却是同步的调用`getaddrinfo(3)`。因为`libuv`线程池有固定大小，它意味着,如果出于某种原因调用`getaddrinfo(3)`需要很长时间,其他操作可以运行在libuv线程池中(如文件系统操作)就会存在性能问题。为了缓解这个问题,一个可能的解决办法是增加libuv的线程池大小通过设置`'UV_THREADPOOL_SIZE'`环境变量值大于`4`(当前的默认值).更多libuv线程池信息，请查看：[here](http://docs.libuv.org/en/latest/threadpool.html)
