@@ -1,7 +1,2 @@
-
-Although [`dns.lookup()`][] and the various `dns.resolve*()/dns.reverse()`
-functions have the same goal of associating a network name with a network
-address (or vice versa), their behavior is quite different. These differences
-can have subtle but significant consequences on the behavior of Node.js
-programs.
-
+尽管`dns.lookup()`和各种`dns.resolve *()/ dns.reverse()`函数有相同的目标将网络的名字与网络地址联系在一起(反之亦然)，他们的行为是完全不同的。
+这些差异可以有微妙但重大影响着Node.js程序行为。
