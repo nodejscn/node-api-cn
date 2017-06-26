@@ -2,26 +2,20 @@
 added: v0.0.6
 -->
 
-* `pid` {number} A process ID
-* `signal` {string|number} The signal to send, either as a string or number.
-  Defaults to `'SIGTERM'`.
+* `pid` {number} 进程ID
+* `signal` {string|number} 将发送的信号，类型为string或number。默认为`'SIGTERM'`。
 
-The `process.kill()` method sends the `signal` to the process identified by
-`pid`.
+`process.kill()`方法将`signal`发送给`pid`标识的进程。
 
-Signal names are strings such as `'SIGINT'` or `'SIGHUP'`. See [Signal Events][]
-and kill(2) for more information.
+信号名称是如`'SIGINT'` 或 `'SIGHUP'`的字符串。更多信息，查看[Signal Events][] 和 kill(2)。
 
-This method will throw an error if the target `pid` does not exist. As a special
-case, a signal of `0` can be used to test for the existence of a process.
-Windows platforms will throw an error if the `pid` is used to kill a process
-group.
+如果目标`pid`不存在，该方法会抛出错误。作为一个特殊例子，信号`0`可以用于测试进程是否存在。
+在Windows平台中，如果`pid`用于kill进程组，会抛出错误。
 
-*Note*: Even though the name of this function is `process.kill()`, it is
-really just a signal sender, like the `kill` system call.  The signal sent may
-do something other than kill the target process.
+*注意*：即使这个函数的名称是`process.kill()`,它其实只是发送信号，这点与`kill`系统调用类似。
+发送的信号可能是做一些与kill目标进程无关的事情。
 
-For example:
+例如:
 
 ```js
 process.on('SIGHUP', () => {
@@ -36,6 +30,5 @@ setTimeout(() => {
 process.kill(process.pid, 'SIGHUP');
 ```
 
-*Note*: When `SIGUSR1` is received by a Node.js process, Node.js will start
-the debugger, see [Signal Events][].
+*注意*: 当Node.js进程接收到了`SIGUSR1`，Node.js会启动debugger，查看[Signal Events][]。
 
