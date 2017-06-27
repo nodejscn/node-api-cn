@@ -2,12 +2,11 @@
 added: v0.1.17
 -->
 
-The `process.mainModule` property provides an alternative way of retrieving
-[`require.main`][]. The difference is that if the main module changes at
-runtime, [`require.main`][] may still refer to the original main module in
-modules that were required before the change occurred. Generally, it's
-safe to assume that the two refer to the same module.
+`process.mainModule`属性提供了一种获取[`require.main`][]的替代方式。
+The difference is that if the main module changes at
+runtime, [`require.main`][] may still refer to the original main module in modules
+that were required before the change occurred.
+一般来说，假定[`require.main`][]和`process.mainModule`引用相同的模块是安全的。
 
-As with [`require.main`][], `process.mainModule` will be `undefined` if there
-is no entry script.
+就像[`require.main`][]一样，如果没有入口脚本，`process.mainModule`的值是`undefined`。
 
