@@ -4,9 +4,8 @@ added: v0.1.16
 
 * {string}
 
-The `process.platform` property returns a string identifying the operating
-system platform on which the Node.js process is running. For instance
-`'darwin'`, `'freebsd'`, `'linux'`, `'sunos'` or `'win32'`
+`process.platform`属性返回字符串，标识Node.js进程运行其上的操作系统平台。
+例如`'darwin'`, `'freebsd'`, `'linux'`, `'sunos'` 或 `'win32'`
 
 ```js
 console.log(`This platform is ${process.platform}`);

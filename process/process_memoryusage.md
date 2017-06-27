@@ -6,22 +6,21 @@ changes:
     description: Added `external` to the returned object.
 -->
 
-* Returns: {Object}
+* 返回: {Object}
     * `rss` {integer}
     * `heapTotal` {integer}
     * `heapUsed` {integer}
     * `external` {integer}
 
-The `process.memoryUsage()` method returns an object describing the memory usage
-of the Node.js process measured in bytes.
+`process.memoryUsage()`方法返回Node.js进程的内存使用情况的对象，该对象每个属性值的单位为字节。
 
-For example, the code:
+例如:
 
 ```js
 console.log(process.memoryUsage());
 ```
 
-Will generate:
+会得到:
 
 <!-- eslint-disable -->
 ```js
@@ -33,7 +32,8 @@ Will generate:
 }
 ```
 
-`heapTotal` and `heapUsed` refer to V8's memory usage.
-`external` refers to the memory usage of C++ objects bound to JavaScript
-objects managed by V8.
+`heapTotal` 和 `heapUsed` 代表V8的内存使用情况。
+
+`external`代表V8管理的，绑定到Javascript的C++对象的内存使用情况。
+
 
