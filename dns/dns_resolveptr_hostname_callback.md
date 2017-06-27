@@ -6,7 +6,5 @@ added: v6.0.0
   - `err` {Error}
   - `addresses` {string[]}
 
-Uses the DNS protocol to resolve pointer records (`PTR` records) for the
-`hostname`. The `addresses` argument passed to the `callback` function will
-be an array of strings containing the reply records.
+使用DNS协议处理主机名引用记录(PTR记录)。`addresses`参数将一个字符串数组传递给回调函数`callback`,其中包含回复记录。
 
