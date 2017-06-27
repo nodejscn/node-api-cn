@@ -3,13 +3,11 @@ added: v0.11.3
 -->
 - `servers` {string[]}
 
-Sets the IP addresses of the servers to be used when resolving. The `servers`
-argument is an array of IPv4 or IPv6 addresses.
+设置解析时使用的服务器IP地址。`servers`服务器参数是一个IPv4或IPv6地址的数组.
 
-If a port is specified on the address, it will be removed.
+如果指定的ip包含端口，端口会被移除。
 
-An error will be thrown if an invalid address is provided.
+`ip`地址无效将会报错。
 
-The `dns.setServers()` method must not be called while a DNS query is in
-progress.
+`dns.setServers()`方法不要在DNS查询过程中使用。
 
