@@ -6,9 +6,7 @@ added: v0.1.27
   - `err` {Error}
   - `addresses` {Object[]}
 
-Uses the DNS protocol to resolve service records (`SRV` records) for the
-`hostname`. The `addresses` argument passed to the `callback` function will
-be an array of objects with the following properties:
+使用DNS协议来处理主机名服务记录(SRV记录)。`callback`函数返回的`addresses`参数为对象数组,每个对象包含以下属性：
 
 * `priority`
 * `weight`
