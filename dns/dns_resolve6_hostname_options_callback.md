@@ -16,8 +16,6 @@ changes:
   - `err` {Error}
   - `addresses` {string[] | Object[]}
 
-Uses the DNS protocol to resolve a IPv6 addresses (`AAAA` records) for the
-`hostname`. The `addresses` argument passed to the `callback` function
-will contain an array of IPv6 addresses.
+使用`DNS`协议解析IPv6地址主机名(`AAAA`记录)。`adresses`参数是传递给`callback`函数的IPv6地址数组.
 
 
