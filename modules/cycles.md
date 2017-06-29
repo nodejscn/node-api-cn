@@ -56,6 +56,4 @@ a 结束
 在 main 中，a.done=true，b.done=true
 ```
 
-Careful planning is required to allow cyclic module dependencies to work
-correctly within an application.
-
+需要仔细的规划, 以允许循环模块依赖在应用程序内正常工作.
