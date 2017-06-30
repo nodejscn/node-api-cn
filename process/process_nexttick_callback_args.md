@@ -7,15 +7,12 @@ changes:
 -->
 
 * `callback` {Function}
-* `...args` {any} Additional arguments to pass when invoking the `callback`
+* `...args` {any} 调用 `callback`时传递给它的额外参数
 
-The `process.nextTick()` method adds the `callback` to the "next tick queue".
-Once the current turn of the event loop turn runs to completion, all callbacks
-currently in the next tick queue will be called.
+`process.nextTick()`方法将 `callback` 添加到"next tick 队列"。
+一旦当前事件轮询队列的任务全部完成，在next tick队列中的所有callbacks会被依次调用。
 
-This is *not* a simple alias to [`setTimeout(fn, 0)`][]. It is much more
-efficient.  It runs before any additional I/O events (including
-timers) fire in subsequent ticks of the event loop.
+这种方式不是[`setTimeout(fn, 0)`][]的别名。它更加有效率。事件轮询随后的ticks 调用，会在任何I/O事件（包括定时器）之前运行。
 
 ```js
 console.log('start');
@@ -29,9 +26,7 @@ console.log('scheduled');
 // nextTick callback
 ```
 
-This is important when developing APIs in order to give users the opportunity
-to assign event handlers *after* an object has been constructed but before any
-I/O has occurred:
+此方法在开发如下API时非常重要：在对象构造好但还没有任何I/O发生*之前*，想给用户机会来指定某些事件处理器。
 
 ```js
 function MyThing(options) {
@@ -48,8 +43,7 @@ thing.getReadyForStuff();
 // thing.startDoingStuff() gets called now, not before.
 ```
 
-It is very important for APIs to be either 100% synchronous or 100%
-asynchronous.  Consider this example:
+对于100%同步或100%异步的API，此方法也非常重要。考虑如下例子：
 
 ```js
 // WARNING!  DO NOT USE!  BAD UNSAFE HAZARD!
@@ -63,7 +57,7 @@ function maybeSync(arg, cb) {
 }
 ```
 
-This API is hazardous because in the following case:
+在如下场景中这个API是危险的：
 
 ```js
 const maybeTrue = Math.random() > 0.5;
@@ -75,9 +69,9 @@ maybeSync(maybeTrue, () => {
 bar();
 ```
 
-It is not clear whether `foo()` or `bar()` will be called first.
+因为不清楚`foo()` 或 `bar()` 哪个会被先调用。
 
-The following approach is much better:
+如下方式要更好一些:
 
 ```js
 function definitelyAsync(arg, cb) {
@@ -90,8 +84,5 @@ function definitelyAsync(arg, cb) {
 }
 ```
 
-*Note*: The next tick queue is completely drained on each pass of the
-event loop **before** additional I/O is processed.  As a result,
-recursively setting nextTick callbacks will block any I/O from
-happening, just like a `while(true);` loop.
-
+*注意*： 每次事件轮询后，在额外的I/O执行**前**，next tick队列都会优先执行。
+递归调用nextTick callbacks 会阻塞任何I/O操作，就像一个`while(true);` 循环一样。
