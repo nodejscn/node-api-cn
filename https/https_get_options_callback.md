@@ -13,7 +13,7 @@ changes:
 
 参数 `options` 可以是一个对象、或字符串、或 [`URL`] 对象。
 如果参数 `options` 是一个字符串, 它自动被 [`url.parse()`] 所解析。
-If it is a [`URL`][] object, it will be automatically converted to an ordinary `options` object.
+如果它是一个[`URL`][] 对象， 它会被自动转换为一个普通的 `options` 对象.
 
 例子:
 
