@@ -2,6 +2,4 @@
 added: v0.5.8
 -->
 
-Decompress either a Gzip- or Deflate-compressed stream by auto-detecting
-the header.
-
+通过自动检测头信息解压 Gzip 或者 Deflate 压缩的流.
