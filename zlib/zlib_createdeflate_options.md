@@ -2,5 +2,5 @@
 added: v0.5.8
 -->
 
-Returns a new [Deflate][] object with an [options][].
+Creates and returns a new [Deflate][] object with the given [options][].
 

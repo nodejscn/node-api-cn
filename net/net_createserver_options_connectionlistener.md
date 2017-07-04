@@ -11,6 +11,7 @@ Creates a new TCP or [IPC][] server.
     should be paused on incoming connections.
 * `connectionListener` {Function} Automatically set as a listener for the
   [`'connection'`][] event
+* Returns: {net.Server}
 
 If `allowHalfOpen` is set to `true`, when the other end of the socket
 sends a FIN packet, the server will only send a FIN packet back when

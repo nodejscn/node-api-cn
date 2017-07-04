@@ -10,11 +10,11 @@ Trailing directory separators are ignored, see [`path.sep`][].
 
 返回的对象有以下属性：
 
-* `root` {string}
 * `dir` {string}
+* `root` {string}
 * `base` {string}
-* `ext` {string}
 * `name` {string}
+* `ext` {string}
 
 例如，在 POSIX 上：
 

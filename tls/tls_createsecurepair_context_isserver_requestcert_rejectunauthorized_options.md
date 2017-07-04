@@ -67,6 +67,7 @@ where `secure_socket` has the same API as `pair.cleartext`.
 [`net.Server.address()`]: net.html#net_server_address
 [`net.Server`]: net.html#net_class_net_server
 [`net.Socket`]: net.html#net_class_net_socket
+[`server.getConnections()`]: net.html#net_server_getconnections_callback
 [`tls.DEFAULT_ECDH_CURVE`]: #tls_tls_default_ecdh_curve
 [`tls.TLSSocket.getPeerCertificate()`]: #tls_tlssocket_getpeercertificate_detailed
 [`tls.TLSSocket`]: #tls_class_tls_tlssocket

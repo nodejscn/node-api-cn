@@ -7,7 +7,7 @@ changes:
 -->
 - `object` {string | Object}
 - `signature` {string | Buffer | TypedArray | DataView}
-- `signature_format` {string}
+- `signatureFormat` {string}
 
 Verifies the provided data using the given `object` and `signature`.
 The `object` argument can be either a string containing a PEM encoded object,
@@ -28,8 +28,8 @@ or an object with one or more of the following properties:
   determined automatically.
 
 The `signature` argument is the previously calculated signature for the data, in
-the `signature_format` which can be `'latin1'`, `'hex'` or `'base64'`.
-If a `signature_format` is specified, the `signature` is expected to be a
+the `signatureFormat` which can be `'latin1'`, `'hex'` or `'base64'`.
+If a `signatureFormat` is specified, the `signature` is expected to be a
 string; otherwise `signature` is expected to be a [`Buffer`][],
 `TypedArray`, or `DataView`.
 

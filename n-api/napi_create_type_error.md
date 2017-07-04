@@ -3,11 +3,12 @@ added: v8.0.0
 -->
 ```C
 NODE_EXTERN napi_status napi_create_type_error(napi_env env,
-                                               const char* msg,
+                                               napi_value msg,
                                                napi_value* result);
 ```
 - `[in] env`: The environment that the API is invoked under.
-- `[in] msg`: C string representing the text to be associated with.
+- `[in] msg`: napi_value that references a JavaScript String to be
+used as the message for the Error.
 - `[out] result`: `napi_value` representing the error created.
 
 Returns `napi_ok` if the API succeeded.

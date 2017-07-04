@@ -16,7 +16,7 @@ Object in the outer scope.
 
 Returns `napi_ok` if the API succeeded.
 
-This API promotes the handle to the JavaScript object so that it valid
-for the lifetime of the outer scope.
-
+This API promotes the handle to the JavaScript object so that it is valid
+for the lifetime of the outer scope. It can only be called once per scope.
+If it is called more than once an error will be returned.
 

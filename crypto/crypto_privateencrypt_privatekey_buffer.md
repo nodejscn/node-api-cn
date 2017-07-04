@@ -1,7 +1,7 @@
 <!-- YAML
 added: v1.1.0
 -->
-- `private_key` {Object | string}
+- `privateKey` {Object | string}
   - `key` {string} A PEM encoded private key.
   - `passphrase` {string} An optional passphrase for the private key.
   - `padding` {crypto.constants} An optional padding value defined in
@@ -9,8 +9,8 @@ added: v1.1.0
     `RSA_PKCS1_PADDING`.
 - `buffer` {Buffer | TypedArray | DataView}
 
-Encrypts `buffer` with `private_key`.
+Encrypts `buffer` with `privateKey`.
 
-`private_key` can be an object or a string. If `private_key` is a string, it is
+`privateKey` can be an object or a string. If `privateKey` is a string, it is
 treated as the key with no passphrase and will use `RSA_PKCS1_PADDING`.
 

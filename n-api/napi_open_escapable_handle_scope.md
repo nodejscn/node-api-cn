@@ -11,6 +11,6 @@ NODE_EXTERN napi_status
 
 Returns `napi_ok` if the API succeeded.
 
-This API open a new scope from which objects can be promoted
+This API open a new scope from which one object can be promoted
 to the outer scope.
 

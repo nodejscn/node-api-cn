@@ -13,9 +13,9 @@ changes:
                  from `binary` to `utf8`.
 -->
 - `prime` {string | Buffer | TypedArray | DataView}
-- `prime_encoding` {string}
+- `primeEncoding` {string}
 - `generator` {number | string | Buffer | TypedArray | DataView} Defaults to `2`.
-- `generator_encoding` {string}
+- `generatorEncoding` {string}
 
 Creates a `DiffieHellman` key exchange object using the supplied `prime` and an
 optional specific `generator`.
@@ -23,12 +23,12 @@ optional specific `generator`.
 The `generator` argument can be a number, string, or [`Buffer`][]. If
 `generator` is not specified, the value `2` is used.
 
-The `prime_encoding` and `generator_encoding` arguments can be `'latin1'`,
+The `primeEncoding` and `generatorEncoding` arguments can be `'latin1'`,
 `'hex'`, or `'base64'`.
 
-If `prime_encoding` is specified, `prime` is expected to be a string; otherwise
+If `primeEncoding` is specified, `prime` is expected to be a string; otherwise
 a [`Buffer`][], `TypedArray`, or `DataView` is expected.
 
-If `generator_encoding` is specified, `generator` is expected to be a string;
+If `generatorEncoding` is specified, `generator` is expected to be a string;
 otherwise a number, [`Buffer`][], `TypedArray`, or `DataView` is expected.
 

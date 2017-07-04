@@ -2,5 +2,5 @@
 added: v0.5.8
 -->
 
-Returns a new [Inflate][] object with an [options][].
+Creates and returns a new [Inflate][] object with the given [options][].
 

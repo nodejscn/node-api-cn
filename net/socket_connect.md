@@ -8,6 +8,7 @@ Possible signatures:
   for [IPC][] connections.
 * [socket.connect(port[, host][, connectListener])][`socket.connect(port, host)`]
   for TCP connections.
+* Returns: {net.Socket} The socket itself.
 
 This function is asynchronous. When the connection is established, the
 [`'connect'`][] event will be emitted. If there is a problem connecting,

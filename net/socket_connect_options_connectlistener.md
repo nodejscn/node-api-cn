@@ -35,3 +35,5 @@ For [IPC][] connections, available `options` are:
 * `path` {string} Required. Path the client should connect to.
   See [Identifying paths for IPC connections][].
 
+Returns `socket`.
+

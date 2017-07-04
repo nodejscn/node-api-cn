@@ -1,7 +1,7 @@
 <!-- YAML
 added: v0.7.1
 -->
-- `auto_padding` {boolean} Defaults to `true`.
+- `autoPadding` {boolean} Defaults to `true`.
 - Returns the {Cipher} for method chaining.
 
 When data has been encrypted without standard block padding, calling

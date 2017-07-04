@@ -12,6 +12,7 @@ added: v0.11.14
   * `exclusive` {boolean} Default to `false`
 * `callback` {Function} Common parameter of [`server.listen()`][]
   functions
+* Returns: {net.Server}
 
 If `port` is specified, it behaves the same as
 [`server.listen([port][, hostname][, backlog][, callback])`][`server.listen(port, host)`].

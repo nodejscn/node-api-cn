@@ -2,5 +2,5 @@
 added: v0.5.8
 -->
 
-Returns a new [InflateRaw][] object with an [options][].
+Creates and returns a new [InflateRaw][] object with the given [options][].
 

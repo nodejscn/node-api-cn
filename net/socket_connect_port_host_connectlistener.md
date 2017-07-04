@@ -14,3 +14,5 @@ Alias to
 [`socket.connect(options[, connectListener])`][`socket.connect(options)`]
 called with `{port: port, host: host}` as `options`.
 
+Returns `socket`.
+

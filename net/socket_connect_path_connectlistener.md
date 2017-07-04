@@ -11,3 +11,5 @@ Alias to
 [`socket.connect(options[, connectListener])`][`socket.connect(options)`]
 called with `{ path: path }` as `options`.
 
+Returns `socket`.
+
