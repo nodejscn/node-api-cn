@@ -2,16 +2,11 @@
 added: v8.0.0
 -->
 
-* {number} Timeout in milliseconds. Defaults to 5000 (5 seconds).
+* {number} 超时毫秒. 默认为 5000 (5秒).
 
-The number of milliseconds of inactivity a server needs to wait for additional
-incoming data, after it has finished writing the last response, before a socket
-will be destroyed. If the server receives new data before the keep-alive
-timeout has fired, it will reset the regular inactivity timeout, i.e.,
-[`server.timeout`][].
+服务器完成最后的响应之后需要等待的额外的传入数据的活跃毫秒数, socket 才能被销毁.  
+如果服务器在 keep-alive 计时已激活时接收到新的数据, 他会重置常规的非活动计时, 即[`server.timeout`][]. 
 
-A value of 0 will disable the keep-alive timeout behavior on incoming connections.
+值为 0 时禁用传入连接 keep-alive 的超时行为.
 
-*Note*: The socket timeout logic is set up on connection, so changing this
-value only affects new connections to the server, not any existing connections.
-
+*注意*: scoket 的超时逻辑上取决于服务器连接, 所以改变这个值只影响服务器的新连接, 不影响任何已存在的连接.
