@@ -40,10 +40,10 @@ Stats {
   birthtime: Mon, 10 Oct 2011 23:24:11 GMT }
 ```
 
-*Note*: `atimeMs`, `mtimeMs`, `ctimeMs`, `birthtimeMs` are [numbers][MDN-Number]
-that hold the corresponding times in milliseconds. Their precision is platform
-specific. `atime`, `mtime`, `ctime`, and `birthtime` are [`Date`][MDN-Date]
-object alternate representations of the various times. The `Date` and number
-values are not connected. Assigning a new number value, or mutating the `Date`
-value, will not be reflected in the corresponding alternate representation.
+*注意*: `atimeMs`, `mtimeMs`, `ctimeMs`, `birthtimeMs` 是以单位为毫秒保存相对应时间的数字 [numbers][MDN-Number].
+他们的精度由所在的平台决定. `atime`, `mtime`, `ctime` 以及 `birthtime` 是表示各个时间的日期对象 `[Date][MDN-Date]`.
+`Date` 与 数值并没有关联. 对数值进行重新赋值, 或者改变 `Date` 的值, 不会反映到相对应的表示中.
+
+
+
 
