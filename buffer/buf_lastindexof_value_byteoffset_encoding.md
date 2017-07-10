@@ -53,30 +53,29 @@ console.log(utf16Buffer.lastIndexOf('\u03a3', -5, 'ucs2'));
 ```
 
 如果 `value` 不是一个字符串， 数字， 或者 `Buffer`， 该方法会抛出一个
-`TypeError` 异常， 如果 `value` 是一个数字， 它将会被强制转换成一个有效的 byte 值， 
-该值介于0到255之间。 
+`TypeError` 异常， 如果 `value` 是一个数字， 它将会被强制转换成一个有效的 byte 值，
+该值介于0到255之间。
 
-如果 `byteOffset` 不是一个数字， 它将会被强制转换成一个数字。  任何对 `NaN` or 0, like `{}`, `[]`, `null` or `undefined`， 
-的参数， 将会搜索整个 buffer。 该行为和 [`String#lastIndexOf()`] 保持一致。 
+如果 `byteOffset` 不是一个数字， 它将会被强制转换成一个数字。  任何对 `NaN` or 0, like `{}`, `[]`, `null` or `undefined`，
+的参数， 将会搜索整个 buffer。 该行为和 [`String#lastIndexOf()`] 保持一致。
 
 ```js
 const b = Buffer.from('abcdef');
 
-// Passing a value that's a number, but not a valid byte
-// Prints: 2, equivalent to searching for 99 or 'c'
+// 传入一个不是有效字节的数字
+// 输出：2，相当于搜索 99 或 'c'
 console.log(b.lastIndexOf(99.9));
 console.log(b.lastIndexOf(256 + 99));
 
-// Passing a byteOffset that coerces to NaN
-// Prints: 1, searching the whole buffer
+// 传入 byteOffset，其值强制转换为 NaN
+// 输出：1，搜索整个 buffer
 console.log(b.lastIndexOf('b', undefined));
 console.log(b.lastIndexOf('b', {}));
 
-// Passing a byteOffset that coerces to 0
-// Prints: -1, equivalent to passing 0
+// 传入 byteOffset，其值强制转换为 0
+// 输出：-1，相当于传入 0
 console.log(b.lastIndexOf('b', null));
 console.log(b.lastIndexOf('b', []));
 ```
 
-If `value` is an empty string or empty `Buffer`, `byteOffset` will be returned.
-
+如果 `value` 是一个空字符串或者空 `Buffer`，返回 `byteOffset`。

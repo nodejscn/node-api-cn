@@ -14,23 +14,17 @@ changes:
 
 > 稳定性: 0 - 废弃的: 使用 [`Buffer.alloc()`] 代替（或 [`Buffer.allocUnsafe()`]）。
 
-* `size` {integer} The desired length of the new `Buffer`
+* `size` {integer} 新建的 `Buffer` 期望的长度
 
-Allocates a new `Buffer` of `size` bytes.  If the `size` is larger than
-[`buffer.kMaxLength`] or smaller than 0, a [`RangeError`] will be thrown.
-A zero-length `Buffer` will be created if `size` is 0.
+分配一个大小为 `size` 字节的新建的 `Buffer`。如果 `size` 大于 [`buffer.kMaxLength`] 或小于 0，则抛出 [`RangeError`] 错误。如果 `size` 为 0，则创建一个长度为 0 的 `Buffer`。
 
-Prior to Node.js 8.0.0, the underlying memory for `Buffer` instances
-created in this way is *not initialized*. The contents of a newly created
-`Buffer` are unknown and *may contain sensitive data*. Use
-[`Buffer.alloc(size)`][`Buffer.alloc()`] instead to initialize a `Buffer`
-to zeroes.
+在 Node.js 8.0.0 之前，以这种方式创建的 `Buffer` 实例的底层内存是 *未初始化* 的。新建的 `Buffer` 的内容是未知的并且 *可能包含敏感数据*。使用 [`Buffer.alloc(size)`][`Buffer.alloc()`] 代替它去初始化 `Buffer` 为 0。
 
-Example:
+例子:
+
 ```js
 const buf = new Buffer(10);
 
-// Prints: <Buffer 00 00 00 00 00 00 00 00 00 00>
+// 输出: <Buffer 00 00 00 00 00 00 00 00 00 00>
 console.log(buf);
 ```
-
