@@ -17,9 +17,7 @@ changes:
 如果没有提供 `totalLength` ，则从 `list` 中的 `Buffer` 实例计算得到。
 为了计算 `totalLength` 会导致需要执行额外的循环，所以提供明确的长度会运行更快。
 
-If `totalLength` is provided, it is coerced to an unsigned integer. If the
-combined length of the `Buffer`s in `list` exceeds `totalLength`, the result is
-truncated to `totalLength`.
+如果提供了 `totalLength`，`totalLength` 必须是一个正整数。如果从 `list` 中计算得到的 `Buffer` 长度超过了 `totalLength`，则合并的结果将会被截断为 `totalLength` 的长度。
 
 例子：从一个包含三个 `Buffer` 实例的数组创建为一个单一的 `Buffer`。
 
@@ -40,4 +38,3 @@ console.log(bufA);
 // 输出: 42
 console.log(bufA.length);
 ```
-

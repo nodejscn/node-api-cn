@@ -6,30 +6,31 @@ changes:
     description: The `source` parameter can now be a `Uint8Array`.
 -->
 
-* `source` {Buffer|Uint8Array} A `Buffer` or `Uint8Array` instance
-* `fromEnc` {string} The current encoding
-* `toEnc` {string} To target encoding
+* `source` {Buffer|Uint8Array} 一个 `Buffer` 或 `Uint8Array` 实例
+* `fromEnc` {string} 当前编码
+* `toEnc` {string} 目标编码
 
-Re-encodes the given `Buffer` or `Uint8Array` instance from one character
-encoding to another. Returns a new `Buffer` instance.
+
+将给定的 `Buffer` 或 `Uint8Array` 实例从一个字符编码重新编码到另一个字符。 返回一个新的Buffer实例。
 
 Throws if the `fromEnc` or `toEnc` specify invalid character encodings or if
 conversion from `fromEnc` to `toEnc` is not permitted.
 
+如果 `fromEnc` 或 `toEnc` 制定的字符串编码无效，或者不允许从 `fromEnc` 转换为 `toEnc`，将抛出异常。
+
 The transcoding process will use substitution characters if a given byte
 sequence cannot be adequately represented in the target encoding. For instance:
+
+如果给定的字节序列不能在目标编码中充分表示，转码过程将使用替代字符。例如：
 
 ```js
 const buffer = require('buffer');
 
 const newBuf = buffer.transcode(Buffer.from('€'), 'utf8', 'ascii');
 console.log(newBuf.toString('ascii'));
-// Prints: '?'
+// 输出: '?'
 ```
 
-Because the Euro (`€`) sign is not representable in US-ASCII, it is replaced
-with `?` in the transcoded `Buffer`.
+因为欧元符号（`€`）不能在 US-ASCII 中表示，所以在转换 `Buffer` 的时候使用 `?` 代替。
 
-Note that this is a property on the `buffer` module returned by
-`require('buffer')`, not on the `Buffer` global or a `Buffer` instance.
-
+注意 `buffer` 属性是通过 `require('buffer')` 返回的 `buffer` 模块，而不是全局 `Buffer` 或 `Buffer` 实例的属性。

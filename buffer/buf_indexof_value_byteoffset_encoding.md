@@ -56,34 +56,27 @@ console.log(utf16Buffer.indexOf('\u03a3', 0, 'ucs2'));
 console.log(utf16Buffer.indexOf('\u03a3', -4, 'ucs2'));
 ```
 
-If `value` is not a string, number, or `Buffer`, this method will throw a
-`TypeError`. If `value` is a number, it will be coerced to a valid byte value,
-an integer between 0 and 255.
-
 如果 `value` 不是一个字符串， 数字， 或者 `Buffer`， 该方法会抛出一个
-`TypeError` 异常， 如果 `value` 是一个数字， 它将会被强制转换成一个有效的 byte 值， 
-该值介于0到255之间。 
+`TypeError` 异常， 如果 `value` 是一个数字， 它将会被强制转换成一个有效的 byte 值，
+该值介于0到255之间。
 
-如果 `byteOffset` 不是一个数字， 它将会被强制转换成一个数字。  任何对 `NaN` or 0, like `{}`, `[]`, `null` or `undefined`， 
-的参数， 将会搜索整个 buffer。 该行为和 [`String#indexOf()`] 保持一致。 
+如果 `byteOffset` 不是一个数字， 它将会被强制转换成一个数字。  任何对 `NaN` or 0, like `{}`, `[]`, `null` or `undefined`，
+的参数， 将会搜索整个 buffer。 该行为和 [`String#indexOf()`] 保持一致。
 
 ```js
 const b = Buffer.from('abcdef');
 
-// Passing a value that's a number, but not a valid byte
-// Prints: 2, equivalent to searching for 99 or 'c'
+// 传入一个不是有效字节的数字
+// 输出：2，相当于搜索 99 或 'c'
 console.log(b.indexOf(99.9));
 console.log(b.indexOf(256 + 99));
 
-// Passing a byteOffset that coerces to NaN or 0
-// Prints: 1, searching the whole buffer
+// 传入 byteOffset，其值强制转换为 NaN 或 0
+// 输出：1，搜索整个 buffer
 console.log(b.indexOf('b', undefined));
 console.log(b.indexOf('b', {}));
 console.log(b.indexOf('b', null));
 console.log(b.indexOf('b', []));
 ```
 
-If `value` is an empty string or empty `Buffer` and `byteOffset` is less
-than `buf.length`, `byteOffset` will be returned. If `value` is empty and
-`byteOffset` is at least `buf.length`, `buf.length` will be returned.
-
+如果 `value` 是一个空字符串或空 `Buffer`，并且 `byteOffset` 小于 `buf.length`，返回 `byteOffset`。如果 `value` 是一个空字符串，并且 `byteOffset` 大于 `buf.length`，返回 `buf.length`。

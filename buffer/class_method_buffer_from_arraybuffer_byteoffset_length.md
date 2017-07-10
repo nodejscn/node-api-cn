@@ -6,8 +6,7 @@ added: v5.10.0
 * `byteOffset` {integer} 开始拷贝的索引。默认为 `0`。
 * `length` {integer} 拷贝的字节数。默认为 `arrayBuffer.length - byteOffset`。
 
-This creates a view of the [`ArrayBuffer`] without copying the underlying memory. 
-例如，当传入一个 [`TypedArray`] 实例的 `.buffer` 属性的引用时，这个新建的 `Buffer` 会像 [`TypedArray`] 那样共享同一分配的内存。
+该方法将创建一个 [`ArrayBuffer`] 的视图，而不会复制底层内存。例如，当传入一个 [`TypedArray`] 实例的 `.buffer` 属性的引用时，这个新建的 `Buffer` 会像 [`TypedArray`] 那样共享同一分配的内存。
 
 例子：
 
@@ -43,4 +42,3 @@ console.log(buf.length);
 ```
 
 如果 `arrayBuffer` 不是一个 [`ArrayBuffer`]，则抛出 `TypeError` 错误。
-

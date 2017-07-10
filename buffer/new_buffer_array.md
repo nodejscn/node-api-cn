@@ -11,14 +11,13 @@ changes:
 
 > 稳定性: 0 - 废弃的: 使用 [`Buffer.from(array)`] 代替。
 
-* `array` {Array} An array of bytes to copy from
+* `array` {Array} 要从中复制的字节数组
 
-Allocates a new `Buffer` using an `array` of octets.
+使用八字节的 `array` 分配一个新的 `Buffer`。
 
-Example:
+例子:
 
 ```js
-// Creates a new Buffer containing the UTF-8 bytes of the string 'buffer'
+// 创建一个新的包含字符串 'buffer' 的 UTF-8 编码的 Buffer
 const buf = new Buffer([0x62, 0x75, 0x66, 0x66, 0x65, 0x72]);
 ```
-
