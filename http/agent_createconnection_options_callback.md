@@ -9,8 +9,9 @@ added: v0.11.4
 创建一个用于 HTTP 请求的 socket 或流。
 
 默认情况下，该函数类似于 [`net.createConnection()`]。
-但是如果期望更大的灵活性，自定义的 agent 可以重写该方法。
+但是如果期望更大的灵活性，自定义的代理可以重写该方法。
 
 socket 或流可以通过以下两种方式获取：从该函数返回，或传入 `callback`。
 
 `callback` 有 `(err, stream)` 参数。
+
