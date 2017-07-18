@@ -2,5 +2,4 @@
 added: v0.5.8
 -->
 
-Creates and returns a new [InflateRaw][] object with the given [options][].
-
+创建并返回一个带有给定 options 的新的 [InflateRaw][] 对象。

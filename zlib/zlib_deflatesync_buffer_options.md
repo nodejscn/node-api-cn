@@ -2,5 +2,4 @@
 added: v0.11.12
 -->
 
-Compress a [Buffer][] or string with [Deflate][].
-
+使用 [Deflate][] 压缩一个 [Buffer][] 或者字符串。

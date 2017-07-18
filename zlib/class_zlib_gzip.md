@@ -2,5 +2,4 @@
 added: v0.5.8
 -->
 
-Compress data using gzip.
-
+使用 gzip 压缩数据。
