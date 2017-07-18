@@ -9,4 +9,5 @@ changes:
     description: A truncated input stream will now result in an `error` event.
 -->
 
-解压一个 raw deflate 流。
+Decompress a raw deflate stream.
+

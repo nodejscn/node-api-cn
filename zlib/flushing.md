@@ -8,16 +8,20 @@ const zlib = require('zlib');
 const http = require('http');
 
 http.createServer((request, response) => {
-  // 为了简单起见，省略了对 Accept-Encoding 的检测
+  // For the sake of simplicity, the Accept-Encoding checks are omitted.
   response.writeHead(200, { 'content-encoding': 'gzip' });
   const output = zlib.createGzip();
   output.pipe(response);
 
   setInterval(() => {
     output.write(`The current time is ${Date()}\n`, () => {
-      // 数据已经传递给了 zlib，但压缩算法看能已经决定缓存数据以便得到更高的压缩效率。
+      // The data has been passed to zlib, but the compression algorithm may
+      // have decided to buffer the data for more efficient compression.
+      // Calling .flush() will make the data available as soon as the client
+      // is ready to receive it.
       output.flush();
     });
   }, 1000);
 }).listen(1337);
 ```
+
