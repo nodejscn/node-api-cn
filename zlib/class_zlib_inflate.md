@@ -6,5 +6,4 @@ changes:
     description: A truncated input stream will now result in an `error` event.
 -->
 
-Decompress a deflate stream.
-
+解压一个 deflate 流。
