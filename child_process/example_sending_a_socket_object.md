@@ -45,9 +45,6 @@ process.on('message', (m, socket) => {
 为了表明这个，`.connections` 属性会变成 `null`。
 当发生这种情况时，建议不要使用 `.maxConnections`。
 
-It is also recommended that any `'message'` handlers in the child process
-verify that `socket` exists, as the connection may have been closed during the
-time it takes to send the connection to the child.
+建议在子进程中的任何 `message` 处理程序都需要验证 `socket` 是否存在，因为连接可能会在它在发送给子进程的这段时间内被关闭。
 
 注意，该函数内部使用 [`JSON.stringify()`] 序列化 `message`。
-
