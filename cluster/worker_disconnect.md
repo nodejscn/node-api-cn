@@ -6,7 +6,7 @@ changes:
     description: This method now returns a reference to `worker`.
 -->
 
-* Returns: {Worker} A reference to `worker`.
+* Returns: {Worker} 一个 `worker` 的引用。
 
 在一个工作进程内，调用此方法会关闭所有的server，并等待这些server的 `'close'`事件执行，然后关闭IPC管道。
 
@@ -42,16 +42,15 @@ if (cluster.isMaster) {
 } else if (cluster.isWorker) {
   const net = require('net');
   const server = net.createServer((socket) => {
-    // connections never end
+    // 连接永远不会结束
   });
 
   server.listen(8000);
 
   process.on('message', (msg) => {
     if (msg === 'shutdown') {
-      // initiate graceful close of any connections to server
+      // 将所有与服务器的连接优雅关闭
     }
   });
 }
 ```
-
