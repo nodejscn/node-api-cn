@@ -15,7 +15,7 @@ added: v0.1.90
   * [`maxBuffer`] {number} stdout 或 stderr 允许的最大字节数。
     默认为 `200*1024`。
     如果超过限制，则子进程会被终止。
-    See caveat at [`maxBuffer` and Unicode][].
+    查看警告： [`maxBuffer` and Unicode][].
   * `killSignal` {string|integer} （默认: `'SIGTERM'`）
   * `uid` {number} 设置该进程的用户标识。（详见 setuid(2)）
   * `gid` {number} 设置该进程的组标识。（详见 setgid(2)）
@@ -25,18 +25,14 @@ added: v0.1.90
   * `stderr` {string|Buffer}
 * 返回: {ChildProcess}
 
-衍生一个 shell，然后在 shell 中执行 `command`，且缓冲任何产生的输出。
-The `command` string passed to the exec function is processed
-directly by the shell and special characters (vary based on
-[shell](https://en.wikipedia.org/wiki/List_of_command-line_interpreters))
-need to be dealt with accordingly:
+衍生一个 shell，然后在 shell 中执行 `command`，且缓冲任何产生的输出。传入 exec  函数的 `command` 字符串会被 shell 直接处理，特殊字符（因 [shell](https://en.wikipedia.org/wiki/List_of_command-line_interpreters) 而异）需要相应处理：
+
 ```js
 exec('"/path/to/test file/test.sh" arg1 arg2');
-//Double quotes are used so that the space in the path is not interpreted as
-//multiple arguments
+// 使用双引号这样路径中的空格就不会被解释为多个参数
 
 exec('echo "The \\$HOME variable is $HOME"');
-//The $HOME variable is escaped in the first instance, but not in the second
+// 第一个 $HOME 被转义了，但第二个没有
 ```
 
 注意：不要把未经检查的用户输入传入到该函数。
@@ -83,12 +79,9 @@ const defaults = {
 
 注意：不像 POSIX 系统调用中的 exec(3)，`child_process.exec()` 不会替换现有的进程，且使用一个 shell 来执行命令。
 
-If this method is invoked as its [`util.promisify()`][]ed version, it returns
-a Promise for an object with `stdout` and `stderr` properties. In case of an
-error, a rejected promise is returned, with the same `error` object given in the
-callback, but with an additional two properties `stdout` and `stderr`.
+如果调用该方法的 [`util.promisify()`][] 版本，将会返回一个包含 `stdout` 和 `stderr` 的 Promise 对象。在出现错误的情况洗，将返回 rejected 状态的 promise，拥有与回调函数一样的 `error` 对象，但附加了 `stdout` 和 `stderr` 属性。
 
-For example:
+例子:
 
 ```js
 const util = require('util');
@@ -101,4 +94,3 @@ async function lsExample() {
 }
 lsExample();
 ```
-

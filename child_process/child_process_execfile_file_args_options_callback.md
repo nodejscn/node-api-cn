@@ -43,8 +43,8 @@ const child = execFile('node', ['--version'], (error, stdout, stderr) => {
 `encoding` 选项可用于指定用于解码 stdout 和 stderr 输出的字符编码。
 如果 `encoding` 是 `'buffer'`、或一个无法识别的字符编码，则传入 `Buffer` 对象到回调函数。
 
-如果这个方法被调用为它的 [`util.promisify()`][] 版本, 它会返回一个拥有 `stdout` 和
-`stderr` 属性的 Promise 对象. 在发生错误的情况下, 返回一个被拒绝的 promise, 拥有与回调
+如果调用该方法的 [`util.promisify()`][] 版本， 它会返回一个拥有 `stdout` 和
+`stderr` 属性的 Promise 对象. 在发生错误的情况下, 返回一个 rejected 状态的 promise, 拥有与回调
 函数一样的 `error` 对象, 但是附加了 `stdout` 和 `stderr` 这两个属性.
 
 ```js
@@ -56,4 +56,3 @@ async function getVersion() {
 }
 getVersion();
 ```
-

@@ -13,5 +13,4 @@ changes:
     description: A truncated input stream will now result in an `error` event.
 -->
 
-Decompress a gzip stream.
-
+解压缩 gzip 流。

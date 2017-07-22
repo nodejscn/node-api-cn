@@ -2,5 +2,4 @@
 added: v0.11.12
 -->
 
-Decompress a [Buffer][] or string with [InflateRaw][].
-
+使用 [InflateRaw][] 解压缩一个 [Buffer][] 或者字符串。
