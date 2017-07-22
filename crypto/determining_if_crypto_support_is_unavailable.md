@@ -6,7 +6,6 @@ let crypto;
 try {
   crypto = require('crypto');
 } catch (err) {
-  console.log('crypto support is disabled!');
+  console.log('不支持 crypto!');
 }
 ```
-
