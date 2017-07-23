@@ -9,7 +9,7 @@ changes:
 * `size` {integer} 新建的 `Buffer` 期望的长度
 
 分配一个大小为 `size` 字节的新建的 `Buffer` 。
-如果 `size` 大于 [`buffer.kMaxLength`] 或小于 0，则抛出 [`RangeError`] 错误。
+如果 `size` 大于 [`buffer.constants.MAX_LENGTH`] 或小于 0，则抛出 [`RangeError`] 错误。
 如果 `size` 为 0，则创建一个长度为 0 的 `Buffer`。
 
 以这种方式创建的 `Buffer` 实例的底层内存是**未初始化**的。

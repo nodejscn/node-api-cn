@@ -1,11 +1,22 @@
 <!-- YAML
 added: v0.11.3
 -->
-- `servers` {string[]}
+- `servers` {string[]} array of [rfc5952][] formatted addresses
 
-设置解析时使用的服务器IP地址。`servers`服务器参数是一个IPv4或IPv6地址的数组.
+Sets the IP address and port of servers to be used when performing DNS
+resolution. The `servers` argument is an array of [rfc5952][] formatted
+addresses. If the port is the IANA default DNS port (53) it can be omitted.
 
-如果指定的ip包含端口，端口会被移除。
+For example:
+
+```js
+dns.setServers([
+  '4.4.4.4',
+  '[2001:4860:4860::8888]',
+  '4.4.4.4:1053',
+  '[2001:4860:4860::8888]:1053'
+]);
+```
 
 `ip`地址无效将会报错。
 

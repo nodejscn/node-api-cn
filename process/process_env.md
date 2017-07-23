@@ -9,7 +9,7 @@ See environ(7).
 
 例如这样的对象:
 
-<!-- eslint-disable -->
+<!-- eslint-skip -->
 ```js
 {
   TERM: 'xterm-256color',

@@ -1,7 +1,7 @@
 
 默认的解释器支持直接解释 JavaScript 表达式：
 
-<!-- eslint-disable -->
+<!-- eslint-skip -->
 ```js
 > 1 + 1
 2

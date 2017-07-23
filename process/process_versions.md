@@ -18,7 +18,7 @@ console.log(process.versions);
 
 会显示类似下面的对象信息:
 
-<!-- eslint-disable -->
+<!-- eslint-skip -->
 ```js
 {
   http_parser: '2.3.0',

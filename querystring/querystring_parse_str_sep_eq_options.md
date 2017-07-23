@@ -23,7 +23,7 @@ changes:
 
 例子，查询字符串 `'foo=bar&abc=xyz&abc=123'` 被解析成：
 
-<!-- eslint-disable -->
+<!-- eslint-skip -->
 ```js
 {
   foo: 'bar',
@@ -41,6 +41,6 @@ changes:
 // 假设 gbkDecodeURIComponent 函数已存在。
 
 querystring.parse('w=%D6%D0%CE%C4&foo=bar', null, null,
-  { decodeURIComponent: gbkDecodeURIComponent });
+                  { decodeURIComponent: gbkDecodeURIComponent });
 ```
 

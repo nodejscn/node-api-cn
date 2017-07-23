@@ -15,6 +15,5 @@ console.log('count:', count);
 // 打印: count: 5 到 stdout
 ```
 
-如果在第一个字符串中没有找到格式化元素（如 `%d`），则在每个参数上调用 [`util.inspect()`] 并将结果字符串值拼在一起。
 详见 [`util.format()`]。
 

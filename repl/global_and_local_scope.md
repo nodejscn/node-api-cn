@@ -12,7 +12,7 @@ repl.start('> ').context.m = msg;
 
 `context` 对象的属性表现为 REPL 中的局部变量：
 
-<!-- eslint-disable -->
+<!-- eslint-skip -->
 ```js
 $ node repl_test.js
 > m

@@ -16,7 +16,7 @@ changes:
 
 * `size` {integer} 新建的 `Buffer` 期望的长度
 
-分配一个大小为 `size` 字节的新建的 `Buffer`。如果 `size` 大于 [`buffer.kMaxLength`] 或小于 0，则抛出 [`RangeError`] 错误。如果 `size` 为 0，则创建一个长度为 0 的 `Buffer`。
+分配一个大小为 `size` 字节的新建的 `Buffer`。如果 `size` 大于 [`buffer.constants.MAX_LENGTH`] 或小于 0，则抛出 [`RangeError`] 错误。如果 `size` 为 0，则创建一个长度为 0 的 `Buffer`。
 
 在 Node.js 8.0.0 之前，以这种方式创建的 `Buffer` 实例的底层内存是 *未初始化* 的。新建的 `Buffer` 的内容是未知的并且 *可能包含敏感数据*。使用 [`Buffer.alloc(size)`][`Buffer.alloc()`] 代替它去初始化 `Buffer` 为 0。
 

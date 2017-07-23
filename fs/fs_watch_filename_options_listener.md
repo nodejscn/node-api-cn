@@ -16,7 +16,7 @@ changes:
   * `recursive` {boolean} 指明是否全部子目录应该被监视，或只是当前目录。
     适用于当一个目录被指定时，且只在支持的平台（详见 [Caveats]）。默认 = `false`
   * `encoding` {string} 指定用于传给监听器的文件名的字符编码。默认 = `'utf8'`
-* `listener` {Function}
+* `listener` {Function|undefined} **Default:** `undefined`
 
 监视 `filename` 的变化，`filename` 可以是一个文件或一个目录。
 返回的对象是一个 [`fs.FSWatcher`]。

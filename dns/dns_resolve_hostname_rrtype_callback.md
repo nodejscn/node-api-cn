@@ -24,6 +24,7 @@ records. The type and structure of individual results varies based on `rrtype`:
 | `'SOA'`   | start of authority records     | {Object}    | [`dns.resolveSoa()`][]   |
 | `'SRV'`   | service records                | {Object}    | [`dns.resolveSrv()`][]   |
 | `'TXT'`   | text records                   | {string}    | [`dns.resolveTxt()`][]   |
+| `'ANY'`   | any records                    | {Object}    | [`dns.resolveAny()`][]   |
 
 On error, `err` is an [`Error`][] object, where `err.code` is one of the
 [DNS error codes](#dns_error_codes).

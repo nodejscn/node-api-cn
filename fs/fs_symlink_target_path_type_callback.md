@@ -10,7 +10,7 @@ changes:
 
 * `target` {string|Buffer|URL}
 * `path` {string|Buffer|URL}
-* `type` {string}
+* `type` {string} **Default:** `'file'`
 * `callback` {Function}
 
 异步的 symlink(2)。

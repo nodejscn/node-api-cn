@@ -4,16 +4,17 @@
 <!-- type=misc -->
 
 Node.js 包含一个进程外的调试工具，可以通过一个基于 TCP 协议且内置的调试客户端访问。
-要使用它，需要以 `debug` 参数启动 Node.js，并带上需要调试的脚本的路径；然后会出现一个提示，表明已成功启动调试器：
+要使用它，需要以 `inspect` 参数启动 Node.js，并带上需要调试的脚本的路径；然后会出现一个提示，表明已成功启动调试器：
 
 ```txt
-$ node debug myscript.js
-< Debugger listening on 127.0.0.1:5858
-connecting to 127.0.0.1:5858 ... ok
-break in /home/indutny/Code/git/indutny/myscript.js:1
-> 1 global.x = 5;
+$ node inspect myscript.js
+< Debugger listening on ws://127.0.0.1:9229/80e7a814-7cd3-49fb-921a-2e02228cd5ba
+< For help see https://nodejs.org/en/docs/inspector
+< Debugger attached.
+Break on start in myscript.js:1
+> 1 (function (exports, require, module, __filename, __dirname) { global.x = 5;
   2 setTimeout(() => {
-  3   debugger;
+  3   console.log('world');
 debug>
 ```
 
@@ -34,24 +35,24 @@ console.log('你好');
 
 一旦运行调试器，则在第 3 行会出现一个断点：
 
-```txt
-$ node debug myscript.js
-< Debugger listening on 127.0.0.1:5858
-connecting to 127.0.0.1:5858 ... ok
-break in /home/indutny/Code/git/indutny/myscript.js:1
-> 1 global.x = 5;
+$ node inspect myscript.js
+< Debugger listening on ws://127.0.0.1:9229/80e7a814-7cd3-49fb-921a-2e02228cd5ba
+< For help see https://nodejs.org/en/docs/inspector
+< Debugger attached.
+Break on start in myscript.js:1
+> 1 (function (exports, require, module, __filename, __dirname) { global.x = 5;
   2 setTimeout(() => {
   3   debugger;
 debug> cont
 < 你好
-break in /home/indutny/Code/git/indutny/myscript.js:3
-  1 global.x = 5;
+break in myscript.js:3
+  1 (function (exports, require, module, __filename, __dirname) { global.x = 5;
   2 setTimeout(() => {
 > 3   debugger;
   4   console.log('世界');
   5 }, 1000);
 debug> next
-break in /home/indutny/Code/git/indutny/myscript.js:4
+break in myscript.js:4
   2 setTimeout(() => {
   3   debugger;
 > 4   console.log('世界');
@@ -64,14 +65,14 @@ Press Ctrl + C to leave debug repl
 > 2+2
 4
 debug> next
-break in /home/indutny/Code/git/indutny/myscript.js:5
 < 世界
+break in myscript.js:5
   3   debugger;
   4   console.log('世界');
 > 5 }, 1000);
   6 console.log('你好');
   7
-debug> quit
+debug> .exit
 ```
 
 `repl` 命令用于运行代码。

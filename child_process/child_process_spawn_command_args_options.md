@@ -105,7 +105,7 @@ grep.on('close', (code) => {
 });
 ```
 
-例子，检测失败的执行：
+例子，检测失败的 `spawn`：
 
 ```js
 const { spawn } = require('child_process');

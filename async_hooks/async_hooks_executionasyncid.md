@@ -5,14 +5,14 @@
 For example:
 
 ```js
-console.log(async_hooks.currentId());  // 1 - bootstrap
+console.log(async_hooks.executionAsyncId());  // 1 - bootstrap
 fs.open(path, 'r', (err, fd) => {
-  console.log(async_hooks.currentId());  // 6 - open()
+  console.log(async_hooks.executionAsyncId());  // 6 - open()
 });
 ```
 
-It is important to note that the ID returned fom `currentId()` is related to
-execution timing, not causality (which is covered by `triggerId()`). For
+It is important to note that the ID returned fom `executionAsyncId()` is related
+to execution timing, not causality (which is covered by `triggerAsyncId()`). For
 example:
 
 ```js
@@ -20,12 +20,12 @@ const server = net.createServer(function onConnection(conn) {
   // Returns the ID of the server, not of the new connection, because the
   // onConnection callback runs in the execution scope of the server's
   // MakeCallback().
-  async_hooks.currentId();
+  async_hooks.executionAsyncId();
 
 }).listen(port, function onListening() {
   // Returns the ID of a TickObject (i.e. process.nextTick()) because all
   // callbacks passed to .listen() are wrapped in a nextTick().
-  async_hooks.currentId();
+  async_hooks.executionAsyncId();
 });
 ```
 

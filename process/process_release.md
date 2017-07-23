@@ -25,7 +25,7 @@ changes:
 
 例如：
 
-<!-- eslint-disable -->
+<!-- eslint-skip -->
 ```js
 {
   name: 'node',

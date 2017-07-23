@@ -9,8 +9,8 @@ changes:
 
 * `filename` {string|Buffer|URL}
 * `options` {Object}
-  * `persistent` {boolean}
-  * `interval` {integer}
+  * `persistent` {boolean} **Default:** `true`
+  * `interval` {integer} **Default:** `5007`
 * `listener` {Function}
 
 监视 `filename` 的变化。

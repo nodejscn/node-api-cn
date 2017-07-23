@@ -1,7 +1,7 @@
 
 * `asyncId` {number} a unique ID for the async resource
 * `type` {string} the type of the async resource
-* `triggerId` {number} the unique ID of the async resource in whose
+* `triggerAsyncId` {number} the unique ID of the async resource in whose
   execution context this async resource was created
 * `resource` {Object} reference to the resource representing the async operation,
   needs to be released during _destroy_

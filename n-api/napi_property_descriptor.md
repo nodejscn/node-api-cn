@@ -40,5 +40,5 @@ won't be used).
 - `data`: The callback data passed into `method`, `getter` and `setter` if
 this function is invoked.
 - `attributes`: The attributes associated with the particular property.
-See [`napi_property_attributes`](#napi_property_attributes).
+See [`napi_property_attributes`](#n_api_napi_property_attributes).
 

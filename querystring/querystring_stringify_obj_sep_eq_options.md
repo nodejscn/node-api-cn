@@ -29,6 +29,6 @@ querystring.stringify({ foo: 'bar', baz: 'qux' }, ';', ':');
 // 假设 gbkEncodeURIComponent 函数已存在。
 
 querystring.stringify({ w: '中文', foo: 'bar' }, null, null,
-  { encodeURIComponent: gbkEncodeURIComponent });
+                      { encodeURIComponent: gbkEncodeURIComponent });
 ```
 

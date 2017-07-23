@@ -21,7 +21,7 @@ console.log(buf);
 ```
 
 分配一个大小为 `size` 字节的新建的 `Buffer` 。
-如果 `size` 大于 [`buffer.kMaxLength`] 或小于 0，则抛出 [`RangeError`] 错误。
+如果 `size` 大于 [`buffer.constants.MAX_LENGTH`] 或小于 0，则抛出 [`RangeError`] 错误。
 如果 `size` 为 0，则创建一个长度为 0 的 `Buffer`。
 
 如果指定了 `fill` ，则会调用 [`buf.fill(fill)`] 初始化分配的 `Buffer` 。

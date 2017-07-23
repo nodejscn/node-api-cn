@@ -21,7 +21,7 @@ added: v0.6.0
 * `scopeid` {number} IPv6 数字领域识别码 (只有当 `family`
 是`IPv6`时可用)
 
-<!-- eslint-disable -->
+<!-- eslint-skip -->
 ```js
 {
   lo: [

@@ -9,7 +9,7 @@ changes:
 
 * `path` {string|Buffer|URL}
 * `flags` {string|number}
-* `mode` {integer}
+* `mode` {integer} **Default:** `0o666`
 
 [`fs.open()`] 的同步版本。
 返回一个表示文件描述符的整数。

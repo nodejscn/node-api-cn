@@ -8,27 +8,22 @@
 也可以在一个还未被加载的文件（模块）中设置断点：
 
 ```txt
-$ node debug test/fixtures/break-in-module/main.js
-< Debugger listening on 127.0.0.1:5858
-connecting to 127.0.0.1:5858 ... ok
-break in test/fixtures/break-in-module/main.js:1
-> 1 const mod = require('./mod.js');
+$ node inspect test/fixtures/break-in-module/main.js
+< Debugger listening on ws://127.0.0.1:9229/4e3db158-9791-4274-8909-914f7facf3bd
+< For help see https://nodejs.org/en/docs/inspector
+< Debugger attached.
+Break on start in test/fixtures/break-in-module/main.js:1
+> 1 (function (exports, require, module, __filename, __dirname) { const mod = require('./mod.js');
   2 mod.hello();
   3 mod.hello();
-debug> setBreakpoint('mod.js', 2)
+debug> setBreakpoint('mod.js', 22)
 Warning: script 'mod.js' was not loaded yet.
-> 1 const mod = require('./mod.js');
-  2 mod.hello();
-  3 mod.hello();
-  4 debugger;
-  5
-  6 });
 debug> c
-break in test/fixtures/break-in-module/mod.js:2
-  1 exports.hello = function() {
-> 2   return 'hello from module';
-  3 };
-  4
+break in test/fixtures/break-in-module/mod.js:22
+ 20 // USE OR OTHER DEALINGS IN THE SOFTWARE.
+ 21
+>22 exports.hello = function() {
+ 23   return 'hello from module';
+ 24 };
 debug>
 ```
-

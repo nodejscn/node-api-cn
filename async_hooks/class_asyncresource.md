@@ -15,9 +15,9 @@ The following is an overview of the `AsyncResource` API.
 const { AsyncResource } = require('async_hooks');
 
 // AsyncResource() is meant to be extended. Instantiating a
-// new AsyncResource() also triggers init. If triggerId is omitted then
-// async_hook.currentId() is used.
-const asyncResource = new AsyncResource(type, triggerId);
+// new AsyncResource() also triggers init. If triggerAsyncId is omitted then
+// async_hook.executionAsyncId() is used.
+const asyncResource = new AsyncResource(type, triggerAsyncId);
 
 // Call AsyncHooks before callbacks.
 asyncResource.emitBefore();
@@ -32,6 +32,6 @@ asyncResource.emitDestroy();
 asyncResource.asyncId();
 
 // Return the trigger ID for the AsyncResource instance.
-asyncResource.triggerId();
+asyncResource.triggerAsyncId();
 ```
 

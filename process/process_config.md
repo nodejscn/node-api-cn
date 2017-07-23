@@ -9,7 +9,7 @@ added: v0.7.7
 
 可能的输出样例:
 
-<!-- eslint-disable -->
+<!-- eslint-skip -->
 ```js
 {
   target_defaults:
