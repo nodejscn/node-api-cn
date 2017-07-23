@@ -15,7 +15,6 @@ cluster.on('exit', (worker, code, signal) => {
   }
 });
 
-// kill worker
+// 关闭 worker
 worker.kill();
 ```
-
