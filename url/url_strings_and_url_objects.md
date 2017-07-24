@@ -3,7 +3,7 @@
 当被解析时，会返回一个 URL 对象，它包含每个组成部分作为属性。
 
 `url`模块提供了两套API来处理URLs：一个是Node.js遗留的特有的API,另一个则是通常使用在web浏览器中
-上线了[WHATWG URL Standard]的API.
+实现了[WHATWG URL Standard]的API.
 
 <!--The `url` module provides two APIs for working with URLs: a legacy API that is
 Node.js specific, and a newer API that implements the same
@@ -50,7 +50,7 @@ const { URL } = require('url');
 const myURL =
   new URL('https://user:pass@sub.host.com:8080/p/a/t/h?query=string#hash');
 ```
-在浏览器中，WHATWG `URL`（超文本链接）在全局总是可用的，而在Node.js中，任何情况下打开
+在浏览器中，WHATWG `URL`在全局总是可用的，而在Node.js中，任何情况下打开
 或使用一个链接都必须事先引用'url'模块：`require('url').URL`
 
 <!--*Note*: In Web Browsers, the WHATWG `URL` class is a global that is always
