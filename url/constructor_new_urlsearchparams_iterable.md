@@ -2,16 +2,11 @@
 added: v7.10.0
 -->
 
-* `iterable` {Iterable} An iterable object whose elements are key-value pairs
+* `iterable` {Iterable} 一个元素时键值对的迭代对象
 
-Instantiate a new `URLSearchParams` object with an iterable map in a way that
-is similar to [`Map`][]'s constructor. `iterable` can be an Array or any
-iterable object. That means `iterable` can be another `URLSearchParams`, in
-which case the constructor will simply create a clone of the provided
-`URLSearchParams`.  Elements of `iterable` are key-value pairs, and can
-themselves be any iterable object.
+以一种类似于[`Map`][]的构造函数的迭代映射方式实例化一个新的`URLSearchParams`对象。`iterable`可以是一个数组或者任何迭代对象。这就意味着`iterable`能够使另一个`URLSearchParams`，这种情况下，构造函数将简单地根据提供的`URLSearchParams`创建一个克隆`URLSearchParams`。`iterable`的元素是键值对，并且其本身也可以是任何迭代对象。
 
-Duplicate keys are allowed.
+允许重复的键。
 
 ```js
 const { URLSearchParams } = require('url');
@@ -24,17 +19,17 @@ params = new URLSearchParams([
   ['query', 'second']
 ]);
 console.log(params.toString());
-  // Prints 'user=abc&query=first&query=second'
+  // 输出 'user=abc&query=first&query=second'
 
-// Using a Map object
+// 使用Map对象
 const map = new Map();
 map.set('user', 'abc');
 map.set('query', 'xyz');
 params = new URLSearchParams(map);
 console.log(params.toString());
-  // Prints 'user=abc&query=xyz'
+  // 输出 'user=abc&query=xyz'
 
-// Using a generator function
+// 使用generator函数
 function* getQueryPairs() {
   yield ['user', 'abc'];
   yield ['query', 'first'];
@@ -42,13 +37,13 @@ function* getQueryPairs() {
 }
 params = new URLSearchParams(getQueryPairs());
 console.log(params.toString());
-  // Prints 'user=abc&query=first&query=second'
+  // 输出 'user=abc&query=first&query=second'
 
-// Each key-value pair must have exactly two elements
+// 每个键值对必须有两个元素
 new URLSearchParams([
   ['user', 'abc', 'error']
 ]);
-  // Throws TypeError [ERR_INVALID_TUPLE]:
-  //        Each query pair must be an iterable [name, value] tuple
+  // 抛出 TypeError [ERR_INVALID_TUPLE]:
+  //        每一个键值对必须是迭代的[键，值]元组
 ```
 
