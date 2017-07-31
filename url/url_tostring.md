@@ -1,10 +1,7 @@
 
 * Returns: {string}
 
-The `toString()` method on the `URL` object returns the serialized URL. The
-value returned is equivalent to that of [`url.href`][] and [`url.toJSON()`][].
+`URL`对象上的`toString()`方法返回序列化的URL。返回值与[`url.href`][] 和 [`url.toJSON()`][]的相同。
 
-Because of the need for standard compliance, this method does not allow users
-to customize the serialization process of the URL. For more flexibility,
-[`require('url').format()`][] method might be of interest.
+因为需要符合标准，该方法不允许用户自定义URL系列化进程。如果需要更大的灵活性，请查看[`require('url').format()`][] 方法。
 
