@@ -29,6 +29,5 @@ changes:
 
 回调有三个参数 `(err, bytesRead, buffer)`。
 
-If this method is invoked as its [`util.promisify()`][]ed version, it returns
-a Promise for an object with `bytesRead` and `buffer` properties.
+如果这个方法被他的[`util.promisify()`][]的版本调用，将返具有`bytesRead`和`buffer`属性的对象的Promise。
 
