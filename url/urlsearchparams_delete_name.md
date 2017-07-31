@@ -1,5 +1,5 @@
 
 * `name` {string}
 
-Remove all name-value pairs whose name is `name`.
+删除所有键为`name`的键值对。
 
