@@ -1,12 +1,9 @@
 
-* Returns: {string}
+* 返回: {string}
 
-The `toJSON()` method on the `URL` object returns the serialized URL. The
-value returned is equivalent to that of [`url.href`][] and
-[`url.toString()`][].
+在`URL`对象上调用`toJSON()`方法将返回序列化的URL。返回值与[`url.href`][]和[`url.toString()`][]的相同。
 
-This method is automatically called when an `URL` object is serialized
-with [`JSON.stringify()`][].
+当`URL`对象使用[`JSON.stringify()`][]序列化时将自动调用该方法。
 
 ```js
 const { URL } = require('url');
@@ -15,6 +12,6 @@ const myURLs = [
   new URL('https://test.example.org')
 ];
 console.log(JSON.stringify(myURLs));
-  // Prints ["https://www.example.com/","https://test.example.org/"]
+  // 输出 ["https://www.example.com/","https://test.example.org/"]
 ```
 
