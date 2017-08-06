@@ -2,5 +2,5 @@
 * `name` {string}
 * `value` {string}
 
-Append a new name-value pair to the query string.
+在查询字符串中附加一个新的键值对。
 

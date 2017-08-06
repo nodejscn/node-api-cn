@@ -1,18 +1,18 @@
 
 * {string}
 
-Gets and sets the protocol portion of the URL.
+获取及设置URL的协议(protocol)部分。
 
 ```js
 const { URL } = require('url');
 const myURL = new URL('https://example.org');
 console.log(myURL.protocol);
-  // Prints https:
+  // 输出 https:
 
 myURL.protocol = 'ftp';
 console.log(myURL.href);
-  // Prints ftp://example.org/
+  // 输出 ftp://example.org/
 ```
 
-Invalid URL protocol values assigned to the `protocol` property are ignored.
+如果给`protocol`属性设置的值是无效值，那么该值将被忽略。
 
