@@ -1,3 +1,3 @@
 
-Instantiate a new empty `URLSearchParams` object.
+实例化一个新的空的`URLSearchParams`对象。
 
