@@ -30,3 +30,4 @@ changes:
 回调有三个参数 `(err, bytesRead, buffer)`。
 
 如果调用该方法的 [`util.promisify()`][] 版本，将会返回一个包含 `bytesRead` 和 `buffer` 属性的 Promise。
+

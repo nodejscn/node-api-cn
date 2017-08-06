@@ -1,21 +1,18 @@
 
 * {string}
 
-Gets and sets the serialized query portion of the URL.
+获取及设置URL的序列化查询(query)部分部分。
 
 ```js
 const { URL } = require('url');
 const myURL = new URL('https://example.org/abc?123');
 console.log(myURL.search);
-  // Prints ?123
+  // 输出 ?123
 
 myURL.search = 'abc=xyz';
 console.log(myURL.href);
-  // Prints https://example.org/abc?abc=xyz
+  // 输出 https://example.org/abc?abc=xyz
 ```
 
-Any invalid URL characters appearing in the value assigned the `search`
-property will be [percent-encoded][]. Note that the selection of which
-characters to percent-encode may vary somewhat from what the [`url.parse()`][]
-and [`url.format()`][] methods would produce.
+任何出现在赋给`search`属性值中的无效URL字符将被[百分比编码][]。请注意选择哪些字符进行百分比编码可能与[`url.parse()`][]和[`url.format()`][]方法产生的不同。
 
