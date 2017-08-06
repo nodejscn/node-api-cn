@@ -1,21 +1,18 @@
 
 * {string}
 
-Gets and sets the path portion of the URL.
+获取及设置URL的路径(path)部分。
 
 ```js
 const { URL } = require('url');
 const myURL = new URL('https://example.org/abc/xyz?123');
 console.log(myURL.pathname);
-  // Prints /abc/xyz
+  // 输出 /abc/xyz
 
 myURL.pathname = '/abcdef';
 console.log(myURL.href);
-  // Prints https://example.org/abcdef?123
+  // 输出 https://example.org/abcdef?123
 ```
 
-Invalid URL characters included in the value assigned to the `pathname`
-property are [percent-encoded][]. Note that the selection of which characters
-to percent-encode may vary somewhat from what the [`url.parse()`][] and
-[`url.format()`][] methods would produce.
+包含在赋给`pathname`属性的值中的无效URL字符是[百分比编码][]。请注意选择哪些字符进行百分比编码可能与[`url.parse()`][]和[`url.format()`][]方法产生的不同。
 
