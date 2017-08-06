@@ -1,7 +1,6 @@
 
 * `name` {string}
-* Returns: {Array}
+* 返回: {Array}
 
-Returns the values of all name-value pairs whose name is `name`. If there are
-no such pairs, an empty array is returned.
+返回键是`name`的所有键值对的值，如果没有满足条件的键值对，则返回一个空的数组。
 
