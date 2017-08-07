@@ -3,20 +3,19 @@ added: v7.4.0
 -->
 
 * `domain` {string}
-* Returns: {string}
+* 返回: {string}
 
-Returns the [Punycode][] ASCII serialization of the `domain`. If `domain` is an
-invalid domain, the empty string is returned.
+返回[Punycode][] ASCII系列化的`domain`. 如果`domain`是无效域名，将返回空字符串。
 
-It performs the inverse operation to [`url.domainToUnicode()`][].
+他执行的是[`url.domainToUnicode()`][]的逆运算。
 
 ```js
 const url = require('url');
 console.log(url.domainToASCII('español.com'));
-  // Prints xn--espaol-zwa.com
+  // 输出 xn--espaol-zwa.com
 console.log(url.domainToASCII('中文.com'));
-  // Prints xn--fiq228c.com
+  // 输出 xn--fiq228c.com
 console.log(url.domainToASCII('xn--iñvalid.com'));
-  // Prints an empty string
+  // 输出 an empty string
 ```
 
