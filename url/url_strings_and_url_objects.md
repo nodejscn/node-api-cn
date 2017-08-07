@@ -9,14 +9,16 @@
 Node.js specific, and a newer API that implements the same
 [WHATWG URL Standard][] used by web browsers.-->
 
-*Note*: While the Legacy API has not been deprecated, it is maintained solely
+*请注意*: 虽然Node.js遗留的特有的API并没有被弃用，但是保留的目的是用于向后兼容已有应用程序。因此新的应用程序请使用WHATWG API。
+<!--*Note*: While the Legacy API has not been deprecated, it is maintained solely
 for backwards compatibility with existing applications. New application code
-should use the WHATWG API.
+should use the WHATWG API.-->
 
-A comparison between the WHATWG and Legacy APIs is provided below. Above the URL
+WHATWG与Node.js遗留的特有的API的比较如下。网址`'http://user:pass@sub.host.com:8080/p/a/t/h?query=string#hash'`上方是由遗留的`url.parse()`返回的对象属性。网址下方的则是由WHATWG `URL`对象的属性。
+<!--A comparison between the WHATWG and Legacy APIs is provided below. Above the URL
 `'http://user:pass@sub.host.com:8080/p/a/t/h?query=string#hash'`, properties of
 an object returned by the legacy `url.parse()` are shown. Below it are
-properties of a WHATWG `URL` object.
+properties of a WHATWG `URL` object.-->
 
 WHATWG URL的组织属性包括`protocol`和`host`,但不包含`username`、`password`.
 <!--*Note*: WHATWG URL's `origin` property includes `protocol` and `host`, but not
