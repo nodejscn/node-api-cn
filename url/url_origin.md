@@ -1,24 +1,22 @@
 
 * {string}
 
-Gets the read-only serialization of the URL's origin. Unicode characters that
-may be contained within the hostname will be encoded as-is without [Punycode][]
-encoding.
+获取只读序列化的URL orgin部分。在主机名中可能包含的Unicode字符将被编码，但不使用[Punycode][]编码。
 
 ```js
 const { URL } = require('url');
 const myURL = new URL('https://example.org/foo/bar?baz');
 console.log(myURL.origin);
-  // Prints https://example.org
+  // 输出 https://example.org
 ```
 
 ```js
 const { URL } = require('url');
 const idnURL = new URL('https://你好你好');
 console.log(idnURL.origin);
-  // Prints https://你好你好
+  // 输出 https://你好你好
 
 console.log(idnURL.hostname);
-  // Prints xn--6qqa088eba
+  // 输出 xn--6qqa088eba
 ```
 
