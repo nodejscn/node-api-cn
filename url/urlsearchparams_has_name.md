@@ -1,6 +1,6 @@
 
 * `name` {string}
-* Returns: {boolean}
+* 返回: {boolean}
 
-Returns `true` if there is at least one name-value pair whose name is `name`.
+如果存在至少一对键是name的键值对则返回 `true`。
 
