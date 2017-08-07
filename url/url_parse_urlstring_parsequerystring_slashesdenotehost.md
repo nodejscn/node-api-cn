@@ -12,7 +12,7 @@ added: v0.1.25
 
 `url.parse()` 方法会解析一个 URL 字符串并返回一个 URL 对象。
 
-A `TypeError` is thrown if `urlString` is not a string.
+如果`urlString`不是字符串将会抛出`TypeError`。
 
-A `URIError` is thrown if the `auth` property is present but cannot be decoded.
+如果`auth`属性存在但无法编码则抛出`URIError`。
 
