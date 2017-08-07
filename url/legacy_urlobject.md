@@ -1,4 +1,3 @@
 
-The legacy urlObject (`require('url').Url`) is created and returned by the
-`url.parse()` function.
+遗留的urlObject (`require('url').Url`)由`url.parse()`函数创建并返回。
 
