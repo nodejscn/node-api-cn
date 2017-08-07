@@ -1,6 +1,5 @@
 
-* Returns: {string}
+* 返回: {string}
 
-Returns the search parameters serialized as a string, with characters
-percent-encoded where necessary.
+返回查询参数序列化后的字符串，必要时存在百分号编码字符。
 
