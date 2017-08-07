@@ -4,8 +4,7 @@ added: v0.5.1
 
 * `string` {string}
 
-The `punycode.encode()` method converts a string of Unicode codepoints to a
-[Punycode][] string of ASCII-only characters.
+`punycode.encode()`方法将一个Unicode编码的字符串转化为等价的只含有ASCII字符的[Punycode][]字符串。
 
 ```js
 punycode.encode('mañana'); // 'maana-pta'
