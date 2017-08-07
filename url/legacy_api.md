@@ -1,11 +1,9 @@
 
-Within the Legacy API, spaces (`' '`) and the following characters will be
-automatically escaped in the properties of URL objects:
+在遗留的API中，空格(`' '`)及以下字符将自动转义为URL对象的属性：
 
 ```txt
 < > " ` \r \n \t { } | \ ^ '
 ```
 
-For example, the ASCII space character (`' '`) is encoded as `%20`. The ASCII
-forward slash (`/`) character is encoded as `%3C`.
+例如，ASCII空格字符(`' '`)被编码为`%20`.ASCII斜杠(`/`)字符被编码为`%3C`。
 
