@@ -13,13 +13,7 @@ changes:
 
 将给定的 `Buffer` 或 `Uint8Array` 实例从一个字符编码重新编码到另一个字符。 返回一个新的Buffer实例。
 
-Throws if the `fromEnc` or `toEnc` specify invalid character encodings or if
-conversion from `fromEnc` to `toEnc` is not permitted.
-
-如果 `fromEnc` 或 `toEnc` 制定的字符串编码无效，或者不允许从 `fromEnc` 转换为 `toEnc`，将抛出异常。
-
-The transcoding process will use substitution characters if a given byte
-sequence cannot be adequately represented in the target encoding. For instance:
+如果 `fromEnc` 或 `toEnc` 指定的字符串编码无效，或者不允许从 `fromEnc` 转换为 `toEnc`，将抛出异常。
 
 如果给定的字节序列不能在目标编码中充分表示，转码过程将使用替代字符。例如：
 
