@@ -1,11 +1,9 @@
 
-* Returns {AsyncHook} A reference to `asyncHook`.
+* 返回 {AsyncHook} `asyncHook`的参照。
 
-Enable the callbacks for a given `AsyncHook` instance. If no callbacks are
-provided enabling is a noop.
+启用给定`AsyncHook`实例的回调。 如果没有提供回调，则启用操作是空操作。
 
-The `AsyncHook` instance is by default disabled. If the `AsyncHook` instance
-should be enabled immediately after creation, the following pattern can be used.
+`AsyncHook`实例默认是禁用的。如果`AsyncHook`实例应该在创建后立即启用，可以通过以下模式启用。
 
 ```js
 const async_hooks = require('async_hooks');
