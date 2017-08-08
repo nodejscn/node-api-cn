@@ -1,9 +1,7 @@
 
-* Returns {AsyncHook} A reference to `asyncHook`.
+* 返回 {AsyncHook} `asyncHook`的参照。
 
-Disable the callbacks for a given `AsyncHook` instance from the global pool of
-AsyncHook callbacks to be executed. Once a hook has been disabled it will not
-be called again until enabled.
+从要执行的AsyncHook回调的全局池中禁用给定“AsyncHook”实例的回调。一旦钩被禁用，直到被启用时才会再次被调用。
 
-For API consistency `disable()` also returns the `AsyncHook` instance.
+为了API的一致性，`disable()`也返回`AsyncHook`实例。
 
