@@ -1,5 +1,3 @@
 
-Key events in the lifetime of asynchronous events have been categorized into
-four areas: instantiation, before/after the callback is called, and when the
-instance is destructed.
+异步事件生命周期中的关键事件分为四个区域：实例化，回调调用前，回调调用后以及实例被破坏。
 
