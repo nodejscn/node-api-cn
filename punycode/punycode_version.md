@@ -2,5 +2,4 @@
 added: v0.6.1
 -->
 
-Returns a string identifying the current [Punycode.js][] version number.
-
+返回一个当前[Punycode.js][]版本号的字符串。
