@@ -2,39 +2,30 @@
 added: v7.6.0
 -->
 
-* `URL` {URL} A [WHATWG URL][] object
+* `URL` {URL} 一个[WHATWG URL][]对象
 * `options` {Object}
-  * `auth` {boolean} `true` if the serialized URL string should include the
-    username and password, `false` otherwise. Defaults to `true`.
-  * `fragment` {boolean} `true` if the serialized URL string should include the
-    fragment, `false` otherwise. Defaults to `true`.
-  * `search` {boolean} `true` if the serialized URL string should include the
-    search query, `false` otherwise. Defaults to `true`.
-  * `unicode` {boolean} `true` if Unicode characters appearing in the host
-    component of the URL string should be encoded directly as opposed to being
-    Punycode encoded. Defaults to `false`.
+  * `auth` {boolean} 如果序列化的URL字符串应该包含用户名和密码为`true`，否则为`false`。默认为`true`。
+  * `fragment` {boolean} 如果序列化的URL字符串应该包含分段为`true`，否则为`false`。默认为`true`。
+  * `search` {boolean} 如果序列化的URL字符串应该包含搜索查询为`true`，否则为`false`。默认为`true`。
+  * `unicode` {boolean} `true` 如果出现在URL字符串主机元素里的Unicode字符应该被直接编码而不是使用Punycode编码为`true`，默认为`false`。
 
-Returns a customizable serialization of a URL String representation of a
-[WHATWG URL][] object.
+返回一个[WHATWG URL][]对象的可自定义序列化的URL字符串表达。
 
-The URL object has both a `toString()` method and `href` property that return
-string serializations of the URL. These are not, however, customizable in
-any way. The `url.format(URL[, options])` method allows for basic customization
-of the output.
+虽然URL对象的`toString()`方法和`href`属性都可以返回URL的序列化的字符串。然而，两者都不可以被自定义。而`url.format(URL[, options])`方法允许输出的基本自定义。
 
-For example:
+例如：
 
 ```js
 const { URL } = require('url');
 const myURL = new URL('https://a:b@你好你好?abc#foo');
 
 console.log(myURL.href);
-  // Prints https://a:b@xn--6qqa088eba/?abc#foo
+  // 输出 https://a:b@xn--6qqa088eba/?abc#foo
 
 console.log(myURL.toString());
-  // Prints https://a:b@xn--6qqa088eba/?abc#foo
+  // 输出 https://a:b@xn--6qqa088eba/?abc#foo
 
 console.log(url.format(myURL, { fragment: false, unicode: true, auth: false }));
-  // Prints 'https://你好你好/?abc'
+  // 输出 'https://你好你好/?abc'
 ```
 
