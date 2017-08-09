@@ -1,10 +1,7 @@
 
 * `asyncId` {number}
 
-Called immediately after the callback specified in `before` is completed.
+规定`before`完成后立即调用的回调
 
-*Note:* If an uncaught exception occurs during execution of the callback then
-`after` will run after the `'uncaughtException'` event is emitted or a
-`domain`'s handler runs.
-
+*请注意:* 如果在回调执行期间，出现未捕获异常，那么将会在触发`'uncaughtException'`事件后或`domain`句柄运行后运行`after`。
 
