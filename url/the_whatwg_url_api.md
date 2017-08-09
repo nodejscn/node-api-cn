@@ -2,7 +2,5 @@
 added: v7.0.0
 -->
 
-*Note*: Using the `delete` keyword on `URL` objects (e.g.
-`delete myURL.protocol`, `delete myURL.pathname`, etc) has no effect but will
-still return `true`.
+*请注意*: 在`URL`对象上使用`delete`关键字(e.g.`delete myURL.protocol`, `delete myURL.pathname`, 等)没有效果，仍会返回`true'。
 
