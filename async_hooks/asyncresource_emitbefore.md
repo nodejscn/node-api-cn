@@ -1,7 +1,4 @@
 
-* Returns {undefined}
+* 返回 {undefined}
 
-Call all `before` callbacks and let them know a new asynchronous execution
-context is being entered. If nested calls to `emitBefore()` are made, the stack
-of `asyncId`s will be tracked and properly unwound.
-
+调用所有`before`回调，并且让他们知道正在输入一个新的异步执行上下文。 如果对`emitBefore()`进行嵌套调用，那么将会跟踪并正确地解开`asyncId`的堆栈。
