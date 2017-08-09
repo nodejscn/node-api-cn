@@ -27,8 +27,6 @@ console.log(b.toString());
 
 `value` 如果不是一个字符串或整数，则会被强行转换为 `uint32` 值。
 
-If the final write of a `fill()` operation falls on a multi-byte character,
-then only the first bytes of that character that fit into `buf` are written.
 如果 `fill()` 操作的最后一次写入的是一个多字节字符，则只有字符中适合 `buf` 的第一个字节会被写入。
 
 例子：用一个两个字节的字符填充 `Buffer`。
