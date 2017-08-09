@@ -2,10 +2,10 @@
 added: 8.2.0
 -->
 
-* {integer} The largest size allowed for a single `Buffer` instance
+* {integer}  单个`Buffer`实例允许的最大量度。
 
-On 32-bit architectures, this value is `(2^30)-1` (~1GB).
-On 64-bit architectures, this value is `(2^31)-1` (~2GB).
+在32位体系结构上，这个值是`(2^30)-1` (~1GB)。
+在64位体系结构上，这个值是`(2^31)-1` (~2GB)。
 
-This value is also available as [`buffer.kMaxLength`][].
+也可在[`buffer.kMaxLength`][]查看该值。
 
