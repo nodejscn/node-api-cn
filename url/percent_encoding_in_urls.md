@@ -1,6 +1,3 @@
 
-URLs are permitted to only contain a certain range of characters. Any character
-falling outside of that range must be encoded. How such characters are encoded,
-and which characters to encode depends entirely on where the character is
-located within the structure of the URL.
+允许URL只包含一定范围的字符。 任何超出该范围的字符都必须进行编码。 如何对这些字符进行编码，以及哪些字符要编码完全取决于字符在URL结构内的位置。
 
