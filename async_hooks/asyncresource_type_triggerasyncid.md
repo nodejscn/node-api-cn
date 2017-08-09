@@ -1,10 +1,9 @@
 
-* arguments
-  * `type` {string} the type of ascyc event
-  * `triggerAsyncId` {number} the ID of the execution context that created this async
-    event
+* 参数
+  * `type` {string} 异步事件的类型
+  * `triggerAsyncId` {number} 创建此异步事件的执行上下文的ID
 
-Example usage:
+案例:
 
 ```js
 class DBQuery extends AsyncResource {
