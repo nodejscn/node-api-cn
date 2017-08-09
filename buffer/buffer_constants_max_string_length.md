@@ -2,10 +2,9 @@
 added: 8.2.0
 -->
 
-* {integer} The largest length allowed for a single `string` instance
+* {integer} 单个`string`实例允许的最大长度。
 
-Represents the largest `length` that a `string` primitive can have, counted
-in UTF-16 code units.
+代表`string`能有的原始最大`长度`，以UTF-16代码为单位。
 
-This value may depend on the JS engine that is being used.
+该值可能取决于正在使用的JS引擎。
 
