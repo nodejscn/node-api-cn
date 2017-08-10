@@ -1,6 +1,4 @@
 
 * {string}
 
-The `error.code` property is a string label that identifies the kind of error.
-See [Node.js Error Codes][] for details about specific codes.
-
+`error.code` 属性是标识错误类别的字符标签。详见 [Node.js Error Codes][] 关于特定的错误码
