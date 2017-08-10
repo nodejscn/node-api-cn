@@ -4,18 +4,13 @@ added: v7.7.0
 
 * Returns: {Object}
 
-Returns a shallow copy of the current outgoing headers. Since a shallow copy
-is used, array values may be mutated without additional calls to various
-header-related http module methods. The keys of the returned object are the
-header names and the values are the respective header values. All header names
-are lowercase.
+返回当前响应头文件的浅拷贝。 由于使用了浅拷贝，因此数组值可能会改变，无需对各种与响应头相关的http模块方法进行额外调用。
+返回对象的键是响应头名称，值是各自的响应头值。 所有响应头名称都是小写的。
 
-*Note*: The object returned by the `response.getHeaders()` method _does not_
-prototypically inherit from the JavaScript `Object`. This means that typical
-`Object` methods such as `obj.toString()`, `obj.hasOwnProperty()`, and others
-are not defined and *will not work*.
+注意：`response.getHeaders()` 方法返回的对象不会原型继承 JavaScript `Object`。 这意味着，没有定义典型的Object方法，如`obj.toString()`，`obj.hasOwnProperty()` 和其他方法，并且不起作用。
 
-Example:
+
+例子：
 
 ```js
 response.setHeader('Foo', 'bar');
