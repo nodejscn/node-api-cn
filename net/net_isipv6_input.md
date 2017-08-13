@@ -2,7 +2,7 @@
 added: v0.3.0
 -->
 
-Returns true if input is a version 6 IP address, otherwise returns false.
+如果 input 是 IPv6 地址则返回 true，否则返回 false。
 
 [`'close'`]: #net_event_close
 [`'connect'`]: #net_event_connect
