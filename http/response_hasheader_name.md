@@ -5,10 +5,9 @@ added: v7.7.0
 * `name` {string}
 * Returns: {boolean}
 
-Returns `true` if the header identified by `name` is currently set in the
-outgoing headers. Note that the header name matching is case-insensitive.
+如果响应头当前有设置 `name` 头部，返回 `true`。请注意，名称匹配不区分大小写。
 
-Example:
+例子：
 
 ```js
 const hasContentType = response.hasHeader('content-type');
