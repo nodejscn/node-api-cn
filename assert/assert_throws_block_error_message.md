@@ -57,7 +57,7 @@ assert.throws(
 如果第二个参数是一个字符串，则视为省略 `error` 参数，传入的字符串会被用于 `message`。
 这点比较容易搞错：
 
-<!-- eslint-disable assert-throws-arguments -->
+<!-- eslint-disable no-restricted-syntax -->
 ```js
 // 这是错误的！不要这么做！
 assert.throws(myFunction, '错误', '没有抛出期望的信息');

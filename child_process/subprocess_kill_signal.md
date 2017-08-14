@@ -4,7 +4,7 @@ added: v0.1.90
 
 * `signal` {string}
 
-`child.kill()` 方法向子进程发送一个信号。
+`subprocess.kill()` 方法向子进程发送一个信号。
 如果没有给定参数，则进程会发送 `'SIGTERM'` 信号。
 查看 signal(7) 了解可用的信号列表。
 
@@ -35,7 +35,7 @@ grep.kill('SIGHUP');
 'use strict';
 const { spawn } = require('child_process');
 
-const child = spawn(
+const subprocess = spawn(
   'sh',
   [
     '-c',
@@ -48,7 +48,7 @@ const child = spawn(
 );
 
 setTimeout(() => {
-  child.kill(); // 不会终止 shell 中的 node 进程
+  subprocess.kill(); // 不会终止 shell 中的 node 进程
 }, 2000);
 ```
 

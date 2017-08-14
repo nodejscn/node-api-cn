@@ -30,7 +30,7 @@ changes:
 `child_process.fork()` 方法是 [`child_process.spawn()`] 的一个特殊情况，专门用于衍生新的 Node.js 进程。
 跟 [`child_process.spawn()`] 一样返回一个 [`ChildProcess`] 对象。
 返回的 [`ChildProcess`] 会有一个额外的内置的通信通道，它允许消息在父进程和子进程之间来回传递。
-详见 [`child.send()`]。
+详见 [`subprocess.send()`]。
 
 衍生的 Node.js 子进程与两者之间建立的 IPC 通信信道的异常是独立于父进程的。
 每个进程都有自己的内存，使用自己的 V8 实例。

@@ -10,9 +10,9 @@ Creates a new socket object.
   * `allowHalfOpen` {boolean} Indicates whether half-opened TCP connections
     are allowed. See [`net.createServer()`][] and the [`'end'`][] event
     for details. Defaults to `false`.
-  * `readable` {boolean} Allow reads on the socket when a `fd` is passed,
+  * `readable` {boolean} Allow reads on the socket when an `fd` is passed,
     otherwise ignored. Defaults to `false`.
-  * `writable` {boolean} Allow reads on the socket when a `fd` is passed,
+  * `writable` {boolean} Allow writes on the socket when an `fd` is passed,
     otherwise ignored. Defaults to `false`.
 * Returns: {net.Socket}
 

@@ -15,9 +15,8 @@ changes:
     - `stderr` 默认会输出到父进程中的 stderr，除非指定了 `stdio`
   * `env` {Object} 环境变量键值对
   * `shell` {string} 用于执行命令的 shell
-    （默认：在 UNIX 上为 `'/bin/sh'`，在 Windows 上为 `'cmd.exe'`。
-    该 shell 应该能够理解 UNIX 的 `-c` 开关或 Windows 的 `/d /s /c` 开关。
-    在 Windows 中，命令行的解析应与 `cmd.exe` 兼容。）
+    （默认：在 UNIX 上为 `'/bin/sh'`，在 Windows 上为 `process.env.ComSpec`。
+    See [Shell Requirements][] and [Default Windows Shell][].）
   * `uid` {number} 设置该进程的用户标识。（详见 setuid(2)）
   * `gid` {number} 设置该进程的组标识。（详见 setgid(2)）
   * `timeout` {number} 进程允许运行的最大时间数，以毫秒为单位。（默认: `undefined`）

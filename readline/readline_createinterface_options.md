@@ -22,7 +22,9 @@ changes:
   * `prompt` - 要使用的提示字符串。默认为 `'> '`。
   * `crlfDelay` {number} 如果 `\r` 与 `\n` 之间的延迟超过 `crlfDelay` 毫秒，则 `\r` 和 `\n` 都会被当作换行分隔符。
     默认为 `100` 毫秒。
-    `crlfDelay` 的范围为 `[100, 2000]`。
+    `crlfDelay` will be coerced to a number no less than `100`. It can be set to
+    `Infinity`, in which case `\r` followed by `\n` will always be considered a
+    single newline.
   * `removeHistoryDuplicates` {boolean} If `true`, when a new input line added
     to the history list duplicates an older one, this removes the older line
     from the list. Defaults to `false`.

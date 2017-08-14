@@ -8,9 +8,8 @@ added: v0.1.90
   * `env` {Object} 环境变量键值对
   * `encoding` {string} （默认: `'utf8'`）
   * `shell` {string} 用于执行命令的 shell
-    （默认：在 UNIX 上为 `'/bin/sh'`，在 Windows 上为 `'cmd.exe'`。
-    该 shell 应该能够理解 UNIX 的 `-c` 开关或 Windows 的 `/d /s /c` 开关。
-    在 Windows 中，命令行的解析应与 `cmd.exe` 兼容。）
+    （默认：在 UNIX 上为 `'/bin/sh'`，在 Windows 上为 `process.env.ComSpec`。
+    See [Shell Requirements][] and [Default Windows Shell][].）
   * `timeout` {number} （默认: `0`）
   * [`maxBuffer`] {number} stdout 或 stderr 允许的最大字节数。
     默认为 `200*1024`。

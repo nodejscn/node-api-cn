@@ -1,7 +1,7 @@
 
 * {string}
 
-获取只读序列化的URL orgin部分。在主机名中可能包含的Unicode字符将被编码，但不使用[Punycode][]编码。
+获取只读序列化的URL orgin部分。
 
 ```js
 const { URL } = require('url');
@@ -14,7 +14,7 @@ console.log(myURL.origin);
 const { URL } = require('url');
 const idnURL = new URL('https://你好你好');
 console.log(idnURL.origin);
-  // 输出 https://你好你好
+  // 输出 https://xn--6qqa088eba
 
 console.log(idnURL.hostname);
   // 输出 xn--6qqa088eba

@@ -14,7 +14,7 @@ The `object` argument can be either a string containing a PEM encoded object,
 which can be an RSA public key, a DSA public key, or an X.509 certificate,
 or an object with one or more of the following properties:
 
-* `key`: {string} - PEM encoded private key (required)
+* `key`: {string} - PEM encoded public key (required)
 * `padding`: {integer} - Optional padding value for RSA, one of the following:
   * `crypto.constants.RSA_PKCS1_PADDING` (default)
   * `crypto.constants.RSA_PKCS1_PSS_PADDING`
@@ -36,7 +36,7 @@ string; otherwise `signature` is expected to be a [`Buffer`][],
 Returns `true` or `false` depending on the validity of the signature for
 the data and public key.
 
-The `verifier` object can not be used again after `verify.verify()` has been
+The `verify` object can not be used again after `verify.verify()` has been
 called. Multiple calls to `verify.verify()` will result in an error being
 thrown.
 

@@ -1,5 +1,12 @@
 <!-- YAML
 added: v0.1.25
+changes:
+  - version: v7.0.0
+    pr-url: https://github.com/nodejs/node/pull/7234
+    description: URLs with a `file:` scheme will now always use the correct
+                 number of slashes regardless of `slashes` option. A false-y
+                 `slashes` option with no protocol is now also respected at all
+                 times.
 -->
 
 * `urlObject` {Object|string} 一个 URL 对象（就像 `url.parse()` 返回的）。

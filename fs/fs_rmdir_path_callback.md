@@ -17,3 +17,5 @@ changes:
 异步的 rmdir(2)。
 完成回调只有一个可能的异常参数。
 
+*Note*: Using `fs.rmdir()` on a file (not a directory) results in an `ENOENT`
+error on Windows and an `ENOTDIR` error on POSIX.

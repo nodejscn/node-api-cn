@@ -10,6 +10,7 @@ added: v0.1.90
 
 如果子进程被衍生时 `stdio[0]` 被设为任何不是 `'pipe'` 的值，则这会是 `null`。
 
-`child.stdin` 是 `child.stdio[0]` 的一个别名。
+`subprocess.stdin` 是 `subprocess.stdio[0]` 的一个别名。
 这两个属性指向相同的值。
 
+<a name="child_process_child_stdio"></a>

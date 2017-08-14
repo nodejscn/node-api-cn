@@ -7,3 +7,4 @@ added: v0.5.9
 
 当一个子进程使用 [`process.send()`] 发送消息时会触发 `'message'` 事件。
 
+<a name="child_process_child_channel"></a>

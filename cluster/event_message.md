@@ -7,7 +7,7 @@ added: v0.7.0
 
 和`cluster.on('message')`事件类似，但针对特定的工作进程。
 
-在工作进程内，可以使用`process.on('message)`
+在工作进程内，可以使用`process.on('message')`
 
 详见 [`process` event: `'message'`][].
 

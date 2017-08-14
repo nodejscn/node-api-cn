@@ -28,5 +28,5 @@ const myURL = new URL('https://你好你好');
   // https://xn--6qqa088eba/
 ```
 
-其他的[已解析URLs的例子][]可以在WHATWG URL标准中找到。
-
+*Note*: This feature is only available if the `node` executable was compiled
+with [ICU][] enabled. If not, the domain names are passed through unchanged.

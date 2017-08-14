@@ -3,8 +3,9 @@
 以下例子衍生了两个子进程，分别用于处理 "normal" 连接或优先处理 "special" 连接：
 
 ```js
-const normal = require('child_process').fork('child.js', ['normal']);
-const special = require('child_process').fork('child.js', ['special']);
+const { fork } = require('child_process');
+const normal = fork('subprocess.js', ['normal']);
+const special = fork('subprocess.js', ['special']);
 
 // 开启 server，并发送 socket 给子进程。
 // 使用 `pauseOnConnect` 防止 socket 在被发送到子进程之前被读取。
@@ -22,7 +23,7 @@ server.on('connection', (socket) => {
 server.listen(1337);
 ```
 
-`child.js` 会接收到一个 socket 句柄，并作为第二个参数传给事件回调函数：
+`subprocess.js` 会接收到一个 socket 句柄，并作为第二个参数传给事件回调函数：
 
 ```js
 process.on('message', (m, socket) => {
@@ -48,3 +49,5 @@ process.on('message', (m, socket) => {
 建议在子进程中的任何 `message` 处理程序都需要验证 `socket` 是否存在，因为连接可能会在它在发送给子进程的这段时间内被关闭。
 
 注意，该函数内部使用 [`JSON.stringify()`] 序列化 `message`。
+
+<a name="child_process_child_stderr"></a>

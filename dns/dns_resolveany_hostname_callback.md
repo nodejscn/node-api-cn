@@ -2,7 +2,7 @@
 - `hostname` {string}
 - `callback` {Function}
   - `err` {Error}
-  - `ret` {Object[][]}
+  - `ret` {Object[]}
 
 Uses the DNS protocol to resolve all records (also known as `ANY` or `*` query).
 The `ret` argument passed to the `callback` function will be an array containing

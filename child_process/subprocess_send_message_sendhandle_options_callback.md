@@ -19,7 +19,7 @@ changes:
 * `callback` {Function}
 * 返回: {boolean}
 
-当父进程和子进程之间建立了一个 IPC 通道时（例如，使用 [`child_process.fork()`]），`child.send()` 方法可用于发送消息到子进程。
+当父进程和子进程之间建立了一个 IPC 通道时（例如，使用 [`child_process.fork()`]），`subprocess.send()` 方法可用于发送消息到子进程。
 当子进程是一个 Node.js 实例时，消息可以通过 [`process.on('message')`] 事件接收。
 
 例子，父进程脚本如下：
@@ -52,7 +52,7 @@ Node.js 中的子进程有一个自己的 [`process.send()`] 方法，允许子�
 而是，这种消息可使用 `process.on('internalMessage')` 事件触发，且被 Node.js 内部消费。
 应用程序应避免使用这种消息或监听 `'internalMessage'` 事件。
 
-可选的 `sendHandle` 参数可能被传给 `child.send()`，它用于传入一个 TCP 服务器或 socket 对象给子进程。
+可选的 `sendHandle` 参数可能被传给 `subprocess.send()`，它用于传入一个 TCP 服务器或 socket 对象给子进程。
 子进程会接收对象作为第二个参数，并传给注册在 [`process.on('message')`] 事件上的回调函数。
 socket 上接收或缓冲的任何数据不会被发送给子进程。
 
@@ -68,7 +68,7 @@ socket 上接收或缓冲的任何数据不会被发送给子进程。
 如果没有提供 `callback` 函数，且消息没被发送，则一个 `'error'` 事件将被 [`ChildProcess`] 对象触发。
 这是有可能发生的，例如当子进程已经退出时。
 
-如果通道已关闭，或当未发送的消息的积压超过阈值使其无法发送更多时，`child.send()` 会返回 `false`。
+如果通道已关闭，或当未发送的消息的积压超过阈值使其无法发送更多时，`subprocess.send()` 会返回 `false`。
 除此以外，该方法返回 `true`。
 `callback` 函数可用于实现流量控制。
 
