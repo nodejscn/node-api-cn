@@ -1,8 +1,8 @@
 <!-- YAML
 added: v0.3.4
 -->
-- `options` {Object} Accepts `options` from [`tls.createServer()`][] and [`tls.createSecureContext()`][].
-- `requestListener` {Function} A listener to be added to the `request` event.
+- `options` {Object} 接受来自 [`tls.createServer()`][] 和 [`tls.createSecureContext()`][] 的 `options` .
+- `requestListener` {Function} 添加到 `request` 事件的监听器.
 
 例子:
 
