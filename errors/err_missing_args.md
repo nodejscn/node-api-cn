@@ -5,4 +5,4 @@ only used in the [WHATWG URL API][] for strict compliance with the specification
 native Node.js APIs, `func(undefined)` and `func()` are treated identically, and
 the [`ERR_INVALID_ARG_TYPE`][] error code may be used instead.
 
-<a id="ERR_SOCKET_ALREADY_BOUND"></a>
+<a id="ERR_NO_ICU"></a>

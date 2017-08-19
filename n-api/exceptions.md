@@ -56,7 +56,7 @@ to be added to the error object.  If the optional parameter is NULL
 then no code will be associated with the error. If a code is provided,
 the name associated with the error is also updated to be:
 
-```
+```text
 originalName [code]
 ```
 
@@ -64,7 +64,7 @@ where originalName is the original name associated with the error
 and code is the code that was provided.  For example if the code
 is 'ERR_ERROR_1' and a TypeError is being created the name will be:
 
-```
+```text
 TypeError [ERR_ERROR_1]
 ```
 

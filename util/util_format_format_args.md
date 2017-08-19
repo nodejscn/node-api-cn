@@ -1,5 +1,9 @@
 <!-- YAML
 added: v0.5.3
+changes:
+  - version: v8.4.0
+    pr-url: https://github.com/nodejs/node/pull/14558
+    description: The `%o` and `%O` specifiers are supported now.
 -->
 
 * `format` {string} 一个类似 `printf` 的格式字符串。
@@ -15,6 +19,14 @@ added: v0.5.3
 * `%i` - Integer.
 * `%f` - Floating point value.
 * `%j` - JSON。如果参数包含循环引用，则用字符串 `'[Circular]'` 替换。
+* `%o` - Object. A string representation of an object
+  with generic JavaScript object formatting.
+  Similar to `util.inspect()` with options `{ showHidden: true, depth: 4, showProxy: true }`.
+  This will show the full object including non-enumerable symbols and properties.
+* `%O` - Object. A string representation of an object
+  with generic JavaScript object formatting.
+  Similar to `util.inspect()` without options.
+  This will show the full object not including non-enumerable symbols and properties.
 * `%%` - 单个百分号（`'%'`）。不消耗参数。
 
 如果占位符没有对应的参数，则占位符不被替换。

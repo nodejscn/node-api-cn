@@ -46,7 +46,7 @@ status = napi_get_named_property(env, global, "AddTwo", &add_two);
 if (status != napi_ok) return;
 
 // const arg = 1337
-status = napi_create_number(env, 1337, &arg);
+status = napi_create_int32(env, 1337, &arg);
 if (status != napi_ok) return;
 
 napi_value* argv = &arg;
