@@ -4,7 +4,5 @@ added: v0.1.12
 
 <!-- type=var -->
 
-A reference to the `module.exports` that is shorter to type.
-See the section about the [exports shortcut][] for details on when to use
-`exports` and when to use `module.exports`.
+对于`module.exports`来说，这是一个更短的参考形式。可以查看关于[exports shortcut][]的章节，就可以找到什么时候使用`exports`和`module.exports`的具体细节。
 
