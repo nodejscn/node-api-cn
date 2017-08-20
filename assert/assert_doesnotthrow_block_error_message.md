@@ -13,19 +13,18 @@ changes:
 * `message` {any}
 
 断言 `block` 函数不会抛出错误。
-查看 [assert.throws()](#assert_assert_throws_block_error_message) 了解更多。
 
 当 `assert.doesNotThrow()` 被调用时，它会立即调用 `block` 函数。
 
 如果抛出错误且错误类型与 `error` 参数指定的相同，则抛出 `AssertionError`。
-如果错误类型不相同，或 `error` 参数是 `undefined`，则错误会被抛回给调用者。
+如果错误类型不相同，或 `error` 参数为 `undefined`，则抛出错误。
 
-以下例子会抛出 [TypeError](errors.html#errors_class_typeerror)，因为在断言中没有匹配的错误类型：
+以下例子会抛出 [`TypeError`]，因为在断言中没有匹配的错误类型：
 
 ```js
 assert.doesNotThrow(
   () => {
-    throw new TypeError('错误');
+    throw new TypeError('错误信息');
   },
   SyntaxError
 );
@@ -36,18 +35,18 @@ assert.doesNotThrow(
 ```js
 assert.doesNotThrow(
   () => {
-    throw new TypeError('错误');
+    throw new TypeError('错误信息');
   },
   TypeError
 );
 ```
 
-如果抛出了 `AssertionError` 且有给 `message` 参数传值，则 `message` 的值会被附加到 `AssertionError` 的信息中：
+如果抛出了 `AssertionError` 且有给 `message` 参数传值，则 `message` 参数的值会被附加到 `AssertionError` 的信息中：
 
 ```js
 assert.doesNotThrow(
   () => {
-    throw new TypeError('错误');
+    throw new TypeError('错误信息');
   },
   TypeError,
   '抛出错误'

@@ -14,9 +14,9 @@ added: v0.1.21
 const assert = require('assert');
 
 assert.ok(true);
-// 通过
+// 测试通过。
 assert.ok(1);
-// 通过
+// 测试通过。
 assert.ok(false);
 // 抛出 "AssertionError: false == true"
 assert.ok(0);

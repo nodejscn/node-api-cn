@@ -5,13 +5,13 @@ added: v0.1.21
 * `expected` {any}
 * `message` {any}
 
-使用 [不等运算符]（`!=`）测试是否不相等。
+使用[不等运算符]（`!=`）测试 `actual` 参数与 `expected` 参数是否不相等。
 
 ```js
 const assert = require('assert');
 
 assert.notEqual(1, 2);
-// 通过
+// 测试通过。
 
 assert.notEqual(1, 1);
 // 抛出 AssertionError: 1 != 1

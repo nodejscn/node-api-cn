@@ -18,23 +18,23 @@ changes:
 * `expected` {any}
 * `message` {any}
 
-大多数情况下与 `assert.deepEqual()` 一样，但有三个例外：
+与 `assert.deepEqual()` 大致相同，但有三个区别：
 
-1. 原始值使用 [全等运算符]（`===`）比较。使用[SameValueZero][]比较法来比较设置的值及映射的键（也就意味不用考虑[caveats][]）。
-2. 对象的 [原型] 也使用 [全等运算符] 比较。
-3. 对象的[类型标签][Object.prototype.toString()]应该相同。
+1. 原始值使用[全等运算符]（`===`）比较。`Set` 的值与 `Map` 的键使用 [SameValueZero] 比较。
+2. 对象的[原型]也使用全等运算符比较。
+3. 对象的[类型标签]要求相同。
 
 ```js
 const assert = require('assert');
 
 assert.deepEqual({ a: 1 }, { a: '1' });
-// 通过，因为 1 == '1'
+// 测试通过，因为 1 == '1'。
 
 assert.deepStrictEqual({ a: 1 }, { a: '1' });
 // 抛出 AssertionError: { a: 1 } deepStrictEqual { a: '1' }
-// 因为使用全等运算符 1 !== '1' 
+// 因为使用全等运算符 1 !== '1'。
 
-// 以下对象没有自己的属性
+// 以下对象都没有自身属性。
 const date = new Date();
 const object = {};
 const fakeDate = {};
@@ -42,16 +42,16 @@ const fakeDate = {};
 Object.setPrototypeOf(fakeDate, Date.prototype);
 
 assert.deepEqual(object, fakeDate);
-// 通过，不检查原型[[Prototype]]
+// 测试通过，不测试原型。
 assert.deepStrictEqual(object, fakeDate);
 // 抛出 AssertionError: {} deepStrictEqual Date {}
-// 因为原型 [[Prototype]] 不同
+// 因为原型不同。
 
 assert.deepEqual(date, fakeDate);
-// 通过，不检查类型标签
+// 测试通过，不测试类型标签。
 assert.deepStrictEqual(date, fakeDate);
 // 抛出 AssertionError: 2017-03-11T14:25:31.849Z deepStrictEqual Date {}
-// 因为类型标签不同
+// 因为类型标签不同。
 ```
 
 如果两个值不相等，则抛出一个带有 `message` 属性的 `AssertionError`，其中 `message` 属性的值等于传入的 `message` 参数的值。

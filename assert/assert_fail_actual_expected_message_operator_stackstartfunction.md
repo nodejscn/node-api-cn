@@ -4,16 +4,14 @@ added: v0.1.21
 * `actual` {any}
 * `expected` {any}
 * `message` {any}
-* `operator` {string} (默认: '!=')
-* `stackStartFunction` {function} (default: `assert.fail`)
+* `operator` {string} 默认为 `'!='`。
+* `stackStartFunction` {function} 默认为 `assert.fail`。
 
 抛出 `AssertionError`。
-如果 `message` 不存在，则错误信息会被设为 `actual` 的值加分隔符 `operator` 再加 `expected` 的值。
-If just the two `actual` and `expected` arguments are provided, `operator` will
-default to `'!='`. If `message` is provided only it will be used as the error
-message, the other arguments will be stored as properties on the thrown object.
-If `stackStartFunction` is provided, all stack frames above that function will
-be removed from stacktrace (see [`Error.captureStackTrace`]).
+如果 `message` 参数为空，则错误信息为 `actual` 参数 + `operator` 参数 + `expected` 参数。
+如果只提供了 `actual` 参数与 `expected` 参数，则 `operator` 参数默认为 `'!='`。
+如果提供了 `message` 参数，则它会作为错误信息，其他参数会保存在错误对象的属性中。
+如果提供了 `stackStartFunction` 参数，则该函数上的栈帧都会从栈信息中移除（详见 [`Error.captureStackTrace`]）。
 
 ```js
 const assert = require('assert');
@@ -21,19 +19,15 @@ const assert = require('assert');
 assert.fail(1, 2, undefined, '>');
 // 抛出 AssertionError [ERR_ASSERTION]: 1 > 2
 
-assert.fail(1, 2, '失败');
-// 抛出 AssertionError [ERR_ASSERTION]: 失败
+assert.fail(1, 2, '错误信息');
+// 抛出 AssertionError [ERR_ASSERTION]: 错误信息
 
 assert.fail(1, 2, '错误信息', '>');
 // 抛出 AssertionError [ERR_ASSERTION]: 错误信息
-```
+// 上面两个例子的 `actual` 参数、`expected` 参数与 `operator` 参数不影响错误消息。
 
-*Note*: Is the last two cases `actual`, `expected`, and `operator` have no
-influence on the error message.
-
-```js
 assert.fail();
-// AssertionError [ERR_ASSERTION]: Failed
+// 抛出 AssertionError [ERR_ASSERTION]: Failed
 
 assert.fail('错误信息');
 // 抛出 AssertionError [ERR_ASSERTION]: 错误信息
@@ -42,7 +36,7 @@ assert.fail('a', 'b');
 // 抛出 AssertionError [ERR_ASSERTION]: 'a' != 'b'
 ```
 
-Example use of `stackStartFunction` for truncating the exception's stacktrace:
+例子，使用 `stackStartFunction` 参数拦截异常的栈信息：
 ```js
 function suppressFrame() {
   assert.fail('a', 'b', undefined, '!==', suppressFrame);
