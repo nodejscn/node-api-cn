@@ -20,11 +20,10 @@ changes:
 
 如果指定了 `encoding` 选项，则该函数返回一个字符串，否则返回一个 buffer。
 
-*Note*: Similar to [`fs.readFile()`][], when the path is a directory, the
-behavior of `fs.readFileSync()` is platform-specific.
+*请注意*: 与[`fs.readFile()`][]相似, 当路径是目录时，`fs.readFileSync()`的行为是基于平台的。
 
 ```js
-// macOS, Linux and Windows
+// macOS, Linux 和 Windows
 fs.readFileSync('<directory>');
 // => [Error: EISDIR: illegal operation on a directory, read <directory>]
 
