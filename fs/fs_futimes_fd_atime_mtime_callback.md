@@ -18,5 +18,5 @@ changes:
 
 改变由所提供的文件描述符所指向的文件的文件时间戳。
 
-*Note*: This function does not work on AIX versions before 7.1, it will return
-the error `UV_ENOSYS`.
+*请注意*: 该函数不支持AIX 7.1以下版本，在AIX 7.1以下版本会返回`UV_ENOSYS`错误。
+
