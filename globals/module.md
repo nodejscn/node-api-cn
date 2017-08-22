@@ -1,3 +1,3 @@
 
-This variable may appear to be global but is not. See [`module`].
+详见 [`module`] 文档。
 

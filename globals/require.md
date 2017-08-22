@@ -1,3 +1,3 @@
 
-This variable may appear to be global but is not. See [`require()`].
+详见 [`require()`] 文档。
 

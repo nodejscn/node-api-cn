@@ -1,3 +1,3 @@
 
-This variable may appear to be global but is not. See [`exports`].
+详见 [`exports`] 文档。
 
