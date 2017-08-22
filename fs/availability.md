@@ -13,6 +13,5 @@
 如果底层功能因某些原因不可用，则 `fs.watch` 也无法正常工作。
 例如，当使用虚拟化软件如 Vagrant、Docker 等时，在网络文件系统（NFS、SMB 等）或主文件系统中监视文件或目录可能是不可靠的。
 
-It is still possible to use `fs.watchFile()`, which uses stat polling, but
-this method is slower and less reliable.
+您仍然可以使用基于stat轮询的`fs.watchFile()`，但是这种方法更慢，可靠性也更低。
 
