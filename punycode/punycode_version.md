@@ -2,4 +2,7 @@
 added: v0.6.1
 -->
 
-返回一个当前[Punycode.js][]版本号的字符串。
+Returns a string identifying the current [Punycode.js][] version number.
+
+[Punycode.js]: https://mths.be/punycode
+[Punycode]: https://tools.ietf.org/html/rfc3492

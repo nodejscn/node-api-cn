@@ -4,7 +4,8 @@ added: v0.7.0
 
 * `codePoints` {Array}
 
-`punycode.ucs2.encode()`方法返回一个基于数字代码点值的数组的字符串。
+The `punycode.ucs2.encode()` method returns a string based on an array of
+numeric code point values.
 
 ```js
 punycode.ucs2.encode([0x61, 0x62, 0x63]); // 'abc'

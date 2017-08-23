@@ -6,9 +6,9 @@ changes:
                  the first promise of a chain was created.
 -->
 
-> 稳定性: 0 - 废弃的
+> Stability: 0 - Deprecated
 
-**该模块即将废弃**。Once a replacement API has been
+**This module is pending deprecation**. Once a replacement API has been
 finalized, this module will be fully deprecated. Most end users should
 **not** have cause to use this module. Users who absolutely must have
 the functionality that domains provide may rely on it for the time being

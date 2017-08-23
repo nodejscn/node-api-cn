@@ -1,4 +1,5 @@
-下面来看一个公共API的简单例子。
+
+Following is a simple overview of the public API.
 
 ```js
 const async_hooks = require('async_hooks');

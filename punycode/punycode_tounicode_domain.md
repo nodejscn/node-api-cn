@@ -4,10 +4,12 @@ added: v0.6.1
 
 * `domain` {string}
 
-`punycode.toUnicode()`方法将一个包含[Punycode][]编码的域名字符串转化为Unicode字符串。只有域名中的[Punycode][]部分才会被转化。
+The `punycode.toUnicode()` method converts a string representing a domain name
+containing [Punycode][] encoded characters into Unicode. Only the [Punycode][]
+encoded parts of the domain name are be converted.
 
 ```js
-// 域名解码
+// decode domain names
 punycode.toUnicode('xn--maana-pta.com'); // 'mañana.com'
 punycode.toUnicode('xn----dqo34k.com');  // '☃-⌘.com'
 punycode.toUnicode('example.com');       // 'example.com'

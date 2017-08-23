@@ -1,15 +1,25 @@
 
-因为打印到控制台属于异步操作，`console.log()`将会调用异步钩回调。因此在异步钩回调函数内使用`console.log()`或相似的异步操作将会导致无限递归。调试时一个简单的解决办法是使用同步日志记录操作，如`fs.writeSync（1，msg）`。这样做将会打印到标准输出流(stdout)，因为`1`是标准输出流(stdout)的文件描述符同时因为它是同步的，也不会递归调用异步钩。
+Because printing to the console is an asynchronous operation, `console.log()`
+will cause the AsyncHooks callbacks to be called. Using `console.log()` or
+similar asynchronous operations inside an AsyncHooks callback function will thus
+cause an infinite recursion. An easily solution to this when debugging is
+to use a synchronous logging operation such as `fs.writeSync(1, msg)`. This
+will print to stdout because `1` is the file descriptor for stdout and will
+not invoke AsyncHooks recursively because it is synchronous.
 
 ```js
 const fs = require('fs');
 const util = require('util');
 
 function debug(...args) {
-  // 当在异步钩回调内调试时使用像这样的函数
+  // use a function like this one when debugging inside an AsyncHooks callback
   fs.writeSync(1, `${util.format(...args)}\n`);
 }
 ```
 
-如果需要异步操作进行日志记录，则可以使用异步钩本身提供的信息来跟踪导致异步操作的原因。 当记录本身导致异步钩回调调用时，应该跳过日志记录。 只能这样做，否则无限递归被破坏。
+If an asynchronous operation is needed for logging, it is possible to keep
+track of what caused the asynchronous operation using the information
+provided by AsyncHooks itself. The logging should then be skipped when
+it was the logging itself that caused AsyncHooks callback to call. By
+doing this the otherwise infinite recursion is broken.
 

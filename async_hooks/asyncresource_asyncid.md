@@ -1,3 +1,3 @@
 
-* 返回 {number} 分配给资源的唯一`asyncId`。
+* Returns {number} the unique `asyncId` assigned to the resource.
 

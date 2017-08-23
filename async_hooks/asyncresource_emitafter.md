@@ -1,7 +1,10 @@
 
-* 返回 {undefined}
+* Returns {undefined}
 
-调用所有`after`回调。 如果对`emitBefore()`进行嵌套调用，那么请确保堆栈被正确释放。否则将会抛出错误。
+Call all `after` callbacks. If nested calls to `emitBefore()` were made, then
+make sure the stack is unwound properly. Otherwise an error will be thrown.
 
-如果用户的回调抛出异常并且错误由域或`'uncaughtException'`句柄处理，那么将会为所有堆栈上的`asyncId`自动调用`emitAfter()`。
+If the user's callback throws an exception then `emitAfter()` will
+automatically be called for all `asyncId`s on the stack if the error is handled by
+a domain or `'uncaughtException'` handler.
 

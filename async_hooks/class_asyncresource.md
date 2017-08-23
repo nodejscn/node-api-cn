@@ -1,32 +1,37 @@
 
-`AsyncResource`类被设计用来扩展内嵌的异步资源。使用该类，用户可以轻易触发他们自己的资源的终身事件。
+The class `AsyncResource` was designed to be extended by the embedder's async
+resources. Using this users can easily trigger the lifetime events of their
+own resources.
 
-当`AsyncResource`实例化时，`init`钩将被触发。
+The `init` hook will trigger when an `AsyncResource` is instantiated.
 
-`before`/`after`回调释放的顺序和调用顺序相同是很重要的。否则将发生不可恢复的异常，node将中止。
+It is important that `before`/`after` calls are unwound
+in the same order they are called. Otherwise an unrecoverable exception
+will occur and node will abort.
 
-以下是`AsyncResource`API的概述。
+The following is an overview of the `AsyncResource` API.
 
 ```js
 const { AsyncResource } = require('async_hooks');
 
-// AsyncResource()用来扩展内嵌的异步资源。当新的`AsyncResource`实例化时，`init`也将被触发。
-// 如果忽视triggerAsyncId，那么将使用async_hook.executionAsyncId()
+// AsyncResource() is meant to be extended. Instantiating a
+// new AsyncResource() also triggers init. If triggerAsyncId is omitted then
+// async_hook.executionAsyncId() is used.
 const asyncResource = new AsyncResource(type, triggerAsyncId);
 
-// 在回调前调用AsyncHooks。
+// Call AsyncHooks before callbacks.
 asyncResource.emitBefore();
 
-// 在回调后调用AsyncHooks。
+// Call AsyncHooks after callbacks.
 asyncResource.emitAfter();
 
-// 在回调销毁时调用AsyncHooks。
+// Call AsyncHooks destroy callbacks.
 asyncResource.emitDestroy();
 
-// 返回分配给异步资源实例的唯一ID。
+// Return the unique ID assigned to the AsyncResource instance.
 asyncResource.asyncId();
 
-// 返回异步资源实例的触发器ID。
+// Return the trigger ID for the AsyncResource instance.
 asyncResource.triggerAsyncId();
 ```
 

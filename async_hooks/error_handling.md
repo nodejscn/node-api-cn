@@ -1,5 +1,17 @@
 
-如果任何一个`AsyncHook`回调抛出，应用程序将会打印堆栈跟踪并退出。退出路径确实遵循一个未捕获的异常，但是所有的`uncaughtException`监听器都被删除，因此强迫进程退出。`'exit'`回调还会被调用除非应用程序使用`--abort-on-uncaught-exception`运行，在这种情况下，将会打印堆栈跟踪并退出程序，留下一个核心文件。
+If any `AsyncHook` callbacks throw, the application will print the stack trace
+and exit. The exit path does follow that of an uncaught exception but
+all `uncaughtException` listeners are removed, thus forcing the process to
+exit. The `'exit'` callbacks will still be called unless the application is run
+with `--abort-on-uncaught-exception`, in which case a stack trace will be
+printed and the application exits, leaving a core file.
 
-产生这种错误处理行为的原因是这些回调运行在对象的生命周期中的潜在易变点上，例如类构造和销毁期间。 因此，为了防止之后的无意中止，有必要快结束这一进程。 如果进行综合分析后可以确保异常将会遵循正常的控制流程而没有无意的负面影响，那么之后也可能会发生变化。
+The reason for this error handling behavior is that these callbacks are running
+at potentially volatile points in an object's lifetime, for example during
+class construction and destruction. Because of this, it is deemed necessary to
+bring down the process quickly in order to prevent an unintentional abort in the
+future. This is subject to change in the future if a comprehensive analysis is
+performed to ensure an exception can follow the normal control flow without
+unintentional side effects.
+
 

@@ -1,7 +1,8 @@
 
-* 返回 {number} 当前执行上下文的`asyncId`。当调用时用于跟踪非常有用。
+* Returns {number} the `asyncId` of the current execution context. Useful to track
+  when something calls.
 
-例如:
+For example:
 
 ```js
 console.log(async_hooks.executionAsyncId());  // 1 - bootstrap
@@ -10,16 +11,21 @@ fs.open(path, 'r', (err, fd) => {
 });
 ```
 
-要注意到`executionAsyncId()`返回的ID和执行时间有关，而不是因果关系(在`triggerAsyncId()`中存在)是很重要的，例如：
+It is important to note that the ID returned fom `executionAsyncId()` is related
+to execution timing, not causality (which is covered by `triggerAsyncId()`). For
+example:
 
 ```js
 const server = net.createServer(function onConnection(conn) {
-  //返回服务器的ID，而不是新连接的ID，因为onConnection回调在服务器MakeCallback()的执行范围内运行。
-  async_hooks.executionAsyncId();
+  // Returns the ID of the server, not of the new connection, because the
+  // onConnection callback runs in the execution scope of the server's
+  // MakeCallback().
+  async_hooks.executionAsyncId();
 
 }).listen(port, function onListening() {
-  //返回TickObject(即 process.nextTick())的ID，因为所有传递给.listen()的回调都被包裹在nextTick()中。
-  async_hooks.executionAsyncId();
+  // Returns the ID of a TickObject (i.e. process.nextTick()) because all
+  // callbacks passed to .listen() are wrapped in a nextTick().
+  async_hooks.executionAsyncId();
 });
 ```
 

@@ -55,14 +55,15 @@ for (int i = 0; i < 1000000; i++) {
 ```
 
 When nesting scopes, there are cases where a handle from an
-inner scope needs  to live beyond the lifespan of that scope. N-API supports an
+inner scope needs to live beyond the lifespan of that scope. N-API supports an
 'escapable scope' in order to support this case. An escapable scope
-allows one or more handles to be 'promoted' so that they 'escape' the
-current scope and the lifespan of the handle(s) changes from the current
+allows one handle to be 'promoted' so that it 'escapes' the
+current scope and the lifespan of the handle changes from the current
 scope to that of the outer scope.
 
 The methods available to open/close escapable scopes are
 [`napi_open_escapable_handle_scope`][] and [`napi_close_escapable_handle_scope`][].
 
-The request to promote a handle is made through the [`napi_escape_handle`][].
+The request to promote a handle is made through [`napi_escape_handle`][] which
+can only be called once.
 

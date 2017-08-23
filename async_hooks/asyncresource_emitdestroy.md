@@ -1,4 +1,8 @@
 
-* 返回 {undefined}
+* Returns {undefined}
 
-调用所有`destroy`钩，并且应该只调用一次。如果调用多于一次，则会抛出错误。同时**必须**手动调用它。如果资源被GC收集，那么`destroy`钩永远不会被调用。
+Call all `destroy` hooks. This should only ever be called once. An error will
+be thrown if it is called more than once. This **must** be manually called. If
+the resource is left to be collected by the GC then the `destroy` hooks will
+never be called.
+

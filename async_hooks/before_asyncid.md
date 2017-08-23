@@ -1,7 +1,16 @@
 
 * `asyncId` {number}
 
-当异步操作启动（例如TCP服务器接收到新连接请求）或完成（例如将数据写入磁盘）时，调用回调来通知用户。 在所有回调执行之前调用`before`回调。 `asyncId`是分配给要执行回调的资源的唯一标识符。
+When an asynchronous operation is initiated (such as a TCP server receiving a
+new connection) or completes (such as writing data to disk) a callback is
+called to notify the user. The `before` callback is called just before said
+callback is executed. `asyncId` is the unique identifier assigned to the
+resource about to execute the callback.
 
-`before`回调将被调用0-N次。如果异步操作取消或者假设TCP服务器没有接收任何连接时，`before`回调通常将被调用0次。异步操作如TCP服务器的异步操作通常会多次调用`before`回调，而其他操作如`fs.open()`则只调用一次`before`回调。
+The `before` callback will be called 0 to N times. The `before` callback
+will typically be called 0 times if the asynchronous operation was cancelled
+or for example if no connections are received by a TCP server. Asynchronous
+like the TCP server will typically call the `before` callback multiple times,
+while other operations like `fs.open()` will only call it once.
+
 
