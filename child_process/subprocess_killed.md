@@ -2,10 +2,8 @@
 added: v0.5.10
 -->
 
-* {boolean} Set to `true` after `subprocess.kill()` is used to successfully
-  terminate the child process.
+* {boolean} 当 `subprocess.kill()` 成功终止子进程时被设置为 `true`。
 
-The `subprocess.killed` property indicates whether the child process was
-successfully terminated using `subprocess.kill()`.
+`subprocess.killed` 属性表明该子进程已经成功地被 `subprocess.kill()` 终止。
 
 <a name="child_process_child_pid"></a>
