@@ -2,9 +2,9 @@
 added: v8.3.0
 -->
 
-* `label` {string} The display label for the counter. Defaults to `'default'`.
+* `label` {string} 计数器的显示标签。 默认为 `'default'`。
 
-Resets the internal counter specific to `label`.
+重置指定 `label` 的内部计数器
 
 <!-- eslint-skip -->
 ```js
