@@ -2,12 +2,9 @@
 added: v7.7.0
 -->
 
-Sort all existing name-value pairs in-place by their names. Sorting is done
-with a [stable sorting algorithm][], so relative order between name-value pairs
-with the same name is preserved.
+按现有名称就地排列所有的名称-值对。使用[稳定排序算法][]完成排序，因此保留具有相同名称的名称-值对之间的相对顺序。
 
-This method can be used, in particular, to increase cache hits.
-
+特别地，该方法可以用来增加缓存命中。
 ```js
 const { URLSearchParams } = require('url');
 const params = new URLSearchParams('query[]=abc&type=search&query[]=123');
