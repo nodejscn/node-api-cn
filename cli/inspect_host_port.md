@@ -2,10 +2,8 @@
 added: v6.3.0
 -->
 
-Activate inspector on host:port. Default is 127.0.0.1:9229.
+在主机端口上激活检查器。默认为127.0.0.1:9229。
 
-V8 inspector integration allows tools such as Chrome DevTools and IDEs to debug
-and profile Node.js instances. The tools attach to Node.js instances via a
-tcp port and communicate using the [Chrome Debugging Protocol][].
+V8检查器集成允许Chrome DevTools和IDE等工具调试和配置Node.js实例。 这些工具通过tcp端口附加到Node.js实例，并使用[Chrome Debugging Protocol][]调试协议进行通信.
 
 
