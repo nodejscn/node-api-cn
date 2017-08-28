@@ -2,10 +2,9 @@
 added: v8.3.0
 -->
 
-* `label` {string} The display label for the counter. Defaults to `'default'`.
+* `label` {string} 计数器的显示标签。 默认为 `'default'`。
 
-Maintains an internal counter specific to `label` and outputs to `stdout` the
-number of times `console.count()` has been called with the given `label`.
+维护一个指定 `label` 的内部计数器并且输出到 `stdout` 指定 `label` 调用 `console.count()` 的次数。
 
 <!-- eslint-skip -->
 ```js
