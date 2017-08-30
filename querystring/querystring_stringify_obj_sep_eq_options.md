@@ -2,15 +2,16 @@
 added: v0.1.25
 -->
 
-* `obj` {Object} 要序列化成一个 URL 查询字符串的对象。
+* `obj` {Object} 要序列化成 URL 查询字符串的对象。
 * `sep` {string} 用于界定查询字符串中的键值对的子字符串。默认为 `'&'`。
 * `eq` {string} 用于界定查询字符串中的键与值的子字符串。默认为 `'='`。
 * `options`
-  * `encodeURIComponent` {Function} 当把对 URL 不安全的字符转换成查询字符串中的百分号编码时使用的函数。默认为 `querystring.escape()`。
+  * `encodeURIComponent` {Function} 把对象中的字符转换成查询字符串时使用的函数。默认为 `querystring.escape()`。
 
-`querystring.stringify()` 方法通过遍历对象的自有属性，从一个给定的 `obj` 产生一个 URL 查询字符串。
+该方法通过遍历给定的 `obj` 对象的自身属性，生成 URL 查询字符串。
 
-如果'obj'中的属性为{string|number|boolean|string[]|number[]|boolean[]}类型，则对应属性值都会被正常处理或转换；如果'obj'中包含其他类型的属性，这些类型的属性值会被强制转换为空字符串。
+如果 `obj` 对象中的属性的类型为 {string|number|boolean|string[]|number[]|boolean[]}，则属性的值会被序列化。
+其他类型的属性的值会被强制转换为空字符串。
 
 例子：
 
@@ -22,12 +23,11 @@ querystring.stringify({ foo: 'bar', baz: 'qux' }, ';', ':');
 // 返回 'foo:bar;baz:qux'
 ```
 
-默认情况下，查询字符串中需要百分号编码的字符会作为 UTF-8 被编码。
-如果需要的是另一种编码，则 `encodeURIComponent` 选项需要被指定，如以下例子：
+默认情况下，使用 UTF-8 进行编码。
+如果需要使用其他编码，则需要指定 `encodeURIComponent` 选项，例如：
 
 ```js
-// 假设 gbkEncodeURIComponent 函数已存在。
-
+// 假设存在 gbkEncodeURIComponent 函数。
 querystring.stringify({ w: '中文', foo: 'bar' }, null, null,
                       { encodeURIComponent: gbkEncodeURIComponent });
 ```
