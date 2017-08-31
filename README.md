@@ -4,6 +4,12 @@ Node.js API 中文文档 v8.4.0
 
 http://nodejs.cn/api/
 
+## 如何参与翻译
+
+- 从 http://nodejs.cn/api/ 进入相关模块，通过每个段落的【参与翻译】链接进入到对应的github页面进行编辑然后提交。
+- 因为每个模块的内容太多，所以我们做了分段处理，可以从 https://github.com/nodejscn/node-api-en 查看各个段落的官方原文。
+
+
 ## 招募模块负责人
 
 Node.js中文网翻译团队招募核心成员啦！
