@@ -4,9 +4,9 @@
 
 ### 日常维护
 
-- 从 http://nodejs.cn/api/dev/ 进入相关模块，通过每个段落的【参与翻译】链接进入到对应的github页面进行编辑然后提交。
+- 从 http://nodejs.cn/api/dev/index.html 进入相关模块，通过每个段落的【参与翻译】链接进入到对应的github页面进行编辑然后提交。
 - 因为每个模块的内容太多，所以我们做了分段处理，可以从 [node-api-en](https://github.com/nodejscn/node-api-en) 查看各个段落的官方原文。
-- 入库的代码会通过webhook触发构建，大约5秒左右就能在 http://nodejs.cn/api/dev/ 开发目录看到实际效果，每周末会把开发目录 http://nodejs.cn/api/dev/ 同步到正式目录 http://nodejs.cn/api/ 。
+- 入库的代码会通过webhook触发构建，大约5秒左右就能在 http://nodejs.cn/api/dev/index.html 开发目录看到实际效果，每周末会把开发目录同步到正式目录 http://nodejs.cn/api/ 。
 
 ### 版本升级
 
