@@ -13,7 +13,7 @@ http://nodejs.cn/api/
 
 ### 版本升级
 
-- 当官方版本升级时，我们会把分段后的文档同步到 https://github.com/nodejscn/node-api-en，这样就能快速地定位到具体更新了哪些章节的哪些段落，方便快速翻译最新的文档。
+- 当官方版本升级时，我们会把分段后的文档同步到 https://github.com/nodejscn/node-api-en ，这样就能快速地定位到具体更新了哪些章节的哪些段落，方便快速翻译最新的文档。
 
 
 ## 招募模块负责人
