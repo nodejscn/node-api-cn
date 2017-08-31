@@ -33,7 +33,7 @@ fs.readFileSync(new URL('file://hostname/p/a/t/h/file'));
 // file:///C:/tmp/hello => C:\tmp\hello
 fs.readFileSync(new URL('file:///C:/tmp/hello'));
 
-// - WHATWG标准的URLs如果不携带主机名，则必须包含本地磁盘盘符
+// - WHATWG标准的URLs在转换内容时，如果不携带主机名，则必须包含本地磁盘盘符
 fs.readFileSync(new URL('file:///notdriveletter/p/a/t/h/file'));
 fs.readFileSync(new URL('file:///c/p/a/t/h/file'));
 // TypeError [ERR_INVALID_FILE_URL_PATH]: File URL path must be absolute
