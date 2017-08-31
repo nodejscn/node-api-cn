@@ -1,19 +1,16 @@
-# node-api-cn
+# Node.js API 中文文档
 
-Node.js API 中文文档 v8.4.0
-
-http://nodejs.cn/api/
-
-## 如何参与翻译
+## 如何参与翻译？
 
 ### 日常维护
 
-- 从 http://nodejs.cn/api/ 进入相关模块，通过每个段落的【参与翻译】链接进入到对应的github页面进行编辑然后提交。
-- 因为每个模块的内容太多，所以我们做了分段处理，可以从 https://github.com/nodejscn/node-api-en 查看各个段落的官方原文（小技巧：只要把翻译页面链接上的 node-api-cn 改成 node-api-en 就是对应的英文文档）。
+- 从 http://nodejs.cn/api/dev/ 进入相关模块，通过每个段落的【参与翻译】链接进入到对应的github页面进行编辑然后提交。
+- 因为每个模块的内容太多，所以我们做了分段处理，可以从 [node-api-en](https://github.com/nodejscn/node-api-en) 查看各个段落的官方原文。
+- 入库的代码会通过webhook触发构建，大约5秒左右就能在 http://nodejs.cn/api/dev/ 开发目录看到实际效果，每周末会把开发目录 http://nodejs.cn/api/dev/ 同步到正式目录 http://nodejs.cn/api/。
 
 ### 版本升级
 
-- 当官方版本升级时，我们会把分段后的文档同步到 https://github.com/nodejscn/node-api-en ，这样就能快速地定位到具体更新了哪些章节的哪些段落，方便快速翻译最新的文档。
+- 当官方版本升级时，我们会把分段后的文档同步到 [node-api-en](https://github.com/nodejscn/node-api-en) ，这样就能快速地定位到具体更新了哪些章节的哪些段落，方便快速翻译最新的文档。
 
 
 ## 招募模块负责人
