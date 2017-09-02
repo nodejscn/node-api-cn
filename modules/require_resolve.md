@@ -2,6 +2,6 @@
 added: v0.3.0
 -->
 
-Use the internal `require()` machinery to look up the location of a module,
-but rather than loading the module, just return the resolved filename.
+使用内部的 `require()` 机制查询模块的位置,
+此操作只返回解析后的文件名，不会加载此模块。
 
