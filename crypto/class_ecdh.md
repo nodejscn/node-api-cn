@@ -25,6 +25,6 @@ const aliceSecret = alice.computeSecret(bobKey);
 const bobSecret = bob.computeSecret(aliceKey);
 
 assert.strictEqual(aliceSecret.toString('hex'), bobSecret.toString('hex'));
-  // OK
+// OK
 ```
 

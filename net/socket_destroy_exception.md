@@ -2,6 +2,8 @@
 added: v0.1.90
 -->
 
+* Returns: {net.Socket}
+
 Ensures that no more I/O activity happens on this socket. Only necessary in
 case of errors (parse error or so).
 

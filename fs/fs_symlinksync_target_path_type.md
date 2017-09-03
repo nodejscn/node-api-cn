@@ -10,7 +10,7 @@ changes:
 
 * `target` {string|Buffer|URL}
 * `path` {string|Buffer|URL}
-* `type` {string}
+* `type` {string} **Default:** `'file'`
 
 同步的 symlink(2)。返回 `undefined`。
 

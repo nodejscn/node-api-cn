@@ -6,7 +6,7 @@
 
 ```js
 require('net').connect(-1);
-  // 抛出 "RangeError: "port" option should be >= 0 and < 65536: -1"
+// 抛出 "RangeError: "port" option should be >= 0 and < 65536: -1"
 ```
 
 Node.js 会生成并以参数校验的形式立即抛出 `RangeError` 实例。

@@ -12,7 +12,6 @@ AtExit 有两个参数：一个退出时运行的回调函数的指针，和一�
 
 ```cpp
 // addon.cc
-#undef NDEBUG
 #include <assert.h>
 #include <stdlib.h>
 #include <node.h>
@@ -49,10 +48,10 @@ static void sanity_check(void*) {
 }
 
 void init(Local<Object> exports) {
-  AtExit(sanity_check);
   AtExit(at_exit_cb2, cookie);
   AtExit(at_exit_cb2, cookie);
   AtExit(at_exit_cb1, exports->GetIsolate());
+  AtExit(sanity_check);
 }
 
 NODE_MODULE(addon, init)
@@ -64,6 +63,6 @@ NODE_MODULE(addon, init)
 
 ```js
 // test.js
-const addon = require('./build/Release/addon');
+require('./build/Release/addon');
 ```
 

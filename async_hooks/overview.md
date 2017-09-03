@@ -5,11 +5,11 @@ Following is a simple overview of the public API.
 const async_hooks = require('async_hooks');
 
 // Return the ID of the current execution context.
-const cid = async_hooks.currentId();
+const eid = async_hooks.executionAsyncId();
 
 // Return the ID of the handle responsible for triggering the callback of the
 // current execution scope to call.
-const tid = async_hooks.triggerId();
+const tid = async_hooks.triggerAsyncId();
 
 // Create a new AsyncHook instance. All of these callbacks are optional.
 const asyncHook = async_hooks.createHook({ init, before, after, destroy });
@@ -29,7 +29,7 @@ asyncHook.disable();
 // init is called during object construction. The resource may not have
 // completed construction when this callback runs, therefore all fields of the
 // resource referenced by "asyncId" may not have been populated.
-function init(asyncId, type, triggerId, resource) { }
+function init(asyncId, type, triggerAsyncId, resource) { }
 
 // before is called just before the resource's callback is called. It can be
 // called 0-N times for handles (e.g. TCPWrap), and will be called exactly 1

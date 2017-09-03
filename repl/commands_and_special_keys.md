@@ -11,7 +11,7 @@
   `> .load ./file/to/load.js`
 * `.editor` 进入编辑模式（`<ctrl>-D` 完成，`<ctrl>-C` 取消）
 
-<!-- eslint-disable -->
+<!-- eslint-skip -->
 ```js
 > .editor
 // 进入编辑模式（^D 完成，^C 取消）

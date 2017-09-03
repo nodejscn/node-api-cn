@@ -31,8 +31,7 @@ exports.circumference = (r) => 2 * PI * r;
 模块内的本地变量是私有的，因为模块被 Node.js 包装在一个函数中（详见[模块包装器]）。
 在这个例子中，变量 `PI` 是 `circle.js` 私有的。
 
-The `module.exports` property can be assigned a new value (such as a function
-or object).
+可以通过`module.exports`属性赋值一个新的值（例如函数或对象）。
 
 如下，`bar.js` 会用到 `square` 模块，`square` 导出一个构造函数：
 

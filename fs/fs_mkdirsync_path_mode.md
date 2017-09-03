@@ -8,7 +8,7 @@ changes:
 -->
 
 * `path` {string|Buffer|URL}
-* `mode` {integer}
+* `mode` {integer} **Default:** `0o777`
 
 同步的 mkdir(2)。返回 `undefined`。
 

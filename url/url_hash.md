@@ -1,21 +1,18 @@
 
 * {string}
 
-Gets and sets the fragment portion of the URL.
+获取及设置URL的分段(hash)部分。
 
 ```js
 const { URL } = require('url');
 const myURL = new URL('https://example.org/foo#bar');
 console.log(myURL.hash);
-  // Prints #bar
+  // 输出 #bar
 
 myURL.hash = 'baz';
 console.log(myURL.href);
-  // Prints https://example.org/foo#baz
+  // 输出 https://example.org/foo#baz
 ```
 
-Invalid URL characters included in the value assigned to the `hash` property
-are [percent-encoded][]. Note that the selection of which characters to
-percent-encode may vary somewhat from what the [`url.parse()`][] and
-[`url.format()`][] methods would produce.
+包含在赋给`hash`属性的值中的无效URL字符是[百分比编码][]。请注意选择哪些字符进行百分比编码可能与[url.parse()][]和[url.format()][]方法产生的不同。
 

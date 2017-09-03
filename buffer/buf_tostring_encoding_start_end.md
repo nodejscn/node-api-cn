@@ -11,6 +11,8 @@ added: v0.1.90
 根据 `encoding` 指定的字符编码解码 `buf` 成一个字符串。
 `start` 和 `end` 可传入用于只解码 `buf` 的一部分。
 
+字符串实例的最大长度（以UTF-16代码为单位）可查看[`buffer.constants.MAX_STRING_LENGTH`][]。
+
 例子：
 
 ```js

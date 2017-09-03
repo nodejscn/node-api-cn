@@ -23,9 +23,9 @@ changes:
   * `uid` {number} 设置该进程的用户标识。（详见 setuid(2)）
   * `gid` {number} 设置该进程的组标识。（详见 setgid(2)）
   * `shell` {boolean|string} 如果为 `true`，则在一个 shell 中运行 `command`。
-    在 UNIX 上使用 `'/bin/sh'`，在 Windows 上使用 `'cmd.exe'`。
+    在 UNIX 上使用 `'/bin/sh'`，在 Windows 上使用 `process.env.ComSpec`。
     一个不同的 shell 可以被指定为字符串。
-    该 shell 应该理解 UNIX 上的 `-c` 开关、或 Windows 的 `/d /s /c`。
+    See [Shell Requirements][] and [Default Windows Shell][].
     默认为 `false`（没有 shell）。
 * 返回: {ChildProcess}
 
@@ -105,13 +105,13 @@ grep.on('close', (code) => {
 });
 ```
 
-例子，检测失败的执行：
+例子，检测失败的 `spawn`：
 
 ```js
 const { spawn } = require('child_process');
-const child = spawn('bad_command');
+const subprocess = spawn('bad_command');
 
-child.on('error', (err) => {
+subprocess.on('error', (err) => {
   console.log('启动子进程失败。');
 });
 ```

@@ -4,7 +4,7 @@
 
 ```js
 require('url').parse(() => { });
-  // 抛出 TypeError，因为它期望的是一个字符串
+// 抛出 TypeError，因为它期望的是一个字符串
 ```
 
 Node.js 会生成并以参数校验的形式立即抛出 `TypeError` 实例。

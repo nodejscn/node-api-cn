@@ -16,7 +16,7 @@ added: v0.11.10
 * `expire`
 * `minttl`
 
-<!-- eslint-disable -->
+<!-- eslint-skip -->
 ```js
 {
   nsname: 'ns.example.com',

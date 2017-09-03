@@ -5,8 +5,8 @@ changes:
     pr-url: https://github.com/nodejs/node/pull/10638
     description: The `options` parameter can be a WHATWG `URL` object.
 -->
-- `options` {Object | string | URL} Accepts the same `options` as
-  [`https.request()`][], with the `method` always set to `GET`.
+- `options` {Object | string | URL} 接受与 [`https.request()`][] 
+   相同的 `options`, `method` 始终设置为 `GET`.
 - `callback` {Function}
 
 类似 [`http.get()`]，但是用于 HTTPS。

@@ -8,7 +8,7 @@ changes:
 -->
 
 * `path` {string|Buffer|URL}
-* `mode` {integer}
+* `mode` {integer} **Default:** `fs.constants.F_OK`
 
 [`fs.access()`] 的同步版本。
 如果有任何可访问性检查失败则抛出错误，否则什么也不做。

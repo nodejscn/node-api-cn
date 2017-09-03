@@ -13,8 +13,7 @@ deprecated: v1.0.0
 * `path` {string|Buffer|URL}
 * `callback` {Function}
 
-Test whether or not the given path exists by checking with the file system.
-Then call the `callback` argument with either true or false.  Example:
+通过检查文件系统来测试给定的路径是否存在。然后使用 true 或 false 为参数调用 `callback`。例子：
 
 ```js
 fs.exists('/etc/passwd', (exists) => {
@@ -22,21 +21,13 @@ fs.exists('/etc/passwd', (exists) => {
 });
 ```
 
-**Note that the parameter to this callback is not consistent with other
-Node.js callbacks.** Normally, the first parameter to a Node.js callback is
-an `err` parameter, optionally followed by other parameters. The
-`fs.exists()` callback has only one boolean parameter. This is one reason
-`fs.access()` is recommended instead of `fs.exists()`.
+**注意此回调的参数和其他 Node.js 回调的参数不一致。** 通常，Node.js 回调的第一个参数是 `err`, 接下来是一些其他可选参数。 `fs.exists()` 只有一个布尔类型的参数。这也是为什么推荐使用 `fs.access()` 代替 `fs.exists()`。
 
-Using `fs.exists()` to check for the existence of a file before calling
-`fs.open()`, `fs.readFile()` or `fs.writeFile()` is not recommended. Doing
-so introduces a race condition, since other processes may change the file's
-state between the two calls. Instead, user code should open/read/write the
-file directly and handle the error raised if the file does not exist.
+不推荐在调用 `fs.open`，`fs.readFile()`，`fs.writeFile()` 之前使用 `fs.exists()` 检测文件是否存在。这样做会引起竞争条件，因为在两次调用之间，其他进程可能修改文件。作为替代，用户应该直接开/读取/写入文件，当文件不存在时再处理错误。
 
-For example:
+例子：
 
-**write (NOT RECOMMENDED)**
+**write (不推荐)**
 
 ```js
 fs.exists('myfile', (exists) => {
@@ -51,7 +42,7 @@ fs.exists('myfile', (exists) => {
 });
 ```
 
-**write (RECOMMENDED)**
+**write (不推荐)**
 
 ```js
 fs.open('myfile', 'wx', (err, fd) => {
@@ -68,7 +59,7 @@ fs.open('myfile', 'wx', (err, fd) => {
 });
 ```
 
-**read (NOT RECOMMENDED)**
+**read (不推荐)**
 
 ```js
 fs.exists('myfile', (exists) => {
@@ -82,7 +73,7 @@ fs.exists('myfile', (exists) => {
 });
 ```
 
-**read (RECOMMENDED)**
+**read (推荐)**
 
 ```js
 fs.open('myfile', 'r', (err, fd) => {
@@ -99,11 +90,7 @@ fs.open('myfile', 'r', (err, fd) => {
 });
 ```
 
-The "not recommended" examples above check for existence and then use the
-file; the "recommended" examples are better because they use the file directly
-and handle the error, if any.
+上面这些 **不推荐** 的例子先检测文件是否存在再使用文件；**推荐** 的例子更好因为它直接使用文件并处理任何错误。
 
-In general, check for the existence of a file only if the file won’t be
-used directly, for example when its existence is a signal from another
-process.
+通常，仅在文件不会被直接使用时才检查一个文件的可访问性，例如当它的可访问性是来自另一个进程的信号。
 

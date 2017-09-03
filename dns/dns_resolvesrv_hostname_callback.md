@@ -13,7 +13,7 @@ added: v0.1.27
 * `port`
 * `name`
 
-<!-- eslint-disable -->
+<!-- eslint-skip -->
 ```js
 {
   priority: 10,

@@ -12,7 +12,7 @@ changes:
 -->
 
 * `path` {string|Buffer|URL}
-* `mode` {integer}
+* `mode` {integer} **Default:** `0o777`
 * `callback` {Function}
 
 异步的 mkdir(2)。

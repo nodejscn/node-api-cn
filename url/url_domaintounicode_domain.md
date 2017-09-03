@@ -3,20 +3,19 @@ added: v7.4.0
 -->
 
 * `domain` {string}
-* Returns: {string}
+* 返回: {string}
 
-Returns the Unicode serialization of the `domain`. If `domain` is an invalid
-domain, the empty string is returned.
+返回Unicode序列化的`domain`. 如果`domain`是无效域名，将返回空字符串。
 
-It performs the inverse operation to [`url.domainToASCII()`][].
+它执行的是[`url.domainToASCII()`][]的逆运算。
 
 ```js
 const url = require('url');
 console.log(url.domainToUnicode('xn--espaol-zwa.com'));
-  // Prints español.com
+  // 输出 español.com
 console.log(url.domainToUnicode('xn--fiq228c.com'));
-  // Prints 中文.com
+  // 输出 中文.com
 console.log(url.domainToUnicode('xn--iñvalid.com'));
-  // Prints an empty string
+  // 输出空字符串
 ```
 

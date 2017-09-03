@@ -18,6 +18,9 @@ changes:
 
 返回一个指向相同原始内存的新建的 `Buffer`，但做了偏移且通过 `start` 和 `end` 索引进行裁剪。
 
+Specifying `end` greater than [`buf.length`] will return the same result as
+that of `end` equal to [`buf.length`].
+
 **注意，修改这个新建的 `Buffer` 切片，也会同时修改原始的 `Buffer` 的内存，因为这两个对象所分配的内存是重叠的。**
 
 例子：创建一个包含 ASCII 字母表的 `Buffer`，并进行切片，然后修改原始 `Buffer` 上的一个字节。

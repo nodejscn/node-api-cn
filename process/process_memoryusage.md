@@ -22,7 +22,7 @@ console.log(process.memoryUsage());
 
 会得到:
 
-<!-- eslint-disable -->
+<!-- eslint-skip -->
 ```js
 {
   rss: 4935680,

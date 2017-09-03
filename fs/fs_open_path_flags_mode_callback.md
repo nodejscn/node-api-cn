@@ -9,7 +9,7 @@ changes:
 
 * `path` {string|Buffer|URL}
 * `flags` {string|number}
-* `mode` {integer}
+* `mode` {integer} **Default:** `0o666`
 * `callback` {Function}
 
 异步地打开文件。详见 open(2)。
@@ -43,7 +43,7 @@ changes:
 
 * `'ax+'` - 类似于 `'a+'`，但如果 `path` 存在，则失败。
 
-`mode` 可设置文件模式（权限和 sticky 位），但只有当文件被创建时才有效。默认为 `0666`，可读写。
+`mode` 可设置文件模式（权限和 sticky 位），但只有当文件被创建时才有效。默认为 `0o666`，可读写。
 
 该回调有两个参数 `(err, fd)`。
 
@@ -73,4 +73,12 @@ fs.open('<directory>', 'a+', (err, fd) => {
   // => null, <fd>
 });
 ```
+
+Some characters (`< > : " / \ | ? *`) are reserved under Windows as documented
+by [Naming Files, Paths, and Namespaces][]. Under NTFS, if the filename contains
+a colon, Node.js will open a file system stream, as described by
+[this MSDN page][MSDN-Using-Streams].
+
+Functions based on `fs.open()` exhibit this behavior as well. eg.
+`fs.writeFile()`, `fs.readFile()`, etc.
 

@@ -17,7 +17,7 @@ added: v0.9.12
 
 例如：
 
-<!-- eslint-disable -->
+<!-- eslint-skip -->
 ```js
 {
   flags: 's',

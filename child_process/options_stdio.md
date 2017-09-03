@@ -7,7 +7,7 @@ changes:
 -->
 
 `options.stdio` 选项用于配置子进程与父进程之间建立的管道。
-默认情况下，子进程的 stdin、 stdout 和 stderr 会重定向到 [`ChildProcess`] 对象上相应的 [`child.stdin`]、 [`child.stdout`] 和 [`child.stderr`] 流。
+默认情况下，子进程的 stdin、 stdout 和 stderr 会重定向到 [`ChildProcess`] 对象上相应的 [`subprocess.stdin`]、 [`subprocess.stdout`] 和 [`subprocess.stderr`] 流。
 这等同于将 `options.stdio` 设为 `['pipe', 'pipe', 'pipe']`。
 
 为了方便起见，`options.stdio` 可以是以下字符串之一：
@@ -22,12 +22,12 @@ fd 的 0、1 和 2 分别对应 stdin、stdout 和 stderr。
 该值是以下之一：
 
 1. `'pipe'` - 创建一个子进程和父进程之间的管道。
-    在管道的父端以 [`child.stdio[fd]`][`stdio`] 的形式作为 `child_process` 对象的一个属性暴露给父进程。
-    为 fd 创建的管道 0 - 2 也可分别作为 [`child.stdin`]、[`child.stdout`] 和 [`child.stderr`]。
+    在管道的父端以 [`subprocess.stdio[fd]`][`stdio`] 的形式作为 `child_process` 对象的一个属性暴露给父进程。
+    为 fd 创建的管道 0 - 2 也可分别作为 [`subprocess.stdin`]、[`subprocess.stdout`] 和 [`subprocess.stderr`]。
 2. `'ipc'` - 创建一个用于父进程和子进程之间传递消息或文件描述符的 IPC 通道符。
     一个 [`ChildProcess`] 最多只能有一个 IPC stdio 文件描述符。
-    设置该选项可启用 [`child.send()`] 方法。
-    如果子进程把 JSON 消息写入到该文件描述符，则 [`child.on('message')`] 事件句柄会被父进程触发。
+    设置该选项可启用 [`subprocess.send()`] 方法。
+    如果子进程把 JSON 消息写入到该文件描述符，则 [`subprocess.on('message')`] 事件句柄会被父进程触发。
     如果子进程是一个 Node.js 进程，则一个已存在的 IPC 通道会在子进程中启用 [`process.send()`]、[`process.disconnect()`]、[`process.on('disconnect')`] 和 [`process.on('message')`]。
 3. `'ignore'` - 指示 Node.js 在子进程中忽略 fd。
     由于 Node.js 总是会为它衍生的进程打开 fd 0 - 2，所以设置 fd 为 `'ignore'` 可以使 Node.js 打开 `/dev/null` 并将它附加到子进程的 fd 上。

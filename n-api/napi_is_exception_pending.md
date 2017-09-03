@@ -12,4 +12,3 @@ Returns `napi_ok` if the API succeeded.
 
 This API returns true if an exception is pending.
 
-

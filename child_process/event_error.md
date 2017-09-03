@@ -12,5 +12,5 @@
 注意，在错误发生后，`'exit'` 事件可能会也可能不会触发。
 当同时监听了 `'exit'` 和 `'error'` 事件，谨防处理函数被多次调用。
 
-详见 [`child.kill()`] 和 [`child.send()`]。
+详见 [`subprocess.kill()`] 和 [`subprocess.send()`]。
 

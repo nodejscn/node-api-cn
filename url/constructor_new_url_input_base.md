@@ -1,10 +1,9 @@
 
-* `input` {string} The input URL to parse
-* `base` {string|URL} The base URL to resolve against if the `input` is not
-  absolute.
+* `input` {string} 要解析的输入URL
+* `base` {string|URL} 如果“input”是相对URL，则为要解析的基本URL。
 
-Creates a new `URL` object by parsing the `input` relative to the `base`. If
-`base` is passed as a string, it will be parsed equivalent to `new URL(base)`.
+通过将`input`解析到`base`上创建一个新的`URL`对象。如果`base`是一个字符串，则解析方法与`new URL(base)`相同。
+
 
 ```js
 const { URL } = require('url');
@@ -12,9 +11,8 @@ const myURL = new URL('/foo', 'https://example.org/');
   // https://example.org/foo
 ```
 
-A `TypeError` will be thrown if the `input` or `base` are not valid URLs. Note
-that an effort will be made to coerce the given values into strings. For
-instance:
+如果`input`或`base`是无效URLs，将会抛出`TypeError`。请注意给定值将被强制转换为字符串。例如：
+
 
 ```js
 const { URL } = require('url');
@@ -22,8 +20,7 @@ const myURL = new URL({ toString: () => 'https://example.org/' });
   // https://example.org/
 ```
 
-Unicode characters appearing within the hostname of `input` will be
-automatically converted to ASCII using the [Punycode][] algorithm.
+存在于`input`主机名中的Unicode字符将被使用[Punycode][]算法自动转换为ASCII。
 
 ```js
 const { URL } = require('url');
@@ -31,5 +28,5 @@ const myURL = new URL('https://你好你好');
   // https://xn--6qqa088eba/
 ```
 
-Additional [examples of parsed URLs][] may be found in the WHATWG URL Standard.
-
+*Note*: This feature is only available if the `node` executable was compiled
+with [ICU][] enabled. If not, the domain names are passed through unchanged.

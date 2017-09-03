@@ -2,7 +2,7 @@
 `sendHandle` 参数可用于将一个 TCP server 对象句柄传给子进程，如下所示：
 
 ```js
-const child = require('child_process').fork('child.js');
+const subprocess = require('child_process').fork('subprocess.js');
 
 // 开启 server 对象，并发送该句柄。
 const server = require('net').createServer();
@@ -10,7 +10,7 @@ server.on('connection', (socket) => {
   socket.end('被父进程处理');
 });
 server.listen(1337, () => {
-  child.send('server', server);
+  subprocess.send('server', server);
 });
 ```
 

@@ -30,9 +30,9 @@ changes:
     See caveat at [`maxBuffer` and Unicode][].
   * `encoding` {string} 用于所有 stdio 输入和输出的编码。（默认: `'buffer'`）
   * `shell` {boolean|string} 如果为 `true`，则在一个 shell 中运行 `command`。
-    在 UNIX 上使用 `'/bin/sh'`，在 Windows 上使用 `'cmd.exe'`。
+    在 UNIX 上使用 `'/bin/sh'`，在 Windows 上使用 `process.env.ComSpec`。
     一个不同的 shell 可以被指定为字符串。
-    该 shell 应该理解 UNIX 上的 `-c` 开关、或 Windows 的 `/d /s /c`。
+    See [Shell Requirements][] and [Default Windows Shell][].
     默认为 `false`（没有 shell）。
 * 返回: {Object}
   * `pid` {number} 子进程的 pid

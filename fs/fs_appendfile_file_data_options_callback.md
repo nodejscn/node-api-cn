@@ -16,9 +16,9 @@ changes:
 * `file` {string|Buffer|number} 文件名或文件描述符
 * `data` {string|Buffer}
 * `options` {Object|string}
-  * `encoding` {string|null} 默认 = `'utf8'`
-  * `mode` {integer} 默认 = `0o666`
-  * `flag` {string} 默认 = `'a'`
+  * `encoding` {string|null} 默认为 `'utf8'`
+  * `mode` {integer} 默认为 `0o666`
+  * `flag` {string} 默认为 `'a'`
 * `callback` {Function}
 
 异步地追加数据到一个文件，如果文件不存在则创建文件。

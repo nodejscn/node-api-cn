@@ -13,3 +13,5 @@ Returns `napi_ok` if the API succeeded.
 
 This API checks if the Object passsed in is a typed array.
 
+
+

@@ -6,7 +6,7 @@
 
 ```js
 doesNotExist;
-  // 抛出 ReferenceError，在这个程序中 doesNotExist 不是一个变量。
+// 抛出 ReferenceError，在这个程序中 doesNotExist 不是一个变量。
 ```
 
 除非应用程序是动态生成并运行的代码，否则 `ReferenceError` 实例应该始终被视为代码中或其依赖中的错误。

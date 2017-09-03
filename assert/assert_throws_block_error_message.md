@@ -9,13 +9,13 @@ changes:
 * `error` {RegExp|Function}
 * `message` {any}
 
-期望 `block` 函数抛出错误。
+断言 `block` 函数会抛出错误。
 
-如果指定了 `error`，`error` 可以是构造函数、[正则表达式]、或自定义的验证函数。
+`error` 参数可以是构造函数、[正则表达式]、或自定义函数。
 
-如果指定了 `message`，则当 `block` 不抛出错误时，`message` 会作为 `AssertionError` 的错误信息。
+如果指定了 `message` 参数，则当 `block` 函数不抛出错误时，`message` 参数会作为 `AssertionError` 的错误信息。
 
-例子，使用构造函数验证实例：
+例子，`error` 参数为构造函数：
 
 ```js
 assert.throws(
@@ -26,7 +26,7 @@ assert.throws(
 );
 ```
 
-例子，使用 [正则表达式] 验证错误信息：
+例子，`error` 参数为正则表达式：
 
 ```js
 assert.throws(
@@ -37,7 +37,7 @@ assert.throws(
 );
 ```
 
-例子，自定义的错误验证函数：
+例子，`error` 参数为自定义函数：
 
 ```js
 assert.throws(
@@ -53,16 +53,16 @@ assert.throws(
 );
 ```
 
-注意，`error` 不能是一个字符串。
-如果第二个参数是一个字符串，则视为省略 `error` 参数，传入的字符串会被用于 `message`。
-这点比较容易搞错：
+`error` 参数不能是字符串。
+如果第二个参数是字符串，则视为省略 `error` 参数，传入的字符串会被用于 `message` 参数。
+例如：
 
-<!-- eslint-disable assert-throws-arguments -->
+<!-- eslint-disable no-restricted-syntax -->
 ```js
 // 这是错误的！不要这么做！
-assert.throws(myFunction, '错误', '没有抛出期望的信息');
+assert.throws(myFunction, '错误信息', '没有抛出期望的信息');
 
 // 应该这么做。
-assert.throws(myFunction, /错误/, '没有抛出期望的信息');
+assert.throws(myFunction, /错误信息/, '没有抛出期望的信息');
 ```
 

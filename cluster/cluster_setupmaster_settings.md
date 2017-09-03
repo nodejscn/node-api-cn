@@ -6,11 +6,7 @@ changes:
     description: The `stdio` option is supported now.
 -->
 
-* `settings` {Object}
-  * `exec` {string} worker文件的路径。 (Default=`process.argv[1]`)
-  * `args` {Array} 传递给worker进程的参数。(Default=`process.argv.slice(2)`)
-  * `silent` {boolean} 是否需要发送输出值父进程的stdio。(Default=`false`)
-  * `stdio` {Array} 配置fork进程的stdio。  由于cluster模块运行依赖于IPC，这个配置必须包含`'ipc'`。当提供了这个选项后，将撤销`silent`。
+* `settings` {Object} 详见 [`cluster.settings`]。
 
 用于修改默认'fork' 行为。一旦调用，将会按照`cluster.settings`进行设置。
 

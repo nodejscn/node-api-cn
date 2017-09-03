@@ -1,10 +1,8 @@
 
 * {Stream}
 
-The `process.stdout` property returns a stream connected to
-`stdout` (fd `1`). It is a [`net.Socket`][] (which is a [Duplex][]
-stream) unless fd `1` refers to a file, in which case it is
-a [Writable][] stream.
+`process.stdout` 属性返回连接到 `stdout` (fd `1`)的流。 
+它是一个[`net.Socket`][] (它是一个[Duplex][]流)， 除非 fd `1` 指向一个文件，在这种情况下它是一个[可写][]流。
 
 例1： 将输入流数据输出到输出流，即输出到终端。
 

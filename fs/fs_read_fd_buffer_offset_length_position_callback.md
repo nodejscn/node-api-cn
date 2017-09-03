@@ -24,11 +24,11 @@ changes:
 
 `length` 是一个整数，指定要读取的字节数。
 
-`position` 是一个整数，指定从文件中开始读取的位置。
-如果 `position` 为 `null`，则数据从当前文件位置开始读取。
+`position` 指定从文件中开始读取的位置。
+如果 `position` 为 `null`，则数据从当前文件读取位置开始读取，且文件读取位置会被更新。
+如果 `position` 为一个整数，则文件读取位置保持不变。
 
 回调有三个参数 `(err, bytesRead, buffer)`。
 
-If this method is invoked as its [`util.promisify()`][]ed version, it returns
-a Promise for an object with `bytesRead` and `buffer` properties.
+如果调用该方法的 [`util.promisify()`][] 版本，将会返回一个包含 `bytesRead` 和 `buffer` 属性的 Promise。
 

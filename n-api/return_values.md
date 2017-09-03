@@ -32,7 +32,7 @@ typedef struct napi_extended_error_info {
   napi_status error_code;
 };
 ```
-- `error_message`: Textual representation of the error that occured.
+- `error_message`: Textual representation of the error that occurred.
 - `engine_reserved`: Opaque handle reserved for engine use only.
 - `engine_error_code`: VM specific error code.
 - `error_code`: n-api status code for the last error.

@@ -9,7 +9,7 @@ Node.js 中的 HTTP 接口被设计成支持协议的许多特性。
 
 HTTP 消息头由一个对象表示，例如：
 
-<!-- eslint-disable -->
+<!-- eslint-skip -->
 ```js
 { 'content-length': '123',
   'content-type': 'text/plain',

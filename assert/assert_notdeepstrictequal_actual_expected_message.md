@@ -5,7 +5,7 @@ added: v1.2.0
 * `expected` {any}
 * `message` {any}
 
-测试是否不深度全等。
+测试 `actual` 参数与 `expected` 参数是否不深度全等。
 与 [`assert.deepStrictEqual()`] 相反。
 
 ```js
@@ -15,7 +15,7 @@ assert.notDeepEqual({ a: 1 }, { a: '1' });
 // 抛出 AssertionError: { a: 1 } notDeepEqual { a: '1' }
 
 assert.notDeepStrictEqual({ a: 1 }, { a: '1' });
-// 通过
+// 测试通过。
 ```
 
 如果两个值深度全等，则抛出一个带有 `message` 属性的 `AssertionError`，其中 `message` 属性的值等于传入的 `message` 参数的值。

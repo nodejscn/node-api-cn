@@ -34,8 +34,9 @@ In order to expose a function as part of the
 add-on's module exports, set the newly created function on the exports
 object. A sample module might look as follows:
 ```C
-void SayHello(napi_env env, napi_callback_info info) {
+napi_value SayHello(napi_env env, napi_callback_info info) {
   printf("Hello\n");
+  return nullptr;
 }
 
 void Init(napi_env env, napi_value exports, napi_value module, void* priv) {

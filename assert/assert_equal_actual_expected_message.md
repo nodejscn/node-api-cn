@@ -5,15 +5,15 @@ added: v0.1.21
 * `expected` {any}
 * `message` {any}
 
-使用 [相等运算符]（`==`）测试 `actual` 参数与 `expected` 参数是否相等。
+使用[相等运算符]（`==`）测试 `actual` 参数与 `expected` 参数是否相等。
 
 ```js
 const assert = require('assert');
 
 assert.equal(1, 1);
-// 通过，1 == 1
+// 测试通过，1 == 1。
 assert.equal(1, '1');
-// 通过，1 == '1'
+// 测试通过，1 == '1'。
 
 assert.equal(1, 2);
 // 抛出 AssertionError: 1 == 2

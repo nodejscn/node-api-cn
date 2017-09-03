@@ -36,7 +36,7 @@ status = napi_create_object(env, &obj);
 if (status != napi_ok) return status;
 
 // Create a napi_value for 123
-status = napi_create_number(env, 123, &value);
+status = napi_create_int32(env, 123, &value);
 if (status != napi_ok) return status;
 
 // obj.myProp = 123
@@ -110,9 +110,9 @@ if (status != napi_ok) return status;
 
 // Create napi_values for 123 and 456
 napi_value fooValue, barValue;
-status = napi_create_number(env, 123, &fooValue);
+status = napi_create_int32(env, 123, &fooValue);
 if (status != napi_ok) return status;
-status = napi_create_number(env, 456, &barValue);
+status = napi_create_int32(env, 456, &barValue);
 if (status != napi_ok) return status;
 
 // Set the properties
