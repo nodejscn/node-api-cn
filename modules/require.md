@@ -6,5 +6,5 @@ added: v0.1.13
 
 * {Function}
 
-To require modules.
+引入模块.
 
