@@ -33,6 +33,6 @@
 
 [正式版]: http://nodejs.cn/api/
 [开发版]: http://nodejs.cn/api/dev/
-[模块管理员]: https://github.com/nodejscn/node-api-cn/wiki/模块管理员
+[模块管理员]: https://github.com/nodejscn/node-api-cn/blob/master/README.md#模块管理员
 
 [QC-L]: https://github.com/QC-L
