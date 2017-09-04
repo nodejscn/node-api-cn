@@ -2,8 +2,7 @@
 added: v0.11.8
 -->
 - `spkac` {string | Buffer | TypedArray | DataView}
-- Returns {Buffer} The challenge component of the `spkac` data structure, which
-includes a public key and a challenge.
+- 返回 {Buffer} 返回 `spkac` 数据结构的 challenge 部分，`spkac` 包含一个公钥和一个 challange。
 
 ```js
 const cert = require('crypto').Certificate();
@@ -12,4 +11,3 @@ const challenge = cert.exportChallenge(spkac);
 console.log(challenge.toString('utf8'));
 // Prints: the challenge as a UTF8 string
 ```
-
