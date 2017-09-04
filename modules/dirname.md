@@ -2,10 +2,10 @@
 added: v0.1.27
 -->
 
-<!-- type=var -->
-当前模块的文件夹名称. 等同于当前打开文件 [`__filename`][]
-的所在文件夹名称[`path.dirname()`][] .
 * {string}
+<!-- type=var -->
+当前模块的文件夹名称。等同于 [`__filename`][] 的 [`path.dirname()`][] 的值。
+
 <!--
 The directory name of the current module. This the same as the
 [`path.dirname()`][] of the [`__filename`][].
