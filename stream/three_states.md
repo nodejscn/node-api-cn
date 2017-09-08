@@ -15,8 +15,8 @@
 调用 `readable.pause()` 方法， `readable.unpipe()` 方法， 或者接收 “背压”（back pressure），
 将导致 `readable._readableState.flowing` 值变为 `false`。
 这将暂停事件流，但 *不会* 暂停数据生成。
-While in this state, attaching a listener for the `'data'` event
-would not cause `readable._readableState.flowing` to switch to `true`.
+在这种情况下，为 `'data'` 事件设置监听函数不会导致
+ `readable._readableState.flowing` 变为 `true`。
 
 ```js
 const { PassThrough, Writable } = require('stream');
@@ -25,11 +25,11 @@ const writable = new Writable();
 
 pass.pipe(writable);
 pass.unpipe(writable);
-// flowing is now false
+// flowing 现在为 false
 
 pass.on('data', (chunk) => { console.log(chunk.toString()); });
-pass.write('ok'); // will not emit 'data'
-pass.resume(); // must be called to make 'data' being emitted
+pass.write('ok'); // 不会触发 'data' 事件
+pass.resume(); // 只有被调用了才会触发 'data' 事件
 ```
 
 当 `readable._readableState.flowing` 值为 `false` 时， 数据可能堆积到流的内部缓存中。

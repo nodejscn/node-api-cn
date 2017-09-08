@@ -2,9 +2,8 @@
 added: v8.0.0
 -->
 
-* Returns: `this`
+* 返回: `this`
 
-Destroy the stream, and emit the passed error. After this call, the
-writable stream has ended. Implementors should not override this method,
-but instead implement [`writable._destroy`][writable-_destroy].
+摧毁这个流，并发出传过来的错误。当这个函数被调用后，这个写入流就结束了。
+使用者不应该重写这个函数，而是执行 [`writable._destroy`][writable-_destroy]。
 
