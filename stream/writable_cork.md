@@ -2,7 +2,7 @@
 added: v0.11.2
 -->
 
-调用 `writable.cork()` 方法将强制所有写入数据都内存中的缓冲区里。
+调用 `writable.cork()` 方法将强制所有写入数据都存放到内存中的缓冲区里。
 直到调用 [`stream.uncork()`][] 或
 [`stream.end()`][stream-end] 方法时，缓冲区里的数据才会被输出。
 
