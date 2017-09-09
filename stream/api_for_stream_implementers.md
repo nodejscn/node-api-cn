@@ -1,13 +1,9 @@
 
 <!--type=misc-->
 
-The `stream` module API has been designed to make it possible to easily
-implement streams using JavaScript's prototypal inheritance model.
+`stream`模块API的设计是为了让JavaScrit的原型继承模式可以简单的实现流。
 
-First, a stream developer would declare a new JavaScript class that extends one
-of the four basic stream classes (`stream.Writable`, `stream.Readable`,
-`stream.Duplex`, or `stream.Transform`), making sure they call the appropriate
-parent class constructor:
+首先，一个流开发者可能声明了一个JavaScript类并且继承四个基本流类中的一个（`stream.Weiteable`，`stream.Readable`，`stream.Duplex`，或者`stream.Transform`），确保他们调用合适的父类构造函数:
 
 ```js
 const { Writable } = require('stream');
@@ -20,74 +16,14 @@ class MyWritable extends Writable {
 }
 ```
 
-The new stream class must then implement one or more specific methods, depending
-on the type of stream being created, as detailed in the chart below:
+新的流类必须实现一个或多个特定的方法，根据所创建的流类型，如下图所示:
 
-<table>
-  <thead>
-    <tr>
-      <th>
-        <p>Use-case</p>
-      </th>
-      <th>
-        <p>Class</p>
-      </th>
-      <th>
-        <p>Method(s) to implement</p>
-      </th>
-    </tr>
-  </thead>
-  <tr>
-    <td>
-      <p>Reading only</p>
-    </td>
-    <td>
-      <p>[Readable](#stream_class_stream_readable)</p>
-    </td>
-    <td>
-      <p><code>[_read][stream-_read]</code></p>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <p>Writing only</p>
-    </td>
-    <td>
-      <p>[Writable](#stream_class_stream_writable)</p>
-    </td>
-    <td>
-      <p><code>[_write][stream-_write]</code>, <code>[_writev][stream-_writev]</code>,
-      <code>[_final][stream-_final]</code></p>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <p>Reading and writing</p>
-    </td>
-    <td>
-      <p>[Duplex](#stream_class_stream_duplex)</p>
-    </td>
-    <td>
-      <p><code>[_read][stream-_read]</code>, <code>[_write][stream-_write]</code>, <code>[_writev][stream-_writev]</code>,
-      <code>[_final][stream-_final]</code></p>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <p>Operate on written data, then read the result</p>
-    </td>
-    <td>
-      <p>[Transform](#stream_class_stream_transform)</p>
-    </td>
-    <td>
-      <p><code>[_transform][stream-_transform]</code>, <code>[_flush][stream-_flush]</code>,
-      <code>[_final][stream-_final]</code></p>
-    </td>
-  </tr>
-</table>
+| 用例 | 类 | 实现的方法 |
+| --- | --- | --- |
+| 只读流 | [Readable](#stream_class_stream_readable) | [_read](#stream_readable_read_size_1) |
+| 只写流 | [writable](#stream_class_stream_writable) | [_write](#stream_writable_write_chunk_encoding_callback_1) ，[_writev](#stream_writable_writev_chunks_callback)，[_final](#stream_writable_final_callback) |
+| 可读可写流 | [Duplex](#stream_class_stream_duplex) | [_read](#stream_readable_read_size_1) ，[_write](#stream_writable_write_chunk_encoding_callback_1) ，[_writev](#stream_writable_writev_chunks_callback)，[_final](#stream_writable_final_callback) |
+| 操作写数据，然后读结果 | [Transform](#stream_class_stream_transform) | [_transform](#stream_transform_transform_chunk_encoding_callback)，[_flush](#stream_transform_flush_callback)，[_final](#stream_writable_final_callback) |
 
-*Note*: The implementation code for a stream should *never* call the "public"
-methods of a stream that are intended for use by consumers (as described in
-the [API for Stream Consumers][] section). Doing so may lead to adverse
-side effects in application code consuming the stream.
+注意：实现流的代码里面不应该出现调用“public”方法的地方因为这些方法是给使用者使用的（[流使用者](#stream_api_for_stream_consumers)部分的API所述）。这样做可能会导致使用流的应用程序代码产生不利的副作用。
 
