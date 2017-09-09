@@ -22,7 +22,7 @@ class MyWritable extends Writable {
 | --- | --- | --- |
 | 只读流 | [Readable](#stream_class_stream_readable) | [_read](#stream_readable_read_size_1) |
 | 只写流 | [writable](#stream_class_stream_writable) | [_write](#stream_writable_write_chunk_encoding_callback_1) ，[_writev](#stream_writable_writev_chunks_callback)，[_final](#stream_writable_final_callback) |
-| 可读可写流 | [Duplex](#stream_class_stream_duplex) | _read](#stream_readable_read_size_1) ，[_write](#stream_writable_write_chunk_encoding_callback_1) ，[_writev](#stream_writable_writev_chunks_callback)，[_final](#stream_writable_final_callback) |
+| 可读可写流 | [Duplex](#stream_class_stream_duplex) | [_read](#stream_readable_read_size_1) ，[_write](#stream_writable_write_chunk_encoding_callback_1) ，[_writev](#stream_writable_writev_chunks_callback)，[_final](#stream_writable_final_callback) |
 | 操作写数据，然后读结果 | [Transform](#stream_class_stream_transform) | [_transform](#stream_transform_transform_chunk_encoding_callback)，[_flush](#stream_transform_flush_callback)，[_final](#stream_writable_final_callback) |
 
 注意：实现流的代码里面不应该出现调用“public”方法的地方因为这些方法是给使用者使用的（[流使用者](#stream_api_for_stream_consumers)部分的API所述）。这样做可能会导致使用流的应用程序代码产生不利的副作用。
