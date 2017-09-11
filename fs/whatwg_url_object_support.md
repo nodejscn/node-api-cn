@@ -25,15 +25,15 @@ fs.readFileSync(fileUrl);
 ```js
 // 在Windows上 :
 
-// - WHATWG标准的URLs会将携带主机名的 file: 转换为 UNC 路径
+// - WHATWG 标准的 URLs 会将携带主机名的 file: 转换为 UNC 路径
 // file://hostname/p/a/t/h/file => \\hostname\p\a\t\h\file
 fs.readFileSync(new URL('file://hostname/p/a/t/h/file'));
 
-// - WHATWG标准的URLs会将携带本地磁盘盘符的 file: 转换为 绝对路径
+// - WHATWG 标准的 URLs 会将携带本地磁盘盘符的 file: 转换为 绝对路径
 // file:///C:/tmp/hello => C:\tmp\hello
 fs.readFileSync(new URL('file:///C:/tmp/hello'));
 
-// - WHATWG标准的URLs在转换内容时，如果不携带主机名，则必须包含本地磁盘盘符
+// - WHATWG 标准的 URLs 在转换内容时，如果不携带主机名，则必须包含本地磁盘盘符
 fs.readFileSync(new URL('file:///notdriveletter/p/a/t/h/file'));
 fs.readFileSync(new URL('file:///c/p/a/t/h/file'));
 // TypeError [ERR_INVALID_FILE_URL_PATH]: File URL path must be absolute
@@ -44,14 +44,14 @@ fs.readFileSync(new URL('file:///c/p/a/t/h/file'));
 在其他所有的平台上， 都不支持携带主机名的 `file:` URLs，且会抛出错误。 
 
 ```js
-// On other platforms:
+// 在其他平台上:
 
-// - WHATWG file URLs with hostname are unsupported
+// - WHATWG 标准的 URLs 不支持携带 hostname 的 file: 进行转换
 // file://hostname/p/a/t/h/file => throw!
 fs.readFileSync(new URL('file://hostname/p/a/t/h/file'));
 // TypeError [ERR_INVALID_FILE_URL_PATH]: must be absolute
 
-// - WHATWG file URLs convert to absolute path
+// - WHATWG 标准的 URLs 会将 file: 转换绝对路径 
 // file:///tmp/hello => /tmp/hello
 fs.readFileSync(new URL('file:///tmp/hello'));
 ```
@@ -59,13 +59,13 @@ fs.readFileSync(new URL('file:///tmp/hello'));
 当 `file:` URL 包含已经编码的斜线符号会在所有平台抛出错误。
 
 ```js
-// On Windows
+// 在 Windows 上
 fs.readFileSync(new URL('file:///C:/p/a/t/h/%2F'));
 fs.readFileSync(new URL('file:///C:/p/a/t/h/%2f'));
 /* TypeError [ERR_INVALID_FILE_URL_PATH]: File URL path must not include encoded
 \ or / characters */
 
-// On POSIX
+// 在 POSIX 上
 fs.readFileSync(new URL('file:///p/a/t/h/%2F'));
 fs.readFileSync(new URL('file:///p/a/t/h/%2f'));
 /* TypeError [ERR_INVALID_FILE_URL_PATH]: File URL path must not include encoded
@@ -75,7 +75,7 @@ fs.readFileSync(new URL('file:///p/a/t/h/%2f'));
 在 Windows 上， 携带已编码的反斜线 `file:` URLs 在编码是会抛出错误。
 
 ```js
-// On Windows
+// 在 Windows 上
 fs.readFileSync(new URL('file:///C:/path/%5C'));
 fs.readFileSync(new URL('file:///C:/path/%5c'));
 /* TypeError [ERR_INVALID_FILE_URL_PATH]: File URL path must not include encoded
