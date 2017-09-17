@@ -3,10 +3,10 @@
 ## 1、如何参与翻译？
 
 ### 日常维护
-- 打开API文档[正式版]或[开发版]的某个模块。
-- 通过模块中每个段落的“参与翻译”链接进入到编辑页进行修改并提交。
-- [模块管理员]审核通过后会自动构建并同步到[开发版]，同步过程大概耗时5秒钟。
-- 开发版周期为一周，每周日晚开发版会同步到正式版。
+- 打开[API文档开发版]的某个模块。
+- 通过模块中每个段落的“参与翻译”链接进入到编辑页进行修改并提交，默认提交到dev分支。
+- [模块管理员]审核通过后会自动构建并同步到[API文档开发版]，同步过程大概耗时10秒钟。
+- 每周四晚、周日晚会统一把dev分支同步到master分支，同时更新[API文档正式版]。
 
 ### 文档配置文件
 
@@ -29,6 +29,8 @@
 ## 现任模块管理员
 - fs模块: [QC-L]
 - module模块：[adrianzqt]
+- net模块: [nodejh]
+- stream模块：[Yi-love]
 
 ## 撤销模块管理员
 - 如果管理员因各种原因无法继续维护文档，可以申请退出，后续可重新申请加入。
@@ -38,9 +40,11 @@
 暂无
 
 
-[正式版]: http://nodejs.cn/api/
-[开发版]: http://nodejs.cn/api/dev/
+[API文档正式版]: http://nodejs.cn/api/
+[API文档开发版]: http://nodejs.cn/api/dev/
 [模块管理员]: https://github.com/nodejscn/node-api-cn/blob/master/README.md#模块管理员
 
 [QC-L]: https://github.com/QC-L
 [adrianzqt]: https://github.com/adrianzqt
+[nodejh]: https://github.com/nodejh
+[Yi-love]: https://github.com/Yi-love
