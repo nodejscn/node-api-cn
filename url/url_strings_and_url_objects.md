@@ -20,7 +20,7 @@ WHATWG与Node.js遗留的特有的API的比较如下。网址`'http://user:pass@
 an object returned by the legacy `url.parse()` are shown. Below it are
 properties of a WHATWG `URL` object.-->
 
-WHATWG URL的组织属性包括`protocol`和`host`,但不包含`username`、`password`.
+WHATWG URL的origin属性包括`protocol`和`host`,但不包含`username`、`password`.
 <!--*Note*: WHATWG URL's `origin` property includes `protocol` and `host`, but not
 `username` or `password`.-->
 
