@@ -74,11 +74,8 @@ fs.open('<directory>', 'a+', (err, fd) => {
 });
 ```
 
-Some characters (`< > : " / \ | ? *`) are reserved under Windows as documented
-by [Naming Files, Paths, and Namespaces][]. Under NTFS, if the filename contains
-a colon, Node.js will open a file system stream, as described by
-[this MSDN page][MSDN-Using-Streams].
+有些字符 (`< > : " / \ | ? *`) 在Windows下保留，通过[命名文件、路径和命名空间][]来记录。 在NTFS下，如果文件名包含冒号，Node.js 将打开一个文件系统流， 具体描述在 [MSDN页][MSDN-Using-Streams]。
 
-Functions based on `fs.open()` exhibit this behavior as well. eg.
-`fs.writeFile()`, `fs.readFile()`, etc.
+许多函数也是基于 `fs.open()` 拥有这样的效果。例:
+`fs.writeFile()`, `fs.readFile()`, 等。
 
