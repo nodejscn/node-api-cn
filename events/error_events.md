@@ -7,7 +7,7 @@
 ```js
 const myEmitter = new MyEmitter();
 myEmitter.emit('error', new Error('whoops!'));
-// 抛出错误，并使 Node.js 奔溃
+// 抛出错误，并使 Node.js 崩溃
 ```
 
 为了防止 Node.js 进程崩溃，可以在 [`process` 对象的 `uncaughtException` 事件]上注册监听器，或使用 [`domain`] 模块。
