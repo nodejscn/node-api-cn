@@ -27,6 +27,7 @@
 - 为了方便联系，请先加QQ群：713382。
 
 ## 现任模块管理员
+- cluster模块: [AmandaYi]
 - fs模块: [QC-L]
 - module模块：[adrianzqt]
 - net模块: [nodejh]
@@ -44,6 +45,7 @@
 [API文档开发版]: http://nodejs.cn/api/dev/
 [模块管理员]: https://github.com/nodejscn/node-api-cn/blob/master/README.md#模块管理员
 
+[AmandaYi]: https://github.com/AmandaYi
 [QC-L]: https://github.com/QC-L
 [adrianzqt]: https://github.com/adrianzqt
 [nodejh]: https://github.com/nodejh
