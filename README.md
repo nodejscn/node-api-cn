@@ -31,6 +31,7 @@
 - fs模块: [QC-L]
 - module模块：[adrianzqt]
 - net模块: [nodejh]
+- path模块: [fengshadu]
 - stream模块：[Yi-love]
 
 ## 撤销模块管理员
@@ -49,4 +50,5 @@
 [QC-L]: https://github.com/QC-L
 [adrianzqt]: https://github.com/adrianzqt
 [nodejh]: https://github.com/nodejh
+[fengshadu]: https://github.com/fengshadu
 [Yi-love]: https://github.com/Yi-love
