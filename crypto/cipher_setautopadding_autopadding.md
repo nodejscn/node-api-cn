@@ -1,18 +1,13 @@
 <!-- YAML
 added: v0.7.1
 -->
-- `autoPadding` {boolean} Defaults to `true`.
-- Returns the {Cipher} for method chaining.
+- `autoPadding` {boolean} 默认为 `true`.
+- 返回{Cipher}方法链。
 
-When using block encryption algorithms, the `Cipher` class will automatically
-add padding to the input data to the appropriate block size. To disable the
-default padding call `cipher.setAutoPadding(false)`.
+当使用块加密算法时，`Cipher`类会自动添加padding到输入数据中，来适配相应块大小。可调用`cipher.setAutoPadding(false)`禁用默认padding。
 
-When `autoPadding` is `false`, the length of the entire input data must be a
-multiple of the cipher's block size or [`cipher.final()`][] will throw an Error.
-Disabling automatic padding is useful for non-standard padding, for instance
-using `0x0` instead of PKCS padding.
+当`autoPadding`是`false`时，整个输入数据的长度必须是cipher块大小的倍数，否则[`cipher.final()`][]将抛出一个错误。
+禁用自动填充对于非标准填充是有用的，例如使用`0x0`代替PKCS填充。
 
-The `cipher.setAutoPadding()` method must be called before
-[`cipher.final()`][].
+`cipher.setAutoPadding()`必须在[`cipher.final()`][]之前被调用。
 

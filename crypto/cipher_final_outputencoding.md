@@ -3,11 +3,8 @@ added: v0.1.94
 -->
 - `outputEncoding` {string}
 
-Returns any remaining enciphered contents. If `outputEncoding`
-parameter is one of `'latin1'`, `'base64'` or `'hex'`, a string is returned.
-If an `outputEncoding` is not provided, a [`Buffer`][] is returned.
+返回任何未加密的内容。如果 `outputEncoding` 参数是`'latin1'`, `'base64'` 或者 `'hex'`，返回字符串。
+如果没有提供 `outputEncoding`，则返回[`Buffer`][]。
 
-Once the `cipher.final()` method has been called, the `Cipher` object can no
-longer be used to encrypt data. Attempts to call `cipher.final()` more than
-once will result in an error being thrown.
+一旦`cipher.final()`方法已被调用，`Cipher` 对象就不能再用于加密数据。如果试图再次调用`cipher.final()`，将会抛出一个错误。
 
