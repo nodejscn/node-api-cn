@@ -28,6 +28,7 @@
 
 ## 现任模块管理员
 - cluster模块: [AmandaYi]
+- crypto模块: [yilikun]
 - fs模块: [QC-L]
 - module模块：[adrianzqt]
 - net模块: [nodejh]
@@ -47,6 +48,7 @@
 [模块管理员]: https://github.com/nodejscn/node-api-cn/blob/master/README.md#模块管理员
 
 [AmandaYi]: https://github.com/AmandaYi
+[yilikun]: https://github.com/yilikun
 [QC-L]: https://github.com/QC-L
 [adrianzqt]: https://github.com/adrianzqt
 [nodejh]: https://github.com/nodejh
