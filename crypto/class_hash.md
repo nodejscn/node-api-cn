@@ -1,19 +1,14 @@
 <!-- YAML
-added: v0.1.92
+补充: v0.1.92
 -->
+`Hash`类是用于创建数据哈希值的工具类。它能用以下方法使用：
+- 作为一个[stream][]，它既可读又可写，数据被写入要在可读的方面生成一个计算散列摘要
 
-The `Hash` class is a utility for creating hash digests of data. It can be
-used in one of two ways:
+- 使用[`hash.update()`][]和[`hash.digest()`][]方法产生计算后的哈希。
 
-- As a [stream][] that is both readable and writable, where data is written
-  to produce a computed hash digest on the readable side, or
-- Using the [`hash.update()`][] and [`hash.digest()`][] methods to produce the
-  computed hash.
+[`crypto.createHash()`][]方法用于创建`Hash`实例。`Hash`不能直接使用`new`关键字创建对象。
 
-The [`crypto.createHash()`][] method is used to create `Hash` instances. `Hash`
-objects are not to be created directly using the `new` keyword.
-
-Example: Using `Hash` objects as streams:
+示例: 使用`Hash`对象作为流:
 
 ```js
 const crypto = require('crypto');
@@ -31,9 +26,7 @@ hash.on('readable', () => {
 hash.write('some data to hash');
 hash.end();
 ```
-
-Example: Using `Hash` and piped streams:
-
+示例:使用 `Hash` 和管道流
 ```js
 const crypto = require('crypto');
 const fs = require('fs');
@@ -42,9 +35,7 @@ const hash = crypto.createHash('sha256');
 const input = fs.createReadStream('test.js');
 input.pipe(hash).pipe(process.stdout);
 ```
-
-Example: Using the [`hash.update()`][] and [`hash.digest()`][] methods:
-
+示例:使用[`hash.update()`][]和[`hash.digest()`][]
 ```js
 const crypto = require('crypto');
 const hash = crypto.createHash('sha256');

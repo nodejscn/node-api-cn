@@ -3,25 +3,16 @@ added: v0.1.94
 changes:
   - version: v6.0.0
     pr-url: https://github.com/nodejs/node/pull/5522
-    description: The default `inputEncoding` changed from `binary` to `utf8`.
+    描述: 默认`inputEncoding`由`binary` 变为 `utf8`
 -->
 - `data` {string | Buffer | TypedArray | DataView}
 - `inputEncoding` {string}
 - `outputEncoding` {string}
 
-Updates the cipher with `data`. If the `inputEncoding` argument is given,
-its value must be one of `'utf8'`, `'ascii'`, or `'latin1'` and the `data`
-argument is a string using the specified encoding. If the `inputEncoding`
-argument is not given, `data` must be a [`Buffer`][], `TypedArray`, or
-`DataView`.  If `data` is a [`Buffer`][], `TypedArray`, or `DataView`, then
-`inputEncoding` is ignored.
+用`data`更新密码。如果给出了`inputEncoding`的论证，它的值必须是`'utf8'`, `'ascii'`, 或者`'latin1'`，而`data`参数是使用指定编码的字符串。如果不给出`inputEncoding`的参数，则`data`必须是[`Buffer`][]，`TypedArray`， 或者`DataView`。如果`data`是一个[`Buffer`][]，`TypedArray`， 或者 `DataView`， 那么`inputEncoding`就被忽略了。
 
-The `outputEncoding` specifies the output format of the enciphered
-data, and can be `'latin1'`, `'base64'` or `'hex'`. If the `outputEncoding`
-is specified, a string using the specified encoding is returned. If no
-`outputEncoding` is provided, a [`Buffer`][] is returned.
+`outputEncoding`指定了加密数据的输出格式，可以是`'latin1'`， `'base64'` 或者 `'hex'`。如果指定了`outputEncoding`，则返回使用指定编码的字符串。如果没有`outputEncoding`被提供，会返回[`Buffer`][]。
 
-The `cipher.update()` method can be called multiple times with new data until
-[`cipher.final()`][] is called. Calling `cipher.update()` after
-[`cipher.final()`][] will result in an error being thrown.
+`cipher.update()`方法可以用新数据多次调用，直到[`cipher.final()`][]被调用。
+[' cipher.final()'][]。在[`cipher.final()`][]之后调用`cipher.update()`将抛出错误。
 
