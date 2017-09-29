@@ -9,7 +9,7 @@ changes:
 * `options` {Object | string | URL}
   * `protocol` {string} 使用的协议。默认为 `http:`。
   * `host` {string} 请求发送至的服务器的域名或 IP 地址。默认为 `localhost`。
-  * `hostname` {string} `host` 的别名。为了支持 [`url.parse()`]，`hostname` 优于 `host`。
+  * `hostname` {string} `host` 的别名。为了支持 [`url.parse()`]，`hostname` 优先于 `host`。
   * `family` {number} 当解析 `host` 和 `hostname` 时使用的 IP 地址族。
     有效值是 `4` 或 `6`。当未指定时，则同时使用 IP v4 和 v6。
   * `port` {number} 远程服务器的端口。默认为 `80`。
