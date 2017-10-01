@@ -22,5 +22,5 @@ dns.lookupService('127.0.0.1', 22, (err, hostname, service) => {
 });
 ```
 
-如果以 [`util.promisify()`][http://nodejs.cn/api/util.html#util_util_promisify_original] 方式进行调用, 它将返回一个包含`hostname`和`service`属性的Promise 对象。
+如果以 [`util.promisify()`][] 方式进行调用, 它将返回一个包含`hostname`和`service`属性的Promise 对象。
 
