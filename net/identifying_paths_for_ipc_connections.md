@@ -1,10 +1,6 @@
 
-[`net.connect()`][], [`net.createConnection()`][], [`server.listen()`][] and
-[`socket.connect()`][] take a `path` parameter to identify IPC endpoints.
-
-
 [`net.connect()`][], [`net.createConnection()`][], [`server.listen()`][] 和
-[`socket.connect()`][] 使用 `path` 参数来识别 IPC 端点。
+[`socket.connect()`][] 使用一个 `path` 参数来识别 IPC 端点。
 
 在 UNIX 上，本地域也称为 UNIX 域。参数 `path` 是文件系统路径名。它被从 `sizeof(sockaddr_un.sun_path) - 1` 处被截断，其长度因操作系统不同而在 91 至 107 字节之间变化。典型值在 Linux 上为 107，在 macOS 上为 103。该路径受到与创建文件相同的命名约定和权限检查。它将在文件系统中可见，并且将持续到取消链接的时候。
 
