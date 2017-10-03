@@ -39,7 +39,7 @@ Node.js 为每台服务器维护多个连接来进行 HTTP 请求。
 
 `options` 可以是一个对象、或字符串、或 [`URL`] 对象。
 如果 `options` 是一个字符串，它会被自动使用 [`url.parse()`] 解析。
-If it is a [`URL`][] object, it will be automatically converted to an ordinary `options` object.
+如果它是一个 [`URL`][] 对象, 它会被默认转换成一个 `options` 对象。
 
 可选的 `callback` 参数会作为单次监听器被添加到 [`'response'`] 事件。
 
