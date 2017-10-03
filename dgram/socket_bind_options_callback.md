@@ -16,11 +16,10 @@ useful.
 
 在配合[`cluster`]模块使用`dgram.Socket`对象时，`options`对象可能包含一个附加的`exclusive`属性。当`exclusive`被设为`false`(默认值)时，集群工作单元会使用相同的 socket 句柄来共享连接处理作业。当`exclusive`被设为`true`时，该句柄将不会被共享，而尝试共享端口则会造成错误。
 
-A bound datagram socket keeps the Node.js process running to receive
-datagram messages.
+一个绑定的数据报 socket 会使 Node.js 进程持续运行以接受数据报消息。
 
-If binding fails, an `'error'` event is generated. In rare case (e.g.
-attempting to bind with a closed socket), an [`Error`][] may be thrown.
+如果绑定失败，一个 `'error'` 事件会产生。在极少数情况下（例如尝试绑定一个已经关闭的 socket），
+一个 [`Error`][] 可能抛出。
 
 一个不共享端口的 socket 的例子如下文所示。
 
