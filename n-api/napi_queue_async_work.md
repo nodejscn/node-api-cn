@@ -2,8 +2,8 @@
 added: v8.0.0
 -->
 ```C
-NAPI_EXTERN napi_status napi_queue_async_work(napi_env env,
-                                              napi_async_work work);
+napi_status napi_queue_async_work(napi_env env,
+                                  napi_async_work work);
 ```
 
 - `[in] env`: The environment that the API is invoked under.

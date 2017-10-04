@@ -1,6 +1,9 @@
 <!-- YAML
 added: v1.2.0
 changes:
+  - version: v8.5.0
+    pr-url: https://github.com/nodejs/node/pull/15001
+    description: Error names and messages are now properly compared
   - version: v8.0.0
     pr-url: https://github.com/nodejs/node/pull/12142
     description: Set and Map content is also compared
@@ -18,11 +21,12 @@ changes:
 * `expected` {any}
 * `message` {any}
 
-与 `assert.deepEqual()` 大致相同，但有三个区别：
+与 `assert.deepEqual()` 大致相同，但有一些区别：
 
 1. 原始值使用[全等运算符]（`===`）比较。`Set` 的值与 `Map` 的键使用 [SameValueZero] 比较。
 2. 对象的[原型]也使用全等运算符比较。
 3. 对象的[类型标签]要求相同。
+4. [Object wrappers][] are compared both as objects and unwrapped values.
 
 ```js
 const assert = require('assert');
@@ -52,6 +56,11 @@ assert.deepEqual(date, fakeDate);
 assert.deepStrictEqual(date, fakeDate);
 // 抛出 AssertionError: 2017-03-11T14:25:31.849Z deepStrictEqual Date {}
 // 因为类型标签不同。
+
+assert.deepStrictEqual(new Number(1), new Number(2));
+// Fails because the wrapped number is unwrapped and compared as well.
+assert.deepStrictEqual(new String('foo'), Object('foo'));
+// OK because the object and the string are identical when unwrapped.
 ```
 
 如果两个值不相等，则抛出一个带有 `message` 属性的 `AssertionError`，其中 `message` 属性的值等于传入的 `message` 参数的值。

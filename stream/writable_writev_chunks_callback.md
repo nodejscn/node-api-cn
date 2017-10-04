@@ -5,7 +5,7 @@
   argument) to be invoked when processing is complete for the supplied chunks.
 
 *Note*: This function MUST NOT be called by application code directly. It
-should be implemented by child classes, and called only by the internal Writable
+should be implemented by child classes, and called by the internal Writable
 class methods only.
 
 The `writable._writev()` method may be implemented in addition to
@@ -16,4 +16,3 @@ all chunks of data currently buffered in the write queue.
 The `writable._writev()` method is prefixed with an underscore because it is
 internal to the class that defines it, and should never be called directly by
 user programs.
-

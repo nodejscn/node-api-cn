@@ -5,7 +5,7 @@ added: v0.7.7
 * `stream` {Readable}
 * `interface` {readline.Interface}
 
-`readline.emitKeypressEvents()` 方法使给定的[可写流] `stream` 相应于接收到的输入触发 `'keypress'` 事件。
+`readline.emitKeypressEvents()` 方法使给定的[可读流] `stream` 相应于接收到的输入触发 `'keypress'` 事件。
 
 可选的 `interface` 指定了一个 `readline.Interface` 实例，用于当自动补全被禁用时检测到复制粘贴输入。
 

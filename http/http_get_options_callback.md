@@ -14,7 +14,7 @@ changes:
 
 因为大多数请求都是 GET 请求且不带请求主体，所以 Node.js 提供了该便捷方法。
 该方法与 [`http.request()`] 唯一的区别是它设置请求方法为 GET 且自动调用 `req.end()`。
-注意，响应数据必须在回调中被消耗，原因详见 [`http.ClientRequest`] 章节。
+注意，回调函数务必消耗掉响应数据，原因详见 [`http.ClientRequest`] 章节。
 
 `callback` 被调用时只传入一个参数，该参数是 [`http.IncomingMessage`] 的一个实例。
 

@@ -2,7 +2,7 @@
 added: v5.5.0
 -->
 
-* `request` {http.ClientRequest}
+* `request` {http.IncomingMessage}
 * `response` {http.ServerResponse}
 
 每当接收到一个带有 HTTP `Expect` 请求头（值不为 `100-continue`）的请求时触发。

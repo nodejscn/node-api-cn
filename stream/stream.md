@@ -1,4 +1,6 @@
 
+<!--introduced_in=v0.10.0-->
+
 > 稳定性: 2 - 稳定的
 
 流（stream）在 Node.js 中是处理流数据的抽象接口（abstract interface）。

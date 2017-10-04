@@ -1,10 +1,12 @@
 
-* Returns {number} the `asyncId` of the current execution context. Useful to track
-  when something calls.
+* Returns {number} the `asyncId` of the current execution context. Useful to
+  track when something calls.
 
 For example:
 
 ```js
+const async_hooks = require('async_hooks');
+
 console.log(async_hooks.executionAsyncId());  // 1 - bootstrap
 fs.open(path, 'r', (err, fd) => {
   console.log(async_hooks.executionAsyncId());  // 6 - open()

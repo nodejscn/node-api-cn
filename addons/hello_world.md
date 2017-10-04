@@ -29,7 +29,7 @@ void init(Local<Object> exports) {
   NODE_SET_METHOD(exports, "hello", Method);
 }
 
-NODE_MODULE(addon, init)
+NODE_MODULE(NODE_GYP_MODULE_NAME, Init)
 
 }  // namespace demo
 ```
@@ -38,7 +38,7 @@ NODE_MODULE(addon, init)
 
 ```cpp
 void Initialize(Local<Object> exports);
-NODE_MODULE(module_name, Initialize)
+NODE_MODULE(NODE_GYP_MODULE_NAME, Initialize)
 ```
 
 `NODE_MODULE` 后面没有分号，因为它不是一个函数（详见 `node.h`）。

@@ -19,7 +19,7 @@ changes:
 * `path` {string|Buffer|URL}
 * `options` {string|Object}
   * `flags` {string}
-  * `defaultEncoding` {string}
+  * `encoding` {string}
   * `fd` {integer}
   * `mode` {integer}
   * `autoClose` {boolean}
@@ -32,7 +32,7 @@ changes:
 ```js
 const defaults = {
   flags: 'w',
-  defaultEncoding: 'utf8',
+  encoding: 'utf8',
   fd: null,
   mode: 0o666,
   autoClose: true
@@ -41,7 +41,7 @@ const defaults = {
 
 `options` 也可以包括一个 `start` 选项，使其可以写入数据到文件某个位置。
 如果是修改一个文件而不是覆盖它，则需要`flags` 模式为 `r+` 而不是默认的 `w` 模式。
-`defaultEncoding` 可以是任何可以被 [`Buffer`] 接受的值。
+`encoding` 可以是任何可以被 [`Buffer`] 接受的值。
 
 如果 `autoClose` 被设置为 `true`（默认），则在 `error` 或 `end` 时，文件描述符会被自动关闭。
 如果 `autoClose` 为 `false`，则文件描述符不会被关闭，即使有错误。

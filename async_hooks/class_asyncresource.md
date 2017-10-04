@@ -5,9 +5,9 @@ own resources.
 
 The `init` hook will trigger when an `AsyncResource` is instantiated.
 
-It is important that `before`/`after` calls are unwound
+*Note*: It is important that `before`/`after` calls are unwound
 in the same order they are called. Otherwise an unrecoverable exception
-will occur and node will abort.
+will occur and the process will abort.
 
 The following is an overview of the `AsyncResource` API.
 

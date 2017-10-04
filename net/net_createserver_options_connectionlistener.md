@@ -17,7 +17,7 @@ If `allowHalfOpen` is set to `true`, when the other end of the socket
 sends a FIN packet, the server will only send a FIN packet back when
 [`socket.end()`][] is explicitly called, until then the connection is
 half-closed (non-readable but still writable). See [`'end'`][] event
-and [RFC 1122][half-closed] for more information.
+and [RFC 1122][half-closed] (section 4.2.2.13) for more information.
 
 If `pauseOnConnect` is set to `true`, then the socket associated with each
 incoming connection will be paused, and no data will be read from its handle.
@@ -70,4 +70,3 @@ Use `nc` to connect to a UNIX domain socket server:
 ```console
 $ nc -U /tmp/echo.sock
 ```
-

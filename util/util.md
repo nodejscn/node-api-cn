@@ -1,4 +1,6 @@
 
+<!--introduced_in=v0.10.0-->
+
 > 稳定性: 2 - 稳定的
 
 `util` 模块主要用于支持 Node.js 内部 API 的需求。

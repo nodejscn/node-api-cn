@@ -28,8 +28,11 @@ console.log(
   `${buf.length} bytes of random data: ${buf.toString('hex')}`);
 ```
 
-`crypto.randomBytes（）`方法将阻塞，直到有足够的熵.
+`crypto.randomBytes()`方法将阻塞，直到有足够的熵.
 这通常不会超过几毫秒. 唯一的时间
 当生成随机字节可能会阻塞更长的时间
 时间是开机后，当整个系统的熵低时
 
+Note that this API uses libuv's threadpool, which can have surprising and
+negative performance implications for some applications, see the
+[`UV_THREADPOOL_SIZE`][] documentation for more information.

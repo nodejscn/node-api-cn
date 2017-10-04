@@ -9,6 +9,6 @@ added: v0.11.4
 * 返回: {string}
 
 为请求选项的集合获取一个唯一的名称，用来判断一个连接是否可以被复用。
-对于 HTTP 代理，返回 `host:port:localAddress`。
+对于 HTTP 代理，返回 `host:port:localAddress` 或 `host:port:localAddress:family`。
 对于 HTTPS 代理，名称会包含 CA、证书、密码、以及其他 HTTPS/TLS 特有的用于判断 socket 复用性的选项。
 

@@ -2,10 +2,10 @@
 added: v8.0.0
 -->
 ```C
-NAPI_EXTERN napi_status napi_escape_handle(napi_env env,
-                                           napi_escapable_handle_scope scope,
-                                           napi_value escapee,
-                                           napi_value* result);
+napi_status napi_escape_handle(napi_env env,
+                               napi_escapable_handle_scope scope,
+                               napi_value escapee,
+                               napi_value* result);
 ```
 
 - `[in] env`: The environment that the API is invoked under.

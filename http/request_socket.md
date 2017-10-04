@@ -10,10 +10,15 @@ added: v0.3.0
 
 ```js
 const http = require('http');
-const server = http.createServer((req, res) => {
-  const ip = req.socket.remoteAddress;
-  const port = req.socket.remotePort;
-  res.end(`你的IP地址是${ip}，你的源端口是${port}.`);
-}).listen(3000);
+const options = {
+  host: 'nodejs.cn',
+};
+const req = http.get(options);
+req.end();
+req.once('response', (res) => {
+  const ip = req.socket.localAddress;
+  const port = req.socket.localPort;
+  console.log(`你的IP地址是 ${ip}，你的源端口是 ${port}。`);
+  // consume response object
+});
 ```
-

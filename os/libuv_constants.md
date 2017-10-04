@@ -10,6 +10,3 @@
   </tr>
 </table>
 
-[`process.arch`]: process.html#process_process_arch
-[`process.platform`]: process.html#process_process_platform
-[OS Constants]: #os_os_constants

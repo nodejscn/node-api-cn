@@ -4,7 +4,7 @@ at runtime so that the JS methods would work for all ICU locales. Assuming the
 data file is stored at `/some/directory`, it can be made available to ICU
 through either:
 
-* The [`NODE_ICU_DATA`][] environmental variable:
+* The [`NODE_ICU_DATA`][] environment variable:
 
   ```shell
   env NODE_ICU_DATA=/some/directory node
@@ -31,4 +31,3 @@ appropriate data file. After installing the module through `npm i full-icu`,
 the data file will be available at `./node_modules/full-icu`. This path can be
 then passed either to `NODE_ICU_DATA` or `--icu-data-dir` as shown above to
 enable full `Intl` support.
-

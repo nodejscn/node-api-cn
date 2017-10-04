@@ -20,12 +20,3 @@ mitigate this issue, one potential solution is to increase the size of libuv's
 threadpool by setting the `'UV_THREADPOOL_SIZE'` environment variable to a value
 greater than `4` (its current default value).  For more information, see the
 [libuv threadpool documentation][].
-
-[`--openssl-config`]: #cli_openssl_config_file
-[Buffer]: buffer.html#buffer_buffer
-[Chrome Debugging Protocol]: https://chromedevtools.github.io/debugger-protocol-viewer
-[REPL]: repl.html
-[SlowBuffer]: buffer.html#buffer_class_slowbuffer
-[debugger]: debugger.html
-[emit_warning]: process.html#process_process_emitwarning_warning_type_code_ctor
-[libuv threadpool documentation]: http://docs.libuv.org/en/latest/threadpool.html

@@ -1,4 +1,6 @@
 
+<!--introduced_in=v0.10.0-->
+
 > 稳定性: 2 - 稳定的
 
 `require('readline')` 模块提供了一个接口，用于从[可读流]（如 [`process.stdin`]）读取数据，每次读取一行。

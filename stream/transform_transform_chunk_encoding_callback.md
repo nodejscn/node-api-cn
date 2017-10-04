@@ -10,7 +10,7 @@
   processed.
 
 *Note*: This function MUST NOT be called by application code directly. It
-should be implemented by child classes, and called only by the internal Readable
+should be implemented by child classes, and called by the internal Readable
 class methods only.
 
 All Transform stream implementations must provide a `_transform()`

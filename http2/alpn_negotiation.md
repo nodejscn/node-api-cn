@@ -11,8 +11,8 @@ The following example creates a server that supports both protocols:
 const { createSecureServer } = require('http2');
 const { readFileSync } = require('fs');
 
-const cert = fs.readFileSync('./cert.pem');
-const key = fs.readFileSync('./key.pem');
+const cert = readFileSync('./cert.pem');
+const key = readFileSync('./key.pem');
 
 const server = createSecureServer(
   { cert, key, allowHTTP1: true },
@@ -21,16 +21,16 @@ const server = createSecureServer(
 
 function onRequest(req, res) {
   // detects if it is a HTTPS request or HTTP/2
-  const { socket: { alpnProtocol } } = request.httpVersion === '2.0' ?
-    request.stream.session : request;
-  response.writeHead(200, { 'content-type': 'application/json' });
-  response.end(JSON.stringify({
+  const { socket: { alpnProtocol } } = req.httpVersion === '2.0' ?
+    req.stream.session : req;
+  res.writeHead(200, { 'content-type': 'application/json' });
+  res.end(JSON.stringify({
     alpnProtocol,
-    httpVersion: request.httpVersion
+    httpVersion: req.httpVersion
   }));
 }
 ```
 
-The `'request'` event works identically on both [HTTPS](https) and
+The `'request'` event works identically on both [HTTPS][] and
 HTTP/2.
 

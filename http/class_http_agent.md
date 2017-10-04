@@ -16,8 +16,8 @@ added: v0.3.4
 
 当 `Agent` 实例不再被使用时，建议 [`destroy()`] 它，因为未被使用的 socket 也会消耗操作系统资源。
 
-当 socket 触发 `'close'` 事件或 `'agentRemove'` 事件时，它会被移出代理池。
-当打算长时间保持打开一个 HTTP 请求且不想它留着连接池中，则可以如下处理：
+当 socket 触发 `'close'` 事件或 `'agentRemove'` 事件时，它会被移出代理。
+当打算长时间保持打开一个 HTTP 请求且不想它留在代理中，则可以如下处理：
 
 ```js
 http.get(options, (res) => {

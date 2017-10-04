@@ -21,5 +21,6 @@ require('net').createServer().listen(function() { this.close(); });
 clearTimeout(setTimeout(() => {}, 10));
 ```
 
-Every new resource is assigned a unique ID.
+Every new resource is assigned an ID that is unique within the scope of the
+current process.
 

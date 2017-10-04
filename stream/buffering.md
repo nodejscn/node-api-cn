@@ -6,8 +6,7 @@
 `readable._readableState.buffer`来获取。
 
 缓存的大小取决于传递给流构造函数的 `highWaterMark` 选项。
-对于普通的流， `highWaterMark`
-选项指定了总共的字节数。对于工作在对象模式的流，
+对于普通的流， `highWaterMark` 选项指定了[总共的字节数][hwm-gotcha]。对于工作在对象模式的流，
 `highWaterMark` 指定了对象的总数。
 
 当可读流的实现调用 

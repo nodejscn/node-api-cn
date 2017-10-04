@@ -1,5 +1,5 @@
 <!-- YAML
-added: v5.10.0
+added: v5.12.0
 -->
 
 * `size` {integer} 新建的 `Buffer` 期望的长度

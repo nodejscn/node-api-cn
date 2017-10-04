@@ -1,7 +1,8 @@
 
 The Core API provides a low-level interface designed specifically around
 support for HTTP/2 protocol features. It is specifically *not* designed for
-compatibility with the existing [HTTP/1][] module API. However, the [Compatibility API][] is.
+compatibility with the existing [HTTP/1][] module API. However,
+the [Compatibility API][] is.
 
 The following illustrates a simple, plain-text HTTP/2 server using the
 Core API:

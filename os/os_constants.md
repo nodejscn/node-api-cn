@@ -5,5 +5,5 @@ added: v6.3.0
 * {Object}
 
 返回一个包含错误码,处理信号等通用的操作系统特定常量的对象.
-现在, 这些特定的常量的定义被描述在[OS Constants][].
+现在, 这些特定的常量的定义被描述在[OS Constants](#os_os_constants_1)。
 

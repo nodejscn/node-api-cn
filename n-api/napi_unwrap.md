@@ -8,8 +8,8 @@ napi_status napi_unwrap(napi_env env,
 ```
 
  - `[in] env`: The environment that the API is invoked under.
- - `[in] js_object`: The object associated with the C++ class instance.
- - `[out] result`: Pointer to the wrapped C++ class instance.
+ - `[in] js_object`: The object associated with the native instance.
+ - `[out] result`: Pointer to the wrapped native instance.
 
 Returns `napi_ok` if the API succeeded.
 

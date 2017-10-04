@@ -1,4 +1,4 @@
 [Chrome Debugging Protocol]: https://chromedevtools.github.io/debugger-protocol-viewer/
-[TCP-based protocol]: #debugger_tcp_based_protocol
+[V8 Inspector]: #debugger_v8_inspector_integration_for_node_js
 
-[基于 TCP 协议]: #debugger_tcp_based_protocol
+[V8检查器]: #debugger_v8_inspector_integration_for_node_js

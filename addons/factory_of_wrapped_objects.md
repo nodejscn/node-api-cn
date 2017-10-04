@@ -33,7 +33,7 @@ void InitAll(Local<Object> exports, Local<Object> module) {
   NODE_SET_METHOD(module, "exports", CreateObject);
 }
 
-NODE_MODULE(addon, InitAll)
+NODE_MODULE(NODE_GYP_MODULE_NAME, InitAll)
 
 }  // namespace demo
 ```

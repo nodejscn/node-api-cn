@@ -1,5 +1,7 @@
 
-> Stability: 2 - Stable
+<!--introduced_in=v0.10.0-->
+
+> 稳定性: 2 - 稳定的
 
 <!--name=vm-->
 
