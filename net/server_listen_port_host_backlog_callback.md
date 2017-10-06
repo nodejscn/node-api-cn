@@ -7,17 +7,10 @@ added: v0.1.90
 * `callback` {Function} Common parameter of [`server.listen()`][] functions
 * Returns: {net.Server}
 
-Start a TCP server listening for connections on the given `port` and `host`.
+启动一个TCP服务监听输入的`port`和`host`。
 
-If `port` is omitted or is 0, the operating system will assign an arbitrary
-unused port, which can be retrieved by using `server.address().port`
-after the [`'listening'`][] event has been emitted.
+如果`port`省略或是0，系统会随意分配一个在[`'listening'`][]事件触发后能被`server.address().port`检索的无用端口。
 
-If `host` is omitted, the server will accept connections on the
-[unspecified IPv6 address][] (`::`) when IPv6 is available, or the
-[unspecified IPv4 address][] (`0.0.0.0`) otherwise.
+如果`host`省略，如果IPv6可用，服务器将会接收基于[unspecified IPv6 address][] (`::`)的连接，否则接收基于[unspecified IPv4 address][] (`0.0.0.0`)的连接
 
-*Note*: In most operating systems, listening to the
-[unspecified IPv6 address][] (`::`) may cause the `net.Server` to also listen on
-the [unspecified IPv4 address][] (`0.0.0.0`).
-
+*Note*: 在大多数的系统, 监听[unspecified IPv6 address][] (`::`)可能导致`net.Server`也监听[unspecified IPv4 address][] (`0.0.0.0`).
