@@ -6,20 +6,16 @@ changes:
     description: Support values exceeding the 32-bit unsigned integer range.
 -->
 
-Returns statistics about the V8 heap spaces, i.e. the segments which make up
-the V8 heap. Neither the ordering of heap spaces, nor the availability of a
-heap space can be guaranteed as the statistics are provided via the V8
-[`GetHeapSpaceStatistics`][] function and may change from one V8 version to the
-next.
+返回关于v8堆空间的统计,即组成v8堆的片段。通过V8 [`GetHeapSpaceStatistics`][] 函数提供统计信息，无论堆空间的顺序，或是堆空间的可用性都可以被保证，并且可能是多个V8版本。
 
-The value returned is an array of objects containing the following properties:
+返回一个数组包含如下属性：
 * `space_name` {string}
 * `space_size` {number}
 * `space_used_size` {number}
 * `space_available_size` {number}
 * `physical_space_size` {number}
 
-For example:
+例如:
 
 ```json
 [
