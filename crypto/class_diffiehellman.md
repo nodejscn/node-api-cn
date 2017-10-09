@@ -2,11 +2,8 @@
 added: v0.5.0
 -->
 
-The `DiffieHellman` class is a utility for creating Diffie-Hellman key
-exchanges.
-
-Instances of the `DiffieHellman` class can be created using the
-[`crypto.createDiffieHellman()`][] function.
+`DiffieHellman`类是一个用来创建Diffie-Hellman键交换的工具。
+`DiffieHellman`类的实例可以使用[`crypto.createDiffieHellman()`][]方法。
 
 ```js
 const crypto = require('crypto');

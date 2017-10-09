@@ -26,7 +26,7 @@ hmac.write('some data to hash');
 hmac.end();
 ```
 
-Example: Using `Hmac` and piped streams:
+示例：使用`Hmac`和管道流
 
 ```js
 const crypto = require('crypto');
@@ -37,7 +37,7 @@ const input = fs.createReadStream('test.js');
 input.pipe(hmac).pipe(process.stdout);
 ```
 
-Example: Using the [`hmac.update()`][] and [`hmac.digest()`][] methods:
+示例：使用[`hmac.update()`][]和[`hmac.digest()`][]方法
 
 ```js
 const crypto = require('crypto');

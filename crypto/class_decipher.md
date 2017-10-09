@@ -2,19 +2,15 @@
 added: v0.1.94
 -->
 
-Instances of the `Decipher` class are used to decrypt data. The class can be
-used in one of two ways:
+`Decipher`类的实例用于解密数据。这个类可以用在以下两种方法中的一种:
 
-- As a [stream][] that is both readable and writable, where plain encrypted
-  data is written to produce unencrypted data on the readable side, or
-- Using the [`decipher.update()`][] and [`decipher.final()`][] methods to
-  produce the unencrypted data.
+- 作为[stream][]，既可读，又可写，加密数据的编写是为了在可读的方面生成未加密的数据
+- 使用[`decipher.update()`][]和[`decipher.final()`][]方法产生未加密的数据。
 
-The [`crypto.createDecipher()`][] or [`crypto.createDecipheriv()`][] methods are
-used to create `Decipher` instances. `Decipher` objects are not to be created
-directly using the `new` keyword.
+[`crypto.createDecipher()`][]或[`crypto.createDecipheriv()`][]的方法
+用于创建`Decipher`实例。`Decipher`对象不能直接使用`new`关键字创建。
 
-Example: Using `Decipher` objects as streams:
+示例:使用`Decipher`对象作为流:
 
 ```js
 const crypto = require('crypto');
@@ -37,7 +33,7 @@ decipher.write(encrypted, 'hex');
 decipher.end();
 ```
 
-Example: Using `Decipher` and piped streams:
+示例:使用`Decipher`和管道流:
 
 ```js
 const crypto = require('crypto');
@@ -50,7 +46,7 @@ const output = fs.createWriteStream('test.js');
 input.pipe(decipher).pipe(output);
 ```
 
-Example: Using the [`decipher.update()`][] and [`decipher.final()`][] methods:
+示例:使用[`decipher.update()`][]和[`decipher.final()`][]方法:
 
 ```js
 const crypto = require('crypto');

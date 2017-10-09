@@ -2,18 +2,14 @@
 added: v0.1.92
 -->
 
-The `Sign` Class is a utility for generating signatures. It can be used in one
-of two ways:
+“Sign”类是生成签名的实用工具。它有两种使用方式:
 
-- As a writable [stream][], where data to be signed is written and the
-  [`sign.sign()`][] method is used to generate and return the signature, or
-- Using the [`sign.update()`][] and [`sign.sign()`][] methods to produce the
-  signature.
+- 作为一个可写的[stream][]，在这里，要签署的数据是写出来的，[`sign.sign()`][]方法用于生成并返回签名
+- 使用[`sign.update()`][]和[`sign.sign()`][]方法生产签名。
 
-The [`crypto.createSign()`][] method is used to create `Sign` instances. `Sign`
-objects are not to be created directly using the `new` keyword.
+[`crypto.createSign()`][]方法用于创建`Sign`实例。`Sign`实例不能直接使用`new`关键字创建。
 
-Example: Using `Sign` objects as streams:
+示例:使用“符号”对象作为流:
 
 ```js
 const crypto = require('crypto');
@@ -27,7 +23,7 @@ console.log(sign.sign(privateKey, 'hex'));
 // Prints: the calculated signature
 ```
 
-Example: Using the [`sign.update()`][] and [`sign.sign()`][] methods:
+示例：使用[`sign.update()`][]和[`sign.sign()`][]方法：
 
 ```js
 const crypto = require('crypto');
@@ -40,12 +36,9 @@ console.log(sign.sign(privateKey, 'hex'));
 // Prints: the calculated signature
 ```
 
-A `Sign` instance can also be created by just passing in the digest
-algorithm name, in which case OpenSSL will infer the full signature algorithm
-from the type of the PEM-formatted private key, including algorithms that
-do not have directly exposed name constants, e.g. 'ecdsa-with-SHA256'.
+一个`Sign`实例也可以通过仅仅通过摘要来创建算法名称，在这种情况下，OpenSSL将会从PEM-formatted私钥的类型推断出完整的签名算法，包括不直接暴露姓名常数的算法。比如'ecdsa-with-SHA256'。
 
-Example: signing using ECDSA with SHA256
+示例:使用ECDSA与SHA256进行签名
 
 ```js
 const crypto = require('crypto');
