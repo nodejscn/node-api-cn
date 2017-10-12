@@ -2,41 +2,34 @@
 added: v8.5.0
 -->
 
-* `src` {string|Buffer|URL} source filename to copy
-* `dest` {string|Buffer|URL} destination filename of the copy operation
-* `flags` {number} modifiers for copy operation. **Default:** `0`
+* `src` {string|Buffer|URL} 要被拷贝的源文件名称
+* `dest` {string|Buffer|URL} 拷贝操作的目标文件名
+* `flags` {number} 拷贝操作修饰符 **默认:** `0`
 * `callback` {Function}
 
-Asynchronously copies `src` to `dest`. By default, `dest` is overwritten if it
-already exists. No arguments other than a possible exception are given to the
-callback function. Node.js makes no guarantees about the atomicity of the copy
-operation. If an error occurs after the destination file has been opened for
-writing, Node.js will attempt to remove the destination.
+异步的将 `src` 拷贝到 `dest`。Asynchronously copies `src` to `dest`. 默认情况下，如果 `dest` 已经存在会被覆盖。回调函数没有给出除了异常以外的参数。Node.js 不能保证拷贝操作的原子性。如果目标文件打开后出现错误，Node.js 将尝试删除它。
 
-`flags` is an optional integer that specifies the behavior
-of the copy operation. The only supported flag is `fs.constants.COPYFILE_EXCL`,
-which causes the copy operation to fail if `dest` already exists.
+`flags` 是一个可选的整数，用于指定行为的拷贝操作。唯一支持的 flag 是 `fs.constants.COPYFILE_EXCL` ，如果 `dest` 已经存在，则会导致拷贝操作失败。
 
-Example:
+例:
 
 ```js
 const fs = require('fs');
 
-// destination.txt will be created or overwritten by default.
+// 默认情况下，destination.txt 将创建或覆盖
 fs.copyFile('source.txt', 'destination.txt', (err) => {
   if (err) throw err;
   console.log('source.txt was copied to destination.txt');
 });
 ```
 
-If the third argument is a number, then it specifies `flags`, as shown in the
-following example.
+如果第三个参数是数字，那么肯定是 `flags`，代码如下所示:  
 
 ```js
 const fs = require('fs');
 const { COPYFILE_EXCL } = fs.constants;
 
-// By using COPYFILE_EXCL, the operation will fail if destination.txt exists.
+// 使用 COPYFILE_EXCL ，如果 destination.txt 文件存在，操作将失败。
 fs.copyFile('source.txt', 'destination.txt', COPYFILE_EXCL, callback);
 ```
 
