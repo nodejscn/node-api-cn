@@ -2,7 +2,7 @@
 added: v7.10.0
 -->
 
-* `buffer` {Buffer|Uint8Array} Must be supplied.
+* `buffer` {Buffer|Uint8Array}必须被支持.
 * `offset` {number} Defaults to `0`.
 * `size` {number} Defaults to `buffer.length - offset`.
 * `callback` {Function} `function(err, buf) {}`.
