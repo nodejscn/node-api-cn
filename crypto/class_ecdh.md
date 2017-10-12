@@ -2,11 +2,8 @@
 added: v0.11.14
 -->
 
-The `ECDH` class is a utility for creating Elliptic Curve Diffie-Hellman (ECDH)
-key exchanges.
-
-Instances of the `ECDH` class can be created using the
-[`crypto.createECDH()`][] function.
+`ECDH`类是创建椭圆曲线Diffie-Hellman（Elliptic Curve Diffie-Hellman (ECDH)）键交换的实用工具。
+`ECDH`类的实例可以使用[`crypto.createECDH()`][]方法。
 
 ```js
 const crypto = require('crypto');

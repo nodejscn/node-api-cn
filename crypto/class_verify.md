@@ -1,19 +1,15 @@
 <!-- YAML
 added: v0.1.92
 -->
+`Verify`类是验证签名的工具。它可以两种方式使用:
 
-The `Verify` class is a utility for verifying signatures. It can be used in one
-of two ways:
+- 作为可写的[stream][]，使用书面数据来验证提供的签名
+- 使用[`verify.update()`][]和[`verify.verify()`][]的方法来验证签名。
 
-- As a writable [stream][] where written data is used to validate against the
-  supplied signature, or
-- Using the [`verify.update()`][] and [`verify.verify()`][] methods to verify
-  the signature.
+[`crypto.createVerify()`][]方法用于创建`Verify`实例。
+`Verify`对象不能直接使用`new`关键字创建。
 
-The [`crypto.createVerify()`][] method is used to create `Verify` instances.
-`Verify` objects are not to be created directly using the `new` keyword.
-
-Example: Using `Verify` objects as streams:
+示例:使用“验证”对象作为流:
 
 ```js
 const crypto = require('crypto');
@@ -28,7 +24,7 @@ console.log(verify.verify(publicKey, signature));
 // Prints: true or false
 ```
 
-Example: Using the [`verify.update()`][] and [`verify.verify()`][] methods:
+示例：使用[`verify.update()`][]和[`verify.verify()`][]方法
 
 ```js
 const crypto = require('crypto');

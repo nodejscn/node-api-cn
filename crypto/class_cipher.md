@@ -2,19 +2,14 @@
 added: v0.1.94
 -->
 
-Instances of the `Cipher` class are used to encrypt data. The class can be
-used in one of two ways:
+`Cipher`类的实例用于加密数据。这个类可以用在以下两种方法中的一种:
 
-- As a [stream][] that is both readable and writable, where plain unencrypted
-  data is written to produce encrypted data on the readable side, or
-- Using the [`cipher.update()`][] and [`cipher.final()`][] methods to produce
-  the encrypted data.
+- 作为[stream][]，既可读又可写，未加密数据的编写是为了在可读的方面生成加密的数据，或者
+- 使用[`cipher.update()`][]和[`cipher.final()`][]方法产生加密的数据。
 
-The [`crypto.createCipher()`][] or [`crypto.createCipheriv()`][] methods are
-used to create `Cipher` instances. `Cipher` objects are not to be created
-directly using the `new` keyword.
+[`crypto.createCipher()`][]或[`crypto.createCipheriv()`][]方法用于创建`Cipher`实例。`Cipher`对象不能直接使用`new`关键字创建。
 
-Example: Using `Cipher` objects as streams:
+示例:使用`Cipher`对象作为流:
 
 ```js
 const crypto = require('crypto');
@@ -35,7 +30,7 @@ cipher.write('some clear text data');
 cipher.end();
 ```
 
-Example: Using `Cipher` and piped streams:
+示例:使用`Cipher`和管道流:
 
 ```js
 const crypto = require('crypto');
@@ -48,7 +43,7 @@ const output = fs.createWriteStream('test.enc');
 input.pipe(cipher).pipe(output);
 ```
 
-Example: Using the [`cipher.update()`][] and [`cipher.final()`][] methods:
+示例:使用[`cipher.update()`][]和[`cipher.final()`][]方法:
 
 ```js
 const crypto = require('crypto');
