@@ -1,6 +1,6 @@
 module.exports = [
     ['fs_file_system', 'fs (文件系统)'],
-    ['threadpool_usage', '线程池的使用'],
+    ['fs_threadpool_usage', '线程池的使用'],
     ['fs_class_fs_fswatcher', 'fs.FSWatcher 类'],
     ['fs_event_change', "'change' 事件"],
     ['fs_event_error', "'error' 事件"],
