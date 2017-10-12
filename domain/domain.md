@@ -6,6 +6,8 @@ changes:
                  the first promise of a chain was created.
 -->
 
+<!--introduced_in=v0.10.0-->
+
 > Stability: 0 - Deprecated
 
 **This module is pending deprecation**. Once a replacement API has been

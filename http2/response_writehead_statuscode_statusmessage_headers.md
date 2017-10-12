@@ -9,7 +9,7 @@ added: v8.4.0
 Sends a response header to the request. The status code is a 3-digit HTTP
 status code, like `404`. The last argument, `headers`, are the response headers.
 
-For compatibility with [HTTP/1](), a human-readable `statusMessage` may be
+For compatibility with [HTTP/1][], a human-readable `statusMessage` may be
 passed as the second argument. However, because the `statusMessage` has no
 meaning within HTTP/2, the argument will have no effect and a process warning
 will be emitted.

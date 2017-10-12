@@ -20,6 +20,9 @@ added: v0.6.0
 值为`true`,否则为`false`
 * `scopeid` {number} IPv6 数字领域识别码 (只有当 `family`
 是`IPv6`时可用)
+* `cidr` {string} The assigned IPv4 or IPv6 address with the routing prefix
+  in CIDR notation. If the `netmask` is invalid, this property is set
+  to `null`
 
 <!-- eslint-skip -->
 ```js
@@ -30,14 +33,16 @@ added: v0.6.0
       netmask: '255.0.0.0',
       family: 'IPv4',
       mac: '00:00:00:00:00:00',
-      internal: true
+      internal: true,
+      cidr: '127.0.0.1/8'
     },
     {
       address: '::1',
       netmask: 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff',
       family: 'IPv6',
       mac: '00:00:00:00:00:00',
-      internal: true
+      internal: true,
+      cidr: '::1/128'
     }
   ],
   eth0: [
@@ -46,14 +51,16 @@ added: v0.6.0
       netmask: '255.255.255.0',
       family: 'IPv4',
       mac: '01:02:03:0a:0b:0c',
-      internal: false
+      internal: false,
+      cidr: '192.168.1.108/24'
     },
     {
       address: 'fe80::a00:27ff:fe4e:66a1',
       netmask: 'ffff:ffff:ffff:ffff::',
       family: 'IPv6',
       mac: '01:02:03:0a:0b:0c',
-      internal: false
+      internal: false,
+      cidr: 'fe80::a00:27ff:fe4e:66a1/64'
     }
   ]
 }

@@ -2,7 +2,7 @@
 * `size` {number} Number of bytes to read asynchronously
 
 *Note*: This function MUST NOT be called by application code directly. It
-should be implemented by child classes, and called only by the internal Readable
+should be implemented by child classes, and called by the internal Readable
 class methods only.
 
 All Readable stream implementations must provide an implementation of the
@@ -27,4 +27,3 @@ provide data whenever it becomes available. There is no need to "wait" until
 The `readable._read()` method is prefixed with an underscore because it is
 internal to the class that defines it, and should never be called directly by
 user programs.
-

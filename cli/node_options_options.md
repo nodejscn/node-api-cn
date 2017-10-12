@@ -14,7 +14,6 @@ Node options that are allowed are:
 - `--inspect-brk`
 - `--inspect-port`
 - `--inspect`
-- `--napi-modules`
 - `--no-deprecation`
 - `--no-warnings`
 - `--openssl-config`
@@ -36,4 +35,3 @@ Node options that are allowed are:
 V8 options that are allowed are:
 - `--abort-on-uncaught-exception`
 - `--max-old-space-size`
-

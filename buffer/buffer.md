@@ -1,4 +1,6 @@
 
+<!--introduced_in=v0.10.0-->
+
 > 稳定性: 2 - 稳定的
 
 在 ECMAScript 2015 (ES6) 引入 [`TypedArray`] 之前，JavaScript 语言没有读取或操作二进制数据流的机制。

@@ -1,5 +1,5 @@
 
-Below is another example with additional information about the calls to
+The following is an example with additional information about the calls to
 `init` between the `before` and `after` calls, specifically what the
 callback to `listen()` will look like. The output formatting is slightly more
 elaborate to make calling context easier to see.
@@ -75,10 +75,10 @@ Only using `execution` to graph resource allocation results in the following:
 TTYWRAP(6) -> Timeout(4) -> TIMERWRAP(5) -> TickObject(3) -> root(1)
 ```
 
-The `TCPWRAP` isn't part of this graph; even though it was the reason for
+The `TCPWRAP` is not part of this graph; even though it was the reason for
 `console.log()` being called. This is because binding to a port without a
-hostname is actually synchronous, but to maintain a completely asynchronous API
-the user's callback is placed in a `process.nextTick()`.
+hostname is a *synchronous* operation, but to maintain a completely asynchronous
+API the user's callback is placed in a `process.nextTick()`.
 
 The graph only shows *when* a resource was created, not *why*, so to track
 the *why* use `triggerAsyncId`.

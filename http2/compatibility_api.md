@@ -1,8 +1,8 @@
 
 The Compatibility API has the goal of providing a similar developer experience
 of HTTP/1 when using HTTP/2, making it possible to develop applications
-that supports both [HTTP/1](HTTP/1) and HTTP/2. This API targets only the
-**public API** of the [HTTP/1](HTTP/1), however many modules uses internal
+that supports both [HTTP/1][] and HTTP/2. This API targets only the
+**public API** of the [HTTP/1][], however many modules uses internal
 methods or state, and those _are not supported_ as it is a completely
 different implementation.
 

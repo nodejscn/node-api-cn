@@ -12,7 +12,8 @@ const eid = async_hooks.executionAsyncId();
 const tid = async_hooks.triggerAsyncId();
 
 // Create a new AsyncHook instance. All of these callbacks are optional.
-const asyncHook = async_hooks.createHook({ init, before, after, destroy });
+const asyncHook =
+    async_hooks.createHook({ init, before, after, destroy, promiseResolve });
 
 // Allow callbacks of this AsyncHook instance to call. This is not an implicit
 // action after running the constructor, and must be explicitly run to begin
@@ -41,5 +42,10 @@ function after(asyncId) { }
 
 // destroy is called when an AsyncWrap instance is destroyed.
 function destroy(asyncId) { }
+
+// promiseResolve is called only for promise resources, when the
+// `resolve` function passed to the `Promise` constructor is invoked
+// (either directly or through other means of resolving a promise).
+function promiseResolve(asyncId) { }
 ```
 

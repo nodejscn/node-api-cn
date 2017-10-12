@@ -54,7 +54,7 @@ void init(Local<Object> exports) {
   AtExit(sanity_check);
 }
 
-NODE_MODULE(addon, init)
+NODE_MODULE(NODE_GYP_MODULE_NAME, init)
 
 }  // namespace demo
 ```

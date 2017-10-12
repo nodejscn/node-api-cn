@@ -22,8 +22,8 @@ in as arguments to the function.
 Returns `napi_ok` if the API succeeded.
 
 This method allows a JavaScript function object to be called from a native
-add-on. This is an primary mechanism of calling back *from* the add-on's
-native code *into* JavaScript. For special cases like calling into JavaScript
+add-on. This is the primary mechanism of calling back *from* the add-on's
+native code *into* JavaScript. For the special case of calling into JavaScript
 after an async operation, see [`napi_make_callback`][].
 
 A sample use case might look as follows. Consider the following JavaScript

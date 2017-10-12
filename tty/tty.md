@@ -1,4 +1,6 @@
 
+<!--introduced_in=v0.10.0-->
+
 > 稳定性: 2 - 稳定的
 
 `tty` 模块提供了 `tty.ReadStream` 类和 `tty.WriteStream` 类。

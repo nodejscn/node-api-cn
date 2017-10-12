@@ -2,8 +2,4 @@
 added: v8.0.0
 -->
 
-Returns an integer representing a "version tag" derived from the V8 version,
-command line flags and detected CPU features. This is useful for determining
-whether a [`vm.Script`][] `cachedData` buffer is compatible with this instance
-of V8.
-
+返回一个表示从V8版本，命令行标志和已检测到的CPU功能派生的“version tag”的整数。这对于判断[`vm.Script`][] `cachedData`是否兼容当前v8实例非常有用。

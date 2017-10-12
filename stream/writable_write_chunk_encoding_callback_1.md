@@ -16,7 +16,7 @@ resource.
 [`writable._write()`][stream-_write].
 
 *Note*: This function MUST NOT be called by application code directly. It
-should be implemented by child classes, and called only by the internal Writable
+should be implemented by child classes, and called by the internal Writable
 class methods only.
 
 The `callback` method must be called to signal either that the write completed
@@ -42,4 +42,3 @@ object that is passed to `.write()`.
 The `writable._write()` method is prefixed with an underscore because it is
 internal to the class that defines it, and should never be called directly by
 user programs.
-

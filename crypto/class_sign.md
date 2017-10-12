@@ -13,21 +13,23 @@ added: v0.1.92
 
 ```js
 const crypto = require('crypto');
-const sign = crypto.createSign('RSA-SHA256');
+const sign = crypto.createSign('SHA256');
 
 sign.write('some data to sign');
 sign.end();
 
 const privateKey = getPrivateKeySomehow();
 console.log(sign.sign(privateKey, 'hex'));
-// Prints: the calculated signature
+// Prints: the calculated signature using the specified private key and
+// SHA-256. For RSA keys, the algorithm is RSASSA-PKCS1-v1_5 (see padding
+// parameter below for RSASSA-PSS). For EC keys, the algorithm is ECDSA.
 ```
 
 示例：使用[`sign.update()`][]和[`sign.sign()`][]方法：
 
 ```js
 const crypto = require('crypto');
-const sign = crypto.createSign('RSA-SHA256');
+const sign = crypto.createSign('SHA256');
 
 sign.update('some data to sign');
 
@@ -42,17 +44,11 @@ console.log(sign.sign(privateKey, 'hex'));
 
 ```js
 const crypto = require('crypto');
-const sign = crypto.createSign('sha256');
+const sign = crypto.createSign('RSA-SHA256');
 
 sign.update('some data to sign');
 
-const privateKey =
-`-----BEGIN EC PRIVATE KEY-----
-MHcCAQEEIF+jnWY1D5kbVYDNvxxo/Y+ku2uJPDwS0r/VuPZQrjjVoAoGCCqGSM49
-AwEHoUQDQgAEurOxfSxmqIRYzJVagdZfMMSjRNNhB8i3mXyIMq704m2m52FdfKZ2
-pQhByd5eyj3lgZ7m7jbchtdgyOF8Io/1ng==
------END EC PRIVATE KEY-----`;
-
-console.log(sign.sign(privateKey).toString('hex'));
+const privateKey = getPrivateKeySomehow();
+console.log(sign.sign(privateKey, 'hex'));
+// Prints: the calculated signature
 ```
-

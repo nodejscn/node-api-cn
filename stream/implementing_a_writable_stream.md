@@ -1,7 +1,4 @@
+这个`stream.Writeable`类被用于实现可写流。
 
-The `stream.Writable` class is extended to implement a [Writable][] stream.
-
-Custom Writable streams *must* call the `new stream.Writable([options])`
-constructor and implement the `writable._write()` method. The
-`writable._writev()` method *may* also be implemented.
+自定义可写流必须调用`new stream.Writeable([options])`构造函数并且实现`writeable._write()`方法。`writeable._writev()`方法也是可以实现的。
 

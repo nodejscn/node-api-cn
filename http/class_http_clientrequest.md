@@ -4,8 +4,8 @@ added: v0.1.17
 
 该对象在 [`http.request()`] 内部被创建并返回。
 它表示着一个正在处理的请求，其请求头已进入队列。
-请求头仍可使用 `setHeader(name, value)`、`getHeader(name)` 和 `removeHeader(name)` API 进行修改。
-实际的请求头会与第一个数据块一起发送或当关闭连接时发送。
+请求头仍可使用 [`setHeader(name, value)`]、[`getHeader(name)`] 和 [`removeHeader(name)`] API 进行修改。
+实际的请求头会与第一个数据块一起发送或当调用 [`request.end()`] 时发送。
 
 要获取响应，需为 [`'response'`] 事件添加一个监听器到请求对象上。
 当响应头被接收到时，[`'response'`] 事件会从请求对象上被触发 。

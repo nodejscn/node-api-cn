@@ -1,8 +1,8 @@
 
 * `options` {Object}
-  * `highWaterMark` {number} The maximum number of bytes to store in
-    the internal buffer before ceasing to read from the underlying
-    resource. Defaults to `16384` (16kb), or `16` for `objectMode` streams
+  * `highWaterMark` {number} The maximum [number of bytes][hwm-gotcha] to store
+    in the internal buffer before ceasing to read from the underlying resource.
+    Defaults to `16384` (16kb), or `16` for `objectMode` streams
   * `encoding` {string} If specified, then buffers will be decoded to
     strings using the specified encoding. Defaults to `null`
   * `objectMode` {boolean} Whether this stream should behave
@@ -52,4 +52,3 @@ const myReadable = new Readable({
   }
 });
 ```
-

@@ -9,7 +9,7 @@ changes:
 * `options` {Object | string | URL}
   * `protocol` {string} 使用的协议。默认为 `http:`。
   * `host` {string} 请求发送至的服务器的域名或 IP 地址。默认为 `localhost`。
-  * `hostname` {string} `host` 的别名。为了支持 [`url.parse()`]，`hostname` 优于 `host`。
+  * `hostname` {string} `host` 的别名。为了支持 [`url.parse()`]，`hostname` 优先于 `host`。
   * `family` {number} 当解析 `host` 和 `hostname` 时使用的 IP 地址族。
     有效值是 `4` 或 `6`。当未指定时，则同时使用 IP v4 和 v6。
   * `port` {number} 远程服务器的端口。默认为 `80`。
@@ -39,7 +39,7 @@ Node.js 为每台服务器维护多个连接来进行 HTTP 请求。
 
 `options` 可以是一个对象、或字符串、或 [`URL`] 对象。
 如果 `options` 是一个字符串，它会被自动使用 [`url.parse()`] 解析。
-If it is a [`URL`][] object, it will be automatically converted to an ordinary `options` object.
+如果它是一个 [`URL`][] 对象, 它会被默认转换成一个 `options` 对象。
 
 可选的 `callback` 参数会作为单次监听器被添加到 [`'response'`] 事件。
 

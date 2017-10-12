@@ -2,6 +2,7 @@
 added: v8.4.0
 -->
 
-Throws an error as the `'continue'` flow is not current implemented. Added for
-parity with [HTTP/1]().
+Sends a status `100 Continue` to the client, indicating that the request body
+should be sent. See the [`'checkContinue'`][] event on `Http2Server` and
+`Http2SecureServer`.
 

@@ -40,7 +40,10 @@ The documentation for N-API is structured as follows:
 * [Working with JavaScript Properties][]
 * [Working with JavaScript Functions][]
 * [Object Wrap][]
-* [Asynchronous Operations][]
+* [Simple Asynchronous Operations][]
+* [Custom Asynchronous Operations][]
+* [Promises][]
+* [Script Execution][]
 
 The N-API is a C API that ensures ABI stability across Node.js versions
 and different compiler levels. However, we also understand that a C++
@@ -57,13 +60,5 @@ which is located in the src directory in the node development tree.
 For example:
 ```C
 #include <node_api.h>
-```
-
-As the feature is experimental it must be enabled with the
-following command line
-[option](https://nodejs.org/dist/latest-v8.x/docs/api/cli.html#cli_napi_modules):
-
-```bash
---napi-modules
 ```
 

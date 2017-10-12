@@ -1,4 +1,5 @@
 
+<!--introduced_in=v0.10.0-->
 <!-- type=misc -->
 
 本文档的目的是为了全面地讲解 Node.js 的 API，包括使用方法与相关概念。

@@ -10,7 +10,6 @@ typedef struct {
   const char* release;
 } napi_node_version;
 
-NAPI_EXTERN
 napi_status napi_get_node_version(napi_env env,
                                   const napi_node_version** version);
 ```

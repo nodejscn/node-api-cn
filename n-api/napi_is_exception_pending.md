@@ -2,7 +2,7 @@
 added: v8.0.0
 -->
 ```C
-NAPI_EXTERN napi_status napi_is_exception_pending(napi_env env, bool* result);
+napi_status napi_is_exception_pending(napi_env env, bool* result);
 ```
 
 - `[in] env`: The environment that the API is invoked under.

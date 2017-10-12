@@ -5,6 +5,7 @@
 [SlowBuffer]: buffer.html#buffer_class_slowbuffer
 [debugger]: debugger.html
 [emit_warning]: process.html#process_process_emitwarning_warning_type_code_ctor
+[libuv threadpool documentation]: http://docs.libuv.org/en/latest/threadpool.html
 
 [调试器]: debugger.html
 [`process.emitWarning()`]: process.html#process_process_emitwarning_warning_type_code_ctor

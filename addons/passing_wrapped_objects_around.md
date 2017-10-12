@@ -41,7 +41,7 @@ void InitAll(Local<Object> exports) {
   NODE_SET_METHOD(exports, "add", Add);
 }
 
-NODE_MODULE(addon, InitAll)
+NODE_MODULE(NODE_GYP_MODULE_NAME, InitAll)
 
 }  // namespace demo
 ```

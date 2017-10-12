@@ -4,9 +4,7 @@ added: v0.1.104
 
 * {string}
 
-The `process.title` property returns the current process title (i.e. returns
-the current value of `ps`). Assigning a new value to `process.title` modifies
-the current value of `ps`.
+`process.title` 属性用于获取或设置当前进程在 `ps` 命令中显示的进程名字
 
 *Note*: When a new value is assigned, different platforms will impose
 different maximum length restrictions on the title. Usually such restrictions

@@ -5,8 +5,7 @@ added: v8.4.0
 * `options` {Object}
   * `allowHTTP1` {boolean} Incoming client connections that do not support
     HTTP/2 will be downgraded to HTTP/1.x when set to `true`. The default value
-    is `false`. See the [`'unknownProtocol'`][] event. See [ALPN
-    negotiation](#alpn-negotiation).
+    is `false`. See the [`'unknownProtocol'`][] event. See [ALPN negotiation][].
   * `maxDeflateDynamicTableSize` {number} Sets the maximum dynamic table size
     for deflating header fields. Defaults to 4Kib.
   * `maxSendHeaderBlockLength` {number} Sets the maximum allowed size for a
@@ -49,7 +48,7 @@ const options = {
   cert: fs.readFileSync('server-cert.pem')
 };
 
-// Create a plain-text HTTP/2 server
+// Create a secure HTTP/2 server
 const server = http2.createSecureServer(options);
 
 server.on('stream', (stream, headers) => {

@@ -26,10 +26,10 @@ changes:
 例子：
 
 ```js
-fs.mkdtemp('/tmp/foo-', (err, folder) => {
+fs.mkdtemp(path.join(os.tmpdir(), 'foo-'), (err, folder) => {
   if (err) throw err;
   console.log(folder);
-  // 输出: /tmp/foo-itXde2
+  // 输出: /tmp/foo-itXde2 or C:\Users\...\AppData\Local\Temp\foo-itXde2
 });
 ```
 
@@ -38,7 +38,7 @@ fs.mkdtemp('/tmp/foo-', (err, folder) => {
 
 ```js
 // 新建的临时目录的父目录
-const tmpDir = '/tmp';
+const tmpDir = os.tmpdir();
 
 // 该方法是 *错误的*：
 fs.mkdtemp(tmpDir, (err, folder) => {

@@ -1,5 +1,5 @@
 
-The `type` is a string that represents the type of resource that caused
+The `type` is a string identifying the type of resource that caused
 `init` to be called. Generally, it will correspond to the name of the
 resource's constructor.
 

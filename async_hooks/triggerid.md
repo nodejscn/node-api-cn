@@ -1,6 +1,6 @@
 
-`triggerAsyncId` is the `asyncId` of the resource that caused (or "triggered") the
-new resource to initialize and that caused `init` to call. This is different
+`triggerAsyncId` is the `asyncId` of the resource that caused (or "triggered")
+the new resource to initialize and that caused `init` to call. This is different
 from `async_hooks.executionAsyncId()` that only shows *when* a resource was
 created, while `triggerAsyncId` shows *why* a resource was created.
 

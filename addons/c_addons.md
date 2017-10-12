@@ -1,4 +1,6 @@
 
+<!--introduced_in=v0.10.0-->
+
 Node.js 插件是用 C++ 编写的动态链接共享对象，可以使用 [`require()`] 函数加载到 Node.js 中，且像普通的 Node.js 模块一样被使用。
 它们主要用于为运行在 Node.js 中的 JavaScript 与 C/C++ 库之间提供接口。
 

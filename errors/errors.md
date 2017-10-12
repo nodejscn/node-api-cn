@@ -1,4 +1,5 @@
 
+<!--introduced_in=v4.0.0-->
 <!--type=misc-->
 
 Node.js 中运行的应用程序一般会遇到以下四类错误：

@@ -3,7 +3,7 @@ added: v0.1.94
 changes:
   - version: v6.0.0
     pr-url: https://github.com/nodejs/node/pull/5522
-    描述: 默认`inputEncoding`由`binary` 变为 `utf8`
+    description: 默认`inputEncoding`由`binary` 变为 `utf8`
 -->
 - `data` {string | Buffer | TypedArray | DataView}
 - `inputEncoding` {string}

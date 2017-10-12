@@ -44,3 +44,4 @@ fd 上的输入和输出期望被分割成一行一行的 JSON 对象。
 
 注意，不像 POSIX 系统回调中的 fork(2)，`child_process.fork()` 不会克隆当前进程。
 
+*Note*: The `shell` option available in [`child_process.spawn()`][] is not supported by `child_process.fork()` and will be ignored if set.

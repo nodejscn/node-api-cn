@@ -52,3 +52,6 @@ crypto.pbkdf2('secret', 'salt', 100000, 512, 'sha512', (err, derivedKey) => {
 An array of supported digest functions can be retrieved using
 [`crypto.getHashes()`][].
 
+Note that this API uses libuv's threadpool, which can have surprising and
+negative performance implications for some applications, see the
+[`UV_THREADPOOL_SIZE`][] documentation for more information.
