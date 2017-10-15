@@ -15,6 +15,8 @@ changes:
 * `options` {string|Object}
   * `encoding` {string} 默认 = `'utf8'`
 * `callback` {Function}
+  * `err` {Error}
+  * `linkString` {string|Buffer}
 
 异步的 readlink(2)。
 回调有两个参数  `(err, linkString)`。

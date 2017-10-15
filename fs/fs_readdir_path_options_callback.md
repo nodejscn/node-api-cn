@@ -18,6 +18,8 @@ changes:
 * `options` {string|Object}
   * `encoding` {string} 默认 = `'utf8'`
 * `callback` {Function}
+  * `err` {Error}
+  * `files` {string[]|Buffer[]}
 
 异步的 readdir(3)。
 读取一个目录的内容。

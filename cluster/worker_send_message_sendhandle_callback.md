@@ -9,7 +9,7 @@ changes:
 * `message` {Object}
 * `sendHandle` {Handle}
 * `callback` {Function}
-* Returns: Boolean
+* 返回: {boolean}
 
 发送一个消息给工作进程或主进程，也可以附带发送一个handle。
 

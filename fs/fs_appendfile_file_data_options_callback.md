@@ -20,6 +20,7 @@ changes:
   * `mode` {integer} 默认为 `0o666`
   * `flag` {string} 默认为 `'a'`
 * `callback` {Function}
+  * `err` {Error}
 
 异步地追加数据到一个文件，如果文件不存在则创建文件。
 `data` 可以是一个字符串或 buffer。

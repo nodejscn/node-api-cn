@@ -28,3 +28,4 @@
 [原型]: https://tc39.github.io/ecma262/#sec-ordinary-object-internal-methods-and-internal-slots
 [类型标签]: https://tc39.github.io/ecma262/#sec-object.prototype.tostring
 [MDN的等式比较指南]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness
+[对象封装器]: https://developer.mozilla.org/en-US/docs/Glossary/Primitive#Primitive_wrapper_objects_in_JavaScript

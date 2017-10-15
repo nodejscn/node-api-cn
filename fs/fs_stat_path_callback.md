@@ -13,6 +13,8 @@ changes:
 
 * `path` {string|Buffer|URL}
 * `callback` {Function}
+  * `err` {Error}
+  * `stats` {fs.Stats}
 
 异步的 stat(2)。
 回调有两个参数 `(err, stats)` 其中 `stats` 是一个 [`fs.Stats`] 对象。

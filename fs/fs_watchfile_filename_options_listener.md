@@ -12,6 +12,8 @@ changes:
   * `persistent` {boolean} **Default:** `true`
   * `interval` {integer} **Default:** `5007`
 * `listener` {Function}
+  * `current` {fs.Stats}
+  * `previous` {fs.Stats}
 
 监视 `filename` 的变化。
 回调 `listener` 会在每次访问文件时被调用。

@@ -9,11 +9,11 @@ changes:
     description: The `shell` option is supported now.
 -->
 
-* `command` {string} 要运行的命令
-* `args` {Array} 字符串参数列表
+* `command` {string} 要运行的命令。
+* `args` {Array} 字符串参数列表。
 * `options` {Object}
-  * `cwd` {string} 子进程的当前工作目录
-  * `env` {Object} 环境变量键值对
+  * `cwd` {string} 子进程的当前工作目录。
+  * `env` {Object} 环境变量键值对。
   * `argv0` {string} 显式地设置要发给子进程的 `argv[0]` 的值。
     如果未指定，则设为 `command`。
   * `stdio` {Array|string} 子进程的 stdio 配置。

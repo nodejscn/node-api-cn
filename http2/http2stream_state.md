@@ -5,8 +5,8 @@ added: v8.4.0
 * Value: {Object}
   * `localWindowSize` {number}
   * `state` {number}
-  * `streamLocalClose` {number}
-  * `streamRemoteClose` {number}
+  * `localClose` {number}
+  * `remoteClose` {number}
   * `sumDependencyWeight` {number}
   * `weight` {number}
 

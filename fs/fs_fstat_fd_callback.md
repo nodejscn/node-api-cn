@@ -9,6 +9,8 @@ changes:
 
 * `fd` {integer}
 * `callback` {Function}
+  * `err` {Error}
+  * `stats` {fs.Stats}
 
 异步的 fstat(2)。
 回调获得两个参数 `(err, stats)`，其中 `stats` 是一个 [`fs.Stats`] 对象。

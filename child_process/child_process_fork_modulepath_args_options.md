@@ -9,16 +9,15 @@ changes:
     description: The `stdio` option is supported now.
 -->
 
-* `modulePath` {string} 要在子进程中运行的模块
-* `args` {Array} 字符串参数列表
+* `modulePath` {string} 要在子进程中运行的模块。
+* `args` {Array} 字符串参数列表。
 * `options` {Object}
-  * `cwd` {string} 子进程的当前工作目录
-  * `env` {Object} 环境变量键值对
-  * `execPath` {string} 用来创建子进程的执行路径
-  * `execArgv` {Array} 要传给执行路径的字符串参数列表
-    （默认: `process.execArgv`）
+  * `cwd` {string} 子进程的当前工作目录。
+  * `env` {Object} 环境变量键值对。
+  * `execPath` {string} 用来创建子进程的执行路径。
+  * `execArgv` {Array} 要传给执行路径的字符串参数列表。默认为 `process.execArgv`。
   * `silent` {boolean} 如果为 `true`，则子进程中的 stdin、 stdout 和 stderr 会被导流到父进程中，否则它们会继承自父进程，详见 [`child_process.spawn()`] 的 [`stdio`] 中的 `'pipe'` 和 `'inherit'` 选项。
-    （默认: `false`）
+  默认: `false`。
   * `stdio` {Array|string} 详见 [`child_process.spawn()`] 的 [`stdio`]。
     当提供了该选项，则它会覆盖 `silent`。
     如果使用了数组变量，则该数组必须包含一个值为 `'ipc'` 的子项，否则会抛出错误。

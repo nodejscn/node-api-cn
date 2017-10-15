@@ -1,5 +1,5 @@
 
-* Returns {number} the ID of the resource responsible for calling the callback
+* Returns: {number} The ID of the resource responsible for calling the callback
   that is currently being executed.
 
 For example:

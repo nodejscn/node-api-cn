@@ -15,6 +15,9 @@ changes:
 * `position` {integer}
 * `encoding` {string}
 * `callback` {Function}
+  * `err` {Error}
+  * `written` {integer}
+  * `string` {string}
 
 写入 `string` 到 `fd` 指定的文件。
 如果 `string` 不是一个字符串，则该值将被强制转换为一个字符串。

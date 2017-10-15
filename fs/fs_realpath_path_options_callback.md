@@ -25,6 +25,8 @@ changes:
 * `options` {string|Object}
   * `encoding` {string} 默认 = `'utf8'`
 * `callback` {Function}
+  * `err` {Error}
+  * `resolvedPath` {string|Buffer}
 
 异步的 realpath(3)。
 `callback` 有两个参数 `(err, resolvedPath)`。

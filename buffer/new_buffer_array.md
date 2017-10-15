@@ -11,7 +11,7 @@ changes:
 
 > 稳定性: 0 - 废弃的: 使用 [`Buffer.from(array)`] 代替。
 
-* `array` {Array} 要从中复制的字节数组
+* `array` {integer[]} 要从中复制的字节数组。
 
 使用八字节的 `array` 分配一个新的 `Buffer`。
 

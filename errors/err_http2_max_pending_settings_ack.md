@@ -5,4 +5,4 @@ SETTINGS. By default, a maximum number of un-acknowledged `SETTINGS` frame may
 be sent at any given time. This error code is used when that limit has been
 reached.
 
-<a id="ERR_HTTP2_OUT_OF_STREAMS"></a>
+<a id="ERR_HTTP2_NO_SOCKET_MANIPULATION"></a>

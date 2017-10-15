@@ -1,5 +1,5 @@
 
-* Returns {AsyncHook} A reference to `asyncHook`.
+* Returns: {AsyncHook} A reference to `asyncHook`.
 
 Disable the callbacks for a given `AsyncHook` instance from the global pool of
 AsyncHook callbacks to be executed. Once a hook has been disabled it will not

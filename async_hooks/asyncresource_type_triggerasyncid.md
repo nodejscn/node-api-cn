@@ -1,8 +1,8 @@
 
 * arguments
-  * `type` {string} the type of async event
-  * `triggerAsyncId` {number} the ID of the execution context that created this
-    async event
+  * `type` {string} The type of async event.
+  * `triggerAsyncId` {number} The ID of the execution context that created this
+    async event.
 
 Example usage:
 

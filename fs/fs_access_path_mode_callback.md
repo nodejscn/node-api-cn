@@ -17,6 +17,7 @@ changes:
 * `path` {string|Buffer|URL}
 * `mode` {integer} **Default:** `fs.constants.F_OK`
 * `callback` {Function}
+  * `err` {Error}
 
 测试 `path` 指定的文件或目录的用户权限。
 `mode` 是一个可选的整数，指定要执行的可访问性检查。

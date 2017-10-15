@@ -2,10 +2,10 @@
 added: v0.5.5
 -->
 
-* `value` {integer} 要写入 `buf` 的数值
-* `offset` {integer} 开始写入的位置，必须满足：`0 <= offset <= buf.length - 4`
-* `noAssert` {boolean} 是否跳过 `value` 和 `offset` 检验？**默认:** `false`
-* 返回: {integer} `offset` 加上写入的字节数
+* `value` {integer} 要写入 `buf` 的数值。
+* `offset` {integer} 开始写入前要跳过的字节数，必须满足：`0 <= offset <= buf.length - 4`。
+* `noAssert` {boolean} 是否跳过 `value` 和 `offset` 检验？**默认:** `false`。
+* 返回: {integer} `offset` 加上写入的字节数。
 
 用指定的字节序格式（`writeInt32BE()` 写入大端序，`writeInt32LE()` 写入小端序）写入 `value` 到 `buf` 中指定的 `offset` 位置。
 `value` 应当是一个有效的有符号的32位整数。

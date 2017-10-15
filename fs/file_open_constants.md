@@ -55,6 +55,11 @@
     <td>该标志表明文件打开用于同步 I/O。</td>
   </tr>
   <tr>
+    <td><code>O_DSYNC</code></td>
+    <td>Flag indicating that the file is opened for synchronized I/O with write
+    operations waiting for data integrity.</td>
+  </tr>
+  <tr>
     <td><code>O_SYMLINK</code></td>
     <td>该标志表明打开符号链接自身，而不是它指向的资源。</td>
   </tr>

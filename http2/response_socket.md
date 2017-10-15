@@ -4,11 +4,22 @@ added: v8.4.0
 
 * {net.Socket}
 
-Reference to the underlying socket. Usually users will not want to access
-this property. In particular, the socket will not emit `'readable'` events
-because of how the protocol parser attaches to the socket. After
-`response.end()`, the property is nulled. The `socket` may also be accessed
-via `response.connection`.
+Returns a Proxy object that acts as a `net.Socket` but applies getters,
+setters and methods based on HTTP/2 logic.
+
+`destroyed`, `readable`, and `writable` properties will be retrieved from and
+set on `response.stream`.
+
+`destroy`, `emit`, `end`, `on` and `once` methods will be called on
+`response.stream`.
+
+`setTimeout` method will be called on `response.stream.session`.
+
+`pause`, `read`, `resume`, and `write` will throw an error with code
+`ERR_HTTP2_NO_SOCKET_MANIPULATION`. See [`Http2Session and Sockets`][] for
+more information.
+
+All other interactions will be routed directly to the socket.
 
 Example:
 

@@ -1,3 +1,3 @@
 
-* Returns {number} the unique `asyncId` assigned to the resource.
+* Returns: {number} The unique `asyncId` assigned to the resource.
 

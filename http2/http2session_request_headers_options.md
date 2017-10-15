@@ -38,7 +38,7 @@ const {
 
 const req = clientSession.request({ [HTTP2_HEADER_PATH]: '/' });
 req.on('response', (headers) => {
-  console.log(HTTP2_HEADER_STATUS);
+  console.log(headers[HTTP2_HEADER_STATUS]);
   req.on('data', (chunk) => { /** .. **/ });
   req.on('end', () => { /** .. **/ });
 });

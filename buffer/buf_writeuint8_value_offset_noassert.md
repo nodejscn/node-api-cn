@@ -2,10 +2,10 @@
 added: v0.5.0
 -->
 
-* `value` {integer} 要写入 `buf` 的数值
-* `offset` {integer} 开始写入的位置，必须满足：`0 <= offset <= buf.length - 1`
-* `noAssert` {boolean} 是否跳过 `value` 和 `offset` 检验？**默认:** `false`
-* 返回: {integer} `offset` 加上写入的字节数
+* `value` {integer} 要写入 `buf` 的数值。
+* `offset` {integer} 开始写入前要跳过的字节数，必须满足：`0 <= offset <= buf.length - 1`。
+* `noAssert` {boolean} 是否跳过 `value` 和 `offset` 检验？**默认:** `false`。
+* 返回: {integer} `offset` 加上写入的字节数。
 
 写入 `value` 到 `buf` 中指定的 `offset` 位置。
 `value` 应当是一个有效的无符号的8位整数。

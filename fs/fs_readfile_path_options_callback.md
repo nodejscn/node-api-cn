@@ -22,6 +22,8 @@ changes:
   * `encoding` {string|null} 默认为 `null`。
   * `flag` {string} 默认为 `'r'`。
 * `callback` {Function}
+  * `err` {Error}
+  * `data` {string|Buffer}
 
 异步地读取一个文件的全部内容。
 例子：

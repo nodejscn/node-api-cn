@@ -20,6 +20,7 @@ changes:
   * `mode` {integer} 默认 = `0o666`
   * `flag` {string} 默认 = `'w'`
 * `callback` {Function}
+  * `err` {Error}
 
 异步地写入数据到文件，如果文件已经存在，则替代文件。
 `data` 可以是一个字符串或一个 buffer。

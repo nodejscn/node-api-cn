@@ -1,5 +1,5 @@
 
-* Returns {number} the same `triggerAsyncId` that is passed to the `AsyncResource`
+* Returns: {number} The same `triggerAsyncId` that is passed to the `AsyncResource`
 constructor.
 
 [`after` callback]: #async_hooks_after_asyncid

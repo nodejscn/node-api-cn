@@ -12,11 +12,12 @@ changes:
 -->
 
 * `fd` {integer}
-* `atime` {integer}
-* `mtime` {integer}
+* `atime` {number|string|Date}
+* `mtime` {number|string|Date}
 * `callback` {Function}
+  * `err` {Error}
 
-改变由所提供的文件描述符所指向的文件的文件时间戳。
+改变由所提供的文件描述符所指向的对象的文件系统时间戳。详见 [`fs.utimes()`]。
 
 *请注意*: 该函数不支持AIX 7.1以下版本，在AIX 7.1以下版本会返回`UV_ENOSYS`错误。
 

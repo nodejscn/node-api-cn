@@ -2,11 +2,11 @@
 added: v0.5.5
 -->
 
-* `value` {integer} 要写入 `buf` 的数值
-* `offset` {integer} 开始写入的位置，必须满足：`0 <= offset <= buf.length - byteLength`
-* `byteLength` {integer} 要写入的字节数，必须满足：`0 < byteLength <= 6`
-* `noAssert` {boolean} 是否跳过 `value`、`offset` 和 `byteLength` 检验？**默认:** `false`
-* 返回: {integer} `offset` 加上写入的字节数
+* `value` {integer} 要写入 `buf` 的数值。
+* `offset` {integer} 开始写入前要跳过的字节数，必须满足：`0 <= offset <= buf.length - byteLength`。
+* `byteLength` {integer} 要写入的字节数，必须满足：`0 < byteLength <= 6`。
+* `noAssert` {boolean} 是否跳过 `value`、`offset` 和 `byteLength` 检验？**默认:** `false`。
+* 返回: {integer} `offset` 加上写入的字节数。
 
 写入 `value` 中的 `byteLength` 个字节到 `buf` 中指定的 `offset` 位置。
 最高支持48位精度。

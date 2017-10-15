@@ -10,6 +10,7 @@ changes:
 * `path` {string|Buffer}
 * `mode` {integer}
 * `callback` {Function}
+  * `err` {Error}
 
 异步的 lchmod(2)。
 完成回调只有一个可能的异常参数。

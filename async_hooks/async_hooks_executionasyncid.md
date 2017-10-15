@@ -1,5 +1,5 @@
 
-* Returns {number} the `asyncId` of the current execution context. Useful to
+* Returns: {number} The `asyncId` of the current execution context. Useful to
   track when something calls.
 
 For example:

@@ -2,9 +2,9 @@
 added: v0.1.99
 -->
 
-* `port` {number} - 整数，可选的
-* `address` {string}, 可选的
-* `callback` {Function} - (没有参数)，可选的。当绑定完成时会被调用。
+* `port` {number} 整数。
+* `address` {string}
+* `callback` {Function} 没有参数。当绑定完成时会被调用。
 
 对于 UDP socket，该方法会令`dgram.Socket`在指定的`port`和可选的`address`上监听数据包信息。若`port`未指定或为 `0`，操作系统会尝试绑定一个随机的端口。若`address`未指定，操作系统会尝试在所有地址上监听。绑定完成时会触发一个`'listening'`事件，并会调用`callback`方法。
 

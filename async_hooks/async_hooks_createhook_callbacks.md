@@ -3,12 +3,12 @@
 added: v8.1.0
 -->
 
-* `callbacks` {Object} the [Hook Callbacks][] to register
+* `callbacks` {Object} The [Hook Callbacks][] to register
   * `init` {Function} The [`init` callback][].
   * `before` {Function} The [`before` callback][].
   * `after` {Function} The [`after` callback][].
   * `destroy` {Function} The [`destroy` callback][].
-* Returns: `{AsyncHook}` instance used for disabling and enabling hooks
+* Returns: `{AsyncHook}` Instance used for disabling and enabling hooks
 
 Registers functions to be called for different lifetime events of each async
 operation.

@@ -11,6 +11,8 @@ changes:
 * `flags` {string|number}
 * `mode` {integer} **Default:** `0o666`
 * `callback` {Function}
+  * `err` {Error}
+  * `fd` {integer}
 
 异步地打开文件。详见 open(2)。
 `flags` 可以是：

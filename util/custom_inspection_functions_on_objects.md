@@ -1,7 +1,7 @@
 
 <!-- type=misc -->
 
-对象可以定义自己的 `[util.inspect.custom](depth, opts)`（或 `inspect(depth, opts)`） 函数，`util.inspect()` 会调用并使用查看对象时的结果：
+对象可以定义自己的 `[util.inspect.custom](depth, opts)`（或已废弃的 `inspect(depth, opts)`） 函数，`util.inspect()` 会调用并使用查看对象时的结果：
 
 ```js
 const util = require('util');
@@ -11,7 +11,7 @@ class Box {
     this.value = value;
   }
 
-  inspect(depth, options) {
+  [util.inspect.custom](depth, options) {
     if (depth < 0) {
       return options.stylize('[Box]', 'special');
     }
@@ -47,18 +47,3 @@ obj[util.inspect.custom] = function(depth) {
 util.inspect(obj);
 // 返回: "{ bar: 'baz' }"
 ```
-
-一个自定义的查看方法可以通过在一个对象上开放一个 `inspect(depth, opts)` 方法来提供：
-
-```js
-const util = require('util');
-
-const obj = { foo: '这个不会出现在 inspect() 的输出中' };
-obj.inspect = function(depth) {
-  return { bar: 'baz' };
-};
-
-util.inspect(obj);
-// 返回: "{ bar: 'baz' }"
-```
-

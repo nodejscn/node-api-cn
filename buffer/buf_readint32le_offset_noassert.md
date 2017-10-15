@@ -2,8 +2,8 @@
 added: v0.5.5
 -->
 
-* `offset` {integer} 开始读取的位置，必须满足：`0 <= offset <= buf.length - 4`
-* `noAssert` {boolean} 是否跳过 `offset` 检验？**默认:** `false`
+* `offset` {integer} 开始读取前要跳过的字节数，必须满足：`0 <= offset <= buf.length - 4`。
+* `noAssert` {boolean} 是否跳过 `offset` 检验？**默认:** `false`。
 * 返回: {integer}
 
 用指定的字节序格式（`readInt32BE()` 返回大端序，`readInt32LE()` 返回小端序）从 `buf` 中指定的 `offset` 读取一个有符号的32位整数值。

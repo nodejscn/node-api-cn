@@ -10,6 +10,7 @@ changes:
 * `path` {string|Buffer}
 * `len` {integer} 默认 = `0`
 * `callback` {Function}
+  * `err` {Error}
 
 异步的 truncate(2)。
 完成回调只有一个可能的异常参数。

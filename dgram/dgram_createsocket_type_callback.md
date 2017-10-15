@@ -2,9 +2,8 @@
 added: v0.1.99
 -->
 
-* `type` {string} - Either 'udp4' or 'udp6'
+* `type` {string} - Either 'udp4' or 'udp6'.
 * `callback` {Function} - Attached as a listener to `'message'` events.
-  Optional
 * Returns: {dgram.Socket}
 
 Creates a `dgram.Socket` object of the specified `type`. The `type` argument

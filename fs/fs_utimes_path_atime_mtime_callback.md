@@ -1,6 +1,10 @@
 <!-- YAML
 added: v0.4.2
 changes:
+  - version: v8.0.0
+    pr-url: https://github.com/nodejs/node/pull/11919
+    description: "`NaN`, `Infinity`, and `-Infinity` are no longer valid time
+                 specifiers."
   - version: v7.6.0
     pr-url: https://github.com/nodejs/node/pull/10739
     description: The `path` parameter can be a WHATWG `URL` object using `file:`
@@ -16,16 +20,14 @@ changes:
 -->
 
 * `path` {string|Buffer|URL}
-* `atime` {integer}
-* `mtime` {integer}
+* `atime` {number|string|Date}
+* `mtime` {number|string|Date}
 * `callback` {Function}
+  * `err` {Error}
 
-改变指定的路径所指向的文件的文件时间戳。
+改变 `path` 所指向的对象的文件系统时间戳。
 
-注意：`atime` 和 `mtime` 参数遵循以下规则：
-
-- 值应该是一个以秒为单位的 Unix 时间戳。
-  例如，`Date.now()` 返回毫秒，所以在传入前应该除以1000。
-- 如果值是一个数值字符串，如 `'123456789'`，则该值会被转换为对应的数值。
-- 如果值是 `NaN` 、 `Infinity` 或 `-Infinity`，则会抛出错误。
+`atime` 参数和 `mtime` 参数遵循以下规则：
+- 值可以是 Unix 时间戳数值、`Date` 对象、或数值字符串如 `'123456789.0'`。
+- 如果值不能被转换为数值，或值是 `NaN` 、 `Infinity` 或 `-Infinity`，则会抛出错误。
 

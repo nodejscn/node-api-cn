@@ -2,8 +2,8 @@
 added: v0.11.15
 -->
 
-* `offset` {integer} 开始读取的位置，必须满足：`0 <= offset <= buf.length - 4`
-* `noAssert` {boolean} 是否跳过 `offset` 检验？**默认:** `false`
+* `offset` {integer} 开始读取前要跳过的字节数，必须满足：`0 <= offset <= buf.length - 4`。
+* `noAssert` {boolean} 是否跳过 `offset` 检验？**默认:** `false`。
 * 返回: {number}
 
 用指定的字节序格式（`readFloatBE()` 返回大端序，`readFloatLE()` 返回小端序）从 `buf` 中指定的 `offset` 读取一个32位浮点值。

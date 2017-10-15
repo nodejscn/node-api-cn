@@ -14,6 +14,8 @@ changes:
 * `options` {string|Object}
   * `encoding` {string} 默认 = `'utf8'`
 * `callback` {Function}
+  * `err` {Error}
+  * `folder` {string}
 
 创建一个唯一的临时目录。
 

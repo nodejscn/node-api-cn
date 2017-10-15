@@ -1,5 +1,5 @@
 
-* Returns {AsyncHook} A reference to `asyncHook`.
+* Returns: {AsyncHook} A reference to `asyncHook`.
 
 Enable the callbacks for a given `AsyncHook` instance. If no callbacks are
 provided enabling is a noop.

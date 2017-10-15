@@ -2,18 +2,18 @@
 added: v0.1.91
 -->
 
-* `file` {string} 要运行的可执行文件的名称或路径
-* `args` {Array} 字符串参数列表
+* `file` {string} 要运行的可执行文件的名称或路径。
+* `args` {string[]} 字符串参数列表。
 * `options` {Object}
-  * `cwd` {string} 子进程的当前工作目录
-  * `env` {Object} 环境变量键值对
-  * `encoding` {string} （默认: `'utf8'`）
-  * `timeout` {number} （默认: `0`）
+  * `cwd` {string} 子进程的当前工作目录。
+  * `env` {Object} 环境变量键值对。
+  * `encoding` {string} 默认为 `'utf8'`。
+  * `timeout` {number} 默认为 `0`。
   * [`maxBuffer`] {number} stdout 或 stderr 允许的最大字节数。
     默认为 `200*1024`。
     如果超过限制，则子进程会被终止。
     See caveat at [`maxBuffer` and Unicode][].
-  * `killSignal` {string|integer} （默认: `'SIGTERM'`）
+  * `killSignal` {string|integer} 默认为 `'SIGTERM'`。
   * `uid` {number} 设置该进程的用户标识。（详见 setuid(2)）
   * `gid` {number} 设置该进程的组标识。（详见 setgid(2)）
 * `callback` {Function} 当进程终止时调用，并带上输出。

@@ -9,6 +9,7 @@ changes:
 
 * `fd` {integer}
 * `callback` {Function}
+  * `err` {Error}
 
 异步的 close(2)。
 完成回调只有一个可能的异常参数。

@@ -1,10 +1,10 @@
 
-* `asyncId` {number} a unique ID for the async resource
-* `type` {string} the type of the async resource
-* `triggerAsyncId` {number} the unique ID of the async resource in whose
-  execution context this async resource was created
-* `resource` {Object} reference to the resource representing the async operation,
-  needs to be released during _destroy_
+* `asyncId` {number} A unique ID for the async resource.
+* `type` {string} The type of the async resource.
+* `triggerAsyncId` {number} The unique ID of the async resource in whose
+  execution context this async resource was created.
+* `resource` {Object} Reference to the resource representing the async operation,
+  needs to be released during _destroy_.
 
 Called when a class is constructed that has the _possibility_ to emit an
 asynchronous event. This _does not_ mean the instance must call
