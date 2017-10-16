@@ -1,8 +1,7 @@
 
-| Feature | Reason |
+| 特性 | 原因 |
 | --- | --- |
-| `require('./foo.mjs')` | ES Modules have differing resolution and timing, use language standard `import()` |
-| `import()` | pending newer V8 release used in Node.js |
-| `import.meta` | pending V8 implementation |
-| Loader Hooks | pending Node.js EP creation/consensus |
-
+| `require('./foo.mjs')` | ES模块具有不同的加载方式，使用 `import()`语言标准 |
+| `import()` | 等待在Node.js中使用更加新的V8版本 |
+| `import.meta` | 等待V8实现 |
+| Loader Hooks | 等待Node.js EP创建/达成共识 |

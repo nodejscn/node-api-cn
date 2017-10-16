@@ -1,4 +1,2 @@
 
-`NODE_PATH` is not part of resolving `import` specifiers. Please use symlinks
-if this behavior is desired.
-
+根据 `NODE_PATH` 查询模块不是解析 `import` 的环节之一。如果想要怎么做，那么请使用符号链接。

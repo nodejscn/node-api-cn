@@ -1,11 +1,9 @@
 
-All CommonJS, JSON, and C++ modules can be used with `import`.
+所有CommonJS，JSON和C++模块都可以通过 `import` 来加载。
 
-Modules loaded this way will only be loaded once, even if their query
-or fragment string differs between `import` statements.
+以这种方式加载的模块只加载一次，即使 `import` 语句中同一个模块的查询或片段字符串不同。
 
-When loaded via `import` these modules will provide a single `default` export
-representing the value of `module.exports` at the time they finished evaluating.
+当通过 `import` 加载时，这些模块将提供一个 `default` 导出相当于完成计算后的 `module.exports` 。
 
 ```js
 import fs from 'fs';
@@ -17,5 +15,3 @@ fs.readFile('./foo.txt', (err, body) => {
   }
 });
 ```
-
-[Node.js EP for ES Modules]: https://github.com/nodejs/node-eps/blob/master/002-es-modules.md

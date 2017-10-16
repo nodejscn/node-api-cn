@@ -1,13 +1,10 @@
 
 <!-- type=misc -->
 
-The `--experimental-modules` flag can be used to enable features for loading
-ESM modules.
+`--experimental-modules` 标志可用于启用加载ES模块的功能。
 
-Once this has been set, files ending with `.mjs` will be able to be loaded
-as ES Modules.
+一旦被设置启用，以 `.mjs` 为后缀的文件将能够作为ES模块加载。
 
 ```sh
 node --experimental-modules my-app.mjs
 ```
-
