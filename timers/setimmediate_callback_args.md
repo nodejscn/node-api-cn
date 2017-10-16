@@ -14,7 +14,7 @@ added: v0.9.1
 
 如果 `callback` 不是一个函数，则抛出 [`TypeError`]。
 
-*注意*：此方法具有可用[`util.promisify()`][]提供的promises自定义变体：
+*注意*：此方法具有可用[`util.promisify()`][]提供的promises常用变体：
 
 ```js
 const util = require('util');
