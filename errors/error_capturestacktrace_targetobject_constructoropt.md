@@ -10,7 +10,7 @@ Error.captureStackTrace(myObject);
 myObject.stack;  // 类似 `new Error().stack`
 ```
 
-The first line of the trace will be prefixed with `${myObject.name}: ${myObject.message}`.
+`${myObject.name}: ${myObject.message}` 会作为该堆栈跟踪的第一行。
 
 可选的 `constructorOpt` 参数接受一个函数。
 如果提供了，则 `constructorOpt` 之上包括自身在内的全部栈帧都会被生成的堆栈跟踪省略。
