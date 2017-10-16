@@ -1,8 +1,7 @@
 
-A subclass of `Error` that indicates the failure of an assertion. Such errors
-commonly indicate inequality of actual and expected value.
+`Error` 的子类，表示断言失败。 这种错误通常表示实际值和预期值不相等。
 
-For example:
+比如:
 
 ```js
 assert.strictEqual(1, 2);
