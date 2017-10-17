@@ -56,8 +56,7 @@
   </tr>
   <tr>
     <td><code>O_DSYNC</code></td>
-    <td>Flag indicating that the file is opened for synchronized I/O with write
-    operations waiting for data integrity.</td>
+    <td>该标志标明文件为同步I/O打开，写入操作会等待数据完整性</td>
   </tr>
   <tr>
     <td><code>O_SYMLINK</code></td>
