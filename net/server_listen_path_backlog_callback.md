@@ -2,11 +2,9 @@
 added: v0.1.90
 -->
 
-* `path` {String} Path the server should listen to. See
-  [Identifying paths for IPC connections][].
-* `backlog` {number} Common parameter of [`server.listen()`][] functions
-* `callback` {Function} Common parameter of [`server.listen()`][] functions
+* `path` {String} 服务器需要监听的路径。查看 [Identifying paths for IPC connections][]。
+* `backlog` {number} [`server.listen()`][] 通用参数。
+* `callback` {Function} [`server.listen()`][] 通用参数。
 * Returns: {net.Server}
 
-Start a [IPC][] server listening for connections on the given `path`.
-
+启动一个 [IPC][] 服务器监听给定 `path` 的连接。
