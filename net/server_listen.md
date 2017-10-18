@@ -1,8 +1,8 @@
 
-为connections启动一个 server 监听. 一个 `net.Server` 可以是一个 TCP 或者 
+为 connections 启动一个 server 监听. 一个 `net.Server` 可以是一个 TCP 或者 
 一个 [IPC][] server，这取决于它监听什么。
 
-Possible signatures:
+可能的参数:
 
 * [`server.listen(handle[, backlog][, callback])`][`server.listen(handle)`]
 * [`server.listen(options[, callback])`][`server.listen(options)`]
