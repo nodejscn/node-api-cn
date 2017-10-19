@@ -2,7 +2,7 @@
 added: v0.3.4
 -->
 
-这个类是一个 TCP socket 或者一个流动的 [IPC][] 端点的抽象（在Windows上使用命名管道，而UNIX使用域套接字）。一个`net.Socket`也是一个[duplex stream][]，所以它能被读或写，并且它也是一个[`EventEmitter`][]。
+这个类是 TCP 或 UNIX Socket 的抽象（在Windows上使用命名管道，而UNIX使用域套接字）。一个`net.Socket`也是一个[duplex stream][]，所以它能被读或写，并且它也是一个[`EventEmitter`][]。
 
 `net.Socket`可以被用户创建并直接与server通信。举个例子，它是通过[`net.createConnection()`][]返回的，所以用户可以使用它来与server通信。
 
