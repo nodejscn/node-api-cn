@@ -2,12 +2,10 @@
 added: v8.3.0
 -->
 
+DNS请求的独立解析程序。
 An independent resolver for DNS requests.
 
-Note that creating a new resolver uses the default server settings. Setting
-the servers used for a resolver using
-[`resolver.setServers()`][`dns.setServers()`] does not affect
-other resolver:
+使用默认的设置创建一个新的解析程序。为一个解析程序设置servers使用[`resolver.setServers()`][`dns.setServers()`]，它不会影响其他的解析程序：
 
 ```js
 const { Resolver } = require('dns');
@@ -20,7 +18,7 @@ resolver.resolve4('example.org', (err, addresses) => {
 });
 ```
 
-The following methods from the `dns` module are available:
+可以使用的`dns`模块的方法如下：
 
 * [`resolver.getServers()`][`dns.getServers()`]
 * [`resolver.setServers()`][`dns.setServers()`]
