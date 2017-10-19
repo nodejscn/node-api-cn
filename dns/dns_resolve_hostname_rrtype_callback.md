@@ -1,16 +1,13 @@
 <!-- YAML
 added: v0.1.27
 -->
-- `hostname` {string} Hostname to resolve.
-- `rrtype` {string} Resource record type. Default: `'A'`.
+- `hostname` {string} 解析的主机名。
+- `rrtype` {string} 资源记录类型. 默认: `'A'`.
 - `callback` {Function}
   - `err` {Error}
   - `records` {string[] | Object[] | Object}
 
-Uses the DNS protocol to resolve a hostname (e.g. `'nodejs.org'`) into an array
-of the resource records. The `callback` function has arguments
-`(err, records)`. When successful, `records` will be an array of resource
-records. The type and structure of individual results varies based on `rrtype`:
+使用DNS协议来解析一个主机名(e.g. `'nodejs.org'`)为一个资源记录的数组。回调函数的参数为`(err, records)`。当成功时，`records`将是一个资源记录的数组。它的类型和结构取决于`rrtype`：
 
 |  `rrtype` | `records` contains             | Result type | Shorthand method         |
 |-----------|--------------------------------|-------------|--------------------------|
@@ -26,5 +23,4 @@ records. The type and structure of individual results varies based on `rrtype`:
 | `'TXT'`   | text records                   | {string[]}  | [`dns.resolveTxt()`][]   |
 | `'ANY'`   | any records                    | {Object}    | [`dns.resolveAny()`][]   |
 
-On error, `err` is an [`Error`][] object, where `err.code` is one of the
-[DNS error codes](#dns_error_codes).
+出错时，`err`是一个[`Error`][] object，`err.code`是[DNS error codes](#dns_error_codes)的一种。
