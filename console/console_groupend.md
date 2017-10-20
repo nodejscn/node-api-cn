@@ -2,5 +2,4 @@
 added: v8.5.0
 -->
 
-Decreases indentation of subsequent lines by two spaces.
-
+将后续行的缩进减少两个空格。
