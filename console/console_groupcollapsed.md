@@ -2,5 +2,5 @@
   added: v8.5.0
 -->
 
-An alias for [`console.group()`][].
+[`console.group()`][]的一个别名.
 
