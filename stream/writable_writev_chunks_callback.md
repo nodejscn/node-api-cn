@@ -1,18 +1,9 @@
 
-* `chunks` {Array} The chunks to be written. Each chunk has following
-  format: `{ chunk: ..., encoding: ... }`.
-* `callback` {Function} A callback function (optionally with an error
-  argument) to be invoked when processing is complete for the supplied chunks.
+* `chunks` {Array} 要写的块 每个块都有以下格式：`{chunk：...，encoding：...}`。
+* `callback` {Function} 一个回调函数（可选地带有一个错误参数）在提供的块的处理完成时被调用。
 
-*Note*: This function MUST NOT be called by application code directly. It
-should be implemented by child classes, and called by the internal Writable
-class methods only.
+*注*：此函数不得直接通过应用程序代码调用。 它应由子类实现，并由内部Writable进行调用类方法。
 
-The `writable._writev()` method may be implemented in addition to
-`writable._write()` in stream implementations that are capable of processing
-multiple chunks of data at once. If implemented, the method will be called with
-all chunks of data currently buffered in the write queue.
+`writable._writev()`方法能够一次处理多个数据块的流除了`writable._write()`之外。如果实现，该方法将缓存的所有数据块写入队列。
 
-The `writable._writev()` method is prefixed with an underscore because it is
-internal to the class that defines it, and should never be called directly by
-user programs.
+`writable._writev()`方法前缀为下划线，因为它是定义它的类的内部，不应该由用户程序直接调用。
