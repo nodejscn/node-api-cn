@@ -1,44 +1,18 @@
 
-* `chunk` {Buffer|string|any} The chunk to be written. Will **always**
-  be a buffer unless the `decodeStrings` option was set to `false`
-  or the stream is operating in object mode.
-* `encoding` {string} If the chunk is a string, then `encoding` is the
-  character encoding of that string. If chunk is a `Buffer`, or if the
-  stream is operating in object mode, `encoding` may be ignored.
-* `callback` {Function} Call this function (optionally with an error
-  argument) when processing is complete for the supplied chunk.
+* `chunk` {Buffer|string|any} 要写的块。会**一直**作为缓冲区，除非`decodeStrings`选项设置为`false`或者流以对象模式运行。
+* `encoding` {string} 如果块是字符串，那么`encoding`就是该字符串的字符编码。 如果块是`Buffer`，或者是流在对象模式下运行，`encoding`可能被忽略。
+* `callback` {Function} 调用此函数（`err`参数可选）当块处理完成时。
 
-All Writable stream implementations must provide a
-[`writable._write()`][stream-_write] method to send data to the underlying
-resource.
+所有可写流实现必须提供一个 [`writable._write()`][stream-_write] 方法将数据发送到底层资源。
 
-*Note*: [Transform][] streams provide their own implementation of the
-[`writable._write()`][stream-_write].
+*注意*：[Transform][] 流提供自己实现的[`writable._write()`][stream-_write]。
 
-*Note*: This function MUST NOT be called by application code directly. It
-should be implemented by child classes, and called by the internal Writable
-class methods only.
+*注意*：此函数不得直接由应用程序代码调用。 它应该由子类实现，并由内部的Writable类方法调用。
 
-The `callback` method must be called to signal either that the write completed
-successfully or failed with an error. The first argument passed to the
-`callback` must be the `Error` object if the call failed or `null` if the
-write succeeded.
+必须调用`callback`方法来表示写完成成功或失败，出现错误。`callback`第一个参数必须是`Error`对象如果调用失败，成功时为`null`。
 
-It is important to note that all calls to `writable.write()` that occur between
-the time `writable._write()` is called and the `callback` is called will cause
-the written data to be buffered. Once the `callback` is invoked, the stream will
-emit a [`'drain'`][] event. If a stream implementation is capable of processing
-multiple chunks of data at once, the `writable._writev()` method should be
-implemented.
+需要重点注意的是，所有`writable._write()`被调用并且`callback`被调用将导致要缓冲的写入数据。 一旦调用`callback`，流将会执行[`'drain'`] []事件。 如果想让流实现一次能够处理多个数据块，`writable._writev()`方法应该被实现。
 
-If the `decodeStrings` property is set in the constructor options, then
-`chunk` may be a string rather than a Buffer, and `encoding` will
-indicate the character encoding of the string. This is to support
-implementations that have an optimized handling for certain string
-data encodings. If the `decodeStrings` property is explicitly set to `false`,
-the `encoding` argument can be safely ignored, and `chunk` will remain the same
-object that is passed to `.write()`.
+如果在构造函数选项中设置`decodeStrings`属性，那么`chunk`可能是一个字符串而不是一个缓冲区，`encodeing`将会表示字符串的字符编码。 这是为了支持对某些字符串具有优化处理的实现数据编码。 如果`decodeStrings`属性显式设置为`false`，`encoding`参数可以安全地忽略，`chunk`将保持不变传递给`.write()`的对象。
 
-The `writable._write()` method is prefixed with an underscore because it is
-internal to the class that defines it, and should never be called directly by
-user programs.
+`writable._write()`方法前缀为下划线，因为它是在定义它的类的内部，不应该直接调用用户程序。
