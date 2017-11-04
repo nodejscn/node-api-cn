@@ -3,7 +3,7 @@ added: v8.4.0
 -->
 
 * `name` {string}
-* `value` {string | string[]}
+* `value` {string|string[]}
 
 Sets a single header value for implicit headers.  If this header already exists
 in the to-be-sent headers, its value will be replaced.  Use an array of strings

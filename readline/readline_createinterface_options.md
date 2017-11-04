@@ -1,6 +1,12 @@
 <!-- YAML
 added: v0.1.98
 changes:
+  - version: v8.3.0, 6.11.4
+    pr-url: https://github.com/nodejs/node/pull/13497
+    description: Remove max limit of `crlfDelay` option.
+  - version: v6.6.0
+    pr-url: https://github.com/nodejs/node/pull/8109
+    description: The `crlfDelay` option is supported now.
   - version: v6.3.0
     pr-url: https://github.com/nodejs/node/pull/7125
     description: The `prompt` option is supported now.
@@ -17,17 +23,19 @@ changes:
     默认为实例化时在 `output` 流上检查 `isTTY`。
   * `historySize` {number} 保留的历史行数的最大数量。
     设为 `0` 可禁用历史记录。
-    默认为 `30`。
     该选项只有当 `terminal` 被用户或内部 `output` 设为 `true` 时才有意义，否则历史缓存机制不会被初始化。
+    默认为 `30`。
   * `prompt` - 要使用的提示字符串。默认为 `'> '`。
   * `crlfDelay` {number} 如果 `\r` 与 `\n` 之间的延迟超过 `crlfDelay` 毫秒，则 `\r` 和 `\n` 都会被当作换行分隔符。
-    默认为 `100` 毫秒。
     `crlfDelay` will be coerced to a number no less than `100`. It can be set to
     `Infinity`, in which case `\r` followed by `\n` will always be considered a
-    single newline.
+    single newline (which may be reasonable for [reading files][]
+    with `\r\n` line delimiter).
+    默认为 `100` 毫秒。
   * `removeHistoryDuplicates` {boolean} If `true`, when a new input line added
     to the history list duplicates an older one, this removes the older line
-    from the list. Defaults to `false`.
+    from the list. 
+    默认为 `false`。
 
 `readline.createInterface()` 方法会创建一个新的 `readline.Interface` 实例。
 

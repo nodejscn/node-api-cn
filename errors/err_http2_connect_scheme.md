@@ -1,5 +1,5 @@
 
-The HTTP/2 requests using the `CONNECT` method, the `:scheme` pseudo-header is
+For HTTP/2 requests using the `CONNECT` method, the `:scheme` pseudo-header is
 forbidden.
 
-<a id="ERR_HTTP2_ERROR"></a>
+<a id="ERR_HTTP2_FRAME_ERROR"></a>

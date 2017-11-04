@@ -1,6 +1,9 @@
 <!-- YAML
 added: v0.11.12
 changes:
+  - version: v8.8.0
+    pr-url: https://github.com/nodejs/node/pull/15380
+    description: The `windowsHide` option is supported now.
   - version: v8.0.0
     pr-url: https://github.com/nodejs/node/pull/10653
     description: The `input` option can now be a `Uint8Array`.
@@ -27,6 +30,8 @@ changes:
     如果超过限制，则子进程会被终止。
     See caveat at [`maxBuffer` and Unicode][].
   * `encoding` {string} 用于所有 stdio 输入和输出的编码。默认为 `'buffer'`。
+  * `windowsHide` {boolean} Hide the subprocess console window that would
+    normally be created on Windows systems. **Default:** `false`.
 * 返回: {Buffer|string} 该命令的 stdout。
 
 `child_process.execFileSync()` 方法与 [`child_process.execFile()`] 基本相同，除了该方法直到子进程完全关闭后才返回。

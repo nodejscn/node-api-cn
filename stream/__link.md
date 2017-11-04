@@ -37,7 +37,6 @@
 [http-incoming-message]: http.html#http_class_http_incomingmessage
 [zlib]: zlib.html
 [hwm-gotcha]: #stream_highwatermark_discrepency_after_calling_readable_setencoding
-[Readable]: #stream_class_stream_readable
 [stream-_flush]: #stream_transform_flush_callback
 [stream-_read]: #stream_readable_read_size_1
 [stream-_transform]: #stream_transform_transform_chunk_encoding_callback
@@ -51,4 +50,6 @@
 [stream-resume]: #stream_readable_resume
 [stream-write]: #stream_writable_write_chunk_encoding_callback
 [readable-_destroy]: #stream_readable_destroy_err_callback
+[readable-destroy]: #stream_readable_destroy_error
 [writable-_destroy]: #stream_writable_destroy_err_callback
+[writable-destroy]: #stream_writable_destroy_error

@@ -10,7 +10,6 @@
 [`Error`]: errors.html#errors_class_error
 [`EventEmitter`]: events.html#events_class_eventemitter
 [`JSON.stringify` spec]: https://tc39.github.io/ecma262/#sec-json.stringify
-[`JSON.stringify()`]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify
 [`console.error()`]: console.html#console_console_error_data_args
 [`console.log()`]: console.html#console_console_log_data_args
 [`end()`]: stream.html#stream_writable_end_chunk_encoding_callback
@@ -23,7 +22,6 @@
 [`process.kill()`]: #process_process_kill_pid_signal
 [`promise.catch()`]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch
 [`require.main`]: modules.html#modules_accessing_the_main_module
-[`require.resolve()`]: modules.html#modules_require_resolve
 [`setTimeout(fn, 0)`]: timers.html#timers_settimeout_callback_delay_args
 [Child Process]: child_process.html
 [Cluster]: cluster.html

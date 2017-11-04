@@ -1,5 +1,10 @@
 <!-- YAML
 changes:
+  - version: v8.8.0
+    description: Any `Promise`s created in VM contexts no longer have a
+                 `.domain` property. Their handlers are still executed in the
+                 proper domain, however, and `Promise`s created in the main
+                 context still possess a `.domain` property.
   - version: v8.0.0
     pr-url: https://github.com/nodejs/node/pull/12489
     description: Handlers for `Promise`s are now invoked in the domain in which
@@ -23,4 +28,3 @@ domain emit an `'error'` event, or throw an error, then the domain object
 will be notified, rather than losing the context of the error in the
 `process.on('uncaughtException')` handler, or causing the program to
 exit immediately with an error code.
-

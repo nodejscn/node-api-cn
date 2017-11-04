@@ -7,11 +7,11 @@ added: v8.4.0
 * `options` {Object}
   * `statCheck` {Function}
   * `onError` {Function} Callback function invoked in the case of an
-    Error before send
+    Error before send.
   * `getTrailers` {Function} Callback function invoked to collect trailer
     headers.
-  * `offset` {number} The offset position at which to begin reading
-  * `length` {number} The amount of data from the fd to send
+  * `offset` {number} The offset position at which to begin reading.
+  * `length` {number} The amount of data from the fd to send.
 
 Sends a regular file as the response. The `path` must specify a regular file
 or an `'error'` event will be emitted on the `Http2Stream` object.

@@ -6,7 +6,7 @@ added: v8.4.0
   * `graceful` {boolean} `true` to attempt a polite shutdown of the
     `Http2Session`.
   * `errorCode` {number} The HTTP/2 [error code][] to return. Note that this is
-    *not* the same thing as an HTTP Response Status Code. Defaults to `0x00`
+    *not* the same thing as an HTTP Response Status Code. **Default:** `0x00`
     (No Error).
   * `lastStreamID` {number} The Stream ID of the last successfully processed
     `Http2Stream` on this `Http2Session`.

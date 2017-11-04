@@ -25,6 +25,7 @@
 [syscall]: http://man7.org/linux/man-pages/man2/syscall.2.html
 [try-catch]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch
 [vm]: vm.html
+[WHATWG Supported Encodings]: util.md#whatwg-supported-encodings
 
 [`libuv 错误处理`]: http://docs.libuv.org/en/v1.x/errors.html
 [V8 的堆栈跟踪 API]: https://github.com/v8/v8/wiki/Stack-Trace-API

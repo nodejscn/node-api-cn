@@ -13,8 +13,8 @@ napi_status napi_create_function(napi_env env,
 - `[in] env`: The environment that the API is invoked under.
 - `[in] utf8name`: A string representing the name of the function encoded as
 UTF8.
-- `[in] length`: The length of the utf8name in bytes, or -1 if it is
-null-terminated.
+- `[in] length`: The length of the utf8name in bytes, or
+NAPI_AUTO_LENGTH if it is null-terminated.
 - `[in] cb`: A function pointer to the native function to be invoked when the
 created function is invoked from JavaScript.
 - `[in] data`: Optional arbitrary context data to be passed into the native

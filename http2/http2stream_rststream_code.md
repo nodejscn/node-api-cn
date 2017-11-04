@@ -2,7 +2,7 @@
 added: v8.4.0
 -->
 
-* code {number} Unsigned 32-bit integer identifying the error code. Defaults to
+* code {number} Unsigned 32-bit integer identifying the error code. **Default:**
   `http2.constant.NGHTTP2_NO_ERROR` (`0x00`)
 * Returns: {undefined}
 

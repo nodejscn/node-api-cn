@@ -7,12 +7,9 @@ added: v8.4.0
   * `exclusive` {boolean} When `true` and `parent` identifies a parent Stream,
     the created stream is made the sole direct dependency of the parent, with
     all other existing dependents made a dependent of the newly created stream.
-    Defaults to `false`.
+    **Default:** `false`
   * `parent` {number} Specifies the numeric identifier of a stream the newly
     created stream is dependent on.
-  * `weight` {number} Specifies the relative dependency of a stream in relation
-    to other streams with the same `parent`. The value is a number between `1`
-    and `256` (inclusive).
 * `callback` {Function} Callback that is called once the push stream has been
   initiated.
 * Returns: {undefined}
@@ -32,4 +29,8 @@ server.on('stream', (stream) => {
   stream.end('some data');
 });
 ```
+
+Setting the weight of a push stream is not allowed in the `HEADERS` frame. Pass
+a `weight` value to `http2stream.priority` with the `silent` option set to
+`true` to enable server-side bandwidth balancing between concurrent streams.
 

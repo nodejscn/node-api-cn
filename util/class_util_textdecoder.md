@@ -2,8 +2,6 @@
 added: v8.3.0
 -->
 
-> Stability: 1 - Experimental
-
 An implementation of the [WHATWG Encoding Standard][] `TextDecoder` API.
 
 ```js

@@ -3,5 +3,5 @@ added: v0.1.90
 -->
 - `callback` {Function}
 
-查看 [`http.close()`] 获取细节。
+详见 HTTP 模块的 [`server.close()`] 方法。
 

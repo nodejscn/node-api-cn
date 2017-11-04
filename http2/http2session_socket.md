@@ -4,10 +4,14 @@ added: v8.4.0
 
 * Value: {net.Socket|tls.TLSSocket}
 
-A reference to the [`net.Socket`][] or [`tls.TLSSocket`][] to which this
-`Http2Session` instance is bound.
+Returns a Proxy object that acts as a `net.Socket` (or `tls.TLSSocket`) but
+limits available methods to ones safe to use with HTTP/2.
 
-*Note*: It is not recommended for user code to interact directly with a
-`Socket` bound to an `Http2Session`. See [Http2Session and Sockets][] for
-details.
+`destroy`, `emit`, `end`, `pause`, `read`, `resume`, and `write` will throw
+an error with code `ERR_HTTP2_NO_SOCKET_MANIPULATION`. See
+[Http2Session and Sockets][] for more information.
+
+`setTimeout` method will be called on this `Http2Session`.
+
+All other interactions will be routed directly to the socket.
 

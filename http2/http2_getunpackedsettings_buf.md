@@ -2,7 +2,7 @@
 added: v8.4.0
 -->
 
-* `buf` {Buffer|Uint8Array} The packed settings
+* `buf` {Buffer|Uint8Array} The packed settings.
 * Returns: {[Settings Object][]}
 
 Returns a [Settings Object][] containing the deserialized settings from the

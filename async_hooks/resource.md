@@ -5,8 +5,8 @@ the value of `type`. For instance, for the `GETADDRINFOREQWRAP` resource type,
 `resource` provides the hostname used when looking up the IP address for the
 hostname in `net.Server.listen()`. The API for accessing this information is
 currently not considered public, but using the Embedder API, users can provide
-and document their own resource objects. Such a resource object could for
-example contain the SQL query being executed.
+and document their own resource objects. For example, such a resource object
+could contain the SQL query being executed.
 
 In the case of Promises, the `resource` object will have `promise` property
 that refers to the Promise that is being initialized, and a `parentId` property

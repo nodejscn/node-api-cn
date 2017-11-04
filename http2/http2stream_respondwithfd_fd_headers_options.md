@@ -2,14 +2,14 @@
 added: v8.4.0
 -->
 
-* `fd` {number} A readable file descriptor
+* `fd` {number} A readable file descriptor.
 * `headers` {[Headers Object][]}
 * `options` {Object}
   * `statCheck` {Function}
   * `getTrailers` {Function} Callback function invoked to collect trailer
     headers.
-  * `offset` {number} The offset position at which to begin reading
-  * `length` {number} The amount of data from the fd to send
+  * `offset` {number} The offset position at which to begin reading.
+  * `length` {number} The amount of data from the fd to send.
 
 Initiates a response whose data is read from the given file descriptor. No
 validation is performed on the given file descriptor. If an error occurs while

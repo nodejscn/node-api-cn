@@ -1,6 +1,6 @@
 
 If any `AsyncHook` callbacks throw, the application will print the stack trace
-and exit. The exit path does follow that of an uncaught exception but
+and exit. The exit path does follow that of an uncaught exception, but
 all `uncaughtException` listeners are removed, thus forcing the process to
 exit. The `'exit'` callbacks will still be called unless the application is run
 with `--abort-on-uncaught-exception`, in which case a stack trace will be

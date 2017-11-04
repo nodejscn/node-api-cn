@@ -41,7 +41,7 @@ status = napi_get_named_property(env, global, "MyObject", &constructor);
 if (status != napi_ok) return;
 
 // const arg = "hello"
-status = napi_create_string_utf8(env, "hello", -1, &arg);
+status = napi_create_string_utf8(env, "hello", NAPI_AUTO_LENGTH, &arg);
 if (status != napi_ok) return;
 
 napi_value* argv = &arg;

@@ -1,6 +1,9 @@
 <!-- YAML
 added: v0.11.12
 changes:
+  - version: v8.8.0
+    pr-url: https://github.com/nodejs/node/pull/15380
+    description: The `windowsHide` option is supported now.
   - version: v8.0.0
     pr-url: https://github.com/nodejs/node/pull/10653
     description: The `input` option can now be a `Uint8Array`.
@@ -34,6 +37,8 @@ changes:
     一个不同的 shell 可以被指定为字符串。
     See [Shell Requirements][] and [Default Windows Shell][].
     默认为 `false`（没有 shell）。
+  * `windowsHide` {boolean} Hide the subprocess console window that would
+    normally be created on Windows systems. **Default:** `false`.
 * 返回: {Object}
   * `pid` {number} 子进程的 pid。
   * `output` {Array} stdio 输出返回的结果数组。

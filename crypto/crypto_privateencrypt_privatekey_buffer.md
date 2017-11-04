@@ -8,6 +8,7 @@ added: v1.1.0
     `crypto.constants`, which may be: `crypto.constants.RSA_NO_PADDING` or
     `RSA_PKCS1_PADDING`.
 - `buffer` {Buffer | TypedArray | DataView}
+- Returns: {Buffer} A new `Buffer` with the encrypted content.
 
 Encrypts `buffer` with `privateKey`.
 

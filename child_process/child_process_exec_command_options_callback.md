@@ -1,5 +1,9 @@
 <!-- YAML
 added: v0.1.90
+changes:
+  - version: v8.8.0
+    pr-url: https://github.com/nodejs/node/pull/15380
+    description: The `windowsHide` option is supported now.
 -->
 
 * `command` {string} 要运行的命令，用空格分隔参数。
@@ -18,6 +22,8 @@ added: v0.1.90
   * `killSignal` {string|integer} 默认为 `'SIGTERM'`。
   * `uid` {number} 设置该进程的用户标识。（详见 setuid(2)）
   * `gid` {number} 设置该进程的组标识。（详见 setgid(2)）
+  * `windowsHide` {boolean} Hide the subprocess console window that would
+    normally be created on Windows systems. **Default:** `false`.
 * `callback` {Function} 当进程终止时调用，并带上输出。
   * `error` {Error}
   * `stdout` {string|Buffer}

@@ -5,12 +5,12 @@ added: v0.5.0
 Creates a new TCP or [IPC][] server.
 
 * `options` {Object}
-  * `allowHalfOpen` {boolean} Default to `false`. Indicates whether half-opened
-    TCP connections are allowed.
-  * `pauseOnConnect` {boolean} Default to `false`. Indicates whether the socket
-    should be paused on incoming connections.
+  * `allowHalfOpen` {boolean} Indicates whether half-opened TCP
+    connections are allowed. **Default:** `false`
+  * `pauseOnConnect` {boolean} Indicates whether the socket should be
+    paused on incoming connections. **Default:** `false`
 * `connectionListener` {Function} Automatically set as a listener for the
-  [`'connection'`][] event
+  [`'connection'`][] event.
 * Returns: {net.Server}
 
 If `allowHalfOpen` is set to `true`, when the other end of the socket

@@ -6,8 +6,8 @@ added: v8.4.0
 * `options` {Object}
   * `exclusive` {boolean} When `true` and `parent` identifies a parent Stream,
     the given stream is made the sole direct dependency of the parent, with
-    all other existing dependents made a dependent of the given stream. Defaults
-    to `false`.
+    all other existing dependents made a dependent of the given stream. **Default:**
+    `false`
   * `parent` {number} Specifies the numeric identifier of a stream the given
     stream is dependent on.
   * `weight` {number} Specifies the relative dependency of a stream in relation

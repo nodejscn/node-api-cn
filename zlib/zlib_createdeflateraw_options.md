@@ -4,5 +4,9 @@ added: v0.5.8
 
 创建并返回一个带有给定 [options][] 的新的 [DeflateRaw][] 对象.
 
-*注意*: zlib 库拒绝 256-字节的 windows 的请求 (即 `{windowBits: 8}` in `options`).
-当创建具有这个特定 `windowBits` 值的 [DeflateRaw][] 对象时, 会抛出一个 `Error`
+*Note*: An upgrade of zlib from 1.2.8 to 1.2.11 changed behavior when windowBits
+is set to 8 for raw deflate streams. zlib would automatically set windowBits
+to 9 if was initially set to 8. Newer versions of zlib will throw an exception,
+so Node.js restored the original behavior of upgrading a value of 8 to 9,
+since passing `windowBits = 9` to zlib actually results in a compressed stream
+that effectively uses an 8-bit window only.

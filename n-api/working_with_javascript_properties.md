@@ -60,7 +60,7 @@ status = napi_create_array(env, &arr);
 if (status != napi_ok) return status;
 
 // Create a napi_value for 'hello'
-status = napi_create_string_utf8(env, "hello", -1, &value);
+status = napi_create_string_utf8(env, "hello", NAPI_AUTO_LENGTH, &value);
 if (status != napi_ok) return status;
 
 // arr[123] = 'hello';
