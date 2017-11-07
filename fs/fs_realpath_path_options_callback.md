@@ -37,6 +37,5 @@ changes:
 可选的 `options` 参数用于传入回调的路径，它可以是一个字符串并指定一个字符编码，或是一个对象且由一个 `encoding` 属性指定使用的字符编码。
 如果 `encoding` 设为 `'buffer'`，则返回的路径会被作为 `Buffer` 对象传入。
 
-*Note*: If `path` resolves to a socket or a pipe, the function will return a
-system dependent name for that object.
+*注意*: 如果路径解析到套接字或 pipe ，函数将返回与该对象相关的系统名称。
 
