@@ -2,13 +2,8 @@
 added: v8.0.0
 -->
 
-* `callback` {Function} Call this function (optionally with an error
-  argument) when finished writing any remaining data.
+* `callback` {Function} 在完成写入所有剩余数据时调用该函数（`err`参数可选）。
 
-The `_final()` method **must not** be called directly. It may be implemented
-by child classes, and if so, will be called by the internal Writable
-class methods only.
+`_final()`方法**不能**直接调用。 应该由子类负责实现，如果是，将仅可以由内部的Writable类方法进行调用。
 
-This optional function will be called before the stream closes, delaying the
-`finish` event until `callback` is called. This is useful to close resources
-or write buffered data before a stream ends.
+这个可选的函数将在流关闭之前被调用, 直到`callback`回调函数执行完成才触发`finish`事件。这对于关闭资源或在流结束之前写入缓冲数据很有用。
