@@ -2,9 +2,7 @@
 added: v8.0.0
 -->
 
-* `err` {Error} A possible error.
-* `callback` {Function} A callback function that takes an optional error
-  argument.
+* `err` {Error} 错误。
+* `callback` {Function} 回调函数，第一个参数为`err`参数。
 
-The `_destroy()` method is called by [`readable.destroy()`][readable-destroy].
-It can be overriden by child classes but it **must not** be called directly.
+`_destroy()`需通过[`readable.destroy()`][readable-destroy]方法调用。它可以被子类覆盖，但不能直接调用。
