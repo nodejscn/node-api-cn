@@ -1,6 +1,6 @@
 
-The `stream.Readable` class is extended to implement a [Readable][] stream.
+`stream.Readable` 类扩展并实现了[Readable][]。 
 
-Custom Readable streams *must* call the `new stream.Readable([options])`
-constructor and implement the `readable._read()` method.
+用户实现的自定义可读流 *必须* 调用`new stream.Readable([options])`
+构造函数并且实现`readable._read()`方法。
 
