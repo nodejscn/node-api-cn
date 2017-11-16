@@ -1,7 +1,7 @@
 
 * {string}
 
-获取只读序列化的URL orgin部分。
+获取只读序列化的URL origin部分。
 
 ```js
 const { URL } = require('url');
