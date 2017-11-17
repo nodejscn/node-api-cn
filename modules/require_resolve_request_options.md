@@ -6,12 +6,10 @@ changes:
     description: The `paths` option is now supported.
 -->
 
-* `request` {string} The module path to resolve.
+* `request` {string} 需要解析的模块路径。
 * `options` {Object}
-  * `paths` {Array} Paths to resolve module location from. If present, these
-    paths are used instead of the default resolution paths. Note that each of
-    these paths is used as a starting point for the module resolution algorithm,
-    meaning that the `node_modules` hierarchy is checked from this location.
+  * `paths` {Array} 解析模块的起点路径。此参数存在时，将使用这些路径而非默认解析路径。
+    注意此数组中的每一个路径都被用作模块解析算法的起点，意味着 `node_modules` 层级将从这里开始查询。
 * Returns: {string}
 
 使用内部的 `require()` 机制查询模块的位置,
