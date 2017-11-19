@@ -2,5 +2,5 @@
 added: v8.7.0
 -->
 
-* Returns {number} the `SO_SNDBUF` socket send buffer size in bytes.
+* Returns {number} socket 发送的字节大小。
 
