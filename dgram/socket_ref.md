@@ -2,14 +2,11 @@
 added: v0.9.1
 -->
 
-By default, binding a socket will cause it to block the Node.js process from
-exiting as long as the socket is open. The `socket.unref()` method can be used
-to exclude the socket from the reference counting that keeps the Node.js
-process active. The `socket.ref()` method adds the socket back to the reference
-counting and restores the default behavior.
+默认情况下，绑定一个 socket 会在 socket 运行时阻止 Node.js 进程退出。
+`socket.unref()` 方法用于将 socket 从维持 Node.js 进程的引用列表中解除。
+`socket.ref()` 方法用于将 socket 重新添加到这个引用列表中，并恢复其默认行为。
 
-Calling `socket.ref()` multiples times will have no additional effect.
+多次调用 `socket.ref()` 不会有额外的作用。
 
-The `socket.ref()` method returns a reference to the socket so calls can be
-chained.
+`socket.ref()` 方法返回一个对 socket 的引用，所以可以链式调用。
 
