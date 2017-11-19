@@ -62,9 +62,7 @@ client.send([buf1, buf2], 41234, (err) => {
 ```
 
 发送多个 buffer 的速度取决于应用和操作系统。
-It is important to run benchmarks to
-determine the optimal strategy on a case-by-case basis. Generally speaking,
-however, sending multiple buffers is faster.
+逐案运行基准来确定最佳策略是很重要的。但是一般来说，发送多个 buffer 速度更快。
 
 **关于 UDP 包大小的注意事项**
 
