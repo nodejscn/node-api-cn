@@ -4,4 +4,4 @@ added: v0.9.1
 
 * Returns: {net.Server}
 
-对应的是`unref`，如果server是唯一的，那么在`unref`之前调用`ref`将不会让程序退出（这是默认行为）。如果server已经调用过`ref`再次调用`ref`将不会再有效果。
+与 `unref` 相反，在一个已经调用 `unref` 的 server 中调用 `ref`，如果 server 是仅存的 server，则程序不会退出（默认）。对一个已经调用 `ref` 的 server 再次调用 `ref` 将不会再有效果。
