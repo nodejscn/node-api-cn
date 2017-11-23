@@ -45,11 +45,8 @@ fs.watchFile('message.text', (curr, prev) => {
 注意：[`fs.watch()`] 比 `fs.watchFile` 和 `fs.unwatchFile` 更高效。
 可能的话，应该使用 `fs.watch` 而不是 `fs.watchFile` 和 `fs.unwatchFile`。
 
-*Note:* When a file being watched by `fs.watchFile()` disappears and reappears,
-then the `previousStat` reported in the second callback event (the file's
-reappearance) will be the same as the `previousStat` of the first callback
-event (its disappearance).
+*注意:* 当 `fs.watchFile()` 所监听的文件消失并重新出现时，第二个回调函数中返回的 previousstat (文件重新出现)将与第一个回调函数的 previousstat (消失)相同。
 
-This happens when:
-- the file is deleted, followed by a restore
-- the file is renamed twice - the second time back to its original name
+这种情况会发生在:
+- 该文件被删除，然后又恢复
+- 文件重命名两次 - 第二次重命名与其原名称相同
