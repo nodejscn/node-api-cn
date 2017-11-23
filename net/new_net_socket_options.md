@@ -2,20 +2,14 @@
 added: v0.3.4
 -->
 
-Creates a new socket object.
 
-* `options` {Object} Available options are:
-  * `fd`: {number} If specified, wrap around an existing socket with
-    the given file descriptor, otherwise a new socket will be created.
-  * `allowHalfOpen` {boolean} Indicates whether half-opened TCP connections
-    are allowed. See [`net.createServer()`][] and the [`'end'`][] event
-    for details. Defaults to `false`.
-  * `readable` {boolean} Allow reads on the socket when an `fd` is passed,
-    otherwise ignored. Defaults to `false`.
-  * `writable` {boolean} Allow writes on the socket when an `fd` is passed,
-    otherwise ignored. Defaults to `false`.
+创建一个 socket 对象。
+
+* `options` {Object} 可用选项有：
+  * `fd`: {number} 如果指定了该参数，则使用一个给定的文件描述符包装一个已存在的 socket，否则将创建一个新的 socket。
+  * `allowHalfOpen` {boolean} 指示是否允许半打开的 TCP 连接。详情查看 [`net.createServer()`][] 和 [`'end'`][] 事件。默认是 `false`。
+  * `readable` {boolean} 当传递了 `fd` 时允许读取 socket，否则忽略。默认 `false`。
+  * `writable` {boolean} 当传递了 `fd` 时允许写入 socket，否则忽略。默认 `false`。
 * Returns: {net.Socket}
 
-The newly created socket can be either a TCP socket or a streaming [IPC][]
-endpoint, depending on what it [`connect()`][`socket.connect()`] to.
-
+新创建的 socket 可以是 TCP socket 也可以是 [IPC][] 端点流，取决于它连接 [`connect()`][`socket.connect()`] 到什么。
