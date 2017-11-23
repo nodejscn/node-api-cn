@@ -2,8 +2,6 @@
 added: v0.1.90
 -->
 
-* `had_error` {boolean} `true` if the socket had a transmission error.
+* `had_error` {boolean} 如果 socket 有传输错误就为 true。
 
-Emitted once the socket is fully closed. The argument `had_error` is a boolean
-which says if the socket was closed due to a transmission error.
-
+一旦 socket 完全关闭就发出该事件。参数 `had_error` 是 boolean 类型，表明 socket 被关闭是否取决于传输错误。
