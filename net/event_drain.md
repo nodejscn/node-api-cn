@@ -2,7 +2,6 @@
 added: v0.1.90
 -->
 
-Emitted when the write buffer becomes empty. Can be used to throttle uploads.
+当写入缓冲区变为空时触发。可以用来做上传节流。
 
-See also: the return values of `socket.write()`
-
+也可以查看：`socket.write()` 的返回值
