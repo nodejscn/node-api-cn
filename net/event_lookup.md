@@ -6,11 +6,9 @@ changes:
     description: The `host` parameter is supported now.
 -->
 
-Emitted after resolving the hostname but before connecting.
-Not applicable to UNIX sockets.
+在找到主机之后创建连接之前触发。不可用于 UNIX socket。
 
-* `err` {Error|null} The error object.  See [`dns.lookup()`][].
-* `address` {string} The IP address.
-* `family` {string|null} The address type.  See [`dns.lookup()`][].
-* `host` {string} The hostname.
-
+* `err` {Error|null} 错误对象。查看 [`dns.lookup()`][]。
+* `address` {string} IP 地址。
+* `family` {string|null} 地址类型。查看 [`dns.lookup()`][]。
+* `host` {string} 主机。
