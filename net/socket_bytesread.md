@@ -2,5 +2,5 @@
 added: v0.5.3
 -->
 
-The amount of received bytes.
+接收的字节数量。
 
