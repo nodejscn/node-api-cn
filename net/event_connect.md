@@ -2,6 +2,5 @@
 added: v0.1.90
 -->
 
-Emitted when a socket connection is successfully established.
-See [`net.createConnection()`][].
-
+当一个 socket 连接成功建立的时候发送该事件。
+查看 [`net.createConnection()`][]。
