@@ -32,8 +32,7 @@ changes:
 
 回调有三个参数 `(err, bytesWritten, buffer)`，其中 `bytesWritten` 指定从 `buffer` 写入了多少**字节**。
 
-If this method is invoked as its [`util.promisify()`][]ed version, it returns
-a Promise for an object with `bytesWritten` and `buffer` properties.
+如果以 [`util.promisify()`] 的形式调用该方法，则会返回包含 `bytesWritten` 和 `buffer` 属性的 Promise 的对象。
 
 注意，多次对同一文件使用 `fs.write` 且不等待回调，是不安全的。
 对于这种情况，强烈推荐使用 `fs.createWriteStream`。
