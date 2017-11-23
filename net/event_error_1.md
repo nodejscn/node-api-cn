@@ -4,6 +4,4 @@ added: v0.1.90
 
 * {Error}
 
-Emitted when an error occurs.  The `'close'` event will be called directly
-following this event.
-
+当错误发生时触发。`'close'` 事件也会紧接着该事件被触发。
