@@ -2,20 +2,8 @@
 added: v0.3.8
 -->
 
-`net.Socket` has the property that `socket.write()` always works. This is to
-help users get up and running quickly. The computer cannot always keep up
-with the amount of data that is written to a socket - the network connection
-simply might be too slow. Node.js will internally queue up the data written to a
-socket and send it out over the wire when it is possible. (Internally it is
-polling on the socket's file descriptor for being writable).
+`net.Socket` 具有该属性，`socket.write()` 工作时需要。它可以帮助用户快速启动和运行。计算机（处理速度）不能总是跟上 socket 的写入速度 - 网络连接可能太慢了。 Node.js 内部将维护一个写入 socket 的数据队列，并在可能的时候将数据发送出去。（内部实现是对 socket 的文件描述符进行轮训其是否是可写状态。）
 
-The consequence of this internal buffering is that memory may grow. This
-property shows the number of characters currently buffered to be written.
-(Number of characters is approximately equal to the number of bytes to be
-written, but the buffer may contain strings, and the strings are lazily
-encoded, so the exact number of bytes is not known.)
+使用内部缓冲的结果是可能造成内存的增长。此属性显示当前即将被写入的缓冲的字符数。（字符串的数目大致等于即将被写入的字节，但缓冲可能包含字符串，而字符串是惰性编码的，所以实际的字节数是不知道的。）
 
-Users who experience large or growing `bufferSize` should attempt to
-"throttle" the data flows in their program with
-[`socket.pause()`][] and [`socket.resume()`][].
-
+对处理大量或持续增长的 `bufferSize` 有经验的用户应该注意使用 [`socket.pause()`][] and [`socket.resume()`][] 对他们程序中的数据流进行节流。
