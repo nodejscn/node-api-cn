@@ -1,15 +1,11 @@
 
-* `path` {string} Path the client should connect to. See
-  [Identifying paths for IPC connections][].
-* `connectListener` {Function} Common parameter of [`socket.connect()`][]
-  methods. Will be added as a listener for the [`'connect'`][] event once.
-* Returns: {net.Socket} The socket itself.
+* `path` {string} 客户端连接的路径. 查看 [Identifying paths for IPC connections][]。
+* `connectListener` {Function} [`socket.connect()`][] 方法的通用参数。将被添加为 [`'connect'`][] 事件的监听器。
+* Returns: {net.Socket} Socket 自身。
 
-Initiate an [IPC][] connection on the given socket.
+在给定的 socket 上初始化 [IPC][] 。
 
-Alias to
-[`socket.connect(options[, connectListener])`][`socket.connect(options)`]
-called with `{ path: path }` as `options`.
+相当于使用 `{ path: path }` 作为 `options` 调用 [`socket.connect(options[, connectListener])`][`socket.connect(options)`] 方法。
 
-Returns `socket`.
+返回 `socket`。
 
