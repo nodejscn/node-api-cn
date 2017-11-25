@@ -5,7 +5,7 @@
 
 在给定的 socket 上初始化 [IPC][] 。
 
-相当于使用 `{ path: path }` 作为 `options` 调用 [`socket.connect(options[, connectListener])`][`socket.connect(options)`] 方法。
+相当使用 `{ path: path }` 作为 `options` 调用 [`socket.connect(options[, connectListener])`][`socket.connect(options)`] 方法的别名。
 
 返回 `socket`。
 
