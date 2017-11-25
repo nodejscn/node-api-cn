@@ -2,10 +2,4 @@
 added: v6.1.0
 -->
 
-If `true` -
-[`socket.connect(options[, connectListener])`][`socket.connect(options)`]
-was called and haven't yet finished. Will be set to `false` before emitting
-`connect` event and/or calling
-[`socket.connect(options[, connectListener])`][`socket.connect(options)`]'s
-callback.
-
+如果为 `true` 则[`socket.connect(options[, connectListener])`][`socket.connect(options)`] 被调用但还未结束。当发送 `connect` 事件或调用 [`socket.connect(options[, connectListener])`][`socket.connect(options)`] 的回调函数的时候会被设置为 `false`。
