@@ -12,28 +12,26 @@ changes:
 -->
 
 * `options` {Object}
-* `connectListener` {Function} Common parameter of [`socket.connect()`][]
-  methods. Will be added as a listener for the [`'connect'`][] event once.
-* Returns: {net.Socket} The socket itself.
+* `connectListener` {Function} [`socket.connect()`][] 的通用参数。将会被添加为 [`'connect'`][] 事件的监听器。
+* Returns: {net.Socket} Socket 自身。
 
-Initiate a connection on a given socket. Normally this method is not needed,
-the socket should be created and opened with [`net.createConnection()`][]. Use
-this only when implementing a custom Socket.
+在给定的 socket 上初始化一个连接。通常该方法是不需要的，应该使用 [`net.createConnection()`][] 来创建和打开 socket。一般只在实现一个自定义的 Socket 的时候使用该方法。
+
 
 For TCP connections, available `options` are:
 
-* `port` {number} Required. Port the socket should connect to.
-* `host` {string} Host the socket should connect to. Defaults to `'localhost'`.
-* `localAddress` {string} Local address the socket should connect from.
-* `localPort` {number} Local port the socket should connect from.
-* `family` {number}: Version of IP stack, can be either 4 or 6. Defaults to 4.
-* `hints` {number} Optional [`dns.lookup()` hints][].
-* `lookup` {Function} Custom lookup function. Defaults to [`dns.lookup()`][].
+对于 TCP 连接可能的 `options` 有：
 
-For [IPC][] connections, available `options` are:
+* `port` {number} 必须。Socket 连接的端口。
+* `host` {string} Socket 连接的主机。默认是 `'localhost'`.
+* `localAddress` {string} Socket 连接的本地地址。
+* `localPort` {number} Socket 连接的本地端口。
+* `family` {number} IP栈的版本，可以是4或6。默认值为4。
+* `hints` {number} 可选的[`dns.lookup()` hints][].
+* `lookup` {Function} 自定义的 lookup 方法。默认是 [`dns.lookup()`][].
 
-* `path` {string} Required. Path the client should connect to.
-  See [Identifying paths for IPC connections][]. If provided, the TCP-specific
-  options above are ignored.
+对于 [IPC][] 连接可能的 `options` 有：
 
-Returns `socket`.
+* `path` {string} 必须。客户端连接的路径。查看 [Identifying paths for IPC connections][]。如果提供了，则以上的 TCP 选项都会被忽略。
+
+返回 `socket`.
