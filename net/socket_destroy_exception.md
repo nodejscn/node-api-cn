@@ -4,9 +4,6 @@ added: v0.1.90
 
 * Returns: {net.Socket}
 
-Ensures that no more I/O activity happens on this socket. Only necessary in
-case of errors (parse error or so).
+确保在该 socket 上不再有 I/O 活动。仅在出现错误的时候才需要（如解析错误等）。
 
-If `exception` is specified, an [`'error'`][] event will be emitted and any
-listeners for that event will receive `exception` as an argument.
-
+如果制定了 `exception`，则将会触发一个 [`'error'`][] 事件，任何监听器都将接收到 `exception` 作为一个参数。
