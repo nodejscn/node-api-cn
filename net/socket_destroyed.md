@@ -1,4 +1,2 @@
 
-A Boolean value that indicates if the connection is destroyed or not. Once a
-connection is destroyed no further data can be transferred using it.
-
+一个布尔值，用来指示连接是否已经被销毁。一旦连接被销毁就不能再使用它传输任何数据。
