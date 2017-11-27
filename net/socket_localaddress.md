@@ -2,8 +2,4 @@
 added: v0.9.6
 -->
 
-The string representation of the local IP address the remote client is
-connecting on. For example, in a server listening on `'0.0.0.0'`, if a client
-connects on `'192.168.1.1'`, the value of `socket.localAddress` would be
-`'192.168.1.1'`.
-
+远程客户端连接的本地 IP 地址字符串。例如，一个服务端正在连接到 `'0.0.0.0'`，客户端连接到的是 `'192.168.1.1'`，则 `socket.localAddress` 的值是 `'192.168.1.1'`。
