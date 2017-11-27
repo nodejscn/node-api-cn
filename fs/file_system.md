@@ -94,7 +94,4 @@ Error: EISDIR: illegal operation on a directory, read
 例如，`fs.readdirSync('c:\\')` 可能返回与 `fs.readdirSync('c:')` 不同的结果。
 详见 [MSDN 路径文档]。
 
-*Note:* On Windows, opening an existing hidden file using the `w` flag (either
-through `fs.open` or `fs.writeFile`) will fail with `EPERM`. Existing hidden
-files can be opened for writing with the `r+` flag. A call to `fs.ftruncate` can
-be used to reset the file contents.
+*注意:* 在 Windows 上，使用 `w` 选项(通过 `fs.open` 或 `fs.writeFile`) 打开已有隐藏文件将会失败，错误信息为 `EPERM` 。已有隐藏文件可以通过 `r+` 选项打开。调用 `fs.ftruncate` 可以用来重置文件内容。
