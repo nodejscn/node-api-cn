@@ -4,10 +4,9 @@ added: v2.0.0
 
 * `id` {string|number} A group name or ID
 
-The `process.setegid()` method sets the effective group identity of the process.
-(See setegid(2).) The `id` can be passed as either a numeric ID or a group
-name string. If a group name is specified, this method blocks while resolving
-the associated a numeric ID.
+`process.setegid()`方法为进程设置有效的用户组ID。(请看 setegid(2).)
+`id`可以传一个数值ID或传一个用户组名称字符串。如果传了后者的话，会解析成一个相关的数值ID，
+解析的时候，这个方法方法是阻塞的。
 
 ```js
 if (process.getegid && process.setegid) {
@@ -21,7 +20,5 @@ if (process.getegid && process.setegid) {
 }
 ```
 
-*Note*: This function is only available on POSIX platforms (i.e. not Windows
-or Android).
-
+*注意*: 这个方法只在POSIX平台可用(换句话说，Windows或Android不行)。
 
