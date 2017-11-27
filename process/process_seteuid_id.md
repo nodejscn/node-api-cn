@@ -4,10 +4,9 @@ added: v2.0.0
 
 * `id` {string|number} A user name or ID
 
-The `process.seteuid()` method sets the effective user identity of the process.
-(See seteuid(2).) The `id` can be passed as either a numeric ID or a username
-string.  If a username is specified, the method blocks while resolving the
-associated numeric ID.
+`process.seteuid()`方法为进程设置有效的用户ID。(请看 seteuid(2).)
+`id`可以传一个数值ID或传一个用户名字符串。如果传了特定的用户名字符串，会解析成一个相关的数值ID，
+解析的时候，这个方法方法是阻塞的。
 
 ```js
 if (process.geteuid && process.seteuid) {
@@ -21,6 +20,5 @@ if (process.geteuid && process.seteuid) {
 }
 ```
 
-*Note*: This function is only available on POSIX platforms (i.e. not Windows
-or Android).
+*注意*: 这个方法只在POSIX平台可用(换句话说，Windows或Android不行)。
 
