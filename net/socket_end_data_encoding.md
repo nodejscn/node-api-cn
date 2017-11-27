@@ -2,11 +2,8 @@
 added: v0.1.90
 -->
 
-* Returns: {net.Socket} The socket itself.
+* Returns: {net.Socket} Socket 本身。
 
-Half-closes the socket. i.e., it sends a FIN packet. It is possible the
-server will still send some data.
+半关闭 socket。例如发送一个 FIN 包。服务端仍可以发送数据。
 
-If `data` is specified, it is equivalent to calling
-`socket.write(data, encoding)` followed by [`socket.end()`][].
-
+如果指定了 `data`，则相当于调用 `socket.write(data, encoding)` 之后再调用 [`socket.end()`][]。
