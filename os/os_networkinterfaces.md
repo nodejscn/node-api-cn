@@ -20,9 +20,7 @@ added: v0.6.0
 值为`true`,否则为`false`
 * `scopeid` {number} IPv6 数字领域识别码 (只有当 `family`
 是`IPv6`时可用)
-* `cidr` {string} The assigned IPv4 or IPv6 address with the routing prefix
-  in CIDR notation. If the `netmask` is invalid, this property is set
-  to `null`
+* `cidr` {string} 以 CIDR 表示法分配的带有路由前缀的 IPv4 或 IPv6 地址。如果 `netmask` 参数不可用，则该属性是 `null`。
 
 <!-- eslint-skip -->
 ```js
