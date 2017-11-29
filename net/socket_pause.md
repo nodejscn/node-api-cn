@@ -1,6 +1,5 @@
 
-* Returns: {net.Socket} The socket itself.
+* Returns: {net.Socket} Socket 本身。
 
-Pauses the reading of data. That is, [`'data'`][] events will not be emitted.
-Useful to throttle back an upload.
+暂定读写数据。也就是说，[`'data'`][] 将不会再被触发。可以用于上传节流。
 
