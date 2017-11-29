@@ -1,5 +1,4 @@
 
-* Returns: {net.Socket} The socket itself.
+* Returns: {net.Socket} Socket 本身
 
-Resumes reading after a call to [`socket.pause()`][].
-
+在调用 [`socket.pause()`][] 之后恢复读取数据。
