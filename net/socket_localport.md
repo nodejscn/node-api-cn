@@ -2,6 +2,5 @@
 added: v0.9.6
 -->
 
-The numeric representation of the local port. For example,
-`80` or `21`.
+用数字表示的本地端口。例如 `80` 或 `21`。
 
