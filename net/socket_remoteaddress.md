@@ -2,7 +2,4 @@
 added: v0.5.10
 -->
 
-The string representation of the remote IP address. For example,
-`'74.125.127.100'` or `'2001:4860:a005::68'`. Value may be `undefined` if
-the socket is destroyed (for example, if the client disconnected).
-
+用字符串表示的远程 IP 地址。例如 `'74.125.127.100'` 或 `'2001:4860:a005::68'`。如果 socket 被销毁了（如客户端已经失去连接）则其值为 `undefined`。
