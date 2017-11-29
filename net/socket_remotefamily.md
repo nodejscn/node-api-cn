@@ -2,5 +2,4 @@
 added: v0.11.14
 -->
 
-The string representation of the remote IP family. `'IPv4'` or `'IPv6'`.
-
+用字符串表示的远程 IP 协议族。`'IPv4'` 或 `'IPv6'`。
