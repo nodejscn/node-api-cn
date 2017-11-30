@@ -4,9 +4,9 @@ added: v1.6.0
 
 * `name` {string}
 
-Removes a header that's already defined into headers object.
+移除一个已经在 headers 对象里面的 header。
 
-Example:
+例如：
 ```js
 request.removeHeader('Content-Type');
 ```
