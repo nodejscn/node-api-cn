@@ -2,8 +2,7 @@
 added: v0.7.8
 -->
 
-Emitted when the underlying socket times out from inactivity. This only notifies
-that the socket has been idle. The request must be aborted manually.
+当底层 socket 超时的时候触发。该方法只会通知空闲的 socket。请求必须手动停止。
 
-See also: [`request.setTimeout()`][]
+也可以查看 [`request.setTimeout()`][]。
 
