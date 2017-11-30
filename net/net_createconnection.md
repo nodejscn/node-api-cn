@@ -1,19 +1,12 @@
+一个用于创建 [`net.Socket`][] 的工厂函数，立即使用 [`socket.connect()`][] 初始化链接，然后返回启动连接的 `net.Socket`。
 
-A factory function, which creates a new [`net.Socket`][],
-immediately initiates connection with [`socket.connect()`][],
-then returns the `net.Socket` that starts the connection.
+当连接建立之后，在返回的 socket 上将触发一个 [`'connect'`][] 事件。若制定了最后一个参数 `connectListener`，则它将会被添加到 [`'connect'`][] 事件作为一个监听器。
 
-When the connection is established, a [`'connect'`][] event will be emitted
-on the returned socket. The last parameter `connectListener`, if supplied,
-will be added as a listener for the [`'connect'`][] event **once**.
-
-Possible signatures:
+可能的签名有：
 
 * [`net.createConnection(options[, connectListener])`][`net.createConnection(options)`]
-* [`net.createConnection(path[, connectListener])`][`net.createConnection(path)`]
-  for [IPC][] connections.
-* [`net.createConnection(port[, host][, connectListener])`][`net.createConnection(port, host)`]
-  for TCP connections.
+* [`net.createConnection(path[, connectListener])`][`net.createConnection(path)`] 用于 [IPC][] 连接。
+* [`net.createConnection(port[, host][, connectListener])`][`net.createConnection(port, host)`] 用于 TCP 连接。
 
-*Note*: The [`net.connect()`][] function is an alias to this function.
+*注意*: The [`net.connect()`][] 函数也是该函数的别名。
 
