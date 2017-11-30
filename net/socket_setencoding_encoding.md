@@ -2,8 +2,6 @@
 added: v0.1.90
 -->
 
-* Returns: {net.Socket} The socket itself.
+* Returns: {net.Socket} Socket 本身
 
-Set the encoding for the socket as a [Readable Stream][]. See
-[`stream.setEncoding()`][] for more information.
-
+设置作为可读流（[Readable Stream][]）的编码。在 [`stream.setEncoding()`][] 查看更多详情。
