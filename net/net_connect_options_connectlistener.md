@@ -1,6 +1,6 @@
 <!-- YAML
 added: v0.7.0
 -->
-Alias to
-[`net.createConnection(options[, connectListener])`][`net.createConnection(options)`].
+
+[`net.createConnection(options[, connectListener])`][`net.createConnection(options)`] 的别名。
 
