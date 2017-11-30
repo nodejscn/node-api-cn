@@ -1,12 +1,9 @@
 
-Aliases to
-[`net.createConnection()`][`net.createConnection()`].
+[`net.createConnection()`][`net.createConnection()`] 的别名。
 
-Possible signatures:
+可能的签名：
 
 * [`net.connect(options[, connectListener])`][`net.connect(options)`]
-* [`net.connect(path[, connectListener])`][`net.connect(path)`] for [IPC][]
-  connections.
-* [`net.connect(port[, host][, connectListener])`][`net.connect(port, host)`]
-  for TCP connections.
+* [`net.connect(path[, connectListener])`][`net.connect(path)`] 用于 [IPC][] 连接。
+* [`net.connect(port[, host][, connectListener])`][`net.connect(port, host)`] 用于 TCP 连接。
 
