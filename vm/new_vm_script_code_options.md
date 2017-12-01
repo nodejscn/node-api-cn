@@ -3,25 +3,25 @@ added: v0.3.1
 changes:
   - version: v5.7.0
     pr-url: https://github.com/nodejs/node/pull/4777
-    description: The `cachedData` and `produceCachedData` options are
-                 supported now.
+    description: 新增对`cachedData`和`produceCachedData`选项的支持
+
 -->
 
-* `code` {string} The JavaScript code to compile.JavaScript要解析的代码。
+* `code` {string} 需要被解析的JavaScript代码
 * `options`
   * `filename` {string} Specifies the filename used in stack traces produced
     by this script.
-    定义脚本生成的堆栈跟踪使用的文件名
+    定义供脚本生成的堆栈跟踪信息所使用的文件名
   * `lineOffset` {number} Specifies the line number offset that is displayed
     in stack traces produced by this script.
-    定义脚本生成的堆栈跟踪显示的行号偏移
+    定义脚本生成的堆栈跟踪信息所显示的行号偏移
   * `columnOffset` {number} Specifies the column number offset that is displayed
     in stack traces produced by this script.
-    定义脚本生成的堆栈跟踪显示的列号偏移
+    定义脚本生成的堆栈跟踪信息所显示的列号偏移
   * `displayErrors` {boolean} When `true`, if an [`Error`][] error occurs
     while compiling the `code`, the line of code causing the error is attached
     to the stack trace.
-    当为真的时候，假如在解析代码的时候发生错误，引起错误的行将会加入堆栈跟踪
+    当值为真的时候，假如在解析代码的时候发生错误[`Error`][]，引起错误的行将会被加入堆栈跟踪信息
   * `timeout` {number} Specifies the number of milliseconds to execute `code`
     before terminating execution. If execution is terminated, an [`Error`][]
     will be thrown.
