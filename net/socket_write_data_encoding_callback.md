@@ -2,13 +2,9 @@
 added: v0.1.90
 -->
 
-Sends data on the socket. The second parameter specifies the encoding in the
-case of a string--it defaults to UTF8 encoding.
+在 socket 上发送数据。第二个参数制定了字符串的编码 - 默认是 UTF8 编码。
 
-Returns `true` if the entire data was flushed successfully to the kernel
-buffer. Returns `false` if all or part of the data was queued in user memory.
-[`'drain'`][] will be emitted when the buffer is again free.
+如果全部数据都成功刷新到内核的缓冲则返回 `true`。如果全部或部分数据在用户内中排队，则返回 `false`。当缓冲再次空闲的时候将触发 [`'drain'`][] 事件。
 
-The optional `callback` parameter will be executed when the data is finally
-written out - this may not be immediately.
+当数据最终都被写出之后，可选的 `callback` 参数将会被执行 - 可能不会立即执行。
 
