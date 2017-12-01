@@ -2,14 +2,11 @@
 added: v0.1.90
 -->
 
-* Returns: {net.Socket} The socket itself.
+* Returns: {net.Socket} Socket 本身。
 
-Sets the socket to timeout after `timeout` milliseconds of inactivity on
-the socket. By default `net.Socket` do not have a timeout.
+当 socket 在 `timeout` 毫秒不活动之后将其设置为超时状态。默认 `net.Socket` 没有超时。
 
-When an idle timeout is triggered the socket will receive a [`'timeout'`][]
-event but the connection will not be severed. The user must manually call
-[`socket.end()`][] or [`socket.destroy()`][] to end the connection.
+当一个闲置的超时被触发，socket 将会收到一个 [`'timeout'`][] 事件，但连接不会被断开。用户必须手动调用 [`socket.end()`][] 或 [`socket.destroy()`][] 来断开连接。
 
 ```js
 socket.setTimeout(3000);
@@ -19,8 +16,6 @@ socket.on('timeout', () => {
 });
 ```
 
-If `timeout` is 0, then the existing idle timeout is disabled.
+如果 `timeout` 是 0，则存在的闲置超时将会被禁止。
 
-The optional `callback` parameter will be added as a one time listener for the
-[`'timeout'`][] event.
-
+可选的 `callback` 参数将会被当作一个时间监听器被添加到 [`'timeout'`][] 事件。
