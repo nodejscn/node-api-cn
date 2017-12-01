@@ -2,14 +2,8 @@
 added: v0.1.92
 -->
 
-* Returns: {net.Socket} The socket itself.
+* Returns: {net.Socket} Socket 本身。
 
-Enable/disable keep-alive functionality, and optionally set the initial
-delay before the first keepalive probe is sent on an idle socket.
-`enable` defaults to `false`.
+启用/禁用长连接功能， 并且在第一个长连接探针被发送到一个空闲的 socket 之前可选则配置初始延迟。`enable` 默认为 `false`。
 
-Set `initialDelay` (in milliseconds) to set the delay between the last
-data packet received and the first keepalive probe. Setting 0 for
-initialDelay will leave the value unchanged from the default
-(or previous) setting. Defaults to `0`.
-
+`initialDelay`（毫秒）用来设置接收到最后一个数据包和发送第一个长连接探针之间的延迟。将 initialDelay 设置为 0，则会保持默认值（或之前设置的值）不变。默认是 `0`。
