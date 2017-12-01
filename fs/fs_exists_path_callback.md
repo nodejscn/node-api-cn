@@ -43,7 +43,7 @@ fs.exists('myfile', (exists) => {
 });
 ```
 
-**write (不推荐)**
+**write (推荐)**
 
 ```js
 fs.open('myfile', 'wx', (err, fd) => {
