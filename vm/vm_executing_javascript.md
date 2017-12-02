@@ -12,6 +12,6 @@ const vm = require('vm');
 
 JavaScript 代码可以被编译并立即运行，或编译、保存然后再运行。
 
-*Note*: The vm module is not a security mechanism.
-**Do not use it to run untrusted code**.
+*注意*: vm模块并不是实现代码安全性的一套机制。
+**绝不要试图用其运行未经信任的代码**.
 
