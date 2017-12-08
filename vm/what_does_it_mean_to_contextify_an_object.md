@@ -1,18 +1,10 @@
+所有用Node.js所运行的JavaScript代码都是在一个“上下文”的作用域中被执行的。
+根据[V8 Embedder's Guide][]：
 
-All JavaScript executed within Node.js runs within the scope of a "context".
-According to the [V8 Embedder's Guide][]:
+> 在V8中，一个上下文是一个执行环境，它允许分离的，无关的JavaScript应用在一个V8的单例中被运行。
+> 你必须明确地指定用于运行所有JavaScript代码的上下文。
 
-> In V8, a context is an execution environment that allows separate, unrelated,
-> JavaScript applications to run in a single instance of V8. You must explicitly
-> specify the context in which you want any JavaScript code to be run.
-
-When the method `vm.createContext()` is called, the `sandbox` object that is
-passed in (or a newly created object if `sandbox` is `undefined`) is associated
-internally with a new instance of a V8 Context. This V8 Context provides the
-`code` run using the `vm` module's methods with an isolated global environment
-within which it can operate. The process of creating the V8 Context and
-associating it with the `sandbox` object is what this document refers to as
-"contextifying" the `sandbox`.
+当调用`vm.createContext()`时，传入的`sandbox`对象（或者新建的一个`sandbox`对象，若原`sandbox`为`undefined`)在底层会和一个新的V8上下文实例联系上。这个V8上下文在一个隔离的全局环境中，使用`vm`模块的方法运行`code`。创建V8上下文和使之联系上`sandbox`的过程在此文档中被称作为"上下文隔离化"`sandbox`。
 
 [`Error`]: errors.html#errors_class_error
 [`eval()`]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval
