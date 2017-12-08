@@ -1,10 +1,6 @@
 
 > 稳定性: 1 - 实验性质
 
-The serialization API provides means of serializing JavaScript values in a way
-that is compatible with the [HTML structured clone algorithm][].
-The format is backward-compatible (i.e. safe to store to disk).
-
 序列化API提供了一系列用于序列化JavaScript值的方法，它们兼容于[HTML structured clone algorithm][]。
 格式是向下兼容的（可以安心存储于硬盘中）。
 
