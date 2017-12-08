@@ -35,7 +35,7 @@ if (cluster.isMaster) {
   console.log(`工作进程 ${process.pid} 已启动`);
 }
 ```
-现在 `Node.js` 正在工作组人员(指代子进程)之中共享8000端口
+现在运行 `Node.js` 将会在工作进程(指代子进程)之间共享8000端口
 
 ```txt
 $ node server.js
@@ -45,5 +45,5 @@ $ node server.js
 工作进程 6056 已启动
 工作进程 5644 已启动
 ```
-请注意,在Windows上面,在一个工作进程,至今它是不可以设置一个管道服务器。
+请注意,在Windows中,还不能在工作进程中设置管道(Pipe)服务器。
 
