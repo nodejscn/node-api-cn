@@ -4,5 +4,5 @@ added: v8.0.0
 
 * Returns: {Buffer}
 
-Uses a [`DefaultSerializer`][] to serialize `value` into a buffer.
+使用[`DefaultSerializer`][]来序列化`value`到一个缓冲区中。
 
