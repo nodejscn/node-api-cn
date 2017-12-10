@@ -2,16 +2,11 @@
 added: v1.0.0
 -->
 
-The `v8.setFlagsFromString()` method can be used to programmatically set
-V8 command line flags. This method should be used with care. Changing settings
-after the VM has started may result in unpredictable behavior, including
-crashes and data loss; or it may simply do nothing.
+`v8.setFlagsFromString()`可以被用来在脚本中设置V8引擎的命令行标识。此方法应该谨慎使用。在虚拟机已经运行后修改其设置可能会造成不可预测的结果，包括崩溃和数据丢失，或者一点作用也没有。
 
-The V8 options available for a version of Node.js may be determined by running
-`node --v8-options`.  An unofficial, community-maintained list of options
-and their effects is available [here][].
+针对一个特定版本的Node.js，可供其使用的V8选项可以通过运行`node --v8-options`来获取。一个非官方的，由社区维护的选项清单及其效果可参见[这里][here]。
 
-Usage:
+用法:
 
 ```js
 // Print GC events to stdout for one minute.
