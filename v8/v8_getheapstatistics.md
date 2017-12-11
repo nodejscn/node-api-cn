@@ -3,11 +3,11 @@ added: v1.0.0
 changes:
   - version: v7.2.0
     pr-url: https://github.com/nodejs/node/pull/8610
-    描述: 新增 `malloced_memory`, `peak_malloced_memory`,
+    description: 新增 `malloced_memory`, `peak_malloced_memory`,
                  和 `does_zap_garbage`.
   - version: v7.5.0
     pr-url: https://github.com/nodejs/node/pull/10186
-    描述: 新增对超过32位的非符号整型的支持
+    description: 新增对超过32位的非符号整型的支持
 -->
 
 返回拥有以下参数的对象：
