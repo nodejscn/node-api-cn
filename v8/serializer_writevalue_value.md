@@ -1,6 +1,3 @@
+序列化一个JavaScript值并将结果加入内部的缓冲区。
 
-Serializes a JavaScript value and adds the serialized representation to the
-internal buffer.
-
-This throws an error if `value` cannot be serialized.
-
+如果`value`不能被序列化则抛出错误。
