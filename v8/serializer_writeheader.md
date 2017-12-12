@@ -1,3 +1,3 @@
 
-Writes out a header, which includes the serialization format version.
+写出一个包含序列化格式版本的头文件
 
