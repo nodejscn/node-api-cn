@@ -1,5 +1,2 @@
-
-Returns the stored internal buffer. This serializer should not be used once
-the buffer is released. Calling this method results in undefined behavior
-if a previous write has failed.
+返回存储里的内部缓冲区。若缓冲区已经被释放则不应该使用此序列化机制。如果之前的一次写入操作失败，那么执行此方法会造成不可预知的行为。
 
