@@ -1,2 +1,2 @@
-Creates a new `Serializer` object.
+创建一个新的`Serializer`对象。
 
