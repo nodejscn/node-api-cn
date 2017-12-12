@@ -2,8 +2,7 @@
 added: v8.0.0
 -->
 
-* `buffer` {Buffer|Uint8Array} A buffer returned by [`serialize()`][].
+* `buffer` {Buffer|Uint8Array} 由[`serialize()`][]返回的一个缓冲区。
 
-Uses a [`DefaultDeserializer`][] with default options to read a JS value
-from a buffer.
+用默认配置来执行[`DefaultDeserializer`][]从而从一个缓冲区中读取一个JS值
 
