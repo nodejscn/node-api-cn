@@ -2,6 +2,6 @@
 * `hi` {integer}
 * `lo` {integer}
 
-Write a raw 64-bit unsigned integer, split into high and low 32-bit parts.
-For use inside of a custom [`serializer._writeHostObject()`][].
+写出一个原始64位无符号整型，会被拆分成高32位和低32位两部分。
+此方法用于一个自定义的[`serializer._writeHostObject()`][].
 
