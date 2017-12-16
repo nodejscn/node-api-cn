@@ -3,14 +3,14 @@ added: v1.0.0
 changes:
   - version: v7.2.0
     pr-url: https://github.com/nodejs/node/pull/8610
-    description: Added `malloced_memory`, `peak_malloced_memory`,
-                 and `does_zap_garbage`.
+    description: 新增 `malloced_memory`, `peak_malloced_memory`,
+                 和 `does_zap_garbage`.
   - version: v7.5.0
     pr-url: https://github.com/nodejs/node/pull/10186
-    description: Support values exceeding the 32-bit unsigned integer range.
+    description: 新增对超过32位的非符号整型的支持
 -->
 
-Returns an object with the following properties:
+返回拥有以下参数的对象：
 
 * `total_heap_size` {number}
 * `total_heap_size_executable` {number}
@@ -22,11 +22,7 @@ Returns an object with the following properties:
 * `peak_malloced_memory` {number}
 * `does_zap_garbage` {number}
 
-`does_zap_garbage` is a 0/1 boolean, which signifies whether the `--zap_code_space`
-option is enabled or not. This makes V8 overwrite heap garbage with a bit
-pattern. The RSS footprint (resident memory set) gets bigger because it
-continuously touches all heap pages and that makes them less likely to get
-swapped out by the operating system.
+`does_zap_garbage`是个0/1式布尔值，它凸显是否设置了`--zap_code_space`选项。若为真，那么V8引擎会用一个位模式来覆盖堆中的垃圾。如此，RSS(常驻内存集)会变得越来越大，因为V8会一直征用所有的堆页，从而让他们更难被操作系统交换掉。
 
 For example:
 
