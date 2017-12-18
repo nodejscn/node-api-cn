@@ -1,5 +1,2 @@
-
-Reads and validates a header (including the format version).
-May, for example, reject an invalid or unsupported wire format. In that case,
-an `Error` is thrown.
-
+读取并验证一个头文件（包含格式信息）。
+验证在某些情况下有可能不会通过，比如传输格式不合格或者不被支持。若发生上述情况，那么一个`Error`会被抛出。
