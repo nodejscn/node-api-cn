@@ -6,13 +6,9 @@ changes:
     description: The `chunk` argument can now be a `Uint8Array` instance.
 -->
 
-* `chunk` {Buffer|Uint8Array|string|any} Chunk of data to unshift onto the
-  read queue. For streams not operating in object mode, `chunk` must be a
-  string, `Buffer` or `Uint8Array`. For object mode streams, `chunk` may be
-  any JavaScript value other than `null`.
+* `chunk` {Buffer|Uint8Array|string|any} 数据块移动到可读队列底部。对于不以对象模式运行的流，`chunk` 必须是字符串， `Buffer` 或者 `Uint8Array`。对于对象流， `chunk` 任何非`null`的值。
 
-The `readable.unshift()` method pushes a chunk of data back into the internal
-buffer. This is useful in certain situations where a stream is being consumed by
+`readable.unshift()` 方法会提交一个数据块到`Buffer`内部。 This is useful in certain situations where a stream is being consumed by
 code that needs to "un-consume" some amount of data that it has optimistically
 pulled out of the source, so that the data can be passed on to some other party.
 
