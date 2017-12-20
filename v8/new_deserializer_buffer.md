@@ -1,5 +1,4 @@
 
-* `buffer` {Buffer|Uint8Array} A buffer returned by [`serializer.releaseBuffer()`][].
+* `buffer` {Buffer|Uint8Array} 由[`serializer.releaseBuffer()`][]返回的缓冲区
 
-Creates a new `Deserializer` object.
-
+生成一个新的`Deserializer`对象。
