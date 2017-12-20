@@ -1,10 +1,7 @@
 
 * `object` {Object}
 
-This method is called to write some kind of host object, i.e. an object created
-by native C++ bindings. If it is not possible to serialize `object`, a suitable
-exception should be thrown.
+此方法用来写出某种宿主对象，进一步说，是由绑定的原生C++代码所生成的一个对象。 如果无法序列化`object`，那么一个恰当的异常会被抛出。
 
-This method is not present on the `Serializer` class itself but can be provided
-by subclasses.
+此方法在`Serializer`对象本身是不存在的，但可在其子类中提供。
 
