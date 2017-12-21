@@ -1,38 +1,24 @@
 
-`process.stdout` and `process.stderr` differ from other Node.js streams in
-important ways:
+`process.stdout` and `process.stderr` 与 Node.js 中其他 streams 在重要的方面有不同:
 
-1. They are used internally by [`console.log()`][] and [`console.error()`][],
-   respectively.
-2. They cannot be closed ([`end()`][] will throw).
-3. They will never emit the [`'finish'`][] event.
-4. Writes may be synchronous depending on what the stream is connected to
-   and whether the system is Windows or POSIX:
-   - Files: *synchronous* on Windows and POSIX
-   - TTYs (Terminals): *asynchronous* on Windows, *synchronous* on POSIX
-   - Pipes (and sockets): *synchronous* on Windows, *asynchronous* on POSIX
+1. 他们分别使用内部的 [`console.log()`][] 和 [`console.error()`][]。
+2. 他们不能被关闭 (调用[`end()`][]将会抛出异常)。
+3. 他们永远不会触发 [`'finish'`][] 事件。
+4. 写操作是否为同步，取决于连接的是什么流以及操作系统是 Windows 还是 POSIX :
 
-These behaviors are partly for historical reasons, as changing them would
-create backwards incompatibility, but they are also expected by some users.
+   - Files: *同步* 在 Windows 和 POSIX 下
+   - TTYs (Terminals): *异步* 在 Windows 下， *同步* 在 POSIX 下
+   - Pipes (and sockets): *同步* 在 Windows 下， *异步* 在 POSIX 下
 
-Synchronous writes avoid problems such as output written with `console.log()` or
-`console.error()` being unexpectedly interleaved, or not written at all if
-`process.exit()` is called before an asynchronous write completes. See
-[`process.exit()`][] for more information.
+这些行为部分是历史原因，改变他们可能导致向后不兼容，而且他们的行为也符合部分用户的预期。
 
-***Warning***: Synchronous writes block the event loop until the write has
-completed. This can be near instantaneous in the case of output to a file, but
-under high system load, pipes that are not being read at the receiving end, or
-with slow terminals or file systems, its possible for the event loop to be
-blocked often enough and long enough to have severe negative performance
-impacts. This may not be a problem when writing to an interactive terminal
-session, but consider this particularly careful when doing production logging to
-the process output streams.
+同步写避免了调用 `console.log()` 或 `console.error()` 产生不符合预期的交错输出问题，或是在异步写完成前调用了`process.exit()`导致未写完整。 查看[`process.exit()`][] 获取更多信息。
 
-To check if a stream is connected to a [TTY][] context, check the `isTTY`
-property.
+***警告***: 同步写将会阻塞事件循环直到写完成。 有时可能一瞬间就能写到一个文件，但当系统处于高负载时，管道的接收端可能不会被读取、缓慢的终端或文件系统，因为事件循环被阻塞的足够频繁且足够长的时间，这些可能会给系统性能带来消极的影响。当你向一个交互终端会话写时这可能不是个问题，但当生产日志到进程的输出流时要特别留心。
 
-For instance:
+如果要检查一个流是否连接到了一个 [TTY][] 上下文， 检查 `isTTY` 属性。
+
+例如:
 ```console
 $ node -p "Boolean(process.stdin.isTTY)"
 true
@@ -44,4 +30,4 @@ $ node -p "Boolean(process.stdout.isTTY)" | cat
 false
 ```
 
-See the [TTY][] documentation for more information.
+查看 [TTY][] 文档以获得更多信息。
