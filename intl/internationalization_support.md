@@ -7,7 +7,7 @@ Node.js有许多功能，使它更容易编写国际化程序.其中一些是：
   - [`Intl`][] 对象
   -本地化敏感的方法如[`String.prototype.localeCompare()`][] 和 [`Date.prototype.toLocaleString()`][]
 - WHATWG URL解析器的[国际化域名 ] [ ]（IDN）的支持
-- [ `要求（'buffer”）。transcode() ` ] [ ]
+- [ `require('buffer').transcode()` ] [ ]
 - 更准确的[REPL] [ ] 行编辑
 - [`require('util').TextDecoder`][]
 
