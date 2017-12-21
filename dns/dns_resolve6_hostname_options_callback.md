@@ -6,12 +6,9 @@ changes:
     description: This method now supports passing `options`,
                  specifically `options.ttl`.
 -->
-- `hostname` {string} Hostname to resolve.
+- `hostname` {string} 需要解析的主机名。
 - `options` {Object}
-  - `ttl` {boolean} Retrieve the Time-To-Live value (TTL) of each record.
-    When `true`, the callback receives an array of
-    `{ address: '0:1:2:3:4:5:6:7', ttl: 60 }` objects rather than an array of
-    strings, with the TTL expressed in seconds.
+  - `ttl` {boolean} 记录每一条记录的存活次数 (TTL)。如果为 `true`， 返回的结果将会为 `Object` 的数组，就像 `{ address: '0:1:2:3:4:5:6:7', ttl: 60 }` 带有 `TTL` 秒数的记录，而不是 `string` 的数组.
 - `callback` {Function}
   - `err` {Error}
   - `addresses` {string[] | Object[]}

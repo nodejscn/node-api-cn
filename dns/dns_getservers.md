@@ -4,7 +4,7 @@ added: v0.11.3
 
 返回一个用于当前DNF解析的IP地址的数组的字符串，格式根据[rfc5952][]。如果使用自定义端口，那么字符串将包括一个端口部分。
 
-For example:
+例如:
 
 <!-- eslint-disable semi-->
 ```js
