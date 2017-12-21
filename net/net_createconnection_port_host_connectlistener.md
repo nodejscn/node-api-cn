@@ -2,20 +2,18 @@
 added: v0.1.90
 -->
 
-* `port` {number} Port the socket should connect to. Will be passed to
-  [`socket.connect(port[, host][, connectListener])`][`socket.connect(port, host)`].
-* `host` {string} Host the socket should connect to. Will be passed to
-  [`socket.connect(port[, host][, connectListener])`][`socket.connect(port, host)`].
-   **Default:** `'localhost'`
-* `connectListener` {Function} Common parameter of the
-  [`net.createConnection()`][] functions, an "once" listener for the
-  `'connect'` event on the initiating socket. Will be passed to
-  [`socket.connect(path[, connectListener])`][`socket.connect(port, host)`].
-* Returns: {net.Socket} The newly created socket used to start the connection.
+* `port` {number} 套接字应该连接的端口号. 会
+  传给[`socket.connect(port[, host][, connectListener])`][`socket.connect(port, host)`].
+  
+* `host` {string} 套接字应该连接的主机名. 会
+  传给[`socket.connect(port[, host][, connectListener])`][`socket.connect(port, host)`].
+   **默认:** `'localhost'`
+* `connectListener` {Function} 
+  [`net.createConnection()`][] 的常见参数, 在初始化套接字时
+  对`'connect'` 事件的"一次性"监听器， 会
+  传给[`socket.connect(path[, connectListener])`][`socket.connect(port, host)`].
+* 返回值: {net.Socket} 用于开启连接的新创建的套接字.
 
-Initiates a TCP connection.
+初始化一个TCP连接
 
-This function creates a new [`net.Socket`][] with all options set to default,
-immediately initiates connection with
-[`socket.connect(port[, host][, connectListener])`][`socket.connect(port, host)`],
-then returns the `net.Socket` that starts the connection.
+这个函数用默认配置创建一个新的[`net.Socket`][]，然后[`socket.connect(port[, host][, connectListener])`][`socket.connect(port, host)`]初始化一个连接，并返回开启连接的那个 `net.Socket`。
