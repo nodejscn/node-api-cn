@@ -22,8 +22,7 @@ changes:
 当父进程和子进程之间建立了一个 IPC 通道时（例如，使用 [`child_process.fork()`]），`subprocess.send()` 方法可用于发送消息到子进程。
 当子进程是一个 Node.js 实例时，消息可以通过 [`process.on('message')`] 事件接收。
 
-*Note*: The message goes through JSON serialization and parsing. The resulting
-message might not be the same as what is originally sent. See notes in
+*注意*: 消息通过JSON序列化和解析进行传递，结果就是消息可能跟开始发送的不完全一样。请查看
 [the `JSON.stringify()` specification][`JSON.stringify` spec].
 
 例子，父进程脚本如下：
