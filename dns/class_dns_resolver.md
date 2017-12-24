@@ -3,7 +3,6 @@ added: v8.3.0
 -->
 
 DNS请求的独立解析程序。
-An independent resolver for DNS requests.
 
 使用默认的设置创建一个新的解析程序。为一个解析程序设置servers使用[`resolver.setServers()`][`dns.setServers()`]，它不会影响其他的解析程序：
 
