@@ -26,7 +26,7 @@ changes:
 1. 原始值使用[全等运算符]（`===`）比较。`Set` 的值与 `Map` 的键使用 [SameValueZero] 比较。
 2. 对象的[原型]也使用全等运算符比较。
 3. 对象的[类型标签]要求相同。
-4. [Object wrappers][] are compared both as objects and unwrapped values.
+4. 比较[对象包装器][]时，其对象和里面的值要求相同。
 
 ```js
 const assert = require('assert');
@@ -58,9 +58,9 @@ assert.deepStrictEqual(date, fakeDate);
 // 因为类型标签不同。
 
 assert.deepStrictEqual(new Number(1), new Number(2));
-// Fails because the wrapped number is unwrapped and compared as well.
+// 测试不通过，因为数值对象包装器里面的数值也会被比较。
 assert.deepStrictEqual(new String('foo'), Object('foo'));
-// OK because the object and the string are identical when unwrapped.
+// 测试通过，因为这两个对象和里面的字符串都是相同的
 ```
 
 如果两个值不相等，则抛出一个带有 `message` 属性的 `AssertionError`，其中 `message` 属性的值等于传入的 `message` 参数的值。
