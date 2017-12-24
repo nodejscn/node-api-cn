@@ -2,17 +2,13 @@
 added: v0.1.99
 -->
 
-* `type` {string} - Either 'udp4' or 'udp6'.
-* `callback` {Function} - Attached as a listener to `'message'` events.
-* Returns: {dgram.Socket}
+* `type` {string} - 'udp4' 或 'udp6'.
+* `callback` {Function} - 为 `'message'` 事件添加一个监听器。
+* 返回: {dgram.Socket}
 
-Creates a `dgram.Socket` object of the specified `type`. The `type` argument
-can be either `udp4` or `udp6`. An optional `callback` function can be passed
-which is added as a listener for `'message'` events.
+创建一个特定 `type` 的`dgram.Socket` 对象。`type`参数是`udp4` 或 `udp6`。
+可选传一个回调函数，作为 `'message'` 事件的监听器。
 
-Once the socket is created, calling [`socket.bind()`][] will instruct the
-socket to begin listening for datagram messages. When `address` and `port` are
-not passed to  [`socket.bind()`][] the method will bind the socket to the "all
-interfaces" address on a random port (it does the right thing for both `udp4`
-and `udp6` sockets). The bound address and port can be retrieved using
-[`socket.address().address`][] and [`socket.address().port`][].
+一旦套接字被创建。调用[`socket.bind()`][] 会指示套接字开始监听数据报消息。如果 `address` 和 `port` 没传给  [`socket.bind()`][]，
+那么这个方法会把这个套接字绑定到 "全部接口" 地址的一个随机端口(这适用于 `udp4` 和 `udp6` 套接字)。
+绑定的地址和端口可以通过 [`socket.address().address`][] 和[`socket.address().port`][] 来获取。
