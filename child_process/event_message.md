@@ -7,8 +7,7 @@ added: v0.5.9
 
 当一个子进程使用 [`process.send()`] 发送消息时会触发 `'message'` 事件。
 
-*Note*: The message goes through JSON serialization and parsing. The resulting
-message might not be the same as what is originally sent. See notes in
+*注意*: 消息通过JSON序列化和解析传递，结果就是消息可能跟开始发送的不完全一样。请查看
 [the `JSON.stringify()` specification][`JSON.stringify` spec].
 
 <a name="child_process_child_channel"></a>
