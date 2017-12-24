@@ -2,27 +2,22 @@
 added: v8.2.0
 -->
 
-* `object` {Object} An object supporting `Symbol.toPrimitive` or `valueOf()`
-* `offsetOrEncoding` {number|string} A byte-offset or encoding, depending on
-  the value returned either by `object.valueOf()` or
-  `object[Symbol.toPrimitive]()`.
-* `length` {number} A length, depending on the value returned either by
-  `object.valueOf()` or `object[Symbol.toPrimitive]()`.
+* `object` {Object} 一个支持 `Symbol.toPrimitive` 或 `valueOf()` 的对象
+* `offsetOrEncoding` {number|string} 字节偏移量或编码，取决于 `object.valueOf()` 或 `object[Symbol.toPrimitive]()` 的返回值。
+* `length` {number} 长度值，取决于 `object.valueOf()` 或 `object[Symbol.toPrimitive]()` 的返回值。
 
-For objects whose `valueOf()` function returns a value not strictly equal to
-`object`, returns `Buffer.from(object.valueOf(), offsetOrEncoding, length)`.
+那些其 `valueOf()` 方法返回值如果不严格等于 `object` 的对象，返回`Buffer.from(object.valueOf(), offsetOrEncoding, length)`。
 
-For example:
+例子:
 
 ```js
 const buf = Buffer.from(new String('this is a test'));
 // <Buffer 74 68 69 73 20 69 73 20 61 20 74 65 73 74>
 ```
 
-For objects that support `Symbol.toPrimitive`, returns
-`Buffer.from(object[Symbol.toPrimitive](), offsetOrEncoding, length)`.
+那些支持 `Symbol.toPrimitive` 的对象， 返回 `Buffer.from(object[Symbol.toPrimitive](), offsetOrEncoding, length)`。
 
-For example:
+例子:
 
 ```js
 class Foo {
