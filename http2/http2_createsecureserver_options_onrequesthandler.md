@@ -1,5 +1,14 @@
 <!-- YAML
 added: v8.4.0
+changes:
+  - version: v8.9.3
+    pr-url: https://github.com/nodejs/node/pull/17105
+    description: Added the `maxOutstandingPings` option with a default limit of
+                 10.
+  - version: v8.9.3
+    pr-url: https://github.com/nodejs/node/pull/16676
+    description: Added the `maxHeaderListPairs` option with a default limit of
+                 128 header pairs.
 -->
 
 * `options` {Object}
@@ -8,6 +17,10 @@ added: v8.4.0
     `false`. See the [`'unknownProtocol'`][] event. See [ALPN negotiation][].
   * `maxDeflateDynamicTableSize` {number} Sets the maximum dynamic table size
     for deflating header fields. **Default:** `4Kib`
+  * `maxHeaderListPairs` {number} Sets the maximum number of header entries.
+    **Default:** `128`. The minimum value is `4`.
+  * `maxOutstandingPings` {number} Sets the maximum number of outstanding,
+    unacknowledged pings. The default is `10`.
   * `maxSendHeaderBlockLength` {number} Sets the maximum allowed size for a
     serialized, compressed block of headers. Attempts to send headers that
     exceed this limit will result in a `'frameError'` event being emitted

@@ -22,6 +22,8 @@ changes:
   * `gid` {number} 设置该进程的组标识。（详见 setgid(2)）
   * `windowsHide` {boolean} Hide the subprocess console window that would
     normally be created on Windows systems. **Default:** `false`.
+  * `windowsVerbatimArguments` {boolean} No quoting or escaping of arguments is
+    done on Windows. Ignored on Unix. **Default:** `false`.
 * `callback` {Function} 当进程终止时调用，并带上输出。
   * `error` {Error}
   * `stdout` {string|Buffer}

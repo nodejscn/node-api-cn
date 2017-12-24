@@ -22,6 +22,8 @@ changes:
     当提供了该选项，则它会覆盖 `silent`。
     如果使用了数组变量，则该数组必须包含一个值为 `'ipc'` 的子项，否则会抛出错误。
     例如 `[0, 1, 2, 'ipc']`。
+  * `windowsVerbatimArguments` {boolean} No quoting or escaping of arguments is
+    done on Windows. Ignored on Unix. **Default:** `false`.
   * `uid` {number} 设置该进程的用户标识。（详见 setuid(2)）
   * `gid` {number} 设置该进程的组标识。（详见 setgid(2)）
 * 返回: {ChildProcess}

@@ -1,4 +1,10 @@
-
+<!-- YAML
+added: v8.4.0
+changes:
+  - version: v8.9.3
+    pr-url: https://github.com/nodejs/node/pull/16676
+    description: The `maxHeaderListSize` setting is now strictly enforced.
+-->
 The `http2.getDefaultSettings()`, `http2.getPackedSettings()`,
 `http2.createServer()`, `http2.createSecureServer()`,
 `http2session.settings()`, `http2session.localSettings`, and
@@ -24,8 +30,8 @@ properties.
   concurrently at any given time in an `Http2Session`. The minimum value is
   0. The maximum allowed value is 2<sup>31</sup>-1.
 * `maxHeaderListSize` {number} Specifies the maximum size (uncompressed octets)
-  of header list that will be accepted. There is no default value. The minimum
-  allowed value is 0. The maximum allowed value is 2<sup>32</sup>-1.
+  of header list that will be accepted. The minimum allowed value is 0. The
+  maximum allowed value is 2<sup>32</sup>-1. **Default:** 65535.
 
 All additional properties on the settings object are ignored.
 

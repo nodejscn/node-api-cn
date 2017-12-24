@@ -2,7 +2,7 @@
 added: v8.5.0
 -->
 
-* `label` {any}
+* `...label` {any}
 
 将后续行的缩进增加两个空格。
 

@@ -33,7 +33,13 @@ console.log(process.memoryUsage());
 ```
 
 `heapTotal` 和 `heapUsed` 代表V8的内存使用情况。
-
 `external`代表V8管理的，绑定到Javascript的C++对象的内存使用情况。
+`rss`, Resident Set Size, is the amount of space
+occupied in the main memory device (that is a subset of the total allocated
+memory) for the process, which includes the _heap_, _code segment_ and _stack_.
+
+The _heap_ is where objects, strings and closures are stored. Variables are
+stored in the _stack_ and the actual JavaScript code resides in the
+_code segment_.
 
 

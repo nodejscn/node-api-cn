@@ -1,6 +1,6 @@
 
 When `options.paddingStrategy` is equal to
-`http2.constants.PADDING_STRATEGY_CALLBACK`, the the HTTP/2 implementation will
+`http2.constants.PADDING_STRATEGY_CALLBACK`, the HTTP/2 implementation will
 consult the `options.selectPadding` callback function, if provided, to determine
 the specific amount of padding to use per HEADERS and DATA frame.
 

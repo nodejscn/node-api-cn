@@ -37,6 +37,9 @@ changes:
     一个不同的 shell 可以被指定为字符串。
     See [Shell Requirements][] and [Default Windows Shell][].
     默认为 `false`（没有 shell）。
+  * `windowsVerbatimArguments` {boolean} No quoting or escaping of arguments is
+    done on Windows. Ignored on Unix. This is set to `true` automatically
+    when `shell` is specified. **Default:** `false`.
   * `windowsHide` {boolean} Hide the subprocess console window that would
     normally be created on Windows systems. **Default:** `false`.
 * 返回: {Object}
