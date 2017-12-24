@@ -7,6 +7,6 @@ added: v0.1.99
 * `rinfo` {Object} - 远程地址信息
   * `address` {string} 发送方地址 
   * `family` {string} 地址类型 (`'IPv4'` or `'IPv6'`)
-  * `port` {number} The sender port
-  * `size` {number} The message size
+  * `port` {number} 发送者端口
+  * `size` {number} 消息大小
 
