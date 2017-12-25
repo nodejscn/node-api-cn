@@ -1,5 +1,4 @@
 
-Used when headers have already been sent and another attempt is made to add
-more headers.
+当Http header已发送，添加更多header的行为会抛出这个错误代码
 
 <a id="ERR_HTTP_INVALID_CHAR"></a>
