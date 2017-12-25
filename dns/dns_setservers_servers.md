@@ -3,11 +3,10 @@ added: v0.11.3
 -->
 - `servers` {string[]} array of [rfc5952][] formatted addresses
 
-Sets the IP address and port of servers to be used when performing DNS
-resolution. The `servers` argument is an array of [rfc5952][] formatted
-addresses. If the port is the IANA default DNS port (53) it can be omitted.
+设置IP地址服务器端口在进行DNS解析时可用，`servers`参数是一个[rfc5952][]数组格式的地址。
+如果端口是IANA默认端口(53),那么它可以被忽略。
 
-For example:
+比如:
 
 ```js
 dns.setServers([
