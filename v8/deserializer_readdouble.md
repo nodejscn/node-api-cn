@@ -1,6 +1,5 @@
 
 * Returns: {number}
 
-Read a JS `number` value.
-For use inside of a custom [`deserializer._readHostObject()`][].
-
+读取一个JS`number`值。
+用于一个自定义的[`deserializer._readHostObject()`][]。
