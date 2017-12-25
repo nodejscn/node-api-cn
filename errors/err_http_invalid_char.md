@@ -1,5 +1,4 @@
 
-Used when an invalid character is found in an HTTP response status message
-(reason phrase).
+在一个HTTP响应的状态信息(原因短语)中发现错误字符时会抛出此错误代码
 
 <a id="ERR_HTTP_INVALID_STATUS_CODE"></a>
