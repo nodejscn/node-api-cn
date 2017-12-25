@@ -1,7 +1,5 @@
 
 * Returns: {Array}
 
-Read a raw 64-bit unsigned integer and return it as an array `[hi, lo]`
-with two 32-bit unsigned integer entries.
-For use inside of a custom [`deserializer._readHostObject()`][].
-
+读取一个原始64位无符号整型，将其拆分成一个包含两个32位无符号整型的`[hi, lo]`数组，并返回此数组。
+用于一个自定义的[`deserializer._readHostObject()`][]。
