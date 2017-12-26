@@ -1,8 +1,3 @@
+此方法用来写出某种宿主对象，进一步说，是由绑定的原生C++代码所生成的一个对象。 如果无法序列化数据，那么一个恰当的异常会被抛出。
 
-This method is called to read some kind of host object, i.e. an object that is
-created by native C++ bindings. If it is not possible to deserialize the data,
-a suitable exception should be thrown.
-
-This method is not present on the `Deserializer` class itself but can be
-provided by subclasses.
-
+此方法在`Deserializer`对象本身上是不存在的，但可有其子类提供。
