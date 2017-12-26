@@ -3,33 +3,29 @@ added: v0.5.0
 -->
 
 Creates a new TCP or [IPC][] server.
+创建一个新的TCP或[IPC][]服务。
 
 * `options` {Object}
-  * `allowHalfOpen` {boolean} Indicates whether half-opened TCP
-    connections are allowed. **Default:** `false`
-  * `pauseOnConnect` {boolean} Indicates whether the socket should be
-    paused on incoming connections. **Default:** `false`
-* `connectionListener` {Function} Automatically set as a listener for the
-  [`'connection'`][] event.
-* Returns: {net.Server}
+  * `allowHalfOpen` {boolean} 表示是否允许一个半开的TCP连接。
+  **默认值:** `false`
+  * `pauseOnConnect` {boolean} 一旦来了连接，是否暂停套接字。
+  **默认值:** `false`
+* `connectionListener` {Function} 为[`'connection'`][] 事件自动设置一个监听器。
+* 返回: {net.Server}
 
-If `allowHalfOpen` is set to `true`, when the other end of the socket
-sends a FIN packet, the server will only send a FIN packet back when
-[`socket.end()`][] is explicitly called, until then the connection is
-half-closed (non-readable but still writable). See [`'end'`][] event
-and [RFC 1122][half-closed] (section 4.2.2.13) for more information.
+如果 `allowHalfOpen` 被设置为`true`, 那么当[`socket.end()`][] 被显式调用时,
+如果对边套接字发送了一个FIN包，服务只会返回一个FIN数据包，
+这会持续到后来连接处在半闭状态 (不可读但是可写)。
+请查看[`'end'`][] 事件和 [RFC 1122][half-closed] (4.2.2.13节) 获取更多信息。
 
-If `pauseOnConnect` is set to `true`, then the socket associated with each
-incoming connection will be paused, and no data will be read from its handle.
-This allows connections to be passed between processes without any data being
-read by the original process. To begin reading data from a paused socket, call
-[`socket.resume()`][].
+如果 `pauseOnConnect` 被设置为 `true`, 那么与连接相关的套接字都会暂停，也不会从套接字句柄读取数据。
+这样就允许连接在进程之间传递，避免数据被最初的进程读取。
+如果想从一个暂停的套接字开始读数据，请调用[`socket.resume()`][]
 
-The server can be a TCP server or a [IPC][] server, depending on what it
-[`listen()`][`server.listen()`] to.
+服务可以是一个TCP服务或者一个 [IPC][] 服务,
+这取决于[`listen()`][`server.listen()`] 监听什么
 
-Here is an example of an TCP echo server which listens for connections
-on port 8124:
+这是一个简单的TCP回声服务器在8124端口上监听连接的例子：
 
 ```js
 const net = require('net');
@@ -50,14 +46,13 @@ server.listen(8124, () => {
 });
 ```
 
-Test this by using `telnet`:
+用 `telnet`测试:
 
 ```console
 $ telnet localhost 8124
 ```
 
-To listen on the socket `/tmp/echo.sock` the third line from the last would
-just be changed to
+想监听 `/tmp/echo.sock` 只需改最后三行为：
 
 ```js
 server.listen('/tmp/echo.sock', () => {
@@ -65,7 +60,7 @@ server.listen('/tmp/echo.sock', () => {
 });
 ```
 
-Use `nc` to connect to a UNIX domain socket server:
+用 `nc` 连一个 UNIX 域套接字服务器:
 
 ```console
 $ nc -U /tmp/echo.sock
