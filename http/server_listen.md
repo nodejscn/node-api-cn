@@ -1,4 +1,3 @@
 
-Starts the HTTP server listening for connections.
-This method is identical to [`server.listen()`][] from [`net.Server`][].
+开启HTTP服务器监听连接。方法与[`net.Server`][]的[`server.listen()`][]相同。
 
