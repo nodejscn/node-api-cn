@@ -5,7 +5,7 @@ added: v1.6.0
 * `name` {string}
 * Returns: {string}
 
-Reads out a header on the request. Note that the name is case insensitive.
+读出请求头，注意:参数name是大小写敏感的
 
 Example:
 ```js
