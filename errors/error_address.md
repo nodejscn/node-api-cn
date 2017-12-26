@@ -1,6 +1,4 @@
 
 * {string}
 
-When present (e.g. in `net` or `dgram`), the `error.address` property is a
-string describing the address to which the connection failed.
-
+错误出现时 (比如 在 `net` 或 `dgram`), `error.address` 属性是对链接失败的地址的描述。
