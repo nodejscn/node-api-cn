@@ -6,10 +6,10 @@ added: v0.5.8
   - `err` {Error}
   - `buf` {Buffer}
 
-生成加密强伪随机数据. `size`参数是指示要生成的字节数的数字。
+生成加密强伪随机数据. `size`参数是指示要生成的字节数的数值。
 
 如果提供 `callback`回调函数 ,这些字节是异步生成的并且使用两个参数调用`callback`函数：`err`和`buf`。
-如果发生错误, `err`是一个Error对象； 否则为null. 该`buf`参数是包含生成字节的[`Buffer`] []。
+如果发生错误, `err`是一个Error对象； 否则为null。`buf`参数是包含生成字节的[`Buffer`] []。
 
 ```js
 // Asynchronous
@@ -20,7 +20,7 @@ crypto.randomBytes(256, (err, buf) => {
 });
 ```
 
-如果不提供 `callback`回调函数, 生成随机字节同步并返回为[`Buffer`] [].如果出现错误将会抛出生成字节有问题。
+如果未提供 `callback`回调函数, 则同步地生成随机字节并返回为[`Buffer`] []。如果生成字节遇到问题，将会抛出一个错误。
 ```js
 // Synchronous
 const buf = crypto.randomBytes(256);
@@ -28,11 +28,6 @@ console.log(
   `${buf.length} bytes of random data: ${buf.toString('hex')}`);
 ```
 
-`crypto.randomBytes()`方法将阻塞，直到有足够的熵.
-这通常不会超过几毫秒. 唯一的时间
-当生成随机字节可能会阻塞更长的时间
-时间是开机后，当整个系统的熵低时
+`crypto.randomBytes()`方法将在获得足够的熵之后完成。这通常不会超过几毫秒。只有在刚开机时才可能会阻塞更久，因为此时整个系统的熵不多。
 
-Note that this API uses libuv's threadpool, which can have surprising and
-negative performance implications for some applications, see the
-[`UV_THREADPOOL_SIZE`][] documentation for more information.
+注意这个API使用libuv的线程池，所以在某些时候可能会产生意外的性能问题，查看[`UV_THREADPOOL_SIZE`][]的文档以了解更多信息。
