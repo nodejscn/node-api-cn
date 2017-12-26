@@ -2,12 +2,12 @@
 added: v0.1.31
 -->
 
-* `id` {string|number} The group name or ID
+* `id` {string|number} 进程组名字或ID
 
-The `process.setgid()` method sets the group identity of the process. (See
-setgid(2).)  The `id` can be passed as either a numeric ID or a group name
-string. If a group name is specified, this method blocks while resolving the
-associated numeric ID.
+`process.setgid()` 为进程方法设置组ID. (查看setgid(2).)
+可给`id`参数传一个数值ID或字符串名。
+
+如果已经有一个进程组ID名，那么在解析为相关的ID之前，此方法是阻塞。
 
 ```js
 if (process.getgid && process.setgid) {
@@ -21,6 +21,5 @@ if (process.getgid && process.setgid) {
 }
 ```
 
-*Note*: This function is only available on POSIX platforms (i.e. not Windows
-or Android).
+注意: 这个方法只在POSIX平台可用(换句话说，Windows或Android不行)。
 
