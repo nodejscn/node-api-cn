@@ -1,6 +1,4 @@
 
 * {string}
 
-When present (e.g. in `fs` or `child_process`), the `error.path` property is a
-string containing a relevant invalid pathname.
-
+错误出现时 (比如 在 `fs` 或 `child_process`), `error.path`属性是一个字符串，包含了相关不可用路径名。
