@@ -18,8 +18,6 @@ changes:
 在给定的 socket 上初始化一个连接。通常该方法是不需要的，应该使用 [`net.createConnection()`][] 来创建和打开 socket。一般只在实现一个自定义的 Socket 的时候使用该方法。
 
 
-For TCP connections, available `options` are:
-
 对于 TCP 连接可能的 `options` 有：
 
 * `port` {number} 必须。Socket 连接的端口。
