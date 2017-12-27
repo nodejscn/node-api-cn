@@ -35,7 +35,7 @@ class MyDuplex extends Duplex {
 }
 ```
 
-亦或, 当使用 pre-ES6 风格的构造函数时:
+或者, 使用ES6方式:
 
 ```js
 const { Duplex } = require('stream');
@@ -49,7 +49,7 @@ function MyDuplex(options) {
 util.inherits(MyDuplex, Duplex);
 ```
 
-又或者, 用简单构造函数处理:
+又或者, 用简化的构造函数:
 
 ```js
 const { Duplex } = require('stream');
