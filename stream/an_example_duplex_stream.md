@@ -1,11 +1,10 @@
 
-The following illustrates a simple example of a Duplex stream that wraps a
-hypothetical lower-level source object to which data can be written, and
-from which data can be read, albeit using an API that is not compatible with
-Node.js streams.
-The following illustrates a simple example of a Duplex stream that buffers
-incoming written data via the [Writable][] interface that is read back out
-via the [Readable][] interface.
+下面是一个可读可写流包装了一个假定的可读可写的底层源对象，
+尽管用了一个与Node.js流不兼容的API。
+
+下面是一个简单的例子，
+在一个可读可写流中，来的buffers通过[Writable][] 接口写入数据，再通过[Readable][]接口读回数据。
+
 
 ```js
 const { Duplex } = require('stream');
