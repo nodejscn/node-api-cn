@@ -8,21 +8,21 @@ changes:
 
 * `options` {Object} Passed to both Writable and Readable
   constructors. Also has the following fields:
-  * `allowHalfOpen` {boolean} Defaults to `true`. If set to `false`, then
-    the stream will automatically end the writable side when the
-    readable side ends.
-  * `readableObjectMode` {boolean} Defaults to `false`. Sets `objectMode`
-    for readable side of the stream. Has no effect if `objectMode`
-    is `true`.
-  * `writableObjectMode` {boolean} Defaults to `false`. Sets `objectMode`
-    for writable side of the stream. Has no effect if `objectMode`
-    is `true`.
+  传给可读和可写流的构造函数，还有如下字段：
+  * `allowHalfOpen` {boolean} 默认是`true`. 
+    如果设置为`false`, 那么当读端停止时，写端自动停止。
+  * `readableObjectMode` {boolean} 默认是 `false`。
+    会为流的读端设置`objectMode`。
+    如果 `objectMode`是 `true`，那就没有任何用。
+  * `writableObjectMode` {boolean} 默认是 `false`。
+    会为流的读端设置`objectMode`。
+    如果 `objectMode`是 `true`，那就没有任何用。
   * `readableHighWaterMark` {number} Sets `highWaterMark` for the readable side
     of the stream. Has no effect if `highWaterMark` is provided.
   * `writableHighWaterMark` {number} Sets `highWaterMark` for the writable side
     of the stream. Has no effect if `highWaterMark` is provided.
 
-For example:
+例如:
 
 ```js
 const { Duplex } = require('stream');
@@ -35,7 +35,7 @@ class MyDuplex extends Duplex {
 }
 ```
 
-Or, when using pre-ES6 style constructors:
+亦或, 当使用 pre-ES6 风格的构造函数时:
 
 ```js
 const { Duplex } = require('stream');
@@ -49,7 +49,7 @@ function MyDuplex(options) {
 util.inherits(MyDuplex, Duplex);
 ```
 
-Or, using the Simplified Constructor approach:
+又或者, 用简单构造函数处理:
 
 ```js
 const { Duplex } = require('stream');
