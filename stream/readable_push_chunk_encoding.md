@@ -5,14 +5,11 @@ changes:
     description: The `chunk` argument can now be a `Uint8Array` instance.
 -->
 
-* `chunk` {Buffer|Uint8Array|string|null|any} Chunk of data to push into the
-  read queue. For streams not operating in object mode, `chunk` must be a
-  string, `Buffer` or `Uint8Array`. For object mode streams, `chunk` may be
-  any JavaScript value.
-* `encoding` {string} Encoding of string chunks.  Must be a valid
-  Buffer encoding, such as `'utf8'` or `'ascii'`
-* Returns {boolean} `true` if additional chunks of data may continued to be
-  pushed; `false` otherwise.
+* `chunk` {Buffer|Uint8Array|string|null|any} 压入读队列的数据块。
+  对于没有处在object mode的流来说，`chunk`必须是一个字符串，`Buffer` 或`Uint8Array`；
+  对object mode 的流来说，`chunk`可以使任何JavaScript值。
+* `encoding` {string} 字符串数据块的编码方式.  必须是可用的Buffer编码方式，例如`'utf8'` 或 `'ascii'`。
+* 返回 {boolean} 如果多余的数据块可能会继续压入，那么返回`true`; 否则返回 `false`.
 
 When `chunk` is a `Buffer`, `Uint8Array` or `string`, the `chunk` of data will
 be added to the internal queue for users of the stream to consume.
