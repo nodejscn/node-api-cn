@@ -1,12 +1,12 @@
 
-* `options` {Object} Passed to both Writable and Readable
-  constructors. Also has the following fields:
+* `options` {Object} 传给可读和可写构造函数. 
+  还有如下字段:
   * `transform` {Function} Implementation for the
     [`stream._transform()`][stream-_transform] method.
   * `flush` {Function} Implementation for the [`stream._flush()`][stream-_flush]
     method.
 
-For example:
+例如:
 
 ```js
 const { Transform } = require('stream');
@@ -19,7 +19,7 @@ class MyTransform extends Transform {
 }
 ```
 
-Or, when using pre-ES6 style constructors:
+或者，用ES6构造方法:
 
 ```js
 const { Transform } = require('stream');
@@ -33,7 +33,7 @@ function MyTransform(options) {
 util.inherits(MyTransform, Transform);
 ```
 
-Or, using the Simplified Constructor approach:
+又或者, 用简化构造方法:
 
 ```js
 const { Transform } = require('stream');
