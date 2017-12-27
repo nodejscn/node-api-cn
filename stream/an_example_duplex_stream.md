@@ -33,7 +33,4 @@ class MyDuplex extends Duplex {
 }
 ```
 
-The most important aspect of a Duplex stream is that the Readable and Writable
-sides operate independently of one another despite co-existing within a single
-object instance.
-
+尽管在一个对象实例中共存，读端和写端却是相互独立于彼此，这是可读可写流最为重要的一点。
