@@ -2,8 +2,8 @@
 added: v0.9.4
 -->
 
-* `size` {number} Optional argument to specify how much data to read.
-* Return {string|Buffer|null}
+* `size` {number} 可选参数，确定读取数据的大小.
+* 返回 {string|Buffer|null}
 
 `readable.read()`方法从内部缓冲区中抽出并返回一些数据。 如果没有可读的数据，返回null。`readable.read()`方法默认数据将作为“Buffer”对象返回
 ，除非已经使用`readable.setEncoding()`方法设置编码或流运行在对象模式。
