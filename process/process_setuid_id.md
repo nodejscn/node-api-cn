@@ -2,8 +2,9 @@
 added: v0.1.28
 -->
 
-The `process.setuid(id)` method sets the user identity of the process. (See
-setuid(2).)  The `id` can be passed as either a numeric ID or a username string.
+`process.setuid(id)` 设置进程的用户ID (参见
+setuid(2).)  `id` 可以是一个数值ID也可以是一个用户名字符串.
+如果已经有一个用户名，在解析为相关的数值ID时，此方法阻塞。
 If a username is specified, the method blocks while resolving the associated
 numeric ID.
 
@@ -19,7 +20,6 @@ if (process.getuid && process.setuid) {
 }
 ```
 
-*Note*: This function is only available on POSIX platforms (i.e. not Windows
-or Android).
+注意: 这个方法只在POSIX平台可用(换句话说，Windows或Android不行)。
 
 
