@@ -1,5 +1,5 @@
 
-Writable streams 是 *destination* 的一种抽象，这种 *destination* 允许数据写入。
+可写流是对数据写入'目的地'的一种抽象。
 
 [Writable][] 的例子包括了：
 
