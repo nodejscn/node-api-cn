@@ -15,12 +15,8 @@ changes:
 这个数据块(`chunk`)会被添加到内部队列供使用者消费。
 在没有数据可写入后，给`chunk`传了`null`发出流结束(EOF)的信号。
 
-When the Readable is operating in paused mode, the data added with
-`readable.push()` can be read out by calling the
-[`readable.read()`][stream-read] method when the [`'readable'`][] event is
-emitted.
-
-当可读流处在传输模式下，`'data'`事件触发时，会用`readable.push()`添加数据。
+当可读流处在传输模式下，`'data'`事件触发时，可以通过
+调用[`readable.read()`][stream-read] 方法读出来数据，这数据是用`readable.push()`添加的。
 
 `readable.push()`方法被设计得尽可能的灵活。
 比如，当封装一个有'暂停/恢复'机制和带数据回调的底层source的时候，
@@ -57,6 +53,6 @@ class SourceWrapper extends Readable {
   }
 }
 ```
-*Note*: The `readable.push()` method is intended be called only by Readable
-Implementers, and only from within the `readable._read()` method.
+*注意*: `readable.push()`方法是为了让可读流实现者调用的，
+而且只来自`readable._read()`方法内部。
 
