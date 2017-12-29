@@ -1,12 +1,10 @@
 
-For Duplex streams, `objectMode` can be set exclusively for either the Readable
-or Writable side using the `readableObjectMode` and `writableObjectMode` options
-respectively.
+对可读可写流来说，`objectMode`可以通过`readableObjectMode` 和 `writableObjectMode`选项
+来分别设置读端和写端。
 
-In the following example, for instance, a new Transform stream (which is a
-type of [Duplex][] stream) is created that has an object mode Writable side
-that accepts JavaScript numbers that are converted to hexadecimal strings on
-the Readable side.
+比如下面的例子。
+创建了一个变换流(一种可读可写流)。
+在写端接收JavaScript数字，在读端转换为16进制字符串。
 
 ```js
 const { Transform } = require('stream');
