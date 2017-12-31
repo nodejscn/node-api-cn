@@ -1,7 +1,5 @@
 
-As of Node.js v0.10, [`dgram.Socket#bind()`][] changed to an asynchronous
-execution model. Legacy code that assumes synchronous behavior, as in the
-following example:
+从Node.js v0.10开始，[`dgram.Socket＃bind（）`][]更改为异步执行模型。旧代码采用同步行为，如下例所示：
 
 ```js
 const s = dgram.createSocket('udp4');
@@ -9,8 +7,7 @@ s.bind(1234);
 s.addMembership('224.0.0.114');
 ```
 
-Must be changed to pass a callback function to the [`dgram.Socket#bind()`][]
-function:
+必须改为传递一个回调函数到[`dgram.Socket＃bind（）`][]：
 
 ```js
 const s = dgram.createSocket('udp4');
