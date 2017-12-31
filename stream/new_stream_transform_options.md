@@ -1,8 +1,8 @@
 
-* `options` {Object} 传给可读和可写构造函数. 
+* `options` {Object} 传给可读和可写构造函数。
   还有如下字段:
   * `transform` {Function} 对[`stream._transform()`][stream-_transform]方法的实现。
-  * `flush` {Function} 对[`stream._flush()`][stream-_flush]的实现。
+  * `flush` {Function} 对[`stream._flush()`][stream-_flush]方法的实现。
 
 例如:
 
