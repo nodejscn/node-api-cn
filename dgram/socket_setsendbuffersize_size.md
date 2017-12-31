@@ -4,6 +4,4 @@ added: v8.7.0
 
 * `size` {number} Integer
 
-Sets the `SO_SNDBUF` socket option. Sets the maximum socket send buffer
-in bytes.
-
+设置 `SO_SNDBUF` 套接字选项。设置最大的套接字发送缓冲字节。
