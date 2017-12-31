@@ -4,6 +4,5 @@ added: v8.7.0
 
 * `size` {number} Integer
 
-Sets the `SO_RCVBUF` socket option. Sets the maximum socket receive buffer
-in bytes.
 
+设置 `SO_RCVBUF` 套接字选项。设置最大的套接字接收缓冲字节
