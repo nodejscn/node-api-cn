@@ -6,9 +6,8 @@ changes:
     description: The `options` parameter can be a WHATWG `URL` object.
 -->
 
-* `options` {Object | string | URL} Accepts the same `options` as
-  [`http.request()`][], with the `method` always set to `GET`.
-  Properties that are inherited from the prototype are ignored.
+* `options` {Object | string | URL} 接收与[`http.request()`][]相同的设置。
+  `method`一直设置为`GET`，忽略继承自原型的属性
 * `callback` {Function}
 * 返回: {http.ClientRequest}
 
