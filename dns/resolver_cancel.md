@@ -2,6 +2,4 @@
 added: v8.3.0
 -->
 
-Cancel all outstanding DNS queries made by this resolver. The corresponding
-callbacks will be called with an error with code `ECANCELLED`.
-
+取消这个解析程序的未解决的DNS查询，相应的回调用一个`ECANCELLED`码调用。
