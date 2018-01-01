@@ -1,9 +1,6 @@
 
-Use of `readable.push('')` is not recommended.
+不推荐使用`readable.push('')`。
 
-Pushing a zero-byte string, `Buffer` or `Uint8Array` to a stream that is not in
-object mode has an interesting side effect. Because it *is* a call to
-[`readable.push()`][stream-push], the call will end the reading process.
-However, because the argument is an empty string, no data is added to the
-readable buffer so there is nothing for a user to consume.
-
+向一个不处在object mode的流压入一个`Buffer`或`Uint8Array`0字节字符串，会产生有趣的副作用。
+因为调用了[`readable.push()`][stream-push]，所以会停止读进程。
+然而，因为参数是一个空字符串，没有可读的数据添加到可读buffer, 所以没有可以供用户消费的数据。
