@@ -18,8 +18,5 @@ the [`transform._flush()`][stream-_flush] method.
 一般地，变换流*必须*实现[`transform._transform()`][stream-_transform] 方法；
 而[`transform._flush()`][stream-_flush] 方法是*非必须*的。
 
-
-*Note*: Care must be taken when using Transform streams in that data written
-to the stream can cause the Writable side of the stream to become paused if
-the output on the Readable side is not consumed.
+*注意*: 用变换流时要注意，如果读端输出没有被消费，那么往写数据可能会引起写端暂停。
 
