@@ -21,7 +21,7 @@ class MyWritable extends Writable {
 }
 ```
 
-或者，使用ES6方式：
+或者，使用ES6之前的语法来创建构造函数：
 
 ```js
 const { Writable } = require('stream');
