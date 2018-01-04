@@ -9,7 +9,7 @@ changes:
 * `options` {Object} Passed to both Writable and Readable
   constructors. Also has the following fields:
   传给可读和可写流的构造函数，还有如下字段：
-  * `allowHalfOpen` {boolean} 默认是`true`. 
+  * `allowHalfOpen` {boolean} 默认是`true`.
     如果设置为`false`, 那么当读端停止时，写端自动停止。
   * `readableObjectMode` {boolean} 默认是 `false`。
     会为流的读端设置`objectMode`。
@@ -35,7 +35,7 @@ class MyDuplex extends Duplex {
 }
 ```
 
-或者, 使用ES6方式:
+或者, 使用ES6之前的语法来创建构造函数:
 
 ```js
 const { Duplex } = require('stream');
