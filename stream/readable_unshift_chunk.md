@@ -54,12 +54,5 @@ function parseHeader(stream, callback) {
 }
 ```
 
-*Note*: Unlike [`stream.push(chunk)`][stream-push], `stream.unshift(chunk)`
-will not end the reading process by resetting the internal reading state of the
-stream. This can cause unexpected results if `readable.unshift()` is called
-during a read (i.e. from within a [`stream._read()`][stream-_read]
-implementation on a custom stream). Following the call to `readable.unshift()`
-with an immediate [`stream.push('')`][stream-push] will reset the reading state
-appropriately, however it is best to simply avoid calling `readable.unshift()`
-while in the process of performing a read.
+*注意*： 不像 [`stream.push(chunk)`][stream-push]，`stream.unshift(chunk)`在重置流的内部读取状态时是不会结束读取过程。 如果在读取过程中调用 `readable.unshift()` 则会导致异常 (例如：即来自自定义流上的 [`stream._read()`][stream-_read]内部方法上的实现)。 应该在调用 `readable.unshift()`方法之后适当调用 [`stream.push('')`][stream-push] 来重置读取状态，执行读取的过程中最好避免调用 `readable.unshift()`方法。
 
