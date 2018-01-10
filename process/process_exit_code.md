@@ -4,7 +4,7 @@ added: v0.1.13
 
 * `code` {integer} 结束状态码。默认为`0`。
 
-`process.exit()`方法以结束状态码`code`指令Node.js同步终止进程。
+`process.exit()`方法以结束状态码`code`指示Node.js同步终止进程。
 如果`code`未提供，此exit方法要么使用'success' 状态码 `0`，要么使用`process.exitCode`属性值，前提是此属性已被设置。
 Node.js在所有[`'exit'`]事件监听器都被调用了以后，才会终止进程。
 
