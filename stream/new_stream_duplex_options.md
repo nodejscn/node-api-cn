@@ -15,7 +15,7 @@ changes:
     会为流的读端设置`objectMode`。
     如果 `objectMode`是 `true`，那就没有任何用。
   * `writableObjectMode` {boolean} 默认是 `false`。
-    会为流的读端设置`objectMode`。
+    会为流的写端设置`objectMode`。
     如果 `objectMode`是 `true`，那就没有任何用。
   * `readableHighWaterMark` {number} Sets `highWaterMark` for the readable side
     of the stream. Has no effect if `highWaterMark` is provided.
