@@ -87,7 +87,7 @@ const req = https.request(options, (res) => {
 });
 ```
 
-Example using a [`URL`][] as `options`:
+使用 [`URL`][] 作为`options` 的例子：
 
 ```js
 const { URL } = require('url');
