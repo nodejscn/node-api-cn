@@ -11,7 +11,7 @@ changes:
 * 返回: {string}
 
 `path.basename()` 方法返回一个 `path` 的最后一部分，类似于 Unix 中的 `basename` 命令。
-Trailing directory separators are ignored, see [`path.sep`][].
+没有尾部文件分隔符，请查阅[`path.sep`][]。
 
 例子：
 
