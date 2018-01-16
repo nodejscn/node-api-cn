@@ -26,8 +26,7 @@ path.normalize('C:\\temp\\\\foo\\bar\\..\\');
 // 返回: 'C:\\temp\\foo\\'
 ```
 
-Since Windows recognizes multiple path separators, both separators will be
-replaced by instances of the Windows preferred separator (`\`):
+尽管Windows会识别多种文件路径分隔符，但是两种分隔符在Window上会被(`\`)分隔符取代：
 
 ```js
 path.win32.normalize('C:////temp\\\\/\\/\\/foo/bar');
