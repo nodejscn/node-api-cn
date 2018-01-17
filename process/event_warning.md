@@ -52,6 +52,6 @@ $ node --no-warnings
 
 使用`--trace-deprecation`命令行选项标志，会使得custom deprecation warning打印到`stderr`，包括其堆栈信息。
 
-使用`--trace-deprecation`命令行选项标志，会阻止报告所有的custom deprecation warning。
+使用`--no-deprecation`命令行选项标志，会阻止报告所有的custom deprecation warning。
 
 `*-deprecation` 命令行选项标志，只会影响使用名字为`DeprecationWarning`的告警。

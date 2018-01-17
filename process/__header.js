@@ -1,3 +1,15 @@
 module.exports = [
-    ['process_process', 'process (进程)']
+    ['process_process', 'process - 进程'],
+    ['process_process_events', 'process 事件'],
+    ['process_event_beforeexit', "'beforeExit' 事件"],
+    ['process_event_disconnect', "'disconnect' 事件"],
+    ['process_event_exit', "'exit' 事件"],
+    ['process_event_message', "'message' 事件"],
+    ['process_event_rejectionhandled', "'rejectionHandled' 事件"],
+    ['process_event_uncaughtexception', "'uncaughtException' 事件"],
+    ['process_warning_using_uncaughtexception_correctly', '注意：正确地使用 <code>uncaughtException</code>'],
+    ['process_event_unhandledrejection', "'unhandledRejection' 事件"],
+    ['process_event_warning', "'warning' 事件"],
+    ['process_emitting_custom_warnings', '触发自定义的告警'],
+    ['process_signal_events', '信号事件'],
 ]

@@ -36,5 +36,7 @@
 [TTY]: tty.html#tty_tty
 [Writable]: stream.html#stream_writable_streams
 
+[子进程]: child_process.html
+[集群]: cluster.html
 [可读流]: stream.html#stream_readable_streams
 [流的兼容性]: stream.html#stream_compatibility_with_older_node_js_versions
