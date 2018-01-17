@@ -25,6 +25,5 @@ emitter.once('event', () => {
 
 [`--trace-warnings`] 命令行标志可用于显示此类警告的堆栈跟踪。
 
-触发的警告可以使用 [`process.on('warning')`] 检查，还有额外的 `emitter`、`type` 和 `count` 属性，分别代表事件触发器实例的引用、事件的名称、和附加的监听器的数量。
-Its `name` property is set to `'MaxListenersExceededWarning'`.
+触发的警告可以使用 [`process.on('warning')`] 检查，还有额外的 `emitter`、`type` 和 `count` 属性，分别代表事件触发器实例的引用、事件的名称、和附加的监听器的数量。其 `name` 属性设置为 `MaxListenersExceededWarning`。
 
