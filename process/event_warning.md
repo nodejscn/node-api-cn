@@ -15,9 +15,9 @@ added: v6.0.0
 
 ```js
 process.on('warning', (warning) => {
-  console.warn(warning.name);    // Print the warning name
-  console.warn(warning.message); // Print the warning message
-  console.warn(warning.stack);   // Print the stack trace
+  console.warn(warning.name);    // 打印告警名称
+  console.warn(warning.message); // 打印告警信息
+  console.warn(warning.stack);   // 打印堆栈信息
 });
 ```
 
