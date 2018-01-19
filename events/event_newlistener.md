@@ -14,7 +14,7 @@ added: v0.1.26
 
 
 ```js
-const myEmitter = new MyEmitter();
+const myEmitter = new EventEmitter();
 // 只处理一次，所以不会无限循环
 myEmitter.once('newListener', (event, listener) => {
   if (event === 'event') {
