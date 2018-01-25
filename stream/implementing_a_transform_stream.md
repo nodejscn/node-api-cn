@@ -8,12 +8,6 @@
 
 `stream.Transform` 类被扩展了，实现了一个[Transform][]流。
 
-The `stream.Transform` class prototypically inherits from `stream.Duplex` and
-implements its own versions of the `writable._write()` and `readable._read()`
-methods. Custom Transform implementations *must* implement the
-[`transform._transform()`][stream-_transform] method and *may* also implement
-the [`transform._flush()`][stream-_flush] method.
-
 `stream.Transform`类最初继承自`stream.Duplex`，并且实现了它自己版本的`writable._write()`和`readable._read()`方法。
 一般地，变换流*必须*实现[`transform._transform()`][stream-_transform] 方法；
 而[`transform._flush()`][stream-_flush] 方法是*非必须*的。
