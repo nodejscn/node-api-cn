@@ -12,7 +12,7 @@ added: v0.1.90
 
 * `timeout` {number} 如果设置，将会用来在 socket 创建之后连接开始之前调用 [`socket.setTimeout(timeout)`][]。
 
-虾米是在 [`net.createServer()`][] 章节描述的 server 的客户端示例：
+下面是在 [`net.createServer()`][] 章节描述的 server 的客户端示例：
 
 ```js
 const net = require('net');
