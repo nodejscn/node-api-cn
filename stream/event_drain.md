@@ -2,8 +2,7 @@
 added: v0.9.4
 -->
 
-如果调用 [`stream.write(chunk)`][stream-write] 方法返回 `false`，流将在适当的时机触发
-`'drain'` 事件，这时才可以继续向流中写入数据。
+如果调用 [`stream.write(chunk)`][stream-write] 方法返回 `false`，`'drain'` 事件会在适合恢复写入数据到流的时候触发。
 
 ```js
 // 向可写流中写入数据一百万次。
@@ -25,8 +24,8 @@ function writeOneMillionTimes(writer, data, encoding, callback) {
       }
     } while (i > 0 && ok);
     if (i > 0) {
-      // 这里提前停下了， 
-      // 'drain' 事件触发后才可以继续写入  
+      // 不得不提前停下！
+      // 当 'drain' 事件触发后继续写入  
       writer.once('drain', write);
     }
   }
