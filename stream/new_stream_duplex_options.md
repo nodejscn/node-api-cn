@@ -6,9 +6,7 @@ changes:
                  are supported now.
 -->
 
-* `options` {Object} Passed to both Writable and Readable
-  constructors. Also has the following fields:
-  传给可读和可写流的构造函数，还有如下字段：
+* `options` {Object} 传给可读和可写流的构造函数，还有如下字段：
   * `allowHalfOpen` {boolean} 默认是`true`.
     如果设置为`false`, 那么当读端停止时，写端自动停止。
   * `readableObjectMode` {boolean} 默认是 `false`。
@@ -17,10 +15,8 @@ changes:
   * `writableObjectMode` {boolean} 默认是 `false`。
     会为流的写端设置`objectMode`。
     如果 `objectMode`是 `true`，那就没有任何用。
-  * `readableHighWaterMark` {number} Sets `highWaterMark` for the readable side
-    of the stream. Has no effect if `highWaterMark` is provided.
-  * `writableHighWaterMark` {number} Sets `highWaterMark` for the writable side
-    of the stream. Has no effect if `highWaterMark` is provided.
+  * `readableHighWaterMark` {number} 设置 `highWaterMark` 可读流的缓冲区大小。 如果已经设置 `highWaterMark`则
+  `readableHighWaterMark`不起作用。 * `writableHighWaterMark` {number} 设置 `highWaterMark` 可写流缓冲区大小。如果设置了`highWaterMark` 则`writableHighWaterMark`不起作用。
 
 例如:
 
