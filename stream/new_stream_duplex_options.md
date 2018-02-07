@@ -16,7 +16,8 @@ changes:
     会为流的写端设置`objectMode`。
     如果 `objectMode`是 `true`，那就没有任何用。
   * `readableHighWaterMark` {number} 设置 `highWaterMark` 可读流的缓冲区大小。 如果已经设置 `highWaterMark`则
-  `readableHighWaterMark`不起作用。 * `writableHighWaterMark` {number} 设置 `highWaterMark` 可写流缓冲区大小。如果设置了`highWaterMark` 则`writableHighWaterMark`不起作用。
+  `readableHighWaterMark`不起作用。
+  * `writableHighWaterMark` {number} 设置 `highWaterMark` 可写流缓冲区大小。如果设置了`highWaterMark` 则`writableHighWaterMark`不起作用。
 
 例如:
 
