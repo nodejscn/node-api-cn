@@ -7,6 +7,7 @@ changes:
 -->
 
 * `options` {Object} 传给可读和可写流的构造函数，还有如下字段：
+
   * `allowHalfOpen` {boolean} 默认是`true`.
     如果设置为`false`, 那么当读端停止时，写端自动停止。
   * `readableObjectMode` {boolean} 默认是 `false`。
