@@ -6,7 +6,7 @@ added: v0.11.15
 * 返回: {Object}
 
 `path.parse()` 方法返回一个对象，对象的属性表示 `path` 的元素。
-Trailing directory separators are ignored, see [`path.sep`][].
+尾部文件分隔符会被忽略，请看 [`path.sep`][].
 
 返回的对象有以下属性：
 
