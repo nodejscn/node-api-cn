@@ -2,15 +2,12 @@
 added: v8.2.0
 -->
 
-* `original` {Function} An `async` function
-* Returns: {Function} a callback style function
+* `original` {Function}  `async` 异步函数
+* Returns: {Function} 传统回调函数
 
-Takes an `async` function (or a function that returns a Promise) and returns a
-function following the Node.js error first callback style. In the callback, the
-first argument will be the rejection reason (or `null` if the Promise resolved),
-and the second argument will be the resolved value.
+将 `async` 异步函数(或者一个返回值为 Promise 的函数)转换成遵循 Node.js 回调风格的函数. 在回调函数中, 第一个参数 err 为 Promise rejected 的原因 (如果 Promise 状态为 resolved , err为 `null` ),第二个参数则是 Promise 状态为 resolved 时的返回值.
 
-For example:
+例如 :
 
 ```js
 const util = require('util');
@@ -26,22 +23,18 @@ callbackFunction((err, ret) => {
 });
 ```
 
-Will print:
+将会打印出:
 
 ```txt
 hello world
 ```
 
-*Note*:
+**注意**:
 
-* The callback is executed asynchronously, and will have a limited stack trace.
-If the callback throws, the process will emit an [`'uncaughtException'`][]
-event, and if not handled will exit.
+* 回调函数是异步执行的, 并且有异常堆栈错误追踪. 
+如果回调函数抛出一个异常, 进程会触发一个 [`'uncaughtException'`][] 异常, 如果没有被捕获, 进程将会退出.
 
-* Since `null` has a special meaning as the first argument to a callback, if a
-wrapped function rejects a `Promise` with a falsy value as a reason, the value
-is wrapped in an `Error` with the original value stored in a field named
-`reason`.
+* `null` 在回调函数中作为一个参数有其特殊的意义, 如果回调函数的首个参数为 Promise rejected 的原因且带有返回值, 且值可以转换成布尔值 `false`, 这个值会被封装在 `Error` 对象里, 可以通过属性 `reason` 获取.
   ```js
   function fn() {
     return Promise.reject(null);
