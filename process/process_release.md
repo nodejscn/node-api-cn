@@ -22,8 +22,8 @@ changes:
   _这个属性只在Windows版本中存在，在其他平台中无效。
 
 * `lts` {string} 标识当前发布的[LTS][]标签的字符串。
-  This property only exists for LTS releases and is `undefined` for all other
-  release types, including _Current_ releases.  Currently the valid values are:
+  只有长效版(Long Term Support/LTS)存在这个属性，其他所有版本类型这个属性都是`undefined`，
+  包括_Current_版本，当前的有效值有：
   - `'Argon'` for the v4.x LTS line beginning with v4.2.0.
   - `'Boron'` for the v6.x LTS line beginning with v6.9.0.
   - `'Carbon'` for the v8.x LTS line beginning with v8.9.1.
