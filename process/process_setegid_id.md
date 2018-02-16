@@ -2,7 +2,7 @@
 added: v2.0.0
 -->
 
-* `id` {string|number} A group name or ID
+* `id` {string|number} 一个用户组名或用户组ID
 
 `process.setegid()`方法为进程设置有效的用户组ID。(请看 setegid(2).)
 `id`可以传一个数值ID或传一个用户组名称字符串。如果传了后者的话，会解析成一个相关的数值ID，
