@@ -29,7 +29,7 @@ void init(Local<Object> exports) {
   NODE_SET_METHOD(exports, "hello", Method);
 }
 
-NODE_MODULE(NODE_GYP_MODULE_NAME, Init)
+NODE_MODULE(NODE_GYP_MODULE_NAME, init)
 
 }  // namespace demo
 ```
