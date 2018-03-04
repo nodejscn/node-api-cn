@@ -1,13 +1,8 @@
 
 * {Stream}
 
-The `process.stdin` property returns a stream connected to
-`stdin` (fd `0`). It is a [`net.Socket`][] (which is a [Duplex][]
-stream) unless fd `0` refers to a file, in which case it is
-a [Readable][] stream.
-
-`process.stdin` 属性返回连接到`stdin`(fd `0`)的流。 
-它是一个[`net.Socket`][](它是一个[Duplex][]流)，除非 fd `0`指向一个文件，在这种情况下它是一个[可读][]流。
+`process.stdin` 属性返回连接到 `stdin` (fd `0`)的流。 
+它是一个[`net.Socket`][](它是一个[Duplex][]流)，除非 fd `0`指向一个文件，在这种情况下它是一个[Readable][]流。
 
 举个例子:
 
