@@ -24,10 +24,5 @@
 * `10` **内部JavaScript运行时失败** - 调用引导函数时，
   引导进程执行Node.js的内部的JavaScript源代码抛出错误。
   这是非常少见的, 一般只会在开发Node.js本身的时候出现。
-* `12` **不可用的调试参数** - The `--inspect` and/or `--inspect-brk`
-  options were set, but the port number chosen was invalid or unavailable.
-* `>128` **退出信号** - If Node.js receives a fatal signal such as
-  `SIGKILL` or `SIGHUP`, then its exit code will be `128` plus the
-  value of the signal code.  This is a standard POSIX practice, since
-  exit codes are defined to be 7-bit integers, and signal exits set
-  the high-order bit, and then contain the value of the signal code.
+* `12` **不可用的调试参数** - `--inspect` 和/或 `--inspect-brk` 选项已设置，但选择的端口号无效或不可用。
+* `>128` **退出信号** - 如果Node.js的接收信号致命诸如 `SIGKILL` 或 `SIGHUP`，那么它的退出代码将是 `128` 加上信号的码值。 这是POSIX的标准做法，因为退出码被定义为7位整数，并且信号退出设置高位，然后包含信号码值。
