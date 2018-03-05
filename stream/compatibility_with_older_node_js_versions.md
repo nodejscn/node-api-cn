@@ -1,33 +1,20 @@
 
 <!--type=misc-->
 
-In versions of Node.js prior to v0.10, the Readable stream interface was
-simpler, but also less powerful and less useful.
+在v0.10之前的Node.js版本中，可读流接口更简单，但功能更弱，功能更少。
 
-* Rather than waiting for calls the [`stream.read()`][stream-read] method,
-  [`'data'`][] events would begin emitting immediately. Applications that
-  would need to perform some amount of work to decide how to handle data
-  were required to store read data into buffers so the data would not be lost.
-* The [`stream.pause()`][stream-pause] method was advisory, rather than
-  guaranteed. This meant that it was still necessary to be prepared to receive
-  [`'data'`][] events *even when the stream was in a paused state*.
+* 相比需要等待[`stream.read()`][stream-read] 方法调用之后才触发，[`'data'`][] 事件自己会立即触发。 需要执行一定量工作来决定如何处理数据的应用程序需要将读取数据存储到缓冲区中，以便数据不会丢失。
+* The [`stream.pause()`][stream-pause] 方法是建议性的，而不是保证。 这意味着即使流处于暂停状态，仍然需要准备接收`data`事件。
 
-In Node.js v0.10, the [Readable][] class was added. For backwards compatibility
-with older Node.js programs, Readable streams switch into "flowing mode" when a
-[`'data'`][] event handler is added, or when the
-[`stream.resume()`][stream-resume] method is called. The effect is that, even
-when not using the new [`stream.read()`][stream-read] method and
-[`'readable'`][] event, it is no longer necessary to worry about losing
-[`'data'`][] chunks.
+在Node.js v0.10中，添加了[Readable][]类。 为了向后兼容较旧的Node.js程序，当添加`data`事件处理程序或调用[`stream.resume()`][stream-resume]方法时，可读流将切换到“流动模式”。 结果是，即使不使用新的[`stream.read()`][stream-read]方法和[`'readable'`][]事件，也不必担心丢失[`'data'`][]块。
 
-While most applications will continue to function normally, this introduces an
-edge case in the following conditions:
+虽然大多数应用程序将继续正常工作，但在以下情况下会引入极端情况：
 
-* No [`'data'`][] event listener is added.
-* The [`stream.resume()`][stream-resume] method is never called.
-* The stream is not piped to any writable destination.
+* 未添加[`'data'`][] 事件监听。
+* 未调用[`stream.resume()`][stream-resume]方法。
+* 通过管道没有传送到任何可写的目的地。
 
-For example, consider the following code:
+例如，请考虑以下代码：
 
 ```js
 // WARNING!  BROKEN!
@@ -42,12 +29,9 @@ net.createServer((socket) => {
 }).listen(1337);
 ```
 
-In versions of Node.js prior to v0.10, the incoming message data would be
-simply discarded. However, in Node.js v0.10 and beyond, the socket remains
-paused forever.
+在v0.10之前的Node.js版本中，传入的消息数据将会是简单地丢弃。 但是，在Node.js v0.10及更高版本中，套接字仍然存在永远停顿。
 
-The workaround in this situation is to call the
-[`stream.resume()`][stream-resume] method to begin the flow of data:
+在这种情况下的解决方法是调用[`stream.resume()`][stream-resume] 开始读取数据：
 
 ```js
 // Workaround
@@ -63,8 +47,6 @@ net.createServer((socket) => {
 }).listen(1337);
 ```
 
-In addition to new Readable streams switching into flowing mode,
-pre-v0.10 style streams can be wrapped in a Readable class using the
-[`readable.wrap()`][`stream.wrap()`] method.
+除了新的可读流切换到流动模式之外，pre-v0.10风格的流可以使用包装在Readable类中[`readable.wrap()`][`stream.wrap()`] 方法。
 
 
