@@ -9,18 +9,8 @@ changes:
 - `inputEncoding` {string}
 - `outputEncoding` {string}
 
-Updates the decipher with `data`. If the `inputEncoding` argument is given,
-its value must be one of `'latin1'`, `'base64'`, or `'hex'` and the `data`
-argument is a string using the specified encoding. If the `inputEncoding`
-argument is not given, `data` must be a [`Buffer`][]. If `data` is a
-[`Buffer`][] then `inputEncoding` is ignored.
+使用新数据更新解密。如果给出`inputEncoding`参数，它的值必须是`'latin1'`, `'base64'`或`'hex'`中的一个，`data`参数是使用指定编码的字符串。如果未给出`inputEncoding`参数，则`data`必须是[`Buffer`][]。如果`data`是[`Buffer`][]，则忽略`inputEncoding`。
 
-The `outputEncoding` specifies the output format of the enciphered
-data, and can be `'latin1'`, `'ascii'` or `'utf8'`. If the `outputEncoding`
-is specified, a string using the specified encoding is returned. If no
-`outputEncoding` is provided, a [`Buffer`][] is returned.
+`outputEncoding`指定加密数据的输出格式，可以是`'latin1'`, `'ascii'`或`'utf8'`。如果指定了`outputEncoding`，则返回使用指定编码的字符串。如果未提供`outputEncoding`，则返回[`Buffer`][]。
 
-The `decipher.update()` method can be called multiple times with new data until
-[`decipher.final()`][] is called. Calling `decipher.update()` after
-[`decipher.final()`][] will result in an error being thrown.
-
+可以使用新数据多次调用`decipher.update()`方法，直到调用[`decipher.final()`][]。在[`decipher.final()`][]之后调用`decipher.update()`会导致抛出错误。
