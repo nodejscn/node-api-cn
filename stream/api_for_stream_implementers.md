@@ -3,7 +3,7 @@
 
 `stream`模块API的设计是为了让JavaScript的原型继承模式可以简单的实现流。
 
-首先，一个流开发者可能声明了一个JavaScript类并且继承四个基本流类中的一个（`stream.Weiteable`，`stream.Readable`，`stream.Duplex`，或者`stream.Transform`），确保他们调用合适的父类构造函数:
+首先，一个流开发者可能声明了一个JavaScript类并且继承四个基本流类中的一个（`stream.Writeable`，`stream.Readable`，`stream.Duplex`，或者`stream.Transform`），确保他们调用合适的父类构造函数:
 
 ```js
 const { Writable } = require('stream');
