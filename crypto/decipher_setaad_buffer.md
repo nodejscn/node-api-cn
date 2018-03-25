@@ -6,11 +6,8 @@ changes:
     description: This method now returns a reference to `decipher`.
 -->
 - `buffer` {Buffer | TypedArray | DataView}
-- Returns the {Cipher} for method chaining.
+- 返回{cipher}的一个方法链。
 
-When using an authenticated encryption mode (only `GCM` is currently
-supported), the `decipher.setAAD()` method sets the value used for the
-_additional authenticated data_ (AAD) input parameter.
+当使用经过验证的加密模式（当前仅支持`GCM`）时，`decipher.setAAD()`方法会设置用于附加验证数据(AAD)输入参数的值。
 
-The `decipher.setAAD()` method must be called before [`decipher.update()`][].
-
+`decipher.setAAD()` 必须在[`decipher.update()`][]之前被调用。
