@@ -22,5 +22,5 @@ OpenSSL命令生成参数:
 ```sh
 openssl dhparam -outform PEM -out dhparam.pem 2048
 ```
-如需使用`ECDHE`算法,则不需要生成Diffie-Hellman,因为可以使用默认的ECDHE曲线.
+如需使用`ECDHE`算法,则不需要生成Diffie-Hellman参数,因为可以使用默认的ECDHE曲线.
 在创建TLS Server时,可使用`ecdhCurve`属性声明服务器支持的曲线名词.详请参考[`tls.createServer()`].
