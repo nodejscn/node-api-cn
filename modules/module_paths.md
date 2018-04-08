@@ -2,7 +2,7 @@
 added: v0.4.0
 -->
 
-* {string}
+* {string []}
 
 模块的搜索路径。
 
