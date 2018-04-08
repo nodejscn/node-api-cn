@@ -1,7 +1,7 @@
 
 <!-- type=misc -->
 ALPN (Application-Layer Protocol Negotiation Extension,应用层协议协商),
-NPN (Next Protocol Negotiation,下一代协议协商) and, 
+NPN (Next Protocol Negotiation,下一代协议协商) , 
 SNI (Server Name Indication,服务器名称指示)是三个TLS拓展:
 
 * ALPN/NPN - 允许一个TLS服务器使用多个版本的HTTP协议 (HTTP, SPDY, HTTP/2).
