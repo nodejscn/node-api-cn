@@ -18,7 +18,7 @@ changes:
     如果提供了自定义的 `writer` 函数，则该参数无效。
     默认为 REPL 实例的 `terminal` 属性的值。
   * `useGlobal` {boolean} 如果为 `true`，则指定默认的解释函数使用 JavaScript `global` 作为上下文，而不是为 REPL 实例创建一个新的独立的上下文。
-    The node CLI REPL sets this value to `true`.
+    在node命令行(node CLI)交互解释器中，这个值为 `true`.
     默认为 `false`。
   * `ignoreUndefined` {boolean} 如果为 `true`，则指定默认的输出器不会输出命令返回的 `undefined` 值。
      默认为 `false`。
