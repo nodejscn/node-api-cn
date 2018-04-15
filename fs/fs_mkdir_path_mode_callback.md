@@ -16,7 +16,8 @@ changes:
 * `callback` {Function}
   * `err` {Error}
 
-异步的 mkdir(2)。
+异步地创建目录。
 完成回调只有一个可能的异常参数。
 `mode` 默认为 `0o777`。
 
+详见 mkdir(2)。

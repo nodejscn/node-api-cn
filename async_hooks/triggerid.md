@@ -22,13 +22,13 @@ require('net').createServer((conn) => {}).listen(8080);
 Output when hitting the server with `nc localhost 8080`:
 
 ```console
-TCPWRAP(2): trigger: 1 execution: 1
+TCPSERVERWRAP(2): trigger: 1 execution: 1
 TCPWRAP(4): trigger: 2 execution: 0
 ```
 
-The first `TCPWRAP` is the server which receives the connections.
+The `TCPSERVERWRAP` is the server which receives the connections.
 
-The second `TCPWRAP` is the new connection from the client. When a new
+The `TCPWRAP` is the new connection from the client. When a new
 connection is made the `TCPWrap` instance is immediately constructed. This
 happens outside of any JavaScript stack (side note: a `executionAsyncId()` of `0`
 means it's being executed from C++, with no JavaScript stack above it).

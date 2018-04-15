@@ -35,3 +35,4 @@ Node options that are allowed are:
 V8 options that are allowed are:
 - `--abort-on-uncaught-exception`
 - `--max-old-space-size`
+- `--stack-trace-limit`

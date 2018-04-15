@@ -12,7 +12,7 @@ deprecated: v1.0.0
 
 * `path` {string|Buffer|URL}
 * `callback` {Function}
-  * `exists` {Boolean}
+  * `exists` {boolean}
 
 通过检查文件系统来测试给定的路径是否存在。然后使用 true 或 false 为参数调用 `callback`。例子：
 

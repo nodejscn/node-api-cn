@@ -14,4 +14,4 @@
 [Unzip]: #zlib_class_zlib_unzip
 [`UV_THREADPOOL_SIZE`]: cli.html#cli_uv_threadpool_size_size
 [options]: #zlib_class_options
-[zlib documentation]: http://zlib.net/manual.html#Constants
+[zlib documentation]: https://zlib.net/manual.html#Constants

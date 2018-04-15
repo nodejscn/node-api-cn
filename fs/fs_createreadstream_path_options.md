@@ -22,6 +22,7 @@ changes:
   * `autoClose` {boolean}
   * `start` {integer}
   * `end` {integer}
+  * `highWaterMark` {integer}
 
 返回一个新建的 [`ReadStream`] 对象（详见[可读流]）。
 
@@ -35,7 +36,8 @@ const defaults = {
   encoding: null,
   fd: null,
   mode: 0o666,
-  autoClose: true
+  autoClose: true,
+  highWaterMark: 64 * 1024
 };
 ```
 

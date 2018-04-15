@@ -1,5 +1,4 @@
 
-Used when an attempt is made to use an IPC communication channel that has
-already been closed.
+An attempt was made to use an IPC communication channel that was already closed.
 
 <a id="ERR_IPC_DISCONNECTED"></a>

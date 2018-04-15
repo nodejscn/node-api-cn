@@ -17,10 +17,6 @@ process.on('SIGINT', () => {
 });
 ```
 
-*Note*：在大多数终端程序中发送`SIGINT`信号的简单方法是`<Ctrl>-C`。
-
-如下需要重点关注:
-
 * `SIGUSR1` 被Node.js保留用于启动调试器。可以为此事件绑定一个监听器，但是即使这样做也不会阻止调试器的启动。
 
 * `SIGTERM` 和 `SIGINT` 在非windows平台绑定了默认的监听器，这样进程以代码`128 + signal number`结束之前，可以重置终端模式。
@@ -33,7 +29,7 @@ process.on('SIGINT', () => {
   非windows平台，`SIGHUP`默认的绑定行为是结束Node.js，但是一旦给它绑定了新的监听器，默认行为会被移除。
 
 * `SIGTERM` 在Windows中不支持，可以给其绑定监听器。
-* `SIGINT` 在终端运行时，可以被所有平台支持，通常可以通过`CTRL+C`触发(虽然这个不能配置)。
+* `SIGINT` 在终端运行时，可以被所有平台支持，通常可以通过 `<Ctrl>+C` 触发(虽然这个不能配置)。
   当终端运行在raw模式，它不会被触发。
 
 * `SIGBREAK` 在Windows中按下`<Ctrl>+<Break>`会被触发，非Windows平台中可以为其绑定监听器，但是没有方式触发或发送此事件。

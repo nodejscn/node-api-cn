@@ -3,7 +3,7 @@ added: v0.11.14
 -->
 
 * `options` {Object} 必要的。包含以下属性：
-  * `port` {Integer}
+  * `port` {integer}
   * `address` {string}
   * `exclusive` {boolean}
 * `callback` {Function}

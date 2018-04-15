@@ -11,5 +11,5 @@ added: v0.1.98
 
 监听器函数被调用时不传入任何参数。
 
-当 `'close'` 事件被触发时，`readline.Interface` 实例应当被视为已结束。
+当 `'close'` 事件被触发时，`readline.Interface` 实例会被结束。
 

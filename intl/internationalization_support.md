@@ -1,3 +1,5 @@
+<!--introduced_in=v8.2.0-->
+
 Node.js有许多功能，使它更容易编写国际化程序.其中一些是：
 - [ECMAScript语言规格][ECMA-262]中的本地化敏感或感知统一编码功能：
   - [`String.prototype.normalize()`][]

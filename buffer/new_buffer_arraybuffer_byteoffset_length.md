@@ -15,11 +15,11 @@ changes:
 
 > 稳定性: 0 - 废弃的: 使用 [`Buffer.from(arrayBuffer[, byteOffset [, length]])`][`Buffer.from(arrayBuffer)`] 代替。
 
-* `arrayBuffer` {ArrayBuffer} 一个 [`ArrayBuffer`]，或 [`TypedArray`] 的 `.buffer` 属性
-* `byteOffset` {integer} 开始拷贝的索引。 **默认：** `0`
-* `length` {integer} 拷贝的字节数。**默认：** `arrayBuffer.length - byteOffset`
+* `arrayBuffer` {ArrayBuffer|SharedArrayBuffer} [`ArrayBuffer`] 或 [`SharedArrayBuffer`] 或 [`TypedArray`] 的 `.buffer` 属性。
+* `byteOffset` {integer} 开始拷贝的索引。 **默认：** `0`。
+* `length` {integer} 拷贝的字节数。**默认：** `arrayBuffer.length - byteOffset`。
 
-该方法将创建一个 [`ArrayBuffer`] 的视图，而不会复制底层内存。例如，当传入一个 [`TypedArray`] 实例的 `.buffer` 属性的引用时，这个新建的 `Buffer` 会像 [`TypedArray`] 那样共享同一段分配的内存。
+该方法将创建 [`ArrayBuffer`] 或 [`SharedArrayBuffer`] 的视图，而不会复制底层内存。例如，当传入一个 [`TypedArray`] 实例的 `.buffer` 属性的引用时，这个新建的 `Buffer` 会像 [`TypedArray`] 那样共享同一段分配的内存。
 
 可选的 `byteOffset` 和 `length` 参数指定将与 `Buffer` 共享的 `arrayBuffer` 的内存范围。
 

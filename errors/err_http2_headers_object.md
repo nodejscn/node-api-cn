@@ -1,4 +1,4 @@
 
-Used when an HTTP/2 Headers Object is expected.
+An HTTP/2 Headers Object was expected.
 
 <a id="ERR_HTTP2_HEADERS_SENT"></a>

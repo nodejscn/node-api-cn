@@ -1,4 +1,6 @@
 
+<!--introduced_in=v7.10.0-->
+
 > Stability: 1 - Experimental
 
 N-API (pronounced N as in the letter, followed by API)

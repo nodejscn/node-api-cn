@@ -11,5 +11,8 @@ changes:
 * `uid` {integer}
 * `gid` {integer}
 
-同步的 chown(2)。返回 `undefined`。
+同步地改变文件的所有者和群组。
+返回 `undefined`。
+[`fs.chown()`] 的同步版本。
 
+详见 chown(2)。

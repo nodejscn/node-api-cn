@@ -2,7 +2,7 @@
 deprecated: v0.4.7
 -->
 
-* `path` {string|Buffer}
+* `path` {string|Buffer|URL}
 * `uid` {integer}
 * `gid` {integer}
 

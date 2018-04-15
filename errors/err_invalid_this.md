@@ -1,6 +1,5 @@
 
-Used generically to identify that a Node.js API function is called with an
-incompatible `this` value.
+A Node.js API function was called with an incompatible `this` value.
 
 Example:
 

@@ -6,7 +6,7 @@ changes:
 -->
 
 `Buffer` 实例也是 [`Uint8Array`] 实例。
-但是与 ECMAScript 2015 中的 TypedArray 规范还是有些微妙的不同。
+但是与 [`ECMAScript 2015`] 中的 TypedArray 规范还是有些微妙的不同。
 例如，当 [`ArrayBuffer#slice()`] 创建一个切片的副本时，[`Buffer#slice()`] 的实现是在现有的 `Buffer` 上不经过拷贝直接进行创建，这也使得 [`Buffer#slice()`] 更高效。
 
 遵循以下注意事项，也可以从一个 `Buffer` 创建一个新的 [`TypedArray`] 实例：

@@ -5,8 +5,7 @@
 
 <!--name=module-->
 
-Node.js 有一个简单的模块加载系统。
-在 Node.js 中，文件和模块是一一对应的（每个文件被视为一个独立的模块）。
+在 Node.js 模块系统中，每个文件都被视为独立的模块。
 
 例子，假设有一个名为 `foo.js` 的文件：
 
@@ -35,24 +34,27 @@ exports.circumference = (r) => 2 * PI * r;
 
 `module.exports`属性可以被赋予一个新的值（例如函数或对象）。
 
-如下，`bar.js` 会用到 `square` 模块，`square` 导出一个构造函数：
+如下，`bar.js` 会用到 `square` 模块，`square` 模块导出了 `Square` 类：
 
 ```js
-const square = require('./square.js');
-const mySquare = square(2);
-console.log(`正方形的面积是 ${mySquare.area()}`);
+const Square  = require('./square.js');
+const mySquare = new Square(2);
+console.log(`mySquare 的面积是 ${mySquare.area()}`);
 ```
 
 `square` 模块定义在 `square.js` 中：
 
 ```js
 // 赋值给 `exports` 不会修改模块，必须使用 `module.exports`
-module.exports = (width) => {
-  return {
-    area: () => width ** 2
-  };
+module.exports = class Square {
+  constructor(width) {
+    this.width = width;
+  }
+
+  area() {
+    return this.width ** 2;
+  }
 };
-```
 
 模块系统在 `require('module')` 模块中实现。
 

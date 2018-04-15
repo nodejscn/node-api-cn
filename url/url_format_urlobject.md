@@ -14,7 +14,7 @@ changes:
 
 `url.format()` 方法返回一个从 `urlObject` 格式化后的 URL 字符串。
 
-如果 `urlObject` 不是一个对象或字符串，则 `url.parse()` 抛出 [`TypeError`]。
+如果 `urlObject` 不是一个对象或字符串，则 `url.format()` 抛出 [`TypeError`]。
 
 格式化过程如下：
 

@@ -2,10 +2,10 @@
 * `stdout` {Writable}
 * `stderr` {Writable}
 
-通过传入一个或两个可写流实例，创建一个新的 `Console` 对象。
+使用可写流实例来创建新的 `Console` 对象。
 `stdout` 是一个可写流，用于打印日志或输出信息。
 `stderr` 用于输出警告或错误。
-如果没有传入 `stderr` ，则警告或错误输出会被发送到 `stdout` 。
+如果没有提供 `stderr`，则 `stdout` 会被用于 `stderr`。
 
 
 ```js

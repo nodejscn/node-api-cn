@@ -19,5 +19,5 @@ changes:
   * `produceCachedData` {boolean} 当值为真且cachedData不存在的时候，v8将会试图为code生成代码缓存数据。一旦成功，一个有V8代码缓存数据的Buffer将会被生成和储存在vm.Script返回的实例的cachedData属性里。
     取决于代码缓存数据是否被成功生成，cachedDataProduced的值会被设置为true或者false。
     
-创建一个新的vm.Script对象只编译代码但不会执行它。编译过的vm.Script此后可以被多次执行。值得注意的是，code是不绑定于任何全局对象的，相反，它仅仅绑定于每次执行它的对象。
+创建一个新的vm.Script对象只编译代码但不会执行它。编译过的vm.Script此后可以被多次执行。code是不绑定于任何全局对象的，相反，它仅仅绑定于每次执行它的对象。
 

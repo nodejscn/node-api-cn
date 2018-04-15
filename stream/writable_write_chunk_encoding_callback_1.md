@@ -11,7 +11,7 @@
 
 必须调用`callback`方法来表示写完成成功或失败，出现错误。`callback`第一个参数必须是`Error`对象如果调用失败，成功时为`null`。
 
-需要重点注意的是，所有`writable._write()`被调用并且`callback`被调用将导致要缓冲的写入数据。 一旦调用`callback`，流将会执行[`'drain'`] []事件。 如果想让流实现一次能够处理多个数据块，`writable._writev()`方法应该被实现。
+所有`writable._write()`被调用并且`callback`被调用将导致要缓冲的写入数据。 一旦调用`callback`，流将会执行[`'drain'`] []事件。 如果想让流实现一次能够处理多个数据块，`writable._writev()`方法应该被实现。
 
 如果在构造函数选项中设置`decodeStrings`属性，那么`chunk`可能是一个字符串而不是一个缓冲区，`encodeing`将会表示字符串的字符编码。 这是为了支持对某些字符串具有优化处理的实现数据编码。 如果`decodeStrings`属性显式设置为`false`，`encoding`参数可以安全地忽略，`chunk`将保持不变传递给`.write()`的对象。
 

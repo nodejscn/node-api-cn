@@ -47,7 +47,7 @@ http.createServer((request, response) => {
   }
 
   // 注意：这不是一个合适的 accept-encoding 解析器.
-  // 查阅 http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.3
+  // 查阅 https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.3
   if (/\bdeflate\b/.test(acceptEncoding)) {
     response.writeHead(200, { 'Content-Encoding': 'deflate' });
     raw.pipe(zlib.createDeflate()).pipe(response);

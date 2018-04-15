@@ -26,4 +26,4 @@ changes:
   default)
 * `info` {boolean} (If `true`, returns an object with `buffer` and `engine`)
 
-更多信息查阅在 <http://zlib.net/manual.html#Advanced> 关于 `deflateInit2` 以及 `inflateInit2` 的描述， 
+更多信息查阅在 <https://zlib.net/manual.html#Advanced> 关于 `deflateInit2` 以及 `inflateInit2` 的描述， 

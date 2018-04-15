@@ -17,6 +17,7 @@ changes:
 * `callback` {Function}
   * `err` {Error}
 
-异步的 chown(2)。
+异步地改变文件的所有者和群组。
 完成回调只有一个可能的异常参数。
 
+详见 chown(2)。

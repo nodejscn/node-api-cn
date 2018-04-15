@@ -9,6 +9,8 @@ added: v0.1.97
 ```js
 const assert = require('assert');
 
+assert.ifError(null);
+// 测试通过。
 assert.ifError(0);
 // 测试通过。
 assert.ifError(1);

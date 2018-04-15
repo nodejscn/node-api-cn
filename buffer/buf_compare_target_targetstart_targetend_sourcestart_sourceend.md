@@ -13,13 +13,10 @@ changes:
 * `targetStart` {integer} `target` 中开始对比的偏移量。
   **默认:** `0`
 * `targetEnd` {integer} `target` 中结束对比的偏移量（不包含）。
-  当 `targetStart` 为 `undefined` 时忽略。
   **默认:** `target.length`
 * `sourceStart` {integer} `buf` 中开始对比的偏移量。
-  当 `targetStart` 为 `undefined` 时忽略。
   **默认:** `0`
 * `sourceEnd` {integer} `buf` 中结束对比的偏移量（不包含）。
-  当 `targetStart` 为 `undefined` 时忽略。
   **默认:** [`buf.length`]
 * 返回: {integer}
 

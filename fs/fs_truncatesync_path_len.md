@@ -2,7 +2,7 @@
 added: v0.8.6
 -->
 
-* `path` {string|Buffer}
+* `path` {string|Buffer|URL}
 * `len` {integer} 默认 = `0`
 
 同步的 truncate(2)。

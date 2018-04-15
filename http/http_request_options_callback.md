@@ -29,6 +29,7 @@ changes:
    * `false`: 创建一个新的使用默认值的 `Agent`。
   * `createConnection` {Function} 当不使用 `agent` 选项时，为请求创建一个 socket 或流。
     这可以用于避免仅仅创建一个自定义的 `Agent` 类来覆盖默认的 `createConnection` 函数。详见 [`agent.createConnection()`]。
+    Any [`Duplex`][] stream is a valid return value.
   * `timeout` {number}: 指定 socket 超时的毫秒数。
     它设置了 socket 等待连接的超时时间。
 * `callback` {Function}

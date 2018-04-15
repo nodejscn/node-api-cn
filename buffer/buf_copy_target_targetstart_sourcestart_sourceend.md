@@ -6,10 +6,8 @@ added: v0.1.90
 * `targetStart` {integer} `target` 中开始拷贝进的偏移量。
   **默认:** `0`
 * `sourceStart` {integer} `buf` 中开始拷贝的偏移量。
-  当 `targetStart` 为 `undefined` 时忽略。
   **默认:** `0`
 * `sourceEnd` {integer} `buf` 中结束拷贝的偏移量（不包含）。
-  当 `sourceStart` 为 `undefined` 时忽略。
   **默认:** [`buf.length`]
 * 返回: {integer} 被拷贝的字节数。
 

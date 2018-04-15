@@ -2,10 +2,8 @@
 added: v0.1.31
 -->
 
-* `filename` {string|Buffer}
-* `listener` {Function|undefined} **Default:** `undefined`
-  * `eventType` {string}
-  * `filename` {string|Buffer}
+* `filename` {string|Buffer|URL}
+* `listener` {Function} Optional, a listener previously attached using `fs.watchFile()`
 
 停止监视 `filename` 文件的变化。
 如果指定了 `listener`，则只移除特定的监听器。

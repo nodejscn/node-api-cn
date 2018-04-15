@@ -1,6 +1,6 @@
 
 ALPN negotiation allows to support both [HTTPS][] and HTTP/2 over
-the same socket. The `req` and `res` objects can be either HTTP/1 or
+the same socket. The `req` and `res` objects can be either HTTP/1 or
 HTTP/2, and an application **must** restrict itself to the public API of
 [HTTP/1][], and detect if it is possible to use the more advanced
 features of HTTP/2.

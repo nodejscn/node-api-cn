@@ -22,8 +22,7 @@ changes:
 当父进程和子进程之间建立了一个 IPC 通道时（例如，使用 [`child_process.fork()`]），`subprocess.send()` 方法可用于发送消息到子进程。
 当子进程是一个 Node.js 实例时，消息可以通过 [`process.on('message')`] 事件接收。
 
-*注意*: 消息通过JSON序列化和解析进行传递，结果就是消息可能跟开始发送的不完全一样。请查看
-[the `JSON.stringify()` specification][`JSON.stringify` spec].
+*注意*: 消息通过序列化和解析进行传递，结果就是消息可能跟开始发送的不完全一样。
 
 例子，父进程脚本如下：
 
@@ -53,7 +52,7 @@ process.send({ foo: 'bar', baz: NaN });
 Node.js 中的子进程有一个自己的 [`process.send()`] 方法，允许子进程发送消息回父进程。
 
 当发送一个 `{cmd: 'NODE_foo'}` 消息时，是一个特例。
-所有在 `cmd` 属性里包含一个 `NODE_` 前缀的都会被认为是预留给 Node.js 核心代码内部使用的，且不会触发子进程的 [`process.on('message')`] 事件。
+`cmd` 属性中包含 `NODE_` 前缀的消息是预留给 Node.js 核心代码内部使用的，不会触发子进程的 [`process.on('message')`] 事件。
 而是，这种消息可使用 `process.on('internalMessage')` 事件触发，且被 Node.js 内部消费。
 应用程序应避免使用这种消息或监听 `'internalMessage'` 事件。
 

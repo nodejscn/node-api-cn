@@ -24,9 +24,9 @@ changes:
 * `lts` {string} 标识当前发布的[LTS][]标签的字符串。
   只有长效版(Long Term Support/LTS)存在这个属性，其他所有版本类型这个属性都是`undefined`，
   包括_Current_版本，当前的有效值有：
-  - `'Argon'` for the v4.x LTS line beginning with v4.2.0.
-  - `'Boron'` for the v6.x LTS line beginning with v6.9.0.
-  - `'Carbon'` for the v8.x LTS line beginning with v8.9.1.
+  - `'Argon'` for the 4.x LTS line beginning with 4.2.0.
+  - `'Boron'` for the 6.x LTS line beginning with 6.9.0.
+  - `'Carbon'` for the 8.x LTS line beginning with 8.9.1.
 
 例如：
 

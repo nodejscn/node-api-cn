@@ -13,7 +13,7 @@ changes:
     description: The `file` parameter can be a file descriptor now.
 -->
 
-* `file` {string|Buffer|integer} 文件名或文件描述符
+* `file` {string|Buffer|URL|integer} 文件名或文件描述符
 * `data` {string|Buffer|Uint8Array}
 * `options` {Object|string}
   * `encoding` {string|null} 默认 = `'utf8'`

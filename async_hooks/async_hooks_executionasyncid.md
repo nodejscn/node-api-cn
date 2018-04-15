@@ -1,4 +1,12 @@
 
+<!-- YAML
+added: v8.1.0
+changes:
+  - version: v8.2.0
+    pr-url: https://github.com/nodejs/node/pull/13490
+    description: Renamed from currentId
+-->
+
 * Returns: {number} The `asyncId` of the current execution context. Useful to
   track when something calls.
 
@@ -13,9 +21,8 @@ fs.open(path, 'r', (err, fd) => {
 });
 ```
 
-It is important to note that the ID returned fom `executionAsyncId()` is related
-to execution timing, not causality (which is covered by `triggerAsyncId()`). For
-example:
+The ID returned from `executionAsyncId()` is related to execution timing, not
+causality (which is covered by `triggerAsyncId()`). For example:
 
 ```js
 const server = net.createServer(function onConnection(conn) {

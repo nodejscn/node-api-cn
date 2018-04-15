@@ -19,7 +19,7 @@ $ node repl_test.js
 'message'
 ```
 
-注意，默认情况下 `context` 的属性不是只读的。
+默认情况下 `context` 的属性不是只读的。
 要指定只读的全局变量，`context` 的属性必须使用 `Object.defineProperty()` 来定义:
 
 ```js

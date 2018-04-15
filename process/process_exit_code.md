@@ -16,8 +16,8 @@ process.exit(1);
 
 执行Node.js的shell应该会得到结束状态码`1`。
 
-需要特别注意的是，调用`process.exit()`会强制进程尽快结束，*即使仍然有很多处于等待中的异步操作*没有全部执行完成，
-*包括*输出到`process.stdout`和`process.stderr`的I/O操作。
+调用 `process.exit()` 会强制进程尽快结束，即使仍然有很多处于等待中的异步操作没有全部执行完成，
+包括输出到 `process.stdout` 和 `process.stderr` 的 I/O 操作。
 
 在大多数情况下，显式调用`process.exit()`是没有必要的。如果在事件轮询队列中没有处于等待中的工作，Node.js进程会自行结束。
 当进程正常结束时，`process.exitCode`属性可以被设置，以便于告知进程使用哪个结束状态码。

@@ -39,3 +39,4 @@
 [系统调用]: http://man7.org/linux/man-pages/man2/syscall.2.html
 [`try / catch` 语句]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch
 [系统错误]: #errors_system_errors
+[WHATWG支持的字符编码]: util.md#whatwg-supported-encodings

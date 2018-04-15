@@ -1,6 +1,5 @@
-<!-- YAML
-added: v8.5.0
--->
+
+<!--introduced_in=v8.5.0-->
 
 > Stability: 1 - Experimental
 

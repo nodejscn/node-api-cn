@@ -9,7 +9,7 @@ function doSomething(foo, callback) {
   // ...
 }
 
-doSomething[util.promisify.custom] = function(foo) {
+doSomething[util.promisify.custom] = (foo) => {
   return getPromiseSomehow();
 };
 
@@ -24,9 +24,11 @@ standard format of taking an error-first callback as the last argument.
 For example, with a function that takes in `(foo, onSuccessCallback, onErrorCallback)`:
 
 ```js
-doSomething[util.promisify.custom] = function(foo) {
-  return new Promise(function(resolve, reject) {
+doSomething[util.promisify.custom] = (foo) => {
+  return new Promise((resolve, reject) => {
     doSomething(foo, resolve, reject);
   });
 };
 ```
+If `promisify.custom` is defined but is not a function, `promisify()` will
+throw an error.

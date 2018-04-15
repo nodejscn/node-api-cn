@@ -7,7 +7,7 @@
 const vm = require('vm');
 
 const code = `
-(function(require) {
+((require) => {
   const http = require('http');
 
   http.createServer((request, response) => {

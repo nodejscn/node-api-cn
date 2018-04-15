@@ -1,5 +1,5 @@
 
-`Buffer` 实例可以使用 ECMAScript 2015 (ES6) 的 `for..of` 语法进行遍历。
+`Buffer` 实例可以使用 [`ECMAScript 2015`] (ES6) 的 `for..of` 语法进行遍历。
 
 例子：
 

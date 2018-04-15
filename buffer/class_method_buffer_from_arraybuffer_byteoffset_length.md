@@ -2,7 +2,7 @@
 added: v5.10.0
 -->
 
-* `arrayBuffer` {ArrayBuffer} 一个 [`ArrayBuffer`]，或一个 [`TypedArray`] 的 `.buffer` 属性。
+* `arrayBuffer` {ArrayBuffer|SharedArrayBuffer} [`ArrayBuffer`] 或 [`SharedArrayBuffer`] 或 [`TypedArray`] 的 `.buffer` 属性。
 * `byteOffset` {integer} 开始拷贝的索引。默认为 `0`。
 * `length` {integer} 拷贝的字节数。默认为 `arrayBuffer.length - byteOffset`。
 
@@ -41,4 +41,4 @@ const buf = Buffer.from(ab, 0, 2);
 console.log(buf.length);
 ```
 
-如果 `arrayBuffer` 不是一个 [`ArrayBuffer`]，则抛出 `TypeError` 错误。
+如果 `arrayBuffer` 不是 [`ArrayBuffer`] 或 [`SharedArrayBuffer`]，则抛出 `TypeError` 错误。

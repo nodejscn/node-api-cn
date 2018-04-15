@@ -13,7 +13,7 @@ changes:
     description: The `file` parameter can be a file descriptor now.
 -->
 
-* `file` {string|Buffer|number} 文件名或文件描述符
+* `file` {string|Buffer|URL|number} 文件名或文件描述符
 * `data` {string|Buffer}
 * `options` {Object|string}
   * `encoding` {string|null} 默认为 `'utf8'`
@@ -23,7 +23,7 @@ changes:
   * `err` {Error}
 
 异步地追加数据到一个文件，如果文件不存在则创建文件。
-`data` 可以是一个字符串或 buffer。
+`data` 可以是一个字符串或 [`Buffer`]。
 
 例子：
 
@@ -40,7 +40,20 @@ fs.appendFile('message.txt', 'data to append', (err) => {
 fs.appendFile('message.txt', 'data to append', 'utf8', callback);
 ```
 
-任何指定的文件描述符必须为了追加而被打开。
+The `file` may be specified as a numeric file descriptor that has been opened
+for appending (using `fs.open()` or `fs.openSync()`). The file descriptor will
+not be closed automatically.
 
-注意：如果文件描述符被指定为 `file`，则不会被自动关闭。
+```js
+fs.open('message.txt', 'a', (err, fd) => {
+  if (err) throw err;
+  fs.appendFile(fd, 'data to append', 'utf8', (err) => {
+    fs.close(fd, (err) => {
+      if (err) throw err;
+    });
+    if (err) throw err;
+  });
+});
+```
+
 

@@ -7,7 +7,7 @@ changes:
                  it will emit a deprecation warning.
 -->
 
-* `path` {string|Buffer}
+* `path` {string|Buffer|URL}
 * `len` {integer} 默认 = `0`
 * `callback` {Function}
   * `err` {Error}

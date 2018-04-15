@@ -6,7 +6,7 @@ added: v0.5.8
 
 这些被定义在 `zlib.h` 的全部常量同时也被定义在 `require('zlib').constants` 常量上.
 不需要在正常的操作中使用这些常量. 记录他们为了使他们的存在并不奇怪. 这个章节几乎直接取自[zlib documentation].
-参阅 <http://zlib.net/mamual.html#Constants> 获取更多信息.
+参阅 <https://zlib.net/mamual.html#Constants> 获取更多信息.
 
 *注意*: 以前, 可以直接从 `require('zlib')` 中获取到这些常量, 例如 `zlib.Z_NO_FLUSH`. 
 目前仍然可以从模块中直接访问这些常量, 但是不推荐使用.

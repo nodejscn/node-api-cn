@@ -31,3 +31,8 @@ console.log(
 `crypto.randomBytes()`方法将在获得足够的熵之后完成。这通常不会超过几毫秒。只有在刚开机时才可能会阻塞更久，因为此时整个系统的熵不多。
 
 注意这个API使用libuv的线程池，所以在某些时候可能会产生意外的性能问题，查看[`UV_THREADPOOL_SIZE`][]的文档以了解更多信息。
+
+*Note*: The asynchronous version of `crypto.randomBytes()` is carried out
+in a single threadpool request. To minimize threadpool task length variation,
+partition large `randomBytes` requests when doing so as part of fulfilling a
+client request.

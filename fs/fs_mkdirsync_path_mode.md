@@ -10,5 +10,8 @@ changes:
 * `path` {string|Buffer|URL}
 * `mode` {integer} **Default:** `0o777`
 
-同步的 mkdir(2)。返回 `undefined`。
+同步地创建目录。
+返回 `undefined`。
+[`fs.mkdir()`] 的同步版本。
 
+详见 mkdir(2)。

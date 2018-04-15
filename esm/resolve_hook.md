@@ -18,10 +18,18 @@ argument to the resolver for easy compatibility workflows.
 
 In addition to returning the resolved file URL value, the resolve hook also
 returns a `format` property specifying the module format of the resolved
-module. This can be one of `"esm"`, `"cjs"`, `"json"`, `"builtin"` or
-`"addon"`.
+module. This can be one of the following:
 
-For example a dummy loader to load JavaScript restricted to browser resolution
+| `format` | Description |
+| --- | --- |
+| `"esm"` | Load a standard JavaScript module |
+| `"commonjs"` | Load a node-style CommonJS module |
+| `"builtin"` | Load a node builtin CommonJS module |
+| `"json"` | Load a JSON file |
+| `"addon"` | Load a [C++ Addon][addons] |
+| `"dynamic"` | Use a [dynamic instantiate hook][] |
+
+For example, a dummy loader to load JavaScript restricted to browser resolution
 rules with only JS file extension and Node builtin modules support could
 be written:
 
@@ -29,15 +37,13 @@ be written:
 import url from 'url';
 import path from 'path';
 import process from 'process';
+import Module from 'module';
 
-const builtins = new Set(
-  Object.keys(process.binding('natives')).filter((str) =>
-    /^(?!(?:internal|node|v8)\/)/.test(str))
-);
+const builtins = Module.builtinModules;
 const JS_EXTENSIONS = new Set(['.js', '.mjs']);
 
 export function resolve(specifier, parentModuleURL/*, defaultResolve */) {
-  if (builtins.has(specifier)) {
+  if (builtins.includes(specifier)) {
     return {
       url: specifier,
       format: 'builtin'
@@ -70,4 +76,3 @@ NODE_OPTIONS='--experimental-modules --loader ./custom-loader.mjs' node x.js
 
 would load the module `x.js` as an ES module with relative resolution support
 (with `node_modules` loading skipped in this example).
-

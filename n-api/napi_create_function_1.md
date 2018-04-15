@@ -23,7 +23,7 @@ Returns `napi_ok` if the API succeeded.
 
 This API allows an add-on author to create a function object in native code.
 This is the primary mechanism to allow calling *into* the add-on's native code
-*from* Javascript.
+*from* JavaScript.
 
 *Note*: The newly created function is not automatically visible from
 script after this call. Instead, a property must be explicitly set on any
@@ -39,15 +39,17 @@ napi_value SayHello(napi_env env, napi_callback_info info) {
   return nullptr;
 }
 
-void Init(napi_env env, napi_value exports, napi_value module, void* priv) {
+napi_value Init(napi_env env, napi_value exports) {
   napi_status status;
 
   napi_value fn;
-  status =  napi_create_function(env, NULL, SayHello, NULL, &fn);
-  if (status != napi_ok) return;
+  status =  napi_create_function(env, nullptr, 0, SayHello, nullptr, &fn);
+  if (status != napi_ok) return nullptr;
 
   status = napi_set_named_property(env, exports, "sayHello", fn);
-  if (status != napi_ok) return;
+  if (status != napi_ok) return nullptr;
+
+  return exports;
 }
 
 NAPI_MODULE(NODE_GYP_MODULE_NAME, Init)

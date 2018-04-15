@@ -6,7 +6,6 @@
 [`fs.ReadStream`]: fs.html#fs_class_fs_readstream
 [`net.Server`]: net.html#net_class_net_server
 [`process.on('warning')`]: process.html#process_event_warning
-[`process` object's `uncaughtException` event]: process.html#process_event_uncaughtexception
 [stream]: stream.html
 
 [`process` 对象的 `uncaughtException` 事件]: process.html#process_event_uncaughtexception

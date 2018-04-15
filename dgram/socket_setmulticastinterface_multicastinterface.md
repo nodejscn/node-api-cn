@@ -2,9 +2,9 @@
 added: v8.6.0
 -->
 
-* `multicastInterface` {String}
+* `multicastInterface` {string}
 
-*Note: All references to scope in this section are refering to
+*Note: All references to scope in this section are referring to
 [IPv6 Zone Indices][], which are defined by [RFC 4007][]. In string form, an IP
 with a scope index is written as `'IP%scope'` where scope is an interface name or
 interface number.*
@@ -22,4 +22,3 @@ interface as in the examples that follow. In IPv6, individual `send` calls can
 also use explicit scope in addresses, so only packets sent to a multicast
 address without specifying an explicit scope are affected by the most recent
 successful use of this call.
-

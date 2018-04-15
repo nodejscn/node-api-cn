@@ -5,7 +5,7 @@ added: v8.0.0
 * `original` {Function}
 * Returns: {Function}
 
-让一个遵循通常的 Node.js 回调风格的函数， 即 `(err, value) => ...` 回调函数是最后一个参数, 返回一个返回值是一个 promise 版本的函数。
+让一个遵循异常优先的回调风格的函数， 即 `(err, value) => ...` 回调函数是最后一个参数, 返回一个返回值是一个 promise 版本的函数。
 
 例如：
 

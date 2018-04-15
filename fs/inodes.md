@@ -7,5 +7,6 @@
 新建的索引节点的事件不会被触发。
 这是正常的行为。
 
-在 AIX 中，正在 watch 的文件在保存和关闭时会触发两个通知 - 一个用于添加新内容，另一个用于关闭监听。此外，在某些平台上保存和关闭操作会导致 inode 发生变化，从而强制 watch 操作失效和无效。AIX 在文件的生命周期中保留了 inode ，尽管这与 Linux / macOS 不同，但这也提高了文件监视的可用性。这是预期的行为。
-
+AIX files retain the same inode for the lifetime of a file. Saving and closing a
+watched file on AIX will result in two notifications (one for adding new
+content, and one for truncation).

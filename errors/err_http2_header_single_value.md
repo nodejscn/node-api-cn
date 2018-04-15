@@ -1,4 +1,4 @@
 
-一个HTTP头只需赋单值时被赋了多值
+为只需一个值的 HTTP/2 消息头提供了多个值。
 
 <a id="ERR_HTTP2_HEADERS_AFTER_RESPOND"></a>

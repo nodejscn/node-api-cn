@@ -27,7 +27,6 @@ fd 的 0、1 和 2 分别对应 stdin、stdout 和 stderr。
 2. `'ipc'` - 创建一个用于父进程和子进程之间传递消息或文件描述符的 IPC 通道符。
     一个 [`ChildProcess`] 最多只能有一个 IPC stdio 文件描述符。
     设置该选项可启用 [`subprocess.send()`] 方法。
-    如果子进程把 JSON 消息写入到该文件描述符，则 [`subprocess.on('message')`] 事件句柄会被父进程触发。
     如果子进程是一个 Node.js 进程，则一个已存在的 IPC 通道会在子进程中启用 [`process.send()`]、[`process.disconnect()`]、[`process.on('disconnect')`] 和 [`process.on('message')`]。
 3. `'ignore'` - 指示 Node.js 在子进程中忽略 fd。
     由于 Node.js 总是会为它衍生的进程打开 fd 0 - 2，所以设置 fd 为 `'ignore'` 可以使 Node.js 打开 `/dev/null` 并将它附加到子进程的 fd 上。

@@ -66,3 +66,7 @@ fs.readFile('<directory>', (err, data) => {
 
 注意：如果一个文件描述符被指定为 `path`，则它不会被自动关闭。
 
+*Note*: `fs.readFile()` reads the entire file in a single threadpool request.
+To minimize threadpool task length variation, prefer the partitioned APIs
+`fs.read()` and `fs.createReadStream()` when reading files as part of
+fulfilling a client request.

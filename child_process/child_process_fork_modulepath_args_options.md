@@ -41,7 +41,6 @@ changes:
 `options` 对象中的 `execPath` 属性可以替换要使用的执行路径。
 
 使用自定义的 `execPath` 启动的 Node.js 进程，会使用子进程的环境变量 `NODE_CHANNEL_FD` 中指定的文件描述符（fd）与父进程通信。
-fd 上的输入和输出期望被分割成一行一行的 JSON 对象。
 
 注意，不像 POSIX 系统回调中的 fork(2)，`child_process.fork()` 不会克隆当前进程。
 

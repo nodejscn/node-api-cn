@@ -40,7 +40,7 @@ util.inspect(box);
 const util = require('util');
 
 const obj = { foo: '这个不会出现在 inspect() 的输出中' };
-obj[util.inspect.custom] = function(depth) {
+obj[util.inspect.custom] = (depth) => {
   return { bar: 'baz' };
 };
 
