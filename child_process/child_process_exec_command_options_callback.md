@@ -6,38 +6,33 @@ changes:
     description: The `windowsHide` option is supported now.
 -->
 
-* `command` {string} 要运行的命令，用空格分隔参数。
+* `command` {string} 运行的命令，参数使用空格分隔。
 * `options` {Object}
   * `cwd` {string} 子进程的当前工作目录。
   * `env` {Object} 环境变量键值对。
   * `encoding` {string} 默认为 `'utf8'`。
-  * `shell` {string} 用于执行命令的 shell。
-    在 UNIX 上默认为 `'/bin/sh'`，在 Windows 上默认为 `process.env.ComSpec`。
-    详见 [Shell Requirements][] 与 [Default Windows Shell][]。
+  * `shell` {string} 执行命令的 shell。在 UNIX 上默认为 `'/bin/sh'`，在 Windows 上默认为 `process.env.ComSpec`。详见[Shell的要求]与[Windows默认的Shell]。
   * `timeout` {number} 默认为 `0`。
-  * [`maxBuffer`] {number} stdout 或 stderr 允许的最大字节数。
-    默认为 `200*1024`。
-    如果超过限制，则子进程会被终止。
-    查看警告： [`maxBuffer` and Unicode][]。
+  * `maxBuffer` {number} `stdout` 或 `stderr` 允许的最大字节数。默认为 `200*1024`。如果超过限制，则子进程会被终止。详见 [`maxBuffer`与Unicode]。
   * `killSignal` {string|integer} 默认为 `'SIGTERM'`。
-  * `uid` {number} 设置该进程的用户标识。（详见 setuid(2)）
-  * `gid` {number} 设置该进程的组标识。（详见 setgid(2)）
-  * `windowsHide` {boolean} Hide the subprocess console window that would
-    normally be created on Windows systems. **Default:** `false`.
-* `callback` {Function} 当进程终止时调用，并带上输出。
+  * `uid` {number} 设置进程的用户标识，详见 setuid(2)。
+  * `gid` {number} 设置进程的组标识，详见 setgid(2)。
+  * `windowsHide` {boolean} 隐藏子进程的控制台窗口，常用于 Windows 系统。默认为 `false`。
+* `callback` {Function} 进程终止时调用。
   * `error` {Error}
   * `stdout` {string|Buffer}
   * `stderr` {string|Buffer}
 * 返回: {ChildProcess}
 
-衍生一个 shell，然后在 shell 中执行 `command`，且缓冲任何产生的输出。传入 exec  函数的 `command` 字符串会被 shell 直接处理，特殊字符（因 [shell](https://en.wikipedia.org/wiki/List_of_command-line_interpreters) 而异）需要相应处理：
+衍生一个 shell 并在 shell 中执行 `command`，且缓冲任何产生的输出。
+传入函数的 `command` 字符串会被 shell 直接处理，特殊字符（[因shell而异]）需要相应处理：
 
 ```js
 exec('"/path/to/test file/test.sh" arg1 arg2');
-// 使用双引号这样路径中的空格就不会被解释为多个参数
+// 使用双引号使路径中的空格不会被理解为多个参数。
 
 exec('echo "The \\$HOME variable is $HOME"');
-// 第一个 $HOME 被转义了，但第二个没有
+// 第一个 $HOME 会被转义，而第二个不会。
 ```
 
 注意：不要把未经检查的用户输入传入到该函数。

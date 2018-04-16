@@ -1,5 +1,5 @@
 module.exports = [
-    ['child_process_child_process', 'child_process (子进程)'],
+    ['child_process_child_process', 'child_process - 子进程'],
     ['child_process_asynchronous_process_creation', '创建异步进程'],
     ['child_process_spawning_bat_and_cmd_files_on_windows', '在 Windows 上衍生 <code>.bat</code> 和 <code>.cmd</code> 文件'],
     ['child_process_synchronous_process_creation', '创建同步进程'],
@@ -12,4 +12,6 @@ module.exports = [
     ['child_process_example_sending_a_server_object', '例子：发送一个 server 对象'],
     ['child_process_example_sending_a_socket_object', '例子：发送一个 socket 对象'],
     ['child_process_maxbuffer_and_unicode', '<code>maxBuffer</code> 与 Unicode'],
+    ['child_process_shell_requirements', 'Shell 的要求'],
+    ['child_process_default_windows_shell', 'Windows 默认的 Shell'],
 ]
