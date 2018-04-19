@@ -1,9 +1,2 @@
 
-If errors are found in this documentation, please [submit an issue][]
-or see [the contributing guide][] for directions on how to submit a patch.
-
-Every file is generated based on the corresponding `.md` file in the
-`doc/api/` folder in Node.js's source tree. The documentation is generated
-using the `tools/doc/generate.js` program. An HTML template is located at
-`doc/template.html`.
-
+如果在本文档中发现错误，请提交问题或查看指导指南提交补丁。每个文件都是根据Node.js的源路径中的doc/api／文件夹中相应的.MD文件生成的。该md文件是使用tools/doc/generate.js程序生成。改程序的HTML模板位于doc/ template.html中
