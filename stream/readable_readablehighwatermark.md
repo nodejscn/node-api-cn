@@ -2,6 +2,5 @@
 added: v8.10.0
 -->
 
-Return the value of `highWaterMark` passed when constructing this
-`Readable`.
+返回构造该可读流时传入的 `'highWaterMark'` 属性。
 
