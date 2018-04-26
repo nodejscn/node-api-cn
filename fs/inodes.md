@@ -7,6 +7,4 @@
 新建的索引节点的事件不会被触发。
 这是正常的行为。
 
-AIX files retain the same inode for the lifetime of a file. Saving and closing a
-watched file on AIX will result in two notifications (one for adding new
-content, and one for truncation).
+AIX 文件在文件的生命周期中保留相同的 inode。在 AIX 上保存并关闭监视的文件将触发两个通知（一个用于添加新内容，一共用于拦截）。
