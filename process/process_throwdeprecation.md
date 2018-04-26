@@ -4,9 +4,6 @@ added: v0.9.12
 
 * {boolean}
 
-The `process.throwDeprecation` property indicates whether the
-`--throw-deprecation` flag is set on the current Node.js process. See the
-documentation for the [`warning` event][process_warning] and the
-[`emitWarning` method][process_emit_warning] for more information about this
-flag's behavior.
-
+`process.throwDeprecation` 属性表示`--throw-deprecation`标记是否被设置到当前Node.js进程上。
+请查看 [`warning` event][process_warning] 和[`emitWarning` method][process_emit_warning] 的文档，
+来获取这个标记行为的更多信息。
