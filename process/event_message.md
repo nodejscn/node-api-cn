@@ -8,5 +8,4 @@ added: v0.5.10
 * `message`{Object} 解析的 JSON 对象或原始值。
 * `sendHandle` {Handle object} 一个 [`net.Socket`] 或 [`net.Server`] 对象，或 `undefined`。
 
-*Note*: The message goes through serialization and parsing. The resulting
-message might not be the same as what is originally sent.
+*注意*: 这个消息经过序列化和解析，可能与原初发送的消息不完全一样。
