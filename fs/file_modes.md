@@ -1,7 +1,6 @@
 
-The `mode` argument used in both the `fs.chmod()` and `fs.chmodSync()`
-methods is a numeric bitmask created using a logical OR of the following
-constants:
+`mode` 参数会在 `fs.chmod()` 和 `fs.chmodSync()`方法中用到，它是用下面的常量进行逻辑或(logical OR)操作后的数字掩码：
+
 
 |       Constant         |  Octal  | Description              |
 | ---------------------- | ------- | ------------------------ |
@@ -15,11 +14,8 @@ constants:
 | `fs.constants.S_IWOTH` | `0o2`   | write by others          |
 | `fs.constants.S_IXOTH` | `0o1`   | execute/search by others |
 
-An easier method of constructing the `mode` is to use a sequence of three
-octal digits (e.g. `765`). The left-most digit (`7` in the example), specifies
-the permissions for the file owner. The middle digit (`6` in the example),
-specifies permissions for the group. The right-most digit (`5` in the example),
-specifies the permissions for others.
+一个构造 `mode` 的更简单的方式是使用3位八进制串（比如，765）。最左侧的数字（例中的7）代表了文件所有者的权限。中间一位（例中的6）代表了组的权限。最右侧的数字（例中的5）代表其他人的权限。
+A
 
 | Number  |       Description        |
 | ------- | ------------------------ |
@@ -32,9 +28,9 @@ specifies the permissions for others.
 |   `1`   | execute only             |
 |   `0`   | no permission            |
 
-For example, the octal value `0o765` means:
+举个例子，八进制值 `0o765` 表示：
 
-* The owner may read, write and execute the file.
-* The group may read and write the file.
-* Others may read and execute the file.
+* 文件所有者可以进行读、写和执行。
+* 文件所属组可以读和写。
+* 其他人可以对文件进行读和执行。
 
