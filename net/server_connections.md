@@ -3,11 +3,8 @@ added: v0.2.0
 deprecated: v0.9.7
 -->
 
-> Stability: 0 - Deprecated: Use [`server.getConnections()`][] instead.
+> 稳定性: 0 - 废弃的: 使用 [`server.getConnections()`][] 来替代。
 
-The number of concurrent connections on the server.
+服务器上并发的连接数。
 
-This becomes `null` when sending a socket to a child with
-[`child_process.fork()`][]. To poll forks and get current number of active
-connections use asynchronous [`server.getConnections()`][] instead.
-
+当发送一个 `socket` 给用`child_process.fork()` 创建的子进程时，这会返回 `null` 。要轮询分叉（forks）获得活动连接数可以使用异步的`server.getConnections()`来替代。
