@@ -11,22 +11,14 @@ changes:
 * `mode` {integer} **Default:** `fs.constants.F_OK`
 * 返回: `undefined`
 
-Synchronously tests a user's permissions for the file or directory specified by
-`path`. The `mode` argument is an optional integer that specifies the
-accessibility checks to be performed. The following constants define the
-possible values of `mode`. It is possible to create a mask consisting of the
-bitwise OR of two or more values (e.g. `fs.constants.W_OK | fs.constants.R_OK`).
+同步地测试 `path` 指定的文件或目录的用户权限。 `mode` 是一个可选的整数，指定要执行的可访问性检查。 以下常量定义了 mode 的可能值。 可以创建由两个或更多个值的位或组成的掩码（例如 fs.constants.W_OK | fs.constants.R_OK）。
 
-* `fs.constants.F_OK` - `path` is visible to the calling process. This is useful
-for determining if a file exists, but says nothing about `rwx` permissions.
-Default if no `mode` is specified.
-* `fs.constants.R_OK` - `path` can be read by the calling process.
-* `fs.constants.W_OK` - `path` can be written by the calling process.
-* `fs.constants.X_OK` - `path` can be executed by the calling process. This has
-no effect on Windows (will behave like `fs.constants.F_OK`).
+* `fs.constants.F_OK` - `path` 文件对调用进程可见。 这在确定文件是否存在时很有用，但不涉及 `rwx` 权限。 如果没指定 `mode` ，则默认为该值
+* `fs.constants.R_OK` - `path` 文件可被调用进程读取。
+* `fs.constants.W_OK` - `path` 文件可被调用进程写入。
+* `fs.constants.X_OK` - `path` 文件可被调用进程执行。 对 `Windows` 系统没作用（相当于 `fs.constants.F_OK`）。
 
-If any of the accessibility checks fail, an `Error` will be thrown. Otherwise,
-the method will return `undefined`.
+如果可访问性检查有任何的失败，则错误参数会是一个 `Error` 对象。 否则返回 `undefined`。
 
 ```js
 try {
