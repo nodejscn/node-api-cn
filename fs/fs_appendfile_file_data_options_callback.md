@@ -40,9 +40,7 @@ fs.appendFile('message.txt', 'data to append', (err) => {
 fs.appendFile('message.txt', 'data to append', 'utf8', callback);
 ```
 
-The `file` may be specified as a numeric file descriptor that has been opened
-for appending (using `fs.open()` or `fs.openSync()`). The file descriptor will
-not be closed automatically.
+`file` 可能是一个被打开用来追加数据的数字文件描述符（通过 `fs.open()` 或者 `fs.openSync()`）。这样的文件描述符将不会被自动关闭。
 
 ```js
 fs.open('message.txt', 'a', (err, fd) => {
