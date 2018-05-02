@@ -30,11 +30,8 @@ changes:
     一个不同的 shell 可以被指定为字符串。
     See [Shell Requirements][] and [Default Windows Shell][].
     默认为 `false`（没有 shell）。
-  * `windowsVerbatimArguments` {boolean} No quoting or escaping of arguments is
-    done on Windows. Ignored on Unix. This is set to `true` automatically
-    when `shell` is specified. **Default:** `false`.
-  * `windowsHide` {boolean} Hide the subprocess console window that would
-    normally be created on Windows systems. **Default:** `false`.
+  * `windowsVerbatimArguments` {boolean} 决定在Windows系统下是否使用转义参数。 在Linux平台下会自动忽略，当指令 `shell` 存在的时该属性将自动被设置为true。**默认值:** `false`。
+  * `windowsHide` {boolean} 是否隐藏在Windows系统下默认会弹出的子进程控制台窗口。 **默认为:** `false`。
 * 返回: {ChildProcess}
 
 `child_process.spawn()` 方法使用给定的 `command` 和 `args` 中的命令行参数来衍生一个新进程。

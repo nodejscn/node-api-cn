@@ -29,8 +29,7 @@ changes:
     如果超过限制，则子进程会被终止。
     See caveat at [`maxBuffer` and Unicode][].
   * `encoding` {string} 用于所有 stdio 输入和输出的编码。默认为 `'buffer'`。
-  * `windowsHide` {boolean} Hide the subprocess console window that would
-    normally be created on Windows systems. **Default:** `false`.
+  * `windowsHide` {boolean} 是否隐藏在Windows系统下默认会弹出的子进程控制台窗口。 **默认为:** `false`。
 * 返回: {Buffer|string} 该命令的 stdout。
 
 `child_process.execSync()` 方法与 [`child_process.exec()`] 基本相同，除了该方法直到子进程完全关闭后才返回。
