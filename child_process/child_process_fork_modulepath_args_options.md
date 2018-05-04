@@ -17,13 +17,12 @@ changes:
   * `execPath` {string} 用来创建子进程的执行路径。
   * `execArgv` {Array} 要传给执行路径的字符串参数列表。默认为 `process.execArgv`。
   * `silent` {boolean} 如果为 `true`，则子进程中的 stdin、 stdout 和 stderr 会被导流到父进程中，否则它们会继承自父进程，详见 [`child_process.spawn()`] 的 [`stdio`] 中的 `'pipe'` 和 `'inherit'` 选项。
-  默认: `false`。
+    默认: `false`。
   * `stdio` {Array|string} 详见 [`child_process.spawn()`] 的 [`stdio`]。
     当提供了该选项，则它会覆盖 `silent`。
     如果使用了数组变量，则该数组必须包含一个值为 `'ipc'` 的子项，否则会抛出错误。
     例如 `[0, 1, 2, 'ipc']`。
-  * `windowsVerbatimArguments` {boolean} No quoting or escaping of arguments is
-    done on Windows. Ignored on Unix. **Default:** `false`.
+  * `windowsVerbatimArguments` {boolean} 决定在Windows系统下是否使用转义参数。 在Linux平台下会自动忽略。**默认值:** `false`。
   * `uid` {number} 设置该进程的用户标识。（详见 setuid(2)）
   * `gid` {number} 设置该进程的组标识。（详见 setgid(2)）
 * 返回: {ChildProcess}
@@ -44,4 +43,4 @@ changes:
 
 注意，不像 POSIX 系统回调中的 fork(2)，`child_process.fork()` 不会克隆当前进程。
 
-*Note*: The `shell` option available in [`child_process.spawn()`][] is not supported by `child_process.fork()` and will be ignored if set.
+提示: 在使用`child_process.fork()` 产生的子进程内，使用 [`child_process.spawn()`][] 会自动忽略掉其中的`shell` 配置选项并不会生效。

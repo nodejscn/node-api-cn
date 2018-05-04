@@ -35,11 +35,10 @@ changes:
   * `shell` {boolean|string} 如果为 `true`，则在一个 shell 中运行 `command`。
     在 UNIX 上使用 `'/bin/sh'`，在 Windows 上使用 `process.env.ComSpec`。
     一个不同的 shell 可以被指定为字符串。
-    查看 [Shell Requirements][] 和 [Default Windows Shell][].
+        查看 [Shell Requirements][] 和 [Default Windows Shell][].
     默认为 `false`（没有 shell）。
-  * `windowsVerbatimArguments` {boolean} 在Windows上不会引用或转义参数。 在Unix上忽略。 当指定 shell 时，它会自动设置为true。 **默认：** false。
-  * `windowsHide` {boolean} Hide the subprocess console window that would
-    normally be created on Windows systems. **Default:** `false`.
+  * `windowsVerbatimArguments` {boolean} 决定在Windows系统下是否使用转义参数。 在Linux平台下会自动忽略，当指令 `shell` 存在的时该属性将自动被设置为true。**默认值:** `false`。
+  * `windowsHide` {boolean} 是否隐藏在Windows系统下默认会弹出的子进程控制台窗口。 **默认为:** `false`。
 * 返回: {Object}
   * `pid` {number} 子进程的 pid。
   * `output` {Array} stdio 输出返回的结果数组。

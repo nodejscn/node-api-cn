@@ -20,10 +20,8 @@ changes:
   * `killSignal` {string|integer} 默认为 `'SIGTERM'`。
   * `uid` {number} 设置该进程的用户标识。（详见 setuid(2)）
   * `gid` {number} 设置该进程的组标识。（详见 setgid(2)）
-  * `windowsHide` {boolean} Hide the subprocess console window that would
-    normally be created on Windows systems. **Default:** `false`.
-  * `windowsVerbatimArguments` {boolean} No quoting or escaping of arguments is
-    done on Windows. Ignored on Unix. **Default:** `false`.
+  * `windowsHide` {boolean} 是否隐藏在Windows系统下默认会弹出的子进程控制台窗口。 **默认为:** `false`。
+  * `windowsVerbatimArguments` {boolean} 决定在Windows系统下是否使用转义参数。 在Linux平台下会自动忽略，当指令 `shell` 存在的时该属性将自动被设置为true。**默认为:** `false`。
 * `callback` {Function} 当进程终止时调用，并带上输出。
   * `error` {Error}
   * `stdout` {string|Buffer}
