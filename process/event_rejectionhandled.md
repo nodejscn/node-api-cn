@@ -2,7 +2,7 @@
 added: v1.4.1
 -->
 
-如果有 `Promise` 被 rejected，并且此 `Promise`在 Nodje.js 事件循环的下次轮询及之后期间，被绑定了一个错误处理器（例如使用 [`promise.catch()`]），会触发 `'rejectionHandled'` 事件。
+如果有 `Promise` 被 rejected，并且此 `Promise`在 Node.js 事件循环的下次轮询及之后期间，被绑定了一个错误处理器（例如使用 [`promise.catch()`]），会触发 `'rejectionHandled'` 事件。
 
 此事件监听器的回调函数使用 rejected 的 `Promise` 引用，作为唯一入参。
 
