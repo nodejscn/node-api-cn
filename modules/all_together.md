@@ -6,42 +6,42 @@
 综上所述，以下用伪代码描述的高级算法，解释 `require.resolve()` 做了些什么：
 
 ```txt
-从 Y 路径的模块 require(X)
-1. 如果 X 是一个核心模块，
-   a. 返回核心模块
-   b. 结束
-2. 如果 X 是以 '/' 开头
-   a. 设 Y 为文件系统根目录
-3. 如果 X 是以 './' 或 '/' 或 '../' 开头
-   a. 加载文件(Y + X)
-   b. 加载目录(Y + X)
-4. 加载Node模块(X, dirname(Y))
-5. 抛出 "未找到"
+require(X) from module at path Y
+1. If X is a core module,
+   a. return the core module
+   b. STOP
+2. If X begins with '/'
+   a. set Y to be the filesystem root
+3. If X begins with './' or '/' or '../'
+   a. LOAD_AS_FILE(Y + X)
+   b. LOAD_AS_DIRECTORY(Y + X)
+4. LOAD_NODE_MODULES(X, dirname(Y))
+5. THROW "not found"
 
-加载文件(X)
-1. 如果 X 是一个文件，加载 X 作为 JavaScript 文本。结束
-2. 如果 X.js 是一个文件，加载 X.js 作为 JavaScript 文本。结束
-3. 如果 X.json 是一个文件，解析 X.json 成一个 JavaScript 对象。结束
-4. 如果 X.node 是一个文件，加载 X.node 作为二进制插件。结束
+LOAD_AS_FILE(X)
+1. If X is a file, load X as JavaScript text.  STOP
+2. If X.js is a file, load X.js as JavaScript text.  STOP
+3. If X.json is a file, parse X.json to a JavaScript Object.  STOP
+4. If X.node is a file, load X.node as binary addon.  STOP
 
-加载索引(X)
-1. 如果 X/index.js 是一个文件，加载 X/index.js 作为 JavaScript 文本。结束
-3. 如果 X/index.json  是一个文件，解析 X/index.json 成一个 JavaScript 对象。结束
-4. 如果 X/index.node 是一个文件，加载 X/index.node 作为二进制插件。结束
+LOAD_INDEX(X)
+1. If X/index.js is a file, load X/index.js as JavaScript text.  STOP
+2. If X/index.json is a file, parse X/index.json to a JavaScript object. STOP
+3. If X/index.node is a file, load X/index.node as binary addon.  STOP
 
-加载目录(X)
-1. 如果 X/package.json 是一个文件，
-   a. 解析 X/package.json，查找 "main" 字段
-   b. let M = X + (json main 字段)
-   c. 加载文件(M)
-   d. 加载索引(M)
-2. 加载索引(X)
+LOAD_AS_DIRECTORY(X)
+1. If X/package.json is a file,
+   a. Parse X/package.json, and look for "main" field.
+   b. let M = X + (json main field)
+   c. LOAD_AS_FILE(M)
+   d. LOAD_INDEX(M)
+2. LOAD_INDEX(X)
 
-加载Node模块(X, START)
+LOAD_NODE_MODULES(X, START)
 1. let DIRS=NODE_MODULES_PATHS(START)
 2. for each DIR in DIRS:
-   a. 加载文件(DIR/X)
-   b. 加载目录(DIR/X)
+   a. LOAD_AS_FILE(DIR/X)
+   b. LOAD_AS_DIRECTORY(DIR/X)
 
 NODE_MODULES_PATHS(START)
 1. let PARTS = path split(START)
