@@ -20,7 +20,7 @@ added: v10.0.0
 (async () => {
   await assert.doesNotReject(
     async () => {
-      throw new TypeError('错误的值');
+      throw new TypeError('错误信息');
     },
     SyntaxError
   );
@@ -28,7 +28,7 @@ added: v10.0.0
 ```
 
 ```js
-assert.doesNotReject(Promise.reject(new TypeError('错误的值')))
+assert.doesNotReject(Promise.reject(new TypeError('错误信息')))
   .then(() => {
     // ...
   });
