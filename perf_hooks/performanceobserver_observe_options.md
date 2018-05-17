@@ -2,13 +2,13 @@
 added: v8.5.0
 -->
 * `options` {Object}
-  * `entryTypes` {Array} An array of strings identifying the types of
+  * `entryTypes` {string[]} An array of strings identifying the types of
     `PerformanceEntry` instances the observer is interested in. If not
     provided an error will be thrown.
   * `buffered` {boolean} If true, the notification callback will be
     called using `setImmediate()` and multiple `PerformanceEntry` instance
     notifications will be buffered internally. If `false`, notifications will
-    be immediate and synchronous. Defaults to `false`.
+    be immediate and synchronous. **Default:** `false`.
 
 Subscribes the `PerformanceObserver` instance to notifications of new
 `PerformanceEntry` instances identified by `options.entryTypes`.

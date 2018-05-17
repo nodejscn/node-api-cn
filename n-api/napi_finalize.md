@@ -11,4 +11,3 @@ typedef void (*napi_finalize)(napi_env env,
                               void* finalize_hint);
 ```
 
-

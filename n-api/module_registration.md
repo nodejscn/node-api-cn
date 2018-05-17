@@ -19,63 +19,89 @@ convenience. If `Init` returns NULL, the parameter passed as `exports` is
 exported by the module. N-API modules cannot modify the `module` object but can
 specify anything as the `exports` property of the module.
 
-For example, to add the method `hello` as a function so that it can be called
-as a method provided by the addon:
+To add the method `hello` as a function so that it can be called as a method
+provided by the addon:
 
 ```C
 napi_value Init(napi_env env, napi_value exports) {
   napi_status status;
   napi_property_descriptor desc =
-    {"hello", Method, 0, 0, 0, napi_default, 0};
-  if (status != napi_ok) return nullptr;
+    {"hello", NULL, Method, NULL, NULL, NULL, napi_default, NULL};
   status = napi_define_properties(env, exports, 1, &desc);
-  if (status != napi_ok) return nullptr;
+  if (status != napi_ok) return NULL;
   return exports;
 }
 ```
 
-For example, to set a function to be returned by the `require()` for the addon:
+To set a function to be returned by the `require()` for the addon:
 
 ```C
 napi_value Init(napi_env env, napi_value exports) {
   napi_value method;
   napi_status status;
-  status = napi_create_function(env, "exports", Method, NULL, &method));
-  if (status != napi_ok) return nullptr;
+  status = napi_create_function(env, "exports", NAPI_AUTO_LENGTH, Method, NULL, &method);
+  if (status != napi_ok) return NULL;
   return method;
 }
 ```
 
-For example, to define a class so that new instances can be created
-(often used with [Object Wrap][]):
+To define a class so that new instances can be created (often used with
+[Object Wrap][]):
 
 ```C
 // NOTE: partial example, not all referenced code is included
 napi_value Init(napi_env env, napi_value exports) {
   napi_status status;
   napi_property_descriptor properties[] = {
-    { "value", nullptr, GetValue, SetValue, 0, napi_default, 0 },
+    { "value", NULL, NULL, GetValue, SetValue, NULL, napi_default, NULL },
     DECLARE_NAPI_METHOD("plusOne", PlusOne),
     DECLARE_NAPI_METHOD("multiply", Multiply),
   };
 
   napi_value cons;
   status =
-      napi_define_class(env, "MyObject", New, nullptr, 3, properties, &cons);
-  if (status != napi_ok) return nullptr;
+      napi_define_class(env, "MyObject", New, NULL, 3, properties, &cons);
+  if (status != napi_ok) return NULL;
 
   status = napi_create_reference(env, cons, 1, &constructor);
-  if (status != napi_ok) return nullptr;
+  if (status != napi_ok) return NULL;
 
   status = napi_set_named_property(env, exports, "MyObject", cons);
-  if (status != napi_ok) return nullptr;
+  if (status != napi_ok) return NULL;
 
   return exports;
 }
 ```
 
+If you expect that your module will be loaded multiple times during the lifetime
+of the Node.js process, you can use the `NAPI_MODULE_INIT` macro to initialize
+your module:
+
+```C
+NAPI_MODULE_INIT() {
+  napi_value answer;
+  napi_status result;
+
+  status = napi_create_int64(env, 42, &answer);
+  if (status != napi_ok) return NULL;
+
+  status = napi_set_named_property(env, exports, "answer", answer);
+  if (status != napi_ok) return NULL;
+
+  return exports;
+}
+```
+
+This macro includes `NAPI_MODULE`, and declares an `Init` function with a
+special name and with visibility beyond the addon. This will allow Node.js to
+initialize the module even if it is loaded multiple times.
+
+The variables `env` and `exports` will be available inside the function body
+following the macro invocation.
+
 For more details on setting properties on objects, see the section on
 [Working with JavaScript Properties][].
 
-For more details on building addon modules in general, refer to the existing API
+For more details on building addon modules in general, refer to the existing
+API.
 

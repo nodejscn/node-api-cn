@@ -16,7 +16,7 @@ instances and asynchronous work scheduled by them.
 
 Users are able to define their own `type` when using the public embedder API.
 
-*Note:* It is possible to have type name collisions. Embedders are encouraged
-to use unique prefixes, such as the npm package name, to prevent collisions
-when listening to the hooks.
+It is possible to have type name collisions. Embedders are encouraged to use
+unique prefixes, such as the npm package name, to prevent collisions when
+listening to the hooks.
 

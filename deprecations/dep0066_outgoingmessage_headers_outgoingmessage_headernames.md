@@ -8,7 +8,7 @@ properties have been deprecated. Please instead use one of the public methods
 `outgoingMessage.removeHeader()`, `outgoingMessage.setHeader()`) for working
 with outgoing headers.
 
-*Note*: `outgoingMessage._headers` and `outgoingMessage._headerNames` were
-never documented as officially supported properties.
+The `outgoingMessage._headers` and `outgoingMessage._headerNames` properties
+were never documented as officially supported properties.
 
 <a id="DEP0067"></a>

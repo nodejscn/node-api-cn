@@ -15,8 +15,7 @@ napi_status napi_has_own_property(napi_env env,
 
 Returns `napi_ok` if the API succeeded.
 
-This API checks if the Object passed in has the named own property. `key` must
-be a string or a Symbol, or an error will be thrown. N-API will not perform any
-conversion between data types.
-
+This API checks if the `Object` passed in has the named own property. `key` must
+be a string or a `Symbol`, or an error will be thrown. N-API will not perform
+any conversion between data types.
 

@@ -4,10 +4,8 @@ added: v8.4.0
 
 The `'response'` event is emitted when a response `HEADERS` frame has been
 received for this stream from the connected HTTP/2 server. The listener is
-invoked with two arguments: an Object containing the received
-[Headers Object][], and flags associated with the headers.
-
-For example:
+invoked with two arguments: an `Object` containing the received
+[HTTP/2 Headers Object][], and flags associated with the headers.
 
 ```js
 const http2 = require('http2');

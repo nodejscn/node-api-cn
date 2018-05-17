@@ -15,6 +15,6 @@ napi_status napi_has_element(napi_env env,
 
 Returns `napi_ok` if the API succeeded.
 
-This API returns if the Object passed in has an element at the
+This API returns if the `Object` passed in has an element at the
 requested index.
 

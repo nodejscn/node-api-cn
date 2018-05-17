@@ -4,13 +4,11 @@ added: v8.1.0
 changes:
   - version: v8.2.0
     pr-url: https://github.com/nodejs/node/pull/13490
-    description: Renamed from currentId
+    description: Renamed from `currentId`
 -->
 
 * Returns: {number} The `asyncId` of the current execution context. Useful to
   track when something calls.
-
-For example:
 
 ```js
 const async_hooks = require('async_hooks');
@@ -22,7 +20,7 @@ fs.open(path, 'r', (err, fd) => {
 ```
 
 The ID returned from `executionAsyncId()` is related to execution timing, not
-causality (which is covered by `triggerAsyncId()`). For example:
+causality (which is covered by `triggerAsyncId()`):
 
 ```js
 const server = net.createServer(function onConnection(conn) {
@@ -37,4 +35,7 @@ const server = net.createServer(function onConnection(conn) {
   async_hooks.executionAsyncId();
 });
 ```
+
+Note that promise contexts may not get precise `executionAsyncIds` by default.
+See the section on [promise execution tracking][].
 

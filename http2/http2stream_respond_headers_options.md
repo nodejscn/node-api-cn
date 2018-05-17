@@ -2,13 +2,12 @@
 added: v8.4.0
 -->
 
-* `headers` {[Headers Object][]}
+* `headers` {HTTP/2 Headers Object}
 * `options` {Object}
   * `endStream` {boolean} Set to `true` to indicate that the response will not
     include payload data.
-  * `getTrailers` {function} Callback function invoked to collect trailer
-    headers.
-* Returns: {undefined}
+  * `waitForTrailers` {boolean} When `true`, the `Http2Stream` will emit the
+    `'wantTrailers'` event after the final `DATA` frame has been sent.
 
 ```js
 const http2 = require('http2');
@@ -19,26 +18,25 @@ server.on('stream', (stream) => {
 });
 ```
 
-When set, the `options.getTrailers()` function is called immediately after
-queuing the last chunk of payload data to be sent. The callback is passed a
-single object (with a `null` prototype) that the listener may used to specify
-the trailing header fields to send to the peer.
+When the `options.waitForTrailers` option is set, the `'wantTrailers'` event
+will be emitted immediately after queuing the last chunk of payload data to be
+sent. The `http2stream.sendTrailers()` method can then be used to sent trailing
+header fields to the peer.
+
+It is important to note that when `options.waitForTrailers` is set, the
+`Http2Stream` will *not* automatically close when the final `DATA` frame is
+transmitted. User code *must* call either `http2stream.sendTrailers()` or
+`http2stream.close()` to close the `Http2Stream`.
 
 ```js
 const http2 = require('http2');
 const server = http2.createServer();
 server.on('stream', (stream) => {
-  stream.respond({ ':status': 200 }, {
-    getTrailers(trailers) {
-      trailers['ABC'] = 'some value to send';
-    }
+  stream.respond({ ':status': 200 }, { waitForTrailers: true });
+  stream.on('wantTrailers', () => {
+    stream.sendTrailers({ ABC: 'some value to send' });
   });
   stream.end('some data');
 });
 ```
-
-*Note*: The HTTP/1 specification forbids trailers from containing HTTP/2
-"pseudo-header" fields (e.g. `':status'`, `':path'`, etc). An `'error'` event
-will be emitted if the `getTrailers` callback attempts to set such header
-fields.
 

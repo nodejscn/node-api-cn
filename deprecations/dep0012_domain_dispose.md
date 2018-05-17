@@ -1,7 +1,7 @@
 
-Type: Runtime
+Type: End-of-Life
 
-[`Domain.dispose()`][] is deprecated. Recover from failed I/O actions
+`Domain.dispose()` has been removed. Recover from failed I/O actions
 explicitly via error event handlers set on the domain instead.
 
 <a id="DEP0013"></a>

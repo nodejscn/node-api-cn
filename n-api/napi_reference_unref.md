@@ -15,4 +15,3 @@ Returns `napi_ok` if the API succeeded.
 This API decrements the reference count for the reference
 passed in and returns the resulting reference count.
 
-

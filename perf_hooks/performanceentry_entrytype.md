@@ -4,6 +4,6 @@ added: v8.5.0
 
 * {string}
 
-The type of the performance entry. Current it may be one of: `'node'`, `'mark'`,
-`'measure'`, `'gc'`, or `'function'`.
+The type of the performance entry. Currently it may be one of: `'node'`,
+`'mark'`, `'measure'`, `'gc'`, `'function'`, or `'http2'`.
 

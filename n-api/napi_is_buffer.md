@@ -12,5 +12,5 @@ object.
 
 Returns `napi_ok` if the API succeeded.
 
-This API checks if the Object passsed in is a buffer.
+This API checks if the `Object` passed in is a buffer.
 

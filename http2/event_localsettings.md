@@ -2,19 +2,19 @@
 added: v8.4.0
 -->
 
-The `'localSettings'` event is emitted when an acknowledgement SETTINGS frame
-has been received. When invoked, the handler function will receive a copy of
-the local settings.
+* `settings` {HTTP/2 Settings Object} A copy of the `SETTINGS` frame received.
 
-*Note*: When using `http2session.settings()` to submit new settings, the
-modified settings do not take effect until the `'localSettings'` event is
-emitted.
+The `'localSettings'` event is emitted when an acknowledgment `SETTINGS` frame
+has been received.
+
+When using `http2session.settings()` to submit new settings, the modified
+settings do not take effect until the `'localSettings'` event is emitted.
 
 ```js
 session.settings({ enablePush: false });
 
 session.on('localSettings', (settings) => {
-  /** use the new settings **/
+  /* Use the new settings */
 });
 ```
 

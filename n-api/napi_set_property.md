@@ -15,5 +15,5 @@ napi_status napi_set_property(napi_env env,
 
 Returns `napi_ok` if the API succeeded.
 
-This API set a property on the Object passed in.
+This API set a property on the `Object` passed in.
 

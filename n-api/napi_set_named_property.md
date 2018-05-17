@@ -16,5 +16,5 @@ napi_status napi_set_named_property(napi_env env,
 Returns `napi_ok` if the API succeeded.
 
 This method is equivalent to calling [`napi_set_property`][] with a `napi_value`
-created from the string passed in as `utf8Name`
+created from the string passed in as `utf8Name`.
 

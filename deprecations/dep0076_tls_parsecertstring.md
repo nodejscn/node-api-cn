@@ -1,5 +1,5 @@
 
-Type: Documentation-only
+Type: Runtime
 
 `tls.parseCertString()` is a trivial parsing helper that was made public by
 mistake. This function can usually be replaced with:
@@ -9,7 +9,7 @@ const querystring = require('querystring');
 querystring.parse(str, '\n', '=');
 ```
 
-*Note*: This function is not completely equivalent to `querystring.parse()`. One
+This function is not completely equivalent to `querystring.parse()`. One
 difference is that `querystring.parse()` does url decoding:
 
 ```sh
@@ -19,4 +19,4 @@ difference is that `querystring.parse()` does url decoding:
 { '%E5%A5%BD': '1' }
 ```
 
-<a id="DEP0079"></a>
+<a id="DEP0077"></a>

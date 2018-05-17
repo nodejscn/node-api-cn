@@ -15,6 +15,5 @@ napi_status napi_has_property(napi_env env,
 
 Returns `napi_ok` if the API succeeded.
 
-This API checks if the Object passed in has the named property.
-
+This API checks if the `Object` passed in has the named property.
 

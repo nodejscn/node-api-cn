@@ -65,9 +65,9 @@ destroy: 9
 destroy: 5
 ```
 
-*Note*: As illustrated in the example, `executionAsyncId()` and `execution`
-each specify the value of the current execution context; which is delineated by
-calls to `before` and `after`.
+As illustrated in the example, `executionAsyncId()` and `execution` each specify
+the value of the current execution context; which is delineated by calls to
+`before` and `after`.
 
 Only using `execution` to graph resource allocation results in the following:
 
@@ -82,5 +82,4 @@ API the user's callback is placed in a `process.nextTick()`.
 
 The graph only shows *when* a resource was created, not *why*, so to track
 the *why* use `triggerAsyncId`.
-
 

@@ -25,7 +25,7 @@ later by native code. The API allows the caller to pass in a finalize callback,
 in case the underlying native resource needs to be cleaned up when the external
 JavaScript value gets collected.
 
-*Note*: The created value is not an object, and therefore does not support
-additional properties. It is considered a distinct value type: calling
-`napi_typeof()` with an external value yields `napi_external`.
+The created value is not an object, and therefore does not support additional
+properties. It is considered a distinct value type: calling `napi_typeof()` with
+an external value yields `napi_external`.
 

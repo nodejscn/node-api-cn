@@ -16,5 +16,5 @@ napi_status napi_create_buffer(napi_env env,
 Returns `napi_ok` if the API succeeded.
 
 This API allocates a `node::Buffer` object. While this is still a
-fully-supported data structure, in most cases using a TypedArray will suffice.
+fully-supported data structure, in most cases using a `TypedArray` will suffice.
 

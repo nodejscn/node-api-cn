@@ -11,3 +11,5 @@ napi_status napi_async_destroy(napi_env env,
 
 Returns `napi_ok` if the API succeeded.
 
+This API can be called even if there is a pending JavaScript exception.
+

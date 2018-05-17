@@ -12,20 +12,18 @@ napi_status napi_get_typedarray_info(napi_env env,
 ```
 
 - `[in] env`: The environment that the API is invoked under.
-- `[in] typedarray`: `napi_value` representing the TypedArray whose
+- `[in] typedarray`: `napi_value` representing the `TypedArray` whose
 properties to query.
-- `[out] type`: Scalar datatype of the elements within the TypedArray.
-- `[out] length`: Number of elements in the TypedArray.
+- `[out] type`: Scalar datatype of the elements within the `TypedArray`.
+- `[out] length`: `Number` of elements in the `TypedArray`.
 - `[out] data`: The data buffer underlying the typed array.
 - `[out] byte_offset`: The byte offset within the data buffer from which
-to start projecting the TypedArray.
+to start projecting the `TypedArray`.
 
 Returns `napi_ok` if the API succeeded.
 
 This API returns various properties of a typed array.
 
 *Warning*: Use caution while using this API since the underlying data buffer
-is managed by the VM
-
-
+is managed by the VM.
 

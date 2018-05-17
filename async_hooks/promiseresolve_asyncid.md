@@ -6,11 +6,8 @@ invoked (either directly or through other means of resolving a promise).
 
 Note that `resolve()` does not do any observable synchronous work.
 
-*Note:* This does not necessarily mean that the `Promise` is fulfilled or
-rejected at this point, if the `Promise` was resolved by assuming the state
-of another `Promise`.
-
-For example:
+The `Promise` is not necessarily fulfilled or rejected at this point if the
+`Promise` was resolved by assuming the state of another `Promise`.
 
 ```js
 new Promise((resolve) => resolve(true)).then((a) => {});

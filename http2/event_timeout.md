@@ -8,6 +8,6 @@ activity on the `Http2Session` after the configured number of milliseconds.
 
 ```js
 session.setTimeout(2000);
-session.on('timeout', () => { /** .. **/ });
+session.on('timeout', () => { /* .. */ });
 ```
 

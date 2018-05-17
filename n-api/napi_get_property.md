@@ -15,6 +15,5 @@ napi_status napi_get_property(napi_env env,
 
 Returns `napi_ok` if the API succeeded.
 
-This API gets the requested property from the Object passed in.
-
+This API gets the requested property from the `Object` passed in.
 

@@ -1,7 +1,8 @@
 
 <!--introduced_in=v7.10.0-->
+<!-- type=misc -->
 
-> Stability: 1 - Experimental
+> Stability: 2 - Stable
 
 N-API (pronounced N as in the letter, followed by API)
 is an API for building native Addons. It is independent from
@@ -13,7 +14,7 @@ compiled for one version to run on later versions of Node.js without
 recompilation.
 
 Addons are built/packaged with the same approach/tools
-outlined in the section titled  [C++ Addons](addons.html).
+outlined in the section titled [C++ Addons](addons.html).
 The only difference is the set of APIs that are used by the native code.
 Instead of using the V8 or [Native Abstractions for Node.js][] APIs,
 the functions available in the N-API are used.
@@ -31,22 +32,6 @@ properties:
   using `napi_get_last_error_info`. More information can be found in the error
   handling section [Error Handling][].
 
-The documentation for N-API is structured as follows:
-
-* [Basic N-API Data Types][]
-* [Error Handling][]
-* [Object Lifetime Management][]
-* [Module Registration][]
-* [Working with JavaScript Values][]
-* [Working with JavaScript Values - Abstract Operations][]
-* [Working with JavaScript Properties][]
-* [Working with JavaScript Functions][]
-* [Object Wrap][]
-* [Simple Asynchronous Operations][]
-* [Custom Asynchronous Operations][]
-* [Promises][]
-* [Script Execution][]
-
 The N-API is a C API that ensures ABI stability across Node.js versions
 and different compiler levels. However, we also understand that a C++
 API can be easier to use in many cases. To support these cases we expect
@@ -54,12 +39,12 @@ there to be one or more C++ wrapper modules that provide an inlineable C++
 API. Binaries built with these wrapper modules will depend on the symbols
 for the N-API C based functions exported by Node.js. These wrappers are not
 part of N-API, nor will they be maintained as part of Node.js. One such
-example is: [node-api](https://github.com/nodejs/node-api).
+example is: [node-addon-api](https://github.com/nodejs/node-addon-api).
 
 In order to use the N-API functions, include the file
-[node_api.h](https://github.com/nodejs/node/blob/master/src/node_api.h)
-which is located in the src directory in the node development tree.
-For example:
+[`node_api.h`](https://github.com/nodejs/node/blob/master/src/node_api.h)
+which is located in the src directory in the node development tree:
+
 ```C
 #include <node_api.h>
 ```

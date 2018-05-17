@@ -25,10 +25,9 @@ This API allows an add-on author to create a function object in native code.
 This is the primary mechanism to allow calling *into* the add-on's native code
 *from* JavaScript.
 
-*Note*: The newly created function is not automatically visible from
-script after this call. Instead, a property must be explicitly set on any
-object that is visible to JavaScript, in order for the function to be accessible
-from script.
+The newly created function is not automatically visible from script after this
+call. Instead, a property must be explicitly set on any object that is visible
+to JavaScript, in order for the function to be accessible from script.
 
 In order to expose a function as part of the
 add-on's module exports, set the newly created function on the exports
@@ -36,18 +35,18 @@ object. A sample module might look as follows:
 ```C
 napi_value SayHello(napi_env env, napi_callback_info info) {
   printf("Hello\n");
-  return nullptr;
+  return NULL;
 }
 
 napi_value Init(napi_env env, napi_value exports) {
   napi_status status;
 
   napi_value fn;
-  status =  napi_create_function(env, nullptr, 0, SayHello, nullptr, &fn);
-  if (status != napi_ok) return nullptr;
+  status = napi_create_function(env, NULL, 0, SayHello, NULL, &fn);
+  if (status != napi_ok) return NULL;
 
   status = napi_set_named_property(env, exports, "sayHello", fn);
-  if (status != napi_ok) return nullptr;
+  if (status != napi_ok) return NULL;
 
   return exports;
 }
@@ -61,7 +60,7 @@ const myaddon = require('./addon');
 myaddon.sayHello();
 ```
 
-*Note*: The string passed to require is not necessarily the name passed into
+The string passed to require is not necessarily the name passed into
 `NAPI_MODULE` in the earlier snippet but the name of the target in `binding.gyp`
 responsible for creating the `.node` file.
 

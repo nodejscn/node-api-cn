@@ -16,5 +16,7 @@ and [`napi_get_element`][].
 
 Returns `napi_ok` if the API succeeded.
 
-This API returns the array of propertys for the Object passed in
+This API returns the names of the enumerable properties of `object` as an array
+of strings. The properties of `object` whose key is a symbol will not be
+included.
 

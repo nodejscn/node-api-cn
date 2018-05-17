@@ -1,6 +1,9 @@
 
-The following illustrates a simple, plain-text HTTP/2 server using the
-Core API:
+The following illustrates a simple HTTP/2 server using the Core API.
+Since there are no browsers known that support
+[unencrypted HTTP/2][HTTP/2 Unencrypted], the use of
+[`http2.createSecureServer()`][] is necessary when communicating
+with browser clients.
 
 ```js
 const http2 = require('http2');
@@ -11,7 +14,6 @@ const server = http2.createSecureServer({
   cert: fs.readFileSync('localhost-cert.pem')
 });
 server.on('error', (err) => console.error(err));
-server.on('socketError', (err) => console.error(err));
 
 server.on('stream', (stream, headers) => {
   // stream is a Duplex

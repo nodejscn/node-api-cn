@@ -25,26 +25,26 @@ where the native code can catch the exception, take the appropriate action,
 and then continue. This is only recommended in specific cases
 where it is known that the exception can be safely handled. In these
 cases [`napi_get_and_clear_last_exception`][] can be used to get and
-clear the exception.  On success, result will contain the handle to
-the last JavaScript Object thrown. If it is determined, after
+clear the exception. On success, result will contain the handle to
+the last JavaScript `Object` thrown. If it is determined, after
 retrieving the exception, the exception cannot be handled after all
 it can be re-thrown it with [`napi_throw`][] where error is the
-JavaScript Error object to be thrown.
+JavaScript `Error` object to be thrown.
 
 The following utility functions are also available in case native code
 needs to throw an exception or determine if a `napi_value` is an instance
-of a JavaScript `Error` object:  [`napi_throw_error`][],
+of a JavaScript `Error` object: [`napi_throw_error`][],
 [`napi_throw_type_error`][], [`napi_throw_range_error`][] and
 [`napi_is_error`][].
 
 The following utility functions are also available in case native
-code needs to create an Error object: [`napi_create_error`][],
-[`napi_create_type_error`][], and [`napi_create_range_error`][].
-where result is the napi_value that refers to the newly created
-JavaScript Error object.
+code needs to create an `Error` object: [`napi_create_error`][],
+[`napi_create_type_error`][], and [`napi_create_range_error`][],
+where result is the `napi_value` that refers to the newly created
+JavaScript `Error` object.
 
 The Node.js project is adding error codes to all of the errors
-generated internally.  The goal is for applications to use these
+generated internally. The goal is for applications to use these
 error codes for all error checking. The associated error messages
 will remain, but will only be meant to be used for logging and
 display with the expectation that the message can change without
@@ -52,7 +52,7 @@ SemVer applying. In order to support this model with N-API, both
 in internal functionality and for module specific functionality
 (as its good practice), the `throw_` and `create_` functions
 take an optional code parameter which is the string for the code
-to be added to the error object.  If the optional parameter is NULL
+to be added to the error object. If the optional parameter is NULL
 then no code will be associated with the error. If a code is provided,
 the name associated with the error is also updated to be:
 
@@ -60,9 +60,9 @@ the name associated with the error is also updated to be:
 originalName [code]
 ```
 
-where originalName is the original name associated with the error
-and code is the code that was provided.  For example if the code
-is 'ERR_ERROR_1' and a TypeError is being created the name will be:
+where `originalName` is the original name associated with the error
+and `code` is the code that was provided. For example if the code
+is `'ERR_ERROR_1'` and a `TypeError` is being created the name will be:
 
 ```text
 TypeError [ERR_ERROR_1]

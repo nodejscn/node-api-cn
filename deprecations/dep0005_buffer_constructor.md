@@ -1,5 +1,5 @@
 
-Type: Documentation-only
+Type: Runtime (supports [`--pending-deprecation`][])
 
 The `Buffer()` function and `new Buffer()` constructor are deprecated due to
 API usability issues that can potentially lead to accidental security issues.
@@ -9,15 +9,19 @@ is strongly recommended:
 
 * [`Buffer.alloc(size[, fill[, encoding]])`][alloc] - Create a `Buffer` with
   *initialized* memory.
-* [`Buffer.allocUnsafe(size)`][alloc_unsafe_size] - Create a `Buffer` with *uninitialized*
-  memory.
+* [`Buffer.allocUnsafe(size)`][alloc_unsafe_size] - Create a `Buffer` with
+  *uninitialized* memory.
 * [`Buffer.allocUnsafeSlow(size)`][] - Create a `Buffer` with *uninitialized*
    memory.
 * [`Buffer.from(array)`][] - Create a `Buffer` with a copy of `array`
-* [`Buffer.from(arrayBuffer[, byteOffset[, length]])`][from_arraybuffer] - Create a `Buffer`
-  that wraps the given `arrayBuffer`.
+* [`Buffer.from(arrayBuffer[, byteOffset[, length]])`][from_arraybuffer] -
+  Create a `Buffer` that wraps the given `arrayBuffer`.
 * [`Buffer.from(buffer)`][] - Create a `Buffer` that copies `buffer`.
-* [`Buffer.from(string[, encoding])`][from_string_encoding] - Create a `Buffer` that copies
-  `string`.
+* [`Buffer.from(string[, encoding])`][from_string_encoding] - Create a `Buffer`
+  that copies `string`.
+
+As of v10.0.0, a deprecation warning is printed at runtime when
+`--pending-deprecation` is used or when the calling code is
+outside `node_modules` in order to better target developers, rather than users.
 
 <a id="DEP0006"></a>

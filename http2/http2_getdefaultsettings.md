@@ -2,7 +2,7 @@
 added: v8.4.0
 -->
 
-* Returns: {[Settings Object][]}
+* Returns: {HTTP/2 Settings Object}
 
 Returns an object containing the default settings for an `Http2Session`
 instance. This method returns a new object instance every time it is called

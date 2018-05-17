@@ -23,14 +23,13 @@ const obs = new PerformanceObserver((list) => {
     console.log(`require('${entry[0]}')`, entry.duration);
   });
   obs.disconnect();
-  // Free memory
-  performance.clearFunctions();
 });
 obs.observe({ entryTypes: ['function'], buffered: true });
 
 require('some-module');
 ```
 
+[`'exit'`]: process.html#process_event_exit
 [`timeOrigin`]: https://w3c.github.io/hr-time/#dom-performance-timeorigin
 [Async Hooks]: async_hooks.html
 [W3C Performance Timeline]: https://w3c.github.io/performance-timeline/

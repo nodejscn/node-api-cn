@@ -14,3 +14,5 @@ Returns `napi_ok` if the API succeeded.
 This API closes the scope passed in. Scopes must be closed in the
 reverse order from which they were created.
 
+This API can be called even if there is a pending JavaScript exception.
+

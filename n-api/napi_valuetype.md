@@ -18,5 +18,8 @@ described in
 [Section 6.1](https://tc39.github.io/ecma262/#sec-ecmascript-language-types) of
 the ECMAScript Language Specification.
 In addition to types in that section, `napi_valuetype` can also represent
-Functions and Objects with external data.
+`Function`s and `Object`s with external data.
+
+A JavaScript value of type `napi_external` appears in JavaScript as a plain
+object such that no properties can be set on it, and no prototype.
 

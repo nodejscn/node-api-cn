@@ -21,7 +21,7 @@ reference to the class constructor for later `instanceof` checks.
 As an example:
 
 ```C
-napi_value MyClass_constructor = nullptr;
+napi_value MyClass_constructor = NULL;
 status = napi_get_reference_value(env, MyClass::es_constructor, &MyClass_constructor);
 assert(napi_ok == status);
 bool is_instance = false;

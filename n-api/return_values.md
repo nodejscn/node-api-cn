@@ -12,7 +12,7 @@ In cases where a return value other than `napi_ok` or
 must be called to check if an exception is pending.
 See the section on exceptions for more details.
 
-The full set of possible napi_status values is defined
+The full set of possible `napi_status` values is defined
 in `napi_api_types.h`.
 
 The `napi_status` return value provides a VM-independent representation of
@@ -40,7 +40,7 @@ typedef struct napi_extended_error_info {
 [`napi_get_last_error_info`][] returns the information for the last
 N-API call that was made.
 
-*Note*: Do not rely on the content or format of any of the extended
-information as it is not subject to SemVer and may change at any time.
-It is intended only for logging purposes.
+Do not rely on the content or format of any of the extended information as it
+is not subject to SemVer and may change at any time. It is intended only for
+logging purposes.
 

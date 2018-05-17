@@ -24,9 +24,8 @@ typedef void (*napi_async_complete_callback)(napi_env env,
                                              void* data);
 ```
 
-
 When these methods are invoked, the `data` parameter passed will be the
-addon-provided void* data that was passed into the
+addon-provided `void*` data that was passed into the
 `napi_create_async_work` call.
 
 Once created the async worker can be queued
@@ -37,7 +36,7 @@ napi_status napi_queue_async_work(napi_env env,
                                   napi_async_work work);
 ```
 
-[`napi_cancel_async_work`][] can be used if  the work needs
+[`napi_cancel_async_work`][] can be used if the work needs
 to be cancelled before the work has started execution.
 
 After calling [`napi_cancel_async_work`][], the `complete` callback

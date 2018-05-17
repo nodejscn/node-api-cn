@@ -9,14 +9,18 @@ is to support collection of high resolution performance metrics.
 This is the same Performance API as implemented in modern Web browsers.
 
 ```js
-const { performance } = require('perf_hooks');
+const { PerformanceObserver, performance } = require('perf_hooks');
+
+const obs = new PerformanceObserver((items) => {
+  console.log(items.getEntries()[0].duration);
+  performance.clearMarks();
+});
+obs.observe({ entryTypes: ['measure'] });
+
 performance.mark('A');
 doSomeLongRunningProcess(() => {
   performance.mark('B');
   performance.measure('A to B', 'A', 'B');
-  const measure = performance.getEntriesByName('A to B')[0];
-  console.log(measure.duration);
-  // Prints the number of milliseconds between Mark 'A' and Mark 'B'
 });
 ```
 

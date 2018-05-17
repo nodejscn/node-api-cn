@@ -7,7 +7,7 @@ added: v8.0.0
 Emitted when an inspector notification is received that has its method field set
 to the `<inspector-protocol-method>` value.
 
-The following snippet installs a listener on the [`Debugger.paused`][]
+The following snippet installs a listener on the [`'Debugger.paused'`][]
 event, and prints the reason for program suspension whenever program
 execution is suspended (through breakpoints, for example):
 

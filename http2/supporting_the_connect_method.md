@@ -20,14 +20,14 @@ An HTTP/2 CONNECT proxy:
 
 ```js
 const http2 = require('http2');
+const { NGHTTP2_REFUSED_STREAM } = http2.constants;
 const net = require('net');
-const { URL } = require('url');
 
 const proxy = http2.createServer();
 proxy.on('stream', (stream, headers) => {
   if (headers[':method'] !== 'CONNECT') {
     // Only accept CONNECT requests
-    stream.rstWithRefused();
+    stream.close(NGHTTP2_REFUSED_STREAM);
     return;
   }
   const auth = new URL(`tcp://${headers[':authority']}`);
@@ -39,7 +39,7 @@ proxy.on('stream', (stream, headers) => {
     stream.pipe(socket);
   });
   socket.on('error', (error) => {
-    stream.rstStream(http2.constants.NGHTTP2_CONNECT_ERROR);
+    stream.close(http2.constants.NGHTTP2_CONNECT_ERROR);
   });
 });
 
@@ -68,7 +68,7 @@ req.setEncoding('utf8');
 req.on('data', (chunk) => data += chunk);
 req.on('end', () => {
   console.log(`The server says: ${data}`);
-  client.destroy();
+  client.close();
 });
 req.end('Jane');
 ```

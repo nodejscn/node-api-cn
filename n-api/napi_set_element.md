@@ -15,5 +15,5 @@ napi_status napi_set_element(napi_env env,
 
 Returns `napi_ok` if the API succeeded.
 
-This API sets and element on the Object passed in.
+This API sets and element on the `Object` passed in.
 

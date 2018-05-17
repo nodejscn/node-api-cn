@@ -2,7 +2,7 @@
 N-API exposes a set of APIs to get and set properties on JavaScript
 objects. Some of these types are documented under
 [Section 7](https://tc39.github.io/ecma262/#sec-operations-on-objects) of the
-[ECMAScript Language Specification](https://tc39.github.io/ecma262/).
+[ECMAScript Language Specification][].
 
 Properties in JavaScript are represented as a tuple of a key and a value.
 Fundamentally, all property keys in N-API can be represented in one of the
@@ -10,7 +10,7 @@ following forms:
 - Named: a simple UTF8-encoded string
 - Integer-Indexed: an index value represented by `uint32_t`
 - JavaScript value: these are represented in N-API by `napi_value`. This can
-be a `napi_value` representing a String, Number, or Symbol.
+be a `napi_value` representing a `String`, `Number`, or `Symbol`.
 
 N-API values are represented by the type `napi_value`.
 Any N-API call that requires a JavaScript value takes in a `napi_value`.
@@ -117,8 +117,8 @@ if (status != napi_ok) return status;
 
 // Set the properties
 napi_property_descriptor descriptors[] = {
-  { "foo", nullptr, 0, 0, 0, fooValue, napi_default, 0 },
-  { "bar", nullptr, 0, 0, 0, barValue, napi_default, 0 }
+  { "foo", NULL, NULL, NULL, NULL, fooValue, napi_default, NULL },
+  { "bar", NULL, NULL, NULL, NULL, barValue, napi_default, NULL }
 }
 status = napi_define_properties(env,
                                 obj,

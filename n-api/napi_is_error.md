@@ -15,4 +15,3 @@ Returns `napi_ok` if the API succeeded.
 
 This API queries a `napi_value` to check if it represents an error object.
 
-

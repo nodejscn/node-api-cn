@@ -13,5 +13,5 @@ the error.
 
 Returns `napi_ok` if the API succeeded.
 
-This API throws a JavaScript TypeError with the text provided.
+This API throws a JavaScript `TypeError` with the text provided.
 

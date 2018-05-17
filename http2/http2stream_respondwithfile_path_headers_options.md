@@ -1,22 +1,27 @@
 <!-- YAML
 added: v8.4.0
+changes:
+  - version: v10.0.0
+    pr-url: https://github.com/nodejs/node/pull/18936
+    description: Any readable file, not necessarily a
+                 regular file, is supported now.
 -->
 
 * `path` {string|Buffer|URL}
-* `headers` {[Headers Object][]}
+* `headers` {HTTP/2 Headers Object}
 * `options` {Object}
   * `statCheck` {Function}
   * `onError` {Function} Callback function invoked in the case of an
-    Error before send.
-  * `getTrailers` {Function} Callback function invoked to collect trailer
-    headers.
+    error before send.
+  * `waitForTrailers` {boolean} When `true`, the `Http2Stream` will emit the
+    `'wantTrailers'` event after the final `DATA` frame has been sent.
   * `offset` {number} The offset position at which to begin reading.
   * `length` {number} The amount of data from the fd to send.
 
 Sends a regular file as the response. The `path` must specify a regular file
 or an `'error'` event will be emitted on the `Http2Stream` object.
 
-When used, the `Http2Stream` object's Duplex interface will be closed
+When used, the `Http2Stream` object's `Duplex` interface will be closed
 automatically.
 
 The optional `options.statCheck` function may be specified to give user code
@@ -25,7 +30,7 @@ of the given file:
 
 If an error occurs while attempting to read the file data, the `Http2Stream`
 will be closed using an `RST_STREAM` frame using the standard `INTERNAL_ERROR`
-code. If the `onError` callback is defined it will be called, otherwise
+code. If the `onError` callback is defined, then it will be called. Otherwise
 the stream will be destroyed.
 
 Example using a file path:
@@ -83,26 +88,26 @@ The `options.onError` function may also be used to handle all the errors
 that could happen before the delivery of the file is initiated. The
 default behavior is to destroy the stream.
 
-When set, the `options.getTrailers()` function is called immediately after
-queuing the last chunk of payload data to be sent. The callback is passed a
-single object (with a `null` prototype) that the listener may used to specify
-the trailing header fields to send to the peer.
+When the `options.waitForTrailers` option is set, the `'wantTrailers'` event
+will be emitted immediately after queuing the last chunk of payload data to be
+sent. The `http2stream.sendTrilers()` method can then be used to sent trailing
+header fields to the peer.
+
+It is important to note that when `options.waitForTrailers` is set, the
+`Http2Stream` will *not* automatically close when the final `DATA` frame is
+transmitted. User code *must* call either `http2stream.sendTrailers()` or
+`http2stream.close()` to close the `Http2Stream`.
 
 ```js
 const http2 = require('http2');
 const server = http2.createServer();
 server.on('stream', (stream) => {
-  function getTrailers(trailers) {
-    trailers['ABC'] = 'some value to send';
-  }
   stream.respondWithFile('/some/file',
                          { 'content-type': 'text/plain' },
-                         { getTrailers });
+                         { waitForTrailers: true });
+  stream.on('wantTrailers', () => {
+    stream.sendTrailers({ ABC: 'some value to send' });
+  });
 });
 ```
-
-*Note*: The HTTP/1 specification forbids trailers from containing HTTP/2
-"pseudo-header" fields (e.g. `':status'`, `':path'`, etc). An `'error'` event
-will be emitted if the `getTrailers` callback attempts to set such header
-fields.
 

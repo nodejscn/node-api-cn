@@ -1,9 +1,8 @@
 
-Type: Documentation-only
+Type: End-of-Life
 
-The DebugContext will be removed in V8 soon and will not be available in Node
-10+.
+DebugContext has been removed in V8 and is not available in Node.js 10+.
 
-*Note*: DebugContext was an experimental API.
+DebugContext was an experimental API.
 
 <a id="DEP0070"></a>

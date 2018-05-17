@@ -2,26 +2,23 @@
 added: v8.4.0
 -->
 
-The `'stream'` event is emitted when a new `Http2Stream` is created. When
-invoked, the handler function will receive a reference to the `Http2Stream`
-object, a [Headers Object][], and numeric flags associated with the creation
-of the stream.
+* `stream` {Http2Stream} A reference to the stream
+* `headers` {HTTP/2 Headers Object} An object describing the headers
+* `flags` {number} The associated numeric flags
+* `rawHeaders` {Array} An array containing the raw header names followed by
+  their respective values.
+
+The `'stream'` event is emitted when a new `Http2Stream` is created.
 
 ```js
 const http2 = require('http2');
-const {
-  HTTP2_HEADER_METHOD,
-  HTTP2_HEADER_PATH,
-  HTTP2_HEADER_STATUS,
-  HTTP2_HEADER_CONTENT_TYPE
-} = http2.constants;
 session.on('stream', (stream, headers, flags) => {
-  const method = headers[HTTP2_HEADER_METHOD];
-  const path = headers[HTTP2_HEADER_PATH];
+  const method = headers[':method'];
+  const path = headers[':path'];
   // ...
   stream.respond({
-    [HTTP2_HEADER_STATUS]: 200,
-    [HTTP2_HEADER_CONTENT_TYPE]: 'text/plain'
+    ':status': 200,
+    'content-type': 'text/plain'
   });
   stream.write('hello ');
   stream.end('world');
@@ -36,7 +33,7 @@ and would instead register a handler for the `'stream'` event emitted by the
 ```js
 const http2 = require('http2');
 
-// Create a plain-text HTTP/2 server
+// Create an unencrypted HTTP/2 server
 const server = http2.createServer();
 
 server.on('stream', (stream, headers) => {

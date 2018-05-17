@@ -2,7 +2,7 @@
 added: v8.4.0
 -->
 
-* Extends: {Duplex}
+* Extends: {stream.Duplex}
 
 Each instance of the `Http2Stream` class represents a bidirectional HTTP/2
 communications stream over an `Http2Session` instance. Any single `Http2Session`
@@ -17,8 +17,8 @@ On the client, `Http2Stream` instances are created and returned when either the
 `http2session.request()` method is called, or in response to an incoming
 `'push'` event.
 
-*Note*: The `Http2Stream` class is a base for the [`ServerHttp2Stream`][] and
-[`ClientHttp2Stream`][] classes, each of which are used specifically by either
+The `Http2Stream` class is a base for the [`ServerHttp2Stream`][] and
+[`ClientHttp2Stream`][] classes, each of which is used specifically by either
 the Server or Client side, respectively.
 
 All `Http2Stream` instances are [`Duplex`][] streams. The `Writable` side of the

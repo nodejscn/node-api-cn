@@ -12,8 +12,7 @@ typedef enum {
 } napi_typedarray_type;
 ```
 
-This represents the underlying binary scalar datatype of the TypedArray.
+This represents the underlying binary scalar datatype of the `TypedArray`.
 Elements of this enum correspond to
-[Section 22.2](https://tc39.github.io/ecma262/#sec-typedarray-objects)
-of the [ECMAScript Language Specification][].
+[Section 22.2][] of the [ECMAScript Language Specification][].
 
