@@ -1,5 +1,5 @@
 
-> Stability: 0 - Deprecated: Use strict mode instead.
+> 稳定性: 0 - 废弃的: 使用 strict 模式代替。
 
 When accessing `assert` directly instead of using the `strict` property, the
 [Abstract Equality Comparison][] will be used for any function without "strict"

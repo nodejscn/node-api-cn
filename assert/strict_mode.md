@@ -9,20 +9,19 @@ changes:
     description: Added strict mode to the assert module.
 -->
 
-When using the `strict mode`, any `assert` function will use the equality used
-in the strict function mode. So [`assert.deepEqual()`][] will, for example,
-work the same as [`assert.deepStrictEqual()`][].
+当使用 `strict` 模式时，任何 `assert` 函数都会使用严格函数模式的等式。
+所以 [`assert.deepEqual()`] 会等同于 [`assert.deepStrictEqual()`]。
 
-On top of that, error messages which involve objects produce an error diff
-instead of displaying both objects. That is not the case for the legacy mode.
+除此以外，涉及对象的错误信息会产生一个错误差异比较，而不是展示双方的对象。
+`legacy` 模式则不会这样。
 
-It can be accessed using:
+可以通过以下方式使用：
 
 ```js
 const assert = require('assert').strict;
 ```
 
-Example error diff:
+错误差异比较的例子：
 
 ```js
 const assert = require('assert').strict;
@@ -43,6 +42,6 @@ assert.deepEqual([[[1, 2, 3]], 4, 5], [[[1, 2, '3']], 4, 5]);
 //   ]
 ```
 
-To deactivate the colors, use the `NODE_DISABLE_COLORS` environment variable.
-Please note that this will also deactivate the colors in the REPL.
+使用 `NODE_DISABLE_COLORS` 环境变量可以禁用颜色。
+注意，这也会禁用 REPL 中的其他颜色。
 

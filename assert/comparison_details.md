@@ -1,25 +1,20 @@
 
-* Primitive values are compared using the [SameValue Comparison][], used by
-  [`Object.is()`][].
-* [Type tags][Object.prototype.toString()] of objects should be the same.
-* [`[[Prototype]]`][prototype-spec] of objects are compared using
-  the [Strict Equality Comparison][].
-* Only [enumerable "own" properties][] are considered.
-* [`Error`][] names and messages are always compared, even if these are not
-  enumerable properties.
-* Enumerable own [`Symbol`][] properties are compared as well.
-* [Object wrappers][] are compared both as objects and unwrapped values.
-* `Object` properties are compared unordered.
-* `Map` keys and `Set` items are compared unordered.
-* Recursion stops when both sides differ or both sides encounter a circular
-  reference.
-* [`WeakMap`][] and [`WeakSet`][] comparison does not rely on their values. See
-  below for further details.
+* 原始值运用 [SameValue比较法]进行比较，使用 [`Object.is()`] 函数。
+* 对象的[类型标签]应该相同。
+* 对象的[原型]使用[全等运算符]比较。
+* 只比较[可枚举的自身属性]。
+* [`Error`] 的名称与信息也会比较，即使不是可枚举的属性。
+* 可枚举的自身 [`Symbol`] 属性也会比较。
+* [对象封装器] 会同时比较对象与解封装后的值。
+* `Object` 属性的比较是无序的。
+* `Map` 键名与 `Set` 子项的比较是无序的。
+* 当两边的值不相同或遇到循环引用时，递归会停止。
+* [`WeakMap`] 与 [`WeakSet`] 的比较不依赖于它们的值。
 
 ```js
 const assert = require('assert').strict;
 
-// This fails because 1 !== '1'.
+// 失败，因为 1 !== '1'。
 assert.deepStrictEqual({ a: 1 }, { a: '1' });
 // AssertionError: Input A expected to strictly deep-equal input B:
 // + expected - actual
@@ -28,20 +23,20 @@ assert.deepStrictEqual({ a: 1 }, { a: '1' });
 // +   a: '1'
 //   }
 
-// The following objects don't have own properties
+// 以下对象没有自身属性。
 const date = new Date();
 const object = {};
 const fakeDate = {};
 Object.setPrototypeOf(fakeDate, Date.prototype);
 
-// Different [[Prototype]]:
+// 原型不同：
 assert.deepStrictEqual(object, fakeDate);
 // AssertionError: Input A expected to strictly deep-equal input B:
 // + expected - actual
 // - {}
 // + Date {}
 
-// Different type tags:
+// 类型标签不同：
 assert.deepStrictEqual(date, fakeDate);
 // AssertionError: Input A expected to strictly deep-equal input B:
 // + expected - actual
@@ -49,9 +44,9 @@ assert.deepStrictEqual(date, fakeDate);
 // + Date {}
 
 assert.deepStrictEqual(NaN, NaN);
-// OK, because of the SameValue comparison
+// 通过，因为使用的是 SameValue 比较法。
 
-// Different unwrapped numbers:
+// 解封装后的数值不同：
 assert.deepStrictEqual(new Number(1), new Number(2));
 // AssertionError: Input A expected to strictly deep-equal input B:
 // + expected - actual
@@ -59,12 +54,12 @@ assert.deepStrictEqual(new Number(1), new Number(2));
 // + [Number: 2]
 
 assert.deepStrictEqual(new String('foo'), Object('foo'));
-// OK because the object and the string are identical when unwrapped.
+// 通过，因为对象与解封装后的字符串都完全相同。
 
 assert.deepStrictEqual(-0, -0);
-// OK
+// 通过。
 
-// Different zeros using the SameValue Comparison:
+// SameValue 比较法中 0 与 -0 不同：
 assert.deepStrictEqual(0, -0);
 // AssertionError: Input A expected to strictly deep-equal input B:
 // + expected - actual
@@ -74,7 +69,7 @@ assert.deepStrictEqual(0, -0);
 const symbol1 = Symbol();
 const symbol2 = Symbol();
 assert.deepStrictEqual({ [symbol1]: 1 }, { [symbol1]: 1 });
-// OK, because it is the same symbol on both objects.
+// 通过，因为两边对象的 symbol 相同。
 assert.deepStrictEqual({ [symbol1]: 1 }, { [symbol2]: 1 });
 // AssertionError [ERR_ASSERTION]: Input objects not identical:
 // {
@@ -87,9 +82,9 @@ const weakMap3 = new WeakMap();
 weakMap3.unequal = true;
 
 assert.deepStrictEqual(weakMap1, weakMap2);
-// OK, because it is impossible to compare the entries
+// 通过。
 
-// Fails because weakMap3 has a property that weakMap1 does not contain:
+// 失败，因为 weakMap3 有一个 weakMap1 没有的属性：
 assert.deepStrictEqual(weakMap1, weakMap3);
 // AssertionError: Input A expected to strictly deep-equal input B:
 // + expected - actual
@@ -100,9 +95,7 @@ assert.deepStrictEqual(weakMap1, weakMap3);
 //   }
 ```
 
-If the values are not equal, an `AssertionError` is thrown with a `message`
-property set equal to the value of the `message` parameter. If the `message`
-parameter is undefined, a default error message is assigned. If the `message`
-parameter is an instance of an [`Error`][] then it will be thrown instead of the
-`AssertionError`.
+如果两个值不相等，则抛出一个带有 `message` 属性的 `AssertionError`，其中 `message` 属性的值等于传入的 `message` 参数的值。
+如果 `message` 参数为 `undefined`，则赋予默认的错误信息。
+如果 `message` 参数是 [`Error`] 的实例，则会抛出它而不是 `AssertionError`。
 

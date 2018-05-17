@@ -19,8 +19,12 @@ changes:
 如果抛出错误且错误类型与 `error` 参数指定的相同，则抛出 `AssertionError`。
 如果错误类型不相同，或 `error` 参数为 `undefined`，则抛出错误。
 
+`error` 可以是 [`Class`]、[`RegExp`] 或校验函数。
+详见 [`assert.throws()`]。
+
 以下例子会抛出 [`TypeError`]，因为在断言中没有匹配的错误类型：
 
+<!-- eslint-disable no-restricted-syntax -->
 ```js
 assert.doesNotThrow(
   () => {
@@ -32,6 +36,7 @@ assert.doesNotThrow(
 
 以下例子会抛出一个带有 `Got unwanted exception (TypeError)..` 信息的 `AssertionError`：
 
+<!-- eslint-disable no-restricted-syntax -->
 ```js
 assert.doesNotThrow(
   () => {
@@ -43,14 +48,15 @@ assert.doesNotThrow(
 
 如果抛出了 `AssertionError` 且有给 `message` 参数传值，则 `message` 参数的值会被附加到 `AssertionError` 的信息中：
 
+<!-- eslint-disable no-restricted-syntax -->
 ```js
 assert.doesNotThrow(
   () => {
     throw new TypeError('错误信息');
   },
-  TypeError,
-  '抛出错误'
+  /错误信息/,
+  '出错啦'
 );
-// 抛出 AssertionError: Got unwanted exception (TypeError). 抛出错误
+// 抛出 AssertionError: Got unwanted exception: 出错啦
 ```
 

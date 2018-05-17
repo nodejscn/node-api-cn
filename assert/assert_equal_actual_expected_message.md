@@ -5,22 +5,34 @@ added: v0.1.21
 * `expected` {any}
 * `message` {any}
 
-使用[相等运算符]（`==`）测试 `actual` 参数与 `expected` 参数是否相等。
+**strict 模式**
+
+[`assert.strictEqual()`] 的别名。
+
+**legacy 模式**
+
+> 稳定性: 0 - 废弃的: 使用 [`assert.strictEqual()`] 代替。
+
+Tests shallow, coercive equality between the `actual` and `expected` parameters
+using the [Abstract Equality Comparison][] ( `==` ).
 
 ```js
 const assert = require('assert');
 
 assert.equal(1, 1);
-// 测试通过，1 == 1。
+// OK, 1 == 1
 assert.equal(1, '1');
-// 测试通过，1 == '1'。
+// OK, 1 == '1'
 
 assert.equal(1, 2);
-// 抛出 AssertionError: 1 == 2
+// AssertionError: 1 == 2
 assert.equal({ a: { b: 1 } }, { a: { b: 1 } });
-// 抛出 AssertionError: { a: { b: 1 } } == { a: { b: 1 } }
+// AssertionError: { a: { b: 1 } } == { a: { b: 1 } }
 ```
 
-如果两个值不相等，则抛出一个带有 `message` 属性的 `AssertionError`，其中 `message` 属性的值等于传入的 `message` 参数的值。
-如果 `message` 参数为 `undefined`，则赋予默认的错误信息。
+If the values are not equal, an `AssertionError` is thrown with a `message`
+property set equal to the value of the `message` parameter. If the `message`
+parameter is undefined, a default error message is assigned. If the `message`
+parameter is an instance of an [`Error`][] then it will be thrown instead of the
+`AssertionError`.
 

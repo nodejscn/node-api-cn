@@ -1,4 +1,2 @@
-
-A subclass of `Error` that indicates the failure of an assertion. All errors
-thrown by the `assert` module will be instances of the `AssertionError` class.
-
+`Error` 的一个子类，表明断言的失败。
+`assert` 模块抛出的所有错误都是 `AssertionError` 类的实例。

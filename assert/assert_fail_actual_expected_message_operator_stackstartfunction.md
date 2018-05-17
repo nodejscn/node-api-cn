@@ -1,42 +1,52 @@
 <!-- YAML
 added: v0.1.21
+changes:
+  - version: v10.0.0
+    pr-url: https://github.com/nodejs/node/pull/18418
+    description: Calling `assert.fail()` with more than one argument is
+                 deprecated and emits a warning.
 -->
 * `actual` {any}
 * `expected` {any}
 * `message` {any}
-* `operator` {string} 默认为 `'!='`。
-* `stackStartFunction` {Function} 默认为 `assert.fail`。
+* `operator` {string} **Default:** `'!='`
+* `stackStartFunction` {Function} **Default:** `assert.fail`
 
-抛出 `AssertionError`。
-如果 `message` 参数为空，则错误信息为 `actual` 参数 + `operator` 参数 + `expected` 参数。
-如果只提供了 `actual` 参数与 `expected` 参数，则 `operator` 参数默认为 `'!='`。
-如果提供了 `message` 参数，则它会作为错误信息，其他参数会保存在错误对象的属性中。
-如果提供了 `stackStartFunction` 参数，则该函数上的栈帧都会从栈信息中移除（详见 [`Error.captureStackTrace`]）。
+> 稳定性: 0 - 废弃的: 使用 `assert.fail([message])` 代替。
+
+If `message` is falsy, the error message is set as the values of `actual` and
+`expected` separated by the provided `operator`. If just the two `actual` and
+`expected` arguments are provided, `operator` will default to `'!='`. If
+`message` is provided as third argument it will be used as the error message and
+the other arguments will be stored as properties on the thrown object. If
+`stackStartFunction` is provided, all stack frames above that function will be
+removed from stacktrace (see [`Error.captureStackTrace`]). If no arguments are
+given, the default message `Failed` will be used.
 
 ```js
-const assert = require('assert');
-
-assert.fail(1, 2, undefined, '>');
-// 抛出 AssertionError [ERR_ASSERTION]: 1 > 2
-
-assert.fail(1, 2, '错误信息');
-// 抛出 AssertionError [ERR_ASSERTION]: 错误信息
-
-assert.fail(1, 2, '错误信息', '>');
-// 抛出 AssertionError [ERR_ASSERTION]: 错误信息
-// 上面两个例子的 `actual` 参数、`expected` 参数与 `operator` 参数不影响错误消息。
-
-assert.fail();
-// 抛出 AssertionError [ERR_ASSERTION]: Failed
-
-assert.fail('错误信息');
-// 抛出 AssertionError [ERR_ASSERTION]: 错误信息
+const assert = require('assert').strict;
 
 assert.fail('a', 'b');
-// 抛出 AssertionError [ERR_ASSERTION]: 'a' != 'b'
+// AssertionError [ERR_ASSERTION]: 'a' != 'b'
+
+assert.fail(1, 2, undefined, '>');
+// AssertionError [ERR_ASSERTION]: 1 > 2
+
+assert.fail(1, 2, 'fail');
+// AssertionError [ERR_ASSERTION]: fail
+
+assert.fail(1, 2, 'whoops', '>');
+// AssertionError [ERR_ASSERTION]: whoops
+
+assert.fail(1, 2, new TypeError('need array'));
+// TypeError: need array
 ```
 
-例子，使用 `stackStartFunction` 参数拦截异常的栈信息：
+In the last three cases `actual`, `expected`, and `operator` have no
+influence on the error message.
+
+Example use of `stackStartFunction` for truncating the exception's stacktrace:
+
 ```js
 function suppressFrame() {
   assert.fail('a', 'b', undefined, '!==', suppressFrame);

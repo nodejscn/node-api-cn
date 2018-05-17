@@ -1,9 +1,12 @@
 <!-- YAML
 added: v0.1.21
 changes:
+  - version: v9.0.0
+    pr-url: https://github.com/nodejs/node/pull/15001
+    description: The `Error` names and messages are now properly compared
   - version: v8.0.0
     pr-url: https://github.com/nodejs/node/pull/12142
-    description: Set and Map content is also compared
+    description: The `Set` and `Map` content is also compared
   - version: v6.4.0, v4.7.1
     pr-url: https://github.com/nodejs/node/pull/8002
     description: Typed array slices are handled correctly now.
@@ -18,20 +21,36 @@ changes:
 * `expected` {any}
 * `message` {any}
 
-测试 `actual` 参数与 `expected` 参数是否深度相等。
-原始值使用[相等运算符]（`==`）比较。
+**strict 模式**
 
-只测试[可枚举的自身属性]，不测试对象的[原型]、连接符、或不可枚举的属性（这些情况使用 [`assert.deepStrictEqual()`]）。
-例如，下面的例子不会抛出 `AssertionError`，因为 [`RegExp`] 对象的属性不是可枚举的：
+[`assert.deepStrictEqual()`] 的别名。
+
+**legacy 模式**
+
+> 稳定性: 0 - 废弃的: 使用 [`assert.deepStrictEqual()`] 代替。
+
+Tests for deep equality between the `actual` and `expected` parameters.
+Primitive values are compared with the [Abstract Equality Comparison][]
+( `==` ).
+
+Only [enumerable "own" properties][] are considered. The
+[`assert.deepEqual()`][] implementation does not test the
+[`[[Prototype]]`][prototype-spec] of objects or enumerable own [`Symbol`][]
+properties. For such checks, consider using [`assert.deepStrictEqual()`][]
+instead. [`assert.deepEqual()`][] can have potentially surprising results. The
+following example does not throw an `AssertionError` because the properties on
+the [`RegExp`][] object are not enumerable:
 
 ```js
-// 不会抛出 AssertionError。
+// WARNING: This does not throw an AssertionError!
 assert.deepEqual(/a/gi, new Date());
 ```
 
-[`Map`] 和 [`Set`] 包含的子项也会被测试。
+An exception is made for [`Map`][] and [`Set`][]. `Map`s and `Set`s have their
+contained items compared too, as expected.
 
-子对象中可枚举的自身属性也会被测试：
+"Deep" equality means that the enumerable "own" properties of child objects
+are evaluated also:
 
 ```js
 const assert = require('assert');
@@ -54,20 +73,23 @@ const obj3 = {
 const obj4 = Object.create(obj1);
 
 assert.deepEqual(obj1, obj1);
-// 测试通过，对象与自身相等。
+// OK, object is equal to itself
 
 assert.deepEqual(obj1, obj2);
-// 抛出 AssertionError: { a: { b: 1 } } deepEqual { a: { b: 2 } }
-// 因为 b 属性的值不同。
+// AssertionError: { a: { b: 1 } } deepEqual { a: { b: 2 } }
+// values of b are different
 
 assert.deepEqual(obj1, obj3);
-// 测试通过，两个对象相等。
+// OK, objects are equal
 
 assert.deepEqual(obj1, obj4);
-// 抛出 AssertionError: { a: { b: 1 } } deepEqual {}
-// 因为不测试原型。
+// AssertionError: { a: { b: 1 } } deepEqual {}
+// Prototypes are ignored
 ```
 
-如果两个值不相等，则抛出一个带有 `message` 属性的 `AssertionError`，其中 `message` 属性的值等于传入的 `message` 参数的值。
-如果 `message` 参数为 `undefined`，则赋予默认的错误信息。
+If the values are not equal, an `AssertionError` is thrown with a `message`
+property set equal to the value of the `message` parameter. If the `message`
+parameter is undefined, a default error message is assigned. If the `message`
+parameter is an instance of an [`Error`][] then it will be thrown instead of the
+`AssertionError`.
 
