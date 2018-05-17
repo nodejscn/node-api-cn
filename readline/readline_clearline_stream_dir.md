@@ -2,7 +2,7 @@
 added: v0.7.7
 -->
 
-* `stream` {Writable}
+* `stream` {stream.Writable}
 * `dir` {number}
   * `-1` - 光标左边
   * `1` - 光标右边

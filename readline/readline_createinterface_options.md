@@ -16,8 +16,8 @@ changes:
 -->
 
 * `options` {Object}
-  * `input` {Readable} 要监听的[可读流]。该选项是必需的。
-  * `output` {Writable} 要写入逐行读取数据的[可写流]。
+  * `input` {stream.Readable} 要监听的[可读流]。该选项是必需的。
+  * `output` {stream.Writable} 要写入逐行读取数据的[可写流]。
   * `completer` {Function} 一个可选的函数，用于 Tab 自动补全。
   * `terminal` {boolean} 如果 `input` 和 `output` 应被当作一个 TTY，且要写入 ANSI/VT100 转换的代码，则设为 `true`。
     默认为实例化时在 `output` 流上检查 `isTTY`。

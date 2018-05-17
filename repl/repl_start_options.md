@@ -8,8 +8,8 @@ changes:
 
 * `options` {Object|string}
   * `prompt` {string} 要显示的输入提示符。默认为 `> `（末尾有一个空格）。
-  * `input` {Readable} REPL 输入要被读取的可读流。默认为 `process.stdin`。
-  * `output` {Writable} REPL 输出要被写入的可写流。默认为 `process.stdout`。
+  * `input` {stream.Readable} REPL 输入要被读取的可读流。默认为 `process.stdin`。
+  * `output` {stream.Writable} REPL 输出要被写入的可写流。默认为 `process.stdout`。
   * `terminal` {boolean} 如果为 `true`，则指定 `output` 应被当作一个 TTY 终端，并且可以使用 ANSI/VT100 转义码写入。
     默认值为初始化时 `output` 流的 `isTTY` 属性的值。
   * `eval` {Function} 当解释每行输入时使用的函数。默认为 JavaScript `eval()` 函数的异步封装。

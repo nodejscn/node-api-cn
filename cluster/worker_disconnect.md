@@ -6,7 +6,7 @@ changes:
     description: This method now returns a reference to `worker`.
 -->
 
-* Returns: {Worker} 一个 `worker` 的引用。
+* Returns: {cluster.Worker} 一个 `worker` 的引用。
 
 在一个工作进程内，调用此方法会关闭所有的server，并等待这些server的 `'close'`事件执行，然后关闭IPC管道。
 

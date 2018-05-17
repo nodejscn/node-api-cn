@@ -5,7 +5,7 @@ added: v0.1.21
 * `expected` {any}
 * `message` {any}
 * `operator` {string} 默认为 `'!='`。
-* `stackStartFunction` {function} 默认为 `assert.fail`。
+* `stackStartFunction` {Function} 默认为 `assert.fail`。
 
 抛出 `AssertionError`。
 如果 `message` 参数为空，则错误信息为 `actual` 参数 + `operator` 参数 + `expected` 参数。

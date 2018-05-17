@@ -27,9 +27,9 @@ changes:
 解析`hostname`(例如：`'nodejs.org'`)为第一个找到的A（IPv4）或AAAA（IPv6）记录。`options`可以是对象或者整数。如果`options`没有被提供，那么IPv4 和 IPv6都是有效的。如果`options`是整数，只能是`4`或`6`。
 
 另外，`options`可以是一个含有以下属性的对象：
-* `family` {Number} - T地址族。如果提供，必须为整数4或6。如果没有提供，只接受IPv4和IPv6地址。
-* `hints`: {Number} - 如果提供，它必须是一个或多个支持的`getaddrinfo`标识。如果没有提供，那么没有标识被传递给`getaddrinfo`。多个标识可以通过在逻辑上`OR`ing它们的值，来传递给hints。支持的`getaddrinfo`标识请参阅下文。有关支持的标志的更多信息请查询[supported `getaddrinfo` flags][]章节。
-* `all`: {Boolean} - 值为`true`时， 回调函数返回一个包含所有解析后地址的数组，否则只返回一个地址。默认值为`false`。
+* `family` {number} - T地址族。如果提供，必须为整数4或6。如果没有提供，只接受IPv4和IPv6地址。
+* `hints`: {number} - 如果提供，它必须是一个或多个支持的`getaddrinfo`标识。如果没有提供，那么没有标识被传递给`getaddrinfo`。多个标识可以通过在逻辑上`OR`ing它们的值，来传递给hints。支持的`getaddrinfo`标识请参阅下文。有关支持的标志的更多信息请查询[supported `getaddrinfo` flags][]章节。
+* `all`: {boolean} - 值为`true`时， 回调函数返回一个包含所有解析后地址的数组，否则只返回一个地址。默认值为`false`。
 
 所有的参数都是可选的。
 

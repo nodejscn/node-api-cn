@@ -2,7 +2,7 @@
 added: v0.7.7
 -->
 
-* `stream` {Readable}
+* `stream` {stream.Readable}
 * `interface` {readline.Interface}
 
 `readline.emitKeypressEvents()` 方法使给定的[可读流] `stream` 相应于接收到的输入触发 `'keypress'` 事件。

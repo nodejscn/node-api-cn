@@ -6,7 +6,7 @@ changes:
     description: This method now returns a reference to `decipher`.
 -->
 - `buffer` {Buffer | TypedArray | DataView}
-- 返回{cipher}的一个方法链。
+- 返回{Cipher}的一个方法链。
 
 当使用经过验证的加密模式（当前仅支持`GCM`）时，`decipher.setAAD()`方法会设置用于附加验证数据(AAD)输入参数的值。
 

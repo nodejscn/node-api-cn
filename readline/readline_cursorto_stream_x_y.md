@@ -2,7 +2,7 @@
 added: v0.7.7
 -->
 
-* `stream` {Writable}
+* `stream` {stream.Writable}
 * `x` {number}
 * `y` {number}
 

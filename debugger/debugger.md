@@ -35,6 +35,7 @@ console.log('你好');
 
 一旦运行调试器，则在第 3 行会出现一个断点：
 
+```txt
 $ node inspect myscript.js
 < Debugger listening on ws://127.0.0.1:9229/80e7a814-7cd3-49fb-921a-2e02228cd5ba
 < For help see https://nodejs.org/en/docs/inspector

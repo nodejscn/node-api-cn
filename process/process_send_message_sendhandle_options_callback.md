@@ -3,7 +3,7 @@ added: v0.5.9
 -->
 
 * `message` {Object}
-* `sendHandle` {Handle object}
+* `sendHandle` {net.Server|net.Socket}
 * `options` {Object}
 * `callback` {Function}
 * Returns: {boolean}
