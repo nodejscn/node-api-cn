@@ -1,11 +1,10 @@
 
 * Returns: {Iterator}
 
-Returns an ES6 `Iterator` over each of the name-value pairs in the query string.
-Each item of the iterator is a JavaScript `Array`. The first item of the `Array`
-is the `name`, the second item of the `Array` is the `value`.
+根据查询字符串，返回一个键值对形式的 ES6 `Iterator`。每个迭代器的项是一个 JavaScript `Array`。
+其中，`Array` 的第一项是 `name`，第二个是 `value`。
 
-Alias for [`urlSearchParams.entries()`][].
+是 [`urlSearchParams.entries()`][] 的别名。
 
 ```js
 const params = new URLSearchParams('foo=bar&xyz=baz');
