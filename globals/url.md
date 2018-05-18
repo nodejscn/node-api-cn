@@ -4,5 +4,5 @@ added: v10.0.0
 
 <!-- type=global -->
 
-The WHATWG `URL` class. See the [`URL`][] section.
+WHATWG `URL` 类。 详解见 [`URL`][] 文档。
 
