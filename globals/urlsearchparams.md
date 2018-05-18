@@ -4,7 +4,7 @@ added: v10.0.0
 
 <!-- type=global -->
 
-The WHATWG `URLSearchParams` class. See the [`URLSearchParams`][] section.
+WHATWG `URLSearchParams` 类。 详见 [`URLSearchParams`][] 文档。
 
 [`__dirname`]: modules.html#modules_dirname
 [`__filename`]: modules.html#modules_filename
