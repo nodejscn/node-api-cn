@@ -2,7 +2,5 @@
 added: v9.4.0
 -->
 
-This property contains the number of bytes (or objects) in the queue
-ready to be written. The value provides introspection data regarding
-the status of the `highWaterMark`.
-
+这个属性包含了写入就绪队列的字节(或者对象)数，这个值提供了关于`highWaterMark`状
+态的内省数据。
