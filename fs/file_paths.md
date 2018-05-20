@@ -1,12 +1,10 @@
 
-Most `fs` operations accept filepaths that may be specified in the form of
-a string, a [`Buffer`][], or a [`URL`][] object using the `file:` protocol.
+大部分 `fs` 操作接受字符串、[`Buffer`]、或使用 `file:` 协议的 [`URL`] 对象作为文件路径。
 
-String form paths are interpreted as UTF-8 character sequences identifying
-the absolute or relative filename. Relative paths will be resolved relative
-to the current working directory as specified by `process.cwd()`.
+字符串形式的路径会被解释为表示绝对路径或相对路径的 UTF-8 字符序列。
+相对路径会相对于 `process.cwd()` 定义的当前工作目录进行处理。
 
-Example using an absolute path on POSIX:
+使用绝对路径的例子：
 
 ```js
 const fs = require('fs');
@@ -19,7 +17,7 @@ fs.open('/open/some/file.txt', 'r', (err, fd) => {
 });
 ```
 
-Example using a relative path on POSIX (relative to `process.cwd()`):
+使用相对路径的例子（相对于 `process.cwd()`）：
 
 ```js
 fs.open('file.txt', 'r', (err, fd) => {
@@ -30,13 +28,11 @@ fs.open('file.txt', 'r', (err, fd) => {
 });
 ```
 
-Paths specified using a [`Buffer`][] are useful primarily on certain POSIX
-operating systems that treat file paths as opaque byte sequences. On such
-systems, it is possible for a single file path to contain sub-sequences that
-use multiple character encodings. As with string paths, `Buffer` paths may
-be relative or absolute:
+使用 [`Buffer`] 定义的路径主要用于将文件路径处理为 opaque 字节序列的特定 POSIX 操作系统。
+在这种系统上，一个文件路径可能包含使用多种字符编码的子序列。
+与字符串路径一样，`Buffer` 路径也可以是相对的或绝对的。
 
-Example using an absolute path on POSIX:
+使用绝对路径的例子：
 
 ```js
 fs.open(Buffer.from('/open/some/file.txt'), 'r', (err, fd) => {
@@ -47,9 +43,8 @@ fs.open(Buffer.from('/open/some/file.txt'), 'r', (err, fd) => {
 });
 ```
 
-*Note:* On Windows Node.js follows the concept of per-drive working directory.
-This behavior can be observed when using a drive path without a backslash. For
-example `fs.readdirSync('c:\\')` can potentially return a different result than
-`fs.readdirSync('c:')`. For more information, see
-[this MSDN page][MSDN-Rel-Path].
+注意，在 Windows 上 Node.js 遵循 per-drive 工作目录的理念。
+当使用驱动器路径不带反斜杠时可以观察到该特性。
+例如，`fs.readdirSync('c:\\')` 可能会返回与 `fs.readdirSync('c:')` 不同的结果。
+详见 [MSDN路径文档]。
 

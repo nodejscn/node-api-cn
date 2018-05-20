@@ -1,5 +1,5 @@
 
 * {number}
 
-The numeric identifier of the device containing the file.
+包含文件的设备的数值型标识。
 

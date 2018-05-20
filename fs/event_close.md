@@ -1,6 +1,6 @@
 <!-- YAML
-added: v0.1.93
+added: v10.0.0
 -->
 
-当 `ReadStream` 底层的文件描述符被关闭时触发。
+当 watcher 停止监视文件变化时触发。
 

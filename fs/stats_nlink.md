@@ -1,5 +1,5 @@
 
 * {number}
 
-The number of hard-links that exist for the file.
+文件的硬链接数量。
 

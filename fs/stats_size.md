@@ -1,5 +1,5 @@
 
 * {number}
 
-The size of the file in bytes.
+文件的字节大小。
 

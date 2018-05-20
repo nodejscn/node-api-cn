@@ -1,25 +1,21 @@
 
-On POSIX systems, for every process, the kernel maintains a table of currently
-open files and resources. Each open file is assigned a simple numeric
-identifier called a *file descriptor*. At the system-level, all file system
-operations use these file descriptors to identify and track each specific
-file. Windows systems use a different but conceptually similar mechanism for
-tracking resources. To simplify things for users, Node.js abstracts away the
-specific differences between operating systems and assigns all open files a
-numeric file descriptor.
+在 POSIX 系统，内核为所有进程维护着一张当前打开着的文件与资源的表格。
+每个打开的文件都会分配一个名为文件描述符的数值标识。
+在系统层，所有文件系统操作使用这些文件描述符来识别与追踪每个特定的文件。
+Window 系统使用了一个不同但概念类似的机制来追踪资源。
+为方便用户，Node.js 抽象了不同操作系统间的差异，为所有打开的文件分配了数值的文件描述符。
 
-The `fs.open()` method is used to allocate a new file descriptor. Once
-allocated, the file descriptor may be used to read data from, write data to,
-or request information about the file.
+`fs.open()` 方法用于分配一个新的文件描述符。
+一旦分配了，文件描述符可用于读取数据、写入数据、或查看文件信息。
 
 ```js
 fs.open('/open/some/file.txt', 'r', (err, fd) => {
   if (err) throw err;
   fs.fstat(fd, (err, stat) => {
     if (err) throw err;
-    // use stat
+    // 各种操作
 
-    // always close the file descriptor!
+    // 必须关闭文件描述符！
     fs.close(fd, (err) => {
       if (err) throw err;
     });
@@ -27,8 +23,6 @@ fs.open('/open/some/file.txt', 'r', (err, fd) => {
 });
 ```
 
-Most operating systems limit the number of file descriptors that may be open
-at any given time so it is critical to close the descriptor when operations
-are completed. Failure to do so will result in a memory leak that will
-eventually cause an application to crash.
+大多数操作系统会限制打开的文件描述符的数量，所以当操作完成时需关闭描述符。
+如果不这样做会导致内存泄漏，最终造成应用奔溃。
 

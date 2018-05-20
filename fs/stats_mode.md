@@ -1,5 +1,5 @@
 
 * {number}
 
-A bit-field describing the file type and mode.
+表示文件类型与模式的位域。
 

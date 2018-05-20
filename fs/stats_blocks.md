@@ -1,5 +1,5 @@
 
 * {number}
 
-The number of blocks allocated for this file.
+分配给文件的块的数量。
 

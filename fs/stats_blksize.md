@@ -1,5 +1,5 @@
 
 * {number}
 
-The file system block size for i/o operations.
+文件系统用于 I/O 操作的块大小。
 

@@ -1,5 +1,5 @@
 
 * {number}
 
-The numeric user identifier of the user that owns the file (POSIX).
+文件拥有者的数值型用户标识。
 

@@ -2,7 +2,7 @@
 added: v9.11.0
 -->
 
-Emitted when the `fs.ReadStream` is ready to be used.
+当 `fs.ReadStream` 已准备好被使用时触发。
 
-Fires immediately after `'open'`.
+`'open'` 之后立即触发。
 

@@ -1,14 +1,10 @@
 <!-- YAML
 added: v0.6.7
 changes:
-  - version: v10.0.0
-    pr-url: https://github.com/nodejs/node/pull/12562
-    description: The `callback` parameter is no longer optional. Not passing
-                 it will throw a `TypeError` at runtime.
   - version: v7.0.0
     pr-url: https://github.com/nodejs/node/pull/7897
     description: The `callback` parameter is no longer optional. Not passing
-                 it will emit a deprecation warning with id DEP0013.
+                 it will emit a deprecation warning.
   - version: v7.0.0
     pr-url: https://github.com/nodejs/node/pull/7831
     description: The passed `options` object will never be modified.
@@ -17,19 +13,19 @@ changes:
     description: The `file` parameter can be a file descriptor now.
 -->
 
-* `path` {string|Buffer|URL|number} filename or file descriptor
+* `file` {string|Buffer|URL|number} 文件名或文件描述符
 * `data` {string|Buffer}
 * `options` {Object|string}
-  * `encoding` {string|null} **Default:** `'utf8'`
-  * `mode` {integer} **Default:** `0o666`
-  * `flag` {string} See [support of file system `flags`][]. **Default:** `'a'`.
+  * `encoding` {string|null} 默认为 `'utf8'`
+  * `mode` {integer} 默认为 `0o666`
+  * `flag` {string} 默认为 `'a'`
 * `callback` {Function}
   * `err` {Error}
 
-Asynchronously append data to a file, creating the file if it does not yet
-exist. `data` can be a string or a [`Buffer`][].
+异步地追加数据到一个文件，如果文件不存在则创建文件。
+`data` 可以是一个字符串或 [`Buffer`]。
 
-Example:
+例子：
 
 ```js
 fs.appendFile('message.txt', 'data to append', (err) => {
@@ -38,15 +34,13 @@ fs.appendFile('message.txt', 'data to append', (err) => {
 });
 ```
 
-If `options` is a string, then it specifies the encoding. Example:
+如果 `options` 是一个字符串，则它指定了字符编码。例如：
 
 ```js
 fs.appendFile('message.txt', 'data to append', 'utf8', callback);
 ```
 
-The `path` may be specified as a numeric file descriptor that has been opened
-for appending (using `fs.open()` or `fs.openSync()`). The file descriptor will
-not be closed automatically.
+`file` 可能是一个被打开用来追加数据的数字文件描述符（通过 `fs.open()` 或者 `fs.openSync()`）。这样的文件描述符将不会被自动关闭。
 
 ```js
 fs.open('message.txt', 'a', (err, fd) => {
@@ -59,4 +53,5 @@ fs.open('message.txt', 'a', (err, fd) => {
   });
 });
 ```
+
 

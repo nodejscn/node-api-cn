@@ -1,5 +1,5 @@
 
 * {number}
 
-The numeric group identifier of the group that owns the file (POSIX).
+拥有文件的群组的数值型群组标识。
 

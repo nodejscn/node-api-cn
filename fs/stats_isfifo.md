@@ -2,8 +2,7 @@
 added: v0.1.10
 -->
 
-* Returns: {boolean}
+* 返回: {boolean}
 
-Returns `true` if the `fs.Stats` object describes a first-in-first-out (FIFO)
-pipe.
+如果 `fs.Stats` 对象表示一个先进先出（FIFO）管道，则返回 `true` 。
 

@@ -3,7 +3,8 @@
 
 > 稳定性: 2 - 稳定的
 
-`string_decoder` 模块提供了一个 API，用于把 `Buffer` 对象解码成字符串，但会保留编码过的多字节 UTF-8 与 UTF-16 字符。使用以下方法引入：
+`string_decoder` 模块提供了一个 API，用于把 `Buffer` 对象解码成字符串，但会保留编码过的多字节 UTF-8 与 UTF-16 字符。
+可以通过以下方式使用：
 
 ```js
 const { StringDecoder } = require('string_decoder');

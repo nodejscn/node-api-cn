@@ -2,8 +2,7 @@
 added: v0.1.99
 -->
 
-* `encoding` {string} The character encoding the `StringDecoder` will use.
-  **Default:** `'utf8'`.
+* `encoding` {string} `StringDecoder` 使用的字符编码。默认为 `'utf8'`。
 
-Creates a new `StringDecoder` instance.
+创建一个新的 `StringDecoder` 实例。
 

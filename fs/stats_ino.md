@@ -1,5 +1,5 @@
 
 * {number}
 
-The file system specific "Inode" number for the file.
+文件系统特定的文件索引节点数值。
 

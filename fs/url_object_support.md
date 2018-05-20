@@ -1,9 +1,9 @@
 <!-- YAML
 added: v7.6.0
 -->
-For most `fs` module functions, the `path` or `filename` argument may be passed
-as a WHATWG [`URL`][] object. Only [`URL`][] objects using the `file:` protocol
-are supported.
+
+对于大多数 `fs` 模块的函数，`path` 或 `filename` 参数可以传入 WHATWG [`URL`] 对象。
+只支持使用 `file:` 协议的 [`URL`] 对象。
 
 ```js
 const fs = require('fs');
@@ -12,70 +12,68 @@ const fileUrl = new URL('file:///tmp/hello');
 fs.readFileSync(fileUrl);
 ```
 
-`file:` URLs are always absolute paths.
+`file:` URL 必须是绝对路径。
 
-Using WHATWG [`URL`][] objects might introduce platform-specific behaviors.
+使用 WHATWG [`URL`] 对象在不同的平台会有特定的行为。
 
-On Windows, `file:` URLs with a hostname convert to UNC paths, while `file:`
-URLs with drive letters convert to local absolute paths. `file:` URLs without a
-hostname nor a drive letter will result in a throw:
+在 Windows 上，携带主机名的 `file:` URL 会被转换为 UNC 路径，携带驱动器号的 `file:` URL 会被转换为本地绝对路径。
+既没有主机名，也没有驱动器号的 `file:` URL 在转换时会抛出错误：
 
 ```js
-// On Windows :
+// 在 Windows 上：
 
-// - WHATWG file URLs with hostname convert to UNC path
+// - 携带主机名的 WHATWG 文件 URL 会被转换为 UNC 路径。
 // file://hostname/p/a/t/h/file => \\hostname\p\a\t\h\file
 fs.readFileSync(new URL('file://hostname/p/a/t/h/file'));
 
-// - WHATWG file URLs with drive letters convert to absolute path
+// - 携带驱动器号的 WHATWG 文件 URL 会被转换为绝对路径。
 // file:///C:/tmp/hello => C:\tmp\hello
 fs.readFileSync(new URL('file:///C:/tmp/hello'));
 
-// - WHATWG file URLs without hostname must have a drive letters
+// - 没有携带主机名的 WHATWG 文件 URL 必须包含驱动器号。
 fs.readFileSync(new URL('file:///notdriveletter/p/a/t/h/file'));
 fs.readFileSync(new URL('file:///c/p/a/t/h/file'));
 // TypeError [ERR_INVALID_FILE_URL_PATH]: File URL path must be absolute
 ```
 
-`file:` URLs with drive letters must use `:` as a separator just after
-the drive letter. Using another separator will result in a throw.
+携带驱动器号的 `file:` URL 必须在驱动器号后使用 `:` 作为分隔符。
+使用其他分隔符会抛出错误。
 
-On all other platforms, `file:` URLs with a hostname are unsupported and will
-result in a throw:
+在其他所有的平台上，都不支持携带主机名的 `file:` URL，使用时会抛出错误：
 
 ```js
-// On other platforms:
+// 在其他平台上：
 
-// - WHATWG file URLs with hostname are unsupported
+// - 不支持携带主机名的 WHATWG 文件 URL。
 // file://hostname/p/a/t/h/file => throw!
 fs.readFileSync(new URL('file://hostname/p/a/t/h/file'));
 // TypeError [ERR_INVALID_FILE_URL_PATH]: must be absolute
 
-// - WHATWG file URLs convert to absolute path
+// - WHATWG 文件 URL 会被转换为绝对路径。
 // file:///tmp/hello => /tmp/hello
 fs.readFileSync(new URL('file:///tmp/hello'));
 ```
 
-A `file:` URL having encoded slash characters will result in a throw on all
-platforms:
+包含编码后的斜杆符号的 `file:` URL 在所有平台都会抛出错误：
 
 ```js
-// On Windows
+// 在 Windows 上：
 fs.readFileSync(new URL('file:///C:/p/a/t/h/%2F'));
 fs.readFileSync(new URL('file:///C:/p/a/t/h/%2f'));
 /* TypeError [ERR_INVALID_FILE_URL_PATH]: File URL path must not include encoded
 \ or / characters */
 
-// On POSIX
+// 在 POSIX 上：
 fs.readFileSync(new URL('file:///p/a/t/h/%2F'));
 fs.readFileSync(new URL('file:///p/a/t/h/%2f'));
 /* TypeError [ERR_INVALID_FILE_URL_PATH]: File URL path must not include encoded
 / characters */
 ```
-On Windows, `file:` URLs having encoded backslash will result in a throw:
+
+在 Windows 上，包含编码后的反斜杆符号的 `file:` URL 会抛出错误： 
 
 ```js
-// On Windows
+// 在 Windows 上：
 fs.readFileSync(new URL('file:///C:/path/%5C'));
 fs.readFileSync(new URL('file:///C:/path/%5c'));
 /* TypeError [ERR_INVALID_FILE_URL_PATH]: File URL path must not include encoded
