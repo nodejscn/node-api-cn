@@ -11,9 +11,8 @@ added: v0.7.7
 
 如果 `stream` 是一个 [TTY]，则它必须为原始模式。
 
-*Note*: This is automatically called by any readline instance on its `input`
-if the `input` is a terminal. Closing the `readline` instance does not stop
-the `input` from emitting `'keypress'` events.
+*注意*: 如果`input`是一个终端，任何一个readline实例一点有`input`，这都会被自动调用。
+关闭`readline`实例不能使`input`停止发射`'keypress'`事件。
 
 ```js
 readline.emitKeypressEvents(process.stdin);
