@@ -4,6 +4,5 @@ added: v8.1.0
 
 * {number}
 
-The timestamp indicating the last time the file status was changed expressed
-in milliseconds since the POSIX Epoch.
+表示文件状态最后一次被改变的时间戳。
 

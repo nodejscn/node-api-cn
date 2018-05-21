@@ -2,5 +2,5 @@
 added: v0.1.93
 -->
 
-µ± `WriteStream` µ×²ãµÄÎÄ¼þÃèÊö·û±»¹Ø±ÕÊ±´¥·¢¡£
+å½“ `WriteStream` åº•å±‚çš„æ–‡ä»¶æè¿°ç¬¦è¢«å…³é—­æ—¶è§¦å‘ã€‚
 

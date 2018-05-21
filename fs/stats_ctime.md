@@ -4,5 +4,5 @@ added: v0.11.13
 
 * {Date}
 
-The timestamp indicating the last time the file status was changed.
+表示文件状态最后一次被改变的时间。
 
