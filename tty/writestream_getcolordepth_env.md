@@ -2,24 +2,20 @@
 added: v9.9.0
 -->
 
-* `env` {Object} An object containing the environment variables to check.
-  **Default:** `process.env`.
-* Returns: {number}
+* `env` {Object} 一个包含需要检查的环境变量的对象。
+  默认为 `process.env`。
+* 返回: {number}
 
-Returns:
-* `1` for 2,
-* `4` for 16,
-* `8` for 256,
-* `24` for 16,777,216
-colors supported.
+返回:
+* `1` 支持 2 种颜色，
+* `4` 支持 16 种颜色，
+* `8` 支持 256 种颜色，
+* `24` 支持 16,777,216 种颜色，
 
-Use this to determine what colors the terminal supports. Due to the nature of
-colors in terminals it is possible to either have false positives or false
-negatives. It depends on process information and the environment variables that
-may lie about what terminal is used.
-To enforce a specific behavior without relying on `process.env` it is possible
-to pass in an object with different settings.
+使用该函数检测终端支持的颜色。
+鉴于终端中颜色的特性，可能存在误差。
+这依赖于进程信息与环境变量，但它们可能会隐瞒使用的是终端。
+为了执行特定行为时不依赖 `process.env`，可以传入带有不同选项的对象。
 
-Use the `NODE_DISABLE_COLORS` environment variable to enforce this function to
-always return 1.
+使用 `NODE_DISABLE_COLORS` 环境变量可以强制该函数总是返回 1。
 
