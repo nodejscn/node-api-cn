@@ -1,4 +1,4 @@
-
+﻿
 * `port` {number} Port to listen on for inspector connections. Optional.
   **Default:** what was specified on the CLI.
 * `host` {string} Host to listen on for inspector connections. Optional.

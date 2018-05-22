@@ -1,4 +1,4 @@
-
+﻿
 Apart from the debugger, various V8 Profilers are available through the DevTools
 protocol. Here's a simple example showing how to use the [CPU profiler][]:
 
