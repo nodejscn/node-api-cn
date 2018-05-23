@@ -6,7 +6,7 @@
 <!--name=querystring-->
 
 `querystring` 模块提供了一些实用函数，用于解析与格式化 URL 查询字符串。
-使用以下方法引入：
+可以通过以下方式使用：
 
 ```js
 const querystring = require('querystring');

@@ -1,4 +1,6 @@
 
+<!--introduced_in=v0.9.12-->
+
 > 稳定性: 2 - 稳定的
 
 <!-- type=misc -->
@@ -9,7 +11,7 @@ Node.js 包含一个进程外的调试工具，可以通过[V8检查器]与内�
 ```txt
 $ node inspect myscript.js
 < Debugger listening on ws://127.0.0.1:9229/80e7a814-7cd3-49fb-921a-2e02228cd5ba
-< For help see https://nodejs.org/en/docs/inspector
+< For help, see: https://nodejs.org/en/docs/inspector
 < Debugger attached.
 Break on start in myscript.js:1
 > 1 (function (exports, require, module, __filename, __dirname) { global.x = 5;
@@ -38,7 +40,7 @@ console.log('你好');
 ```txt
 $ node inspect myscript.js
 < Debugger listening on ws://127.0.0.1:9229/80e7a814-7cd3-49fb-921a-2e02228cd5ba
-< For help see https://nodejs.org/en/docs/inspector
+< For help, see: https://nodejs.org/en/docs/inspector
 < Debugger attached.
 Break on start in myscript.js:1
 > 1 (function (exports, require, module, __filename, __dirname) { global.x = 5;

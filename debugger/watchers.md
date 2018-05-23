@@ -2,7 +2,7 @@
 可以在调试时监视表达式和变量的值。
 在每个断点上，监视器列表中的每个表达式都会在当前上下文中被执行，并在断点的源代码列表之前立即显示。
 
-输入 `watch('my_expression')` 开始监视一个表达式。
+输入 `watch('my_expression')` 开始监视表达式。
 `watchers` 命令会打印已激活的监视器。
-输入 `unwatch('my_expression')` 来移除一个监视器。
+输入 `unwatch('my_expression')` 可以移除监视器。
 

@@ -17,7 +17,7 @@ changes:
 * `eq` {string} 用于界定查询字符串中的键与值的子字符串。默认为 `'='`。
 * `options` {Object}
   * `decodeURIComponent` {Function} 解码查询字符串的字符时使用的函数。默认为 `querystring.unescape()`。
-  * `maxKeys` {number} 指定要解析的键的最大数量。默认为 `1000`。指定为 `0` 则不限制。
+  * `maxKeys` {number} 指定要解析的键的最大数量。指定为 `0` 则不限制。默认为 `1000`。
 
 该方法会把一个 URL 查询字符串 `str` 解析成一个键值对的集合。
 
