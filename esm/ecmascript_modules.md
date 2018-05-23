@@ -1,11 +1,14 @@
-
+﻿
 <!--introduced_in=v8.5.0-->
+<!-- type=misc -->
 
-> 稳定性: 1 - 试验的
+> Stability: 1 - Experimental
 
 <!--name=esm-->
 
-Node.js包含了对基于 [Node.js EP for ES Modules] 的ES模块的支持。
+Node.js contains support for ES Modules based upon the
+[Node.js EP for ES Modules][].
 
-不是所有EP的功能都是完整的并且将随着VM的支持和实现而就绪的。有问题的地方正在被修改完善。
+Not all features of the EP are complete and will be landing as both VM support
+and implementation is ready. Error messages are still being polished.
 

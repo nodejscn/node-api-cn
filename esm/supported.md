@@ -1,2 +1,5 @@
+﻿
+Only the CLI argument for the main entry point to the program can be an entry
+point into an ESM graph. Dynamic import can also be used to create entry points
+into ESM graphs at runtime.
 
-只有在程序主入口添加CLI参数可以成为ES模块的入口点。在未来 `import()` 可以在程序运行时创建ES模块入口点。
