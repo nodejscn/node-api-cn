@@ -7,7 +7,7 @@ changes:
 -->
 * `actual` {any}
 * `expected` {any}
-* `message` {any}
+* `message` {string|Error}
 
 使用 [SameValue比较法]测试 `actual` 参数与 `expected` 参数是否全等。
 

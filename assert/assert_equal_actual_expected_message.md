@@ -3,7 +3,7 @@ added: v0.1.21
 -->
 * `actual` {any}
 * `expected` {any}
-* `message` {any}
+* `message` {string|Error}
 
 **strict 模式**
 

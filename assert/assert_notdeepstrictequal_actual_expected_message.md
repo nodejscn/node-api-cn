@@ -27,7 +27,7 @@ changes:
 -->
 * `actual` {any}
 * `expected` {any}
-* `message` {any}
+* `message` {string|Error}
 
 测试 `actual` 参数与 `expected` 参数是否不深度全等。
 与 [`assert.deepStrictEqual()`] 相反。

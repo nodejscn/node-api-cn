@@ -7,7 +7,7 @@ changes:
                  error message.
 -->
 * `value` {any}
-* `message` {any}
+* `message` {string|Error}
 
 测试 `value` 是否为真值。
 相当于 `assert.equal(!!value, true, message)`。

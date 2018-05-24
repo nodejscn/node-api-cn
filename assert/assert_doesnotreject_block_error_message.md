@@ -3,7 +3,7 @@ added: v10.0.0
 -->
 * `block` {Function|Promise}
 * `error` {RegExp|Function}
-* `message` {any}
+* `message` {string|Error}
 
 等待 `block` 的 promise 完成，如果 `block` 是一个函数，则立即调用该函数并等待返回的 promise 完成，然后检查 promise 是否被 reject。
 

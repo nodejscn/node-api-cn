@@ -1,7 +1,7 @@
 <!-- YAML
 added: v0.1.21
 -->
-* `message` {any} 默认为 `'Failed'`。
+* `message` {string|Error} 默认为 `'Failed'`。
 
 抛出 `AssertionError`，并带上提供的错误信息或默认的错误信息。
 如果 `message` 参数是 [`Error`] 的实例，则会抛出它而不是 `AssertionError`。

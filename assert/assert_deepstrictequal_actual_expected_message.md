@@ -27,7 +27,7 @@ changes:
 -->
 * `actual` {any}
 * `expected` {any}
-* `message` {any}
+* `message` {string|Error}
 
 测试 `actual` 参数与 `expected` 参数是否深度相等。
 深度相等意味着子对象中可枚举的自身属性也会按以下规则递归地比较。

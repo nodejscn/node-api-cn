@@ -10,7 +10,7 @@ changes:
 -->
 * `block` {Function}
 * `error` {RegExp|Function}
-* `message` {any}
+* `message` {string|Error}
 
 断言 `block` 函数不会抛出错误。
 

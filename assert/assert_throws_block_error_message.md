@@ -1,6 +1,10 @@
 <!-- YAML
 added: v0.1.21
 changes:
+  - version: v10.2.0
+    pr-url: https://github.com/nodejs/node/pull/20485
+    description: The `error` parameter can be an object containing regular
+                 expressions now.
   - version: v9.9.0
     pr-url: https://github.com/nodejs/node/pull/17584
     description: The `error` parameter can now be an object as well.
@@ -10,19 +14,27 @@ changes:
 -->
 * `block` {Function}
 * `error` {RegExp|Function|Object|Error}
-* `message` {any}
+* `message` {string|Error}
 
 断言 `block` 函数会抛出错误。
 
-`error` 可以是 [`Class`]、[`RegExp`]、校验函数、每个属性都会被测试的对象、或每个属性（包括不可枚举的 `message` 和 `name` 属性）都会被测试的错误实例。
+`error` 可以是 [`Class`]、[`RegExp`]、校验函数、每个属性都会被测试是否深度全等的校验对象、或每个属性（包括不可枚举的 `message` 和 `name` 属性）都会被测试是否深度全等的错误实例。
+当使用对象时，可以使用正则表达式来校验字符串属性。
+详见下面的例子。
 
 如果指定了 `message` 参数，则当 `block` 函数不抛出错误时，`message` 参数会作为 `AssertionError` 的错误信息。
 
-例子，`error` 参数为自定义的错误对象或错误实例：
+例子，`error` 参数为自定义的校验对象或错误实例：
 
 ```js
 const err = new TypeError('错误信息');
 err.code = 404;
+err.foo = 'bar';
+err.info = {
+  nested: true,
+  baz: 'text'
+};
+err.reg = /abc/i;
 
 assert.throws(
   () => {
@@ -31,7 +43,33 @@ assert.throws(
   {
     name: 'TypeError',
     message: '错误信息'
-    // 注意，只有错误对象的属性会被测试！
+    info: {
+      nested: true,
+      baz: 'text'
+    }
+    // 注意，只有校验对象的属性会被测试。
+    // 使用嵌套的对象必须提供全部属性，否则校验会失败。 
+  }
+);
+
+// 使用正则表达式来校验错误属性：
+assert.throws(
+  () => {
+    throw err;
+  },
+  {
+    // `name` 和 `message` 属性为字符串，对它们使用正则表达式进行匹配。
+    // 如果校验失败，则抛出错误。
+    name: /^TypeError$/,
+    message: /错误信息/,
+    foo: 'bar',
+    info: {
+      nested: true,
+      // 嵌套的属性不可以使用正则表达式！
+      baz: 'text'
+    },
+    // `reg` 属性包含了一个正则表达式，只有校验对象也包含一个完全相同的正则表达式时，校验才会通过。
+    reg: /abc/i
   }
 );
 
