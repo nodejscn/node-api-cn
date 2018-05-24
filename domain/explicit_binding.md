@@ -2,7 +2,7 @@
 <!--type=misc-->
 
 Sometimes, the domain in use is not the one that ought to be used for a
-specific event emitter.  Or, the event emitter could have been created
+specific event emitter. Or, the event emitter could have been created
 in the context of one domain, but ought to instead be bound to some
 other domain.
 
@@ -10,8 +10,6 @@ For example, there could be one domain in use for an HTTP server, but
 perhaps we would like to have a separate domain to use for each request.
 
 That is possible via explicit binding.
-
-For example:
 
 ```js
 // create a top-level domain for the server

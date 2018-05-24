@@ -2,7 +2,7 @@
 added: v8.0.0
 -->
 ```C
-NODE_EXTERN napi_status napi_throw_error(napi_env env,
+NAPI_EXTERN napi_status napi_throw_error(napi_env env,
                                          const char* code,
                                          const char* msg);
 ```

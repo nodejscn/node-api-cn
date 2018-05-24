@@ -2,7 +2,7 @@
 added: v8.0.0
 -->
 ```C
-NODE_EXTERN napi_status
+NAPI_EXTERN napi_status
     napi_open_escapable_handle_scope(napi_env env,
                                      napi_handle_scope* result);
 ```

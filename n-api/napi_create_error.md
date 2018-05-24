@@ -2,7 +2,7 @@
 added: v8.0.0
 -->
 ```C
-NODE_EXTERN napi_status napi_create_error(napi_env env,
+NAPI_EXTERN napi_status napi_create_error(napi_env env,
                                           napi_value code,
                                           napi_value msg,
                                           napi_value* result);

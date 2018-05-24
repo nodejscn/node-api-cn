@@ -2,7 +2,7 @@
 added: v8.0.0
 -->
 ```C
-NODE_EXTERN napi_status napi_close_handle_scope(napi_env env,
+NAPI_EXTERN napi_status napi_close_handle_scope(napi_env env,
                                                 napi_handle_scope scope);
 ```
 - `[in] env`: The environment that the API is invoked under.
