@@ -2,8 +2,7 @@
 added: v10.0.0
 -->
 
-Emitted when the server sends a 1xx response (excluding 101 Upgrade). This
-event is emitted with a callback containing an object with a status code.
+在服务器发送 1xx 代号的响应时触发（101 Upgrade 响应除外）。该事件会调用一个回调函数，其参数是一个存有状态码的对象。
 
 ```js
 const http = require('http');
@@ -23,8 +22,5 @@ req.on('information', (res) => {
 });
 ```
 
-101 Upgrade statuses do not fire this event due to their break from the
-traditional HTTP request/response chain, such as web sockets, in-place TLS
-upgrades, or HTTP 2.0. To be notified of 101 Upgrade notices, listen for the
-[`'upgrade'`][] event instead.
+101 Upgrade 状态不会触发该事件，因为它们会断开传统的HTTP的请求/响应链，例如改用Web Socket、现场TLS升级、采用HTTP 2.0。若要获知101 Upgrade通知，请监听[`'upgrade'`][]事件。
 
