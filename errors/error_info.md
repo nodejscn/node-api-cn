@@ -1,15 +1,12 @@
 
-`SystemError` instances may have an additional `info` property whose
-value is an object with additional details about the error conditions.
+`SystemError` 实例可能附有一个 `info` 属性，其值是一个对象，记录了关于错误情况的更多细节。
 
-The following properties are provided:
+`SystemError` 实例提供以下属性：
 
-* `code` {string} The string error code
-* `errno` {number} The system-provided error number
-* `message` {string} A system-provided human readable description of the error
-* `syscall` {string} The name of the system call that triggered the error
-* `path` {Buffer} When reporting a file system error, the `path` will identify
-  the file path.
-* `dest` {Buffer} When reporting a file system error, the `dest` will identify
-  the file path destination (if any).
+* `code` {string} 错误代码字符串
+* `errno` {number} 系统提供的错误代号
+* `message` {string} 系统提供的常人能理解的错误描述
+* `syscall` {string} 触发了错误的系统调用的名称
+* `path` {Buffer} 当汇报文件系统的错误时，`path` 包含与之有关的文件的路径
+* `dest` {Buffer} 当汇报文件系统的错误时，`dest` 包含与之有关的文件目的地的路径（如果存在）
 
