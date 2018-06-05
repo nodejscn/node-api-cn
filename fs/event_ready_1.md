@@ -2,7 +2,7 @@
 added: v9.11.0
 -->
 
-Emitted when the `fs.WriteStream` is ready to be used.
+当 `fs.WriteStream` 已准备好被使用时触发。
 
-Fires immediately after `'open'`.
+在 `'open'` 事件之后立即触发。
 
