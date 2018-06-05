@@ -13,12 +13,12 @@ const options = {
   path: '/length_request'
 };
 
-// Make a request
+// 发送请求
 const req = http.request(options);
 req.end();
 
 req.on('information', (res) => {
-  console.log(`Got information prior to main response: ${res.statusCode}`);
+  console.log(`在主响应之前获得信息: ${res.statusCode}`);
 });
 ```
 
