@@ -14,7 +14,7 @@ changes:
   * `stderr` {stream.Writable}
   * `ignoreErrors` {boolean} 是否在向输出流写数据时忽略错误， **默认为** `true`.
   * `colorMode` {boolean|string} 配置该 `Console` 实例的颜色支持。
-    设为 `true` 将启用会使控制台在检查数据时为其上色，设为 `auto` 会使是否启用颜色取决于 `isTTY` 属性的值和对应的数据流的 `getColorDepth()` 返回的值。**默认为** `auto`。
+    设为 `true` 将会使控制台在检查数据时为其上色，设为 `auto` 会使是否启用颜色取决于 `isTTY` 属性的值和对应的数据流的 `getColorDepth()` 返回的值。**默认为** `auto`。
 
 用一个或两个输出流实例创建一个新的 `Console`。 输出流 `stdout` 用来记录日志和信息；`stderr` 用来记录警告和错误。如果不提供 `stderr`，则 `stdout` 会被用作 `stderr`。
 
