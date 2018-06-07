@@ -12,17 +12,11 @@ changes:
 * `options` {Object}
   * `stdout` {stream.Writable}
   * `stderr` {stream.Writable}
-  * `ignoreErrors` {boolean} Ignore errors when writing to the underlying
-                             streams. **Default:** `true`.
-  * `colorMode` {boolean|string} Set color support for this `Console` instance.
-    Setting to `true` enables coloring while inspecting values, setting to
-    `'auto'` will make color support depend on the value of the `isTTY` property
-    and the value returned by `getColorDepth()` on the respective stream.
-    **Default:** `'auto'`.
+  * `ignoreErrors` {boolean} 是否在向输出流写数据时忽略错误， **默认为** `true`.
+  * `colorMode` {boolean|string} 配置该 `Console` 实例的颜色支持。
+    设为 `true` 将会使控制台在检查数据时为其上色，设为 `auto` 会使是否启用颜色取决于 `isTTY` 属性的值和对应的数据流的 `getColorDepth()` 返回的值。**默认为** `auto`。
 
-Creates a new `Console` with one or two writable stream instances. `stdout` is a
-writable stream to print log or info output. `stderr` is used for warning or
-error output. If `stderr` is not provided, `stdout` is used for `stderr`.
+用一个或两个输出流实例创建一个新的 `Console`。 输出流 `stdout` 用来记录日志和信息；`stderr` 用来记录警告和错误。如果不提供 `stderr`，则 `stdout` 会被用作 `stderr`。
 
 ```js
 const output = fs.createWriteStream('./stdout.log');
@@ -35,8 +29,7 @@ logger.log('count: %d', count);
 // in stdout.log: count 5
 ```
 
-The global `console` is a special `Console` whose output is sent to
-[`process.stdout`][] and [`process.stderr`][]. It is equivalent to calling:
+全局符号 `console` 是一个特殊的 `Console` 实例，其输出会被送往 [`process.stdout`][] 和 [`process.stderr`][]。它等价于调用：
 
 ```js
 new Console({ stdout: process.stdout, stderr: process.stderr });
