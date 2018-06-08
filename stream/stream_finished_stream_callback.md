@@ -2,12 +2,10 @@
 added: v10.0.0
 -->
 
-* `stream` {Stream} A readable and/or writable stream.
-* `callback` {Function} A callback function that takes an optional error
-  argument.
+* `stream` {Stream} 一个可读或可写的流
+* `callback` {Function} 一个回调函数，可以带有一个错误信息参数，也可没有
 
-A function to get notified when a stream is no longer readable, writable
-or has experienced an error or a premature close event.
+使用此函数，以在一个流不再可读、可写或发生了错误、提前关闭等事件时获得通知。
 
 ```js
 const { finished } = require('stream');
@@ -16,20 +14,18 @@ const rs = fs.createReadStream('archive.tar');
 
 finished(rs, (err) => {
   if (err) {
-    console.error('Stream failed', err);
+    console.error('流发生错误', err);
   } else {
-    console.log('Stream is done reading');
+    console.log('流已读完');
   }
 });
 
-rs.resume(); // drain the stream
+rs.resume(); // 将流读完
 ```
 
-Especially useful in error handling scenarios where a stream is destroyed
-prematurely (like an aborted HTTP request), and will not emit `'end'`
-or `'finish'`.
+在处理流的提前销毁（如被抛弃的HTTP请求）等错误事件时特别有用，此时流不会触发 `'end'` 或 `'finish'` 事件。
 
-The `finished` API is promisify'able as well;
+`finished` API 也可做成承诺：
 
 ```js
 const finished = util.promisify(stream.finished);
@@ -38,10 +34,10 @@ const rs = fs.createReadStream('archive.tar');
 
 async function run() {
   await finished(rs);
-  console.log('Stream is done reading');
+  console.log('流已读完');
 }
 
 run().catch(console.error);
-rs.resume(); // drain the stream
+rs.resume(); // 将流读完
 ```
 
