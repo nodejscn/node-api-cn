@@ -1,14 +1,9 @@
 
-The use of `readable.setEncoding()` will change the behavior of how the
-`highWaterMark` operates in non-object mode.
+调用 `readable.setEncoding()` 会改变 `highWaterMark` 属性在非对象模式中的作用。
 
-Typically, the size of the current buffer is measured against the
-`highWaterMark` in _bytes_. However, after `setEncoding()` is called, the
-comparison function will begin to measure the buffer's size in _characters_.
+一般而言，我们直接将缓冲器存储的 _字节数_ 同 `highWaterMark` 相比较。然而在调用 `setEncoding()` 之后，程序会将缓冲器中存储的 _字符数_ 与 `highWaterMark` 相比较。
 
-This is not a problem in common cases with `latin1` or `ascii`. But it is
-advised to be mindful about this behavior when working with strings that could
-contain multi-byte characters.
+在通常情况下，如使用 `latin1` 或 `ascii` 时，这不成问题。但在处理可能含有多字节字符的字符串时，此行为需要当心。
 
 [`'data'`]: #stream_event_data
 [`'drain'`]: #stream_event_drain
