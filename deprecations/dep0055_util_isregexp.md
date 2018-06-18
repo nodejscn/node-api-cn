@@ -1,6 +1,6 @@
 
 Type: Documentation-only
 
-The [`util.isRegExp()`][] API has been deprecated.
+The [`util.isRegExp()`][] API is deprecated.
 
 <a id="DEP0056"></a>

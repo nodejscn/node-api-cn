@@ -3,8 +3,8 @@
 <!-- type=misc -->
 
 Node.js may deprecate APIs when either: (a) use of the API is considered to be
-unsafe, (b) an improved alternative API has been made available, or (c)
-breaking changes to the API are expected in a future major release.
+unsafe, (b) an improved alternative API is available, or (c) breaking changes to
+the API are expected in a future major release.
 
 Node.js utilizes three kinds of Deprecations:
 
@@ -26,6 +26,6 @@ be printed to `stderr` the first time the deprecated API is used. When the
 `--throw-deprecation` command-line flag is used, a Runtime deprecation will
 cause an error to be thrown.
 
-An End-of-Life deprecation is used to identify code that either has been
-removed or will soon be removed from Node.js.
+An End-of-Life deprecation is used when functionality is or will soon be removed
+from Node.js.
 

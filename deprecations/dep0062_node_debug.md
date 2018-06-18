@@ -1,7 +1,7 @@
 
 Type: Runtime
 
-`--debug` activates the legacy V8 debugger interface, which has been removed as
+`--debug` activates the legacy V8 debugger interface, which was removed as
 of V8 5.8. It is replaced by Inspector which is activated with `--inspect`
 instead.
 

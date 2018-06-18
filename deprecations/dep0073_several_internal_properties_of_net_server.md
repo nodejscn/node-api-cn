@@ -2,7 +2,7 @@
 Type: End-of-Life
 
 Accessing several internal, undocumented properties of `net.Server` instances
-with inappropriate names has been deprecated.
+with inappropriate names is deprecated.
 
 As the original API was undocumented and not generally useful for non-internal
 code, no replacement API is provided.

@@ -1,7 +1,7 @@
 
 Type: Runtime
 
-`Module._debug()` has been deprecated.
+`Module._debug()` is deprecated.
 
 The `Module._debug()` function was never documented as an officially
 supported API.

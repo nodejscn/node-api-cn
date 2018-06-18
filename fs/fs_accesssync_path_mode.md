@@ -8,7 +8,7 @@ changes:
 -->
 
 * `path` {string|Buffer|URL}
-* `mode` {integer} **Default:** `fs.constants.F_OK`
+* `mode` {integer} 默认为 `fs.constants.F_OK`。
 
 同步地测试 `path` 指定的文件或目录的用户权限。
 `mode` 参数是一个可选的整数，指定要执行的可访问性检查。 
