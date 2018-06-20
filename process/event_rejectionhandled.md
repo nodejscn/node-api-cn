@@ -15,7 +15,7 @@ added: v1.4.1
 
 在同步代码情况下，当未处理异常列表增长时，会触发 `'uncaughtException'` 事件。
 
-在异步代码情况下，当未处理异常列表增长时，会触发 `'uncaughtException'` 事件，当未处理列表收缩时，会触发 `'rejectionHandled'` 事件。
+在异步代码情况下，当未处理异常列表增长时，会触发 `'unhandledRejection'` 事件，当未处理列表收缩时，会触发 `'rejectionHandled'` 事件。
 
 例如:
 
