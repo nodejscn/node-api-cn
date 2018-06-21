@@ -9,12 +9,12 @@ changes:
     description: The `file` parameter can be a file descriptor now.
 -->
 
-* `file` {string|Buffer|URL|integer} 文件名或文件描述符
+* `file` {string|Buffer|URL|integer} 文件名或文件描述符。
 * `data` {string|Buffer|Uint8Array}
 * `options` {Object|string}
-  * `encoding` {string|null} 默认 = `'utf8'`
-  * `mode` {integer} 默认 = `0o666`
-  * `flag` {string} 默认 = `'w'`
+  * `encoding` {string|null} 默认为 `'utf8'`。
+  * `mode` {integer} 默认为 `0o666`。
+  * `flag` {string} 详见[支持的文件系统flag]。默认为 `'w'`。
 
 [`fs.writeFile()`] 的同步版本。返回 `undefined`。
 
