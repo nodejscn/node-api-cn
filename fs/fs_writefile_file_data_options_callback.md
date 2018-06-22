@@ -14,7 +14,7 @@ changes:
                  不传入会触发 id 为 DEP0013 的不建议使用警告。
   - version: v5.0.0
     pr-url: https://github.com/nodejs/node/pull/3163
-    description: 参数 `path` 现在可以是一个文件描述符。
+    description: 参数 `file` 现在可以是一个文件描述符。
 -->
 
 * `file` {string|Buffer|URL|integer} 文件名或文件描述符。

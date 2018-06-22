@@ -3,10 +3,10 @@ added: v0.1.29
 changes:
   - version: v7.4.0
     pr-url: https://github.com/nodejs/node/pull/10382
-    description: The `data` parameter can now be a `Uint8Array`.
+    description: 参数 `data` 现在可以是一个 `Uint8Array`。
   - version: v5.0.0
     pr-url: https://github.com/nodejs/node/pull/3163
-    description: The `file` parameter can be a file descriptor now.
+    description: 参数 `file` 现在可以是一个文件描述符。
 -->
 
 * `file` {string|Buffer|URL|integer} 文件名或文件描述符。
