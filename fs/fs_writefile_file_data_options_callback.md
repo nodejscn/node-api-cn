@@ -4,7 +4,7 @@ changes:
   - version: v10.0.0
     pr-url: https://github.com/nodejs/node/pull/12562
     description: 参数 `callback` 不再是可选的。
-    		 不传入则运行时会抛出 `TypeError`。[CODE][CODE_fs.writeFile_6]
+    		 不传入则运行时会抛出 `TypeError`。
   - version: v7.4.0
     pr-url: https://github.com/nodejs/node/pull/10382
     description: 参数 `data` 现在可以是一个 `Uint8Array`。
@@ -27,23 +27,23 @@ changes:
   * `err` {Error}
 
 异步地写入数据到文件，如果文件已经存在，则覆盖文件。
-`data` 可以是字符串或 buffer。[CODE][CODE_fs.writeFile_1]
+`data` 可以是字符串或 buffer。
 
 如果 `data` 是一个 buffer，则 `encoding` 选项无效。[CODE][CODE_fs.writeFile_2]
 
 例子：
 
 ```js
-fs.writeFile('message.txt', 'Hello Node.js', (err) => {
+fs.writeFile('文件名.txt', 'Node.js 中文网', (err) => {
   if (err) throw err;
-  console.log('The file has been saved!');
+  console.log('文件已保存！');
 });
 ```
 
-如果 `options` 是一个字符串，则它指定了字符编码。例子：[CODE][CODE_fs.writeFile_3]
+如果 `options` 是一个字符串，则它指定了字符编码。例子：
 
 ```js
-fs.writeFile('message.txt', 'Hello Node.js', 'utf8', callback);
+fs.writeFile('文件名.txt', 'Node.js 中文网', 'utf8', callback);
 ```
 
 任何指定的文件描述符必须支持写入。

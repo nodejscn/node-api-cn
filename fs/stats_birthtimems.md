@@ -2,7 +2,7 @@
 added: v8.1.0
 -->
 
-* {number}
+* {number|bigint}
 
 表示文件的创建时间戳。
 

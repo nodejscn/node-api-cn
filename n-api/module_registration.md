@@ -73,9 +73,8 @@ napi_value Init(napi_env env, napi_value exports) {
 }
 ```
 
-If you expect that your module will be loaded multiple times during the lifetime
-of the Node.js process, you can use the `NAPI_MODULE_INIT` macro to initialize
-your module:
+If the module will be loaded multiple times during the lifetime of the Node.js
+process, use the `NAPI_MODULE_INIT` macro to initialize the module:
 
 ```C
 NAPI_MODULE_INIT() {

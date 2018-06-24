@@ -14,7 +14,14 @@ asynchronous workers. Instances are created/deleted with
 
 The `execute` and `complete` callbacks are functions that will be
 invoked when the executor is ready to execute and when it completes its
-task respectively. These functions implement the following interfaces:
+task respectively.
+
+The `execute` function should avoid making any N-API calls
+that could result in the execution of JavaScript or interaction with
+JavaScript objects. Most often, any code that needs to make N-API
+calls should be made in `complete` callback instead.
+
+These functions implement the following interfaces:
 
 ```C
 typedef void (*napi_async_execute_callback)(napi_env env,

@@ -22,5 +22,5 @@ clearTimeout(setTimeout(() => {}, 10));
 ```
 
 Every new resource is assigned an ID that is unique within the scope of the
-current process.
+current Node.js instance.
 

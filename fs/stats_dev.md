@@ -1,5 +1,5 @@
 
-* {number}
+* {number|bigint}
 
 包含文件的设备的数值型标识。
 

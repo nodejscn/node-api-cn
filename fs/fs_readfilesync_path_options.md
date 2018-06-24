@@ -17,11 +17,11 @@ changes:
 * 返回: {string|Buffer}
 
 [`fs.readFile()`] 的同步版本。
-返回 `path` 的内容。[CODE][CODE_fs.readFileSync_1]
+返回 `path` 的内容。
 
 如果指定了 `encoding` 选项，则该函数返回一个字符串，否则返回一个 buffer。[CODE][CODE_fs.readFileSync_2]
 
-与 [`fs.readFile()`] 相似, 当路径是一个目录时，`fs.readFileSync()` 的行为与平台有关。[CODE][CODE_fs.readFileSync_4]
+与 [`fs.readFile()`] 相似, 当路径是一个目录时，`fs.readFileSync()` 的行为与平台有关。[CODE][CODE_fs.readFileSync_3]
 
 ```js
 // 在 macOS、Linux 与 Windows 上：

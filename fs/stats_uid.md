@@ -1,5 +1,5 @@
 
-* {number}
+* {number|bigint}
 
 文件拥有者的数值型用户标识。
 

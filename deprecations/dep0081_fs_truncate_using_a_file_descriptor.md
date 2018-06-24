@@ -1,7 +1,7 @@
 
 Type: Runtime
 
-`fs.truncate()` `fs.truncateSync()` usage with a file descriptor has been
+`fs.truncate()` `fs.truncateSync()` usage with a file descriptor is
 deprecated. Please use `fs.ftruncate()` or `fs.ftruncateSync()` to work with
 file descriptors.
 
