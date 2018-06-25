@@ -1,88 +1,69 @@
 
-The following flags are available wherever the `flag` option takes a
-string:
+以下 flag 用于接受字符串的 `flag` 选项：
 
-* `'a'` - Open file for appending.
-  The file is created if it does not exist.
+* `'a'` - 打开文件用于追加。如果文件不存在则创建文件。
 
-* `'ax'` - Like `'a'` but fails if the path exists.
+* `'ax'` - 类似 `'a'`，但如果文件存在则失败。
 
-* `'a+'` - Open file for reading and appending.
-  The file is created if it does not exist.
+* `'a+'` - 打开文件用于读取和追加。如果文件不存在则创建文件。
 
-* `'ax+'` - Like `'a+'` but fails if the path exists.
+* `'ax+'` - 类似 `'a+'`，但如果文件存在则失败。
 
-* `'as'` - Open file for appending in synchronous mode.
-  The file is created if it does not exist.
+* `'as'` - 在同步模式中打开文件用于追加。如果文件不存在则创建文件。
 
-* `'as+'` - Open file for reading and appending in synchronous mode.
-  The file is created if it does not exist.
+* `'as+'` - 在同步模式中打开文件用于读取和追加。如果文件不存在则创建文件。
 
-* `'r'` - Open file for reading.
-  An exception occurs if the file does not exist.
+* `'r'` - 打开文件用于读取。如果文件不存在则抛出异常。
 
-* `'r+'` - Open file for reading and writing.
-  An exception occurs if the file does not exist.
+* `'r+'` - 打开文件用于读取和写入。如果文件不存在则抛出异常。
 
-* `'rs+'` - Open file for reading and writing in synchronous mode. Instructs
-  the operating system to bypass the local file system cache.
+* `'rs+'` - 在同步模式中打开文件用于读取和写入。指示操作系统绕开本地文件系统缓存。
 
-  This is primarily useful for opening files on NFS mounts as it allows
-  skipping the potentially stale local cache. It has a very real impact on
-  I/O performance so using this flag is not recommended unless it is needed.
+  这个主要用于在 NFS 挂载上打开文件，因为它允许跳过可能存在的本地缓存。
+  它对 I/O 性能有较大影响，除非需要否则不建议使用这个 flag。
 
-  Note that this doesn't turn `fs.open()` or `fsPromises.open()` into a
-  synchronous blocking call. If synchronous operation is desired, something
-  like `fs.openSync()` should be used.
+  注意，它不会将 `fs.open()` 或 `fsPromises.open()` 变成同步的阻塞调用。
+  如果期望同步的操作，应该使用类似 `fs.openSync()` 的方法。
 
-* `'w'` - Open file for writing.
-  The file is created (if it does not exist) or truncated (if it exists).
+* `'w'` - 打开文件用于写入。文件会被创建（如果不存在）或截断（如果存在）。
 
-* `'wx'` - Like `'w'` but fails if the path exists.
+* `'wx'` - 类似 `'w'`，但如果文件存在则失败。
 
-* `'w+'` - Open file for reading and writing.
-The file is created (if it does not exist) or truncated (if it exists).
+* `'w+'` - 打开文件用于读取和写入。文件会被创建（如果不存在）或截断（如果存在）。
 
-* `'wx+'` - Like `'w+'` but fails if the path exists.
+* `'wx+'` - 类似 `'w+'`，但如果文件存在则失败。
 
-`flag` can also be a number as documented by open(2); commonly used constants
-are available from `fs.constants`. On Windows, flags are translated to
-their equivalent ones where applicable, e.g. `O_WRONLY` to `FILE_GENERIC_WRITE`,
-or `O_EXCL|O_CREAT` to `CREATE_NEW`, as accepted by `CreateFileW`.
+`flag` 也可以是一个数值，详见 open(2)。
+常用的常量定义在 `fs.constants`。
+在 Windows 上，flag 会被转换为等效的 flag，例如 `O_WRONLY` 转换为 `FILE_GENERIC_WRITE`、`O_EXCL|O_CREAT` 转换为 `CREATE_NEW`。
 
-The exclusive flag `'x'` (`O_EXCL` flag in open(2)) ensures that path is newly
-created. On POSIX systems, path is considered to exist even if it is a symlink
-to a non-existent file. The exclusive flag may or may not work with network
-file systems.
+独有的 `'x'` flag（ open(2) 中的 `O_EXCL` flag）确保路径是新创建的。
+在 POSIX 系统上，即使是指向不存在的文件的符号链接，路径也会被视为已存在。
+这个 flag 在网络文件系统中可能无效。
 
-On Linux, positional writes don't work when the file is opened in append mode.
-The kernel ignores the position argument and always appends the data to
-the end of the file.
+在 Linux 上，当文件以追加模式打开时，指定位置的写入无效。
+内核会忽视位置参数，且总是追加数据到文件的尾部。
 
-Modifying a file rather than replacing it may require a flags mode of `'r+'`
-rather than the default mode `'w'`.
+若要修改文件而不是覆盖文件，则 flag 模式需要为 `'r+'` 而不是默认的 `'w'`。
 
-The behavior of some flags are platform-specific. As such, opening a directory
-on macOS and Linux with the `'a+'` flag - see example below - will return an
-error. In contrast, on Windows and FreeBSD, a file descriptor or a `FileHandle`
-will be returned.
+一些 flag 的行为与平台有关。
+例如，在 macOS 和 Linux 上，以 `'a+'` flag 打开一个目录会返回错误。
+但在 Windows 和 FreeBSD 上，则返回一个文件描述符或 `FileHandle`。
 
 ```js
-// macOS and Linux
-fs.open('<directory>', 'a+', (err, fd) => {
+// 在 macOS 和 Linux 上：
+fs.open('<目录>', 'a+', (err, fd) => {
   // => [Error: EISDIR: illegal operation on a directory, open <directory>]
 });
 
-// Windows and FreeBSD
-fs.open('<directory>', 'a+', (err, fd) => {
+// 在 Windows 和 FreeBSD 上：
+fs.open('<目录>', 'a+', (err, fd) => {
   // => null, <fd>
 });
 ```
 
-On Windows, opening an existing hidden file using the `'w'` flag (either
-through `fs.open()` or `fs.writeFile()` or `fsPromises.open()`) will fail with
-`EPERM`. Existing hidden files can be opened for writing with the `'r+'` flag.
+在 Windows 上，使用 `'w'` flag（无论是 `fs.open()` 或 `fs.writeFile()` 或 `fsPromises.open()`）打开一个现有的隐藏文件会抛出 `EPERM` 失败。
+现有的隐藏文件可以使用 `'r+'` flag 打开用于写入。
 
-A call to `fs.ftruncate()` or `fsPromises.ftruncate()` can be used to reset
-the file contents.
+调用 `fs.ftruncate()` 或 `fsPromises.ftruncate()` 可以用于重置文件内容。
 
