@@ -9,7 +9,7 @@
 * [zlib 流][zlib]
 * [crypto 流][crypto]
 * [TCP socket][TCP sockets]
-* [child process stdin]
+* [子进程 stdin][child process stdin]
 * [`process.stdout`]、[`process.stderr`]
 
 上面的某些例子事实上是实现了 [`Writable`] 接口的 [`Duplex`] 流。

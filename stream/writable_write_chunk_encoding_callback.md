@@ -13,9 +13,9 @@ changes:
 * `chunk` {string|Buffer|Uint8Array|any} 要写入的数据。可选的。
   对于非对象模式下的流， `chunk` 必须是字符串， `Buffer` 或者
   `Uint8Array`。对于对象模式下的流，`chunk` 可以是除 `null` 外的任意 JavaScript 值。
-* `encoding` {string} 如果 `chunk` 是字符串，这里指定字符编码
-* `callback` {Function} 缓冲数据输出时的回调函数
-* 返回： {boolean} 如果流需要等待 `'drain'` 事件触发才能继续写入数据，这里将返回 `false` ； 否则返回 `true`。
+* `encoding` {string} 如果 `chunk` 是字符串，这里指定字符编码。
+* `callback` {Function} 缓冲数据输出时的回调函数。
+* 返回: {boolean} 如果流需要等待 `'drain'` 事件触发才能继续写入数据，这里将返回 `false` ； 否则返回 `true`。
 
 `writable.write()` 方法向流中写入数据，并在数据处理完成后调用 `callback` 。如果有错误发生， `callback` *不一定* 以这个错误作为第一个参数并被调用。要确保可靠地检测到写入错误，应该监听
 `'error'` 事件。
@@ -31,10 +31,10 @@ changes:
 （即使内存不再需要，也通常不会被释放回系统）。 如果远程的另一端没有读取数据， TCP sockets 可能永远也不会 drain ， 
 所以写入到一个不会drain的socket可能会导致远程可利用的漏洞。 
 
-对于一个 [Transform][], 写入数据到一个不会drain的流尤其成问题， 因为 `Transform` 流默认被暂停， 直到它们被pipe或者被添加了
+对于一个 [`Transform`][], 写入数据到一个不会drain的流尤其成问题， 因为 `Transform` 流默认被暂停， 直到它们被pipe或者被添加了
  `'data'` 或 `'readable'` 事件处理函数。 
 
-如果将要被写入的数据可以根据需要生成或者取得，我们建议将逻辑封装为一个 [Readable][] 流并且使用 
+如果将要被写入的数据可以根据需要生成或者取得，我们建议将逻辑封装为一个[可读流]并且使用 
 [`stream.pipe()`][]。 但是如果调用 `write()` 优先, 那么可以使用 [`'drain'`][] 事件来防止回压并且避免内存问题:
 
 ```js

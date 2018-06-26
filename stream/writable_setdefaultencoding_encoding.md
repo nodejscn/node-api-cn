@@ -7,7 +7,7 @@ changes:
 -->
 
 * `encoding` {string} 新的默认编码
-* 返回： `this`
+* 返回: {this}
 
-`writable.setDefaultEncoding()` 用于为 [Writable][] 设置 `encoding`。
+`writable.setDefaultEncoding()` 用于为[可写流]设置 `encoding`。
 

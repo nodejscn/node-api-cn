@@ -1,28 +1,26 @@
 
-可读流事实上工作在下面两种模式之一：flowing 和 paused 。
+可读流实质上运作于流动中（flowing）或已暂停（paused）两种模式之一。
 
-在 flowing 模式下， 可读流自动从系统底层读取数据，并通过 [`EventEmitter`][] 接口的事件尽快将数据提供给应用。
+在 flowing 模式中，数据自动地从底层的系统被读取，并通过 [`EventEmitter`] 接口的事件尽可能快地被提供给应用程序。
 
-在 paused 模式下，必须显式调用 [`stream.read()`][stream-read] 方法来从流中读取数据片段。
+在 paused 模式中，必须显式调用 [`stream.read()`][stream-read] 方法来从流中读取数据片段。
 
-所有初始工作模式为 paused 的 [Readable][] 流，可以通过下面三种途径切换到 flowing
-模式：
+所有[可读流]都开始于 paused 模式，可以通过以下方式切换到 flowing 模式：
 
-* 监听 [`'data'`][] 事件。
+* 新增一个 [`'data'`] 事件处理函数。
 * 调用 [`stream.resume()`][stream-resume] 方法。
-* 调用 [`stream.pipe()`][] 方法将数据发送到 [Writable][]。
+* 调用 [`stream.pipe()`] 方法发送数据到[可写流]。
 
-可读流可以通过下面途径切换到 paused 模式：
+可读流可以通过以下方式切换回 paused 模式：
 
-* 如果不存在管道目标（pipe destination），可以通过调用
-  [`stream.pause()`][stream-pause] 方法实现。
-* 如果存在管道目标，可以通过取消 [`'data'`][] 事件监听，并调用 [`stream.unpipe()`][] 方法移除所有管道目标来实现。
+* 如果没有管道目标，调用 [`stream.pause()`][stream-pause] 方法。
+* 如果有管道目标，移除所有管道目标。调用 [`stream.unpipe()`] 方法可以移除多个管道目标。
 
-这里需要记住的重要概念就是，可读流需要先为其提供消费或忽略数据的机制，才能开始提供数据。如果消费机制被禁用或取消，可读流将 *尝试*
-停止生成数据。
+需要记住的重要概念是，只有提供了消费或忽略数据的机制后，可读流才会产生数据。
+如果消费的机制被禁用或移除，则可读流会停止产生数据。
 
-*注意*: 为了向后兼容，取消 [`'data'`][] 事件监听并 **不会** 自动将流暂停。同时，如果存在管道目标（pipe destination），且目标状态变为可以接收数据（drain and ask for
-more data），调用了 [`stream.pause()`][stream-pause] 方法也并不保证流会一直 *保持* 暂停状态。
+为了向后兼容，移除 [`'data'`] 事件处理函数不会自动地暂停流。
+如果存在管道目标，当目标状态变为可以接收数据时，调用 [`stream.pause()`][stream-pause] 也不能保证流会保持暂停状态。
 
 *注意*: 如果 [Readable][] 切换到 flowing 模式，且没有消费者处理流中的数据，这些数据将会丢失。
 比如， 调用了 `readable.resume()` 方法却没有监听 `'data'` 事件，或是取消了 `'data'` 事件监听，就有可能出现这种情况。
