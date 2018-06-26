@@ -1,22 +1,18 @@
 
-可读流的“两种操作模式”是一种简单抽象。它抽象了在可读流实现（Readable stream implementation）内部发生的复杂的状态管理过程。
+可读流运作的两种模式是对发生在可读流中更加复杂的内部状态管理的一种简化的抽象。
 
-在任意时刻，任意可读流应确切处于下面三种状态之一：
+在任意时刻，任一可读流会处于以下三种状态之一：
 
-* `readable._readableState.flowing = null`
-* `readable._readableState.flowing = false`
-* `readable._readableState.flowing = true`
+* `readable.readableFlowing = null`
+* `readable.readableFlowing = false`
+* `readable.readableFlowing = true`
 
-若 `readable._readableState.flowing` 为 `null`，由于不存在数据消费者，可读流将不会产生数据。
-在这个状态下，监听 `'data'` 事件，调用 `readable.pipe()`
-方法，或者调用 `readable.resume()` 方法，
-`readable._readableState.flowing` 的值将会变为 `true` 。这时，随着数据生成，可读流开始频繁触发事件。
+当 `readable.readableFlowing` 为 `null` 时，没有提供消费流数据的机制，所以流不会产生数据。
+在这个状态下，监听 `'data'` 事件、调用 `readable.pipe()` 方法、或调用 `readable.resume()` 方法，
+则 `readable.readableFlowing` 会变成 `true` ，可读流开始主动地产生数据触发事件。
 
-调用 `readable.pause()` 方法， `readable.unpipe()` 方法， 或者接收 “背压”（back pressure），
-将导致 `readable._readableState.flowing` 值变为 `false`。
-这将暂停事件流，但 *不会* 暂停数据生成。
-在这种情况下，为 `'data'` 事件设置监听函数不会导致
- `readable._readableState.flowing` 变为 `true`。
+调用 `readable.pause()`、`readable.unpipe()`、或接收背压，则 `readable.readableFlowing` 会被设为 `false`，暂时停止事件流动但不会停止数据的生成。
+在这个状态下，为 `'data'` 事件设置监听器不会使 `readable.readableFlowing` 变成 `true`。
 
 ```js
 const { PassThrough, Writable } = require('stream');
@@ -25,12 +21,12 @@ const writable = new Writable();
 
 pass.pipe(writable);
 pass.unpipe(writable);
-// flowing 现在为 false
+// readableFlowing 现在为 false。
 
 pass.on('data', (chunk) => { console.log(chunk.toString()); });
-pass.write('ok'); // 不会触发 'data' 事件
-pass.resume(); // 只有被调用了才会触发 'data' 事件
+pass.write('ok'); // 不会触发 'data' 事件。
+pass.resume(); // 必须调用它才会触发 'data' 事件。
 ```
 
-当 `readable._readableState.flowing` 值为 `false` 时， 数据可能堆积到流的内部缓存中。
+当 `readable.readableFlowing` 为 `false` 时，数据可能会堆积在流的内部缓冲中。
 
