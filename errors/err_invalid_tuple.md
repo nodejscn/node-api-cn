@@ -4,4 +4,4 @@ An element in the `iterable` provided to the [WHATWG][WHATWG URL API]
 represent a `[name, value]` tuple – that is, if an element is not iterable, or
 does not consist of exactly two elements.
 
-<a id="ERR_INVALID_URL"></a>
+<a id="ERR_INVALID_URI"></a>

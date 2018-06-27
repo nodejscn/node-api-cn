@@ -14,7 +14,7 @@ napi_status napi_coerce_to_bool(napi_env env,
 Returns `napi_ok` if the API succeeded.
 
 This API implements the abstract operation `ToBoolean()` as defined in
-[Section 7.1.2](https://tc39.github.io/ecma262/#sec-toboolean)
+
 of the ECMAScript Language Specification.
 This API can be re-entrant if getters are defined on the passed-in `Object`.
 

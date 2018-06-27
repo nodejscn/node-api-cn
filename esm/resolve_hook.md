@@ -1,4 +1,4 @@
-﻿
+
 The resolve hook returns the resolved file URL and module format for a
 given module specifier and parent file URL:
 

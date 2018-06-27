@@ -27,6 +27,6 @@ This API returns an N-API value corresponding to a JavaScript `Function` object.
 It's used to wrap native functions so that they can be invoked from JavaScript.
 
 JavaScript `Function`s are described in
-[Section 19.2](https://tc39.github.io/ecma262/#sec-function-objects)
+
 of the ECMAScript Language Specification.
 

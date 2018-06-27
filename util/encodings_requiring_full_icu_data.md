@@ -36,6 +36,6 @@
 | `'shift_jis'`      | `'csshiftjis'`, `'ms932'`, `'ms_kanji'`, `'shift-jis'`, `'sjis'`, `'windows-31j'`, `'x-sjis'` |
 | `'euc-kr'`         | `'cseuckr'`, `'csksc56011987'`, `'iso-ir-149'`, `'korean'`, `'ks_c_5601-1987'`, `'ks_c_5601-1989'`, `'ksc5601'`, `'ksc_5601'`, `'windows-949'` |
 
-*Note*: The `'iso-8859-16'` encoding listed in the [WHATWG Encoding Standard][]
+The `'iso-8859-16'` encoding listed in the [WHATWG Encoding Standard][]
 is not supported.
 

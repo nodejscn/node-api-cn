@@ -31,3 +31,4 @@ appropriate data file. After installing the module through `npm i full-icu`,
 the data file will be available at `./node_modules/full-icu`. This path can be
 then passed either to `NODE_ICU_DATA` or `--icu-data-dir` as shown above to
 enable full `Intl` support.
+

@@ -6,7 +6,7 @@ added: v1.1.0
   - `passphrase` {string} An optional passphrase for the private key.
   - `padding` {crypto.constants} An optional padding value defined in
     `crypto.constants`, which may be: `crypto.constants.RSA_NO_PADDING` or
-    `RSA_PKCS1_PADDING`.
+    `crypto.constants.RSA_PKCS1_PADDING`.
 - `buffer` {Buffer | TypedArray | DataView}
 - Returns: {Buffer} A new `Buffer` with the decrypted content.
 

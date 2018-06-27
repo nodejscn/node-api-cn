@@ -1,4 +1,4 @@
-﻿<!-- YAML
+<!-- YAML
 added: v10.0.0
 -->
 
@@ -25,6 +25,6 @@ t2.enable();
 console.log(trace_events.getEnabledCategories());
 ```
 
-[Performance API]: perf_hooks.html
-[V8]: v8.html
-[`async_hooks`]: async_hooks.html
+
+
+

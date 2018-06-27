@@ -13,14 +13,13 @@ changes:
 * `options` {Object}
   * `isServer`: The SSL/TLS protocol is asymmetrical, TLSSockets must know if
     they are to behave as a server or a client. If `true` the TLS socket will be
-    instantiated as a server.  Defaults to `false`.
+    instantiated as a server. **Default:** `false`.
   * `server` {net.Server} An optional [`net.Server`][] instance.
   * `requestCert`: Whether to authenticate the remote peer by requesting a
      certificate. Clients always request a server certificate. Servers
      (`isServer` is true) may optionally set `requestCert` to true to request a
      client certificate.
   * `rejectUnauthorized`: Optional, see [`tls.createServer()`][]
-  * `NPNProtocols`: Optional, see [`tls.createServer()`][]
   * `ALPNProtocols`: Optional, see [`tls.createServer()`][]
   * `SNICallback`: Optional, see [`tls.createServer()`][]
   * `session` {Buffer} An optional `Buffer` instance containing a TLS session.
@@ -35,3 +34,4 @@ changes:
     `secureContext` option is missing, otherwise they are ignored.
 
 Construct a new `tls.TLSSocket` object from an existing TCP socket.
+

@@ -1,5 +1,5 @@
 <!-- YAML
-added: v7.7.0
+added: v6.11.0
 -->
 
 Load an OpenSSL configuration file on startup. Among other uses, this can be

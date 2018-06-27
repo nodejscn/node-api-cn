@@ -17,6 +17,6 @@ Returns `napi_ok` if the API succeeded.
 
 This API represents the invocation of the Strict Equality algorithm as
 defined in
-[Section 7.2.14](https://tc39.github.io/ecma262/#sec-strict-equality-comparison)
+
 of the ECMAScript Language Specification.
 

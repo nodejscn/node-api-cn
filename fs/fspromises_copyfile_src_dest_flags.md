@@ -31,7 +31,7 @@ then the operation will fail.
 Example:
 
 ```js
-const fs = require('fs');
+const fsPromises = require('fs').promises;
 
 // destination.txt will be created or overwritten by default.
 fsPromises.copyFile('source.txt', 'destination.txt')
@@ -44,6 +44,7 @@ following example.
 
 ```js
 const fs = require('fs');
+const fsPromises = fs.promises;
 const { COPYFILE_EXCL } = fs.constants;
 
 // By using COPYFILE_EXCL, the operation will fail if destination.txt exists.

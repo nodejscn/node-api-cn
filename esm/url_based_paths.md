@@ -1,4 +1,4 @@
-﻿
+
 ESM are resolved and cached based upon [URL](https://url.spec.whatwg.org/)
 semantics. This means that files containing special characters such as `#` and
 `?` need to be escaped.

@@ -9,6 +9,7 @@ added: v10.0.0
 Closes the file descriptor.
 
 ```js
+const fsPromises = require('fs').promises;
 async function openAndClose() {
   let filehandle;
   try {

@@ -21,10 +21,6 @@
     <td></td>
   </tr>
   <tr>
-    <td><code>NPN_ENABLED</code></td>
-    <td></td>
-  </tr>
-  <tr>
     <td><code>ALPN_ENABLED</code></td>
     <td></td>
   </tr>

@@ -15,23 +15,22 @@ changes:
   opened as a server.
 * `requestCert` {boolean} `true` to specify whether a server should request a
   certificate from a connecting client. Only applies when `isServer` is `true`.
-* `rejectUnauthorized` {boolean} If not `false` a server automatically reject clients
-   with invalid certificates. Only applies when `isServer` is `true`.
+* `rejectUnauthorized` {boolean} If not `false` a server automatically reject
+  clients with invalid certificates. Only applies when `isServer` is `true`.
 * `options`
   * `secureContext`: An optional TLS context object from
      [`tls.createSecureContext()`][]
   * `isServer`: If `true` the TLS socket will be instantiated in server-mode.
-    Defaults to `false`.
+    **Default:** `false`.
   * `server` {net.Server} An optional [`net.Server`][] instance
   * `requestCert`: Optional, see [`tls.createServer()`][]
   * `rejectUnauthorized`: Optional, see [`tls.createServer()`][]
-  * `NPNProtocols`: Optional, see [`tls.createServer()`][]
   * `ALPNProtocols`: Optional, see [`tls.createServer()`][]
   * `SNICallback`: Optional, see [`tls.createServer()`][]
   * `session` {Buffer} An optional `Buffer` instance containing a TLS session.
   * `requestOCSP` {boolean} If `true`, specifies that the OCSP status request
     extension will be added to the client hello and an `'OCSPResponse'` event
-    will be emitted on the socket before establishing a secure communication
+    will be emitted on the socket before establishing a secure communication.
 
 Creates a new secure pair object with two streams, one of which reads and writes
 the encrypted data and the other of which reads and writes the cleartext data.
@@ -42,9 +41,9 @@ stream.
 `tls.createSecurePair()` returns a `tls.SecurePair` object with `cleartext` and
 `encrypted` stream properties.
 
-*Note*: `cleartext` has the same API as [`tls.TLSSocket`][].
+Using `cleartext` has the same API as [`tls.TLSSocket`][].
 
-*Note*: The `tls.createSecurePair()` method is now deprecated in favor of
+The `tls.createSecurePair()` method is now deprecated in favor of
 `tls.TLSSocket()`. For example, the code:
 
 ```js
@@ -56,7 +55,42 @@ socket.pipe(pair.encrypted);
 can be replaced by:
 
 ```js
-secure_socket = tls.TLSSocket(socket, options);
+secureSocket = tls.TLSSocket(socket, options);
 ```
 
-where `secure_socket` has the same API as `pair.cleartext`.
+where `secureSocket` has the same API as `pair.cleartext`.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

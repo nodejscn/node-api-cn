@@ -1,6 +1,6 @@
 
 Using the `util.promisify.custom` symbol one can override the return value of
-[`util.promisify()`][]:
+
 
 ```js
 const util = require('util');
@@ -21,7 +21,8 @@ console.log(promisified === doSomething[util.promisify.custom]);
 This can be useful for cases where the original function does not follow the
 standard format of taking an error-first callback as the last argument.
 
-For example, with a function that takes in `(foo, onSuccessCallback, onErrorCallback)`:
+For example, with a function that takes in
+`(foo, onSuccessCallback, onErrorCallback)`:
 
 ```js
 doSomething[util.promisify.custom] = (foo) => {
@@ -32,3 +33,4 @@ doSomething[util.promisify.custom] = (foo) => {
 ```
 If `promisify.custom` is defined but is not a function, `promisify()` will
 throw an error.
+

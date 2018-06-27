@@ -9,6 +9,7 @@ changes:
   - `key` {string}
   - `passphrase` {string}
 - `outputFormat` {string}
+- Returns: {Buffer | string}
 
 Calculates the signature on all the data passed through using either
 [`sign.update()`][] or [`sign.write()`][stream-writable-write].

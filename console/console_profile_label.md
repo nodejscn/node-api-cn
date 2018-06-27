@@ -10,7 +10,7 @@ the **Profile** panel of the inspector.
 ```js
 console.profile('MyLabel');
 // Some code
-console.profileEnd();
+console.profileEnd('MyLabel');
 // Adds the profile 'MyLabel' to the Profiles panel of the inspector.
 ```
 

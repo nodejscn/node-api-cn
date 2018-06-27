@@ -41,7 +41,7 @@ in [`tls.createServer()`], [`tls.connect()`], and when creating new
 
 Consult [OpenSSL cipher list format documentation][] for details on the format.
 
-*Note*: The default cipher suite included within Node.js has been carefully
+The default cipher suite included within Node.js has been carefully
 selected to reflect current security best practices and risk mitigation.
 Changing the default cipher suite can have a significant impact on the security
 of an application. The `--tls-cipher-list` switch and `ciphers` option should by

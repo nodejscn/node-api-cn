@@ -8,6 +8,8 @@ changes:
 - `object` {string | Object}
 - `signature` {string | Buffer | TypedArray | DataView}
 - `signatureFormat` {string}
+- Returns: {boolean} `true` or `false` depending on the validity of the
+  signature for the data and public key.
 
 Verifies the provided data using the given `object` and `signature`.
 The `object` argument can be either a string containing a PEM encoded object,
@@ -32,9 +34,6 @@ the `signatureFormat` which can be `'latin1'`, `'hex'` or `'base64'`.
 If a `signatureFormat` is specified, the `signature` is expected to be a
 string; otherwise `signature` is expected to be a [`Buffer`][],
 `TypedArray`, or `DataView`.
-
-Returns `true` or `false` depending on the validity of the signature for
-the data and public key.
 
 The `verify` object can not be used again after `verify.verify()` has been
 called. Multiple calls to `verify.verify()` will result in an error being

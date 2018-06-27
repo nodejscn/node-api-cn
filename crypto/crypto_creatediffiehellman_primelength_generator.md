@@ -2,7 +2,8 @@
 added: v0.5.0
 -->
 - `primeLength` {number}
-- `generator` {number | string | Buffer | TypedArray | DataView} Defaults to `2`.
+- `generator` {number | string | Buffer | TypedArray | DataView} **Default:**
+  `2`
 
 Creates a `DiffieHellman` key exchange object and generates a prime of
 `primeLength` bits using an optional specific numeric `generator`.

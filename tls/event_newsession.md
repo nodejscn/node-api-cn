@@ -11,6 +11,6 @@ three arguments when called:
 * `callback` {Function} A callback function taking no arguments that must be
   invoked in order for data to be sent or received over the secure connection.
 
-*Note*: Listening for this event will have an effect only on connections
-established after the addition of the event listener.
+Listening for this event will have an effect only on connections established
+after the addition of the event listener.
 

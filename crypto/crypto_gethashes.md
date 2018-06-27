@@ -1,9 +1,8 @@
 <!-- YAML
 added: v0.9.3
 -->
-
-Returns an array of the names of the supported hash algorithms,
-such as `RSA-SHA256`.
+- Returns: {string[]} An array of the names of the supported hash algorithms,
+  such as `'RSA-SHA256'`.
 
 Example:
 

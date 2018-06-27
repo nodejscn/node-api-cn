@@ -1,4 +1,5 @@
 
-A TLS/SSL handshake timed out. In this case, the server must also abort the connection.
+A TLS/SSL handshake timed out. In this case, the server must also abort the
+connection.
 
-<a id="ERR_TLS_RENEGOTIATION_FAILED"></a>
+<a id="ERR_TLS_REQUIRED_SERVER_NAME"></a>

@@ -3,4 +3,4 @@
 
 An [ES6 module][] could not be resolved.
 
-<a id="ERR_MODULE_RESOLUTION_LEGACY"></a>
+<a id="ERR_MISSING_PLATFORM_FOR_WORKER"></a>

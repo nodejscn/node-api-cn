@@ -1,33 +1,18 @@
 <!-- YAML
 added: v0.3.2
 changes:
+  - version: v9.3.0
+    pr-url: https://github.com/nodejs/node/pull/14903
+    description: The `options` parameter can now include `clientCertEngine`.
   - version: v8.0.0
     pr-url: https://github.com/nodejs/node/pull/11984
-    description: The `ALPNProtocols` and `NPNProtocols` options can
-                 be `Uint8Array`s now.
+    description: The `ALPNProtocols` option can be a `Uint8Array` now.
   - version: v5.0.0
     pr-url: https://github.com/nodejs/node/pull/2564
     description: ALPN options are supported now.
 -->
 
 * `options` {Object}
-  * `handshakeTimeout` {number} Abort the connection if the SSL/TLS handshake
-    does not finish in the specified number of milliseconds. Defaults to `120`
-    seconds. A `'tlsClientError'` is emitted on the `tls.Server` object whenever
-    a handshake times out.
-  * `requestCert` {boolean} If `true` the server will request a certificate from
-    clients that connect and attempt to verify that certificate. Defaults to
-    `false`.
-  * `rejectUnauthorized` {boolean} If not `false` the server will reject any
-    connection which is not authorized with the list of supplied CAs. This
-    option only has an effect if `requestCert` is `true`. Defaults to `true`.
-  * `NPNProtocols` {string[]|Buffer[]|Uint8Array[]|Buffer|Uint8Array}
-    An array of strings, `Buffer`s or `Uint8Array`s, or a single `Buffer` or
-    `Uint8Array` containing supported NPN protocols. `Buffer`s should have the
-    format `[len][name][len][name]...` e.g. `0x05hello0x05world`, where the
-    first byte is the length of the next protocol name. Passing an array is
-    usually much simpler, e.g. `['hello', 'world']`.
-    (Protocols should be ordered by their priority.)
   * `ALPNProtocols`: {string[]|Buffer[]|Uint8Array[]|Buffer|Uint8Array}
     An array of strings, `Buffer`s or `Uint8Array`s, or a single `Buffer` or
     `Uint8Array` containing the supported ALPN protocols. `Buffer`s should have
@@ -35,30 +20,39 @@ changes:
     first byte is the length of the next protocol name. Passing an array is
     usually much simpler, e.g. `['hello', 'world']`.
     (Protocols should be ordered by their priority.)
-    When the server receives both NPN and ALPN extensions from the client,
-    ALPN takes precedence over NPN and the server does not send an NPN
-    extension to the client.
+  * `clientCertEngine` {string} Optional name of an OpenSSL engine which can
+    provide the client certificate.
+  * `handshakeTimeout` {number} Abort the connection if the SSL/TLS handshake
+    does not finish in the specified number of milliseconds.
+    A `'tlsClientError'` is emitted on the `tls.Server` object whenever
+    a handshake times out. **Default:** `120000` (120 seconds).
+  * `rejectUnauthorized` {boolean} If not `false` the server will reject any
+    connection which is not authorized with the list of supplied CAs. This
+    option only has an effect if `requestCert` is `true`. **Default:** `true`.
+  * `requestCert` {boolean} If `true` the server will request a certificate from
+    clients that connect and attempt to verify that certificate. **Default:**
+    `false`.
+  * `sessionTimeout` {number} An integer specifying the number of seconds after
+    which the TLS session identifiers and TLS session tickets created by the
+    server will time out. See [`SSL_CTX_set_timeout`] for more details.
   * `SNICallback(servername, cb)` {Function} A function that will be called if
     the client supports SNI TLS extension. Two arguments will be passed when
     called: `servername` and `cb`. `SNICallback` should invoke `cb(null, ctx)`,
-    where `ctx` is a SecureContext instance. (`tls.createSecureContext(...)` can
-    be used to get a proper SecureContext.) If `SNICallback` wasn't provided the
-    default callback with high-level API will be used (see below).
-  * `sessionTimeout` {number} An integer specifying the number of seconds after
-    which the TLS session identifiers and TLS session tickets created by the
-    server will time out. See [SSL_CTX_set_timeout] for more details.
+    where `ctx` is a `SecureContext` instance. (`tls.createSecureContext(...)`
+    can be used to get a proper `SecureContext`.) If `SNICallback` wasn't
+    provided the default callback with high-level API will be used (see below).
   * `ticketKeys`: A 48-byte `Buffer` instance consisting of a 16-byte prefix,
     a 16-byte HMAC key, and a 16-byte AES key. This can be used to accept TLS
     session tickets on multiple instances of the TLS server.
-  * ...: Any [`tls.createSecureContext()`][] options can be provided. For
+  * ...: Any [`tls.createSecureContext()`][] option can be provided. For
     servers, the identity options (`pfx` or `key`/`cert`) are usually required.
 * `secureConnectionListener` {Function}
 
-Creates a new [tls.Server][].  The `secureConnectionListener`, if provided, is
+Creates a new [`tls.Server`][]. The `secureConnectionListener`, if provided, is
 automatically set as a listener for the [`'secureConnection'`][] event.
 
-*Note*: The `ticketKeys` options is automatically shared between `cluster`
-module workers.
+The `ticketKeys` options is automatically shared between `cluster` module
+workers.
 
 The following illustrates a simple echo server:
 
@@ -100,7 +94,6 @@ const options = {
 
   // This is necessary only if using the client certificate authentication.
   requestCert: true,
-
 };
 
 const server = tls.createServer(options, (socket) => {

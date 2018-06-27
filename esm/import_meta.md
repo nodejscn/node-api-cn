@@ -1,4 +1,4 @@
-﻿
+
 * {Object}
 
 The `import.meta` metaproperty is an `Object` that contains the following

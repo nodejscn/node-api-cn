@@ -1,4 +1,4 @@
-﻿
+
 <!-- type=misc -->
 
 To customize the default module resolution, loader hooks can optionally be

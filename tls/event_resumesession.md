@@ -16,8 +16,8 @@ the session cannot be resumed (i.e., doesn't exist in storage) the callback may
 be invoked as `callback(null, null)`. Calling `callback(err)` will terminate the
 incoming connection and destroy the socket.
 
-*Note*: Listening for this event will have an effect only on connections
-established after the addition of the event listener.
+Listening for this event will have an effect only on connections established
+after the addition of the event listener.
 
 The following illustrates resuming a TLS session:
 

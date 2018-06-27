@@ -14,4 +14,5 @@ changes:
 * `offset` {integer}
 * `length` {integer}
 * `position` {integer}
+* Returns: {number}
 

@@ -11,5 +11,5 @@ to be a string; otherwise `privateKey` is expected to be a [`Buffer`][],
 
 If `privateKey` is not valid for the curve specified when the `ECDH` object was
 created, an error is thrown. Upon setting the private key, the associated
-public point (key) is also generated and set in the ECDH object.
+public point (key) is also generated and set in the `ECDH` object.
 

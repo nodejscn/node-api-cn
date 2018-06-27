@@ -1,7 +1,7 @@
 
 N-API exposes a set of APIs to perform some abstract operations on JavaScript
 values. Some of these operations are documented under
-[Section 7](https://tc39.github.io/ecma262/#sec-abstract-operations)
+
 of the [ECMAScript Language Specification][].
 
 These APIs support doing one of the following:

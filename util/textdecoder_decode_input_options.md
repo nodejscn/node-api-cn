@@ -1,9 +1,9 @@
 
 * `input` {ArrayBuffer|DataView|TypedArray} An `ArrayBuffer`, `DataView` or
-  Typed Array instance containing the encoded data.
+  `Typed Array` instance containing the encoded data.
 * `options` {Object}
   * `stream` {boolean} `true` if additional chunks of data are expected.
-    Defaults to `false`.
+    **Default:** `false`.
 * Returns: {string}
 
 Decodes the `input` and returns a string. If `options.stream` is `true`, any

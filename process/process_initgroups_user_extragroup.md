@@ -22,4 +22,5 @@ console.log(process.getgroups());         // [ 27, 30, 46, 1000 ]
 
 This function is only available on POSIX platforms (i.e. not Windows or
 Android).
+This feature is not available in [`Worker`][] threads.
 

@@ -30,17 +30,17 @@ The typical flow of an OCSP Request is as follows:
    listener if registered.
 3. Server extracts the OCSP URL from either the `certificate` or `issuer` and
    performs an [OCSP request] to the CA.
-4. Server receives `OCSPResponse` from the CA and sends it back to the client
+4. Server receives `'OCSPResponse'` from the CA and sends it back to the client
    via the `callback` argument
 5. Client validates the response and either destroys the socket or performs a
    handshake.
 
-*Note*: The `issuer` can be `null` if the certificate is either self-signed or
-the issuer is not in the root certificates list. (An issuer may be provided
+The `issuer` can be `null` if the certificate is either self-signed or the
+issuer is not in the root certificates list. (An issuer may be provided
 via the `ca` option when establishing the TLS connection.)
 
-*Note*: Listening for this event will have an effect only on connections
-established after the addition of the event listener.
+Listening for this event will have an effect only on connections established
+after the addition of the event listener.
 
-*Note*: An npm module like [asn1.js] may be used to parse the certificates.
+An npm module like [asn1.js] may be used to parse the certificates.
 

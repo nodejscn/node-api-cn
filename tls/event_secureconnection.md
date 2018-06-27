@@ -14,12 +14,9 @@ server. If `tlsSocket.authorized` is `false`, then `socket.authorizationError`
 is set to describe how authorization failed. Note that depending on the settings
 of the TLS server, unauthorized connections may still be accepted.
 
-The `tlsSocket.npnProtocol` and `tlsSocket.alpnProtocol` properties are strings
-that contain the selected NPN and ALPN protocols, respectively. When both NPN
-and ALPN extensions are received, ALPN takes precedence over NPN and the next
-protocol is selected by ALPN.
-
-When ALPN has no selected protocol, `tlsSocket.alpnProtocol` returns `false`.
+The `tlsSocket.alpnProtocol` property is a string that contains the selected
+ALPN protocol. When ALPN has no selected protocol, `tlsSocket.alpnProtocol`
+equals `false`.
 
 The `tlsSocket.servername` property is a string containing the server name
 requested via SNI.

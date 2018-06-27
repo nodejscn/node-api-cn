@@ -9,6 +9,5 @@ added: v0.11.3
 Same as [`tls.connect()`][] except that `path` can be provided
 as an argument instead of an option.
 
-*Note*: A path option, if specified, will take precedence over the path
-argument.
+A path option, if specified, will take precedence over the path argument.
 
