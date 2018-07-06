@@ -1,7 +1,5 @@
 
-If available on the operating system, the following constants
-are exported in `os.constants.dlopen`. See dlopen(3) for detailed
-information.
+如果在操作系统上可用，则以下常量在`os.constants.dlopen`中导出。 有关详细信息，请参阅dlopen（3）信息。
 
 <table>
   <tr>
