@@ -32,9 +32,9 @@ const a = new Uint32Array(10);
 console.log(crypto.randomFillSync(a).toString('hex'));
 
 const b = new Float64Array(10);
-console.log(crypto.randomFillSync(a).toString('hex'));
+console.log(crypto.randomFillSync(b).toString('hex'));
 
 const c = new DataView(new ArrayBuffer(10));
-console.log(crypto.randomFillSync(a).toString('hex'));
+console.log(crypto.randomFillSync(c).toString('hex'));
 ```
 

@@ -2,7 +2,7 @@
 added: v0.7.1
 -->
 - `autoPadding` {boolean} **Default:** `true`
-- Returns: {Cipher} for method chaining.
+- Returns: {Decipher} for method chaining.
 
 When data has been encrypted without standard block padding, calling
 `decipher.setAutoPadding(false)` will disable automatic padding to prevent

@@ -62,7 +62,7 @@ if (isMainThread) {
     console.log('received:', value);
   });
 } else {
-  require('worker_threads').once('workerMessage', (value) => {
+  require('worker_threads').once('message', (value) => {
     assert(value.hereIsYourPort instanceof MessagePort);
     value.hereIsYourPort.postMessage('the worker is sending this');
     value.hereIsYourPort.close();

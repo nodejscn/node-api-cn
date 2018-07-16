@@ -1,5 +1,7 @@
 
-* `filename` {string} The absolute path to the Worker’s main script.
+* `filename` {string} The path to the Worker’s main script. Must be
+  either an absolute path or a relative path (i.e. relative to the
+  current working directory) starting with `./` or `../`.
   If `options.eval` is true, this is a string containing JavaScript code rather
   than a path.
 * `options` {Object}

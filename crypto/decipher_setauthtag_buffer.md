@@ -6,7 +6,7 @@ changes:
     description: This method now returns a reference to `decipher`.
 -->
 - `buffer` {Buffer | TypedArray | DataView}
-- Returns: {Cipher} for method chaining.
+- Returns: {Decipher} for method chaining.
 
 When using an authenticated encryption mode (only `GCM` and `CCM` are currently
 supported), the `decipher.setAuthTag()` method is used to pass in the

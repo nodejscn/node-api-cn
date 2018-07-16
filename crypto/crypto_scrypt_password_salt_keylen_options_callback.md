@@ -1,16 +1,16 @@
 <!-- YAML
 added: v10.5.0
 -->
-- `password` {string|Buffer|TypedArray}
-- `salt` {string|Buffer|TypedArray}
+- `password` {string|Buffer|TypedArray|DataView}
+- `salt` {string|Buffer|TypedArray|DataView}
 - `keylen` {number}
 - `options` {Object}
   - `N` {number} CPU/memory cost parameter. Must be a power of two greater
-                 than one. **Default:** `16384`.
+    than one. **Default:** `16384`.
   - `r` {number} Block size parameter. **Default:** `8`.
   - `p` {number} Parallelization parameter. **Default:** `1`.
   - `maxmem` {number} Memory upper bound. It is an error when (approximately)
-                      `128*N*r > maxmem` **Default:** `32 * 1024 * 1024`.
+    `128 * N * r > maxmem`. **Default:** `32 * 1024 * 1024`.
 - `callback` {Function}
   - `err` {Error}
   - `derivedKey` {Buffer}

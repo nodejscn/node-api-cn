@@ -2,7 +2,8 @@
 added: v1.0.0
 -->
 - `buffer` {Buffer}
-- `options` {Object}
+- `options` {Object} [`stream.transform` options][]
+  - `plaintextLength` {number}
 - Returns: {Cipher} for method chaining.
 
 When using an authenticated encryption mode (only `GCM` and `CCM` are currently
