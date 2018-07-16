@@ -12,7 +12,8 @@ changes:
 * `operator` {string} **Default:** `'!='`
 * `stackStartFunction` {Function} **Default:** `assert.fail`
 
-> 稳定性: 0 - 废弃的: 使用 `assert.fail([message])` 代替。
+> Stability: 0 - Deprecated: Use `assert.fail([message])` or other assert
+> functions instead.
 
 If `message` is falsy, the error message is set as the values of `actual` and
 `expected` separated by the provided `operator`. If just the two `actual` and

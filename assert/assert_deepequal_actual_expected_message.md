@@ -21,13 +21,13 @@ changes:
 * `expected` {any}
 * `message` {string|Error}
 
-**strict 模式**
+**Strict mode**
 
-[`assert.deepStrictEqual()`] 的别名。
+An alias of [`assert.deepStrictEqual()`][].
 
-**legacy 模式**
+**Legacy mode**
 
-> 稳定性: 0 - 废弃的: 使用 [`assert.deepStrictEqual()`] 代替。
+> Stability: 0 - Deprecated: Use [`assert.deepStrictEqual()`][] instead.
 
 Tests for deep equality between the `actual` and `expected` parameters.
 Primitive values are compared with the [Abstract Equality Comparison][]

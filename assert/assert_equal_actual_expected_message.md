@@ -5,13 +5,13 @@ added: v0.1.21
 * `expected` {any}
 * `message` {string|Error}
 
-**strict 模式**
+**Strict mode**
 
-[`assert.strictEqual()`] 的别名。
+An alias of [`assert.strictEqual()`][].
 
-**legacy 模式**
+**Legacy mode**
 
-> 稳定性: 0 - 废弃的: 使用 [`assert.strictEqual()`] 代替。
+> Stability: 0 - Deprecated: Use [`assert.strictEqual()`][] instead.
 
 Tests shallow, coercive equality between the `actual` and `expected` parameters
 using the [Abstract Equality Comparison][] ( `==` ).

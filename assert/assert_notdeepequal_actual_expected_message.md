@@ -21,13 +21,13 @@ changes:
 * `expected` {any}
 * `message` {string|Error}
 
-**strict 模式**
+**Strict mode**
 
-[`assert.notDeepStrictEqual()`] 的别名。
+An alias of [`assert.notDeepStrictEqual()`][].
 
-**legacy 模式**
+**Legacy mode**
 
-> 稳定性: 0 - 废弃的: 使用 [`assert.notDeepStrictEqual()`] 代替。
+> Stability: 0 - Deprecated: Use [`assert.notDeepStrictEqual()`][] instead.
 
 Tests for any deep inequality. Opposite of [`assert.deepEqual()`][].
 

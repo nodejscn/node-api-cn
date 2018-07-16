@@ -5,13 +5,13 @@ added: v0.1.21
 * `expected` {any}
 * `message` {string|Error}
 
-**strict 模式**
+**Strict mode**
 
-[`assert.notStrictEqual()`] 的别名。
+An alias of [`assert.notStrictEqual()`][].
 
-**legacy 模式**
+**Legacy mode**
 
-> 稳定性: 0 - 废弃的: 使用 [`assert.notStrictEqual()`] 代替。
+> Stability: 0 - Deprecated: Use [`assert.notStrictEqual()`][] instead.
 
 Tests shallow, coercive inequality with the [Abstract Equality Comparison][]
 ( `!=` ).
