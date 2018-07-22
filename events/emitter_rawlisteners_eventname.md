@@ -4,8 +4,7 @@ added: v9.4.0
 - `eventName` {string|symbol}
 - Returns: {Function[]}
 
-Returns a copy of the array of listeners for the event named `eventName`,
-including any wrappers (such as those created by `.once()`).
+返回一个监听某具名为`eventName`事件的数组的拷贝，包括任何被包装的事件(例如由`.once()`创建的事件)。
 
 ```js
 const emitter = new EventEmitter();
