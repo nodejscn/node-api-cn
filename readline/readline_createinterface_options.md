@@ -27,14 +27,11 @@ changes:
     默认为 `30`。
   * `prompt` - 要使用的提示字符串。默认为 `'> '`。
   * `crlfDelay` {number} 如果 `\r` 与 `\n` 之间的延迟超过 `crlfDelay` 毫秒，则 `\r` 和 `\n` 都会被当作换行分隔符。
-    `crlfDelay` will be coerced to a number no less than `100`. It can be set to
-    `Infinity`, in which case `\r` followed by `\n` will always be considered a
-    single newline (which may be reasonable for [reading files][]
-    with `\r\n` line delimiter).
+    `crlfDelay` 强制设置为不少于 `100`. 可以设置为
+    `Infinity`, 这种情况下， `\r` 跟着 `\n` 会被视为单个新行(也许对带有`\r\n`分隔符的`[reading files][]`来说是非常合理的)。
     默认为 `100` 毫秒。
-  * `removeHistoryDuplicates` {boolean} If `true`, when a new input line added
-    to the history list duplicates an older one, this removes the older line
-    from the list. 
+  * `removeHistoryDuplicates` {boolean} 如果为 `true`, 当新输入行与历史列表中的某行相同时，
+  那么移除旧有的行。
     默认为 `false`。
 
 `readline.createInterface()` 方法会创建一个新的 `readline.Interface` 实例。
