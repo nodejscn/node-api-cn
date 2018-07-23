@@ -1,5 +1,6 @@
 <!-- YAML
 added: v8.4.0
+napiVersion: 1
 -->
 ```C
 napi_status napi_create_int64(napi_env env, int64_t value, napi_value* result)

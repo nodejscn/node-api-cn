@@ -1,5 +1,6 @@
 <!-- YAML
 added: v8.2.0
+napiVersion: 1
 -->
 ```C
 NAPI_NO_RETURN void napi_fatal_error(const char* location,

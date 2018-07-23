@@ -36,7 +36,7 @@ changes:
 
 类似 [`ReadStream`]，如果指定了 `fd`，则 `WriteStream` 会忽略 `path` 参数并且会使用指定的文件描述符。
 这意味着不会触发 `'open'` 事件。
-注意，`fd` 必须是阻塞的，非阻塞的 `fd` 应该传给 [`net.Socket`]。
+`fd` 必须是阻塞的，非阻塞的 `fd` 应该传给 [`net.Socket`]。
 
 如果 `options` 是一个字符串，则它指定字符编码。
 

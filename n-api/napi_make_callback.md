@@ -1,5 +1,6 @@
 <!-- YAML
 added: v8.0.0
+napiVersion: 1
 changes:
   - version: v8.6.0
     description: Added `async_context` parameter.

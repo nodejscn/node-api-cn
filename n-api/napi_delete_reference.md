@@ -1,5 +1,6 @@
 <!-- YAML
 added: v8.0.0
+napiVersion: 1
 -->
 ```C
 NAPI_EXTERN napi_status napi_delete_reference(napi_env env, napi_ref ref);

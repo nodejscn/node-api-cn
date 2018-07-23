@@ -1,5 +1,6 @@
 <!-- YAML
 added: v8.4.0
+napiVersion: 1
 -->
 
 ```C

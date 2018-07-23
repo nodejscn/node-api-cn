@@ -1,5 +1,6 @@
 <!-- YAML
 added: v8.6.0
+napiVersion: 1
 -->
 ```C
 napi_status napi_get_new_target(napi_env env,

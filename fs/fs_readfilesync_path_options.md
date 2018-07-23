@@ -16,8 +16,9 @@ changes:
   * `flag` {string} 详见[支持的文件系统flag]。默认为 `'r'`。
 * 返回: {string|Buffer}
 
-[`fs.readFile()`] 的同步版本。
 返回 `path` 的内容。
+
+详见同步版本的 API 文档：[`fs.readFile()`]。
 
 如果指定了 `encoding` 选项，则该函数返回一个字符串，否则返回一个 buffer。[CODE][CODE_fs.readFileSync_2]
 

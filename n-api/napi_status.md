@@ -17,10 +17,9 @@ typedef enum {
   napi_escape_called_twice,
   napi_handle_scope_mismatch,
   napi_callback_scope_mismatch,
-#ifdef NAPI_EXPERIMENTAL
   napi_queue_full,
   napi_closing,
-#endif  // NAPI_EXPERIMENTAL
+  napi_bigint_expected,
 } napi_status;
 ```
 If additional information is required upon an API returning a failed status,

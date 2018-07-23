@@ -1,5 +1,6 @@
 <!-- YAML
 added: v8.2.0
+napiVersion: 1
 -->
 ```C
 napi_status napi_delete_element(napi_env env,

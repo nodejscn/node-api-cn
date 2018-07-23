@@ -16,5 +16,7 @@ changes:
   * `mode` {integer} 默认为 `0o666`。
   * `flag` {string} 详见[支持的文件系统flag]。默认为 `'w'`。
 
-[`fs.writeFile()`] 的同步版本。返回 `undefined`。
+返回 `undefined`。
+
+详见同步版本的 API 文档：[`fs.writeFile()`]。
 

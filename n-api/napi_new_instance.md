@@ -1,5 +1,6 @@
 <!-- YAML
 added: v8.0.0
+napiVersion: 1
 -->
 ```C
 napi_status napi_new_instance(napi_env env,

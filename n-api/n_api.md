@@ -41,11 +41,3 @@ for the N-API C based functions exported by Node.js. These wrappers are not
 part of N-API, nor will they be maintained as part of Node.js. One such
 example is: [node-addon-api](https://github.com/nodejs/node-addon-api).
 
-In order to use the N-API functions, include the file
-
-which is located in the src directory in the node development tree:
-
-```C
-#include <node_api.h>
-```
-

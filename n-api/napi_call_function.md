@@ -1,5 +1,6 @@
 <!-- YAML
 added: v8.0.0
+napiVersion: 1
 -->
 ```C
 napi_status napi_call_function(napi_env env,

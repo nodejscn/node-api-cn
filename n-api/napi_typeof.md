@@ -1,5 +1,6 @@
 <!-- YAML
 added: v8.0.0
+napiVersion: 1
 -->
 ```C
 napi_status napi_typeof(napi_env env, napi_value value, napi_valuetype* result)
