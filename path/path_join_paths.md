@@ -14,7 +14,7 @@ added: v0.1.16
 
 ```js
 path.join('/foo', 'bar', 'baz/asdf', 'quux', '..');
-// 返回: '/foo/bar/baz/asdf'
+// 返回: '/foo/bar/baz/asdf/quux/..'
 
 path.join('foo', {}, 'bar');
 // 抛出 'TypeError: Path must be a string. Received {}'
