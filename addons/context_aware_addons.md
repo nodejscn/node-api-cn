@@ -1,15 +1,6 @@
+这是Node.js扩展可能需要在多个上下文中多次加载的环境。比如，[Electron][]的运行时会在单个进程中运行多个Node.js实例。每个实例都有它自己的`require()`缓存，因此当通过`require()`进行加载时，每个实例需要一个原生的扩展才能正常运行。从插件程序的角度来看，这意味着它必须支持多次初始化。
 
-There are environments in which Node.js addons may need to be loaded multiple
-times in multiple contexts. For example, the [Electron][] runtime runs multiple
-instances of Node.js in a single process. Each instance will have its own
-`require()` cache, and thus each instance will need a native addon to behave
-correctly when loaded via `require()`. From the addon's perspective, this means
-that it must support multiple initializations.
-
-A context-aware addon can be constructed by using the macro
-`NODE_MODULE_INITIALIZER`, which expands to the name of a function which Node.js
-will expect to find when it loads an addon. An addon can thus be initialized as
-in the following example:
+可以使用 `NODE_MODULE_INITIALIZER` 宏来构建 context-aware 扩展，它扩展为Node.js函数的名字使得Node.js能在加载时找到。可以按如下例子初始化一个扩展：
 
 ```cpp
 using namespace v8;
@@ -22,46 +13,25 @@ NODE_MODULE_INITIALIZER(Local<Object> exports,
 }
 ```
 
-Another option is to use the macro `NODE_MODULE_INIT()`, which will also
-construct a context-aware addon. Unlike `NODE_MODULE()`, which is used to
-construct an addon around a given addon initializer function,
-`NODE_MODULE_INIT()` serves as the declaration of such an initializer to be
-followed by a function body.
+另一个选择是使用`NODE_MODULE_INIT()`宏，这也可以用来构建context-aware扩展。但和`NODE_MODULE()`不一样的是，它可以基于一个给定的函数来构建一个扩展，`NODE_MODULE_INIT()`充当了这种跟有函数体的给定函数的声明。
 
-The following three variables may be used inside the function body following an
-invocation of `NODE_MODULE_INIT()`:
+可以在调用`NODE_MODULE_INIT()`之后在函数体内部使用以下三个变量：
 * `Local<Object> exports`,
-* `Local<Value> module`, and
+* `Local<Value> module`,
 * `Local<Context> context`
 
-The choice to build a context-aware addon carries with it the responsibility of
-carefully managing global static data. Since the addon may be loaded multiple
-times, potentially even from different threads, any global static data stored
-in the addon must be properly protected, and must not contain any persistent
-references to JavaScript objects. The reason for this is that JavaScript
-objects are only valid in one context, and will likely cause a crash when
-accessed from the wrong context or from a different thread than the one on which
-they were created.
+这种构建context-aware 扩展的方式顺带了管理全局静态数据的职责。由于扩展可能被多次加载，可能甚至来自不同的线程，扩展中任何的全局静态数据必须加以保护，并且不能包含任何对JavaScript对象持久性的引用。因为JavaScript对象只在一个上下文中有效，从错误的上下文或者另外的线程中访问有可能会导致崩溃。
 
-The context-aware addon can be structured to avoid global static data by
-performing the following steps:
-* defining a class which will hold per-addon-instance data. Such
-a class should include a `v8::Persistent<v8::Object>` which will hold a weak
-reference to the addon's `exports` object. The callback associated with the weak
-reference will then destroy the instance of the class.
-* constructing an instance of this class in the addon initializer such that the
-`v8::Persistent<v8::Object>` is set to the `exports` object.
-* storing the instance of the class in a `v8::External`, and
-* passing the `v8::External` to all methods exposed to JavaScript by passing it
-to the `v8::FunctionTemplate` constructor which creates the native-backed
-JavaScript functions. The `v8::FunctionTemplate` constructor's third parameter
-accepts the `v8::External`.
+可以通过执行以下步骤来构造context-aware扩展以避免全局静态数据：
 
-This will ensure that the per-addon-instance data reaches each binding that can
-be called from JavaScript. The per-addon-instance data must also be passed into
-any asynchronous callbacks the addon may create.
+* 定义一个持有每个扩展实例数据的类。这样的类应该包含一个`v8::Persistent<v8::Object>`持有`exports`对象的弱引用。与该弱引用关联的回调函数将会破坏该类的实例。
+* 在扩展实例化过程中构造这个类的实例，把`v8::Persistent<v8::Object>` 挂到 `exports` 对象上去。
+* 在v8::External中保存这个类的实例
+* 通过将`v8::External`传递给`v8::FunctionTemplate`构造函数，该函数会创建本地支持的JavaScript函数，把`v8::External`传递给所有暴露给JavaScript的方法。`v8::FunctionTemplate`构造函数的第三个参数接受`v8::External`。
 
-The following example illustrates the implementation of a context-aware addon:
+这确保了每个扩展实例数据到达每个能被JavaScript访问的绑定。每个扩展实例数据也必须通过其创建的任何异步回调函数。
+
+下面的例子说明了一个context-aware 扩展的实现：
 
 ```cpp
 #include <node.h>
@@ -72,53 +42,50 @@ class AddonData {
  public:
   AddonData(Isolate* isolate, Local<Object> exports):
       call_count(0) {
-    // Link the existence of this object instance to the existence of exports.
+    // 将次对象的实例挂到exports上
     exports_.Reset(isolate, exports);
     exports_.SetWeak(this, DeleteMe, WeakCallbackType::kParameter);
   }
 
   ~AddonData() {
     if (!exports_.IsEmpty()) {
-      // Reset the reference to avoid leaking data.
+      // 重新设置引用以避免数据泄露
       exports_.ClearWeak();
       exports_.Reset();
     }
   }
 
-  // Per-addon data.
+  // Per-addon 数据
   int call_count;
 
  private:
-  // Method to call when "exports" is about to be garbage-collected.
+  // exports即将被回收时调用的方法
   static void DeleteMe(const WeakCallbackInfo<AddonData>& info) {
     delete info.GetParameter();
   }
 
-  // Weak handle to the "exports" object. An instance of this class will be
-  // destroyed along with the exports object to which it is weakly bound.
+  // exports对象弱句柄。该类的实例将与其若绑定的`exports`对象一起销毁
   v8::Persistent<v8::Object> exports_;
 };
 
 static void Method(const v8::FunctionCallbackInfo<v8::Value>& info) {
-  // Retrieve the per-addon-instance data.
+  // 恢复per-addon-instance数据
   AddonData* data =
       reinterpret_cast<AddonData*>(info.Data().As<External>()->Value());
   data->call_count++;
   info.GetReturnValue().Set((double)data->call_count);
 }
 
-// Initialize this addon to be context-aware.
+// context-aware 初始化
 NODE_MODULE_INIT(/* exports, module, context */) {
   Isolate* isolate = context->GetIsolate();
 
-  // Create a new instance of AddonData for this instance of the addon.
+  // 为该扩展实例的AddonData创建一个新的实例
   AddonData* data = new AddonData(isolate, exports);
-  // Wrap the data in a v8::External so we can pass it to the method we expose.
+  // 在v8::External中包裹数据，这样我们就可以将它传递给我们暴露的方法
   Local<External> external = External::New(isolate, data);
 
-  // Expose the method "Method" to JavaScript, and make sure it receives the
-  // per-addon-instance data we created above by passing `external` as the
-  // third parameter to the FunctionTemplate constructor.
+  // 把"Method"方法暴露给JavaScript，并确保其接收我们通过把`external`作为FunctionTemplate构造函数第三个参数时创建的    per-addon-instance数据
   exports->Set(context,
                String::NewFromUtf8(isolate, "method", NewStringType::kNormal)
                   .ToLocalChecked(),
