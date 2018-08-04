@@ -3,15 +3,13 @@ added: v0.1.29
 changes:
   - version: v10.0.0
     pr-url: https://github.com/nodejs/node/pull/12562
-    description: 参数 `callback` 不再是可选的。
-    		 不传入则运行时会抛出 `TypeError`。
+    description: 参数 `callback` 不再是可选的。不传入则运行时会抛出 `TypeError`。
   - version: v7.4.0
     pr-url: https://github.com/nodejs/node/pull/10382
     description: 参数 `data` 现在可以是一个 `Uint8Array`。
   - version: v7.0.0
     pr-url: https://github.com/nodejs/node/pull/7897
-    description: 参数 `callback` 不再是可选的。 
-                 不传入会触发 id 为 DEP0013 的不建议使用警告。
+    description: 参数 `callback` 不再是可选的。不传入会触发 id 为 DEP0013 的不建议使用警告。
   - version: v5.0.0
     pr-url: https://github.com/nodejs/node/pull/3163
     description: 参数 `file` 现在可以是一个文件描述符。
@@ -29,7 +27,7 @@ changes:
 异步地写入数据到文件，如果文件已经存在，则覆盖文件。
 `data` 可以是字符串或 buffer。
 
-如果 `data` 是一个 buffer，则 `encoding` 选项无效。[CODE][CODE_fs.writeFile_2]
+如果 `data` 是一个 buffer，则 `encoding` 选项无效。
 
 例子：
 

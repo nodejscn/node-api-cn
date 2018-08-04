@@ -95,6 +95,10 @@ This macro includes `NAPI_MODULE`, and declares an `Init` function with a
 special name and with visibility beyond the addon. This will allow Node.js to
 initialize the module even if it is loaded multiple times.
 
+There are a few design considerations when declaring a module that may be loaded
+multiple times. The documentation of [context-aware addons][] provides more
+details.
+
 The variables `env` and `exports` will be available inside the function body
 following the macro invocation.
 

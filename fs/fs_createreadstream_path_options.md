@@ -42,7 +42,7 @@ changes:
 
 `mode` 用于设置文件模式（权限和粘滞位），但仅限创建文件时。
 
-例子，从一个大小为 100 字节的文件中读取最后 10 个字节：[CODE][CODE_fs.createReadStream_2]
+例子，从一个大小为 100 字节的文件中读取最后 10 个字节：
 
 ```js
 fs.createReadStream('sample.txt', { start: 90, end: 99 });

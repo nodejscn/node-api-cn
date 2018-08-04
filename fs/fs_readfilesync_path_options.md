@@ -3,8 +3,7 @@ added: v0.1.8
 changes:
   - version: v7.6.0
     pr-url: https://github.com/nodejs/node/pull/10739
-    description: 参数 `path` 可以是一个使用 `file:` 协议的 WHATWG `URL` 对象。
-                 该支持目前仍为试验性的。
+    description: 参数 `path` 可以是一个使用 `file:` 协议的 WHATWG `URL` 对象。该支持目前仍为试验性的。
   - version: v5.0.0
     pr-url: https://github.com/nodejs/node/pull/3163
     description: 参数 `path` 现在可以是一个文件描述符。
@@ -20,9 +19,9 @@ changes:
 
 详见同步版本的 API 文档：[`fs.readFile()`]。
 
-如果指定了 `encoding` 选项，则该函数返回一个字符串，否则返回一个 buffer。[CODE][CODE_fs.readFileSync_2]
+如果指定了 `encoding` 选项，则该函数返回一个字符串，否则返回一个 buffer。
 
-与 [`fs.readFile()`] 相似, 当路径是一个目录时，`fs.readFileSync()` 的行为与平台有关。[CODE][CODE_fs.readFileSync_3]
+与 [`fs.readFile()`] 相似, 当路径是一个目录时，`fs.readFileSync()` 的行为与平台有关。
 
 ```js
 // 在 macOS、Linux 与 Windows 上：
