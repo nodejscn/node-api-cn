@@ -6,8 +6,8 @@ changes:
     description: This method now returns a reference to `writable`.
 -->
 
-* `encoding` {string} 新的默认编码
+* `encoding` {string} 新的默认字符编码。
 * 返回: {this}
 
-`writable.setDefaultEncoding()` 用于为[可写流]设置 `encoding`。
+`writable.setDefaultEncoding()` 方法能为[可写流]设置默认的 `encoding`。
 

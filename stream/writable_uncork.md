@@ -2,27 +2,28 @@
 added: v0.11.2
 -->
 
-`writable.uncork()` 将输出在 [`stream.cork()`][] 方法被调用之后缓冲在内存中的所有数据。
+`writable.uncork()` 方法会输出 [`stream.cork()`][] 方法被调用后缓冲的全部数据。
 
-如果使用 [`writable.cork()`] 和 `writable.uncork()` 来管理写入缓存，建议使用 `process.nextTick()` 来延迟调用 `writable.uncork()` 方法。通过这种方式，可以对单个 Node.js 事件循环中调用的所有 `writable.write()` 方法进行批处理。
+当使用 [`writable.cork()`] 和 `writable.uncork()` 来管理流写入缓存，建议使用 `process.nextTick()` 来延迟调用 `writable.uncork()`。
+通过这种方式，可以对单个 Node.js 事件循环中调用的所有 `writable.write()` 方法进行批处理。
 
 ```js
 stream.cork();
-stream.write('some ');
-stream.write('data ');
+stream.write('一些 ');
+stream.write('数据 ');
 process.nextTick(() => stream.uncork());
 ```
 
-如果一个流多次调用了 [`writable.cork()`] 方法，那么也必须调用同样次数的 `writable.uncork()` 方法以输出缓冲区数据。
+如果一个流上多次调用 [`writable.cork()`] 方法，则必须调用同样次数的 `writable.uncork()` 方法才能输出缓冲的数据。
 
 ```js
 stream.cork();
-stream.write('some ');
+stream.write('一些 ');
 stream.cork();
-stream.write('data ');
+stream.write('数据 ');
 process.nextTick(() => {
   stream.uncork();
-  // 之前的数据只有在 uncork() 被二次调用后才会输出
+  // 数据不会被输出，直到第二次调用 uncork()。
   stream.uncork();
 });
 ```
