@@ -1,10 +1,10 @@
 
-`Buffer` instances can be iterated over using `for..of` syntax:
+`Buffer` 实例可以通过 `for..of` 语法进行迭代:
 
 ```js
 const buf = Buffer.from([1, 2, 3]);
 
-// Prints:
+// 打印:
 //   1
 //   2
 //   3
@@ -13,6 +13,6 @@ for (const b of buf) {
 }
 ```
 
-Additionally, the [`buf.values()`], [`buf.keys()`], and
-[`buf.entries()`] methods can be used to create iterators.
+此外, 可以通过 [`buf.values()`], [`buf.keys()`], 和
+[`buf.entries()`] 方法来创建iterators.
 
