@@ -24,9 +24,9 @@ changes:
   * `auth` {string} 基本身份验证，如 `'user:password'` 用来计算 `Authorization` 请求头。
   * `agent` {http.Agent | boolean} 控制 [`Agent`] 的行为。
     可能的值有：
-   * `undefined` (默认): 对该主机和端口使用 [`http.globalAgent`]。
-   * `Agent` 对象：显式地使用传入的 `Agent`。
-   * `false`: 创建一个新的使用默认值的 `Agent`。
+    * `undefined` (默认): 对该主机和端口使用 [`http.globalAgent`]。
+    * `Agent` 对象：显式地使用传入的 `Agent`。
+    * `false`: 创建一个新的使用默认值的 `Agent`。
   * `createConnection` {Function} 当不使用 `agent` 选项时，为请求创建一个 socket 或流。
     这可以用于避免仅仅创建一个自定义的 `Agent` 类来覆盖默认的 `createConnection` 函数。详见 [`agent.createConnection()`]。
     Any [`Duplex`][] stream is a valid return value.
