@@ -21,22 +21,19 @@ changes:
 
 * `path` {string|Buffer|URL}
 * `options` {Object}
-  * `bigint` {boolean} Whether the numeric values in the returned
-    [`fs.Stats`][] object should be `bigint`. **Default:** `false`.
+  * `bigint` {boolean} 在返回的[`fs.Stats`][] 对象中的数字类型值是否为`bigint`. **Default:** `false`.
 * `callback` {Function}
   * `err` {Error}
   * `stats` {fs.Stats}
 
-Asynchronous stat(2). The callback gets two arguments `(err, stats)` where
-`stats` is an [`fs.Stats`][] object.
+异步的 stat(2). 回调函数中包含两个参数 `(err, stats)` ，其中
+`stats` 为 [`fs.Stats`][] 对象。
 
-In case of an error, the `err.code` will be one of [Common System Errors][].
+如果发生了错误， `err.code` 将会为 [Common System Errors][]中的某个值。
 
-Using `fs.stat()` to check for the existence of a file before calling
-`fs.open()`, `fs.readFile()` or `fs.writeFile()` is not recommended.
-Instead, user code should open/read/write the file directly and handle the
-error raised if the file is not available.
+不推荐在调用`fs.open()`, `fs.readFile()` or `fs.writeFile()` 前通过使用 `fs.stat()` 
+来检查某个文件是否存在。对于这种情况，开发者应当通过直接open/read/write文件并检测产生的异常来
+判断文件是否可用。
 
-To check if a file exists without manipulating it afterwards, [`fs.access()`]
-is recommended.
+如果不需要操作文件只是想获取文件是否可用，推荐使用[`fs.access()`]。
 
