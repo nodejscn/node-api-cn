@@ -17,7 +17,7 @@ changes:
 
 返回 `path` 的内容。
 
-详见同步版本的 API 文档：[`fs.readFile()`]。
+详见异步版本的 API 文档：[`fs.readFile()`]。
 
 如果指定了 `encoding` 选项，则该函数返回一个字符串，否则返回一个 buffer。
 
