@@ -1,4 +1,8 @@
+<!-- YAML
+added: v9.0.0
+removed: v10.0.0
+-->
 
-Superseded by `ERR_OUT_OF_RANGE`.
+Used when a given value is out of the accepted range.
 
-<a id="ERR_VM_MODULE_ALREADY_LINKED"></a>
+<a id="ERR_ZLIB_BINDING_CLOSED"></a>

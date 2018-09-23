@@ -1,9 +1,9 @@
 <!-- YAML
 added: v0.11.14
 -->
-- `encoding` {string}
-- `format` {string} **Default:** `'uncompressed'`
-- Returns: {Buffer | string}
+* `encoding` {string}
+* `format` {string} **Default:** `'uncompressed'`
+* Returns: {Buffer | string}
 
 Generates private and public EC Diffie-Hellman key values, and returns
 the public key in the specified `format` and `encoding`. This key should be

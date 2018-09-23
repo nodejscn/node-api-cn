@@ -1,8 +1,8 @@
 <!-- YAML
 added: v10.6.0
 -->
-- `hostname` {string} Hostname to resolve.
-- `rrtype` {string} Resource record type. **Default:** `'A'`.
+* `hostname` {string} Hostname to resolve.
+* `rrtype` {string} Resource record type. **Default:** `'A'`.
 
 Uses the DNS protocol to resolve a hostname (e.g. `'nodejs.org'`) into an array
 of the resource records. When successful, the `Promise` is resolved with an

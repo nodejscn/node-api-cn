@@ -21,7 +21,7 @@ Then `request.url` will be:
 ```
 
 To parse the url into its parts `require('url').parse(request.url)`
-can be used. Example:
+can be used:
 
 ```txt
 $ node
@@ -44,7 +44,6 @@ Url {
 To extract the parameters from the query string, the
 `require('querystring').parse` function can be used, or
 `true` can be passed as the second argument to `require('url').parse`.
-Example:
 
 ```txt
 $ node

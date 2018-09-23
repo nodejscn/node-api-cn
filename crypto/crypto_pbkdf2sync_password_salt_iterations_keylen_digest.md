@@ -10,12 +10,12 @@ changes:
     description: The default encoding for `password` if it is a string changed
                  from `binary` to `utf8`.
 -->
-- `password` {string|Buffer|TypedArray|DataView}
-- `salt` {string|Buffer|TypedArray|DataView}
-- `iterations` {number}
-- `keylen` {number}
-- `digest` {string}
-- Returns: {Buffer}
+* `password` {string|Buffer|TypedArray|DataView}
+* `salt` {string|Buffer|TypedArray|DataView}
+* `iterations` {number}
+* `keylen` {number}
+* `digest` {string}
+* Returns: {Buffer}
 
 Provides a synchronous Password-Based Key Derivation Function 2 (PBKDF2)
 implementation. A selected HMAC digest algorithm specified by `digest` is
@@ -25,14 +25,15 @@ applied to derive a key of the requested byte length (`keylen`) from the
 If an error occurs an `Error` will be thrown, otherwise the derived key will be
 returned as a [`Buffer`][].
 
+If `digest` is `null`, `'sha1'` will be used. This behavior will be deprecated
+in a future version of Node.js.
+
 The `iterations` argument must be a number set as high as possible. The
 higher the number of iterations, the more secure the derived key will be,
 but will take a longer amount of time to complete.
 
 The `salt` should be as unique as possible. It is recommended that a salt is
 random and at least 16 bytes long. See [NIST SP 800-132][] for details.
-
-Example:
 
 ```js
 const crypto = require('crypto');

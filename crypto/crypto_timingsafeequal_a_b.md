@@ -1,9 +1,9 @@
 <!-- YAML
 added: v6.6.0
 -->
-- `a` {Buffer | TypedArray | DataView}
-- `b` {Buffer | TypedArray | DataView}
-- Returns: {boolean}
+* `a` {Buffer | TypedArray | DataView}
+* `b` {Buffer | TypedArray | DataView}
+* Returns: {boolean}
 
 This function is based on a constant-time algorithm.
 Returns true if `a` is equal to `b`, without leaking timing information that

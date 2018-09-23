@@ -1,8 +1,8 @@
 <!-- YAML
 added: v0.11.11
 -->
-- `engine` {string}
-- `flags` {crypto.constants} **Default:** `crypto.constants.ENGINE_METHOD_ALL`
+* `engine` {string}
+* `flags` {crypto.constants} **Default:** `crypto.constants.ENGINE_METHOD_ALL`
 
 Load and set the `engine` for some or all OpenSSL functions (selected by flags).
 

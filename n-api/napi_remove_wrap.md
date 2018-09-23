@@ -15,8 +15,7 @@ napi_status napi_remove_wrap(napi_env env,
 Returns `napi_ok` if the API succeeded.
 
 Retrieves a native instance that was previously wrapped in the JavaScript
-object `js_object` using `napi_wrap()` and removes the wrapping, thereby
-restoring the JavaScript object's prototype chain. If a finalize callback was
-associated with the wrapping, it will no longer be called when the JavaScript
-object becomes garbage-collected.
+object `js_object` using `napi_wrap()` and removes the wrapping. If a finalize
+callback was associated with the wrapping, it will no longer be called when the
+JavaScript object becomes garbage-collected.
 

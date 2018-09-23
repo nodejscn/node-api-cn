@@ -11,3 +11,8 @@ changes:
     pr-url: https://github.com/nodejs/node/pull/12001
     description: The `buffer` parameter can be an `Uint8Array` now.
 -->
+
+* `buffer` {Buffer|TypedArray|DataView|ArrayBuffer|string}
+* `options` {Object}
+* `callback` {Function}
+

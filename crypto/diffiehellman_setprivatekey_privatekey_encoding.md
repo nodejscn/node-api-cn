@@ -1,8 +1,8 @@
 <!-- YAML
 added: v0.5.0
 -->
-- `privateKey` {string | Buffer | TypedArray | DataView}
-- `encoding` {string}
+* `privateKey` {string | Buffer | TypedArray | DataView}
+* `encoding` {string}
 
 Sets the Diffie-Hellman private key. If the `encoding` argument is provided
 and is either `'latin1'`, `'hex'`, or `'base64'`, `privateKey` is expected

@@ -47,8 +47,6 @@ See [`port.postMessage()`][] for more information on how messages are passed,
 and what kind of JavaScript values can be successfully transported through
 the thread barrier.
 
-For example:
-
 ```js
 const assert = require('assert');
 const {

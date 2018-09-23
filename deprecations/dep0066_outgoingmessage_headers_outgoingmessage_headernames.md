@@ -1,3 +1,9 @@
+<!-- YAML
+changes:
+  - version: v8.0.0
+    pr-url: https://github.com/nodejs/node/pull/10941
+    description: Documentation-only deprecation.
+-->
 
 Type: Documentation-only
 

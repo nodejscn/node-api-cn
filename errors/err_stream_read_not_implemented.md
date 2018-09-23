@@ -1,5 +1,9 @@
+<!-- YAML
+added: v9.0.0
+removed: v10.0.0
+-->
 
-An attempt was made to use a readable stream that did not implement
+Used when an attempt is made to use a readable stream that has not implemented
 [`readable._read()`][].
 
-<a id="ERR_STREAM_UNSHIFT_AFTER_END_EVENT"></a>
+<a id="ERR_TLS_RENEGOTIATION_FAILED"></a>

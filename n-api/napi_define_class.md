@@ -54,3 +54,9 @@ case, to prevent the function value from being garbage-collected, create a
 persistent reference to it using [`napi_create_reference`][] and ensure the
 reference count is kept >= 1.
 
+Any non-`NULL` data which is passed to this API via the `data` parameter or via
+the `data` field of the `napi_property_descriptor` array items can be associated
+with the resulting JavaScript constructor (which is returned in the `result`
+parameter) and freed whenever the class is garbage-collected by passing both
+the JavaScript function and the data to [`napi_add_finalizer`][].
+

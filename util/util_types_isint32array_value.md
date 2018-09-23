@@ -2,11 +2,10 @@
 added: v10.0.0
 -->
 
+* `value` {any}
 * Returns: {boolean}
 
 Returns `true` if the value is a built-in [`Int32Array`][] instance.
-
-For example:
 
 ```js
 util.types.isInt32Array(new ArrayBuffer());  // Returns false

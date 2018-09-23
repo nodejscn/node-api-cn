@@ -13,8 +13,7 @@ napi_status napi_wrap(napi_env env,
 
  - `[in] env`: The environment that the API is invoked under.
  - `[in] js_object`: The JavaScript object that will be the wrapper for the
-   native object. This object _must_ have been created from the `prototype` of
-   a constructor that was created using `napi_define_class()`.
+   native object.
  - `[in] native_object`: The native instance that will be wrapped in the
    JavaScript object.
  - `[in] finalize_cb`: Optional native callback that can be used to free the
@@ -46,13 +45,9 @@ temporarily during async operations that require the instance to remain valid.
 
 *Caution*: The optional returned reference (if obtained) should be deleted via
 [`napi_delete_reference`][] ONLY in response to the finalize callback
-invocation. (If it is deleted before then, then the finalize callback may never
-be invoked.) Therefore, when obtaining a reference a finalize callback is also
-required in order to enable correct proper of the reference.
-
-This API may modify the prototype chain of the wrapper object. Afterward,
-additional manipulation of the wrapper's prototype chain may cause
-`napi_unwrap()` to fail.
+invocation. If it is deleted before then, then the finalize callback may never
+be invoked. Therefore, when obtaining a reference a finalize callback is also
+required in order to enable correct disposal of the reference.
 
 Calling `napi_wrap()` a second time on an object will return an error. To
 associate another native instance with the object, use `napi_remove_wrap()`

@@ -53,13 +53,13 @@ changes:
     TLS connection. When a server offers a DH parameter with a size less
     than `minDHSize`, the TLS connection is destroyed and an error is thrown.
     **Default:** `1024`.
-  * `secureContext`: Optional TLS context object created with
+  * `secureContext`: TLS context object created with
     [`tls.createSecureContext()`][]. If a `secureContext` is _not_ provided, one
     will be created by passing the entire `options` object to
     `tls.createSecureContext()`.
   * `lookup`: {Function} Custom lookup function. **Default:**
     [`dns.lookup()`][].
-  * ...: Optional [`tls.createSecureContext()`][] options that are used if the
+  * ...: [`tls.createSecureContext()`][] options that are used if the
     `secureContext` option is missing, otherwise they are ignored.
 * `callback` {Function}
 

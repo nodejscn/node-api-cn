@@ -2,11 +2,10 @@
 added: v10.0.0
 -->
 
+* `value` {any}
 * Returns: {boolean}
 
 Returns `true` if the value is a built-in [`DataView`][] instance.
-
-For example:
 
 ```js
 const ab = new ArrayBuffer(20);

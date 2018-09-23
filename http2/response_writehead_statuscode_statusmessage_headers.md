@@ -14,8 +14,6 @@ passed as the second argument. However, because the `statusMessage` has no
 meaning within HTTP/2, the argument will have no effect and a process warning
 will be emitted.
 
-Example:
-
 ```js
 const body = 'hello world';
 response.writeHead(200, {

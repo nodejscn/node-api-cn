@@ -17,17 +17,17 @@ async_hooks.createHook({
   },
   before(asyncId) {
     const indentStr = ' '.repeat(indent);
-    fs.writeSync(1, `${indentStr}before:  ${asyncId}\n`);
+    fs.writeSync(process.stdout.fd, `${indentStr}before:  ${asyncId}\n`);
     indent += 2;
   },
   after(asyncId) {
     indent -= 2;
     const indentStr = ' '.repeat(indent);
-    fs.writeSync(1, `${indentStr}after:   ${asyncId}\n`);
+    fs.writeSync(process.stdout.fd, `${indentStr}after:   ${asyncId}\n`);
   },
   destroy(asyncId) {
     const indentStr = ' '.repeat(indent);
-    fs.writeSync(1, `${indentStr}destroy: ${asyncId}\n`);
+    fs.writeSync(process.stdout.fd, `${indentStr}destroy: ${asyncId}\n`);
   },
 }).enable();
 

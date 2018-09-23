@@ -1,10 +1,10 @@
 <!-- YAML
 added: v0.1.94
 -->
-- `algorithm` {string}
-- `key` {string | Buffer | TypedArray | DataView}
-- `options` {Object} [`stream.transform` options][]
-- Returns: {Hmac}
+* `algorithm` {string}
+* `key` {string | Buffer | TypedArray | DataView}
+* `options` {Object} [`stream.transform` options][]
+* Returns: {Hmac}
 
 Creates and returns an `Hmac` object that uses the given `algorithm` and `key`.
 Optional `options` argument controls stream behavior.

@@ -37,7 +37,7 @@ doTruncate().catch(console.error);
 ```
 
 If the file previously was shorter than `len` bytes, it is extended, and the
-extended part is filled with null bytes (`'\0'`). For example,
+extended part is filled with null bytes (`'\0'`):
 
 ```js
 const fs = require('fs');

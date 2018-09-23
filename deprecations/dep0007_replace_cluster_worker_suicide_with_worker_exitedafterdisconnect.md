@@ -1,3 +1,18 @@
+<!-- YAML
+changes:
+  - version: v9.0.0
+    pr-url: https://github.com/nodejs/node/pull/13702
+    description: End-of-Life.
+  - version: v7.0.0
+    pr-url: https://github.com/nodejs/node/pull/3747
+    description: Runtime deprecation.
+  - version: v6.12.0
+    pr-url: https://github.com/nodejs/node/pull/10116
+    description: A deprecation code has been assigned.
+  - version: v6.0.0
+    pr-url: https://github.com/nodejs/node/pull/3743
+    description: Documentation-only deprecation.
+-->
 
 Type: End-of-Life
 

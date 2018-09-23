@@ -2,11 +2,10 @@
 added: v10.0.0
 -->
 
+* `value` {any}
 * Returns: {boolean}
 
 Returns `true` if the value is an `arguments` object.
-
-For example:
 
 <!-- eslint-disable prefer-rest-params -->
 ```js

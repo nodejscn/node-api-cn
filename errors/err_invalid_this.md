@@ -1,8 +1,6 @@
 
 A Node.js API function was called with an incompatible `this` value.
 
-Example:
-
 ```js
 const urlSearchParams = new URLSearchParams('foo=bar&baz=new');
 

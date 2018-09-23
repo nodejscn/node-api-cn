@@ -31,21 +31,21 @@ changes:
     certificate can match or chain to.
     For self-signed certificates, the certificate is its own CA, and must be
     provided.
-  * `cert` {string|string[]|Buffer|Buffer[]} Optional cert chains in PEM format.
-    One cert chain should be provided per private key. Each cert chain should
-    consist of the PEM formatted certificate for a provided private `key`,
-    followed by the PEM formatted intermediate certificates (if any), in order,
-    and not including the root CA (the root CA must be pre-known to the peer,
-    see `ca`). When providing multiple cert chains, they do not have to be in
-    the same order as their private keys in `key`. If the intermediate
-    certificates are not provided, the peer will not be able to validate the
-    certificate, and the handshake will fail.
-  * `ciphers` {string} Optional cipher suite specification, replacing the
-    default. For more information, see [modifying the default cipher suite][].
-  * `clientCertEngine` {string} Optional name of an OpenSSL engine which can
-    provide the client certificate.
-  * `crl` {string|string[]|Buffer|Buffer[]} Optional PEM formatted
-    CRLs (Certificate Revocation Lists).
+  * `cert` {string|string[]|Buffer|Buffer[]} Cert chains in PEM format. One cert
+    chain should be provided per private key. Each cert chain should consist of
+    the PEM formatted certificate for a provided private `key`, followed by the
+    PEM formatted intermediate certificates (if any), in order, and not
+    including the root CA (the root CA must be pre-known to the peer, see `ca`).
+    When providing multiple cert chains, they do not have to be in the same
+    order as their private keys in `key`. If the intermediate certificates are
+    not provided, the peer will not be able to validate the certificate, and the
+    handshake will fail.
+  * `ciphers` {string} Cipher suite specification, replacing the default. For
+    more information, see [modifying the default cipher suite][].
+  * `clientCertEngine` {string} Name of an OpenSSL engine which can provide the
+    client certificate.
+  * `crl` {string|string[]|Buffer|Buffer[]} PEM formatted CRLs (Certificate
+    Revocation Lists).
   * `dhparam` {string|Buffer} Diffie Hellman parameters, required for
     [Perfect Forward Secrecy][]. Use `openssl dhparam` to create the parameters.
     The key length must be greater than or equal to 1024 bits, otherwise an
@@ -63,19 +63,19 @@ changes:
     preferences instead of the client's. When `true`, causes
     `SSL_OP_CIPHER_SERVER_PREFERENCE` to be set in `secureOptions`, see
     [OpenSSL Options][] for more information.
-  * `key` {string|string[]|Buffer|Buffer[]|Object[]} Optional private keys in
-    PEM format. PEM allows the option of private keys being encrypted. Encrypted
-    keys will be decrypted with `options.passphrase`. Multiple keys using
-    different algorithms can be provided either as an array of unencrypted key
-    strings or buffers, or an array of objects in the form `{pem:
-    <string|buffer>[, passphrase: <string>]}`. The object form can only occur in
-    an array. `object.passphrase` is optional. Encrypted keys will be decrypted
-    with `object.passphrase` if provided, or `options.passphrase` if it is not.
-  * `passphrase` {string} Optional shared passphrase used for a single private
-    key and/or a PFX.
-  * `pfx` {string|string[]|Buffer|Buffer[]|Object[]} Optional PFX or PKCS12
-    encoded private key and certificate chain. `pfx` is an alternative to
-    providing `key` and `cert` individually. PFX is usually encrypted, if it is,
+  * `key` {string|string[]|Buffer|Buffer[]|Object[]} Private keys in PEM format.
+    PEM allows the option of private keys being encrypted. Encrypted keys will
+    be decrypted with `options.passphrase`. Multiple keys using different
+    algorithms can be provided either as an array of unencrypted key strings or
+    buffers, or an array of objects in the form `{pem: <string|buffer>[,
+    passphrase: <string>]}`. The object form can only occur in an array.
+    `object.passphrase` is optional. Encrypted keys will be decrypted with
+    `object.passphrase` if provided, or `options.passphrase` if it is not.
+  * `passphrase` {string} Shared passphrase used for a single private key and/or
+    a PFX.
+  * `pfx` {string|string[]|Buffer|Buffer[]|Object[]} PFX or PKCS12 encoded
+    private key and certificate chain. `pfx` is an alternative to providing
+    `key` and `cert` individually. PFX is usually encrypted, if it is,
     `passphrase` will be used to decrypt it. Multiple PFX can be provided either
     as an array of unencrypted PFX buffers, or an array of objects in the form
     `{buf: <string|buffer>[, passphrase: <string>]}`. The object form can only
@@ -86,12 +86,11 @@ changes:
     which is not usually necessary. This should be used carefully if at all!
     Value is a numeric bitmask of the `SSL_OP_*` options from
     [OpenSSL Options][].
-  * `secureProtocol` {string} Optional SSL method to use. The possible values
-    are listed as [SSL_METHODS][], use the function names as strings.
-    For example, `'TLSv1_2_method'` to force TLS version 1.2. **Default:**
-    `'TLS_method'`.
-  * `sessionIdContext` {string} Optional opaque identifier used by servers to
-    ensure session state is not shared between applications. Unused by clients.
+  * `secureProtocol` {string} SSL method to use. The possible values are listed
+    as [SSL_METHODS][], use the function names as strings. For example,
+    `'TLSv1_2_method'` to force TLS version 1.2. **Default:** `'TLS_method'`.
+  * `sessionIdContext` {string} Opaque identifier used by servers to ensure
+    session state is not shared between applications. Unused by clients.
 
 [`tls.createServer()`][] sets the default value of the `honorCipherOrder` option
 to `true`, other APIs that create secure contexts leave it unset.

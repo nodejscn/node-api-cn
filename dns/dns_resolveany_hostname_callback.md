@@ -1,6 +1,6 @@
 
-- `hostname` {string}
-- `callback` {Function}
+* `hostname` {string}
+* `callback` {Function}
   - `err` {Error}
   - `ret` {Object[]}
 

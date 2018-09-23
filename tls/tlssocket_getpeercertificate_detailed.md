@@ -13,8 +13,6 @@ If the full certificate chain was requested, each certificate will include an
 `issuerCertificate` property containing an object representing its issuer's
 certificate.
 
-For example:
-
 ```text
 { subject:
    { C: 'UK',

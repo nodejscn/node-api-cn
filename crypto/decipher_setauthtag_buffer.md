@@ -5,11 +5,11 @@ changes:
     pr-url: https://github.com/nodejs/node/pull/9398
     description: This method now returns a reference to `decipher`.
 -->
-- `buffer` {Buffer | TypedArray | DataView}
-- Returns: {Decipher} for method chaining.
+* `buffer` {Buffer | TypedArray | DataView}
+* Returns: {Decipher} for method chaining.
 
-When using an authenticated encryption mode (only `GCM` and `CCM` are currently
-supported), the `decipher.setAuthTag()` method is used to pass in the
+When using an authenticated encryption mode (`GCM`, `CCM` and `OCB` are
+currently supported), the `decipher.setAuthTag()` method is used to pass in the
 received _authentication tag_. If no tag is provided, or if the cipher text
 has been tampered with, [`decipher.final()`][] will throw, indicating that the
 cipher text should be discarded due to failed authentication.

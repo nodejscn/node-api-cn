@@ -2,11 +2,10 @@
 added: v10.0.0
 -->
 
+* `value` {any}
 * Returns: {boolean}
 
 Returns `true` if the value is a built-in [`Uint8ClampedArray`][] instance.
-
-For example:
 
 ```js
 util.types.isUint8ClampedArray(new ArrayBuffer());  // Returns false

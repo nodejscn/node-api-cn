@@ -15,8 +15,6 @@ prototypically inherit from the JavaScript `Object`. This means that typical
 `Object` methods such as `obj.toString()`, `obj.hasOwnProperty()`, and others
 are not defined and *will not work*.
 
-Example:
-
 ```js
 response.setHeader('Foo', 'bar');
 response.setHeader('Set-Cookie', ['foo=bar', 'bar=baz']);

@@ -16,3 +16,8 @@ have occasion to work with the `Http2Session` object directly, with most
 actions typically taken through interactions with either the `Http2Server` or
 `Http2Stream` objects.
 
+User code will not create `Http2Session` instances directly. Server-side
+`Http2Session` instances are created by the `Http2Server` instance when a
+new HTTP/2 connection is received. Client-side `Http2Session` instances are
+created using the `http2.connect()` method.
+

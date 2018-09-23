@@ -1,7 +1,7 @@
 <!-- YAML
 added: v8.4.0
 -->
-- `callback` {Function}
+* `callback` {Function}
 
 Stops the server from accepting new connections.  See [`net.Server.close()`][].
 

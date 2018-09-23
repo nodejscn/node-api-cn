@@ -13,7 +13,7 @@ Only paths that can be converted to UTF8 strings are supported.
 
 The optional `options` argument can be a string specifying an encoding, or an
 object with an `encoding` property specifying the character encoding to use for
-the path passed to the callback. If the `encoding` is set to `'buffer'`,
+the path returned. If the `encoding` is set to `'buffer'`,
 the path returned will be passed as a `Buffer` object.
 
 On Linux, when Node.js is linked against musl libc, the procfs file system must

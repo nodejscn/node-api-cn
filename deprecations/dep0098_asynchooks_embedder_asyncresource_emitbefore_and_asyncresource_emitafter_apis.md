@@ -1,3 +1,12 @@
+<!-- YAML
+changes:
+  - version:
+    - v8.12.0
+    - v9.6.0
+    - v10.0.0
+    pr-url: https://github.com/nodejs/node/pull/18632
+    description: Runtime deprecation.
+-->
 
 Type: Runtime
 

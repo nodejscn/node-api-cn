@@ -1,3 +1,9 @@
+<!-- YAML
+changes:
+  - version: v10.0.0
+    pr-url: https://github.com/nodejs/node/pull/18632
+    description: Compile-time deprecation.
+-->
 
 Type: Compile-time
 

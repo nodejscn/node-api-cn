@@ -1,5 +1,5 @@
 
-CCM is one of the two supported [AEAD algorithms][]. Applications which use this
+CCM is one of the supported [AEAD algorithms][]. Applications which use this
 mode must adhere to certain restrictions when using the cipher API:
 
 - The authentication tag length must be specified during cipher creation by

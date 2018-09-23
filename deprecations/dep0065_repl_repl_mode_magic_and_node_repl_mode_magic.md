@@ -1,3 +1,12 @@
+<!-- YAML
+changes:
+  - version: v10.0.0
+    pr-url: https://github.com/nodejs/node/pull/19187
+    description: End-of-Life.
+  - version: v8.0.0
+    pr-url: https://github.com/nodejs/node/pull/11599
+    description: Documentation-only deprecation.
+-->
 
 Type: End-of-Life
 

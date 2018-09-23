@@ -67,6 +67,11 @@ myaddon.sayHello();
 The string passed to `require()` is the name of the target in `binding.gyp`
 responsible for creating the `.node` file.
 
+Any non-`NULL` data which is passed to this API via the `data` parameter can
+be associated with the resulting JavaScript function (which is returned in the
+`result` parameter) and freed whenever the function is garbage-collected by
+passing both the JavaScript function and the data to [`napi_add_finalizer`][].
+
 JavaScript `Function`s are described in
 
 of the ECMAScript Language Specification.

@@ -1,8 +1,8 @@
 <!-- YAML
 added: v10.6.0
 -->
-- `hostname` {string}
-- `options` {integer | Object}
+* `hostname` {string}
+* `options` {integer | Object}
   - `family` {integer} The record family. Must be `4` or `6`. IPv4
     and IPv6 addresses are both returned by default.
   - `hints` {number} One or more [supported `getaddrinfo` flags][]. Multiple

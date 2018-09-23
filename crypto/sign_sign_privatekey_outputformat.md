@@ -5,11 +5,13 @@ changes:
     pr-url: https://github.com/nodejs/node/pull/11705
     description: Support for RSASSA-PSS and additional options was added.
 -->
-- `privateKey` {string | Object}
+* `privateKey` {string | Object}
   - `key` {string}
   - `passphrase` {string}
-- `outputFormat` {string}
-- Returns: {Buffer | string}
+  - `padding` {integer}
+  - `saltLength` {integer}
+* `outputFormat` {string}
+* Returns: {Buffer | string}
 
 Calculates the signature on all the data passed through using either
 [`sign.update()`][] or [`sign.write()`][stream-writable-write].

@@ -8,8 +8,6 @@ When using implicit headers (not calling [`response.writeHead()`][] explicitly),
 this property controls the status code that will be sent to the client when
 the headers get flushed.
 
-Example:
-
 ```js
 response.statusCode = 404;
 ```

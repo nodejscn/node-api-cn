@@ -2,12 +2,12 @@
 added: v10.0.0
 -->
 
-- `key` {string | Buffer | TypedArray | DataView}
-- `curve` {string}
-- `inputEncoding` {string}
-- `outputEncoding` {string}
-- `format` {string} **Default:** `'uncompressed'`
-- Returns: {Buffer | string}
+* `key` {string | Buffer | TypedArray | DataView}
+* `curve` {string}
+* `inputEncoding` {string}
+* `outputEncoding` {string}
+* `format` {string} **Default:** `'uncompressed'`
+* Returns: {Buffer | string}
 
 Converts the EC Diffie-Hellman public key specified by `key` and `curve` to the
 format specified by `format`. The `format` argument specifies point encoding
@@ -29,9 +29,9 @@ If the `inputEncoding` is not provided, `key` is expected to be a [`Buffer`][],
 Example (uncompressing a key):
 
 ```js
-const { ECDH } = require('crypto');
+const { createECDH, ECDH } = require('crypto');
 
-const ecdh = ECDH('secp256k1');
+const ecdh = createECDH('secp256k1');
 ecdh.generateKeys();
 
 const compressedKey = ecdh.getPublicKey('hex', 'compressed');

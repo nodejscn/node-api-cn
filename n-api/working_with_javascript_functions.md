@@ -15,3 +15,8 @@ JavaScript functions from native code. One can either call a function
 like a regular JavaScript function call, or as a constructor
 function.
 
+Any non-`NULL` data which is passed to this API via the `data` field of the
+`napi_property_descriptor` items can be associated with `object` and freed
+whenever `object` is garbage-collected by passing both `object` and the data to
+[`napi_add_finalizer`][].
+

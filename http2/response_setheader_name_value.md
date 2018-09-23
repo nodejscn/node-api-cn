@@ -9,8 +9,6 @@ Sets a single header value for implicit headers. If this header already exists
 in the to-be-sent headers, its value will be replaced. Use an array of strings
 here to send multiple headers with the same name.
 
-Example:
-
 ```js
 response.setHeader('Content-Type', 'text/html');
 ```

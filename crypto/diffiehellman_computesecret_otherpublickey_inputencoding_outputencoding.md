@@ -1,10 +1,10 @@
 <!-- YAML
 added: v0.5.0
 -->
-- `otherPublicKey` {string | Buffer | TypedArray | DataView}
-- `inputEncoding` {string}
-- `outputEncoding` {string}
-- Returns: {Buffer | string}
+* `otherPublicKey` {string | Buffer | TypedArray | DataView}
+* `inputEncoding` {string}
+* `outputEncoding` {string}
+* Returns: {Buffer | string}
 
 Computes the shared secret using `otherPublicKey` as the other
 party's public key and returns the computed shared secret. The supplied

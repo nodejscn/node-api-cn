@@ -1,7 +1,7 @@
 <!-- YAML
 added: v10.6.0
 -->
-- `hostname` {string}
+* `hostname` {string}
 
 Uses the DNS protocol to resolve all records (also known as `ANY` or `*` query).
 On success, the `Promise` is resolved with an array containing various types of

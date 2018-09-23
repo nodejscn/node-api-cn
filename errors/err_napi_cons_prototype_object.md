@@ -1,4 +1,8 @@
+<!-- YAML
+added: v9.0.0
+removed: v10.0.0
+-->
 
-While using `N-API`, `Constructor.prototype` was not an object.
+Used by the `N-API` when `Constructor.prototype` is not an object.
 
-<a id="ERR_NO_ICU"></a>
+<a id="ERR_OUTOFMEMORY"></a>

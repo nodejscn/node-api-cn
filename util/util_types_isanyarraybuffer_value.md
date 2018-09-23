@@ -2,6 +2,7 @@
 added: v10.0.0
 -->
 
+* `value` {any}
 * Returns: {boolean}
 
 Returns `true` if the value is a built-in [`ArrayBuffer`][] or
@@ -9,8 +10,6 @@ Returns `true` if the value is a built-in [`ArrayBuffer`][] or
 
 See also [`util.types.isArrayBuffer()`][] and
 [`util.types.isSharedArrayBuffer()`][].
-
-For example:
 
 ```js
 util.types.isAnyArrayBuffer(new ArrayBuffer());  // Returns true

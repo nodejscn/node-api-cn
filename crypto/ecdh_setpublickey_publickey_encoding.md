@@ -5,8 +5,8 @@ deprecated: v5.2.0
 
 > Stability: 0 - Deprecated
 
-- `publicKey` {string | Buffer | TypedArray | DataView}
-- `encoding` {string}
+* `publicKey` {string | Buffer | TypedArray | DataView}
+* `encoding` {string}
 
 Sets the EC Diffie-Hellman public key. Key encoding can be `'latin1'`,
 `'hex'` or `'base64'`. If `encoding` is provided `publicKey` is expected to

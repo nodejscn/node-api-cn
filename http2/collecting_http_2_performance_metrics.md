@@ -104,5 +104,3 @@ following additional properties:
 
 
 
-
-

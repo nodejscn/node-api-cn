@@ -1,20 +1,24 @@
 <!-- YAML
 added: v0.1.94
 deprecated: v10.0.0
+changes:
+  - version: v10.10.0
+    pr-url: https://github.com/nodejs/node/pull/21447
+    description: Ciphers in OCB mode are now supported.
 -->
 
 > Stability: 0 - Deprecated: Use [`crypto.createDecipheriv()`][] instead.
 
-- `algorithm` {string}
-- `password` {string | Buffer | TypedArray | DataView}
-- `options` {Object} [`stream.transform` options][]
-- Returns: {Decipher}
+* `algorithm` {string}
+* `password` {string | Buffer | TypedArray | DataView}
+* `options` {Object} [`stream.transform` options][]
+* Returns: {Decipher}
 
 Creates and returns a `Decipher` object that uses the given `algorithm` and
 `password` (key).
 
 The `options` argument controls stream behavior and is optional except when a
-cipher in CCM mode is used (e.g. `'aes-128-ccm'`). In that case, the
+cipher in CCM or OCB mode is used (e.g. `'aes-128-ccm'`). In that case, the
 `authTagLength` option is required and specifies the length of the
 authentication tag in bytes, see [CCM mode][].
 

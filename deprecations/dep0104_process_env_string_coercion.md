@@ -1,3 +1,9 @@
+<!-- YAML
+changes:
+  - version: v10.0.0
+    pr-url: https://github.com/nodejs/node/pull/18990
+    description: Documentation-only deprecation.
+-->
 
 Type: Documentation-only (supports [`--pending-deprecation`][])
 

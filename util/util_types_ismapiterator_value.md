@@ -2,12 +2,11 @@
 added: v10.0.0
 -->
 
+* `value` {any}
 * Returns: {boolean}
 
 Returns `true` if the value is an iterator returned for a built-in
 [`Map`][] instance.
-
-For example:
 
 ```js
 const map = new Map();

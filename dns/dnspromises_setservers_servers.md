@@ -1,7 +1,7 @@
 <!-- YAML
 added: v10.6.0
 -->
-- `servers` {string[]} array of [rfc5952][] formatted addresses
+* `servers` {string[]} array of [rfc5952][] formatted addresses
 
 Sets the IP address and port of servers to be used when performing DNS
 resolution. The `servers` argument is an array of [rfc5952][] formatted

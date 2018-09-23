@@ -9,8 +9,6 @@ the function.
 
 This is the most basic way to use a domain.
 
-Example:
-
 ```js
 const domain = require('domain');
 const fs = require('fs');

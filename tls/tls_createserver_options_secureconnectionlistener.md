@@ -20,8 +20,8 @@ changes:
     first byte is the length of the next protocol name. Passing an array is
     usually much simpler, e.g. `['hello', 'world']`.
     (Protocols should be ordered by their priority.)
-  * `clientCertEngine` {string} Optional name of an OpenSSL engine which can
-    provide the client certificate.
+  * `clientCertEngine` {string} Name of an OpenSSL engine which can provide the
+    client certificate.
   * `handshakeTimeout` {number} Abort the connection if the SSL/TLS handshake
     does not finish in the specified number of milliseconds.
     A `'tlsClientError'` is emitted on the `tls.Server` object whenever

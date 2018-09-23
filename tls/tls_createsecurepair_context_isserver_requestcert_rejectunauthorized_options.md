@@ -18,16 +18,15 @@ changes:
 * `rejectUnauthorized` {boolean} If not `false` a server automatically reject
   clients with invalid certificates. Only applies when `isServer` is `true`.
 * `options`
-  * `secureContext`: An optional TLS context object from
-     [`tls.createSecureContext()`][]
+  * `secureContext`: A TLS context object from [`tls.createSecureContext()`][]
   * `isServer`: If `true` the TLS socket will be instantiated in server-mode.
     **Default:** `false`.
-  * `server` {net.Server} An optional [`net.Server`][] instance
-  * `requestCert`: Optional, see [`tls.createServer()`][]
-  * `rejectUnauthorized`: Optional, see [`tls.createServer()`][]
-  * `ALPNProtocols`: Optional, see [`tls.createServer()`][]
-  * `SNICallback`: Optional, see [`tls.createServer()`][]
-  * `session` {Buffer} An optional `Buffer` instance containing a TLS session.
+  * `server` {net.Server} A [`net.Server`][] instance
+  * `requestCert`: See [`tls.createServer()`][]
+  * `rejectUnauthorized`: See [`tls.createServer()`][]
+  * `ALPNProtocols`: See [`tls.createServer()`][]
+  * `SNICallback`: See [`tls.createServer()`][]
+  * `session` {Buffer} A `Buffer` instance containing a TLS session.
   * `requestOCSP` {boolean} If `true`, specifies that the OCSP status request
     extension will be added to the client hello and an `'OCSPResponse'` event
     will be emitted on the socket before establishing a secure communication.

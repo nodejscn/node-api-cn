@@ -7,7 +7,6 @@ added: v8.4.0
 The request/response headers object.
 
 Key-value pairs of header names and values. Header names are lower-cased.
-Example:
 
 ```js
 // Prints something like:

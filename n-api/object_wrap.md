@@ -18,8 +18,6 @@ called on a class prototype and a function called on an instance of a class.
 A common pattern used to address this problem is to save a persistent
 reference to the class constructor for later `instanceof` checks.
 
-As an example:
-
 ```C
 napi_value MyClass_constructor = NULL;
 status = napi_get_reference_value(env, MyClass::es_constructor, &MyClass_constructor);

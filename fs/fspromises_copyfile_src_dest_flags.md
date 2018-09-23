@@ -28,8 +28,6 @@ fallback copy mechanism is used.
 create a copy-on-write reflink. If the platform does not support copy-on-write,
 then the operation will fail.
 
-Example:
-
 ```js
 const fsPromises = require('fs').promises;
 
@@ -39,8 +37,7 @@ fsPromises.copyFile('source.txt', 'destination.txt')
   .catch(() => console.log('The file could not be copied'));
 ```
 
-If the third argument is a number, then it specifies `flags`, as shown in the
-following example.
+If the third argument is a number, then it specifies `flags`:
 
 ```js
 const fs = require('fs');

@@ -10,7 +10,7 @@ the group access list, using all groups of which the user is a member. This is
 a privileged operation that requires that the Node.js process either have `root`
 access or the `CAP_SETGID` capability.
 
-Note that care must be taken when dropping privileges. Example:
+Note that care must be taken when dropping privileges:
 
 ```js
 console.log(process.getgroups());         // [ 0 ]

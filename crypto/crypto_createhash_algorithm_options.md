@@ -1,9 +1,9 @@
 <!-- YAML
 added: v0.1.92
 -->
-- `algorithm` {string}
-- `options` {Object} [`stream.transform` options][]
-- Returns: {Hash}
+* `algorithm` {string}
+* `options` {Object} [`stream.transform` options][]
+* Returns: {Hash}
 
 Creates and returns a `Hash` object that can be used to generate hash digests
 using the given `algorithm`. Optional `options` argument controls stream

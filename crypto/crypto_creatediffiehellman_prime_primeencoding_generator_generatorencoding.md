@@ -12,11 +12,11 @@ changes:
     description: The default for the encoding parameters changed
                  from `binary` to `utf8`.
 -->
-- `prime` {string | Buffer | TypedArray | DataView}
-- `primeEncoding` {string}
-- `generator` {number | string | Buffer | TypedArray | DataView} **Default:**
+* `prime` {string | Buffer | TypedArray | DataView}
+* `primeEncoding` {string}
+* `generator` {number | string | Buffer | TypedArray | DataView} **Default:**
   `2`
-- `generatorEncoding` {string}
+* `generatorEncoding` {string}
 
 Creates a `DiffieHellman` key exchange object using the supplied `prime` and an
 optional specific `generator`.

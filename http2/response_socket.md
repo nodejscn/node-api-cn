@@ -21,8 +21,6 @@ more information.
 
 All other interactions will be routed directly to the socket.
 
-Example:
-
 ```js
 const http2 = require('http2');
 const server = http2.createServer((req, res) => {

@@ -5,10 +5,10 @@ changes:
     pr-url: https://github.com/nodejs/node/pull/11705
     description: Support for RSASSA-PSS and additional options was added.
 -->
-- `object` {string | Object}
-- `signature` {string | Buffer | TypedArray | DataView}
-- `signatureFormat` {string}
-- Returns: {boolean} `true` or `false` depending on the validity of the
+* `object` {string | Object}
+* `signature` {string | Buffer | TypedArray | DataView}
+* `signatureFormat` {string}
+* Returns: {boolean} `true` or `false` depending on the validity of the
   signature for the data and public key.
 
 Verifies the provided data using the given `object` and `signature`.

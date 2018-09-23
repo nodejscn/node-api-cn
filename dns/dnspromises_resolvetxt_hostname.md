@@ -1,7 +1,7 @@
 <!-- YAML
 added: v10.6.0
 -->
-- `hostname` {string}
+* `hostname` {string}
 
 Uses the DNS protocol to resolve text queries (`TXT` records) for the
 `hostname`. On success, the `Promise` is resolved with a two-dimensional array

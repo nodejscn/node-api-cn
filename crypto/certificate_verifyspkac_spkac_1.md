@@ -1,8 +1,8 @@
 <!-- YAML
 added: v0.11.8
 -->
-- `spkac` {Buffer | TypedArray | DataView}
-- Returns: {boolean} `true` if the given `spkac` data structure is valid,
+* `spkac` {Buffer | TypedArray | DataView}
+* Returns: {boolean} `true` if the given `spkac` data structure is valid,
   `false` otherwise.
 
 ```js

@@ -1,5 +1,9 @@
+<!-- YAML
+added: v9.0.0
+removed: v10.0.0
+-->
 
-HTTP/2 Informational headers must only be sent *prior* to calling the
+HTTP/2 informational headers must only be sent *prior* to calling the
 `Http2Stream.prototype.respond()` method.
 
-<a id="ERR_HTTP2_INFO_STATUS_NOT_ALLOWED"></a>
+<a id="ERR_HTTP2_STREAM_CLOSED"></a>

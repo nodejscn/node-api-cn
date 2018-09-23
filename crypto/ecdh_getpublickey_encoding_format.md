@@ -1,9 +1,9 @@
 <!-- YAML
 added: v0.11.14
 -->
-- `encoding` {string}
-- `format` {string} **Default:** `'uncompressed'`
-- Returns: {Buffer | string} The EC Diffie-Hellman public key in the specified
+* `encoding` {string}
+* `format` {string} **Default:** `'uncompressed'`
+* Returns: {Buffer | string} The EC Diffie-Hellman public key in the specified
   `encoding` and `format`.
 
 The `format` argument specifies point encoding and can be `'compressed'` or
