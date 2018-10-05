@@ -12,6 +12,7 @@ added: v0.3.4
   * `maxFreeSockets` {number} 在空闲状态下允许打开的最大 socket 数量。
     仅当 `keepAlive` 为 `true` 时才有效。
     默认为 `256`。
+  * `timeout` {number} socket 超时毫秒数，socket连接建立之后超时时间（指客户端从服务器读取数据的超时时间），这将在套接字建立连接后设置超时。
 
 [`http.request()`] 使用的默认 [`http.globalAgent`] 的选项均为各自的默认值。
 
