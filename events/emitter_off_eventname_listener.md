@@ -4,7 +4,7 @@ added: v10.0.0
 
 * `eventName` {string|symbol}
 * `listener` {Function}
-* Returns: {EventEmitter}
+* 返回: {EventEmitter}
 
-Alias for [`emitter.removeListener()`][].
+[`emitter.removeListener()`] 的别名。
 

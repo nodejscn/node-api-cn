@@ -7,8 +7,8 @@ changes:
                  now yields the original listener function.
 -->
 
-* `eventName` {any} 事件名
-* `listener` {Function} 事件句柄函数
+* `eventName` {string|symbol} 事件的名称。
+* `listener` {Function} 事件的句柄函数。
 
 `'removeListener'` 事件在 `listener` 被移除后触发。
 

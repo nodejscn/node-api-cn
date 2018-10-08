@@ -6,7 +6,8 @@ changes:
     description: For listeners attached using `.once()` this returns the
                  original listeners instead of wrapper functions now.
 -->
-- `eventName` {any}
+* `eventName` {string|symbol}
+* 返回: {Function[]}
 
 返回名为 `eventName` 的事件的监听器数组的副本。
 
