@@ -2,18 +2,18 @@
 added: v0.9.4
 -->
 
-`'end'` 事件将在流中再没有数据可供消费时触发。
+当流中没有数据可供消费时触发。
 
-*注意*： `'end'` 事件只有在数据被完全消费后 **才会触发** 。 可以通过将流转换到 
-flowing 模式， 或反复调用 [`stream.read()`][stream-read] 方法来实现这一点。
+`'end'` 事件只有在数据被完全消费掉后才会触发。
+要想触发该事件，可以将流转换到流动模式，或反复调用 [`stream.read()`][stream-read] 直到数据被消费完。
 
 ```js
 const readable = getReadableStreamSomehow();
 readable.on('data', (chunk) => {
-  console.log(`Received ${chunk.length} bytes of data.`);
+  console.log(`接收到 ${chunk.length} 个字节的数据`);
 });
 readable.on('end', () => {
-  console.log('There will be no more data.');
+  console.log('已没有数据');
 });
 ```
 

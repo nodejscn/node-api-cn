@@ -1,18 +1,17 @@
 
-可读流运作的两种模式是对发生在可读流中更加复杂的内部状态管理的一种简化的抽象。
+可读流的两种模式是对发生在可读流中更加复杂的内部状态管理的一种简化的抽象。
 
-在任意时刻，任一可读流会处于以下三种状态之一：
+在任意时刻，可读流会处于以下三种状态之一：
 
-* `readable.readableFlowing = null`
-* `readable.readableFlowing = false`
-* `readable.readableFlowing = true`
+* `readable.readableFlowing === null`
+* `readable.readableFlowing === false`
+* `readable.readableFlowing === true`
 
 当 `readable.readableFlowing` 为 `null` 时，没有提供消费流数据的机制，所以流不会产生数据。
-在这个状态下，监听 `'data'` 事件、调用 `readable.pipe()` 方法、或调用 `readable.resume()` 方法，
-则 `readable.readableFlowing` 会变成 `true` ，可读流开始主动地产生数据触发事件。
+在这个状态下，监听 `'data'` 事件、调用 `readable.pipe()`、或调用 `readable.resume()` 都会使 `readable.readableFlowing` 切换到 `true`，可读流开始主动地产生数据并触发事件。
 
-调用 `readable.pause()`、`readable.unpipe()`、或接收背压，则 `readable.readableFlowing` 会被设为 `false`，暂时停止事件流动但不会停止数据的生成。
-在这个状态下，为 `'data'` 事件设置监听器不会使 `readable.readableFlowing` 变成 `true`。
+调用 `readable.pause()`、`readable.unpipe()`、或接收到背压，则 `readable.readableFlowing` 会被设为 `false`，暂时停止事件流动但不会停止数据的生成。
+在这个状态下，为 `'data'` 事件绑定监听器不会使 `readable.readableFlowing` 切换到 `true`。
 
 ```js
 const { PassThrough, Writable } = require('stream');

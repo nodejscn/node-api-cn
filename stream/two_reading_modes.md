@@ -1,50 +1,30 @@
 
-`Readable` streams effectively operate in one of two modes: flowing and
-paused. These modes are separate from [object mode][object-mode].
-A [`Readable`][] stream can be in object mode or not, regardless of whether
-it is in flowing mode or paused mode.
+可读流运作于两种模式之一：流动模式（flowing）或暂停模式（paused）。
 
-* In flowing mode, data is read from the underlying system automatically
-and provided to an application as quickly as possible using events via the
-[`EventEmitter`][] interface.
+* 在流动模式中，数据自动从底层系统读取，并通过 [`EventEmitter`] 接口的事件尽可能快地被提供给应用程序。
+* 在暂停模式中，必须显式调用 [`stream.read()`][stream-read] 读取数据块。
 
-* In paused mode, the [`stream.read()`][stream-read] method must be called
-explicitly to read chunks of data from the stream.
+所有[可读流]都开始于暂停模式，可以通过以下方式切换到流动模式：
 
-All [`Readable`][] streams begin in paused mode but can be switched to flowing
-mode in one of the following ways:
+* 添加 [`'data'`] 事件句柄。
+* 调用 [`stream.resume()`][stream-resume]。
+* 调用 [`stream.pipe()`]。
 
-* Adding a [`'data'`][] event handler.
-* Calling the [`stream.resume()`][stream-resume] method.
-* Calling the [`stream.pipe()`][] method to send the data to a [`Writable`][].
+可读流可以通过以下方式切换回暂停模式：
 
-The `Readable` can switch back to paused mode using one of the following:
+* 如果没有管道目标，则调用 [`stream.pause()`][stream-pause]。
+* 如果有管道目标，则移除所有管道目标。调用 [`stream.unpipe()`] 可以移除多个管道目标。
 
-* If there are no pipe destinations, by calling the
-  [`stream.pause()`][stream-pause] method.
-* If there are pipe destinations, by removing all pipe destinations.
-  Multiple pipe destinations may be removed by calling the
-  [`stream.unpipe()`][] method.
+只有提供了消费或忽略数据的机制后，可读流才会产生数据。
+如果消费的机制被禁用或移除，则可读流会停止产生数据。
 
-The important concept to remember is that a `Readable` will not generate data
-until a mechanism for either consuming or ignoring that data is provided. If
-the consuming mechanism is disabled or taken away, the `Readable` will *attempt*
-to stop generating the data.
+为了向后兼容，移除 [`'data'`] 事件句柄不会自动地暂停流。
+如果有管道目标，一旦目标变为 `drain` 状态并请求接收数据时，则调用 [`stream.pause()`][stream-pause] 也不能保证流会保持暂停模式。
 
-For backwards compatibility reasons, removing [`'data'`][] event handlers will
-**not** automatically pause the stream. Also, if there are piped destinations,
-then calling [`stream.pause()`][stream-pause] will not guarantee that the
-stream will *remain* paused once those destinations drain and ask for more data.
+如果可读流切换到流动模式，且没有可用的消费者来处理数据，则数据将会丢失。
+例如，当调用 `readable.resume()` 时，没有监听 `'data'` 事件或 `'data'` 事件句柄已移除。
 
-If a [`Readable`][] is switched into flowing mode and there are no consumers
-available to handle the data, that data will be lost. This can occur, for
-instance, when the `readable.resume()` method is called without a listener
-attached to the `'data'` event, or when a `'data'` event handler is removed
-from the stream.
+添加 [`'readable'`] 事件句柄会使流自动停止流动，并通过 [`readable.read()`][stream-read] 消费数据。
+如果 [`'readable'`] 事件句柄被移除，且存在 [`'data'`] 事件句柄，则流会再次开始流动。
 
-Adding a [`'readable'`][] event handler automatically make the stream to
-stop flowing, and the data to be consumed via
-[`readable.read()`][stream-read]. If the [`'readable'`] event handler is
-removed, then the stream will start flowing again if there is a
-[`'data'`][] event handler.
 

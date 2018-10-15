@@ -2,7 +2,7 @@
 <!--type=misc-->
 
 几乎所有的 Node.js 应用都在某种程度上使用了流。
-下面是一个例子，在 Node.js 应用程序中使用流实现了一个 HTTP 服务器：
+下面是一个例子，使用流实现了一个 HTTP 服务器：
 
 ```js
 const http = require('http');
@@ -25,7 +25,7 @@ const server = http.createServer((req, res) => {
   req.on('end', () => {
     try {
       const data = JSON.parse(body);
-      // 响应一些信息给用户。
+      // 响应信息给用户。
       res.write(typeof data);
       res.end();
     } catch (er) {
@@ -57,4 +57,4 @@ server.listen(1337);
 
 对于只需写入数据到流或从流消费数据的应用程序，并不需要直接实现流的接口，通常也不需要调用 `require('stream')`。
 
-需要实现新类型的流的开发者可以参考[用于实现流的API][API for Stream Implementers]章节。
+对于需要实现新类型的流的开发者，可以参考[用于实现流的API][API for Stream Implementers]章节。

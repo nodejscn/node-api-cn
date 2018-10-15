@@ -1,13 +1,27 @@
 <!-- YAML
 added: v0.9.4
+changes:
+  - version: v10.0.0
+    pr-url: https://github.com/nodejs/node/pull/17979
+    description: >
+      The `'readable'` is always emitted in the next tick after `.push()`
+      is called
+  - version: v10.0.0
+    pr-url: https://github.com/nodejs/node/pull/18994
+    description: Using `'readable'` requires calling `.read()`.
 -->
 
-`'readable'` 事件将在流中有数据可供读取时触发。在某些情况下，为 `'readable'` 事件添加回调将会导致一些数据被读取到内部缓存中。
+当流中有数据可供读取时触发。
 
 ```javascript
 const readable = getReadableStreamSomehow();
-readable.on('readable', () => {
-  // 有一些数据可读了
+readable.on('readable', function() {
+  // 有数据可读取。
+  let data;
+
+  while (data = this.read()) {
+    console.log(data);
+  }
 });
 ```
 当到达流数据尾部时， `'readable'` 事件也会触发。触发顺序在 `'end'` 事件之前。
@@ -19,19 +33,19 @@ readable.on('readable', () => {
 const fs = require('fs');
 const rr = fs.createReadStream('foo.txt');
 rr.on('readable', () => {
-  console.log(`readable: ${rr.read()}`);
+  console.log(`读取的数据: ${rr.read()}`);
 });
 rr.on('end', () => {
-  console.log('end');
+  console.log('结束');
 });
 ```
 
-上面脚本的输出如下：
+运行上面的脚本输出如下：
 
 ```txt
 $ node test.js
-readable: null
-end
+读取的数据: null
+结束
 ```
 
 *注意*： 通常情况下，`readable.pipe()` 方法和 `'data'` 事件机制比 `'readable'` 事件更容易理解。然而处理 `'readable'`事件可能造成吞吐量升高。

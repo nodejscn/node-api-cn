@@ -1,14 +1,8 @@
 
-The `Readable` stream API evolved across multiple Node.js versions and provides
-multiple methods of consuming stream data. In general, developers should choose
-*one* of the methods of consuming data and *should never* use multiple methods
-to consume data from a single stream. Specifically, using a combination
-of `on('data')`, `on('readable')`, `pipe()`, or async iterators could
-lead to unintuitive behavior.
+可读流的 API 贯穿了多个 Node.js 版本，且提供了多种方法来消费流数据。
+开发者通常应该选择其中一种方法来消费数据，不要在单个流使用多种方法来消费数据。
+混合使用 `on('data')`、`on('readable')`、`pipe()` 或异步迭代器，会导致不明确的行为。
 
-Use of the `readable.pipe()` method is recommended for most users as it has been
-implemented to provide the easiest way of consuming stream data. Developers that
-require more fine-grained control over the transfer and generation of data can
-use the [`EventEmitter`][] and `readable.on('readable')`/`readable.read()`
-or the `readable.pause()`/`readable.resume()` APIs.
+对于大多数用户，建议使用 `readable.pipe()`，因为它是消费流数据最简单的方式。
+如果开发者需要精细地控制数据的传递与产生，可以使用 [`EventEmitter`]、`readable.on('readable')`/`readable.read()` 或 `readable.pause()`/`readable.resume()`。
 

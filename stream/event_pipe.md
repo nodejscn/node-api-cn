@@ -4,7 +4,7 @@ added: v0.9.4
 
 * `src` {stream.Readable} 通过管道流入到可写流的来源流。
 
-当在可读流上调用 [`stream.pipe()`] 方法添加可写流到目标流向时，触发 `'pipe'` 事件。
+当在可读流上调用 [`stream.pipe()`] 时触发。
 
 ```js
 const writer = getWritableStreamSomehow();
