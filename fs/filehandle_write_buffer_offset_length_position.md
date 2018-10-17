@@ -22,7 +22,7 @@ at the current position. See pwrite(2).
 
 It is unsafe to use `filehandle.write()` multiple times on the same file
 without waiting for the `Promise` to be resolved (or rejected). For this
-scenario, `fs.createWriteStream` is strongly recommended.
+scenario, [`fs.createWriteStream()`][] is strongly recommended.
 
 On Linux, positional writes do not work when the file is opened in append mode.
 The kernel ignores the position argument and always appends the data to

@@ -68,9 +68,12 @@ The `callback` function, if specified, will be added as a listener for the
 
 `tls.connect()` returns a [`tls.TLSSocket`][] object.
 
-The following implements a simple "echo server" example:
+Here is an example of a client of echo server as described in
+
 
 ```js
+// This example assumes that you have created an echo server that is
+// listening on port 8000.
 const tls = require('tls');
 const fs = require('fs');
 
@@ -94,13 +97,15 @@ socket.on('data', (data) => {
   console.log(data);
 });
 socket.on('end', () => {
-  server.close();
+  console.log('client ends');
 });
 ```
 
 Or
 
 ```js
+// This example assumes that you have created an echo server that is
+// listening on port 8000.
 const tls = require('tls');
 const fs = require('fs');
 
@@ -119,7 +124,7 @@ socket.on('data', (data) => {
   console.log(data);
 });
 socket.on('end', () => {
-  server.close();
+  console.log('client ends');
 });
 ```
 

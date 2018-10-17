@@ -22,7 +22,7 @@ not work.
 For incoming headers:
 * The `:status` header is converted to `number`.
 * Duplicates of `:status`, `:method`, `:authority`, `:scheme`, `:path`,
-`age`, `authorization`, `access-control-allow-credentials`,
+`:protocol`, `age`, `authorization`, `access-control-allow-credentials`,
 `access-control-max-age`, `access-control-request-method`, `content-encoding`,
 `content-language`, `content-length`, `content-location`, `content-md5`,
 `content-range`, `content-type`, `date`, `dnt`, `etag`, `expires`, `from`,

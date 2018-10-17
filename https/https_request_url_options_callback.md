@@ -3,7 +3,8 @@ added: v0.3.6
 changes:
   - version: v10.9.0
     pr-url: https://github.com/nodejs/node/pull/21616
-    description: allow both url and options to be passed to `https.request()`
+    description: The `url` parameter can now be passed along with a separate
+                 `options` object.
   - version: v9.3.0
     pr-url: https://github.com/nodejs/node/pull/14903
     description: The `options` parameter can now include `clientCertEngine`.

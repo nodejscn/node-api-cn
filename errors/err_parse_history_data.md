@@ -5,4 +5,5 @@ removed: v10.0.0
 
 The `repl` module was unable to parse data from the REPL history file.
 
-<a id="ERR_STREAM_READ_NOT_IMPLEMENTED"></a>
+
+<a id="ERR_STDERR_CLOSE"></a>

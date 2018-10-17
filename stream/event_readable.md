@@ -24,7 +24,7 @@ readable.on('readable', function() {
   }
 });
 ```
-当到达流数据尾部时， `'readable'` 事件也会触发。触发顺序在 `'end'` 事件之前。
+当达到流数据的尽头时， `'readable'` 事件也会触发。触发顺序在 `'end'` 事件之前。
 
 事实上， `'readable'` 事件表明流有了新的动态：要么是有了新的数据，要么是到了流的尾部。 对于前者， [`stream.read()`][stream-read] 将返回可用的数据。而对于后者， [`stream.read()`][stream-read] 将返回
 `null`。 例如，下面的例子中的 `foo.txt` 是一个空文件：

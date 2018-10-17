@@ -1,6 +1,10 @@
 <!-- YAML
 added: v8.4.0
 changes:
+  - version: v10.12.0
+    pr-url: https://github.com/nodejs/node/pull/22956
+    description: Added the `origins` option to automatically send an `ORIGIN`
+                 frame on `Http2Session` startup.
   - version: v8.9.3
     pr-url: https://github.com/nodejs/node/pull/17105
     description: Added the `maxOutstandingPings` option with a default limit of
@@ -64,6 +68,8 @@ changes:
     remote peer upon connection.
   * ...: Any [`tls.createServer()`][] options can be provided. For
     servers, the identity options (`pfx` or `key`/`cert`) are usually required.
+  * `origins` {string[]} An array of origin strings to send within an `ORIGIN`
+    frame immediately following creation of a new server `Http2Session`.
 * `onRequestHandler` {Function} See [Compatibility API][]
 * Returns: {Http2SecureServer}
 
