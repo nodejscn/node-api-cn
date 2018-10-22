@@ -2,7 +2,10 @@
 added: v8.0.0
 -->
 
-销毁流，并且触发`error`事件。然后，可读流将释放所有的内部资源。
+* `error` {Error} 传给 `'error'` 事件的异常对象。
+* 返回: {this}
 
-开发者不应该覆盖这个方法，应该覆盖[`readable._destroy`][readable-_destroy]方法。
+销毁流，并且触发 `'error'` 事件和 `'close'` 事件。
+调用后，可读流将释放所有的内部资源，且忽视后续的 `push()` 调用。
+开发者不要重写这个方法，而是重写 [`readable._destroy()`][readable-_destroy]。
 
