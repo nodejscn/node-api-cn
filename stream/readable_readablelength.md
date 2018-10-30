@@ -2,9 +2,7 @@
 added: v9.4.0
 -->
 
-* Returns: {number}
+* 返回: {number}
 
-This property contains the number of bytes (or objects) in the queue
-ready to be read. The value provides introspection data regarding
-the status of the `highWaterMark`.
+返回队列中准备读取的字节数（或对象数）。
 
