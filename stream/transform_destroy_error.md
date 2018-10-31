@@ -2,6 +2,8 @@
 added: v8.0.0
 -->
 
+* `error` {Error}
+
 销毁这个流，发射`'error'`事件。
 调用这个之后，变换流会释放全部内部资源
 实现者不应该重载此方法，而应该实现[`readable._destroy`][readable-_destroy]。

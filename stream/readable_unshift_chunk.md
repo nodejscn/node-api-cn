@@ -6,17 +6,17 @@ changes:
     description: The `chunk` argument can now be a `Uint8Array` instance.
 -->
 
-* `chunk` {Buffer|Uint8Array|string|any} 数据块移动到可读队列底部。对于不以对象模式运行的流，`chunk` 必须是字符串， `Buffer` 或者 `Uint8Array`。对于对象流， `chunk` 任何非`null`的值。
+* `chunk` {Buffer|Uint8Array|string|any} 要推回可读队列的数据块。
+	对于非对象模式的流，`chunk` 必须是字符串、`Buffer` 或 `Uint8Array`。
+	对于对象模式的流，`chunk` 可以是任何值，除了 `null`。
 
-`readable.unshift()` 方法会把一块数据压回到`Buffer`内部。
-这在如下特定情形下有用：
-代码正在消费一个数据流，已经"乐观地"拉取了数据。
-又需要"反悔-消费"一些数据，以便这些数据可以传给其他人用。
+将数据块推回内部缓冲。
+可用于以下情景：正被消费中的流需要将一些已经被拉出的数据重置为未消费状态，以便这些数据可以传给其他方。
 
-*注意*: [`'end'`][] 事件已经触发或者运行时错误抛出后，`stream.unshift(chunk)` 方法不能被调用。
+触发 [`'end'`] 事件或抛出运行时错误之后，不能再调用 `stream.unshift()`。
 
-使用 `stream.unshift()` 的开发者一般需要换一下思路，考虑用一个[Transform][] 流替代. 
-更多信息请查看[API for Stream Implementers][]部分。
+使用 `stream.unshift()` 的开发者可以考虑切换到 [`Transform`] 流。
+详见[用于实现流的API][API for Stream Implementers]。
 
 ```js
 // Pull off a header delimited by \n\n
@@ -33,26 +33,24 @@ function parseHeader(stream, callback) {
     while (null !== (chunk = stream.read())) {
       const str = decoder.write(chunk);
       if (str.match(/\n\n/)) {
-        // found the header boundary
+        // 发现头部边界。
         const split = str.split(/\n\n/);
         header += split.shift();
         const remaining = split.join('\n\n');
         const buf = Buffer.from(remaining, 'utf8');
         stream.removeListener('error', callback);
-        // remove the readable listener before unshifting
+        // 在调用 unshift() 前移除 'readable' 监听器。
         stream.removeListener('readable', onReadable);
         if (buf.length)
           stream.unshift(buf);
-        // now the body of the message can be read from the stream.
+        // 现在可以从流中读取消息的主体。
         callback(null, header, stream);
       } else {
-        // still reading the header.
+        // 继续读取头部。
         header += str;
       }
     }
   }
 }
 ```
-
-*注意*： 不像 [`stream.push(chunk)`][stream-push]，`stream.unshift(chunk)`在重置流的内部读取状态时是不会结束读取过程。 如果在读取过程中调用 `readable.unshift()` 则会导致异常 (例如：即来自自定义流上的 [`stream._read()`][stream-_read]内部方法上的实现)。 应该在调用 `readable.unshift()`方法之后适当调用 [`stream.push('')`][stream-push] 来重置读取状态，执行读取的过程中最好避免调用 `readable.unshift()`方法。
 

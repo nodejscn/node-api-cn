@@ -2,24 +2,25 @@
 added: v0.9.4
 -->
 
-* `destination` {stream.Writable} 可选的，指定需要分离的目标流
+* `destination` {stream.Writable} 要移除管道的可写流。
+* 返回: {this}
 
-`readable.unpipe()` 方法将之前通过[`stream.pipe()`][]方法绑定的流分离
+解绑之前使用 [`stream.pipe()`] 绑定的可写流。
 
-如果 `destination` 没有传入, 则所有绑定的流都会被分离.
+如果没有指定 `destination`, 则解绑所有管道.
 
-如果传入 `destination`, 但它没有被`pipe()`绑定过，则该方法不作为.
+如果指定了 `destination`, 但它没有建立管道，则不起作用.
 
 ```js
+const fs = require('fs');
 const readable = getReadableStreamSomehow();
 const writable = fs.createWriteStream('file.txt');
-// All the data from readable goes into 'file.txt',
-// but only for the first second
+// 可读流的所有数据开始传输到 'file.txt'，但一秒后停止。
 readable.pipe(writable);
 setTimeout(() => {
-  console.log('Stop writing to file.txt');
+  console.log('停止写入 file.txt');
   readable.unpipe(writable);
-  console.log('Manually close the file stream');
+  console.log('手动关闭文件流');
   writable.end();
 }, 1000);
 ```
