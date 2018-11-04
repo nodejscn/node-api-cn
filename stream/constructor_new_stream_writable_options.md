@@ -1,27 +1,43 @@
-* `options` {Object}
-  * `highWaterMark` {number} 缓冲大小当开始调用[`stream.write()`][stream-write] 返回 `false`。默认`16384` (16kb), 对于 `objectMode` 流为默认为`16`。
-  * `decodeStrings` {boolean} 是否解码字符串在调用 [`stream._write()`][stream-_write] 传递到缓冲区之前。默认为 `true`
-  * `objectMode` {boolean} [`stream.write(anyObj)`][stream-write] 是否是一个有效的操作. 一旦设置,可以写字符串以外的值，例如`Buffer` 或者 `Uint8Array` 只要流支持。默认为`false`。
-  * `write` {Function} 实现[`stream._write()`][stream-_write] 方法。
-  * `writev` {Function} 实现[`stream._writev()`][stream-_writev] 方法。
-  * `destroy` {Function} 实现[`stream._destroy()`][writable-_destroy] 方法。
-  * `final` {Function} 实现[`stream._final()`][stream-_final] 方法。
+<!-- YAML
+changes:
+  - version: v10.0.0
+    pr-url: https://github.com/nodejs/node/pull/18438
+    description: >
+      Add `emitClose` option to specify if `'close'` is emitted on destroy
+-->
 
-例如：
+* `options` {Object}
+  * `highWaterMark` {number} 当调用 [`stream.write()`][stream-write] 开始返回 `false` 时的缓冲大小。
+    默认为 `16384` (16kb), 对象模式的流默认为 `16`。
+  * `decodeStrings` {boolean} 是否把传入 [`stream._write()`][stream-_write] 的字符串编码为 `Buffer`，使用的字符编码为调用 [`stream.write()`][stream-write] 时指定的。
+    默认为 `true`。
+  * `defaultEncoding` {string} 当 [`stream.write()`][stream-write] 的参数没有指定字符编码时默认的字符编码。
+    默认为 `'utf8'`。
+  * `objectMode` {boolean} 是否可以调用 [`stream.write(anyObj)`][stream-write]。
+    一旦设为 `true`，则除了字符串、`Buffer` 或 `Uint8Array`，还可以写入流实现支持的其他 JavaScript 值。
+    默认为 `false`。
+  * `emitClose` {boolean} 流被销毁后是否触发 `'close'` 事件。
+    默认为 `true`。
+  * `write` {Function} 对 [`stream._write()`][stream-_write] 方法的实现。
+  * `writev` {Function} 对 [`stream._writev()`][stream-_writev] 方法的实现。
+  * `destroy` {Function} 对 [`stream._destroy()`][writable-_destroy] 方法的实现。
+  * `final` {Function} 对 [`stream._final()`][stream-_final] 方法的实现。
+
+例子：
 
 ```js
 const { Writable } = require('stream');
 
 class MyWritable extends Writable {
   constructor(options) {
-    // Calls the stream.Writable() constructor
+    // 调用 stream.Writable() 构造函数。
     super(options);
     // ...
   }
 }
 ```
 
-或者，使用ES6之前的语法来创建构造函数：
+使用 ES6 之前的语法：
 
 ```js
 const { Writable } = require('stream');
@@ -35,7 +51,7 @@ function MyWritable(options) {
 util.inherits(MyWritable, Writable);
 ```
 
-或者，使用简化的构造函数方法:
+使用简化的构造函数：
 
 ```js
 const { Writable } = require('stream');
@@ -49,3 +65,4 @@ const myWritable = new Writable({
   }
 });
 ```
+
