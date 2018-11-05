@@ -1,10 +1,5 @@
 
-下面是一个可读可写流包装了一个假定的可读可写的底层源对象，
-尽管用了一个与Node.js流不兼容的API。
-
-下面是一个简单的例子，
-在一个可读可写流中，来的buffers通过[Writable][] 接口写入数据，再通过[Readable][]接口读回数据。
-
+下面是一个双工流的例子，封装了一个可读可写的底层资源对象。
 
 ```js
 const { Duplex } = require('stream');
@@ -17,7 +12,7 @@ class MyDuplex extends Duplex {
   }
 
   _write(chunk, encoding, callback) {
-    // The underlying source only deals with strings
+    // 底层资源只处理字符串。
     if (Buffer.isBuffer(chunk))
       chunk = chunk.toString();
     this[kSource].writeSomeData(chunk);
@@ -32,4 +27,5 @@ class MyDuplex extends Duplex {
 }
 ```
 
-尽管在一个对象实例中共存，读端和写端却是相互独立于彼此，这是可读可写流最为重要的一点。
+双工流最重要的方面是，可读端和可写端相互独立于彼此地共存在同一个对象实例中。
+

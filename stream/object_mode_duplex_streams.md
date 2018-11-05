@@ -1,26 +1,23 @@
 
-对可读可写流来说，`objectMode`可以通过`readableObjectMode` 和 `writableObjectMode`选项
-来分别设置读端和写端。
+对双工流来说，可以使用 `readableObjectMode` 和 `writableObjectMode` 选项来分别设置可读端和可写端的 `objectMode`。
 
-比如下面的例子。
-创建了一个变换流(一种可读可写流)。
-在写端接收JavaScript数字，在读端转换为16进制字符串。
+在下面的例子中，创建了一个变换流（双工流的一种），对象模式的可写端接收 JavaScript 数值，并在可读端转换为十六进制字符串。
 
 ```js
 const { Transform } = require('stream');
 
-// All Transform streams are also Duplex Streams
+// 转换流也是双工流。
 const myTransform = new Transform({
   writableObjectMode: true,
 
   transform(chunk, encoding, callback) {
-    // Coerce the chunk to a number if necessary
+    // 强制把 chunk 转换成数值。
     chunk |= 0;
 
-    // Transform the chunk into something else.
+    // 将 chunk 转换成十六进制。
     const data = chunk.toString(16);
 
-    // Push the data onto the readable queue.
+    // 推送数据到可读队列。
     callback(null, '0'.repeat(data.length % 2) + data);
   }
 });
@@ -29,10 +26,10 @@ myTransform.setEncoding('ascii');
 myTransform.on('data', (chunk) => console.log(chunk));
 
 myTransform.write(1);
-// Prints: 01
+// 打印: 01
 myTransform.write(10);
-// Prints: 0a
+// 打印: 0a
 myTransform.write(100);
-// Prints: 64
+// 打印: 64
 ```
 

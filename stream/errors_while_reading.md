@@ -1,6 +1,7 @@
 
-建议在调用
-`readable._read()` 方法时发生的错误应该执行触发 `'error'` 事件，而不是抛出异常错误。从`readable._read()`中抛出错误可能会导致意外的和不一致的行为，具体取决于流是以流还是暂停模式运行。 使用“错误”事件可确保一致且可预测的错误处理。
+当 `readable._read()` 在执行期间发生的错误时，建议触发 `'error'` 事件而不是抛出错误。
+从 `readable._read()` 中抛出错误可能会导致无法预期的结果。
+使用`'error'` 事件可以确保对错误进行一致且可预测的处理。
 
 <!-- eslint-disable no-useless-return -->
 ```js
@@ -12,7 +13,7 @@ const myReadable = new Readable({
       process.nextTick(() => this.emit('error', err));
       return;
     }
-    // do some work
+    // 各种处理。
   }
 });
 ```
