@@ -18,5 +18,5 @@ changes:
 
 返回 `undefined`。
 
-详见同步版本的 API 文档：[`fs.writeFile()`]。
+详见异步版本的 API 文档：[`fs.writeFile()`]。
 
