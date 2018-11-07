@@ -14,25 +14,20 @@ changes:
 -->
 * `fn` {Function}
 * `error` {RegExp|Function|Object|Error}
-* `message` {string}
+* `message` {string|Error}
 
-Expects the function `fn` to throw an error.
+断言 `fn` 函数会抛出错误。
 
-If specified, `error` can be a [`Class`][], [`RegExp`][], a validation function,
-a validation object where each property will be tested for strict deep equality,
-or an instance of error where each property will be tested for strict deep
-equality including the non-enumerable `message` and `name` properties. When
-using an object, it is also possible to use a regular expression, when
-validating against a string property. See below for examples.
+`error` 可以是 [`Class`]、[`RegExp`]、校验函数、每个属性都会被测试是否深度全等的校验对象、或每个属性（包括不可枚举的 `message` 和 `name` 属性）都会被测试是否深度全等的错误实例。
+当使用对象时，可以使用正则表达式来校验字符串属性。
+详见下面的例子。
 
-If specified, `message` will be appended to the message provided by the
-`AssertionError` if the `fn` call fails to throw or in case the error validation
-fails.
+如果指定了 `message` 参数，则当 `fn` 函数不抛出错误时，`message` 参数会作为 `AssertionError` 的错误信息。
 
-Custom validation object/error instance:
+例子，`error` 参数为自定义的校验对象或错误实例：
 
 ```js
-const err = new TypeError('Wrong value');
+const err = new TypeError('错误信息');
 err.code = 404;
 err.foo = 'bar';
 err.info = {
@@ -47,163 +42,127 @@ assert.throws(
   },
   {
     name: 'TypeError',
-    message: 'Wrong value',
+    message: '错误信息'
     info: {
       nested: true,
       baz: 'text'
     }
-    // Note that only properties on the validation object will be tested for.
-    // Using nested objects requires all properties to be present. Otherwise
-    // the validation is going to fail.
+    // 只有校验对象的属性会被测试。
+    // 使用嵌套的对象必须提供全部属性，否则校验会失败。 
   }
 );
 
-// Using regular expressions to validate error properties:
+// 使用正则表达式来校验错误属性：
 assert.throws(
   () => {
     throw err;
   },
   {
-    // The `name` and `message` properties are strings and using regular
-    // expressions on those will match against the string. If they fail, an
-    // error is thrown.
+    // `name` 和 `message` 属性为字符串，对它们使用正则表达式进行匹配。
+    // 如果校验失败，则抛出错误。
     name: /^TypeError$/,
-    message: /Wrong/,
+    message: /错误信息/,
     foo: 'bar',
     info: {
       nested: true,
-      // It is not possible to use regular expressions for nested properties!
+      // 嵌套的属性不可以使用正则表达式！
       baz: 'text'
     },
-    // The `reg` property contains a regular expression and only if the
-    // validation object contains an identical regular expression, it is going
-    // to pass.
+    // `reg` 属性包含了一个正则表达式，只有校验对象也包含一个完全相同的正则表达式时，校验才会通过。
     reg: /abc/i
   }
 );
 
-// Fails due to the different `message` and `name` properties:
+// 失败，因为 `message` 属性与 `name` 属性不同：
 assert.throws(
   () => {
-    const otherErr = new Error('Not found');
+    const otherErr = new Error('未找到');
     otherErr.code = 404;
     throw otherErr;
   },
-  err // This tests for `message`, `name` and `code`.
+  err // 会测试 `message`、`name` 和 `code`。
 );
 ```
 
-Validate instanceof using constructor:
+例子，`error` 参数为构造函数：
 
 ```js
 assert.throws(
   () => {
-    throw new Error('Wrong value');
+    throw new Error('错误信息');
   },
   Error
 );
 ```
 
-Validate error message using [`RegExp`][]:
+例子，`error` 参数为 [`RegExp`]：
 
-Using a regular expression runs `.toString` on the error object, and will
-therefore also include the error name.
+使用正则表达式运行错误对象的 `.toString`， 且包括错误的名称。
 
 ```js
 assert.throws(
   () => {
-    throw new Error('Wrong value');
+    throw new Error('错误信息');
   },
-  /^Error: Wrong value$/
+  /^Error: 错误信息$/
 );
 ```
 
-Custom error validation:
+例子，`error` 参数为自定义函数：
 
 ```js
 assert.throws(
   () => {
-    throw new Error('Wrong value');
+    throw new Error('错误信息');
   },
   function(err) {
-    if ((err instanceof Error) && /value/.test(err)) {
+    if ((err instanceof Error) && /错误/.test(err)) {
       return true;
     }
   },
-  'unexpected error'
+  '不是期望的错误'
 );
 ```
 
-Note that `error` cannot be a string. If a string is provided as the second
-argument, then `error` is assumed to be omitted and the string will be used for
-`message` instead. This can lead to easy-to-miss mistakes. Using the same
-message as the thrown error message is going to result in an
-`ERR_AMBIGUOUS_ARGUMENT` error. Please read the example below carefully if using
-a string as the second argument gets considered:
+`error` 不能是字符串。
+如果第二个参数是字符串，则视为不传入 `error`，且字符串会用于 `message`。
+这可能会造成误解。
+使用与抛出的错误信息相同的信息，会导致 `ERR_AMBIGUOUS_ARGUMENT` 错误。
+如果需要使用字符串作为第二个参数，请仔细阅读下面的例子。
 
 <!-- eslint-disable no-restricted-syntax -->
 ```js
 function throwingFirst() {
-  throw new Error('First');
+  throw new Error('错误一');
 }
 function throwingSecond() {
-  throw new Error('Second');
+  throw new Error('错误二');
 }
 function notThrowing() {}
 
-// The second argument is a string and the input function threw an Error.
-// The first case will not throw as it does not match for the error message
-// thrown by the input function!
-assert.throws(throwingFirst, 'Second');
-// In the next example the message has no benefit over the message from the
-// error and since it is not clear if the user intended to actually match
-// against the error message, Node.js thrown an `ERR_AMBIGUOUS_ARGUMENT` error.
-assert.throws(throwingSecond, 'Second');
-// Throws an error:
+// 第二个参数为字符串，且输入函数抛出了错误。
+// 第一个例子不会抛出错误，因为它没有匹配到输入函数抛出的错误信息！
+assert.throws(throwingFirst, '错误二');
+// 第二个例子中，传入的信息接近错误信息，
+// 且没有表述清楚用户是否有意匹配错误信息，
+// 所以 Node.js 会抛出 `ERR_AMBIGUOUS_ARGUMENT` 错误。
+assert.throws(throwingSecond, '错误二');
+// 抛出错误：
 // TypeError [ERR_AMBIGUOUS_ARGUMENT]
 
-// The string is only used (as message) in case the function does not throw:
-assert.throws(notThrowing, 'Second');
-// AssertionError [ERR_ASSERTION]: Missing expected exception: Second
+// 当函数没有抛出错误时，字符串可用于错误信息：
+assert.throws(notThrowing, '错误二');
+// 抛出 AssertionError [ERR_ASSERTION]: Missing expected exception: 错误二
 
-// If it was intended to match for the error message do this instead:
-assert.throws(throwingSecond, /Second$/);
-// Does not throw because the error messages match.
-assert.throws(throwingFirst, /Second$/);
-// Throws an error:
-// Error: First
+// 如果想要匹配到错误信息，可以如下：
+assert.throws(throwingSecond, /错误二$/);
+// 没有抛出错误，因为错误信息匹配。
+assert.throws(throwingFirst, /错误二$/);
+// 抛出错误：
+// Error: 错误一
 //     at throwingFirst (repl:2:9)
 ```
 
-Due to the confusing notation, it is recommended not to use a string as the
-second argument. This might lead to difficult-to-spot errors.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+鉴于会混淆语句，建议不要使用字符串作为第二个参数。
+这可能会导致不易定位的错误。
 

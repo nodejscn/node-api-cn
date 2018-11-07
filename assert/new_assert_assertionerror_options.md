@@ -3,9 +3,12 @@ added: v0.1.21
 -->
 * `options` {Object}
   * `message` {string} 如果有值，则错误信息会被设为该值。
-  * `actual` {any} 错误实例的 `actual` 属性会被设为该值。用于 `actual` 错误输入，例如使用 [`assert.strictEqual()`]。
-  * `expected` {any} 错误实例的 `expected` 属性会被设为该值。用于 `expected` 错误输入，例如使用 [`assert.strictEqual()`]。
-  * `operator` {string} 错误实例的 `operator` 属性会被设为该值。用于表明比较时使用的是哪个操作（或触发错误的是哪个断言函数）。
+  * `actual` {any} 错误实例的 `actual` 属性会被设为该值。
+     用于 `actual` 的错误输入，例如使用 [`assert.strictEqual()`]。
+  * `expected` {any} 错误实例的 `expected` 属性会被设为该值。
+     用于 `expected` 的错误输入，例如使用 [`assert.strictEqual()`]。
+  * `operator` {string} 错误实例的 `operator` 属性会被设为该值。
+     用于表明比较时使用的是哪个操作（或触发错误的是哪个断言函数）。
   * `stackStartFn` {Function} 如果有值，则由提供的函数生成堆栈踪迹。
 
 `Error` 的一个子类，表明断言的失败。

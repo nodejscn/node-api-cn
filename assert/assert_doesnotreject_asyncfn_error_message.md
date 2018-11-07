@@ -5,32 +5,25 @@ added: v10.0.0
 * `error` {RegExp|Function}
 * `message` {string}
 
-Awaits the `asyncFn` promise or, if `asyncFn` is a function, immediately
-calls the function and awaits the returned promise to complete. It will then
-check that the promise is not rejected.
+等待 `asyncFn` 的 Promise，如果 `asyncFn` 是函数，则立即调用并等待返回的 Promise 完成，然后检查 Promise 是否被 reject。
 
-If `asyncFn` is a function and it throws an error synchronously,
-`assert.doesNotReject()` will return a rejected `Promise` with that error. If
-the function does not return a promise, `assert.doesNotReject()` will return a
-rejected `Promise` with an [`ERR_INVALID_RETURN_VALUE`][] error. In both cases
-the error handler is skipped.
+如果 `asyncFn` 是函数且同步地抛出错误，则 `assert.doesNotReject()` 会返回被 reject 的 `Promise` 并带上错误对象。
+如果 `asyncFn` 函数没有返回 Promise，则 `assert.doesNotReject()` 会返回被 reject 的 `Promise` 并带上 [`ERR_INVALID_RETURN_VALUE`] 错误。
+以上两种情况都会跳过错误处理函数。
 
-Please note: Using `assert.doesNotReject()` is actually not useful because there
-is little benefit by catching a rejection and then rejecting it again. Instead,
-consider adding a comment next to the specific code path that should not reject
-and keep error messages as expressive as possible.
+`assert.doesNotReject()` 并不常用，因为很少需要捕获一个被 reject 的 Promise 然后再次 reject。
 
-If specified, `error` can be a [`Class`][], [`RegExp`][] or a validation
-function. See [`assert.throws()`][] for more details.
+`error` 可以是 [`Class`]、[`RegExp`] 或校验函数。
+详见 [`assert.throws()`]。
 
-Besides the async nature to await the completion behaves identically to
-[`assert.doesNotThrow()`][].
+与 [`assert.doesNotThrow()`] 的区别在于需要异步地等待完成。
+
 
 ```js
 (async () => {
   await assert.doesNotReject(
     async () => {
-      throw new TypeError('Wrong value');
+      throw new TypeError('错误信息');
     },
     SyntaxError
   );
@@ -38,7 +31,7 @@ Besides the async nature to await the completion behaves identically to
 ```
 
 ```js
-assert.doesNotReject(Promise.reject(new TypeError('Wrong value')))
+assert.doesNotReject(Promise.reject(new TypeError('错误信息')))
   .then(() => {
     // ...
   });

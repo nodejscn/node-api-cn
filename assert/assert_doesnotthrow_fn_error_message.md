@@ -12,63 +12,54 @@ changes:
 * `error` {RegExp|Function}
 * `message` {string}
 
-Asserts that the function `fn` does not throw an error.
+断言 `fn` 函数不会抛出错误。
 
-Please note: Using `assert.doesNotThrow()` is actually not useful because there
-is no benefit by catching an error and then rethrowing it. Instead, consider
-adding a comment next to the specific code path that should not throw and keep
-error messages as expressive as possible.
+`assert.doesNotThrow()` 并不常用，因为很少需要捕获一个错误然后再次抛出错误。
 
-When `assert.doesNotThrow()` is called, it will immediately call the `fn`
-function.
+当 `assert.doesNotThrow()` 被调用时，会立即调用 `fn` 函数。
 
-If an error is thrown and it is the same type as that specified by the `error`
-parameter, then an `AssertionError` is thrown. If the error is of a different
-type, or if the `error` parameter is undefined, the error is propagated back
-to the caller.
+如果抛出错误，且错误与 `error` 参数指定的类型相同，则抛出 `AssertionError`。
+如果错误类型不同，或 `error` 参数为 `undefined`，则错误会冒泡给调用者。
 
-If specified, `error` can be a [`Class`][], [`RegExp`][] or a validation
-function. See [`assert.throws()`][] for more details.
+`error` 可以是 [`Class`]、[`RegExp`] 或校验函数。
+详见 [`assert.throws()`]。
 
-The following, for instance, will throw the [`TypeError`][] because there is no
-matching error type in the assertion:
+
+以下例子会抛出 [`TypeError`]，因为断言没有匹配错误的类型：
 
 <!-- eslint-disable no-restricted-syntax -->
 ```js
 assert.doesNotThrow(
   () => {
-    throw new TypeError('Wrong value');
+    throw new TypeError('错误信息');
   },
   SyntaxError
 );
 ```
 
-However, the following will result in an `AssertionError` with the message
-'Got unwanted exception...':
+以下例子会抛出 `AssertionError`，并带上 'Got unwanted exception...' 信息：
 
 <!-- eslint-disable no-restricted-syntax -->
 ```js
 assert.doesNotThrow(
   () => {
-    throw new TypeError('Wrong value');
+    throw new TypeError('错误信息');
   },
   TypeError
 );
 ```
 
-If an `AssertionError` is thrown and a value is provided for the `message`
-parameter, the value of `message` will be appended to the `AssertionError`
-message:
+如果抛出 `AssertionError` 且为 `message` 参数传了值，则 `message` 的值会附加到 `AssertionError` 消息：
 
 <!-- eslint-disable no-restricted-syntax -->
 ```js
 assert.doesNotThrow(
   () => {
-    throw new TypeError('Wrong value');
+    throw new TypeError('错误信息');
   },
-  /Wrong value/,
-  'Whoops'
+  /错误信息/,
+  '出错啦'
 );
-// Throws: AssertionError: Got unwanted exception: Whoops
+// 抛出: AssertionError: Got unwanted exception: 出错啦
 ```
 

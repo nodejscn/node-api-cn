@@ -19,5 +19,4 @@ assert.fail(new TypeError('失败'));
 // 抛出 TypeError: 失败
 ```
 
-使用 `assert.fail()` 并带上多个参数的方法已被废弃。
 

@@ -9,7 +9,7 @@ changes:
 * `expected` {any}
 * `message` {string|Error}
 
-使用 [SameValue比较法]测试 `actual` 参数与 `expected` 参数是否全等。
+使用 [SameValue比较法][SameValue Comparison]测试 `actual` 参数与 `expected` 参数是否全等。
 
 ```js
 const assert = require('assert').strict;

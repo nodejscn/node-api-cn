@@ -1,11 +1,11 @@
 
-* 原始值运用 [SameValue比较法]进行比较，使用 [`Object.is()`] 函数。
-* 对象的[类型标签]应该相同。
-* 对象的[原型]使用[全等运算符]比较。
-* 只比较[可枚举的自身属性]。
+* 原始值运用 [SameValue比较法][SameValue Comparison]进行比较，使用 [`Object.is()`] 函数。
+* 对象的[类型标签][Object.prototype.toString()]应该相同。
+* 对象的[原型][prototype-spec]使用[全等运算符][Strict Equality Comparison]比较。
+* 只比较[可枚举的自身属性][enumerable "own" properties]。
 * [`Error`] 的名称与信息也会比较，即使不是可枚举的属性。
 * 可枚举的自身 [`Symbol`] 属性也会比较。
-* [对象封装器] 会同时比较对象与解封装后的值。
+* [对象封装器][Object wrappers]会同时比较对象与解封装后的值。
 * `Object` 属性的比较是无序的。
 * `Map` 键名与 `Set` 子项的比较是无序的。
 * 当两边的值不相同或遇到循环引用时，递归会停止。

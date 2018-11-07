@@ -13,7 +13,7 @@ changes:
 * `value` {any}
 
 如果 `value` 不为 `undefined` 或 `null`，则抛出 `value`。
-可用于测试回调函数的 `error` 参数。
+主要用于测试回调函数的 `error` 参数。
 堆栈踪迹会包含传入 `ifError()` 的错误的所有帧，包括潜在的 `ifError()` 自身新增的帧。
 
 例子：
