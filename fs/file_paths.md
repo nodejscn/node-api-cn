@@ -46,5 +46,5 @@ fs.open(Buffer.from('/open/some/file.txt'), 'r', (err, fd) => {
 在 Windows 上，Node.js 遵循 per-drive 工作目录的理念。
 当使用驱动器路径不带反斜杠时可以观察到该特性。
 例如，`fs.readdirSync('c:\\')` 可能会返回与 `fs.readdirSync('c:')` 不同的结果。
-详见 [MSDN路径文档]。
+详见 [MSDN路径文档][MSDN-Rel-Path]。
 

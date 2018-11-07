@@ -5,7 +5,7 @@
 
 <!--name=fs-->
 
-`fs` 模块提供了一些 API，用于以一种类似标准 POSIX 函数的方式与文件系统进行交互。
+`fs` 模块提供了一些接口用于以一种类似标准 POSIX 函数的方式与文件系统进行交互。
 
 用法如下：
 
@@ -13,9 +13,9 @@
 const fs = require('fs');
 ```
 
-所有的文件系统操作都有异步和同步两种形式。
+所有的文件系统操作都有同步和异步两种形式。
 
-异步形式的最后一个参数都是完成时回调函数。
+异步形式的最后一个参数都是完成时的回调函数。
 传给回调函数的参数取决于具体方法，但回调函数的第一个参数都会保留给异常。
 如果操作成功完成，则第一个参数会是 `null` 或 `undefined`。
 
@@ -35,9 +35,9 @@ const fs = require('fs');
 
 try {
   fs.unlinkSync('/tmp/hello');
-  console.log('successfully deleted /tmp/hello');
+  console.log('成功删除 /tmp/hello');
 } catch (err) {
-  // handle the error
+  // 处理异常。
 }
 ```
 

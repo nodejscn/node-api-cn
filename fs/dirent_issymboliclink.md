@@ -2,8 +2,8 @@
 added: v10.10.0
 -->
 
-* Returns: {boolean}
+* 返回: {boolean}
 
-Returns `true` if the `fs.Dirent` object describes a symbolic link.
+如果 `fs.Dirent` 对象是一个符号链接，则返回 `true`，否则返回 `false`。
 
 

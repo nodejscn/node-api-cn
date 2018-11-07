@@ -2,8 +2,8 @@
 added: v10.10.0
 -->
 
-* Returns: {boolean}
+* 返回: {boolean}
 
-Returns `true` if the `fs.Dirent` object describes a first-in-first-out
-(FIFO) pipe.
+如果 `fs.Dirent` 对象是一个先进先出（FIFO）管道，则返回 `true`，否则返回 `false`。
+
 
