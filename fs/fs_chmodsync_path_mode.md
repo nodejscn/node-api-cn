@@ -10,8 +10,6 @@ changes:
 * `path` {string|Buffer|URL}
 * `mode` {integer}
 
-同步地改变文件的权限。
-返回 `undefined`。
-[`fs.chmod()`]的同步版本。
+[`fs.chmod()`] 的同步版本。
 
 详见 chmod(2)。

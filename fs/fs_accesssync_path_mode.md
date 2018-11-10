@@ -10,13 +10,12 @@ changes:
 * `path` {string|Buffer|URL}
 * `mode` {integer} 默认为 `fs.constants.F_OK`。
 
-同步地测试 `path` 指定的文件或目录的用户权限。
+同步地检测 `path` 指定的文件或目录的用户权限。
 `mode` 参数是一个可选的整数，指定要执行的可访问性检查。 
-[文件访问常量]定义了 `mode` 可选的值。
+[文件可访问性的常量][File Access Constants]定义了 `mode` 可选的值。
 可以创建由两个或更多个值的位或组成的掩码（例如 fs.constants.W_OK | fs.constants.R_OK）。
 
-如果可访问性检查失败，则抛出一个 `Error` 对象。 
-否则返回 `undefined`。
+如果可访问性检查失败，则抛出一个 `Error` 对象，否则返回 `undefined`。
 
 ```js
 try {

@@ -8,10 +8,12 @@ changes:
 -->
 
 * `path` {string|Buffer|URL}
+* 返回: {boolean}
 
-[`fs.exists()`] 的同步版本。
 如果路径存在，则返回 `true`，否则返回 `false`。
 
-注意，虽然 `fs.exists()` 是废弃的，但 `fs.existsSync()` 不是。
-（`fs.exists()` 的回调接收的参数与其他 Node.js 回调不一致，`fs.existsSync()` 不使用回调。）
+详见异步版本的接口 [`fs.exists()`]。
+
+虽然 `fs.exists()` 是废弃的，但 `fs.existsSync()` 不是废弃的。
+`fs.exists()` 的回调函数接收的参数与其他 Node.js 回调不一致，`fs.existsSync()` 没有使用回调。
 

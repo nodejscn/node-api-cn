@@ -1,36 +1,40 @@
 
-`mode` 参数会在 `fs.chmod()` 和 `fs.chmodSync()`方法中用到，它是用下面的常量进行逻辑或(logical OR)操作后的数字掩码：
+`fs.chmod()` 和 `fs.chmodSync()` 会用到 `mode` 参数，它是用下面的常量进行逻辑或操作后的数字掩码：
 
 
-|       Constant         |  Octal  | Description              |
+|       常量         |  八进制值  | 描述              |
 | ---------------------- | ------- | ------------------------ |
-| `fs.constants.S_IRUSR` | `0o400` | read by owner            |
-| `fs.constants.S_IWUSR` | `0o200` | write by owner           |
-| `fs.constants.S_IXUSR` | `0o100` | execute/search by owner  |
-| `fs.constants.S_IRGRP` | `0o40`  | read by group            |
-| `fs.constants.S_IWGRP` | `0o20`  | write by group           |
-| `fs.constants.S_IXGRP` | `0o10`  | execute/search by group  |
-| `fs.constants.S_IROTH` | `0o4`   | read by others           |
-| `fs.constants.S_IWOTH` | `0o2`   | write by others          |
-| `fs.constants.S_IXOTH` | `0o1`   | execute/search by others |
+| `fs.constants.S_IRUSR` | `0o400` | 所有者可读            |
+| `fs.constants.S_IWUSR` | `0o200` | 所有者可写           |
+| `fs.constants.S_IXUSR` | `0o100` | 所有者可执行或搜索  |
+| `fs.constants.S_IRGRP` | `0o40`  | 群组可读            |
+| `fs.constants.S_IWGRP` | `0o20`  | 群组可写           |
+| `fs.constants.S_IXGRP` | `0o10`  | 群组可执行或搜索  |
+| `fs.constants.S_IROTH` | `0o4`   | 其他人可读           |
+| `fs.constants.S_IWOTH` | `0o2`   | 其他人可写          |
+| `fs.constants.S_IXOTH` | `0o1`   | 其他人可执行或搜索 |
 
-一个构造 `mode` 的更简单的方式是使用3位八进制串（比如，765）。最左侧的数字（例中的7）代表了文件所有者的权限。中间一位（例中的6）代表了组的权限。最右侧的数字（例中的5）代表其他人的权限。
-A
+构造 `mode` 更简单的方法是使用三位八进制串（ 例如 `765`）。
+最左侧的数字（例子中的 `7`）指定文件所有者的权限。
+中间得数字（例子中的 `6`）指定群组的权限。
+最右侧的数字（例子中的 `5`）指定其他人的权限。
 
-| Number  |       Description        |
+
+| 数字  |       描述        |
 | ------- | ------------------------ |
-|   `7`   | read, write, and execute |
-|   `6`   | read and write           |
-|   `5`   | read and execute         |
-|   `4`   | read only                |
-|   `3`   | write and execute        |
-|   `2`   | write only               |
-|   `1`   | execute only             |
-|   `0`   | no permission            |
+|   `7`   | 可读、可写、可执行 |
+|   `6`   | 可读、可写       |
+|   `5`   | 可读、可执行         |
+|   `4`   | 只读                |
+|   `3`   | 可写、可执行       |
+|   `2`   | 只写               |
+|   `1`   | 只可执行             |
+|   `0`   | 没有权限            |
 
-举个例子，八进制值 `0o765` 表示：
+例如，八进制值 `0o765` 表示：
 
-* 文件所有者可以进行读、写和执行。
-* 文件所属组可以读和写。
-* 其他人可以对文件进行读和执行。
+* 文件所有者可读、可写、可执行。
+* 文件所属群组可读、可写。
+* 其他人可读、可执行。
+
 

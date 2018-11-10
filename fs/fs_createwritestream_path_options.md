@@ -18,19 +18,19 @@ changes:
 
 * `path` {string|Buffer|URL}
 * `options` {string|Object}
-  * `flags` {string} 详见[支持的文件系统flag]。默认为 `'w'`。
+  * `flags` {string} 详见[支持的文件系统标志][support of file system `flags`]。默认为 `'w'`。
   * `encoding` {string} 默认为 `'utf8'`。
   * `fd` {integer} 默认为 `null`。
   * `mode` {integer} 默认为 `0o666`。
   * `autoClose` {boolean} 默认为 `true`。
   * `start` {integer}
-* 返回: {fs.WriteStream} 详见[可写流]。
+* 返回: {fs.WriteStream} 详见[可写流][Writable Stream]。
 
 `options` 也有 `start` 选项，用于写入数据到文件指定位置。
 如果是修改文件而不是覆盖它，则 `flags` 模式需为 `r+` 模式而不是默认的 `w` 模式。
 `encoding` 可以是任何可以被 [`Buffer`] 接受的值。
 
-如果 `autoClose` 被设置为 `true`（默认），则在 `error` 或 `finish` 时，文件描述符会被自动关闭。
+如果 `autoClose` 被设置为 `true`（默认），则文件描述符在 `error` 事件或 `end` 事件时会被自动关闭。
 如果 `autoClose` 为 `false`，则文件描述符不会被关闭，即使有错误。
 应用程序需要负责关闭它，并且确保没有文件描述符泄漏。
 

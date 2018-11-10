@@ -13,9 +13,8 @@ changes:
 
 * `path` {string|Buffer|URL}
 * `options` {Object}
-  * `bigint` {boolean} Whether the numeric values in the returned
-    [`fs.Stats`][] object should be `bigint`. **Default:** `false`.
-* Returns: {fs.Stats}
+  * `bigint` {boolean} [`fs.Stats`] 对象返回的数值是否为长整数型。默认为 `false`。
+* 返回: {fs.Stats}
 
-Synchronous lstat(2).
+同步的 lstat(2)。
 

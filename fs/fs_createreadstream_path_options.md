@@ -15,7 +15,7 @@ changes:
 
 * `path` {string|Buffer|URL}
 * `options` {string|Object}
-  * `flags` {string} 详见[支持的文件系统flag]。默认为 `'r'`。
+  * `flags` {string} 详见[支持的文件系统标志][support of file system `flags`]。默认为 `'r'`。
   * `encoding` {string} 默认为 `null`。
   * `fd` {integer} 默认为 `null`。
   * `mode` {integer} 默认为 `0o666`。
@@ -23,7 +23,7 @@ changes:
   * `start` {integer}
   * `end` {integer} 默认为 `Infinity`。
   * `highWaterMark` {integer} 默认为 `64 * 1024`。
-* 返回: {fs.ReadStream} 详见[可读流]。
+* 返回: {fs.ReadStream} 详见[可读流][Readable Streams]。
 
 不同于 `highWaterMark` 默认值为 16 kb 的可读流，该方法返回的流的 `highWaterMark` 默认为 64 kb。
 
@@ -36,11 +36,27 @@ changes:
 这意味着不会触发 `'open'` 事件。
 `fd` 必须是阻塞的，非阻塞的 `fd` 应该传给 [`net.Socket`]。
 
+如果 `fd` 指向一个只支持阻塞读取（比如键盘或声卡）的字符设备，则读取操作不会结束直到有可用的数据。
+这可以避免进程退出或流被关闭。
+
+```js
+const fs = require('fs');
+// 从字符设备创建一个流。
+const stream = fs.createReadStream('/dev/input/event0');
+setTimeout(() => {
+  stream.close(); // 这不会关闭流。
+  // 手动地指示流已到尽头，使流关闭。
+  // 这不会取消读取操作的等待，进程在读取完成前不会退出。
+  stream.push(null);
+  stream.read(0);
+}, 100);
+```
+
 如果 `autoClose` 为 `false`，则文件描述符不会被关闭，即使有错误。
 应用程序需要负责关闭它，并且确保没有文件描述符泄漏。
-如果 `autoClose` 被设置为 `true`（默认），则在 `error` 或 `end` 时，文件描述符会被自动关闭。
+如果 `autoClose` 被设置为 `true`（默认），则文件描述符在 `error` 事件或 `end` 事件时会被自动关闭。
 
-`mode` 用于设置文件模式（权限和粘滞位），但仅限创建文件时。
+`mode` 用于设置文件模式（权限和粘滞位），但仅限创建文件时有效。
 
 例子，从一个大小为 100 字节的文件中读取最后 10 个字节：
 
