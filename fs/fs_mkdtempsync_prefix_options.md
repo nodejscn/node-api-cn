@@ -4,10 +4,14 @@ added: v5.10.0
 
 * `prefix` {string}
 * `options` {string|Object}
-  * `encoding` {string} 默认 = `'utf8'`
+  * `encoding` {string} 默认为 `'utf8'`。
+* 返回: {string}
 
-[`fs.mkdtemp()`] 的同步版本。
-返回创建的目录的路径。
+返回创建的目录路径。
 
-可选的 `options` 参数可以是一个字符串并指定一个字符编码，或是一个对象且由一个 `encoding` 属性指定使用的字符编码。
+详见异步版本的接口：[`fs.mkdtemp()`]。
+
+
+`options` 参数可以是一个字符串，指定字符编码。
+也可以是一个对象，其中 `encoding` 属性指定字符编码。
 

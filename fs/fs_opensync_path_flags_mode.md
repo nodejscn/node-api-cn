@@ -8,9 +8,11 @@ changes:
 -->
 
 * `path` {string|Buffer|URL}
-* `flags` {string|number}
-* `mode` {integer} **Default:** `0o666`
+* `flags` {string|number} 详见[支持的文件系统标志][support of file system `flags`]。
+* `mode` {integer} 默认为 `0o666`。
+* 返回: {number}
 
-[`fs.open()`] 的同步版本。
-返回一个表示文件描述符的整数。
+返回表示文件描述符的整数。
+
+详见异步版本的接口：[`fs.open()`]。
 

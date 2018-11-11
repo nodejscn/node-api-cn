@@ -13,11 +13,12 @@ changes:
 
 * `path` {string|Buffer|URL}
 * `options` {Object|integer}
-  * `recursive` {boolean} **Default:** `false`
-  * `mode` {integer} Not supported on Windows. **Default:** `0o777`.
+  * `recursive` {boolean} 默认为 `false`。
+  * `mode` {integer} 不支持 Windows 平台。默认为 `0o777`。
 
-Synchronously creates a directory. Returns `undefined`.
-This is the synchronous version of [`fs.mkdir()`][].
+同步地创建目录。
+返回 `undefined`。
+[`fs.mkdir()`] 的同步版本。
 
-See also: mkdir(2).
+详见 mkdir(2)。
 

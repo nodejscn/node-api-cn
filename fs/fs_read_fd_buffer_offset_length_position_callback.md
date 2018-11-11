@@ -1,6 +1,10 @@
 <!-- YAML
 added: v0.0.2
 changes:
+  - version: v10.10.0
+    pr-url: https://github.com/nodejs/node/pull/22150
+    description: The `buffer` parameter can now be any `TypedArray`, or a
+                 `DataView`.
   - version: v7.4.0
     pr-url: https://github.com/nodejs/node/pull/10382
     description: The `buffer` parameter can now be a `Uint8Array`.
@@ -10,7 +14,7 @@ changes:
 -->
 
 * `fd` {integer}
-* `buffer` {Buffer|Uint8Array}
+* `buffer` {Buffer|TypedArray|DataView}
 * `offset` {integer}
 * `length` {integer}
 * `position` {integer}
@@ -32,6 +36,4 @@ changes:
 如果 `position` 为一个整数，则文件读取位置保持不变。
 
 回调有三个参数 `(err, bytesRead, buffer)`。
-
-如果调用该方法的 [`util.promisify()`][] 版本，将会返回一个包含 `bytesRead` 和 `buffer` 属性的 Promise。
 
