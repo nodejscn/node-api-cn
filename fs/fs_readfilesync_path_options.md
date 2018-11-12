@@ -12,12 +12,12 @@ changes:
 * `path` {string|Buffer|URL|integer} 文件名或文件描述符。
 * `options` {Object|string}
   * `encoding` {string|null} 默认为 `null`。
-  * `flag` {string} 详见[支持的文件系统flag]。默认为 `'r'`。
+  * `flag` {string} 详见[支持的文件系统标志][support of file system `flags`]。默认为 `'r'`。
 * 返回: {string|Buffer}
 
-返回 `path` 的内容。
+返回文件 `path` 的内容。
 
-详见异步版本的 API 文档：[`fs.readFile()`]。
+详见异步版本的接口：[`fs.readFile()`]。
 
 如果指定了 `encoding` 选项，则该函数返回一个字符串，否则返回一个 buffer。
 
@@ -25,10 +25,10 @@ changes:
 
 ```js
 // 在 macOS、Linux 与 Windows 上：
-fs.readFileSync('<directory>');
+fs.readFileSync('<目录>');
 // => [Error: EISDIR: illegal operation on a directory, read <directory>]
 
 // 在 FreeBSD 上：
-fs.readFileSync('<directory>'); // => <data>
+fs.readFileSync('<目录>'); // => <data>
 ```
 

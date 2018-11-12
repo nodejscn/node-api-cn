@@ -19,5 +19,6 @@ changes:
 * `atime` {integer}
 * `mtime` {integer}
 
-[`fs.utimes()`] 的同步版本。返回 `undefined`。
+返回 `undefined`。
+详见异步版本的接口：[`fs.utimes()`]。
 

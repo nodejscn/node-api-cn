@@ -9,7 +9,8 @@ changes:
 
 * `path` {string|Buffer|URL}
 * `options` {string|Object}
-  * `encoding` {string} 默认 = `'utf8'`
+  * `encoding` {string} 默认为 `'utf8'`。
+* 返回: {string|Buffer}
 
 同步的 readlink(2)。
 返回符号链接的字符串值。

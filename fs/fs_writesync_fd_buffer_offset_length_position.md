@@ -18,8 +18,7 @@ changes:
 * `offset` {integer}
 * `length` {integer}
 * `position` {integer}
-* Returns: {number} The number of bytes written.
+* 返回: {number} 写入的字节数。
 
-For detailed information, see the documentation of the asynchronous version of
-this API: [`fs.write(fd, buffer...)`][].
+详见异步版本的接口：[`fs.write(fd, buffer...)`]。
 

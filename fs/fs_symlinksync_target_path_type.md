@@ -10,7 +10,9 @@ changes:
 
 * `target` {string|Buffer|URL}
 * `path` {string|Buffer|URL}
-* `type` {string} **默认值:** `'file'`
+* `type` {string} 默认为 `'file'`。
 
-同步的 symlink(2)。返回 `undefined`。
+返回 `undefined`。
+
+详见异步版本的接口：[`fs.symlink()`]。
 

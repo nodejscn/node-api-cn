@@ -1,6 +1,10 @@
 <!-- YAML
 added: v0.0.2
 changes:
+  - version: v10.0.0
+    pr-url: https://github.com/nodejs/node/pull/12562
+    description: The `callback` parameter is no longer optional. Not passing
+                 it will throw a `TypeError` at runtime.
   - version: v7.6.0
     pr-url: https://github.com/nodejs/node/pull/10739
     description: The `path` parameters can be a WHATWG `URL` object using
@@ -8,7 +12,7 @@ changes:
   - version: v7.0.0
     pr-url: https://github.com/nodejs/node/pull/7897
     description: The `callback` parameter is no longer optional. Not passing
-                 it will emit a deprecation warning.
+                 it will emit a deprecation warning with id DEP0013.
 -->
 
 * `path` {string|Buffer|URL}
@@ -18,5 +22,5 @@ changes:
 异步的 rmdir(2)。
 完成回调只有一个可能的异常参数。
 
-*请注意*: 在文件上（而不是目录上）使用`fs.rmdir()`，在Windows平台将会导致`ENOENT`错误，而在POSIX平台将会导致`ENOTDIR`错误。
+如果在文件上（而不是目录上）使用`fs.rmdir()`，则 Windows 平台会导致 `ENOENT` 错误，POSIX 平台会导致 `ENOTDIR` 错误。
 

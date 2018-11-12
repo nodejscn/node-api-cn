@@ -9,44 +9,43 @@ changes:
 
 * `filename` {string|Buffer|URL}
 * `options` {Object}
-  * `persistent` {boolean} **Default:** `true`
-  * `interval` {integer} **Default:** `5007`
+  * `persistent` {boolean} 默认为 `true`。
+  * `interval` {integer} 默认为 `5007`。
 * `listener` {Function}
   * `current` {fs.Stats}
   * `previous` {fs.Stats}
 
 监视 `filename` 的变化。
-回调 `listener` 会在每次访问文件时被调用。
+回调 `listener` 会在每次文件被访问时调用。
 
-`options` 参数可被省略。
-如果提供的话，它应该是一个对象。
-`options` 对象可能包含一个名为 `persistent` 的布尔值，表明当文件正在被监视时，进程是否应该继续运行。
-`options` 对象可以指定一个 `interval` 属性，表示目标应该每隔多少毫秒被轮询。
+`options` 对象可以有一个布尔值的 `persistent` 属性，表明当文件正在被监视时，进程是否继续运行。
+`options` 对象可以指定一个 `interval` 属性，指定目标每隔多少毫秒被轮询。
 默认值为 `{ persistent: true, interval: 5007 }`。
 
 `listener` 有两个参数，当前的状态对象和以前的状态对象：
 
 ```js
-fs.watchFile('message.text', (curr, prev) => {
-  console.log(`the current mtime is: ${curr.mtime}`);
-  console.log(`the previous mtime was: ${prev.mtime}`);
+fs.watchFile('文件.text', (curr, prev) => {
+  console.log(`当前的最近修改时间是: ${curr.mtime}`);
+  console.log(`之前的最近修改时间是: ${prev.mtime}`);
 });
 ```
 
 这里的状态对象是 `fs.Stat` 实例。
 
-如果你想在文件被修改而不只是访问时得到通知，则需要比较 `curr.mtime` 和 `prev.mtime`。
+如果想在文件被修改而不只是访问时得到通知，则需要比较 `curr.mtime` 和 `prev.mtime`。
 
-注意：当一个 `fs.watchFile` 的运行结果是一个 `ENOENT` 错误时，它会调用监听器一次，且将所有字段置零（或将日期设为 Unix 纪元）。
+当 `fs.watchFile` 的运行结果是一个 `ENOENT` 错误时，它会调用监听器一次，且将所有字段置零（或将日期设为 Unix 纪元）。
 在 Windows 中，`blksize` 和 `blocks` 字段会是 `undefined` 而不是零。
 如果文件是在那之后创建的，则监听器会被再次调用，且带上最新的状态对象。
 这是在 v0.10 版之后在功能上的变化。
 
-注意：[`fs.watch()`] 比 `fs.watchFile` 和 `fs.unwatchFile` 更高效。
-可能的话，应该使用 `fs.watch` 而不是 `fs.watchFile` 和 `fs.unwatchFile`。
+[`fs.watch()`] 比 `fs.watchFile` 和 `fs.unwatchFile` 更高效。
+建议使用 `fs.watch` 而不是 `fs.watchFile` 和 `fs.unwatchFile`。
 
-*注意:* 当 `fs.watchFile()` 所监听的文件消失并重新出现时，第二个回调函数中返回的 previousstat (文件重新出现)将与第一个回调函数的 previousstat (消失)相同。
+当 `fs.watchFile()` 所监听的文件消失并重新出现时，回调事件第二次返回的 `previousStat`（文件重新出现）会与第一次返回的 `previousStat`（文件消失）相同。
 
 这种情况会发生在:
-- 该文件被删除，然后又恢复
-- 文件重命名两次 - 第二次重命名与其原名称相同
+- 文件被删除，然后又恢复。
+- 文件被重命名两次，且第二次重命名与其原名称相同。
+

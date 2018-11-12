@@ -11,7 +11,7 @@ fs.watch('somedir', (eventType, filename) => {
   if (filename) {
     console.log(`提供的文件名: ${filename}`);
   } else {
-    console.log('未提供文件名');
+    console.log('文件名未提供');
   }
 });
 ```

@@ -10,6 +10,7 @@ changes:
 * `string` {string}
 * `position` {integer}
 * `encoding` {string}
+* 返回: {number} 写入的字节数。
 
-[`fs.write()`] 的同步版本。返回写入的字节数。
+详见异步版本的接口：[`fs.write(fd, string...)`]。
 

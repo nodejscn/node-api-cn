@@ -21,12 +21,13 @@ changes:
 * `path` {string|Buffer|URL|integer} 文件名或文件描述符。
 * `options` {Object|string}
   * `encoding` {string|null} 默认为 `null`。
-  * `flag` {string} 详见[支持的文件系统flag]。默认为 `'r'`。
+  * `flag` {string} 详见[支持的文件系统标志][support of file system `flags`]。默认为 `'r'`。
 * `callback` {Function}
   * `err` {Error}
   * `data` {string|Buffer}
 
-异步地读取一个文件的全部内容。
+异步地读取文件的内容。
+
 例子：
 
 ```js
@@ -40,8 +41,7 @@ fs.readFile('/etc/passwd', (err, data) => {
 
 如果未指定字符编码，则返回原始的 buffer。
 
-如果 `options` 是一个字符串，则它指定了字符编码。
-例子：
+如果 `options` 是一个字符串，则它指定了字符编码：
 
 ```js
 fs.readFile('/etc/passwd', 'utf8', callback);
@@ -53,12 +53,12 @@ fs.readFile('/etc/passwd', 'utf8', callback);
 
 ```js
 // 在 macOS、Linux 与 Windows 上：
-fs.readFile('<directory>', (err, data) => {
+fs.readFile('<目录>', (err, data) => {
   // => [Error: EISDIR: illegal operation on a directory, read <directory>]
 });
 
 // 在 FreeBSD 上：
-fs.readFile('<directory>', (err, data) => {
+fs.readFile('<目录>', (err, data) => {
   // => null, <data>
 });
 ```
