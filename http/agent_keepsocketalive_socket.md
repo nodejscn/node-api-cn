@@ -4,12 +4,16 @@ added: v8.1.0
 
 * `socket` {net.Socket}
 
-在 `socket` 被请求分离的时候调用, 可能被代理持续使用. 默认行为:
+当 `socket` 从请求中分离且可被 `Agent` 继续使用时调用。
+
+默认行为是：
+
 ```js
 socket.setKeepAlive(true, this.keepAliveMsecs);
 socket.unref();
 return true;
 ```
 
-这个方法可以被一个特定的 `Agent` 子类重写. 如果这个方法返回假值, socket 会被销毁而不是
-在下一次请求时持续使用.
+该方法可被 `Agent` 子类重写。
+如果方法返回 `false` 值, 则 socket 会被销毁而不是在下一次请求时持续使用。
+

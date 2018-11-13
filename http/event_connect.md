@@ -16,13 +16,13 @@ const http = require('http');
 const net = require('net');
 const url = require('url');
 
-// 创建一个 HTTP 代理服务器
+// 创建一个 HTTP 代理服务器。
 const proxy = http.createServer((req, res) => {
   res.writeHead(200, { 'Content-Type': 'text/plain' });
   res.end('okay');
 });
 proxy.on('connect', (req, cltSocket, head) => {
-  // 连接到一个服务器
+  // 连接到服务器。
   const srvUrl = url.parse(`http://${req.url}`);
   const srvSocket = net.connect(srvUrl.port, srvUrl.hostname, () => {
     cltSocket.write('HTTP/1.1 200 Connection Established\r\n' +
@@ -34,10 +34,10 @@ proxy.on('connect', (req, cltSocket, head) => {
   });
 });
 
-// 代理服务器正在运行
+// 代理服务器正在运行。
 proxy.listen(1337, '127.0.0.1', () => {
 
-  // 发送一个请求到代理服务器
+  // 发送请求到代理服务器。
   const options = {
     port: 1337,
     hostname: '127.0.0.1',
@@ -49,9 +49,9 @@ proxy.listen(1337, '127.0.0.1', () => {
   req.end();
 
   req.on('connect', (res, socket, head) => {
-    console.log('已连接！');
+    console.log('已连接');
 
-    // 通过代理服务器发送一个请求
+    // 通过代理服务器发送请求。
     socket.write('GET / HTTP/1.1\r\n' +
                  'Host: www.google.com:80\r\n' +
                  'Connection: close\r\n' +

@@ -3,16 +3,21 @@ added: v1.6.0
 -->
 
 * `name` {string}
-* `value` {string}
+* `value` {any}
 
-为 headers 对象设置一个单一的 header 值。如果该 header 已经存在了，则将会被替换。这里使用一个字符串数组来设置有相同名称的多个 headers。
+为请求头对象设置请求头的值。
+如果请求头已存在则替换。
+使用字符串数组可以发送多个同名的请求头。
+非字符串的值会保留原样，所以 [`request.getHeader()`] 会返回非字符串的值。
+非字符串的值在网络传输时会转换为字符串。
 
-例如：
+例子：
+
 ```js
 request.setHeader('Content-Type', 'application/json');
 ```
 
-或
+或：
 
 ```js
 request.setHeader('Set-Cookie', ['type=ninja', 'language=javascript']);

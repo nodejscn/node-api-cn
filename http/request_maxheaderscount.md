@@ -1,5 +1,6 @@
 
-* {number} **Default:** `2000`
+* {number} 默认为 `2000`。
 
-Limits maximum response headers count. If set to 0, no limit will be applied.
+响应头的最大数量限制。
+如果设为 0，则不限制。
 

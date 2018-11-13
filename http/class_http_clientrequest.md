@@ -4,7 +4,7 @@ added: v0.1.17
 
 该对象在 [`http.request()`] 内部被创建并返回。
 它表示着一个正在处理的请求，其请求头已进入队列。
-请求头仍可使用 [`setHeader(name, value)`]、[`getHeader(name)`] 和 [`removeHeader(name)`] API 进行修改。
+请求头仍可使用 [`setHeader(name, value)`]、[`getHeader(name)`] 和 [`removeHeader(name)`] 进行修改。
 实际的请求头会与第一个数据块一起发送或当调用 [`request.end()`] 时发送。
 
 要获取响应，需为 [`'response'`] 事件添加一个监听器到请求对象上。
@@ -18,8 +18,7 @@ added: v0.1.17
 数据被消耗完时会触发 `'end'` 事件。
 在数据被读取完之前会消耗内存，可能会造成 `'process out of memory'` 错误。
 
-注意：Node.js 不会检查 `Content-Length` 与已传输的请求主体的长度是否相等。
+Node.js 不会检查 `Content-Length` 与已传输的请求主体的长度是否相等。
 
-该请求实现了 [可写流] 接口。
-它是一个包含以下事件的 [`EventEmitter`]：
+请求类继承自[流](stream.html)，其他的实现如下：
 

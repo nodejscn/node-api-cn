@@ -1,5 +1,10 @@
 <!-- YAML
 added: v0.1.94
+changes:
+  - version: v10.0.0
+    pr-url: v10.0.0
+    description: Not listening to this event no longer causes the socket
+                 to be destroyed if a client sends an Upgrade header.
 -->
 
 * `request` {http.IncomingMessage} HTTP 请求，同 [`'request'`] 事件。

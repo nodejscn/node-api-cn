@@ -1,5 +1,5 @@
 
-以下常量用于 [`fs.Stats`] 对象中用于决定一个文件访问权限的 `mode` 属性。
+以下常量用于 [`fs.Stats`] 对象的 `mode` 属性，用来决定文件的访问权限。
 
 <table>
   <tr>
@@ -8,51 +8,51 @@
   </tr>
   <tr>
     <td><code>S_IRWXU</code></td>
-    <td>该文件模式表明可被所有者读取、写入、执行。</td>
+    <td>表明可被所有者读取、写入、执行。</td>
   </tr>
   <tr>
     <td><code>S_IRUSR</code></td>
-    <td>该文件模式表明可被所有者读取。</td>
+    <td>表明可被所有者读取。</td>
   </tr>
   <tr>
     <td><code>S_IWUSR</code></td>
-    <td>该文件模式表明可被所有者写入。</td>
+    <td>表明可被所有者写入。</td>
   </tr>
   <tr>
     <td><code>S_IXUSR</code></td>
-    <td>该文件模式表明可被所有者执行。</td>
+    <td>表明可被所有者执行。</td>
   </tr>
   <tr>
     <td><code>S_IRWXG</code></td>
-    <td>该文件模式表明可被群组读取、写入、执行。</td>
+    <td>表明可被群组读取、写入、执行。</td>
   </tr>
   <tr>
     <td><code>S_IRGRP</code></td>
-    <td>该文件模式表明可被群组读取。</td>
+    <td>表明可被群组读取。</td>
   </tr>
   <tr>
     <td><code>S_IWGRP</code></td>
-    <td>该文件模式表明可被群组写入。</td>
+    <td>表明可被群组写入。</td>
   </tr>
   <tr>
     <td><code>S_IXGRP</code></td>
-    <td>该文件模式表明可被群组执行。</td>
+    <td>表明可被群组执行。</td>
   </tr>
   <tr>
     <td><code>S_IRWXO</code></td>
-    <td>该文件模式表明可被其他人读取、写入、执行。</td>
+    <td>表明可被其他人读取、写入、执行。</td>
   </tr>
   <tr>
     <td><code>S_IROTH</code></td>
-    <td>该文件模式表明可被其他人读取。</td>
+    <td>表明可被其他人读取。</td>
   </tr>
   <tr>
     <td><code>S_IWOTH</code></td>
-    <td>该文件模式表明可被其他人写入。</td>
+    <td>表明可被其他人写入。</td>
   </tr>
   <tr>
     <td><code>S_IXOTH</code></td>
-    <td>该文件模式表明可被其他人执行。</td>
+    <td>表明可被其他人执行。</td>
   </tr>
 </table>
 

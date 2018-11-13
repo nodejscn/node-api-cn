@@ -14,7 +14,7 @@ added: v0.1.94
 ```js
 const http = require('http');
 
-// 创建一个 HTTP 服务器
+// 创建一个 HTTP 服务器。
 const srv = http.createServer( (req, res) => {
   res.writeHead(200, { 'Content-Type': 'text/plain' });
   res.end('okay');
@@ -28,10 +28,10 @@ srv.on('upgrade', (req, socket, head) => {
   socket.pipe(socket);
 });
 
-// 服务器正在运行
+// 服务器正在运行。
 srv.listen(1337, '127.0.0.1', () => {
 
-  // 发送一个请求
+  // 发送请求。
   const options = {
     port: 1337,
     hostname: '127.0.0.1',
@@ -45,7 +45,7 @@ srv.listen(1337, '127.0.0.1', () => {
   req.end();
 
   req.on('upgrade', (res, socket, upgradeHead) => {
-    console.log('got upgraded!');
+    console.log('收到请求');
     socket.end();
     process.exit(0);
   });
