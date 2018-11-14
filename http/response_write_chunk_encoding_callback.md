@@ -2,8 +2,8 @@
 added: v0.1.29
 -->
 
-* `chunk` {string | Buffer}
-* `encoding` {string}
+* `chunk` {string|Buffer}
+* `encoding` {string} 默认为 `'utf8'`。
 * `callback` {Function}
 * 返回: {boolean}
 
@@ -12,7 +12,8 @@ added: v0.1.29
 该方法会发送一块响应主体。
 它可被多次调用，以便提供连续的响应主体片段。
 
-请注意在`http`模块中，当请求是HEAD请求时，响应主体被省略。 类似地，`204`和`304`响应 _不能_ 包括消息体。
+在 `http` 模块中，当请求是 HEAD 请求时，响应主体被省略。
+类似地，`204` 和 `304` 响应不能包括消息体。
 
 `chunk` 可以是一个字符串或一个 buffer。
 如果 `chunk` 是一个字符串，则第二个参数指定如何将它编码成一个字节流。

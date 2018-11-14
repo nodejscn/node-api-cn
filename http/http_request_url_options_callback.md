@@ -12,64 +12,56 @@ changes:
 
 * `url` {string | URL}
 * `options` {Object}
-  * `protocol` {string} Protocol to use. **Default:** `'http:'`.
-  * `host` {string} A domain name or IP address of the server to issue the
-    request to. **Default:** `'localhost'`.
-  * `hostname` {string} Alias for `host`. To support [`url.parse()`][],
-    `hostname` is preferred over `host`.
-  * `family` {number} IP address family to use when resolving `host` and
-    `hostname`. Valid values are `4` or `6`. When unspecified, both IP v4 and
-    v6 will be used.
-  * `port` {number} Port of remote server. **Default:** `80`.
-  * `localAddress` {string} Local interface to bind for network connections.
-  * `socketPath` {string} Unix Domain Socket (use one of `host:port` or
-    `socketPath`).
-  * `method` {string} A string specifying the HTTP request method. **Default:**
-    `'GET'`.
-  * `path` {string} Request path. Should include query string if any.
-    E.G. `'/index.html?page=12'`. An exception is thrown when the request path
-    contains illegal characters. Currently, only spaces are rejected but that
-    may change in the future. **Default:** `'/'`.
-  * `headers` {Object} An object containing request headers.
-  * `auth` {string} Basic authentication i.e. `'user:password'` to compute an
-    Authorization header.
-  * `agent` {http.Agent | boolean} Controls [`Agent`][] behavior. Possible
-    values:
-    * `undefined` (default): use [`http.globalAgent`][] for this host and port.
-    * `Agent` object: explicitly use the passed in `Agent`.
-    * `false`: causes a new `Agent` with default values to be used.
-  * `createConnection` {Function} A function that produces a socket/stream to
-    use for the request when the `agent` option is not used. This can be used to
-    avoid creating a custom `Agent` class just to override the default
-    `createConnection` function. See [`agent.createConnection()`][] for more
-    details. Any [`Duplex`][] stream is a valid return value.
-  * `timeout` {number}: A number specifying the socket timeout in milliseconds.
-    This will set the timeout before the socket is connected.
-  * `setHost` {boolean}: Specifies whether or not to automatically add the
-    `Host` header. Defaults to `true`.
+  * `protocol` {string} 使用的协议。默认为 `http:`。
+  * `host` {string} 请求发送至的服务器的域名或 IP 地址。默认为 `localhost`。
+  * `hostname` {string} `host` 的别名。为了支持 [`url.parse()`]，`hostname` 优先于 `host`。
+  * `family` {number} 当解析 `host` 和 `hostname` 时使用的 IP 地址族。
+    有效值是 `4` 或 `6`。当未指定时，则同时使用 IP v4 和 v6。
+  * `port` {number} 远程服务器的端口。默认为 `80`。
+  * `localAddress` {string} 为网络连接绑定的本地接口。
+  * `socketPath` {string} Unix 域 Socket（使用 host:port 或 socketPath）。
+  * `method` {string} 指定 HTTP 请求方法的字符串。默认为 `'GET'`。
+  * `path` {string} 请求的路径。
+    应包括查询字符串（如有的话）。如 `'/index.html?page=12'`。
+    当请求的路径中包含非法字符时，会抛出异常。
+    目前只有空字符会被拒绝，但未来可能会变化。
+    默认为 `'/'`。
+  * `headers` {Object} 包含请求头的对象。
+  * `auth` {string} 基本身份验证，如 `'user:password'` 用来计算 `Authorization` 请求头。
+  * `agent` {http.Agent | boolean} 控制 [`Agent`] 的行为。
+    可能的值有：
+    * `undefined` (默认): 对该主机和端口使用 [`http.globalAgent`]。
+    * `Agent` 对象：显式地使用传入的 `Agent`。
+    * `false`: 创建一个新的使用默认值的 `Agent`。
+  * `createConnection` {Function} 当不使用 `agent` 选项时，为请求创建一个 socket 或流。
+    这可以用于避免仅仅创建一个自定义的 `Agent` 类来覆盖默认的 `createConnection` 函数。详见 [`agent.createConnection()`]。
+    返回值为 [`Duplex`] 流。
+  * `timeout` {number}: 指定 socket 超时的毫秒数。
+    设置了 socket 等待连接的超时时间。
+  * `setHost` {boolean}: 指定是否自动添加 `Host` 请求头。默认为 `true`。
 * `callback` {Function}
-* Returns: {http.ClientRequest}
+* 返回: {http.ClientRequest}
 
-Node.js maintains several connections per server to make HTTP requests.
-This function allows one to transparently issue requests.
+Node.js 为每台服务器维护多个连接来进行 HTTP 请求。
+该函数允许显式地发出请求。
 
-`url` can be a string or a [`URL`][] object. If `url` is a
-string, it is automatically parsed with [`url.parse()`][]. If it is a [`URL`][]
-object, it will be automatically converted to an ordinary `options` object.
+`url` 可以是字符串或 [`URL`] 对象。
+如果 `url` 是字符串，指定它会被自动使用 [`url.parse()`] 解析。
+如果 `url` 是 [`URL`] 对象, 则它会被自动转换成 `options` 对象。
 
-If both `url` and `options` are specified, the objects are merged, with the
-`options` properties taking precedence.
+如果 `url` 与 `options` 都指定了，则两个对象会被合并，其中 `options` 对象优先。
 
-The optional `callback` parameter will be added as a one-time listener for
-the [`'response'`][] event.
+`callback` 参数会作为单次监听器被添加到 [`'response'`] 事件。
 
-`http.request()` returns an instance of the [`http.ClientRequest`][]
-class. The `ClientRequest` instance is a writable stream. If one needs to
-upload a file with a POST request, then write to the `ClientRequest` object.
+`http.request()` 返回一个 [`http.ClientRequest`] 类的实例。
+`ClientRequest` 实例是一个可写流。
+如果需要通过 POST 请求上传一个文件，则写入到 `ClientRequest` 对象。
+
+例子：
 
 ```js
 const postData = querystring.stringify({
-  'msg': 'Hello World!'
+  'msg' : 'Hello World!'
 });
 
 const options = {
@@ -84,51 +76,45 @@ const options = {
 };
 
 const req = http.request(options, (res) => {
-  console.log(`STATUS: ${res.statusCode}`);
-  console.log(`HEADERS: ${JSON.stringify(res.headers)}`);
+  console.log(`状态码: ${res.statusCode}`);
+  console.log(`响应头: ${JSON.stringify(res.headers)}`);
   res.setEncoding('utf8');
   res.on('data', (chunk) => {
-    console.log(`BODY: ${chunk}`);
+    console.log(`响应主体: ${chunk}`);
   });
   res.on('end', () => {
-    console.log('No more data in response.');
+    console.log('响应中已无数据。');
   });
 });
 
 req.on('error', (e) => {
-  console.error(`problem with request: ${e.message}`);
+  console.error(`请求遇到问题: ${e.message}`);
 });
 
-// write data to request body
+// 写入数据到请求主体
 req.write(postData);
 req.end();
 ```
 
-Note that in the example `req.end()` was called. With `http.request()` one
-must always call `req.end()` to signify the end of the request -
-even if there is no data being written to the request body.
+在例子中调用了 `req.end()`。
+使用 `http.request()` 必须总是调用 `req.end()` 来表明请求的结束，即使没有数据被写入请求主体。
 
-If any error is encountered during the request (be that with DNS resolution,
-TCP level errors, or actual HTTP parse errors) an `'error'` event is emitted
-on the returned request object. As with all `'error'` events, if no listeners
-are registered the error will be thrown.
+如果请求过程中遇到任何错误（DNS 解析错误、TCP 级的错误、或实际的 HTTP 解析错误），则在返回的请求对象中会触发 `'error'` 事件。
+对于所有的 `'error'` 事件，如果没有注册监听器，则抛出错误。
 
-There are a few special headers that should be noted.
+以下是需要注意的几个特殊的请求头。
 
-* Sending a 'Connection: keep-alive' will notify Node.js that the connection to
-  the server should be persisted until the next request.
+* 发送 `'Connection: keep-alive'` 会通知 Node.js，服务器的连接应一直持续到下一个请求。
 
-* Sending a 'Content-Length' header will disable the default chunked encoding.
+* 发送 `'Content-Length'` 请求头会禁用默认的块编码。
 
-* Sending an 'Expect' header will immediately send the request headers.
-  Usually, when sending 'Expect: 100-continue', both a timeout and a listener
-  for the `'continue'` event should be set. See RFC2616 Section 8.2.3 for more
-  information.
+* 发送 `'Expect'` 请求头会立即发送请求头。
+  通常情况下，当发送 `'Expect: 100-continue'` 时，超时时间与 `continue` 事件的监听器都需要被设置。
+  详见 RFC2616 章节 8.2.3。
 
-* Sending an Authorization header will override using the `auth` option
-  to compute basic authentication.
+* 发送 `Authorization` 请求头会替代 `auth` 选项计算基本身份验证。
 
-Example using a [`URL`][] as `options`:
+例子，使用 [`URL`] 作为 `options`：
 
 ```js
 const options = new URL('http://abc:xyz@example.com');
@@ -138,94 +124,39 @@ const req = http.request(options, (res) => {
 });
 ```
 
-In a successful request, the following events will be emitted in the following
-order:
+如果请求成功，则以下事件会被依次触发：
 
-* `'socket'`
-* `'response'`
-  * `'data'` any number of times, on the `res` object
-    (`'data'` will not be emitted at all if the response body is empty, for
-    instance, in most redirects)
-  * `'end'` on the `res` object
-* `'close'`
+* `'socket'` 事件。
+* `'response'` 事件。
+  * 多次触发 `res` 对象的 `'data'` 事件（如果响应主体为空，则不会触发 `'data'` 事件，比如重定向）。
+  * `res` 对象的 `'end'` 事件。
+* `'close'` 事件。
 
-In the case of a connection error, the following events will be emitted:
+如果连接出错，则以下事件会被依次触发：
 
-* `'socket'`
-* `'error'`
-* `'close'`
+* `'socket'` 事件。
+* `'error'` 事件。
+* `'close'` 事件。
 
-If `req.abort()` is called before the connection succeeds, the following events
-will be emitted in the following order:
+如果连接成功之前调用 `req.abort()`，则以下事件会被依次触发：
 
-* `'socket'`
-* (`req.abort()` called here)
-* `'abort'`
-* `'close'`
-* `'error'` with an error with message `'Error: socket hang up'` and code
-  `'ECONNRESET'`
+* `'socket'` 事件。
+* (此时调用 `req.abort()`)
+* `'abort'` 事件。
+* `'close'` 事件。
+* `'error'` 事件并带上错误信息 `'Error: socket hang up'` 和错误码 `'ECONNRESET'`。
 
-If `req.abort()` is called after the response is received, the following events
-will be emitted in the following order:
+如果响应接收到之后调用 `req.abort()`，则以下事件会被依次触发：
 
-* `'socket'`
-* `'response'`
-  * `'data'` any number of times, on the `res` object
-* (`req.abort()` called here)
-* `'abort'`
-* `'close'`
-  * `'aborted'` on the `res` object
-  * `'end'` on the `res` object
-  * `'close'` on the `res` object
-
-Note that setting the `timeout` option or using the `setTimeout()` function will
-not abort the request or do anything besides add a `'timeout'` event.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+* `'socket'` 事件。
+* `'response'` 事件。
+  * 多次触发 `res` 对象的 `'data'` 事件。
+* (此时调用 `req.abort()`)
+* `'abort'` 事件。
+* `'close'` 事件。
+  * `res` 对象的 `'aborted'` 事件。
+  * `res` 对象的 `'end'` 事件。
+  * `res` 对象的 `'close'` 事件。
 
 
 

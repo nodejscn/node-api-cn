@@ -41,7 +41,7 @@ const server = http.createServer((req, res) => {
 });
 ```
 
-注意，`Content-Length` 是以字节（而不是字符）为单位的。
+`Content-Length` 是以字节（而不是字符）为单位的。
 上面的例子行得通是因为字符串 `'hello world'` 只包含单字节字符。
 如果响应主体包含高级编码的字符，则应使用 `Buffer.byteLength()` 来确定在给定编码中的字节数。
 Node.js 不会检查 `Content-Length` 与已发送的响应主体的长度是否相同。

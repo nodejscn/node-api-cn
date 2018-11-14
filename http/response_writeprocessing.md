@@ -2,6 +2,5 @@
 added: v10.0.0
 -->
 
-Sends a HTTP/1.1 102 Processing message to the client, indicating that
-the request body should be sent.
+发送 `HTTP/1.1 102` 进度消息给客户端，表明可以发送请求体。
 

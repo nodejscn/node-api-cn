@@ -5,18 +5,18 @@ changes:
     pr-url: https://github.com/nodejs/node/pull/15752
     description: The `options` argument is supported now.
 -->
-* {Object}
-  * `IncomingMessage` {http.IncomingMessage} 指定要使用的 `IncomingMessage`
-    类，用于拓展原始的`IncomingMessage`类.
-    **缺省:** `IncomingMessage`.
-  * `ServerResponse` {http.ServerResponse} 指定要使用的 `ServerResponse`类，
- 用于拓展原始的`ServerResponse`类. **缺省:**
-    `ServerResponse`.
-- `requestListener` {Function}
-
+* `options` {Object}
+  * `IncomingMessage` {http.IncomingMessage} 指定要使用的 `IncomingMessage` 类。
+     用于拓展原始的 `IncomingMessage` 类。
+     默认为 `IncomingMessage`。
+  * `ServerResponse` {http.ServerResponse} 指定要使用的 `ServerResponse` 类。
+     用于拓展原始的 `ServerResponse` 类。
+     默认为 `ServerResponse`。
+* `requestListener` {Function}
 * 返回: {http.Server}
 
-返回一个新的 [`http.Server`]实例。
+返回一个新建的 [`http.Server`] 实例。
 
- `requestListener`是一个自动添加到[`'request'`][]事件的方法。
+`requestListener` 是一个函数，会被自动添加到 [`'request'`] 事件。
+
 

@@ -4,7 +4,7 @@ added: v0.1.90
 
 * {string}
 
-**仅在 [`http.Server`] 返回的请求中有效。**
+仅在 [`http.Server`] 返回的请求中有效。
 
 返回请求的 URL 字符串。
 仅包含实际 HTTP 请求中的 URL。

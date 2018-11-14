@@ -4,6 +4,5 @@ added: v10.1.0
 
 * {boolean}
 
-The `message.aborted` property will be `true` if the request has
-been aborted.
+如果请求已中止，则返回 `true`。
 

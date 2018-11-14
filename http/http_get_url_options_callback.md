@@ -11,22 +11,17 @@ changes:
 -->
 
 * `url` {string | URL}
-* `options` {Object} Accepts the same `options` as
-  [`http.request()`][], with the `method` always set to `GET`.
-  Properties that are inherited from the prototype are ignored.
+* `options` {Object} 同 [`http.request()`] 的 `options`，但 `method` 会被设为 `GET`。
 * `callback` {Function}
-* Returns: {http.ClientRequest}
+* 返回: {http.ClientRequest}
 
-Since most requests are GET requests without bodies, Node.js provides this
-convenience method. The only difference between this method and
-[`http.request()`][] is that it sets the method to GET and calls `req.end()`
-automatically. Note that the callback must take care to consume the response
-data for reasons stated in [`http.ClientRequest`][] section.
+因为大多数请求都是 GET 请求且不带请求主体，所以 Node.js 提供了该便捷方法。
+该方法与 [`http.request()`] 唯一的区别是它设置请求方法为 GET 且自动调用 `req.end()`。
+回调函数务必消耗掉响应数据，原因详见 [`http.ClientRequest`] 章节。
 
-The `callback` is invoked with a single argument that is an instance of
-[`http.IncomingMessage`][].
+`callback` 被调用时只传入一个参数，该参数是 [`http.IncomingMessage`] 的一个实例。
 
-JSON fetching example:
+例子，获取 JSON：
 
 ```js
 http.get('http://nodejs.org/dist/index.json', (res) => {
@@ -35,15 +30,15 @@ http.get('http://nodejs.org/dist/index.json', (res) => {
 
   let error;
   if (statusCode !== 200) {
-    error = new Error('Request Failed.\n' +
-                      `Status Code: ${statusCode}`);
+    error = new Error('请求失败。\n' +
+                      `状态码: ${statusCode}`);
   } else if (!/^application\/json/.test(contentType)) {
-    error = new Error('Invalid content-type.\n' +
-                      `Expected application/json but received ${contentType}`);
+    error = new Error('无效的 content-type.\n' +
+                      `期望 application/json 但获取的是 ${contentType}`);
   }
   if (error) {
     console.error(error.message);
-    // consume response data to free up memory
+    // 消耗响应数据以释放内存
     res.resume();
     return;
   }
@@ -60,7 +55,7 @@ http.get('http://nodejs.org/dist/index.json', (res) => {
     }
   });
 }).on('error', (e) => {
-  console.error(`Got error: ${e.message}`);
+  console.error(`报错: ${e.message}`);
 });
 ```
 
