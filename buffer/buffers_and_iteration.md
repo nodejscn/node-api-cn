@@ -1,10 +1,10 @@
 
-`Buffer` 实例可以通过 `for..of` 语法进行迭代:
+`Buffer` 可以使用 `for..of` 进行迭代：
 
 ```js
 const buf = Buffer.from([1, 2, 3]);
 
-// 打印:
+// 输出:
 //   1
 //   2
 //   3
@@ -13,6 +13,5 @@ for (const b of buf) {
 }
 ```
 
-此外, 可以通过 [`buf.values()`], [`buf.keys()`], 和
-[`buf.entries()`] 方法来创建iterators.
+还可以使用 [`buf.values()`]、[`buf.keys()`]、与 [`buf.entries()`] 创建迭代器。
 

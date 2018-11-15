@@ -2,6 +2,10 @@
 added: v3.0.0
 deprecated: v6.0.0
 changes:
+  - version: v10.0.0
+    pr-url: https://github.com/nodejs/node/pull/19524
+    description: Calling this constructor emits a deprecation warning when
+                 run from code outside the `node_modules` directory.
   - version: v7.2.1
     pr-url: https://github.com/nodejs/node/pull/9529
     description: Calling this constructor no longer emits a deprecation warning.
@@ -13,17 +17,23 @@ changes:
     description: The `byteOffset` and `length` parameters are supported now.
 -->
 
-> 稳定性: 0 - 废弃的: 使用 [`Buffer.from(arrayBuffer[, byteOffset [, length]])`][`Buffer.from(arrayBuffer)`] 代替。
+> Stability: 0 - Deprecated: Use
+> [`Buffer.from(arrayBuffer[, byteOffset[, length]])`][`Buffer.from(arrayBuf)`]
+> instead.
 
-* `arrayBuffer` {ArrayBuffer|SharedArrayBuffer} [`ArrayBuffer`] 或 [`SharedArrayBuffer`] 或 [`TypedArray`] 的 `.buffer` 属性。
-* `byteOffset` {integer} 开始拷贝的索引。 **默认：** `0`。
-* `length` {integer} 拷贝的字节数。**默认：** `arrayBuffer.length - byteOffset`。
+* `arrayBuffer` {ArrayBuffer|SharedArrayBuffer} An [`ArrayBuffer`],
+  [`SharedArrayBuffer`] or the `.buffer` property of a [`TypedArray`].
+* `byteOffset` {integer} Index of first byte to expose. **Default:** `0`.
+* `length` {integer} Number of bytes to expose.
+  **Default:** `arrayBuffer.length - byteOffset`.
 
-该方法将创建 [`ArrayBuffer`] 或 [`SharedArrayBuffer`] 的视图，而不会复制底层内存。例如，当传入一个 [`TypedArray`] 实例的 `.buffer` 属性的引用时，这个新建的 `Buffer` 会像 [`TypedArray`] 那样共享同一段分配的内存。
+This creates a view of the [`ArrayBuffer`] or [`SharedArrayBuffer`] without
+copying the underlying memory. For example, when passed a reference to the
+`.buffer` property of a [`TypedArray`] instance, the newly created `Buffer` will
+share the same allocated memory as the [`TypedArray`].
 
-可选的 `byteOffset` 和 `length` 参数指定将与 `Buffer` 共享的 `arrayBuffer` 的内存范围。
-
-例子:
+The optional `byteOffset` and `length` arguments specify a memory range within
+the `arrayBuffer` that will be shared by the `Buffer`.
 
 ```js
 const arr = new Uint16Array(2);
@@ -31,15 +41,16 @@ const arr = new Uint16Array(2);
 arr[0] = 5000;
 arr[1] = 4000;
 
-// 与 `arr` 共享内存
+// Shares memory with `arr`
 const buf = new Buffer(arr.buffer);
 
-// 输出: <Buffer 88 13 a0 0f>
 console.log(buf);
+// Prints: <Buffer 88 13 a0 0f>
 
-// 改变原始的 Uint16Array 也将改变 Buffer
+// Changing the original Uint16Array changes the Buffer also
 arr[1] = 6000;
 
-// 输出: <Buffer 88 13 70 17>
 console.log(buf);
+// Prints: <Buffer 88 13 70 17>
 ```
+

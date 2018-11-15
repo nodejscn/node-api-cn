@@ -1,9 +1,14 @@
 <!-- YAML
 deprecated: v6.0.0
 changes:
+  - version: v10.0.0
+    pr-url: https://github.com/nodejs/node/pull/19524
+    description: Calling this constructor emits a deprecation warning when
+                 run from code outside the `node_modules` directory.
   - version: v8.0.0
     pr-url: https://github.com/nodejs/node/pull/12141
-    description: new Buffer(size) will return zero-filled memory by default.
+    description: The `new Buffer(size)` will return zero-filled memory by
+                 default.
   - version: v7.2.1
     pr-url: https://github.com/nodejs/node/pull/9529
     description: Calling this constructor no longer emits a deprecation warning.
@@ -12,19 +17,25 @@ changes:
     description: Calling this constructor emits a deprecation warning now.
 -->
 
-> 稳定性: 0 - 废弃的: 使用 [`Buffer.alloc()`] 代替（或 [`Buffer.allocUnsafe()`]）。
+> Stability: 0 - Deprecated: Use [`Buffer.alloc()`] instead (also see
+> [`Buffer.allocUnsafe()`]).
 
-* `size` {integer} 新建的 `Buffer` 期望的长度
+* `size` {integer} The desired length of the new `Buffer`.
 
-分配一个大小为 `size` 字节的新建的 `Buffer`。如果 `size` 大于 [`buffer.constants.MAX_LENGTH`] 或小于 0，则抛出 [`RangeError`] 错误。如果 `size` 为 0，则创建一个长度为 0 的 `Buffer`。
+Allocates a new `Buffer` of `size` bytes. If `size` is larger than
+[`buffer.constants.MAX_LENGTH`] or smaller than 0, [`ERR_INVALID_OPT_VALUE`] is
+thrown. A zero-length `Buffer` is created if `size` is 0.
 
-在 Node.js 8.0.0 之前，以这种方式创建的 `Buffer` 实例的底层内存是 *未初始化* 的。新建的 `Buffer` 的内容是未知的并且 *可能包含敏感数据*。使用 [`Buffer.alloc(size)`][`Buffer.alloc()`] 代替它去初始化 `Buffer` 为 0。
-
-例子:
+Prior to Node.js 8.0.0, the underlying memory for `Buffer` instances
+created in this way is *not initialized*. The contents of a newly created
+`Buffer` are unknown and *may contain sensitive data*. Use
+[`Buffer.alloc(size)`][`Buffer.alloc()`] instead to initialize a `Buffer`
+with zeroes.
 
 ```js
 const buf = new Buffer(10);
 
-// 输出: <Buffer 00 00 00 00 00 00 00 00 00 00>
 console.log(buf);
+// Prints: <Buffer 00 00 00 00 00 00 00 00 00 00>
 ```
+
