@@ -4,13 +4,13 @@ added: v10.12.0
 
 * `type` {string} 错误类型。`'resolve'` 或 `'reject'` 之一。
 * `promise` {Promise} resolve 或 reject 超过一次的 promise。
-* `value` {any} promise resolve 或 rejecte 的值。
+* `value` {any} promise resolve 或 reject 的值。
 
 当 `Promise` 有以下情况时会触发 `'multipleResolves'` 事件：
 
 * resolve 超过一次。
-* rejecte 超过一次。
-* resolve 之后再 rejecte。
+* reject 超过一次。
+* resolve 之后再 reject。
 * reject 之后再 resolve。
 
 主要用于使用 promise 时追踪错误。
