@@ -11,5 +11,5 @@ changes:
 * `oldPath` {string|Buffer|URL}
 * `newPath` {string|Buffer|URL}
 
-同步的 rename(2)。返回 `undefined`。
+重命名文件。同步的 rename(2)。返回 `undefined`。
 

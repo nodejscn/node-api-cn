@@ -10,18 +10,18 @@ added: v0.11.15
   * `ext` {string}
 * 返回: {string}
 
-`path.format()` 方法会从一个对象返回一个路径字符串。
+将一个对象格式化为一个路径字符串。
 与 [`path.parse()`] 相反。
 
-当 `pathObject` 提供的属性有组合时，有些属性的优先级比其他的高：
+`pathObject` 的属性有不同的优先级：
 
-* 如果提供了 `pathObject.dir`，则 `pathObject.root` 会被忽略
-* 如果提供了 `pathObject.base` 存在，则 `pathObject.ext` 和 `pathObject.name` 会被忽略
+* 如果指定了 `pathObject.dir`，则忽略 `pathObject.root`。
+* 如果指定了 `pathObject.base`，则忽略 `pathObject.ext` 和 `pathObject.name`。
 
 例如，在 POSIX 上：
 
 ```js
-// 如果提供了 `dir`、`root` 和 `base`，则返回 `${dir}${path.sep}${base}`。
+// 如果指定了 `dir`、`root` 和 `base`，则返回 `${dir}${path.sep}${base}`。
 // `root` 会被忽略。
 path.format({
   root: '/ignored',
@@ -30,8 +30,8 @@ path.format({
 });
 // 返回: '/home/user/dir/file.txt'
 
-// 如果没有指定 `dir`，则 `root` 会被使用。
-// 如果只提供了 `root` 或 `dir` 等于 `root`，则平台的分隔符不会被包含。
+// 如果没有指定 `dir`，则使用 `root`。
+// 如果只指定了 `root` 或 `dir` 等于 `root`，则不会包含分隔符。
 // `ext` 会被忽略。
 path.format({
   root: '/',
@@ -40,7 +40,7 @@ path.format({
 });
 // 返回: '/file.txt'
 
-// 如果没有指定 `base`，则 `name` + `ext` 会被使用。
+// 如果没有指定 `base`，则使用 `name` + `ext`。
 path.format({
   root: '/',
   name: 'file',

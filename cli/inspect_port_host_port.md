@@ -7,3 +7,6 @@ Useful when activating the inspector by sending the `SIGUSR1` signal.
 
 Default host is `127.0.0.1`.
 
+See the [security warning](#inspector_security) below regarding the `host`
+parameter usage.
+

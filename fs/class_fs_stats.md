@@ -6,10 +6,10 @@ changes:
     description: Added times as numbers.
 -->
 
-`fs.Stats` 对象提供了一个文件的信息。
+`fs.Stats` 对象提供了文件的属性。
 
-从 [`fs.stat()`]、[`fs.lstat()`] 和 [`fs.fstat()`] 及其同步版本返回的对象都是该类型。
-如果传入这些函数的 `options` 中的 `bigint` 为 true，则数值会是 `bigint` 型而不是 `number` 型。
+从 [`fs.stat()`]、[`fs.lstat()`] 和 [`fs.fstat()`] 及其同步方法返回的对象都是该类型。
+如果传入这些方法的 `options` 中的 `bigint` 为 true，则返回的数值会是 `bigint` 型而不是 `number` 型。
 
 ```console
 Stats {
@@ -33,7 +33,7 @@ Stats {
   birthtime: Mon, 10 Oct 2011 23:24:11 GMT }
 ```
 
-`bigint` 版本：
+`bigint` 的版本：
 
 ```console
 Stats {

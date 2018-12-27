@@ -21,3 +21,8 @@ returned.
 
 The `FileHandle` has to support reading.
 
+If one or more `filehandle.read()` calls are made on a file handle and then a
+`filehandle.readFile()` call is made, the data will be read from the current
+position till the end of the file. It doesn't always read from the beginning
+of the file.
+

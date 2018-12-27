@@ -9,19 +9,18 @@ changes:
     description: Added strict mode to the assert module.
 -->
 
-当使用严格模式时，任何 `assert` 函数都会使用严格函数模式的等式。
-所以 [`assert.deepEqual()`] 会等同于 [`assert.deepStrictEqual()`]。
+当使用严格模式时，`assert` 方法会使用严格模式的等式。
+例如 [`assert.deepEqual()`] 会等同于 [`assert.deepStrictEqual()`]。
 
-除此以外，涉及对象的错误信息会产生一个错误差异比较，而不是展示双方的对象。
-遗留模式则不会这样。
+除此以外，错误的信息会生成差异对比，而不只是展示对象。
 
-可以通过以下方式使用：
+使用方法如下：
 
 ```js
 const assert = require('assert').strict;
 ```
 
-错误差异比较的例子：
+例子，错误的差异对比：
 
 ```js
 const assert = require('assert').strict;

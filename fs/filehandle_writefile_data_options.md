@@ -21,3 +21,8 @@ The `FileHandle` has to support writing.
 It is unsafe to use `filehandle.writeFile()` multiple times on the same file
 without waiting for the `Promise` to be resolved (or rejected).
 
+If one or more `filehandle.write()` calls are made on a file handle and then a
+`filehandle.writeFile()` call is made, the data will be written from the
+current position till the end of the file. It doesn't always write from the
+beginning of the file.
+

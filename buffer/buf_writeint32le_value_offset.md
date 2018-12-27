@@ -7,17 +7,12 @@ changes:
                  to `uint32` anymore.
 -->
 
-* `value` {integer} Number to be written to `buf`.
-* `offset` {integer} Number of bytes to skip before starting to write. Must
-  satisfy `0 <= offset <= buf.length - 4`.
-* Returns: {integer} `offset` plus the number of bytes written.
+* `value` {integer} 要写入 `buf` 的数值。
+* `offset` {integer} 开始写入的偏移量。必须满足：`0 <= offset <= buf.length - 4`。
+* 返回: {integer} `offset` 加上已写入的字节数。
 
-Writes `value` to `buf` at the specified `offset` with specified endian
-format (`writeInt32BE()` writes big endian, `writeInt32LE()` writes little
-endian). `value` *should* be a valid signed 32-bit integer. Behavior is
-undefined when `value` is anything other than a signed 32-bit integer.
-
-`value` is interpreted and written as a two's complement signed integer.
+用指定的字节序格式（`writeInt32BE()` 写入大端序，`writeInt32LE()` 写入小端序）将 `value` 写入到 `buf` 中指定的 `offset` 位置。
+`value` 必须是有符号的 32 位整数。
 
 ```js
 const buf = Buffer.allocUnsafe(8);
@@ -26,6 +21,6 @@ buf.writeInt32BE(0x01020304, 0);
 buf.writeInt32LE(0x05060708, 4);
 
 console.log(buf);
-// Prints: <Buffer 01 02 03 04 08 07 06 05>
+// 输出: <Buffer 01 02 03 04 08 07 06 05>
 ```
 

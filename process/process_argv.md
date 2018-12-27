@@ -2,26 +2,30 @@
 added: v0.1.27
 -->
 
-* {Array}
+* {string[]}
 
-`process.argv` 属性返回一个数组，这个数组包含了启动Node.js进程时的命令行参数。第一个元素为[`process.execPath`]。如果需要获取`argv[0]`的值请参见  `process.argv0`。第二个元素为当前执行的JavaScript文件路径。剩余的元素为其他命令行参数。
+返回进程启动时的命令行参数。
+第一个元素是 [`process.execPath`]。
+使用 `process.argv0` 可以获取 `argv[0]` 原始的值。
+第二个元素是当前执行的 JavaScript 文件的路径。
+剩余的元素都是额外的命令行参数。
 
-例如，`process-args.js`文件有以下代码:
+例子，假设 `process-args.js` 文件如下:
 
 ```js
-// print process.argv
+// 输出 process.argv。
 process.argv.forEach((val, index) => {
   console.log(`${index}: ${val}`);
 });
 ```
 
-运行以下命令，启动进程：
+运行以下命令启动进程：
 
 ```console
 $ node process-args.js one two=three four
 ```
 
-将输出：
+输出如下：
 
 ```text
 0: /usr/local/bin/node

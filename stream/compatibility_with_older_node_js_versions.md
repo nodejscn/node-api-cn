@@ -12,7 +12,7 @@ less powerful and less useful.
   guaranteed. This meant that it was still necessary to be prepared to receive
   [`'data'`][] events *even when the stream was in a paused state*.
 
-In Node.js 0.10, the [`Readable`][] class was added. For backwards
+In Node.js 0.10, the [`Readable`][] class was added. For backward
 compatibility with older Node.js programs, `Readable` streams switch into
 "flowing mode" when a [`'data'`][] event handler is added, or when the
 [`stream.resume()`][stream-resume] method is called. The effect is that, even
@@ -46,7 +46,7 @@ Prior to Node.js 0.10, the incoming message data would be simply discarded.
 However, in Node.js 0.10 and beyond, the socket remains paused forever.
 
 The workaround in this situation is to call the
-[`stream.resume()`][stream-resume] method to begin the flow of data:
+
 
 ```js
 // Workaround

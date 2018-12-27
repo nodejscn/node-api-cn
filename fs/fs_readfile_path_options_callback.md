@@ -3,32 +3,34 @@ added: v0.1.29
 changes:
   - version: v10.0.0
     pr-url: https://github.com/nodejs/node/pull/12562
-    description: 参数 `callback` 不再是可选的。不传入则运行时会抛出 `TypeError`。
+    description: The `callback` parameter is no longer optional. Not passing
+                 it will throw a `TypeError` at runtime.
   - version: v7.6.0
     pr-url: https://github.com/nodejs/node/pull/10739
-    description: 参数 `path` 可以是一个使用 `file:` 协议的 WHATWG `URL` 对象。该支持目前仍为试验性的。
+    description: The `path` parameter can be a WHATWG `URL` object using `file:`
+                 protocol. Support is currently still *experimental*.
   - version: v7.0.0
     pr-url: https://github.com/nodejs/node/pull/7897
-    description: 参数 `callback` 不再是可选的。不传入会触发 id 为 DEP0013 的不建议使用警告。
+    description: The `callback` parameter is no longer optional. Not passing
+                 it will emit a deprecation warning with id DEP0013.
   - version: v5.1.0
     pr-url: https://github.com/nodejs/node/pull/3740
-    description: 如果成功，则 `callback` 被调用时 `error` 参数总是为 `null`。
+    description: The `callback` will always be called with `null` as the `error`
+                 parameter in case of success.
   - version: v5.0.0
     pr-url: https://github.com/nodejs/node/pull/3163
-    description: 参数 `path` 现在可以是一个文件描述符。
+    description: The `path` parameter can be a file descriptor now.
 -->
 
 * `path` {string|Buffer|URL|integer} 文件名或文件描述符。
 * `options` {Object|string}
   * `encoding` {string|null} 默认为 `null`。
-  * `flag` {string} 详见[支持的文件系统标志][support of file system `flags`]。默认为 `'r'`。
+  * `flag` {string} 详见[支持的 flag][support of file system `flags`]。默认为 `'r'`。
 * `callback` {Function}
   * `err` {Error}
   * `data` {string|Buffer}
 
 异步地读取文件的内容。
-
-例子：
 
 ```js
 fs.readFile('/etc/passwd', (err, data) => {
@@ -37,18 +39,18 @@ fs.readFile('/etc/passwd', (err, data) => {
 });
 ```
 
-回调有两个参数 `(err, data)`，其中 `data` 是文件的内容。
+`callback` 有两个参数 `(err, data)`，其中 `data` 是文件的内容。
 
-如果未指定字符编码，则返回原始的 buffer。
+如果没有指定 `encoding`，则返回原始的 buffer。
 
-如果 `options` 是一个字符串，则它指定了字符编码：
+如果 `options` 是一个字符串，则指定字符编码：
 
 ```js
 fs.readFile('/etc/passwd', 'utf8', callback);
 ```
 
-当 `path` 是一个目录时，`fs.readFile()` 与 [`fs.readFileSync()`] 的行为与平台有关。
-在 macOS、Linux 与 Windows 上，会返回一个错误。
+如果 `path` 是一个目录，则 `fs.readFile()` 与 [`fs.readFileSync()`] 的行为因平台而异。
+在 macOS、Linux 与 Windows 上，会返回错误。
 在 FreeBSD 上，会返回目录内容的描述。
 
 ```js
@@ -63,10 +65,6 @@ fs.readFile('<目录>', (err, data) => {
 });
 ```
 
-任何指定的文件描述符必须支持读取。
-
-如果 `path` 是一个文件描述符，则它不会被自动关闭。
-
-`fs.readFile()` 函数会缓存整个文件。
+`fs.readFile()` 会缓存整个文件。
 为了最小化内存占用，尽可能优先使用 `fs.createReadStream()`。
 

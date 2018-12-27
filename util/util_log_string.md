@@ -3,7 +3,7 @@ added: v0.3.0
 deprecated: v6.0.0
 -->
 
-> 稳定性: 0 - 废弃的: 使用第三方模块代替。
+> Stability: 0 - Deprecated: Use a third party module instead.
 
 * `string` {string}
 

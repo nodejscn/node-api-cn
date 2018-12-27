@@ -17,6 +17,7 @@ changes:
 * `generator` {number | string | Buffer | TypedArray | DataView} **Default:**
   `2`
 * `generatorEncoding` {string}
+* Returns: {DiffieHellman}
 
 Creates a `DiffieHellman` key exchange object using the supplied `prime` and an
 optional specific `generator`.

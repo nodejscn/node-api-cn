@@ -5,9 +5,9 @@ added: v0.11.2
 * `path` {string}
 * 返回: {boolean}
 
-`path.isAbsolute()` 方法会判定 `path` 是否为一个绝对路径。
+判断 `path` 是否绝对路径。
 
-如果给定的 `path` 是一个长度为零的字符串，则返回 `false`。
+如果指定的 `path` 是一个空字符串，则返回 `false`。
 
 例如，在 POSIX 上：
 
@@ -29,6 +29,4 @@ path.isAbsolute('bar\\baz');    // false
 path.isAbsolute('bar/baz');     // false
 path.isAbsolute('.');           // false
 ```
-
-如果 `path` 不是一个字符串，则抛出 [`TypeError`]。
 

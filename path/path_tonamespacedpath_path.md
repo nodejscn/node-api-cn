@@ -3,12 +3,7 @@ added: v9.0.0
 -->
 
 * `path` {string}
-* Returns: {string}
+* 返回: {string}
 
-On Windows systems only, returns an equivalent [namespace-prefixed path][] for
-the given `path`. If `path` is not a string, `path` will be returned without
-modifications.
-
-This method is meaningful only on Windows system. On posix systems, the
-method is non-operational and always returns `path` without modifications.
+返回 `path` 的[带命名空间前缀的路径][namespace-prefixed path]，仅支持 Window 系统。
 

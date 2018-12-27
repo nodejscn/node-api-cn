@@ -1,10 +1,10 @@
 <!-- YAML
-added: 6.4.0
+added: v6.4.0
 -->
 
 * {string}
 
-`process.argv0`属性，保存Node.js启动时传入的`argv[0]`参数值的一份只读副本。
+返回进程启动时传入的 `argv[0]` 的原始值。
 
 
 ```console
@@ -14,3 +14,4 @@ $ bash -c 'exec -a customArgv0 ./node'
 > process.argv0
 'customArgv0'
 ```
+

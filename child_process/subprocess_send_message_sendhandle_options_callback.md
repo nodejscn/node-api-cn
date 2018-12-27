@@ -16,13 +16,14 @@ changes:
 * `message` {Object}
 * `sendHandle` {Handle}
 * `options` {Object}
+  * `keepOpen` {boolean} 当设为 `true` 时，发送进程的 socket 会保持打开。默认为 false`。
 * `callback` {Function}
 * 返回: {boolean}
 
 当父进程和子进程之间建立了一个 IPC 通道时（例如，使用 [`child_process.fork()`]），`subprocess.send()` 方法可用于发送消息到子进程。
-当子进程是一个 Node.js 实例时，消息可以通过 [`process.on('message')`] 事件接收。
+当子进程是一个 Node.js 实例时，消息可以通过 [`'message'`] 事件接收。
 
-*注意*: 消息通过序列化和解析进行传递，结果就是消息可能跟开始发送的不完全一样。
+消息通过序列化和解析进行传递，接收到消息可能跟发送的不完全一样。
 
 例子，父进程脚本如下：
 
@@ -31,40 +32,34 @@ const cp = require('child_process');
 const n = cp.fork(`${__dirname}/sub.js`);
 
 n.on('message', (m) => {
-  console.log('父进程收到消息：', m);
+  console.log('父进程收到消息', m);
 });
 
-// Causes the child to print: CHILD got message: { hello: 'world' }
+// 使子进程输出: 子进程收到消息 { hello: 'world' }
 n.send({ hello: 'world' });
 ```
 
-然后是子进程脚本，`'sub.js'` 可能看上去像这样：
+子进程脚本 `'sub.js'` 如下：
 
 ```js
 process.on('message', (m) => {
-  console.log('子进程收到消息：', m);
+  console.log('子进程收到消息', m);
 });
 
-// Causes the parent to print: PARENT got message: { foo: 'bar', baz: null }
+// 使父进程输出: 父进程收到消息 { foo: 'bar', baz: null }
 process.send({ foo: 'bar', baz: NaN });
 ```
 
 Node.js 中的子进程有一个自己的 [`process.send()`] 方法，允许子进程发送消息回父进程。
 
 当发送一个 `{cmd: 'NODE_foo'}` 消息时，是一个特例。
-`cmd` 属性中包含 `NODE_` 前缀的消息是预留给 Node.js 核心代码内部使用的，不会触发子进程的 [`process.on('message')`] 事件。
+`cmd` 属性中包含 `NODE_` 前缀的消息是预留给 Node.js 核心代码内部使用的，不会触发子进程的 [`'message'`] 事件。
 而是，这种消息可使用 `process.on('internalMessage')` 事件触发，且被 Node.js 内部消费。
 应用程序应避免使用这种消息或监听 `'internalMessage'` 事件。
 
 可选的 `sendHandle` 参数可能被传给 `subprocess.send()`，它用于传入一个 TCP 服务器或 socket 对象给子进程。
-子进程会接收对象作为第二个参数，并传给注册在 [`process.on('message')`] 事件上的回调函数。
+子进程会接收对象作为第二个参数，并传给注册在 [`'message'`] 事件上的回调函数。
 socket 上接收或缓冲的任何数据不会被发送给子进程。
-
-`options` 参数，如果存在的话，是一个用于处理发送数据参数对象。`options` 支持以下属性：
-
-  * `keepOpen` - 一个 Boolean 值，当传入 `net.Socket` 实例时可用。
-    当为 `true` 时，socket 在发送进程中保持打开。
-    默认为 `false`。
 
 可选的 `callback` 是一个函数，它在消息发送之后、子进程收到消息之前被调用。
 该函数被调用时只有一个参数：成功时是 `null`，失败时是一个 [`Error`] 对象。

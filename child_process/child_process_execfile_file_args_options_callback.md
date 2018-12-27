@@ -7,32 +7,33 @@ changes:
 -->
 
 * `file` {string} 要运行的可执行文件的名称或路径。
-* `args` {string[]} 字符串参数列表。
+* `args` {string[]} 参数列表。
 * `options` {Object}
   * `cwd` {string} 子进程的当前工作目录。
   * `env` {Object} 环境变量键值对。
-  * `encoding` {string} 默认为 `'utf8'`。
+  * `encoding` {string} 字符编码。默认为 `'utf8'`。
   * `timeout` {number} 默认为 `0`。
-  * [`maxBuffer`] {number} stdout 或 stderr 允许的最大字节数。
-    默认为 `200*1024`。
-    如果超过限制，则子进程会被终止。
-    See caveat at [`maxBuffer` and Unicode][].
+  * `maxBuffer` {number} stdout 或 stderr 允许的最大字节数。如果超过限制，则子进程会终止。参见 [`maxBuffer`与Unicode][`maxBuffer` and Unicode]。默认为 `200*1024`。
   * `killSignal` {string|integer} 默认为 `'SIGTERM'`。
-  * `uid` {number} 设置该进程的用户标识。（详见 setuid(2)）
-  * `gid` {number} 设置该进程的组标识。（详见 setgid(2)）
-  * `windowsHide` {boolean} 是否隐藏在Windows系统下默认会弹出的子进程控制台窗口。 **默认为:** `false`。
-  * `windowsVerbatimArguments` {boolean} 决定在Windows系统下是否使用转义参数。 在Linux平台下会自动忽略，当指令 `shell` 存在的时该属性将自动被设置为true。**默认为:** `false`。
-* `callback` {Function} 当进程终止时调用，并带上输出。
+  * `uid` {number} 进程的用户标识，参见 setuid(2)。
+  * `gid` {number} 进程的群组标识，参见 setgid(2)。
+  * `windowsHide` {boolean} 是否隐藏子进程的控制台窗口。默认为 `false`。
+  * `windowsVerbatimArguments` {boolean} 在 Windows 上是否为参数加引号或转义。默认为 `false`。
+  * `shell` {boolean|string} 如果设为 `true`，则在 shell 中运行 `command`。
+     在 UNIX 上使用 `'/bin/sh'`，在 Windows 上使用 `process.env.ComSpec`。
+     传入字符串则指定其他 `shell`。
+     参见 [Shell的要求][Shell Requirements]与 [Windows默认的Shell][Default Windows Shell]。
+     默认为 `false`（没有 shell）。
+* `callback` {Function} 当进程终止时调用。
   * `error` {Error}
   * `stdout` {string|Buffer}
   * `stderr` {string|Buffer}
 * 返回: {ChildProcess}
 
-`child_process.execFile()` 函数类似 [`child_process.exec()`]，除了不衍生一个 shell。
-而是，指定的可执行的 `file` 被直接衍生为一个新进程，这使得它比 [`child_process.exec()`] 更高效。
+与 [`child_process.exec()`] 类似，除了默认不衍生 shell。
+可执行的 `file` 会被直接衍生为一个新进程，这使得它比 `child_process.exec()` 更高效。
 
-它支持和 [`child_process.exec()`] 一样的选项。
-由于没有衍生 shell，因此不支持像 I/O 重定向和文件查找这样的行为。
+因为没有衍生 shell，所以不支持 I/O 重定向或文件查找等功能。
 
 ```js
 const { execFile } = require('child_process');
@@ -44,14 +45,12 @@ const child = execFile('node', ['--version'], (error, stdout, stderr) => {
 });
 ```
 
-传给回调的 `stdout` 和 `stderr` 参数会包含子进程的 stdout 和 stderr 的输出。
-默认情况下，Node.js 会解码输出为 UTF-8，并将字符串传给回调。
-`encoding` 选项可用于指定用于解码 stdout 和 stderr 输出的字符编码。
-如果 `encoding` 是 `'buffer'`、或一个无法识别的字符编码，则传入 `Buffer` 对象到回调函数。
+传给 `callback` 的 `stdout` 和 `stderr` 包含子进程的输出。
+默认情况下，Node.js 会将输出解码成 UTF-8 字符串。
+`encoding` 用于指定解码 `stdout` 和 `stderr` 的字符编码。
+如果 `encoding` 是 `'buffer'` 或无效的字符编码，则传入 `callback` 的会是 `Buffer`。
 
-如果调用该方法的 [`util.promisify()`][] 版本， 它会返回一个拥有 `stdout` 和
-`stderr` 属性的 Promise 对象. 在发生错误的情况下, 返回一个 rejected 状态的 promise, 拥有与回调
-函数一样的 `error` 对象, 但是附加了 `stdout` 和 `stderr` 这两个属性.
+如果使用 [`util.promisify()`] 版本的方法，则 `Promise` 返回一个包含 `stdout` 和 `stderr` 的对象。
 
 ```js
 const util = require('util');
@@ -62,3 +61,4 @@ async function getVersion() {
 }
 getVersion();
 ```
+

@@ -1,9 +1,15 @@
 
-Although Microsoft specifies `%COMSPEC%` must contain the path to
-`'cmd.exe'` in the root environment, child processes are not always subject to
-the same requirement. Thus, in `child_process` functions where a shell can be
-spawned, `'cmd.exe'` is used as a fallback if `process.env.ComSpec` is
-unavailable.
+
+
+
+
+
+
+
+
+
+尽管微软指定在根环境中 `%COMSPEC%` 必须包含 `'cmd.exe'` 的路径，但子进程并不一定遵循要求。
+因此在衍生 shell 的 `child_process` 函数中，如果没有 `process.env.ComSpec`，则使用 `'cmd.exe'`。
 
 
 

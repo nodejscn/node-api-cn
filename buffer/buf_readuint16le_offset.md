@@ -7,26 +7,23 @@ changes:
                  to `uint32` anymore.
 -->
 
-* `offset` {integer} Number of bytes to skip before starting to read. Must
-  satisfy `0 <= offset <= buf.length - 2`.
-* Returns: {integer}
+* `offset` {integer} 开始读取的偏移量。必须满足：`0 <= offset <= buf.length - 2`。
+* 返回: {integer}
 
-Reads an unsigned 16-bit integer from `buf` at the specified `offset` with
-specified endian format (`readUInt16BE()` returns big endian, `readUInt16LE()`
-returns little endian).
+用指定的字节序格式（`readUInt16BE()` 返回大端序，`readUInt16LE()` 返回小端序）从 `buf` 中指定的 `offset` 读取一个无符号的 16 位整数值。
 
 ```js
 const buf = Buffer.from([0x12, 0x34, 0x56]);
 
 console.log(buf.readUInt16BE(0).toString(16));
-// Prints: 1234
+// 输出: 1234
 console.log(buf.readUInt16LE(0).toString(16));
-// Prints: 3412
+// 输出: 3412
 console.log(buf.readUInt16BE(1).toString(16));
-// Prints: 3456
+// 输出: 3456
 console.log(buf.readUInt16LE(1).toString(16));
-// Prints: 5634
+// 输出: 5634
 console.log(buf.readUInt16LE(2).toString(16));
-// Throws ERR_OUT_OF_RANGE
+// 抛出异常 ERR_OUT_OF_RANGE。
 ```
 

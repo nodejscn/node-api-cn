@@ -20,5 +20,5 @@ changes:
 返回 `undefined`。
 [`fs.mkdir()`] 的同步版本。
 
-详见 mkdir(2)。
+参见 mkdir(2)。
 

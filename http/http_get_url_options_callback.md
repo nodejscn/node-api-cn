@@ -15,30 +15,29 @@ changes:
 * `callback` {Function}
 * 返回: {http.ClientRequest}
 
-因为大多数请求都是 GET 请求且不带请求主体，所以 Node.js 提供了该便捷方法。
-该方法与 [`http.request()`] 唯一的区别是它设置请求方法为 GET 且自动调用 `req.end()`。
-回调函数务必消耗掉响应数据，原因详见 [`http.ClientRequest`] 章节。
+因为大多数请求都是 GET 请求且不带请求主体，所以 Node.js 提供了便捷的方法。
+与 [`http.request()`] 的区别是，请求的方法是 GET 且自动调用 `req.end()`。
 
-`callback` 被调用时只传入一个参数，该参数是 [`http.IncomingMessage`] 的一个实例。
+`callback` 只有一个参数 `res`，`res` 是一个 [`http.IncomingMessage`] 实例。
 
 例子，获取 JSON：
 
 ```js
-http.get('http://nodejs.org/dist/index.json', (res) => {
+http.get('http://nodejs.cn/index.json', (res) => {
   const { statusCode } = res;
   const contentType = res.headers['content-type'];
 
   let error;
   if (statusCode !== 200) {
-    error = new Error('请求失败。\n' +
+    error = new Error('请求失败\n' +
                       `状态码: ${statusCode}`);
   } else if (!/^application\/json/.test(contentType)) {
-    error = new Error('无效的 content-type.\n' +
-                      `期望 application/json 但获取的是 ${contentType}`);
+    error = new Error('非法的 content-type.\n' +
+                      `期望的是 application/json 但接收到的是 ${contentType}`);
   }
   if (error) {
     console.error(error.message);
-    // 消耗响应数据以释放内存
+    // 消费响应的数据以释放内存。
     res.resume();
     return;
   }

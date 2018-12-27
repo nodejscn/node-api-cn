@@ -22,7 +22,7 @@ changes:
   * `err` {Error}
 
 异步地改变文件的所有者和群组。
-完成回调只有一个可能的异常参数。
+`callback` 只有一个参数 `err`。
 
 详见 chown(2)。
 

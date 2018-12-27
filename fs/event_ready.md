@@ -2,7 +2,7 @@
 added: v9.11.0
 -->
 
-当 `fs.ReadStream` 已准备好被使用时触发。
+当 `fs.ReadStream` 已准备好可以使用时触发。
 
-`'open'` 事件之后立即触发。
+在 `'open'` 事件之后立即触发。
 

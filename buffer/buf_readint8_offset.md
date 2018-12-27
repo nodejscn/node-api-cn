@@ -7,22 +7,21 @@ changes:
                  to `uint32` anymore.
 -->
 
-* `offset` {integer} Number of bytes to skip before starting to read. Must
-  satisfy `0 <= offset <= buf.length - 1`.
-* Returns: {integer}
+* `offset` {integer} 开始读取的偏移量。必须满足：`0 <= offset <= buf.length - 1`。
+* 返回: {integer}
 
-Reads a signed 8-bit integer from `buf` at the specified `offset`.
+从 `buf` 中指定的 `offset` 读取一个有符号的 8 位整数值。
 
-Integers read from a `Buffer` are interpreted as two's complement signed values.
+从 `Buffer` 中读取的整数值会被解析为二进制补码值。
 
 ```js
 const buf = Buffer.from([-1, 5]);
 
 console.log(buf.readInt8(0));
-// Prints: -1
+// 输出: -1
 console.log(buf.readInt8(1));
-// Prints: 5
+// 输出: 5
 console.log(buf.readInt8(2));
-// Throws ERR_OUT_OF_RANGE
+// 抛出异常 ERR_OUT_OF_RANGE。
 ```
 

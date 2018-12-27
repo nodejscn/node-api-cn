@@ -16,7 +16,7 @@ changes:
   * `previous` {fs.Stats}
 
 监视 `filename` 的变化。
-回调 `listener` 会在每次文件被访问时调用。
+每当文件被访问时会调用 `listener`。
 
 `options` 对象可以有一个布尔值的 `persistent` 属性，表明当文件正在被监视时，进程是否继续运行。
 `options` 对象可以指定一个 `interval` 属性，指定目标每隔多少毫秒被轮询。

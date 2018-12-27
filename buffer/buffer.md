@@ -13,8 +13,6 @@
 
 `Buffer` 类是一个全局变量，使用时无需 `require('buffer').Buffer`。
 
-例子：
-
 ```js
 // 创建一个长度为 10、且用 0 填充的 Buffer。
 const buf1 = Buffer.alloc(10);

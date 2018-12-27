@@ -9,7 +9,7 @@ changes:
 * `expected` {any}
 * `message` {string|Error}
 
-使用 [SameValue比较法][SameValue Comparison]测试 `actual` 参数与 `expected` 参数是否全等。
+使用 [SameValue比较法][SameValue Comparison]测试 `actual` 与 `expected` 是否全等。
 
 ```js
 const assert = require('assert').strict;
@@ -30,7 +30,5 @@ assert.strictEqual(1, '1');
 // + '1'
 ```
 
-如果两个值不全等，则抛出一个带有 `message` 属性的 `AssertionError`，其中 `message` 属性的值等于传入的 `message` 参数的值。
-如果 `message` 参数为 `undefined`，则赋予默认的错误信息。
-如果 `message` 参数是 [`Error`] 的实例，则会抛出它而不是 `AssertionError`。
+如果两个值不全等，则抛出 `AssertionError`。
 

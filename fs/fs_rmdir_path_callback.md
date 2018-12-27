@@ -19,8 +19,8 @@ changes:
 * `callback` {Function}
   * `err` {Error}
 
-异步的 rmdir(2)。
-完成回调只有一个可能的异常参数。
+移除目录。异步的 rmdir(2)。
+`callback` 只有一个参数 `err`。
 
-如果在文件上（而不是目录上）使用`fs.rmdir()`，则 Windows 平台会导致 `ENOENT` 错误，POSIX 平台会导致 `ENOTDIR` 错误。
+如果对文件（而不是对目录）使用 `fs.rmdir()`，则在 Windows 上会抛出 `ENOENT`，在 POSIX 上会抛出 `ENOTDIR`。
 

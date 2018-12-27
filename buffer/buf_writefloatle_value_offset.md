@@ -7,15 +7,13 @@ changes:
                  to `uint32` anymore.
 -->
 
-* `value` {number} Number to be written to `buf`.
-* `offset` {integer} Number of bytes to skip before starting to write. Must
-  satisfy `0 <= offset <= buf.length - 4`.
-* Returns: {integer} `offset` plus the number of bytes written.
 
-Writes `value` to `buf` at the specified `offset` with specified endian
-format (`writeFloatBE()` writes big endian, `writeFloatLE()` writes little
-endian). `value` *should* be a valid 32-bit float. Behavior is undefined when
-`value` is anything other than a 32-bit float.
+* `value` {number} 要写入 `buf` 的数值。
+* `offset` {integer} 开始写入的偏移量。必须满足：`0 <= offset <= buf.length - 4`。
+* 返回: {integer} `offset` 加上已写入的字节数。
+
+用指定的字节序格式（`writeFloatBE()` 写入大端序，`writeFloatLE()` 写入小端序）将 `value` 写入到 `buf` 中指定的 `offset` 位置。
+`value` 必须是 32 位浮点值。
 
 ```js
 const buf = Buffer.allocUnsafe(4);
@@ -23,11 +21,11 @@ const buf = Buffer.allocUnsafe(4);
 buf.writeFloatBE(0xcafebabe, 0);
 
 console.log(buf);
-// Prints: <Buffer 4f 4a fe bb>
+// 输出: <Buffer 4f 4a fe bb>
 
 buf.writeFloatLE(0xcafebabe, 0);
 
 console.log(buf);
-// Prints: <Buffer bb fe 4a 4f>
+// 输出: <Buffer bb fe 4a 4f>
 ```
 

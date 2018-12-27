@@ -3,10 +3,10 @@ added: v1.4.1
 changes:
   - version: v7.0.0
     pr-url: https://github.com/nodejs/node/pull/8217
-    description: Not handling Promise rejections has been deprecated.
+    description: Not handling `Promise` rejections is deprecated.
   - version: v6.6.0
     pr-url: https://github.com/nodejs/node/pull/8223
-    description: Unhandled Promise rejections have been will now emit
+    description: Unhandled `Promise` rejections will now emit
                  a process warning.
 -->
 
@@ -17,8 +17,6 @@ changes:
 
 * `reason` {Error|any} 此对象包含了 promise 被 rejected 的相关信息（通常是一个 [`Error`] 对象）。
 * `p` 被 rejected 的 promise 对象。
-
-例如:
 
 ```js
 process.on('unhandledRejection', (reason, p) => {

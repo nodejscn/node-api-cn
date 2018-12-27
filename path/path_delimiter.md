@@ -4,10 +4,10 @@ added: v0.9.3
 
 * {string}
 
-提供平台特定的路径分隔符：
+返回平台特定的路径分隔符：
 
-* Windows 上是 `;`
-* POSIX 上是 `:`
+* Windows 上是 `;`。
+* POSIX 上是 `:`。
 
 例如，在 POSIX 上：
 

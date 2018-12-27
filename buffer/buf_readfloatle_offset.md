@@ -7,22 +7,19 @@ changes:
                  to `uint32` anymore.
 -->
 
-* `offset` {integer} Number of bytes to skip before starting to read. Must
-  satisfy `0 <= offset <= buf.length - 4`.
-* Returns: {number}
+* `offset` {integer} 开始读取的偏移量。必须满足：`0 <= offset <= buf.length - 4`。
+* 返回: {number}
 
-Reads a 32-bit float from `buf` at the specified `offset` with specified
-endian format (`readFloatBE()` returns big endian, `readFloatLE()` returns
-little endian).
+用指定的字节序格式（`readFloatBE()` 返回大端序，`readFloatLE()` 返回小端序）从 `buf` 中指定的 `offset` 读取一个 32 位浮点值。
 
 ```js
 const buf = Buffer.from([1, 2, 3, 4]);
 
 console.log(buf.readFloatBE(0));
-// Prints: 2.387939260590663e-38
+// 输出: 2.387939260590663e-38
 console.log(buf.readFloatLE(0));
-// Prints: 1.539989614439558e-36
+// 输出: 1.539989614439558e-36
 console.log(buf.readFloatLE(1));
-// Throws ERR_OUT_OF_RANGE
+// 抛出异常 ERR_OUT_OF_RANGE。
 ```
 

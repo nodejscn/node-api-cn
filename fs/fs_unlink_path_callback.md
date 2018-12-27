@@ -19,8 +19,8 @@ changes:
 * `callback` {Function}
   * `err` {Error}
 
-异步地移除一个文件或符号链接。
-完成回调只有一个可能的异常参数。
+异步地移除文件或符号链接。
+`callback` 只有一个参数 `err`。
 
 ```js
 // 假设 'path/file.txt' 是一个普通文件。
@@ -30,8 +30,8 @@ fs.unlink('path/file.txt', (err) => {
 });
 ```
 
-`fs.unlink()` 对目录无效。
+`fs.unlink()` 不能移除目录。
 要移除目录可使用 [`fs.rmdir()`]。
 
-参考 unlink(2)。
+参见 unlink(2)。
 

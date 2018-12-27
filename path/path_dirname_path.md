@@ -9,15 +9,11 @@ changes:
 * `path` {string}
 * 返回: {string}
 
-`path.dirname()` 方法返回一个 `path` 的目录名，类似于 Unix 中的 `dirname` 命令。
-Trailing directory separators are ignored, see [`path.sep`][].
-
-例子：
+返回 `path` 的目录名，类似于 Unix 中的 `dirname` 命令。
 
 ```js
 path.dirname('/foo/bar/baz/asdf/quux');
 // 返回: '/foo/bar/baz/asdf'
 ```
 
-如果 `path` 不是一个字符串，则抛出 [`TypeError`]。
-
+如果 `path` 不是字符串，则抛出 [`TypeError`]。

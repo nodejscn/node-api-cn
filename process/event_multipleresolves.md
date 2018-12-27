@@ -2,26 +2,18 @@
 added: v10.12.0
 -->
 
-* `type` {string} The error type. One of `'resolve'` or `'reject'`.
-* `promise` {Promise} The promise that resolved or rejected more than once.
-* `value` {any} The value with which the promise was either resolved or
-  rejected after the original resolve.
+* `type` {string} 错误类型。`'resolve'` 或 `'reject'` 之一。
+* `promise` {Promise} resolve 或 reject 超过一次的 promise。
+* `value` {any} promise resolve 或 rejecte 的值。
 
-The `'multipleResolves'` event is emitted whenever a `Promise` has been either:
+当 `Promise` 有以下情况时会触发 `'multipleResolves'` 事件：
 
-* Resolved more than once.
-* Rejected more than once.
-* Rejected after resolve.
-* Resolved after reject.
+* resolve 超过一次。
+* rejecte 超过一次。
+* resolve 之后再 rejecte。
+* reject 之后再 resolve。
 
-This is useful for tracking errors in your application while using the promise
-constructor. Otherwise such mistakes are silently swallowed due to being in a
-dead zone.
-
-It is recommended to end the process on such errors, since the process could be
-in an undefined state. While using the promise constructor make sure that it is
-guaranteed to trigger the `resolve()` or `reject()` functions exactly once per
-call and never call both functions in the same call.
+主要用于使用 promise 时追踪错误。
 
 ```js
 process.on('multipleResolves', (type, promise, reason) => {
@@ -32,21 +24,21 @@ process.on('multipleResolves', (type, promise, reason) => {
 async function main() {
   try {
     return await new Promise((resolve, reject) => {
-      resolve('First call');
-      resolve('Swallowed resolve');
-      reject(new Error('Swallowed reject'));
+      resolve('第一次调用');
+      resolve('调用 resolve');
+      reject(new Error('调用 reject'));
     });
   } catch {
-    throw new Error('Failed');
+    throw new Error('出错');
   }
 }
 
 main().then(console.log);
-// resolve: Promise { 'First call' } 'Swallowed resolve'
-// reject: Promise { 'First call' } Error: Swallowed reject
+// resolve: Promise { '第一次调用' } '调用 resolve'
+// reject: Promise { '第一次调用' } Error: 调用 reject
 //     at Promise (*)
 //     at new Promise (<anonymous>)
 //     at main (*)
-// First call
+// 第一次调用
 ```
 

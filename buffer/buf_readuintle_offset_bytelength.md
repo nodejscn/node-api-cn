@@ -7,24 +7,21 @@ changes:
                  and `byteLength` to `uint32` anymore.
 -->
 
-* `offset` {integer} Number of bytes to skip before starting to read. Must
-  satisfy `0 <= offset <= buf.length - byteLength`.
-* `byteLength` {integer} Number of bytes to read. Must satisfy
-  `0 < byteLength <= 6`.
-* Returns: {integer}
+* `offset` {integer} 开始读取的偏移量。必须满足：`0 <= offset <= buf.length - byteLength`。
+* `byteLength` {integer} 要读取的字节数。必须满足：`0 < byteLength <= 6`。
+* 返回: {integer}
 
-Reads `byteLength` number of bytes from `buf` at the specified `offset`
-and interprets the result as an unsigned integer. Supports up to 48
-bits of accuracy.
+从 `buf` 中指定的 `offset` 读取 `byteLength` 个字节，并将读取的值解析为无符号的整数。
+最高支持 48 位精度。
 
 ```js
 const buf = Buffer.from([0x12, 0x34, 0x56, 0x78, 0x90, 0xab]);
 
 console.log(buf.readUIntBE(0, 6).toString(16));
-// Prints: 1234567890ab
+// 输出: 1234567890ab
 console.log(buf.readUIntLE(0, 6).toString(16));
-// Prints: ab9078563412
+// 输出: ab9078563412
 console.log(buf.readUIntBE(1, 6).toString(16));
-// Throws ERR_OUT_OF_RANGE
+//抛出异常 ERR_OUT_OF_RANGE。
 ```
 

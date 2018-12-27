@@ -22,14 +22,11 @@ changes:
 * `options` {Object|string}
   * `encoding` {string|null} 默认为 `'utf8'`。
   * `mode` {integer} 默认为 `0o666`。
-  * `flag` {string} 详见[支持的文件系统标志][support of file system `flags`]。默认为 `'a'`。
+  * `flag` {string} 详见[支持的 flag][support of file system `flags`]。默认为 `'a'`。
 * `callback` {Function}
   * `err` {Error}
 
-异步地追加数据到文件，如果文件不存在则创建文件。
-`data` 可以是字符串或 [`Buffer`]。
-
-例子：
+异步地将数据追加到文件，如果文件不存在则创建文件。
 
 ```js
 fs.appendFile('文件.txt', '追加的数据', (err) => {
@@ -38,14 +35,14 @@ fs.appendFile('文件.txt', '追加的数据', (err) => {
 });
 ```
 
-如果 `options` 为字符串，则它指定了字符编码。例如：
+如果 `options` 是一个字符串，则指定字符编码：
 
 ```js
 fs.appendFile('文件.txt', '追加的数据', 'utf8', callback);
 ```
 
-`path` 也可以是使用 `fs.open()` 或者 `fs.openSync()` 打开的文件描述符。
-文件描述符不会被自动关闭。
+`path` 可以是使用 `fs.open()` 或者 `fs.openSync()` 打开的文件描述符。
+文件描述符不会自动关闭。
 
 ```js
 fs.open('文件.txt', 'a', (err, fd) => {

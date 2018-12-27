@@ -12,5 +12,5 @@ changes:
 * `encoding` {string}
 * 返回: {number} 写入的字节数。
 
-详见异步版本的接口：[`fs.write(fd, string...)`]。
+详见异步的方法 [`fs.write(fd, string...)`]。
 

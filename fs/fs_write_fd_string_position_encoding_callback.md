@@ -23,20 +23,20 @@ changes:
   * `written` {integer}
   * `string` {string}
 
-写入 `string` 到 `fd` 指定的文件。
-如果 `string` 不是一个字符串，则该值将被强制转换为字符串。
+将 `string` 写入到 `fd` 指定的文件。
+如果 `string` 不是一个字符串，则会强制转换成字符串。
 
-`position` 指向从文件开始写入数据的位置的偏移量。
-如果 `typeof position !== 'number'`，则数据从当前位置写入。参考 pwrite(2)。
+`position` 指定文件中要开始写入的偏移量。
+如果 `typeof position !== 'number'`，则从当前位置开始写入。参见 pwrite(2)。
 
-`encoding` 是期望的字符串编码。
+`encoding` 指定字符串的编码。
 
-回调有三个参数 `(err, written, string)`，其中 `written` 指定传入的字符串被写入多少字节。
-写入的字节与字符串的字符是不同的。参考 [`Buffer.byteLength`]。
+`callback` 有三个参数 `(err, written, string)`，其中 `written` 指定字符串中已写入文件的字节数。
+写入的字节数与字符串的字符数是不同的。参见 [`Buffer.byteLength`]。
 
-多次对同一文件使用 `fs.write()` 且不等待回调，是不安全的。
+对同一文件多次使用 `fs.write()` 且不等待回调，是不安全的。
 对于这种情况，建议使用 [`fs.createWriteStream()`]。
 
-在 Linux 上，当文件以追加模式打开时，指定位置的写入是不起作用的。
-内核会忽略位置参数，并总是将数据追加到文件的末尾。
+在 Linux 上，当以追加模式打开文件时，不能指定写入的位置。
+内核会忽略位置参数，总是将数据追加到文件的尾部。
 

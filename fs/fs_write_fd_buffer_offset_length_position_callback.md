@@ -31,18 +31,19 @@ changes:
   * `bytesWritten` {integer}
   * `buffer` {Buffer|TypedArray|DataView}
 
-写入 `buffer` 到 `fd` 指定的文件。
+将 `buffer` 写入到 `fd` 指定的文件。
 
-`offset` 决定 buffer 中被写入的部分，`length` 是一个整数，指定要写入的字节数。
+`offset` 指定 `buffer` 中要开始被写入的偏移量，`length` 指定要写入的字节数。
 
-`position` 指向从文件开始写入数据的位置的偏移量。
-如果 `typeof position !== 'number'`，则数据从当前位置写入。参考 pwrite(2)。
+`position` 指定文件中要开始写入的偏移量。
+如果 `typeof position !== 'number'`，则从当前位置开始写入。参见 pwrite(2)。
 
-回调有三个参数 `(err, bytesWritten, buffer)`，其中 `bytesWritten` 指定从 `buffer` 写入了多少字节。
+`callback` 有三个参数 `(err, bytesWritten, buffer)`，其中 `bytesWritten` 指定 `buffer` 中已写入文件的字节数。
 
-多次对同一文件使用 `fs.write()` 且不等待回调，是不安全的。
+对同一文件多次使用 `fs.write()` 且不等待回调，是不安全的。
 对于这种情况，建议使用 [`fs.createWriteStream()`]。
 
-在 Linux 上，当文件以追加模式打开时，指定位置的写入是不起作用的。
-内核会忽略位置参数，并总是将数据追加到文件的末尾。
+在 Linux 上，当以追加模式打开文件时，不能指定写入的位置。
+内核会忽略位置参数，总是将数据追加到文件的尾部。
+
 

@@ -17,7 +17,7 @@ changes:
   * `err` {Error}
 
 异步的 lchmod(2)。
-完成回调只有一个可能的异常参数。
+`callback` 只有一个参数 `err`。
 
 只在 macOS 有效。
 

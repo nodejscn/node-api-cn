@@ -8,6 +8,5 @@ added: v0.7.2
 当正在接收的进程中没有消息时，就会触发 `'disconnect'` 事件。
 这经常在调用 `subprocess.disconnect()` 后立即被触发。
 
-注意，当子进程是一个 Node.js 实例时（例如通过 [`child_process.fork()`] 衍生的），可以在子进程内调用 `process.disconnect()` 方法来关闭 IPC 通道。
+当子进程是一个 Node.js 实例时（例如通过 [`child_process.fork()`] 衍生的），可以在子进程内调用 `process.disconnect()` 方法来关闭 IPC 通道。
 
-<a name="child_process_child_kill_signal"></a>

@@ -2,21 +2,18 @@
 added: v0.1.27
 -->
 
-* {string}
 <!-- type=var -->
-当前模块的文件夹名称。等同于 [`__filename`][] 的 [`path.dirname()`][] 的值。
 
-<!--
-The directory name of the current module. This the same as the
-[`path.dirname()`][] of the [`__filename`][].
--->
-示例：运行位于 `/Users/mjr`目录下的example.js文件：`node example.js`
-<!--Example: running `node example.js` from `/Users/mjr`-->
+* {string}
+
+当前模块的目录名。相当于 [`__filename`] 的 [`path.dirname()`]。
+
+例子，在 `/Users/mjr` 目录下运行 `node example.js`：
 
 ```js
 console.log(__dirname);
-// Prints: /Users/mjr
+// 输出: /Users/mjr
 console.log(path.dirname(__filename));
-// Prints: /Users/mjr
+// 输出: /Users/mjr
 ```
 

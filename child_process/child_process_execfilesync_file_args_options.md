@@ -1,6 +1,10 @@
 <!-- YAML
 added: v0.11.12
 changes:
+  - version: v10.10.0
+    pr-url: https://github.com/nodejs/node/pull/22409
+    description: The `input` option can now be any `TypedArray` or a
+                 `DataView`.
   - version: v8.8.0
     pr-url: https://github.com/nodejs/node/pull/15380
     description: The `windowsHide` option is supported now.
@@ -13,30 +17,30 @@ changes:
 -->
 
 * `file` {string} 要运行的可执行文件的名称或路径。
-* `args` {string[]} 字符串参数列表。
+* `args` {string[]} 参数列表。
 * `options` {Object}
   * `cwd` {string} 子进程的当前工作目录。
-  * `input` {string|Buffer|Uint8Array} 要作为 stdin 传给衍生进程的值。
-    - 提供该值会覆盖 `stdio[0]`。
-  * `stdio` {string|Array} 子进程的 stdio 配置。默认为 `'pipe'`。
-    - `stderr` 默认会输出到父进程中的 stderr，除非指定了 `stdio`。
+  * `input` {string|Buffer|TypedArray|DataView} 作为 stdin 传给衍生进程的值。指定该值会覆盖 `stdio[0]`。
+  * `stdio` {string|Array} 子进程的 stdio 配置。`stderr` 默认会输出到父进程的 stderr，除非指定了 `stdio`。默认为 `'pipe'`。
   * `env` {Object} 环境变量键值对。
-  * `uid` {number} 设置该进程的用户标识。（详见 setuid(2)）
-  * `gid` {number} 设置该进程的组标识。（详见 setgid(2)）
-  * `timeout` {number} 进程允许运行的最大时间数，以毫秒为单位。默认为 `undefined`。
-  * `killSignal` {string|integer} 当衍生进程将被杀死时要使用的信号值。默认为 `'SIGTERM'`。
-  * [`maxBuffer`] {number} stdout 或 stderr 允许的最大字节数。
-    默认为 `200*1024`。
-    如果超过限制，则子进程会被终止。
-    See caveat at [`maxBuffer` and Unicode][].
-  * `encoding` {string} 用于所有 stdio 输入和输出的编码。默认为 `'buffer'`。
-  * `windowsHide` {boolean} 是否隐藏在Windows系统下默认会弹出的子进程控制台窗口。 **默认为:** `false`。
-* 返回: {Buffer|string} 该命令的 stdout。
+  * `uid` {number} 进程的用户标识。参见 setuid(2)。
+  * `gid` {number} 进程的群组标识。参见 setgid(2)。
+  * `timeout` {number} 允许进程运行的最长时间，以毫秒为单位。默认为 `undefined`。
+  * `killSignal` {string|integer} 用于杀死衍生进程的信号。默认为 `'SIGTERM'`。
+  * `maxBuffer` {number} stdout 或 stderr 允许的最大字节数。如果超过限制，则子进程会终止。参见 [`maxBuffer`与Unicode][`maxBuffer` and Unicode]。默认为 `200*1024`。
+  * `encoding` {string} 用于 stdio 输入和输出的字符编码。默认为 `'buffer'`。
+  * `windowsHide` {boolean} 是否隐藏子进程的控制台窗口。默认为 `false`。
+  * `shell` {boolean|string} 如果设为 `true`，则在 shell 中运行 `command`。
+     在 UNIX 上使用 `'/bin/sh'`，在 Windows 上使用 `process.env.ComSpec`。
+     传入字符串则指定其他 `shell`。
+     参见 [Shell的要求][Shell Requirements]与 [Windows默认的Shell][Default Windows Shell]。
+     默认为 `false`（没有 shell）。
+* 返回: {Buffer|string} 命令的 stdout。
 
-`child_process.execFileSync()` 方法与 [`child_process.execFile()`] 基本相同，除了该方法直到子进程完全关闭后才返回。
-当遇到超时且发送了 `killSignal` 时，则该方法直到进程完全退出后才返回结果。
+与 [`child_process.execFile()`] 的区别是，该方法需等到子进程完全关闭后才返回。
+当发生超时且已发送 `killSignal` 时，该方法也需等到进程完全退出后才返回。
 
-注意，如果子进程拦截并处理了 `SIGTERM` 信号且没有退出，则父进程会一直等待直到子进程退出。
+如果子进程拦截并处理了 `SIGTERM` 信号且没有退出，则父进程会一直等待直到子进程退出。
 
-如果进程超时，或有一个非零的退出码，则该方法会抛出一个 [`Error`]，这个错误对象包含了底层 [`child_process.spawnSync()`] 的完整结果。
+如果进程超时或有非零的退出码，则该方法会抛出一个 [`Error`]，这个错误对象包含了底层 [`child_process.spawnSync()`] 的完整结果。
 

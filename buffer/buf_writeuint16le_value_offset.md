@@ -7,15 +7,12 @@ changes:
                  to `uint32` anymore.
 -->
 
-* `value` {integer} Number to be written to `buf`.
-* `offset` {integer} Number of bytes to skip before starting to write. Must
-  satisfy `0 <= offset <= buf.length - 2`.
-* Returns: {integer} `offset` plus the number of bytes written.
+* `value` {integer} 要写入 `buf` 的数值。
+* `offset` {integer} 开始写入的偏移量。必须满足：`0 <= offset <= buf.length - 2`。
+* 返回: {integer} `offset` 加上已写入的字节数。
 
-Writes `value` to `buf` at the specified `offset` with specified endian
-format (`writeUInt16BE()` writes big endian, `writeUInt16LE()` writes little
-endian). `value` should be a valid unsigned 16-bit integer. Behavior is
-undefined when `value` is anything other than an unsigned 16-bit integer.
+用指定的字节序格式（`writeUInt16BE()` 写入大端序，`writeUInt16LE()` 写入小端序）将 `value` 写入到 `buf` 中指定的 `offset` 位置。
+`value` 必须是无符号的 16 位整数。
 
 ```js
 const buf = Buffer.allocUnsafe(4);
@@ -24,12 +21,12 @@ buf.writeUInt16BE(0xdead, 0);
 buf.writeUInt16BE(0xbeef, 2);
 
 console.log(buf);
-// Prints: <Buffer de ad be ef>
+// 输出: <Buffer de ad be ef>
 
 buf.writeUInt16LE(0xdead, 0);
 buf.writeUInt16LE(0xbeef, 2);
 
 console.log(buf);
-// Prints: <Buffer ad de ef be>
+// 输出: <Buffer ad de ef be>
 ```
 

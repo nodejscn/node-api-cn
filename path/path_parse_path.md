@@ -5,8 +5,7 @@ added: v0.11.15
 * `path` {string}
 * 返回: {Object}
 
-`path.parse()` 方法返回一个对象，对象的属性表示 `path` 的元素。
-尾部文件分隔符会被忽略，请看 [`path.sep`][].
+返回一个对象，其中对象的属性代表 `path` 的元素。
 
 返回的对象有以下属性：
 
@@ -35,7 +34,6 @@ path.parse('/home/user/dir/file.txt');
 │ root │              │ name │ ext │
 "  /    home/user/dir / file  .txt "
 └──────┴──────────────┴──────┴─────┘
-(请无视以上字符串中的空格，它们只是为了布局)
 ```
 
 在 Windows 上：
@@ -57,8 +55,7 @@ path.parse('C:\\path\\dir\\file.txt');
 │ root │              │ name │ ext │
 " C:\      path\dir   \ file  .txt "
 └──────┴──────────────┴──────┴─────┘
-(请无视以上字符串中的空格，它们只是为了布局)
 ```
 
-如果 `path` 不是一个字符串，则抛出 [`TypeError`]。
+如果 `path` 不是字符串，则抛出 [`TypeError`]。
 

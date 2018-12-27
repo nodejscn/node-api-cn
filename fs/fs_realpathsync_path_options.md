@@ -24,4 +24,4 @@ changes:
 
 返回解析的路径。
 
-详见异步版本的接口：[`fs.realpath()`]。
+详见异步的方法 [`fs.realpath()`]。

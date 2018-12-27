@@ -1,6 +1,10 @@
 <!-- YAML
 added: v0.11.12
 changes:
+  - version: v10.10.0
+    pr-url: https://github.com/nodejs/node/pull/22409
+    description: The `input` option can now be any `TypedArray` or a
+                 `DataView`.
   - version: v8.8.0
     pr-url: https://github.com/nodejs/node/pull/15380
     description: The `windowsHide` option is supported now.
@@ -15,43 +19,38 @@ changes:
     description: The `shell` option is supported now.
 -->
 
-* `command` {string} 要运行的命令。
-* `args` {Array} 字符串参数列表。
+* `command` {string} 运行的命令。
+* `args` {string[]} 参数列表。
 * `options` {Object}
   * `cwd` {string} 子进程的当前工作目录。
-  * `input` {string|Buffer|Uint8Array} 要作为 stdin 传给衍生进程的值。
-    - 提供该值会覆盖 `stdio[0]`
+  * `input` {string|Buffer|TypedArray|DataView} 传入衍生进程的 stdin。指定该值会覆盖 `stdio[0]`。
+  * `argv0` {string} 发送给子进程的 `argv[0]` 的值。如果没有指定，则设为 `command` 的值。
   * `stdio` {string|Array} 子进程的 stdio 配置。
   * `env` {Object} 环境变量键值对。
-  * `uid` {number} 设置该进程的用户标识。（详见 setuid(2)）
-  * `gid` {number} 设置该进程的组标识。（详见 setgid(2)）
-  * `timeout` {number} 进程允许运行的最大时间数，以毫秒为单位。默认为 `undefined`。
-  * `killSignal` {string|integer} 当衍生进程将被杀死时要使用的信号值。默认为 `'SIGTERM'`。
-  * [`maxBuffer`][] {number} stdout 或 stderr 允许的最大字节数。
-    默认为 `200*1024`。
-    如果超过限制，则子进程会被终止。
-    See caveat at [`maxBuffer` and Unicode][].
-  * `encoding` {string} 用于所有 stdio 输入和输出的编码。默认为 `'buffer'`。
-  * `shell` {boolean|string} 如果为 `true`，则在一个 shell 中运行 `command`。
-    在 UNIX 上使用 `'/bin/sh'`，在 Windows 上使用 `process.env.ComSpec`。
-    一个不同的 shell 可以被指定为字符串。
-        查看 [Shell Requirements][] 和 [Default Windows Shell][].
-    默认为 `false`（没有 shell）。
-  * `windowsVerbatimArguments` {boolean} 决定在Windows系统下是否使用转义参数。 在Linux平台下会自动忽略，当指令 `shell` 存在的时该属性将自动被设置为true。**默认值:** `false`。
-  * `windowsHide` {boolean} 是否隐藏在Windows系统下默认会弹出的子进程控制台窗口。 **默认为:** `false`。
+  * `uid` {number} 进程的用户标识。参见 setuid(2)。
+  * `gid` {number} 进程的群组标识。参见 setgid(2)。
+  * `timeout` {number} 允许进程运行的最长时间，以毫秒为单位。默认为 `undefined`。
+  * `killSignal` {string|integer} 用于杀死衍生进程的信号。默认为 `'SIGTERM'`。
+  * `maxBuffer` {number} stdout 或 stderr 允许的最大字节数。如果超过限制，则子进程会终止。参见 [maxBuffer与Unicode][`maxBuffer` and Unicode]。默认为 `200*1024`。
+  * `encoding` {string} 用于 stdio 输入和输出的字符编码。默认为 `'buffer'`。
+  * `shell` {boolean|string} 如果设为 `true`，则在 shell 中运行 `command`。
+     在 UNIX 上使用 `'/bin/sh'`，在 Windows 上使用 `process.env.ComSpec`。
+     传入字符串则指定其他 `shell`。
+     参见 [Shell的要求][Shell Requirements]与 [Windows默认的Shell][Default Windows Shell]。
+     默认为 `false`（没有 shell）。
+  * `windowsVerbatimArguments` {boolean} 在 Windows 上是否为参数加引号或转义。如果指定了 `shell`，则自动设为 `true`。默认为 `false`。
+  * `windowsHide` {boolean} 是否隐藏子进程的控制台窗口。默认为 `false`。
 * 返回: {Object}
   * `pid` {number} 子进程的 pid。
-  * `output` {Array} stdio 输出返回的结果数组。
+  * `output` {Array} stdio 的输出。
   * `stdout` {Buffer|string} `output[1]` 的内容。
   * `stderr` {Buffer|string} `output[2]` 的内容。
   * `status` {number} 子进程的退出码。
   * `signal` {string} 用于杀死子进程的信号。
   * `error` {Error} 如果子进程失败或超时产生的错误对象。
 
-`child_process.spawnSync()` 方法与 [`child_process.spawn()`] 基本相同，除了该方法直到子进程完全关闭后才返回。
-当遇到超时且发送了 `killSignal` 时，则该方法直到进程完全退出后才返回结果。
-注意，如果子进程拦截并处理了 `SIGTERM` 信号且没有退出，则父进程会一直等待直到子进程退出。
+与 [`child_process.spawn()`] 的区别是，该方法需等到子进程完全关闭后才返回。
+当发生超时且已发送 `killSignal` 时，该方法也需等到进程完全退出后才返回。
+如果子进程拦截并处理了 `SIGTERM` 信号且没有退出，则父进程会一直等待直到子进程退出。
 
-注意：不要把未经检查的用户输入传入到该函数。
-任何包括 shell 元字符的输入都可被用于触发任何命令的执行。
 

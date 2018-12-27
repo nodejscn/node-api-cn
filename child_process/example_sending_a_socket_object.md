@@ -12,12 +12,12 @@ const special = fork('subprocess.js', ['special']);
 const server = require('net').createServer({ pauseOnConnect: true });
 server.on('connection', (socket) => {
 
-  // 特殊优先级
+  // 特殊优先级。
   if (socket.remoteAddress === '74.125.127.100') {
     special.send('socket', socket);
     return;
   }
-  // 普通优先级
+  // 普通优先级。
   normal.send('socket', socket);
 });
 server.listen(1337);
@@ -26,11 +26,6 @@ server.listen(1337);
 `subprocess.js` 会接收到一个 socket 句柄，并作为第二个参数传给事件回调函数：
 
 ```js
-process.on('message', (m, socket) => {
-  if (m === 'socket') {
-    socket.end(`请求被 ${process.argv[2]} 优先级处理`);
-  }
-});
 process.on('message', (m, socket) => {
   if (m === 'socket') {
     if (socket) {
@@ -48,6 +43,3 @@ process.on('message', (m, socket) => {
 
 建议在子进程中的任何 `message` 处理程序都需要验证 `socket` 是否存在，因为连接可能会在它在发送给子进程的这段时间内被关闭。
 
-注意，该函数内部使用 [`JSON.stringify()`] 序列化 `message`。
-
-<a name="child_process_child_stderr"></a>

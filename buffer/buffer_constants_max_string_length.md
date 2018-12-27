@@ -1,10 +1,10 @@
 <!-- YAML
-added: 8.2.0
+added: v8.2.0
 -->
 
-* {integer} 单个`string`实例允许的最大长度。
+* {integer} 单个 `string` 实例允许的最大长度。
 
-代表`string`能有的原始最大`长度`，以UTF-16代码为单位。
+表示 `string` 原始数据类型能有的最大 `length`，以 UTF-16 代码为单位。
 
-该值可能取决于正在使用的JS引擎。
+该值取决于使用的 JS 引擎。
 

@@ -9,7 +9,7 @@ changes:
 
 * `path` {string|Buffer|URL}
 
-同步的 rmdir(2)。返回 `undefined`。
+移除目录。同步的 rmdir(2)。返回 `undefined`。
 
-如果在文件上（而不是目录上）使用`fs.rmdir()`，则 Windows 平台会导致 `ENOENT` 错误，POSIX 平台会导致 `ENOTDIR` 错误。
+如果对文件（而不是对目录）使用 `fs.rmdirSync()`，则在 Windows 上会抛出 `ENOENT`，在 POSIX 上会抛出 `ENOTDIR`。
 

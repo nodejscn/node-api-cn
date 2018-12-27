@@ -6,17 +6,13 @@ changes:
     description: The `options` argument is supported now.
 -->
 * `options` {Object}
-  * `IncomingMessage` {http.IncomingMessage} 指定要使用的 `IncomingMessage` 类。
-     用于拓展原始的 `IncomingMessage` 类。
-     默认为 `IncomingMessage`。
-  * `ServerResponse` {http.ServerResponse} 指定要使用的 `ServerResponse` 类。
-     用于拓展原始的 `ServerResponse` 类。
-     默认为 `ServerResponse`。
+  * `IncomingMessage` {http.IncomingMessage} 指定使用的 `IncomingMessage` 类。
+  * `ServerResponse` {http.ServerResponse} 指定使用的 `ServerResponse` 类。
 * `requestListener` {Function}
 * 返回: {http.Server}
 
-返回一个新建的 [`http.Server`] 实例。
+返回新建的 [`http.Server`] 实例。
 
-`requestListener` 是一个函数，会被自动添加到 [`'request'`] 事件。
+`requestListener` 会自动添加到 [`'request'`] 事件。
 
 

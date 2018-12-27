@@ -21,19 +21,20 @@ changes:
 
 * `path` {string|Buffer|URL}
 * `options` {Object}
-  * `bigint` {boolean} [`fs.Stats`] 对象返回的数值是否为长整数型。默认为 `false`。
+  * `bigint` {boolean} 返回的 [`fs.Stats`] 中的数值是否为 `bigint` 型。默认为 `false`。
 * `callback` {Function}
   * `err` {Error}
   * `stats` {fs.Stats}
 
-
 异步的 stat(2)。
-回调有两个参数 `(err, stats)` 其中 `stats` 是一个 [`fs.Stats`] 对象。
+查看文件的属性。
+`callback` 有两个参数 `(err, stats)`，其中 `stats` 是一个 [`fs.Stats`]。
 
 如果发生错误，则 `err.code` 会是[常见系统错误][Common System Errors]之一。
 
-不建议在调用 `fs.open()` 、`fs.readFile()` 或 `fs.writeFile()` 之前使用 `fs.stat()` 检查一个文件是否存在。
-用户代码应该直接打开/读取/写入文件，当文件无效时再处理错误。
+不建议在调用 `fs.open()`、`fs.readFile()` 或 `fs.writeFile()` 之前使用 `fs.stat()` 检查文件是否存在。
+应该直接打开、读取或写入文件，当文件无效时再处理错误。
 
-如果要检查一个文件是否存在且不操作它，建议使用 [`fs.access()`]。
+如果要检查文件是否存在但不操作它，建议使用 [`fs.access()`]。
+
 

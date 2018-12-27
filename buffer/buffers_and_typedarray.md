@@ -8,7 +8,7 @@ changes:
 `Buffer` 实例也是 [`Uint8Array`] 实例，但是与 [`TypedArray`] 有微小的不同。
 例如，[`ArrayBuffer#slice()`] 会创建切片的拷贝，而 [`Buffer#slice()`][`buf.slice()`] 是在现有的 `Buffer` 上创建而不拷贝。
 
-使用 `TypeArray` 的 `.buffer` 属性可以创建一个与其共享内存的 `Buffer`。例子：
+使用 `TypeArray` 的 `.buffer` 属性可以创建一个与其共享内存的 `Buffer`。
 
 ```js
 const arr = new Uint16Array(2);
@@ -34,7 +34,7 @@ console.log(buf2);
 // 输出: <Buffer 88 13 70 17>
 ```
 
-当使用 `TypedArray` 的 `.buffer` 创建 `Buffer` 时，也可以通过传入 `byteOffset` 和 `length` 参数只使用 `ArrayBuffer` 的一部分。例子：
+当使用 `TypedArray` 的 `.buffer` 创建 `Buffer` 时，也可以通过传入 `byteOffset` 和 `length` 参数只使用 `ArrayBuffer` 的一部分。
 
 ```js
 const arr = new Uint16Array(20);

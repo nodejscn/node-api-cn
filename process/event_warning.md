@@ -2,16 +2,16 @@
 added: v6.0.0
 -->
 
+* `'warning'`事件监听器的回调函数，参数只有一个，其值为`Error` 对象。此对象有三个重要的属性用来描述告警：
+   * `name` {string} 告警的名称(目前默认值是 `Warning`)。
+   * `message` {string} 系统提供的对此告警的描述。
+   * `stack` {string} 当告警触发时，包含代码位置的堆栈信息。
+
 任何时候Node.js发出进程告警，都会触发`'warning'`事件。
 
 进程告警与进程错误的相似之处，在于两者都描述了需要引起用户注意的异常条件。
 区别在于，告警不是Node.js和Javascript错误处理流程的正式组成部分。
 一旦探测到可能导致应用性能问题，缺陷或安全隐患相关的代码实践，Node.js就可发出告警。
-
-`'warning'`事件监听器的回调函数，参数只有一个，其值为`Error` 对象。此对象有三个重要的属性用来描述告警：
-* `name` {string} 告警的名称(目前默认值是 `Warning`)。
-* `message` {string} 系统提供的对此告警的描述。
-* `stack` {string} 当告警触发时，包含代码位置的堆栈信息。
 
 ```js
 process.on('warning', (warning) => {

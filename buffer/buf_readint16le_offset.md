@@ -7,24 +7,21 @@ changes:
                  to `uint32` anymore.
 -->
 
-* `offset` {integer} Number of bytes to skip before starting to read. Must
-  satisfy `0 <= offset <= buf.length - 2`.
-* Returns: {integer}
+* `offset` {integer} 开始读取的偏移量。必须满足：`0 <= offset <= buf.length - 2`。
+* 返回: {integer}
 
-Reads a signed 16-bit integer from `buf` at the specified `offset` with
-the specified endian format (`readInt16BE()` returns big endian,
-`readInt16LE()` returns little endian).
+用指定的字节序格式（`readInt16BE()` 返回大端序，`readInt16LE()` 返回小端序）从 `buf` 中指定的 `offset` 读取一个有符号的 16 位整数值。
 
-Integers read from a `Buffer` are interpreted as two's complement signed values.
+从 `Buffer` 中读取的整数值会被解析为二进制补码值。
 
 ```js
 const buf = Buffer.from([0, 5]);
 
 console.log(buf.readInt16BE(0));
-// Prints: 5
+// 输出: 5
 console.log(buf.readInt16LE(0));
-// Prints: 1280
+// 输出: 1280
 console.log(buf.readInt16LE(1));
-// Throws ERR_OUT_OF_RANGE
+// 抛出异常 ERR_OUT_OF_RANGE。
 ```
 

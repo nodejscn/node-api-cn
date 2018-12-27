@@ -2,8 +2,10 @@
 added: v0.7.5
 deprecated: v6.0.0
 -->
+* `target` {Object}
+* `source` {Object}
 
-> 稳定性: 0 - 废弃的: 使用 [`Object.assign()`] 代替。
+> Stability: 0 - Deprecated: Use [`Object.assign()`] instead.
 
 The `util._extend()` method was never intended to be used outside of internal
 Node.js modules. The community found and used it anyway.

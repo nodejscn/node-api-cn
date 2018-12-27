@@ -2,7 +2,7 @@
 added: v8.1.0
 -->
 
-* {number|bigint}
+* {number|bigint} 
 
-返回文件的创建时间戳。
+创建文件的时间，单位是毫秒。
 

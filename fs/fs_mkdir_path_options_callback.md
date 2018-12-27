@@ -27,10 +27,10 @@ changes:
   * `err` {Error}
 
 异步地创建目录。
-完成回调只有一个可能的异常参数。
+`callback` 只有一个参数 `err`。
 
-`options` 参数可以是一个整数，用于指定文件的模式（权限与粘滞位）。
-也可以是一个对象，其中 `recursive` 属性指定是否创建父目录。
+如果 `options` 是一个整数，则指定文件的模式（权限）。
+如果 `options` 是一个对象，则 `recursive` 指定是否创建父目录。
 
 ```js
 // 创建 /tmp/a/apple 目录，不管 `/tmp` 和 /tmp/a 目录是否存在。
@@ -39,5 +39,5 @@ fs.mkdir('/tmp/a/apple', { recursive: true }, (err) => {
 });
 ```
 
-详见 mkdir(2)。
+参见 mkdir(2)。
 

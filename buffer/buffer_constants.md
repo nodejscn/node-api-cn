@@ -1,6 +1,6 @@
 <!-- YAML
-added: 8.2.0
+added: v8.2.0
 -->
 
-请注意`buffer.constants`是通过`require('buffer')`返回的`buffer`模块的一个属性，而不是全局`Buffer`或`Buffer`实例。 
+`buffer.constants` 是在 `require('buffer')` 返回的 `buffer` 模块上，而不是在 `Buffer` 全局变量或 `Buffer` 实例上。 
 

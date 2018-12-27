@@ -20,5 +20,5 @@ changes:
 * `mtime` {integer}
 
 返回 `undefined`。
-详见异步版本的接口：[`fs.utimes()`]。
+详见异步的方法 [`fs.utimes()`]。
 

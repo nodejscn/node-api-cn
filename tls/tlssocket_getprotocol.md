@@ -11,12 +11,11 @@ be returned for server sockets or disconnected client sockets.
 
 Example responses include:
 
-* `SSLv3`
 * `TLSv1`
 * `TLSv1.1`
 * `TLSv1.2`
 * `unknown`
 
-See https://www.openssl.org/docs/man1.1.0/ssl/SSL_get_version.html for more
+See <https://www.openssl.org/docs/man1.1.0/ssl/SSL_get_version.html> for more
 information.
 

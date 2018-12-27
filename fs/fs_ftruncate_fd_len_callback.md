@@ -17,7 +17,7 @@ changes:
   * `err` {Error}
 
 异步的 ftruncate(2)。
-完成回调只有一个可能的异常参数。
+`callback` 只有一个参数 `err`。
 
 如果文件描述符指向的文件大于 `len` 个字节，则只有前面 `len` 个字节会保留在文件中。
 

@@ -14,5 +14,5 @@ changes:
 
 返回 `undefined`。
 
-详见异步版本的接口：[`fs.symlink()`]。
+详见异步的方法 [`fs.symlink()`]。
 

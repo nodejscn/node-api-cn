@@ -10,8 +10,6 @@ changes:
 
 当 `Buffer` 存入或取出字符串时，需要指定字符编码。
 
-例子：
-
 ```js
 const buf = Buffer.from('hello world', 'ascii');
 

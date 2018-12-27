@@ -1,8 +1,8 @@
 
 * `options` {Object}
-  * `timeout` {number} Specifies the number of milliseconds to evaluate
+  * `timeout` {integer} Specifies the number of milliseconds to evaluate
     before terminating execution. If execution is interrupted, an [`Error`][]
-    will be thrown.
+    will be thrown. This value must be a strictly positive integer.
   * `breakOnSigint` {boolean} If `true`, the execution will be terminated when
     `SIGINT` (Ctrl+C) is received. Existing handlers for the event that have
     been attached via `process.on('SIGINT')` will be disabled during script

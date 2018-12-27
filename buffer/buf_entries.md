@@ -4,13 +4,16 @@ added: v1.1.0
 
 * 返回: {Iterator}
 
-从 `buf` 的内容中，创建并返回一个 `[index, byte]` 形式的[迭代器]。
-
-例子：记录一个 `Buffer` 全部的内容。
+用 `buf` 的内容创建并返回一个 `[index, byte]` 形式的[迭代器][iterator]。
 
 ```js
+// 输出 `Buffer` 的全部内容。
+
 const buf = Buffer.from('buffer');
 
+for (const pair of buf.entries()) {
+  console.log(pair);
+}
 // 输出:
 //   [0, 98]
 //   [1, 117]
@@ -18,8 +21,5 @@ const buf = Buffer.from('buffer');
 //   [3, 102]
 //   [4, 101]
 //   [5, 114]
-for (const pair of buf.entries()) {
-  console.log(pair);
-}
 ```
 

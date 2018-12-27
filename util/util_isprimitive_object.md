@@ -3,9 +3,12 @@ added: v0.11.5
 deprecated: v4.0.0
 -->
 
-> 稳定性: 0 - 废弃的
+> Stability: 0 - Deprecated: Use
+> `(typeof value !== 'object' && typeof value !== 'function') || value === null`
+> instead.
 
 * `object` {any}
+* Returns: {boolean}
 
 Returns `true` if the given `object` is a primitive type. Otherwise, returns
 `false`.
@@ -25,7 +28,7 @@ util.isPrimitive(undefined);
 // Returns: true
 util.isPrimitive({});
 // Returns: false
-util.isPrimitive(function() {});
+util.isPrimitive(() => {});
 // Returns: false
 util.isPrimitive(/^$/);
 // Returns: false

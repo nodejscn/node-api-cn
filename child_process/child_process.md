@@ -1,10 +1,11 @@
 
 <!--introduced_in=v0.10.0-->
+<!--lint disable maximum-line-length-->
 
 > 稳定性: 2 - 稳定的
 
-`child_process` 模块提供了衍生子进程的功能，它与 popen(3) 类似，但不完全相同。
-这个功能主要由 [`child_process.spawn()`] 函数提供：
+`child_process` 模块提供了衍生子进程的功能，与 popen(3) 类似但不完全相同。
+主要由 [`child_process.spawn()`] 提供：
 
 ```js
 const { spawn } = require('child_process');
@@ -24,22 +25,20 @@ ls.on('close', (code) => {
 ```
 
 默认情况下，Node.js 的父进程与衍生的子进程之间会建立 `stdin`、`stdout` 和 `stderr` 的管道。
-数据能以非阻塞的方式在管道中流通。
-有些程序会在内部使用行缓冲 I/O，虽然这并不影响 Node.js，但发送到子进程的数据可能无法被立即使用。
 
-[`child_process.spawn()`] 函数会异步地衍生子进程，且不会阻塞 Node.js 事件循环。
-[`child_process.spawnSync()`] 函数则以同步的方式提供同样的功能，但会阻塞事件循环，直到衍生的子进程退出或被终止。
+[`child_process.spawn()`] 用于异步地衍生子进程，且不会阻塞 Node.js 事件循环。
+[`child_process.spawnSync()`] 则同步地衍生子进程，但会阻塞事件循环直到衍生的子进程退出或被终止。
 
-`child_process` 模块还提供了其他一些同步和异步的可选函数。
-每个函数都是基于 [`child_process.spawn()`] 或 [`child_process.spawnSync()`] 实现的。
+`child_process` 模块还提供了其他一些同步和异步的方法。
+每个方法都是基于 `child_process.spawn()` 或 `child_process.spawnSync()` 实现的。
 
+  * [`child_process.exec()`]: 衍生一个 shell 并在 shell 上运行命令，当完成时传入 `stdout` 和 `stderr` 到回调函数。
+  * [`child_process.execFile()`]: 类似 `child_process.exec()`，但直接衍生命令且无需先衍生 shell。
+  * [`child_process.fork()`]: 衍生一个新的 Node.js 进程，并通过 IPC 通讯通道来调用指定的模块，该通道允许父进程与子进程之间相互发送信息。
+  * [`child_process.execSync()`]: `child_process.exec()` 的同步版本，会阻塞 Node.js 事件循环。
+  * [`child_process.execFileSync()`]: `child_process.execFile()` 的同步版本，会阻塞 Node.js 事件循环。
 
-  * [`child_process.exec()`]: 衍生一个 shell 并在 shell 上运行命令，当完成时会传入 `stdout` 和 `stderr` 到回调函数。
-  * [`child_process.execFile()`]: 类似 [`child_process.exec()`]，但直接衍生命令，且无需先衍生 shell。
-  * [`child_process.fork()`]: 衍生一个新的 Node.js 进程，并通过建立 IPC 通讯通道来调用指定的模块，该通道允许父进程与子进程之间相互发送信息。
-  * [`child_process.execSync()`]: [`child_process.exec()`] 的同步函数，会阻塞 Node.js 事件循环。
-  * [`child_process.execFileSync()`]: [`child_process.execFile()`] 的同步函数，会阻塞 Node.js 事件循环。
+对于某些用例，比如自动化的 shell 脚本，[同步的方法][synchronous counterparts]更方便。
+但大多数情况下，同步的方法会明显影响性能，因为它会拖延事件循环直到衍生进程完成。
 
-对于某些特例，如自动化的 shell 脚本，[同步的函数]可能更方便。
-但大多数情况下，同步的函数会明显影响性能，因为它会拖延事件循环直到衍生进程完成。
 

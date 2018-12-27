@@ -6,15 +6,21 @@
 
 每个事件名称，以信号名称的大写表示 (比如事件`'SIGINT'` 对应信号 `SIGINT`).
 
-例如:
-
 ```js
 // Begin reading from stdin so the process does not exit.
 process.stdin.resume();
 
 process.on('SIGINT', () => {
-  console.log('Received SIGINT.  Press Control-D to exit.');
+  console.log('Received SIGINT. Press Control-D to exit.');
 });
+
+// Using a single function to handle multiple signals
+function handle(signal) {
+  console.log(`Received ${signal}`);
+}
+
+process.on('SIGINT', handle);
+process.on('SIGTERM', handle);
 ```
 
 * `SIGUSR1` 被Node.js保留用于启动调试器。可以为此事件绑定一个监听器，但是即使这样做也不会阻止调试器的启动。

@@ -2,12 +2,8 @@
 added: v0.7.10
 -->
 
-By default, the parent will wait for the detached child to exit. To prevent the
-parent from waiting for a given `subprocess` to exit, use the
-`subprocess.unref()` method. Doing so will cause the parent's event loop to not
-include the child in its reference count, allowing the parent to exit
-independently of the child, unless there is an established IPC channel between
-the child and the parent.
+默认情况下，父进程会等待已解绑的子进程退出。
+如果无需父进程等待，可使用 `subprocess.unref()` 退出 `subprocess`。
 
 ```js
 const { spawn } = require('child_process');

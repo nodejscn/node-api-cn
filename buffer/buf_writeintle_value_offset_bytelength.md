@@ -7,16 +7,13 @@ changes:
                  and `byteLength` to `uint32` anymore.
 -->
 
-* `value` {integer} Number to be written to `buf`.
-* `offset` {integer} Number of bytes to skip before starting to write. Must
-  satisfy `0 <= offset <= buf.length - byteLength`.
-* `byteLength` {integer} Number of bytes to write. Must satisfy
-  `0 < byteLength <= 6`.
-* Returns: {integer} `offset` plus the number of bytes written.
+* `value` {integer} 要写入 `buf` 的数值。
+* `offset` {integer} 开始写入的偏移量。必须满足：`0 <= offset <= buf.length - byteLength`。
+* `byteLength` {integer} 要写入的字节数。必须满足：`0 < byteLength <= 6`。
+* 返回: {integer} `offset` 加上已写入的字节数。
 
-Writes `byteLength` bytes of `value` to `buf` at the specified `offset`.
-Supports up to 48 bits of accuracy. Behavior is undefined when `value` is
-anything other than a signed integer.
+将 `value` 中的 `byteLength` 个字节写入到 `buf` 中指定的 `offset` 位置。
+最高支持 48 位精度。
 
 ```js
 const buf = Buffer.allocUnsafe(6);
@@ -24,11 +21,11 @@ const buf = Buffer.allocUnsafe(6);
 buf.writeIntBE(0x1234567890ab, 0, 6);
 
 console.log(buf);
-// Prints: <Buffer 12 34 56 78 90 ab>
+// 输出: <Buffer 12 34 56 78 90 ab>
 
 buf.writeIntLE(0x1234567890ab, 0, 6);
 
 console.log(buf);
-// Prints: <Buffer ab 90 78 56 34 12>
+// 输出: <Buffer ab 90 78 56 34 12>
 ```
 
