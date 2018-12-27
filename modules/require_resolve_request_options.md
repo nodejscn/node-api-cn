@@ -8,7 +8,7 @@ changes:
 
 * `request` {string} 需要解析的模块路径。
 * `options` {Object}
-  * `paths` {Array} 解析模块的起点路径。此参数存在时，将使用这些路径而非默认解析路径。
+  * `paths` {string[]} 解析模块的起点路径。此参数存在时，将使用这些路径而非默认解析路径。
     注意此数组中的每一个路径都被用作模块解析算法的起点，意味着 `node_modules` 层级将从这里开始查询。
 * Returns: {string}
 
