@@ -19,6 +19,7 @@ Node.js options that are allowed are:
 - `--inspect-brk`
 - `--inspect-port`
 - `--loader`
+- `--max-http-header-size`
 - `--napi-modules`
 - `--no-deprecation`
 - `--no-force-async-hooks-checks`
