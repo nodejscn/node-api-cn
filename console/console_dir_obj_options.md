@@ -20,5 +20,5 @@ added: v0.1.101
 
 - `colors` - 如果为 `true`，则输出会带有 ANSI 颜色代码。
 默认为 `false`。
-颜色是可定制的，详见[定制 `util.inspect()` 颜色]。
+颜色是可定制的，详见[定制 `util.inspect()` 颜色][customizing `util.inspect()` colors]。
 

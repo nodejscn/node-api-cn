@@ -10,7 +10,7 @@ changes:
 * 返回: {string}
 
 返回 `path` 的扩展名，即从 `path` 的最后一部分中的最后一个 `.`（句号）字符到字符串结束。
-如果 `path` 的最后一部分没有 `.` 或 `path` 的文件名（参考 `path.basename()`）的第一个字符是 `.`，则返回空字符串。
+如果 `path` 的最后一部分没有 `.` 或 `path` 的文件名（参见 `path.basename()`）的第一个字符是 `.`，则返回空字符串。
 
 ```js
 path.extname('index.html');

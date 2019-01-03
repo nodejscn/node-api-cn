@@ -6,5 +6,5 @@ added: v0.7.8
 该方法只会通知空闲的 socket。
 请求必须手动停止。
 
-参考 [`request.setTimeout()`]。
+参见 [`request.setTimeout()`]。
 

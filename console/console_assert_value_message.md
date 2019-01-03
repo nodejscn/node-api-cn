@@ -9,18 +9,14 @@ changes:
 * `value` {any} The value tested for being truthy.
 * `...message` {any} All arguments besides `value` are used as error message.
 
-A simple assertion test that verifies whether `value` is truthy. If it is not,
-`Assertion failed` is logged. If provided, the error `message` is formatted
-using [`util.format()`][] by passing along all message arguments. The output is
-used as the error message.
+一个简单的断言测试，验证 `value` 是否为真。
+如果不为真，则抛出 `AssertionError`。
+如果提供了 `message`，则使用 [`util.format()`] 格式化并作为错误信息使用。
 
 ```js
 console.assert(true, 'does nothing');
-// OK
-console.assert(false, 'Whoops %s work', 'didn\'t');
-// Assertion failed: Whoops didn't work
+// 通过
+console.assert(false, 'Whoops %s', 'didn\'t work');
+// AssertionError: Whoops didn't work
 ```
-
-Calling `console.assert()` with a falsy assertion will only cause the `message`
-to be printed to the console without interrupting execution of subsequent code.
 

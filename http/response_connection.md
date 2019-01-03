@@ -4,5 +4,5 @@ added: v0.3.0
 
 * {net.Socket}
 
-参考 [`response.socket`]。
+参见 [`response.socket`]。
 
