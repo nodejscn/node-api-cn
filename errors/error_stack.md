@@ -61,5 +61,5 @@ makeFaster();
 
 堆栈跟踪捕获的帧的数量是由 `Error.stackTraceLimit` 或当前事件循环中可用的帧数量的最小值界定的。
 
-系统级的错误是由扩展的 `Error` 实例产生的，详见[系统错误]。
+系统级的错误是由扩展的 `Error` 实例产生的，详见[系统错误](#errors_system_errors)。
 

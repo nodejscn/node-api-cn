@@ -2,7 +2,7 @@
 <!--introduced_in=v0.10.0-->
 <!--lint disable maximum-line-length-->
 
-> 稳定性: 2 - 稳定的
+> 稳定性: 2 - 稳定
 
 `child_process` 模块提供了衍生子进程的功能，与 popen(3) 类似但不完全相同。
 主要由 [`child_process.spawn()`] 提供：

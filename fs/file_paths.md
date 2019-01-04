@@ -1,10 +1,10 @@
 
-大部分 `fs` 方法的文件路径可以是字符串、[`Buffer`]、或 `file:` 协议的 [`URL`]。
+大多数 `fs` 操作的文件路径可以是字符串、[`Buffer`]、或使用 `file:` 协议的 [`URL`] 对象。
 
-字符串路径会解析成表示绝对路径或相对路径的 UTF-8 字符序列。
-相对路径会按 `process.cwd()` 定义的当前工作目录进行处理。
+字符串形式的路径会被解释为表示绝对或相对文件名的 UTF-8 字符序列。 
+相对路径将相对于 `process.cwd()` 指定的当前工作目录进行解析。
 
-使用绝对路径的例子：
+在 POSIX 上使用绝对路径的示例：
 
 ```js
 const fs = require('fs');
@@ -17,7 +17,7 @@ fs.open('/open/some/file.txt', 'r', (err, fd) => {
 });
 ```
 
-使用相对路径的例子（相对于 `process.cwd()`）：
+在 POSIX 上使用相对路径的示例（相对于 `process.cwd()`）：
 
 ```js
 fs.open('file.txt', 'r', (err, fd) => {
@@ -28,11 +28,11 @@ fs.open('file.txt', 'r', (err, fd) => {
 });
 ```
 
-[`Buffer`] 路径用于在特定的 POSIX 系统上，将路径处理成 opaque 字节序列。
-单一路径中可能包含多种字符编码的子序列。
-`Buffer` 路径也可以是相对的或绝对的。
+使用 [`Buffer`] 指定的路径主要用于将文件路径视为不透明字节序列的某些 POSIX 操作系统。 
+在这样的系统上，单个文件路径可以包含使用多种字符编码的子序列。 
+与字符串路径一样，`Buffer` 路径可以是相对路径或绝对路径：
 
-使用绝对路径的例子：
+在 POSIX 上使用绝对路径的示例：
 
 ```js
 fs.open(Buffer.from('/open/some/file.txt'), 'r', (err, fd) => {
@@ -43,8 +43,8 @@ fs.open(Buffer.from('/open/some/file.txt'), 'r', (err, fd) => {
 });
 ```
 
-在 Windows 上，Node.js 遵循 per-drive 工作目录的理念。
-当使用驱动器路径不带反斜杠时可以观察到该特性。
+在 Windows 上，Node.js 遵循每个驱动器工作目录的概念。
+使用没有反斜杠的驱动器路径时，可以观察到此行为。
 例如，`fs.readdirSync('c:\\')` 可能会返回与 `fs.readdirSync('c:')` 不同的结果。
-详见 [MSDN路径文档][MSDN-Rel-Path]。
+有关详细信息，请参阅[此 MSDN 页面][MSDN-Rel-Path]。
 

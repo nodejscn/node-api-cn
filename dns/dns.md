@@ -1,7 +1,7 @@
 
 <!--introduced_in=v0.10.0-->
 
-> 稳定性: 2 - 稳定的
+> 稳定性: 2 - 稳定
 
 `dns` 模块包含两类函数：
 
@@ -19,10 +19,9 @@ dns.lookup('iana.org', (err, address, family) => {
 // IP 地址: "192.0.43.8" 地址族: IPv4
 ```
 
-2) 第二类函数，连接到一个真实的 DNS 服务器进行域名解析，且始终使用网络进行 DNS 查询。
+2) 第二类函数，连接到真实的 DNS 服务器进行域名解析，且始终使用网络进行 DNS 查询。
 这类函数包含了 `dns` 模块中除 [`dns.lookup()`] 以外的所有函数。
 这些函数使用与 `dns.lookup()` 不同的配置文件（例如 `/etc/hosts`）。
-这类函数适合于那些不想使用底层操作系统工具进行域名解析、而是想使用网络进行 DNS 查询的开发者。
 
 例子，解析 `'archive.org'` 然后逆向解析返回的 IP 地址：
 
@@ -45,6 +44,6 @@ dns.resolve4('archive.org', (err, addresses) => {
 });
 ```
 
-两类函数有微妙的差别，详见 [实现上的注意事项]。
+两类函数有微妙的差别，详见[注意事项][Implementation considerations section]。
 
 

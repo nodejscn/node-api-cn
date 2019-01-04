@@ -7,10 +7,10 @@ changes:
 -->
 <!--introduced_in=v8.4.0-->
 
-> Stability: 2 - Stable
+> 稳定性: 2 - 稳定
 
-The `http2` module provides an implementation of the [HTTP/2][] protocol. It
-can be accessed using:
+`http2` 模块提供了 [HTTP/2] 协议的实现。
+使用方法如下：
 
 ```js
 const http2 = require('http2');
