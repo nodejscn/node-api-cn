@@ -15,7 +15,7 @@ changes:
   * `err` {Error}
 
 异步的 symlink(2)。
-`callback` 只有一个参数 `err`。
+除了可能的异常，完成回调没有其他参数。
 `type` 参数可以设为 `'dir'`、`'file'` 或 `'junction'`，且仅在 Windows 上有效（在其他平台上忽略）。
 Windows 上使用 `'junction'` 要求目标路径是绝对路径。
 当使用 `'junction'` 时，`target` 参数会被自动标准化为绝对路径。

@@ -23,7 +23,7 @@ changes:
 
 异步地将 `oldPath` 重命名为 `newPath`。
 如果 `newPath` 已存在，则覆盖文件。
-`callback` 只有一个参数 `err`。
+除了可能的异常，完成回调没有其他参数。
 
 参见 rename(2)。
 

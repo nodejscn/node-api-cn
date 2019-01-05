@@ -11,7 +11,7 @@ changes:
 -->
 
 * `path` {string|Buffer|URL}
-* `flags` {string|number} 详见[支持的 flag][support of file system `flags`]。
+* `flags` {string|number} 请参阅[文件系统标志的支持][support of file system `flags`]。
 * `mode` {integer} 默认为 `0o666`（可读可写）。
 * `callback` {Function}
   * `err` {Error}

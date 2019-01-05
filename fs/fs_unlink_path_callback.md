@@ -20,7 +20,7 @@ changes:
   * `err` {Error}
 
 异步地移除文件或符号链接。
-`callback` 只有一个参数 `err`。
+除了可能的异常，完成回调没有其他参数。
 
 ```js
 // 假设 'path/file.txt' 是一个普通文件。

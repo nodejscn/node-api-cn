@@ -18,5 +18,5 @@ changes:
   * `err` {Error}
 
 异步的 fchown(2)。
-`callback` 只有一个参数 `err`。
+除了可能的异常，完成回调没有其他参数。
 

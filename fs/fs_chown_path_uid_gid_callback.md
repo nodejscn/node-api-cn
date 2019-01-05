@@ -21,8 +21,8 @@ changes:
 * `callback` {Function}
   * `err` {Error}
 
-异步地改变文件的所有者和群组。
-`callback` 只有一个参数 `err`。
+异步地更改文件的所有者和群组。
+除了可能的异常，完成回调没有其他参数。
 
-详见 chown(2)。
+另见 chown(2)。
 

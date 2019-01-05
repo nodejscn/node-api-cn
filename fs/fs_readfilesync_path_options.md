@@ -13,7 +13,7 @@ changes:
 * `path` {string|Buffer|URL|integer} 文件名或文件描述符。
 * `options` {Object|string}
   * `encoding` {string|null} 默认为 `null`。
-  * `flag` {string} 详见[支持的 flag][support of file system `flags`]。默认为 `'r'`。
+  * `flag` {string} 请参阅[文件系统标志的支持][support of file system `flags`]。默认为 `'r'`。
 * 返回: {string|Buffer}
 
 返回文件的内容。

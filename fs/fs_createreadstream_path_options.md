@@ -15,7 +15,7 @@ changes:
 
 * `path` {string|Buffer|URL}
 * `options` {string|Object}
-  * `flags` {string} 详见[支持的 flag][support of file system `flags`]。默认为 `'r'`。
+  * `flags` {string} 请参阅[文件系统标志的支持][support of file system `flags`]。默认为 `'r'`。
   * `encoding` {string} 默认为 `null`。
   * `fd` {integer} 默认为 `null`。文件描述符。
   * `mode` {integer} 默认为 `0o666`。

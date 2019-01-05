@@ -2,22 +2,21 @@
 added: v0.5.8
 -->
 
-* `eventType` {string} 发生的变化事件的类型。
-* `filename` {string|Buffer} 变化的文件名（如果是相关的或有效的）。
+* `eventType` {string} 已发生的更改事件的类型。
+* `filename` {string|Buffer} 更改的文件名（如果相关或可用）。
 
-当被监视的目录或文件有变化时触发。
-详见 [`fs.watch()`]。
+当监视的目录或文件中发生更改时触发。 
+在 [`fs.watch()`] 中查看更多详细信息。
 
-`filename` 参数可能没有，这依赖于操作系统支持。
-如果 `fs.watch()` 被调用时 `encoding` 选项被设置为 `'buffer'`，则 `filename` 是一个 `Buffer`，否则 `filename` 是一个 UTF-8 字符串。
-
-例子，处理 fs.watch() 监听器：
+根据操作系统支持，可能不提供 `filename` 参数。 
+在提供了 `filename` 的情况下，如果调用 `fs.watch()` 并将其 `encoding` 选项设置为 `'buffer'`，则 `filename` 将是一个 `Buffer`，否则 `filename` 将是 UTF-8 字符串。
 
 ```js
+// 使用 fs.watch（）监听器的示例。
 fs.watch('./tmp', { encoding: 'buffer' }, (eventType, filename) => {
   if (filename) {
     console.log(filename);
-    // 打印: <Buffer ...>
+    // 输出: <Buffer ...>
   }
 });
 ```

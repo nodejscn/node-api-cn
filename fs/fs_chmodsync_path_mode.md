@@ -10,6 +10,7 @@ changes:
 * `path` {string|Buffer|URL}
 * `mode` {integer}
 
-[`fs.chmod()`] 的同步版本。
+有关详细信息，请参阅此 API 的异步版本的文档：[`fs.chmod()`]。
 
-详见 chmod(2)。
+另见 chmod(2)。
+

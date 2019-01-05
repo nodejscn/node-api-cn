@@ -4,5 +4,5 @@ added: v8.1.0
 
 * {number|bigint} 
 
-创建文件的时间，单位是毫秒。
+表示此文件创建时间的时间戳，以 POSIX Epoch 以来的毫秒数表示。
 

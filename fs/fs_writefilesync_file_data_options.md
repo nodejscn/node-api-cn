@@ -18,7 +18,7 @@ changes:
 * `options` {Object|string}
   * `encoding` {string|null} 默认为 `'utf8'`。
   * `mode` {integer} 默认为 `0o666`。
-  * `flag` {string} 详见[支持的 flag][support of file system `flags`]。默认为 `'w'`。
+  * `flag` {string} 请参阅[文件系统标志的支持][support of file system `flags`]。默认为 `'w'`。
 
 返回 `undefined`。
 

@@ -27,7 +27,7 @@ changes:
   * `err` {Error}
 
 异步地创建目录。
-`callback` 只有一个参数 `err`。
+除了可能的异常，完成回调没有其他参数。
 
 如果 `options` 是一个整数，则指定文件的模式（权限）。
 如果 `options` 是一个对象，则 `recursive` 指定是否创建父目录。
