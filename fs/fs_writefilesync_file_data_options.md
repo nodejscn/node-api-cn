@@ -22,5 +22,5 @@ changes:
 
 返回 `undefined`。
 
-详见异步的方法 [`fs.writeFile()`]。
+有关详细信息，请参阅此 API 的异步版本的文档：[`fs.writeFile()`]。
 

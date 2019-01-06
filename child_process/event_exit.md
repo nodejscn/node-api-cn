@@ -15,5 +15,5 @@ added: v0.1.90
 Node.js 建立了 `SIGINT` 和 `SIGTERM` 的信号处理程序，且 Node.js 进程收到这些信号也不会立即终止。
 Node.js 会执行一系列的清理操作后重新引发处理信号。
 
-参见 waitpid(2)。
+参阅 waitpid(2)。
 

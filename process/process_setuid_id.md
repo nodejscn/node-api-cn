@@ -2,7 +2,7 @@
 added: v0.1.28
 -->
 
-`process.setuid(id)` 设置进程的用户ID (参见
+`process.setuid(id)` 设置进程的用户ID (参阅
 setuid(2).)  `id` 可以是一个数值ID也可以是一个用户名字符串.
 如果已经有一个用户名，在解析为相关的数值ID时，此方法阻塞。
 

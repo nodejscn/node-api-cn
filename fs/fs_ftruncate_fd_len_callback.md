@@ -21,40 +21,40 @@ changes:
 
 如果文件描述符指向的文件大于 `len` 个字节，则只有前面 `len` 个字节会保留在文件中。
 
-例子，只保留文件的前 4 个字节。
+例如，以下程序只保留文件的前 4 个字节：
 
 ```js
-console.log(fs.readFileSync('文件.txt', 'utf8'));
-// 打印: Node.js
+console.log(fs.readFileSync('temp.txt', 'utf8'));
+// 输出: Node.js
 
 // 获取要截断的文件的文件描述符。
-const fd = fs.openSync('文件.txt', 'r+');
+const fd = fs.openSync('temp.txt', 'r+');
 
-// 截断文件至前 4 个字节。
+// 将文件截断为前 4 个字节。
 fs.ftruncate(fd, 4, (err) => {
   assert.ifError(err);
-  console.log(fs.readFileSync('文件.txt', 'utf8'));
+  console.log(fs.readFileSync('temp.txt', 'utf8'));
 });
-// 打印: Node
+// 输出: Node
 ```
 
-如果文件小于 `len` 个字节，则扩大文件，且扩大的部分用空字节（`'\0'`）填充：
+如果文件小于 `len` 个字节，则会对其进行扩展，并且扩展部分将填充空字节（`'\0'`）：
 
 ```js
-console.log(fs.readFileSync('文件.txt', 'utf8'));
-// 打印: Node.js
+console.log(fs.readFileSync('temp.txt', 'utf8'));
+// 输出: Node.js
 
 // 获取要截断的文件的文件描述符。
-const fd = fs.openSync('文件.txt', 'r+');
+const fd = fs.openSync('temp.txt', 'r+');
 
-// 截断文件至前 10 个字节，但实际大小只有 7 个字节。
+// 将文件截断为前 10 个字节，但实际大小为 7 个字节。
 fs.ftruncate(fd, 10, (err) => {
   assert.ifError(err);
-  console.log(fs.readFileSync('文件.txt'));
+  console.log(fs.readFileSync('temp.txt'));
 });
-// 打印: <Buffer 4e 6f 64 65 2e 6a 73 00 00 00>
+// 输出: <Buffer 4e 6f 64 65 2e 6a 73 00 00 00>
 // (UTF8 的值为 'Node.js\0\0\0')
 ```
 
-最后3个字节是空字节（`'\0'`），用于补充超出的截断。
+最后 3 个字节是空字节（`'\0'`），以补充超出的截断。
 

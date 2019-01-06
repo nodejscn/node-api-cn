@@ -12,22 +12,23 @@ changes:
 
 * `filename` {string|Buffer|URL}
 * `options` {string|Object}
-  * `persistent` {boolean} 如果文件已正在监视，是否继续运行进程。默认为 `true`。
-  * `recursive` {boolean} 是否监视全部子目录。适用于监视目录，且只在支持的平台有效（参见[注意事项][Caveats]）。默认为 `false`。
-  * `encoding` {string} `filename` 的字符编码。默认为 `'utf8'`。
+  * `persistent` {boolean} 指示如果文件已正被监视，进程是否应继续运行。默认为 `true`。
+  * `recursive` {boolean} 指示是监视所有子目录，还是仅监视当前目录。适用于监视目录时，仅适用于受支持的平台（参阅[注意事项][Caveats]）。默认为 `false`。
+  * `encoding` {string} 指定用于传给监听器的文件名的字符编码。默认为 `'utf8'`。
 * `listener` {Function|undefined} 默认为 `undefined`。
   * `eventType` {string}
   * `filename` {string|Buffer}
 * 返回: {fs.FSWatcher}
 
-监视 `filename` 的变化，`filename` 可以是文件或目录。
+监视 `filename` 的更改，其中 `filename` 是文件或目录。
 
-如果 `options` 是一个字符串，则指定字符编码。
+第二个参数是可选的。如果 `options` 是字符串，则它指定 `encoding`。
+否则 `options` 应是对象。
 
-`listener` 有两个参数 `(eventType, filename)`。
-`eventType` 可能是 `'rename'` 或 `'change'`，`filename` 是触发事件的文件名。
+监听器回调有两个参数 `(eventType, filename)`。
+`eventType` 是 `'rename'` 或 `'change'`，`filename` 是触发事件的文件的名称。
 
-在大多数平台上，当目录中有文件出现或消失时，会触发 `'rename'` 事件。
+在大多数平台上，只要文件名出现或在目录中消失，就会触发 `'rename'` 事件。
 
-`listener` 绑定在由 [`fs.FSWatcher`] 触发的 `'change'` 事件上。
+监听器回调绑定在由 [`fs.FSWatcher`] 触发的 `'change'` 事件上，但它与 `eventType` 的 `'change'` 值不是一回事。
 

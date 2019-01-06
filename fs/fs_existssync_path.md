@@ -10,11 +10,11 @@ changes:
 * `path` {string|Buffer|URL}
 * 返回: {boolean}
 
-如果文件存在，则返回 `true`，否则返回 `false`。
+如果路径存在则返回 `true`，否则返回 `false`。
 
-详见异步的方法 [`fs.exists()`]。
+有关详细信息，请参阅此 API 的异步版本的文档：[`fs.exists()`]。
 
-虽然 `fs.exists()` 是废弃的，但 `fs.existsSync()` 不是废弃的。
-
-
+虽然 `fs.exists()` 已废弃，但 `fs.existsSync()` 不是废弃的。
+`fs.exists()` 的回调参数接受与其他 Node.js 回调不一致的参数。
+`fs.existsSync()` 不使用回调。
 

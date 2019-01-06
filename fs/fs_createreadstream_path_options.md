@@ -17,45 +17,46 @@ changes:
 * `options` {string|Object}
   * `flags` {string} 请参阅[文件系统标志的支持][support of file system `flags`]。默认为 `'r'`。
   * `encoding` {string} 默认为 `null`。
-  * `fd` {integer} 默认为 `null`。文件描述符。
+  * `fd` {integer} 默认为 `null`。
   * `mode` {integer} 默认为 `0o666`。
   * `autoClose` {boolean} 默认为 `true`。
   * `start` {integer}
   * `end` {integer} 默认为 `Infinity`。
   * `highWaterMark` {integer} 默认为 `64 * 1024`。
-* 返回: {fs.ReadStream} 详见[可读流][Readable Streams]。
+* 返回: {fs.ReadStream} 参阅[可读流][Readable Streams]。
 
-可读流的 `highWaterMark` 一般默认为 16 kb，但本方法返回的可读流默认为 64 kb。
+与可读流的 16 kb 默认 `highWaterMark` 不同，此方法返回的流具有 64 kb 的默认 `highWaterMark`。
 
-`start` 与 `end` 用于从文件读取指定范围的字节。
-`start` 与 `end` 都是包括在内的。
-如果指定了 `fd` 且不指定 `start`，则从当前位置开始读取。
+`options` 可以包括 `start` 和 `end` 值，以从文件中读取一定范围的字节而不是读取整个文件。 
+`start` 和 `end` 都包含在内并从 0 开始计数。
+如果指定了 `fd` 并且 `start` 被省略或未定义，则 `fs.createReadStream()` 从当前文件位置开始顺序读取。
+`encoding` 可以是 [`Buffer`] 接受的任何一种字符编码。
 
-如果指定了 `fd`，则忽略 `path`。
+如果指定了 `fd`，`ReadStream` 将忽略 `path` 参数并使用指定的文件描述符。
 这意味着不会触发 `'open'` 事件。
 `fd` 必须是阻塞的，非阻塞的 `fd` 应该传给 [`net.Socket`]。
 
-如果 `fd` 是一个只支持阻塞读取（比如键盘或声卡）的字符设备，则读取操作在读取到数据之前不会结束。
-这可以避免进程退出或者流被关闭。
+如果 `fd` 指向仅支持阻塞读取的字符设备（例如键盘或声卡），则在数据可用之前，读取操作不会完成。
+这可以防止进程退出并且流自然关闭。
 
 ```js
 const fs = require('fs');
-// 从字符设备创建可读流。
+// 从某字符设备创建一个流。
 const stream = fs.createReadStream('/dev/input/event0');
 setTimeout(() => {
-  stream.close(); // 这不会关闭流。
-  // 必须手动地指示流已到尽头，流才会关闭。
-  // 这不会取消读取操作的等待，进程在读取完成前不会退出。
+  stream.close(); // 这可能不会关闭流。
+  // 人工标记流末尾，就好像底层资源本身已指示文件结尾一样，允许流关闭。
+  // 这不会取消挂起的读取操作，如果存在此类操作，则该过程可能仍无法成功退出，直到完成为止。
   stream.push(null);
   stream.read(0);
 }, 100);
 ```
 
-如果 `autoClose` 设为 `false`，则文件描述符不会自动关闭，即使发生错误。
-应用程序需要负责关闭它，并且确保没有文件描述符泄漏。
-如果 `autoClose` 设为 `true`（默认），则文件描述符在 `error` 或 `end` 事件时会自动关闭。
+如果 `autoClose` 为 `false`，则即使出现错误，也不会关闭文件描述符。
+应用程序负责关闭它并确保没有文件描述符泄漏。
+如果 `autoClose` 设为 `true`（默认行为），则在 `error` 或 `end` 事件时将自动关闭文件描述符。
 
-`mode` 用于设置文件模式（权限），但仅限创建文件时有效。
+`mode` 用于设置文件模式（权限和粘滞位），但仅限于创建文件的情况。
 
 例子，从一个大小为 100 字节的文件中读取最后 10 个字节：
 
@@ -63,5 +64,5 @@ setTimeout(() => {
 fs.createReadStream('sample.txt', { start: 90, end: 99 });
 ```
 
-如果 `options` 是一个字符串，则指定字符编码。
+如果 `options` 是字符串，则它指定字符编码。
 

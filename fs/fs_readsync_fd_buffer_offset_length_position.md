@@ -17,7 +17,7 @@ changes:
 * `position` {integer}
 * 返回: {number}
 
-返回读取的字节数。
+返回 `bytesRead` 的数量。
 
-详见异步的方法 [`fs.read()`]。
+有关详细信息，请参阅此 API 异步版本的文档：[`fs.read()`]。
 

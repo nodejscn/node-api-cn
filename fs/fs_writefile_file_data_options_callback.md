@@ -30,9 +30,10 @@ changes:
 * `callback` {Function}
   * `err` {Error}
 
-异步地将数据写入文件，如果文件已存在，则覆盖文件。
+异步地将数据写入文件，如果文件已存在则覆盖该文件。
+`data` 是字符串或 buffer。
 
-如果 `data` 是一个 buffer，则忽略 `encoding`。
+如果 `data` 是 buffer，则忽略 `encoding` 选项。
 
 ```js
 const data = new Uint8Array(Buffer.from('Node.js中文网'));
@@ -42,13 +43,13 @@ fs.writeFile('文件.txt', data, (err) => {
 });
 ```
 
-如果 `options` 是一个字符串，则指定字符编码：
+如果 `options` 是字符串，则它指定字符编码：
 
 ```js
 fs.writeFile('文件.txt', 'Node.js中文网', 'utf8', callback);
 ```
 
-对同一个文件多次使用 `fs.writeFile()` 且不等待回调，是不安全的。
+在同一个文件上多次使用 `fs.writeFile()` 且不等待回调是不安全的。
 对于这种情况，建议使用 [`fs.createWriteStream()`]。
 
 

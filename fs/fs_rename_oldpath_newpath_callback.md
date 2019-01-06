@@ -21,16 +21,16 @@ changes:
 * `callback` {Function}
   * `err` {Error}
 
-异步地将 `oldPath` 重命名为 `newPath`。
-如果 `newPath` 已存在，则覆盖文件。
+异步地将 `oldPath` 上的文件重命名为 `newPath` 提供的路径名。
+在 `newPath` 已经存在的情况下，它将被覆盖。
 除了可能的异常，完成回调没有其他参数。
 
-参见 rename(2)。
+另见 rename(2)。
 
 ```js
 fs.rename('旧文件.txt', '新文件.txt', (err) => {
   if (err) throw err;
-  console.log('已完成重命名');
+  console.log('重命名完成');
 });
 ```
 

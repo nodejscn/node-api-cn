@@ -11,13 +11,13 @@ changes:
   * `cwd` {string} 子进程的当前工作目录。默认为 `null`。
   * `env` {Object} 环境变量键值对。默认为 `null`。
   * `encoding` {string} 默认为 `'utf8'`。
-  * `shell` {string} 执行命令的 shell。参见 [Shell的要求][Shell Requirements]与 [Windows默认的Shell][Default Windows Shell]。
+  * `shell` {string} 执行命令的 shell。参阅 [Shell的要求][Shell Requirements]与 [Windows默认的Shell][Default Windows Shell]。
      在 UNIX 上默认为 `'/bin/sh'`，在 Windows 上默认为 `process.env.ComSpec`。
   * `timeout` {number} 默认为 `0`。
-  * `maxBuffer` {number} `stdout` 或 `stderr` 允许的最大字节数。如果超过限制，则子进程会终止。参见 [maxBuffer与Unicode][`maxBuffer` and Unicode]。默认为 `200*1024`。
+  * `maxBuffer` {number} `stdout` 或 `stderr` 允许的最大字节数。如果超过限制，则子进程会终止。参阅 [maxBuffer与Unicode][`maxBuffer` and Unicode]。默认为 `200*1024`。
   * `killSignal` {string|integer} 默认为 `'SIGTERM'`。
-  * `uid` {number} 进程的用户标识，参见 setuid(2)。
-  * `gid` {number} 进程的群组标识，参见 setgid(2)。
+  * `uid` {number} 进程的用户标识，参阅 setuid(2)。
+  * `gid` {number} 进程的群组标识，参阅 setgid(2)。
   * `windowsHide` {boolean} 是否隐藏子进程的控制台窗口。默认为 `false`。
 * `callback` {Function} 当进程终止时调用。
   * `error` {Error}
@@ -63,7 +63,7 @@ exec('cat *.js missing_file | wc -l', (error, stdout, stderr) => {
 
 不像 POSIX 中的 exec(3)， `child_process.exec()` 不会替换现有的进程，且使用 shell 来执行命令。
 
-如果使用 [`util.promisify()`] 版本的方法，则 `Promise` 返回一个包含 `stdout` 和 `stderr` 的对象。
+如果调用此方法的 [`util.promisify()`] 版本，则返回的 `Promise` 会返回具有 `stdout` 属性和 `stderr` 属性的对象。
 
 ```js
 const util = require('util');

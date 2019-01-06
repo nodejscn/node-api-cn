@@ -13,16 +13,16 @@ changes:
   * `env` {Object} 环境变量键值对。
   * `encoding` {string} 字符编码。默认为 `'utf8'`。
   * `timeout` {number} 默认为 `0`。
-  * `maxBuffer` {number} stdout 或 stderr 允许的最大字节数。如果超过限制，则子进程会终止。参见 [`maxBuffer`与Unicode][`maxBuffer` and Unicode]。默认为 `200*1024`。
+  * `maxBuffer` {number} stdout 或 stderr 允许的最大字节数。如果超过限制，则子进程会终止。参阅 [`maxBuffer`与Unicode][`maxBuffer` and Unicode]。默认为 `200*1024`。
   * `killSignal` {string|integer} 默认为 `'SIGTERM'`。
-  * `uid` {number} 进程的用户标识，参见 setuid(2)。
-  * `gid` {number} 进程的群组标识，参见 setgid(2)。
+  * `uid` {number} 进程的用户标识，参阅 setuid(2)。
+  * `gid` {number} 进程的群组标识，参阅 setgid(2)。
   * `windowsHide` {boolean} 是否隐藏子进程的控制台窗口。默认为 `false`。
   * `windowsVerbatimArguments` {boolean} 在 Windows 上是否为参数加引号或转义。默认为 `false`。
   * `shell` {boolean|string} 如果设为 `true`，则在 shell 中运行 `command`。
      在 UNIX 上使用 `'/bin/sh'`，在 Windows 上使用 `process.env.ComSpec`。
      传入字符串则指定其他 `shell`。
-     参见 [Shell的要求][Shell Requirements]与 [Windows默认的Shell][Default Windows Shell]。
+     参阅 [Shell的要求][Shell Requirements]与 [Windows默认的Shell][Default Windows Shell]。
      默认为 `false`（没有 shell）。
 * `callback` {Function} 当进程终止时调用。
   * `error` {Error}
@@ -50,7 +50,7 @@ const child = execFile('node', ['--version'], (error, stdout, stderr) => {
 `encoding` 用于指定解码 `stdout` 和 `stderr` 的字符编码。
 如果 `encoding` 是 `'buffer'` 或无效的字符编码，则传入 `callback` 的会是 `Buffer`。
 
-如果使用 [`util.promisify()`] 版本的方法，则 `Promise` 返回一个包含 `stdout` 和 `stderr` 的对象。
+如果调用此方法的 [`util.promisify()`] 版本，则返回的 `Promise` 会返回具有 `stdout` 属性和 `stderr` 属性的对象。
 
 ```js
 const util = require('util');

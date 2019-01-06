@@ -16,13 +16,13 @@ changes:
   * `flag` {string} 请参阅[文件系统标志的支持][support of file system `flags`]。默认为 `'r'`。
 * 返回: {string|Buffer}
 
-返回文件的内容。
+返回 `path` 的内容。
 
-详见异步的方法 [`fs.readFile()`]。
+有关详细信息，请参阅此 API 的异步版本的文档：[`fs.readFile()`]。
 
-如果指定了 `encoding`，则返回字符串，否则返回 buffer。
+如果指定了 `encoding` 选项，则此函数返回字符串，否则返回 buffer。
 
-如果 `path` 是一个目录，则 `fs.readFileSync()` 的行为因平台而异。
+与 [`fs.readFile()`] 类似，当 `path` 是目录时，`fs.readFileSync()` 的行为是特定于平台的。
 
 ```js
 // 在 macOS、Linux 与 Windows 上：

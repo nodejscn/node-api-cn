@@ -17,13 +17,13 @@ changes:
 
 * `fd` {integer}
 * `options` {Object}
-  * `bigint` {boolean} [`fs.Stats`] 对象返回的数值是否为长整数型。默认为 `false`。
+  * `bigint` {boolean} 返回的 [`fs.Stats`] 对象中的数值是否应为 `bigint` 型。默认为 `false`。
 * `callback` {Function}
   * `err` {Error}
   * `stats` {fs.Stats}
 
 
 异步的 fstat(2)。
-回调有两个参数 `(err, stats)`，其中 `stats` 是一个 [`fs.Stats`] 对象。
-`fstat()` 与 [`stat()`] 区别是，文件是通过文件描述符 `fd` 指定的。
+回调有两个参数 `(err, stats)`，其中 `stats` 是 [`fs.Stats`] 对象。
+`fstat()` 与 [`stat()`] 相同，除了文件是由文件描述符 `fd` 指定。
 

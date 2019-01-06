@@ -31,10 +31,10 @@ changes:
 
 异步的 readdir(3)。
 读取目录的内容。
-`callback` 有两个参数 `(err, files)`，其中 `files` 是目录中的文件名的数组。
+回调有两个参数 `(err, files)`，其中 `files` 是目录中的文件名的数组，不包括 `'.'` 和 `'..'`。
 
-如果 `options` 是一个字符串，则指定字符编码。
-如果 `encoding` 设为 `'buffer'`，则返回的文件名是 `Buffer`。
+可选的 `options` 参数可以是指定编码的字符串，也可以是具有 `encoding` 属性的对象，该属性指定用于传递给回调的文件名的字符编码。 
+如果 `encoding` 设置为 `'buffer'`，则返回的文件名是 `Buffer` 对象。
 
-如果 `withFileTypes` 设为 `true`，则 `files` 数组中的元素是 [`fs.Dirent`]。
+如果 `options.withFileTypes` 设置为 `true`，则 `files` 数组将包含 [`fs.Dirent`] 对象。
 

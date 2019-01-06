@@ -19,13 +19,13 @@ changes:
   * `input` {string|Buffer|TypedArray|DataView} 传入衍生进程的 stdin。指定该值会覆盖 `stdio[0]`。
   * `stdio` {string|Array} 子进程的 stdio 配置。`stderr` 默认会输出到父进程的 stderr，除非指定了 `stdio`。默认为 `'pipe'`。
   * `env` {Object} 环境变量键值对。
-  * `shell` {string} 执行命令的 shell。参见 [Shell的要求][Shell Requirements]与 [Windows默认的Shell][Default Windows Shell]。
+  * `shell` {string} 执行命令的 shell。参阅 [Shell的要求][Shell Requirements]与 [Windows默认的Shell][Default Windows Shell]。
      在 UNIX 上默认为 `'/bin/sh'`，在 Windows 上默认为 `process.env.ComSpec`。
-  * `uid` {number} 进程的用户标识。参见 setuid(2)。
-  * `gid` {number} 进程的群组标识。参见 setgid(2)。
+  * `uid` {number} 进程的用户标识。参阅 setuid(2)。
+  * `gid` {number} 进程的群组标识。参阅 setgid(2)。
   * `timeout` {number} 允许进程运行的最长时间，以毫秒为单位。默认为 `undefined`。
   * `killSignal` {string|integer} 用于杀死衍生进程的信号。默认为 `'SIGTERM'`。
-  * `maxBuffer` {number} stdout 或 stderr 允许的最大字节数。如果超过限制，则子进程会终止。参见 [maxBuffer与Unicode][`maxBuffer` and Unicode]。默认为 `200*1024`。
+  * `maxBuffer` {number} stdout 或 stderr 允许的最大字节数。如果超过限制，则子进程会终止。参阅 [maxBuffer与Unicode][`maxBuffer` and Unicode]。默认为 `200*1024`。
   * `encoding` {string} 用于 stdio 输入和输出的字符编码。默认为 `'buffer'`。
   * `windowsHide` {boolean} 是否隐藏子进程的控制台窗口。默认为 `false`。
 * 返回: {Buffer|string} 命令的 stdout。

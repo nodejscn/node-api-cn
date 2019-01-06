@@ -5,6 +5,7 @@ added: v0.8.6
 * `fd` {integer}
 * `len` {integer} 默认为 `0`。
 
-同步的 ftruncate(2)。返回 `undefined`。
-详见异步版本的接口 [`fs.ftruncate()`]。
+返回 `undefined`。
+
+有关详细信息，请参阅此API的异步版本的文档：[`fs.ftruncate()`]。
 

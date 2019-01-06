@@ -9,7 +9,7 @@ changes:
 * {Object}
 
 返回用户的环境信息。
-参见 environ(7)。
+参阅 environ(7)。
 
 返回的对象类似如下：
 

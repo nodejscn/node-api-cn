@@ -20,8 +20,8 @@ changes:
   * `stdio` {Array|string} 详见 `child_process.spawn()` 的 [`stdio`]。如果指定了该选项，则覆盖 `silent` 选项。
     如果使用数组，则必须包含一个值为 `'ipc'` 的元素，否则会抛出错误。例如 `[0, 1, 2, 'ipc']`。
   * `windowsVerbatimArguments` {boolean} 在 Windows 上是否为参数加引号或转义。默认为 `false`。
-  * `uid` {number} 进程的用户标识，参见 setuid(2)。
-  * `gid` {number} 进程的群组标识，参见 setgid(2)。
+  * `uid` {number} 进程的用户标识，参阅 setuid(2)。
+  * `gid` {number} 进程的群组标识，参阅 setgid(2)。
 * 返回: {ChildProcess}
 
 `child_process.fork()` 是 [`child_process.spawn()`] 的一个特殊情况，用于专门衍生新的 Node.js 进程。

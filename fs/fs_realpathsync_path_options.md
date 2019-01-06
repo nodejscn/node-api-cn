@@ -22,6 +22,7 @@ changes:
   * `encoding` {string} 默认为 `'utf8'`。
 * 返回: {string|Buffer}
 
-返回解析的路径。
+返回已解析的路径名。
 
-详见异步的方法 [`fs.realpath()`]。
+有关详细信息，请参阅此 API 的异步版本的文档：[`fs.realpath()`]。
+

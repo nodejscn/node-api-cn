@@ -21,8 +21,9 @@ changes:
 * `callback` {Function}
   * `err` {Error}
 
-改变文件描述符所指向的对象的文件系统时间戳。
-详见 [`fs.utimes()`]。
+更改文件描述符指向的对象的文件系统时间戳。
+参阅 [`fs.utimes()`]。
 
-该函数不支持 AIX 7.1 以下版本，在 AIX 7.1 以下版本会返回 `UV_ENOSYS` 错误。
+此函数在 7.1 之前的 AIX 版本上不起作用，它将返回 `UV_ENOSYS` 错误。
+
 

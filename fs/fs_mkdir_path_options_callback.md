@@ -22,22 +22,21 @@ changes:
 * `path` {string|Buffer|URL}
 * `options` {Object|integer}
   * `recursive` {boolean} 默认为 `false`。
-  * `mode` {integer} 不支持 Windows 平台。默认为 `0o777`。
+  * `mode` {integer} Windows 上不支持。默认为 `0o777`。
 * `callback` {Function}
   * `err` {Error}
 
 异步地创建目录。
 除了可能的异常，完成回调没有其他参数。
 
-如果 `options` 是一个整数，则指定文件的模式（权限）。
-如果 `options` 是一个对象，则 `recursive` 指定是否创建父目录。
+可选的 `options` 参数可以是整数型，指定模式（权限和粘滞位）；也可以是对象，具有 `mode` 属性和指示是否应创建父文件夹的 `recursive` 属性。
 
 ```js
-// 创建 /tmp/a/apple 目录，不管 `/tmp` 和 /tmp/a 目录是否存在。
+// 创建 /tmp/a/apple 目录，无论是否存在 `/tmp` 和 /tmp/a 目录。
 fs.mkdir('/tmp/a/apple', { recursive: true }, (err) => {
   if (err) throw err;
 });
 ```
 
-参见 mkdir(2)。
+另见 mkdir(2)。
 

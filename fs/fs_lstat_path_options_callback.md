@@ -21,12 +21,12 @@ changes:
 
 * `path` {string|Buffer|URL}
 * `options` {Object}
-  * `bigint` {boolean} [`fs.Stats`] 对象返回的数值是否为长整数型。默认为 `false`。
+  * `bigint` {boolean} 返回的 [`fs.Stats`] 对象中的数值是否应为 `bigint` 型。默认为 `false`。
 * `callback` {Function}
   * `err` {Error}
   * `stats` {fs.Stats}
 
 异步的 lstat(2)。
-回调有两个参数 `(err, stats)`，其中 `stats` 是一个 [`fs.Stats`] 对象。
-`lstat()` 与 [`stat()`] 的区别是，如果 `path` 是一个符号链接，则链接指向自身而不是文件。
+回调有两个参数 `(err, stats)`，其中 `stats` 是 [`fs.Stats`] 对象。
+`lstat()` 与 [`stat()`] 相同，只是如果 `path` 是符号链接，则查看的是链接自身，而不是它指向的文件。
 

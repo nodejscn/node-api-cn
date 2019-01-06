@@ -29,9 +29,9 @@ changes:
 * `callback` {Function}
   * `err` {Error}
 
-改变 `path` 所指向的对象的文件系统时间戳。
+更改 `path` 指向的对象的文件系统时间戳。
 
-参数 `atime` 和 `mtime` 遵循以下规则：
-- 值可以是 Unix 时间戳数值、`Date` 对象、或数值字符串如 `'123456789.0'`。
-- 如果值不能被转换为数值，或值是 `NaN` 、 `Infinity` 或 `-Infinity`，则会抛出错误。
+`atime` 和 `mtime` 参数遵循以下规则：
+- 值可以是表示 Unix 纪元时间的数字、`Date` 对象、或类似 `'123456789.0'` 的数值字符串。
+- 如果该值无法转换为数值、或值为 `NaN`、`Infinity` 或 `-Infinity`，则抛出错误。
 

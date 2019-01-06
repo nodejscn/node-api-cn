@@ -21,47 +21,45 @@ changes:
   * `err` {Error}
   * `folder` {string}
 
-创建临时目录。
+创建一个唯一的临时目录。
 
-生成六位随机字符附加到要求的 `prefix` 后面，然后创建一个唯一的临时目录。
+生成要附加在必需的 `prefix` 后面的六位随机字符，以创建唯一的临时目录。
 
-创建的目录路径会作为字符串传给回调的第二个参数。
+创建的目录路径作为字符串传给回调的第二个参数。
 
-`options` 参数可以是一个字符串，指定字符编码。
-也可以是一个对象，其中 `encoding` 属性指定字符编码。
+可选的 `options` 参数可以是指定字符编码的字符串，也可以是具有指定要使用的字符编码的 `encoding` 属性的对象。
 
-例子：
 
 ```js
 fs.mkdtemp(path.join(os.tmpdir(), '目录-'), (err, folder) => {
   if (err) throw err;
   console.log(folder);
-  // 打印: /tmp/目录-itXde2 或 C:\Users\...\AppData\Local\Temp\目录-itXde2
+  // 输出: /tmp/目录-itXde2 或 C:\Users\...\AppData\Local\Temp\目录-itXde2
 });
 ```
 
-`fs.mkdtemp()` 会直接附加六位随机选择的字符串到 `prefix` 字符串。
-例如，指定目录 `/tmp`，如果要在 `/tmp` 里面创建临时目录，则 `prefix` 必须在结尾加上指定平台的路径分隔符（`require('path').sep`）。
+`fs.mkdtemp()` 方法将六位随机选择的字符直接附加到 `prefix` 字符串。
+例如，给定目录 `/tmp`，如果打算在 `/tmp` 中创建临时目录，则 `prefix` 必须在尾部加上特定平台的路径分隔符（`require('path').sep`）。
 
 ```js
-// 新建的临时目录的父目录。
+// 新的临时目录的父目录。
 const tmpDir = os.tmpdir();
 
-// 该使用方法是错误的：
+// 此用法是错误的：
 fs.mkdtemp(tmpDir, (err, folder) => {
   if (err) throw err;
   console.log(folder);
-  // 会打印 `/tmpabc123`。
-  // 新的临时目录会被创建到文件系统的根目录，而不是在 /tmp 目录里。
+  // 输出类似 `/tmpabc123`。
+  // 新的临时目录会被创建在文件系统根目录，而不是在 /tmp 目录中。
 });
 
-// 该使用方法才是正确的：
+// 此用法是正确的：
 const { sep } = require('path');
 fs.mkdtemp(`${tmpDir}${sep}`, (err, folder) => {
   if (err) throw err;
   console.log(folder);
-  // 会打印于 `/tmp/abc123`。
-  // 新的临时目录会被创建在 /tmp 目录里。
+  // 输出类似 `/tmp/abc123`。
+  // 新的临时目录会被创建在 /tmp 目录中。
 });
 ```
 

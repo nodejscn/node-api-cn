@@ -30,7 +30,7 @@ changes:
   * `err` {Error}
   * `data` {string|Buffer}
 
-异步地读取文件的内容。
+异步地读取文件的全部内容。
 
 ```js
 fs.readFile('/etc/passwd', (err, data) => {
@@ -39,19 +39,19 @@ fs.readFile('/etc/passwd', (err, data) => {
 });
 ```
 
-`callback` 有两个参数 `(err, data)`，其中 `data` 是文件的内容。
+回调有两个参数 `(err, data)`，其中 `data` 是文件的内容。
 
 如果没有指定 `encoding`，则返回原始的 buffer。
 
-如果 `options` 是一个字符串，则指定字符编码：
+如果 `options` 是字符串，则它指定字符编码：
 
 ```js
 fs.readFile('/etc/passwd', 'utf8', callback);
 ```
 
-如果 `path` 是一个目录，则 `fs.readFile()` 与 [`fs.readFileSync()`] 的行为因平台而异。
-在 macOS、Linux 与 Windows 上，会返回错误。
-在 FreeBSD 上，会返回目录内容的描述。
+当 `path` 是目录时，`fs.readFile()` 与 [`fs.readFileSync()`] 的行为是特定于平台的。
+在 macOS、Linux 与 Windows 上，将返回错误。
+在 FreeBSD 上，将返回目录内容的表示。
 
 ```js
 // 在 macOS、Linux 与 Windows 上：
@@ -65,6 +65,6 @@ fs.readFile('<目录>', (err, data) => {
 });
 ```
 
-`fs.readFile()` 会缓存整个文件。
-为了最小化内存占用，尽可能优先使用 `fs.createReadStream()`。
+`fs.readFile()` 函数缓冲整个文件。
+为了最大限度地降低内存成本，尽可能通过 `fs.createReadStream()` 进行流式传输。
 

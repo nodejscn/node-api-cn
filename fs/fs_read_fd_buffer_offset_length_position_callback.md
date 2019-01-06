@@ -25,16 +25,16 @@ changes:
 
 从 `fd` 指定的文件中读取数据。
 
-`buffer` 指定要写入数据的 buffer。
+`buffer` 是数据写入的缓冲区。
 
-`offset` 指定 buffer 中开始写入的偏移量。
+`offset` 是缓冲区中开始写入的偏移量。
 
-`length` 指定要读取的字节数。
+`length` 是一个整数，指定要读取的字节数。
 
-`position` 指定文件中开始读取的偏移量。
-如果 `position` 为 `null`，则从文件的当前位置开始读取。
+`position` 参数指定从文件中开始读取的位置。
+如果 `position` 为 `null`，则从当前文件位置读取数据，并更新文件位置。
 
-`callback` 有三个参数 `(err, bytesRead, buffer)`。
+回调有三个参数 `(err, bytesRead, buffer)`。
 
-如果使用 [`util.promisify()`] 版本，则 `Promise` 返回一个包含 `bytesRead` 和 `buffer` 的对象。
+如果调用此方法的 [`util.promisify()`] 版本，则返回的 `Promise` 会返回具有 `bytesRead` 属性和 `buffer` 属性的对象。
 

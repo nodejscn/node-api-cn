@@ -2,40 +2,38 @@
 added: v8.5.0
 -->
 
-* `src` {string|Buffer|URL} 拷贝的来源文件名。
-* `dest` {string|Buffer|URL} 拷贝的目标文件名。
-* `flags` {number} 拷贝操作的修饰符。默认为 `0`。
+* `src` {string|Buffer|URL} 要拷贝的源文件名。
+* `dest` {string|Buffer|URL} 拷贝操作的目标文件名。
+* `flags` {number} 用于拷贝操作的修饰符。默认为 `0`。
 
 同步地将 `src` 拷贝到 `dest`。
-默认情况下，如果 `dest` 已存在则覆盖文件。
+默认情况下，如果 `dest` 已经存在，则会被覆盖。
 返回 `undefined`。
-Node.js 不能保证拷贝操作的原子性。
-如果目标文件打开后发生错误，则 Node.js 会删除文件。
+Node.js 不保证拷贝操作的原子性。
+如果在打开目标文件进行写入后发生错误，Node.js 将尝试删除目标文件。
 
-`flags` 指定拷贝操作的行为。
-可以使用两个或更多个值进行位或操作来创建掩码（比如 `fs.constants.COPYFILE_EXCL | fs.constants.COPYFILE_FICLONE`）。
+`flags` 是一个可选的整数，指定拷贝操作的行为。
+可以创建由两个或多个值的按位或组成的掩码（比如 `fs.constants.COPYFILE_EXCL | fs.constants.COPYFILE_FICLONE`）。
 
-* `fs.constants.COPYFILE_EXCL` - 如果 `dest` 已存在，则拷贝失败。
-* `fs.constants.COPYFILE_FICLONE` - 拷贝时会创建写时拷贝（copy-on-write）链接。
-  如果平台不支持写时拷贝，则使用后备的拷贝机制。
-* `fs.constants.COPYFILE_FICLONE_FORCE` - 拷贝时会创建写时拷贝链接。
-  如果平台不支持写时拷贝，则拷贝失败。
+* `fs.constants.COPYFILE_EXCL` - 如果 `dest` 已存在，则拷贝操作将失败。
+* `fs.constants.COPYFILE_FICLONE` - 拷贝操作将尝试创建写时拷贝（copy-on-write）链接。如果平台不支持写时拷贝，则使用后备的拷贝机制。
+* `fs.constants.COPYFILE_FICLONE_FORCE` - 拷贝操作将尝试创建写时拷贝链接。如果平台不支持写时拷贝，则拷贝操作将失败。
 
 ```js
 const fs = require('fs');
 
-// 默认情况下，目标文件会被创建或覆盖。
-fs.copyFileSync('来源文件.txt', '目标文件.txt');
-console.log('来源文件已拷贝到目标文件');
+// 默认情况下将创建或覆盖目标文件。
+fs.copyFileSync('源文件.txt', '目标文件.txt');
+console.log('源文件已拷贝到目标文件');
 ```
 
-如果第三个参数是一个数值，则指定 `flags`:  
+如果第三个参数是数字，则它指定 `flags`:  
 
 ```js
 const fs = require('fs');
 const { COPYFILE_EXCL } = fs.constants;
 
-// 因为使用了 COPYFILE_EXCL，如果目标文件已存在，则拷贝失败。
-fs.copyFileSync('来源文件.txt', '目标文件.txt', COPYFILE_EXCL);
+// 通过使用 COPYFILE_EXCL，如果目标文件存在，则操作将失败。
+fs.copyFileSync('源文件.txt', '目标文件.txt', COPYFILE_EXCL);
 ```
 

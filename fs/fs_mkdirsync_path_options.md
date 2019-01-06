@@ -14,11 +14,11 @@ changes:
 * `path` {string|Buffer|URL}
 * `options` {Object|integer}
   * `recursive` {boolean} 默认为 `false`。
-  * `mode` {integer} 不支持 Windows 平台。默认为 `0o777`。
+  * `mode` {integer} Windows 上不支持。默认为 `0o777`。
 
 同步地创建目录。
 返回 `undefined`。
 [`fs.mkdir()`] 的同步版本。
 
-参见 mkdir(2)。
+另见 mkdir(2)。
 

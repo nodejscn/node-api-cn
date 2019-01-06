@@ -1,14 +1,14 @@
 
-以下常量用于 [`fs.Stats`] 对象的 `mode` 属性，用来决定文件的类型。
+以下常量适用于 [`fs.Stats`] 对象的 `mode` 属性，用于决定文件的类型。
 
 <table>
   <tr>
     <th>常量</th>
-    <th>描述</th>
+    <th>说明</th>
   </tr>
   <tr>
     <td><code>S_IFMT</code></td>
-    <td>用于提取文件类型码的位掩码。</td>
+    <td>用于提取文件类型代码的位掩码。</td>
   </tr>
   <tr>
     <td><code>S_IFREG</code></td>
@@ -36,7 +36,7 @@
   </tr>
   <tr>
     <td><code>S_IFSOCK</code></td>
-    <td>表示 socket。</td>
+    <td>表示套接字。</td>
   </tr>
 </table>
 

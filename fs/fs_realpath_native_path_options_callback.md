@@ -13,11 +13,13 @@ added: v9.2.0
 
 `callback` 有两个参数 `(err, resolvedPath)`。
 
-只支持可转换成 UTF8 字符串的路径。
 
-`options` 参数用于传入回调的路径，它可以是一个字符串并指定一个字符编码，或是一个对象且由一个 `encoding` 属性指定使用的字符编码。
-如果 `encoding` 设为 `'buffer'`，则返回的路径会被作为 `Buffer` 对象传入。
+仅支持可转换为 UTF8 字符串的路径。
 
+可选的 `options` 参数可以是指定编码的字符串，也可以是具有 `encoding` 属性的对象，该属性指定用于传递给回调的路径的字符编码。
+如果 `encoding` 设置为 `'buffer'`，则返回的路径将作为 `Buffer` 对象传入。
 
+在 Linux 上，当 Node.js 与 musl libc 链接时，procfs 文件系统必须挂载在 `/proc` 上才能使此功能正常工作。 
+Glibc 没有这个限制。
 
 

@@ -10,5 +10,5 @@
 发生错误后，`'exit'` 事件可能会也可能不会触发。
 如果同时监听了 `'exit'` 和 `'error'` 事件，可能会多次调用处理函数。
 
-参见 [`subprocess.kill()`] 和 [`subprocess.send()`]。
+参阅 [`subprocess.kill()`] 和 [`subprocess.send()`]。
 

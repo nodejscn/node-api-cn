@@ -18,14 +18,14 @@ changes:
   * `cwd` {string} 子进程的当前工作目录。
   * `env` {Object} 环境变量键值对。
   * `argv0` {string} 发送给子进程的 `argv[0]` 的值。如果没有指定，则设为 `command` 的值。
-  * `stdio` {Array|string} 子进程的 stdio 配置。参见 [`options.stdio`][`stdio`]。
-  * `detached` {boolean} 子进程是否独立于父进程运行。参见 [`options.detached`]。
-  * `uid` {number} 进程的用户标识。参见 setuid(2)。
-  * `gid` {number} 进程的群组标识。参见 setgid(2)。
+  * `stdio` {Array|string} 子进程的 stdio 配置。参阅 [`options.stdio`][`stdio`]。
+  * `detached` {boolean} 子进程是否独立于父进程运行。参阅 [`options.detached`]。
+  * `uid` {number} 进程的用户标识。参阅 setuid(2)。
+  * `gid` {number} 进程的群组标识。参阅 setgid(2)。
   * `shell` {boolean|string} 如果设为 `true`，则在 shell 中运行 `command`。
      在 UNIX 上使用 `'/bin/sh'`，在 Windows 上使用 `process.env.ComSpec`。
      传入字符串则指定其他 `shell`。
-     参见 [Shell的要求][Shell Requirements]与 [Windows默认的Shell][Default Windows Shell]。
+     参阅 [Shell的要求][Shell Requirements]与 [Windows默认的Shell][Default Windows Shell]。
      默认为 `false`（没有 shell）。
   * `windowsVerbatimArguments` {boolean} 在 Windows 上是否为参数加引号或转义。如果指定了 `shell`，则自动设为 `true`。默认为 `false`。
   * `windowsHide` {boolean} 是否隐藏子进程的控制台窗口。默认为 `false`。

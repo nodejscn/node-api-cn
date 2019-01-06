@@ -9,7 +9,7 @@ changes:
 
 * `fd` {integer}
 * `options` {Object}
-  * `bigint` {boolean} [`fs.Stats`] 对象返回的数值是否为长整数型。默认为 `false`。
+  * `bigint` {boolean} 返回的 [`fs.Stats`] 对象中的数值是否应为 `bigint` 型。默认为 `false`。
 * 返回: {fs.Stats}
 
 

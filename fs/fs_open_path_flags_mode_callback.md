@@ -12,21 +12,21 @@ changes:
 
 * `path` {string|Buffer|URL}
 * `flags` {string|number} 请参阅[文件系统标志的支持][support of file system `flags`]。
-* `mode` {integer} 默认为 `0o666`（可读可写）。
+* `mode` {integer} 默认为 `0o666`（可读写）。
 * `callback` {Function}
   * `err` {Error}
   * `fd` {integer}
 
-异步地打开文件。参见 open(2)。
+异步地打开文件。参阅 open(2)。
 
-`mode` 指定文件的模式（权限），但仅在创建文件时有效。
-在 Windows 上，只能使用写入权限。
-参见 [`fs.chmod()`]。
+`mode` 设置文件模式（权限和粘滞位），但仅限于创建文件的情况。 
+在 Windows 上，只能操作写权限。
+参阅 [`fs.chmod()`]。
 
-`callback` 有两个参数 `(err, fd)`。
+回调有两个参数 `(err, fd)`。
 
-有些字符 (如 `< > : " / \ | ? *`) 在 Windows 上是保留的，参见[命名文件、路径、命名空间][Naming Files, Paths, and Namespaces]。 
-在 NTFS 上，如果文件名包含冒号，则 Node.js 会打开一个文件流，参见 [MSDN文档][MSDN-Using-Streams]。
+有些字符 (如 `< > : " / \ | ? *`) 在 Windows 上是保留的，参阅[命名文件、路径以及命名空间][Naming Files, Paths, and Namespaces]。 
+在 NTFS 上，如果文件名包含冒号，则 Node.js 将打开文件系统流，参阅[此 MSDN 文档][MSDN-Using-Streams]。
 
-基于 `fs.open()` 的方法也有以上特性，比如 `fs.writeFile()`、`fs.readFile()` 等。
+基于 `fs.open()` 的函数也表现出以上行为，比如 `fs.writeFile()`、`fs.readFile()` 等。
 
