@@ -6,9 +6,8 @@ added: v8.0.0
 
 * {Object}
 
-The object that acts as the namespace for all W3C
-[WebAssembly][webassembly-org] related functionality. See the
-[Mozilla Developer Network][webassembly-mdn] for usage and compatibility.
+作为所有 W3C [WebAssembly][webassembly-org] 相关功能的命名空间的对象。 
+有关使用和兼容性，请参阅 [Mozilla 开发者网站][webassembly-mdn]。
 
 
 

@@ -4,5 +4,5 @@ added: v0.0.1
 
 <!-- type=global -->
 
-详见 [`setInterval`] 文档。
+[`setInterval`] 在[定时器][timers]章节中描述。
 

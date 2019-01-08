@@ -1,11 +1,8 @@
 
-系统调用（例如 open(2) 与 read(2)）定义了用户程序和底层操作系统之间的接口。
-Node.js 函数只是简单地封装了系统调用，例如 [`fs.open()`]。
-相应的帮助文档会描述系统调用是如何工作的。
+像 open(2) 和 read(2) 这样的系统调用定义了用户程序和底层操作系统之间的接口。 
+Node.js 函数简单地封装了系统调用，例如 [`fs.open()`]。 
+相应的帮助文档描述了系统调用的工作方式。
 
-有些系统调用（例如 lchown(2)）是 BSD 系统特有的。
-这意味着 [`fs.lchown()`] 只适用于 macOS 和其他 BSD 衍生系统，在 Linux 上不可用。
-
-大部分 Unix 系统调用都有对应的 Windows 版本，但 Windows 版本运行起来可能与 Linux 和 macOS 的有些差异。
-有些 Unix 系统调用无法在 Windows 中找到对应的操作语义，详见[问题4760]。
+大多数 Unix 系统调用都有 Windows 等价物，但 Windows 相对于 Linux 和 macOS 的行为可能不同。 
+有关在 Windows 上有时无法替换 Unix 系统调用语义的微妙方法的示例，请参阅 Node.js 的[讨论贴](https://github.com/nodejs/node/issues/4760)。
 

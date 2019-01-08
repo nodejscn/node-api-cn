@@ -4,5 +4,5 @@ added: v0.0.1
 
 <!--type=global-->
 
-详见 [`clearInterval`] 文档。
+[`clearInterval`] 在[定时器][timers]章节中描述。
 

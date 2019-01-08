@@ -7,8 +7,8 @@ changes:
                  character instead of one for each individual byte.
 -->
 
-* `buffer` {Buffer} 包含待解码字节的 `Buffer`。
+* `buffer` {Buffer|TypedArray|DataView} 包含要解码的字节的 `Buffer`、`TypedArray` 或 `DataView`。
 * 返回: {string}
 
-返回一个解码后的字符串，并确保返回的字符串不包含 `Buffer` 末尾残缺的多字节字符，残缺的多字节字符会被保存在一个内部的 buffer 中用于下次调用 `stringDecoder.write()` 或 `stringDecoder.end()`。
+返回一个已解码的字符串，确保在返回的字符串不包含 `Buffer`、`TypedArray` 或 `DataView` 末尾的任何不完整的多字节字符，并将其存储在内部缓冲区中，以便下次调用 `stringDecoder.write()` 或 `stringDecoder.end()`。
 

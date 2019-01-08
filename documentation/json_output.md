@@ -2,7 +2,10 @@
 added: v0.6.12
 -->
 
-> 稳定性: 1 - 试验的
+> Stability: 1 - Experimental
 
-该特性是试验的，用于 IDE 或其他希望利用本文档做程序化工作的工具。
+Every `.html` document has a corresponding `.json` document presenting
+the same information in a structured manner. This feature is
+experimental, and added for the benefit of IDEs and other utilities that
+wish to do programmatic things with the documentation.
 
