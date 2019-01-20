@@ -4,9 +4,7 @@ added: v0.4.0
 
 * `name` {string}
 
-从隐式发送的队列中移除一个响应头。
-
-例子：
+移除排队等待中的隐式发送的响应头。
 
 ```js
 response.removeHeader('Content-Encoding');
