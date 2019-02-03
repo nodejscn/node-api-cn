@@ -1,5 +1,5 @@
 
-例子，从一个文件系统[可读流]中每次一行地消耗输入：
+`readline` 的一个常见用例是每次一行地从文件系统[可读流][Readable]消费输入：
 
 ```js
 const readline = require('readline');
@@ -11,7 +11,7 @@ const rl = readline.createInterface({
 });
 
 rl.on('line', (line) => {
-  console.log(`文件的单行内容：${line}`);
+  console.log(`文件的每行内容：${line}`);
 });
 ```
 

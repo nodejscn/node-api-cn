@@ -2,20 +2,18 @@
 added: v0.7.5
 -->
 
-当一个 Node.js 进程使用 `<ctrl>-Z`（也就是 `SIGTSTP`）移入后台之后再使用 fg(1p) 移回前台时，触发 `'SIGCONT'` 事件。
+当先前使用 `<ctrl>-Z`（即 `SIGTSTP`）移入后台的 Node.js 进程使用 fg(1p) 返回到前台时，就会触发 `'SIGCONT'` 事件。
 
-如果 `input` 流在 `SIGTSTP` 请求之前被暂停，则事件不会被触发。
+如果 `input` 流在 `SIGTSTP` 请求之前被暂停，则不会触发此事件。
 
-监听器函数被调用时不传入任何参数。
-
-例子：
+调用监听器函数时不传入任何参数。
 
 ```js
 rl.on('SIGCONT', () => {
-  // `prompt` 会自动恢复流
+  // `prompt` 将自动恢复流。
   rl.prompt();
 });
 ```
 
-注意：Windows 系统不支持 `'SIGCONT'` 事件。
+Windows 上不支持 `'SIGCONT'` 事件。
 
