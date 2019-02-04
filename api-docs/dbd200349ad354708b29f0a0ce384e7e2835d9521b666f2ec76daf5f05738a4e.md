@@ -2,9 +2,9 @@
 added: v8.3.0
 -->
 
-* `label` {string} 计数器的显示标签。 默认为 `'default'`。
+* `label` {string} 计数器的显示标签。**默认值:** `'default'`。
 
-维护一个指定 `label` 的内部计数器并且输出到 `stdout` 指定 `label` 调用 `console.count()` 的次数。
+维护一个特定于 `label` 的内部计数器，并将用给定 `label` 调用 `console.count()` 的次数输出到 `stdout`。
 
 <!-- eslint-skip -->
 ```js

@@ -2,6 +2,10 @@
 added: v8.3.0
 -->
 
-当 `stdout` 是一个 TTY 时，调用 `console.clear()` 将尝试清除 TTY。 当 `stdout` 不是一个TTY时，该方法什么都不做。
+当 `stdout` 是 TTY 时，调用 `console.clear()` 将尝试清除 TTY。 
+当 `stdout` 不是 TTY 时，此方法不执行任何操作。
 
-*注意*：`console.clear()` 的具体行为可能因操作系统和终端类型而异。 对于大多数Linux操作系统，`console.clear()` 与 `clear` shell 命令行为类似。 在Windows上，`console.clear()` 将只清除当前终端视图中Node.js二进制文件的输出。
+`console.clear()` 的具体操作可能因操作系统和终端类型而异。 
+对于大多数 Linux 操作系统，`console.clear()` 的操作与 `clear` 的 shell 命令类似。 
+在 Windows 上，`console.clear()` 将仅清除当前终端视图中 Node.js 二进制文件的输出。
+
