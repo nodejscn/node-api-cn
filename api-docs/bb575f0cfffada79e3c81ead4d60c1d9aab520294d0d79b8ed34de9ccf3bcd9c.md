@@ -11,5 +11,5 @@ changes:
 
 同步的 rmdir(2)。返回 `undefined`。
 
-在文件（而不是目录）上使用 `fs.rmdir()` 会导致在 Windows 上出现 `ENOENT` 错误、在 POSIX 上出现 `ENOTDIR` 错误。
+在文件（而不是目录）上使用 `fs.rmdirSync()` 会导致在 Windows 上出现 `ENOENT` 错误、在 POSIX 上出现 `ENOTDIR` 错误。
 
