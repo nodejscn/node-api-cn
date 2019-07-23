@@ -1,8 +1,8 @@
 
-当创建一个新的 `repl.REPLServer` 时，可以提供一个自定义的解释函数。
+当创建一个新的 [`repl.REPLServer`] 时，可以提供一个自定义的解释函数。
 这可以用于实现完全定制化的 REPL 应用。
 
-例子，一个执行文本翻译的 REPL：
+以下是 REPL 的一个假设的示例，执行从一种语言到另一种语言的文本转换：
 
 ```js
 const repl = require('repl');
