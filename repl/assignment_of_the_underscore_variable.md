@@ -1,0 +1,35 @@
+<!-- YAML
+changes:
+  - version: v9.8.0
+    pr-url: https://github.com/nodejs/node/pull/18919
+    description: Added `_error` support.
+-->
+
+默认的解释器会把最近一次解释的表达式的结果赋值给变量 `_` （下划线）。
+显式地设置 `_` 为某个值能禁用该特性。
+
+```console
+> [ 'a', 'b', 'c' ]
+[ 'a', 'b', 'c' ]
+> _.length
+3
+> _ += 1
+Expression assignment to _ now disabled.
+4
+> 1 + 1
+2
+> _
+4
+```
+
+同样，`_error` 将指向最后一次看到的错误（如果有的话）。 
+将 `_error` 显式设置为值将禁用此行为。
+
+```console
+> throw new Error('foo');
+Error: foo
+> _error.message
+'foo'
+```
+
+
