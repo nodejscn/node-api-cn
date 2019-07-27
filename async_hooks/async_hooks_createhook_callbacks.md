@@ -30,7 +30,7 @@ const asyncHook = async_hooks.createHook({
 });
 ```
 
-Note that the callbacks will be inherited via the prototype chain:
+The callbacks will be inherited via the prototype chain:
 
 ```js
 class MyAsyncCallbacks {

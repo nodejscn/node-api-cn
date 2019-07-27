@@ -17,6 +17,6 @@ const server = net.createServer((conn) => {
 });
 ```
 
-Note that promise contexts may not get valid `triggerAsyncId`s by default. See
+Promise contexts may not get valid `triggerAsyncId`s by default. See
 the section on [promise execution tracking][].
 

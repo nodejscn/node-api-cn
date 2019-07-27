@@ -3,7 +3,7 @@
 
 想要获得调用 `require()` 时加载的确切的文件名，使用 `require.resolve()` 函数。
 
-综上所述，以下用伪代码描述的高级算法，解释 `require.resolve()` 做了些什么：
+综上所述，以下用伪代码描述的高级算法，解释 `resolve()` 做了些什么：
 
 ```txt
 require(X) from module at path Y
@@ -32,13 +32,16 @@ LOAD_INDEX(X)
 LOAD_AS_DIRECTORY(X)
 1. If X/package.json is a file,
    a. Parse X/package.json, and look for "main" field.
-   b. let M = X + (json main field)
-   c. LOAD_AS_FILE(M)
-   d. LOAD_INDEX(M)
+   b. If "main" is a falsy value, GOTO 2.
+   c. let M = X + (json main field)
+   d. LOAD_AS_FILE(M)
+   e. LOAD_INDEX(M)
+   f. LOAD_INDEX(X) DEPRECATED
+   g. THROW "not found"
 2. LOAD_INDEX(X)
 
 LOAD_NODE_MODULES(X, START)
-1. let DIRS=NODE_MODULES_PATHS(START)
+1. let DIRS = NODE_MODULES_PATHS(START)
 2. for each DIR in DIRS:
    a. LOAD_AS_FILE(DIR/X)
    b. LOAD_AS_DIRECTORY(DIR/X)
@@ -46,7 +49,7 @@ LOAD_NODE_MODULES(X, START)
 NODE_MODULES_PATHS(START)
 1. let PARTS = path split(START)
 2. let I = count of PARTS - 1
-3. let DIRS = []
+3. let DIRS = [GLOBAL_FOLDERS]
 4. while I >= 0,
    a. if PARTS[I] = "node_modules" CONTINUE
    b. DIR = path join(PARTS[0 .. I] + "node_modules")

@@ -2,13 +2,12 @@
 added: v0.1.17
 -->
 
-* {Object}
+* {module}
 
-The `Module` object representing the entry script loaded when the Node.js
-process launched.
-See ["Accessing the main module"](#modules_accessing_the_main_module).
+`Module` 对象，表示当 Node.js 进程启动时加载的入口脚本。 
+参阅[访问主模块]。
 
-In `entry.js` script:
+在 `entry.js` 脚本中：
 
 ```js
 console.log(require.main);

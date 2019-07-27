@@ -1,10 +1,14 @@
 
+<!-- YAML
+added: v8.6.0
+-->
+
 * `asyncId` {number}
 
 Called when the `resolve` function passed to the `Promise` constructor is
 invoked (either directly or through other means of resolving a promise).
 
-Note that `resolve()` does not do any observable synchronous work.
+`resolve()` does not do any observable synchronous work.
 
 The `Promise` is not necessarily fulfilled or rejected at this point if the
 `Promise` was resolved by assuming the state of another `Promise`.

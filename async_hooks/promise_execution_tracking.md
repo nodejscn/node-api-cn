@@ -14,7 +14,7 @@ Promise.resolve(1729).then(() => {
 ```
 
 Observe that the `then()` callback claims to have executed in the context of the
-outer scope even though there was an asynchronous hop involved. Also note that
+outer scope even though there was an asynchronous hop involved. Also,
 the `triggerAsyncId` value is `0`, which means that we are missing context about
 the resource that caused (triggered) the `then()` callback to be executed.
 

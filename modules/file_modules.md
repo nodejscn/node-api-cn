@@ -4,7 +4,7 @@
 如果按确切的文件名没有找到模块，则 Node.js 会尝试带上 `.js`、`.json` 或 `.node` 拓展名再加载。
 
 `.js` 文件会被解析为 JavaScript 文本文件，`.json` 文件会被解析为 JSON 文本文件。
-`.node` 文件会被解析为通过 `dlopen` 加载的编译后的插件模块。
+`.node` 文件会被解析为通过 `process.dlopen()` 加载的编译后的插件模块。
 
 以 `'/'` 为前缀的模块是文件的绝对路径。
 例如，`require('/home/marco/foo.js')` 会加载 `/home/marco/foo.js` 文件。

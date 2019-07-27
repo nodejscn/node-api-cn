@@ -27,3 +27,7 @@ added: v6.3.0
 注意，使用 `--preserve-symlinks` 会有其他方面的影响。
 比如，如果符号连接的原生模块在依赖树里来自超过一个位置，它们会加载失败。
 （Node.js 会将它们视为两个独立的模块，且会试图多次加载模块，造成抛出异常。）
+
+`--preserve-symlinks` 标志不适用于主模块，它允许 `node --preserve-symlinks node_module/.bin/<foo>` 工作。 
+要对主模块应用相同的行为，也可使用 `--preserve-symlinks-main`。
+
