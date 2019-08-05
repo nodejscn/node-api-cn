@@ -1,5 +1,5 @@
 <!-- YAML
-added: v10.16.0
+added: v11.7.0
 -->
 
 Compress data using the Brotli algorithm.

@@ -3,13 +3,14 @@
 
 > 稳定性: 2 - 稳定
 
-`zlib`模块提供通过 Gzip 和 Deflate/Inflate 实现的压缩功能，可以通过这样使用它：
+`zlib` 模块提供通过 Gzip 和 Deflate/Inflate 实现的压缩功能，Brotli 也是如此。
+可以通过这样使用它：
 
 ```js
 const zlib = require('zlib');
 ```
 
-压缩或者解压数据流(例如一个文件)通过`zlib`流将源数据流传输到目标流中来完成。
+压缩或者解压数据流（例如一个文件）通过 `zlib` 流将源数据流传输到目标流中来完成。
 
 ```js
 const gzip = zlib.createGzip();
@@ -17,7 +18,14 @@ const fs = require('fs');
 const inp = fs.createReadStream('input.txt');
 const out = fs.createWriteStream('input.txt.gz');
 
-inp.pipe(gzip).pipe(out);
+inp.pipe(gzip)
+  .on('error', () => {
+    // 处理错误
+  })
+  .pipe(out)
+  .on('error', () => {
+    // 处理错误
+  });
 ```
 
 数据的压缩或解压缩也可以只用一个步骤完成：
@@ -28,7 +36,7 @@ zlib.deflate(input, (err, buffer) => {
   if (!err) {
     console.log(buffer.toString('base64'));
   } else {
-    // 错误处理
+    // 处理错误
   }
 });
 
@@ -37,7 +45,8 @@ zlib.unzip(buffer, (err, buffer) => {
   if (!err) {
     console.log(buffer.toString());
   } else {
-    // 错误处理
+    // 处理错误
   }
 });
 ```
+

@@ -4,7 +4,5 @@ added: v10.0.0
 
 * {number}
 
-The `zlib.bytesWritten` property specifies the number of bytes written to
-the engine, before the bytes are processed (compressed or decompressed,
-as appropriate for the derived class).
+`zlib.bytesWritten` 属性指定压缩引擎处理之前写入的字节数（压缩或者解压，适用于派生类）。
 

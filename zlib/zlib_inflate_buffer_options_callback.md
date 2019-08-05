@@ -13,6 +13,6 @@ changes:
 -->
 
 * `buffer` {Buffer|TypedArray|DataView|ArrayBuffer|string}
-* `options` {Object}
+* `options` {zlib options}
 * `callback` {Function}
 

@@ -12,6 +12,6 @@ changes:
     description: The `buffer` parameter can be an `Uint8Array` now.
 -->
 * `buffer` {Buffer|TypedArray|DataView|ArrayBuffer|string}
-* `options` {Object}
+* `options` {zlib options}
 * `callback` {Function}
 
