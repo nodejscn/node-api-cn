@@ -55,7 +55,7 @@ requests.
 
 The file descriptor is not closed when the stream is closed, so it will need
 to be closed manually once it is no longer needed.
-Note that using the same file descriptor concurrently for multiple streams
+Using the same file descriptor concurrently for multiple streams
 is not supported and may result in data loss. Re-using a file descriptor
 after a stream has finished is supported.
 

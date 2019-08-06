@@ -1,8 +1,7 @@
 
-> Stability: 2 - Stable
-
 <!-- YAML
 added: v10.6.0
+napiVersion: 4
 -->
 ```C
 NAPI_EXTERN napi_status

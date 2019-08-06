@@ -1,5 +1,7 @@
-
-> Stability: 2 - Stable
+<!-- YAML
+added: v10.6.0
+napiVersion: 4
+-->
 
 A value to be given to `napi_call_threadsafe_function()` to indicate whether
 the call should block whenever the queue associated with the thread-safe

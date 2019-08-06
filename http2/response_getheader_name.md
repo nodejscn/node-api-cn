@@ -6,7 +6,7 @@ added: v8.4.0
 * Returns: {string}
 
 Reads out a header that has already been queued but not sent to the client.
-Note that the name is case insensitive.
+The name is case-insensitive.
 
 ```js
 const contentType = response.getHeader('content-type');

@@ -1,5 +1,8 @@
 <!-- YAML
 changes:
+  - version: v11.0.0
+    pr-url: https://github.com/nodejs/node/pull/20722
+    description: End-of-Life.
   - version: v10.0.0
     pr-url: https://github.com/nodejs/node/pull/16393
     description: Runtime deprecation.
@@ -8,7 +11,7 @@ changes:
     description: Documentation-only deprecation.
 -->
 
-Type: Runtime
+Type: End-of-Life
 
 Using a property named `inspect` on an object to specify a custom inspection
 function for [`util.inspect()`][] is deprecated. Use [`util.inspect.custom`][]

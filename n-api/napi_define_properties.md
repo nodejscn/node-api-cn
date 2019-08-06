@@ -20,6 +20,6 @@ This method allows the efficient definition of multiple properties on a given
 object. The properties are defined using property descriptors (see
 [`napi_property_descriptor`][]). Given an array of such property descriptors,
 this API will set the properties on the object one at a time, as defined by
-`DefineOwnProperty()` (described in [Section 9.1.6][] of the ECMA262
+`DefineOwnProperty()` (described in [Section 9.1.6][] of the ECMA-262
 specification).
 

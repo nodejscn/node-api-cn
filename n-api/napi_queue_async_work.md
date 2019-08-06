@@ -13,5 +13,6 @@ napi_status napi_queue_async_work(napi_env env,
 Returns `napi_ok` if the API succeeded.
 
 This API requests that the previously allocated work be scheduled
-for execution.
+for execution. Once it returns successfully, this API must not be called again
+with the same `napi_async_work` item or the result will be undefined.
 

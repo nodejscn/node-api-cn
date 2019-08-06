@@ -1,15 +1,18 @@
 <!-- YAML
 changes:
+  - version: v12.0.0
+    pr-url: https://github.com/nodejs/node/pull/25138
+    description: This functionality has been removed.
   - version: v10.0.0
     pr-url: https://github.com/nodejs/node/pull/16392
     description: Runtime deprecation.
 -->
 
-Type: Runtime
+Type: End-of-Life
 
 Since Node.js versions 4.4.0 and 5.2.0, several modules only intended for
-internal usage are mistakenly exposed to user code through `require()`. These
-modules are:
+internal usage were mistakenly exposed to user code through `require()`. These
+modules were:
 
 - `v8/tools/codemap`
 - `v8/tools/consarray`

@@ -1,5 +1,8 @@
 <!-- YAML
 changes:
+  - version: v12.0.0
+    pr-url: https://github.com/nodejs/node/pull/25280
+    description: End-of-Life.
   - version:
     - v4.8.6
     - v6.12.0
@@ -10,9 +13,9 @@ changes:
     description: Runtime deprecation.
 -->
 
-Type: Runtime
+Type: End-of-Life
 
 The `os.getNetworkInterfaces()` method is deprecated. Please use the
-[`os.networkInterfaces`][] property instead.
+[`os.networkInterfaces()`][] method instead.
 
 <a id="DEP0024"></a>

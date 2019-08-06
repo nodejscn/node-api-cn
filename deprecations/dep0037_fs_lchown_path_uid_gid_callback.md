@@ -14,6 +14,8 @@ changes:
 
 Type: Deprecation revoked
 
-The [`fs.lchown(path, uid, gid, callback)`][] API is deprecated.
+The [`fs.lchown(path, uid, gid, callback)`][] API was deprecated. The
+deprecation was revoked because the requisite supporting APIs were added in
+libuv.
 
 <a id="DEP0038"></a>

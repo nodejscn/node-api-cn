@@ -1,3 +1,7 @@
+<!-- YAML
+added: v8.0.0
+napiVersion: 1
+-->
 ```C
 typedef struct {
   const char* error_message;

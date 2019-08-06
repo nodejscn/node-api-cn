@@ -1,5 +1,7 @@
-
-> Stability: 2 - Stable
+<!-- YAML
+added: v10.6.0
+napiVersion: 4
+-->
 
 Function pointer used with asynchronous thread-safe function calls. The callback
 will be called on the main thread. Its purpose is to use a data item arriving
@@ -25,7 +27,8 @@ typedef void (*napi_threadsafe_function_call_js)(napi_env env,
 - `[in] env`: The environment to use for API calls, or `NULL` if the thread-safe
 function is being torn down and `data` may need to be freed.
 - `[in] js_callback`: The JavaScript function to call, or `NULL` if the
-thread-safe function is being torn down and `data` may need to be freed.
+thread-safe function is being torn down and `data` may need to be freed. It may
+also be `NULL` if the thread-safe function was created without `js_callback`.
 - `[in] context`: The optional data with which the thread-safe function was
 created.
 - `[in] data`: Data created by the secondary thread. It is the responsibility of

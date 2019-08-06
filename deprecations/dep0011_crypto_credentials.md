@@ -1,5 +1,8 @@
 <!-- YAML
 changes:
+  - version: v11.0.0
+    pr-url: https://github.com/nodejs/node/pull/21153
+    description: End-of-Life.
   - version:
     - v4.8.6
     - v6.12.0
@@ -10,9 +13,9 @@ changes:
     description: Runtime deprecation.
 -->
 
-Type: Runtime
+Type: End-of-Life
 
-The `crypto.Credentials` class is deprecated. Please use [`tls.SecureContext`][]
+The `crypto.Credentials` class was removed. Please use [`tls.SecureContext`][]
 instead.
 
 <a id="DEP0012"></a>

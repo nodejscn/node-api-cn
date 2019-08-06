@@ -1,5 +1,8 @@
 <!-- YAML
 changes:
+  - version: v12.0.0
+    pr-url: https://github.com/nodejs/node/pull/27127
+    description: End-of-Life.
   - version:
     - v4.8.6
     - v6.12.0
@@ -10,9 +13,9 @@ changes:
     description: Runtime deprecation.
 -->
 
-Type: Runtime
+Type: End-of-Life
 
-The `Server.listenFD()` method is deprecated. Please use
+The `Server.listenFD()` method was deprecated and removed. Please use
 [`Server.listen({fd: <number>})`][] instead.
 
 <a id="DEP0022"></a>

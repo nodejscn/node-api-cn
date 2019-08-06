@@ -14,7 +14,7 @@ const server = http2.createServer({ settings });
 
 Once the client receives the `SETTINGS` frame from the server indicating that
 the extended CONNECT may be used, it may send `CONNECT` requests that use the
-`':protocol'`  HTTP/2 pseudo-header:
+`':protocol'` HTTP/2 pseudo-header:
 
 ```js
 const http2 = require('http2');

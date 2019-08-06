@@ -15,3 +15,6 @@ The given callback is registered as a listener on the `'timeout'` event.
 In case of no callback function were assigned, a new `ERR_INVALID_CALLBACK`
 error will be thrown.
 
+To change the default timeout use the [`--http-server-default-timeout`][]
+flag.
+
