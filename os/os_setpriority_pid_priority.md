@@ -2,21 +2,16 @@
 added: v10.10.0
 -->
 
-* `pid` {integer} The process ID to set scheduling priority for.
-  **Default** `0`.
-* `priority` {integer} The scheduling priority to assign to the process.
+* `pid` {integer} 为其设置调度优先级的进程 ID。**默认值** `0`。
+* `priority` {integer} 分配给进程的调度优先级。
 
-The `os.setPriority()` method attempts to set the scheduling priority for the
-process specified by `pid`. If `pid` is not provided, or is `0`, the priority
-of the current process is used.
+`os.setPriority()` 方法尝试为 `pid` 指定的进程设置调度优先级。 
+如果未提供 `pid` 或者为 `0`，则使用当前进程的优先级。
 
-The `priority` input must be an integer between `-20` (high priority) and `19`
-(low priority). Due to differences between Unix priority levels and Windows
-priority classes, `priority` is mapped to one of six priority constants in
-`os.constants.priority`. When retrieving a process priority level, this range
-mapping may cause the return value to be slightly different on Windows. To avoid
-confusion, it is recommended to set `priority` to one of the priority constants.
+`priority` 输入必须是 `-20`（高优先级）和 `19`（低优先级）之间的整数。 
+由于 Unix 优先级和 Windows 优先级之间的差异，`priority` 会被映射到 `os.constants.priority` 中的六个优先级常量之一。 
+当检索进程优先级时，此范围的映射可能导致 Windows 上的返回值略有不同。 
+为避免混淆，建议将 `priority` 设置为其中一个优先级常量。
 
-On Windows setting priority to `PRIORITY_HIGHEST` requires elevated user,
-otherwise the set priority will be silently reduced to `PRIORITY_HIGH`.
+在 Windows 上设置优先级为 `PRIORITY_HIGHEST` 需要提升用户，否则设置优先级将静默地降低到 `PRIORITY_HIGH`。
 

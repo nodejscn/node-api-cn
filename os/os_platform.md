@@ -2,11 +2,11 @@
 added: v0.5.0
 -->
 
-* Returns: {string}
+* 返回: {string}
 
-`os.platform()` 方法返回一个字符串, 指定Node.js编译时的操作系统平台
+`os.platform()` 方法返回一个字符串，指定 Node.js 编译时的操作系统平台。
 
-当前可能的值有:
+当前可能的值有：
 
 * `'aix'`
 * `'darwin'`
@@ -16,8 +16,9 @@ added: v0.5.0
 * `'sunos'`
 * `'win32'`
 
-等价于 [`process.platform`][].
+等价于 [`process.platform`]。
 
-*注意*: 如果Node.js 在Android操作系统上构建, `'android'`值
-可能被返回. 然而, Android支持Node.js在当前被认为是实验期.
+如果 Node.js 在 Android 操作系统上构建，则可能返回 `'android'` 值。
+但是，Node.js 中的 Android 支持目前被视为是[试验的][Android building]。
+
 

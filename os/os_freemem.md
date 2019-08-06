@@ -2,8 +2,7 @@
 added: v0.3.3
 -->
 
-* Returns: {integer}
+* 返回: {integer}
 
-`os.freemem()` 方法以整数的形式回空闲系统内存
-的字节数.
+`os.freemem()` 方法以整数的形式回空闲系统内存的字节数。
 

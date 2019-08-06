@@ -28,7 +28,7 @@ exports.circumference = (r) => 2 * PI * r;
 `circle.js` 模块导出了 `area()` 和 `circumference()` 函数。
 通过在特殊的 `exports` 对象上指定额外的属性，可以将函数和对象添加到模块的根部。
 
-模块内的本地变量是私有的，因为模块由 Node.js 封装在一个函数中（详见[模块封装器]）。
+模块内的本地变量是私有的，因为模块由 Node.js 封装在一个函数中（详见[模块封装器][module wrapper]）。
 在这个例子中，变量 `PI` 对 `circle.js` 是私有的。
 
 可以为 `module.exports` 属性分配新的值（例如函数或对象）。

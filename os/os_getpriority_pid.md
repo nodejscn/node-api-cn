@@ -2,11 +2,9 @@
 added: v10.10.0
 -->
 
-* `pid` {integer} The process ID to retrieve scheduling priority for.
-  **Default** `0`.
-* Returns: {integer}
+* `pid` {integer} 用于检索调度优先级的进程 ID。**默认值** `0`。
+* 返回: {integer}
 
-The `os.getPriority()` method returns the scheduling priority for the process
-specified by `pid`. If `pid` is not provided, or is `0`, the priority of the
-current process is returned.
+`os.getPriority()` 方法返回由 `pid` 指定的进程的调度优先级。 
+如果未提供 `pid` 或者为 `0`，则返回当前进程的优先级。
 

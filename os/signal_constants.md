@@ -5,7 +5,7 @@ changes:
     description: Added support for `SIGINFO`.
 -->
 
-下面的信号常量由 `os.constants.signals` 给出:
+下面的信号常量由 `os.constants.signals` 导出：
 
 <table>
   <tr>
@@ -14,148 +14,147 @@ changes:
   </tr>
   <tr>
     <td><code>SIGHUP</code></td>
-    <td>发送来表明当一个控制终端关闭或者是父进程退出.</td>
+    <td>发送来表明当一个控制终端关闭或者是父进程退出。</td>
   </tr>
   <tr>
     <td><code>SIGINT</code></td>
-    <td>发送来表明当一个用户期望中断一个进程时.
-    (`(Ctrl+C)`).</td>
+    <td>发送来表明当一个用户期望中断一个进程时。(<code>(Ctrl+C)</code>).</td>
   </tr>
   <tr>
     <td><code>SIGQUIT</code></td>
-    <td>发送来表明当一个用户希望终止一个进程并且执行核心转储.</td>
+    <td>发送来表明当一个用户希望终止一个进程并且执行核心转储。</td>
   </tr>
   <tr>
     <td><code>SIGILL</code></td>
-    <td>发送给一个进程来通知它已经试图执行一个非法的,畸形的,未知的或特权的指令.</td>
+    <td>发送给一个进程来通知它已经试图执行一个非法的、畸形的、未知的或特权的指令.</td>
   </tr>
   <tr>
     <td><code>SIGTRAP</code></td>
-    <td>发送给一个进程当异常已经发生了.</td>
+    <td>发送给一个进程当异常已经发生。</td>
   </tr>
   <tr>
     <td><code>SIGABRT</code></td>
-    <td>发送给一个进程来请求终止</td>
+    <td>发送给一个进程来请求终止。</td>
   </tr>
   <tr>
     <td><code>SIGIOT</code></td>
-    <td><code>SIGABRT</code>的同义词</td>
+    <td><code>SIGABRT</code> 的同义词</td>
   </tr>
   <tr>
     <td><code>SIGBUS</code></td>
-    <td>发送给一个进程来通知它已经造成了总线错误.</td>
+    <td>发送给一个进程来通知它已经造成了总线错误。</td>
   </tr>
   <tr>
     <td><code>SIGFPE</code></td>
-    <td>发送给一个进程来通知它已经执行了一个非法的算术操作.</td>
+    <td>发送给一个进程来通知它已经执行了一个非法的算术操作。</td>
   </tr>
   <tr>
     <td><code>SIGKILL</code></td>
-    <td>发送给一个进程来立即终止它.</td>
+    <td>发送给一个进程来立即终止它。</td>
   </tr>
   <tr>
     <td><code>SIGUSR1</code> <code>SIGUSR2</code></td>
-    <td>发送给一个进程来确定它的用户定义情况.</td>
+    <td>发送给一个进程来确定它的用户定义情况。</td>
   </tr>
   <tr>
     <td><code>SIGSEGV</code></td>
-    <td>发送给一个进程来通知段错误.</td>
+    <td>发送给一个进程来通知段错误。</td>
   </tr>
   <tr>
     <td><code>SIGPIPE</code></td>
-    <td>发送给一个进程当它试图写入一个非连接的管道时.</td>
+    <td>发送给一个进程当它试图写入一个非连接的管道时。</td>
   </tr>
   <tr>
     <td><code>SIGALRM</code></td>
-    <td>发送给一个进程当系统时钟消逝时.</td>
+    <td>发送给一个进程当系统时钟消逝时。</td>
   </tr>
   <tr>
     <td><code>SIGTERM</code></td>
-    <td>发送给一个进程来请求终止.</td>
+    <td>发送给一个进程来请求终止。</td>
   </tr>
   <tr>
     <td><code>SIGCHLD</code></td>
-    <td>发送给一个进程当一个子进程终止时.</td>
+    <td>发送给一个进程当一个子进程终止时。</td>
   </tr>
   <tr>
     <td><code>SIGSTKFLT</code></td>
-    <td>发送给一个进程来表明一个协处理器的栈错误.</td>
+    <td>发送给一个进程来表明一个协处理器的栈错误。</td>
   </tr>
   <tr>
     <td><code>SIGCONT</code></td>
-    <td>发送来通知操作系统继续一个暂停的进程.</td>
+    <td>发送来通知操作系统继续一个暂停的进程。</td>
   </tr>
   <tr>
     <td><code>SIGSTOP</code></td>
-    <td>发送来通知操作系统暂停一个进程.</td>
+    <td>发送来通知操作系统暂停一个进程。</td>
   </tr>
   <tr>
     <td><code>SIGTSTP</code></td>
-    <td>发送给一个进程来请求它停止.</td>
+    <td>发送给一个进程来请求它停止。</td>
   </tr>
   <tr>
     <td><code>SIGBREAK</code></td>
-    <td>发送来表明当一个用户希望终止一个进程.</td>
+    <td>发送来表明当一个用户希望终止一个进程。</td>
   </tr>
   <tr>
     <td><code>SIGTTIN</code></td>
-    <td>发送给一个进程当它在后台读取TTY时.</td>
+    <td>发送给一个进程当它在后台读取 TTY 时。</td>
   </tr>
   <tr>
     <td><code>SIGTTOU</code></td>
-    <td>发送给一个进程当它在后台写入TTY时.</td>
+    <td>发送给一个进程当它在后台写入 TTY 时。</td>
   </tr>
   <tr>
     <td><code>SIGURG</code></td>
-    <td>发送给一个进程当socket由紧急的数据需要读取时.</td>
+    <td>发送给一个进程当 socket 有紧急的数据需要读取时。</td>
   </tr>
   <tr>
     <td><code>SIGXCPU</code></td>
-    <td>发送给一个进程当它超过他在CPU使用上的限制时.</td>
+    <td>发送给一个进程当它超过他在 CPU 使用上的限制时。</td>
   </tr>
   <tr>
     <td><code>SIGXFSZ</code></td>
-    <td>发送给一个进程当它文件成长的比最大允许的值还大时.</td>
+    <td>发送给一个进程当它使文件成长地比最大允许的值还大时。</td>
   </tr>
   <tr>
     <td><code>SIGVTALRM</code></td>
-    <td>发送给一个进程当一个虚拟时钟消逝时.</td>
+    <td>发送给一个进程当一个虚拟时钟消逝时。</td>
   </tr>
   <tr>
     <td><code>SIGPROF</code></td>
-    <td>发送给一个进程当一个系统时钟消逝时.</td>
+    <td>发送给一个进程当一个系统时钟消逝时。</td>
   </tr>
   <tr>
     <td><code>SIGWINCH</code></td>
-    <td>发送给一个进程当控制终端改变它的大小.</td>
+    <td>发送给一个进程当控制终端改变它的大小。</td>
   </tr>
   <tr>
     <td><code>SIGIO</code></td>
-    <td>发送给一个进程当I/O可用时.</td>
+    <td>发送给一个进程当 I/O 可用时。</td>
   </tr>
   <tr>
     <td><code>SIGPOLL</code></td>
-    <td><code>SIGIO</code>同义词</td>
+    <td><code>SIGIO</code> 的同义词</td>
   </tr>
   <tr>
     <td><code>SIGLOST</code></td>
-    <td>发送给一个进程当文件锁丢失时.</td>
+    <td>发送给一个进程当文件锁丢失时。</td>
   </tr>
   <tr>
     <td><code>SIGPWR</code></td>
-    <td>发送给一个进程来通知功率错误.</td>
+    <td>发送给一个进程来通知功率错误。</td>
   </tr>
   <tr>
     <td><code>SIGINFO</code></td>
-    <td><code>SIGPWR</code>同义词</td>
+    <td><code>SIGPWR</code> 的同义词</td>
   </tr>
   <tr>
     <td><code>SIGSYS</code></td>
-    <td>发送给一个进程来通知有错误的参数.</td>
+    <td>发送给一个进程来通知有错误的参数。</td>
   </tr>
   <tr>
     <td><code>SIGUNUSED</code></td>
-    <td><code>SIGSYS</code>的同义词</td>
+    <td><code>SIGSYS</code> 的同义词</td>
   </tr>
 </table>
 

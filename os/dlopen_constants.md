@@ -1,34 +1,31 @@
 
-如果在操作系统上可用，则以下常量在`os.constants.dlopen`中导出。 有关详细信息，请参阅dlopen（3）信息。
+如果在操作系统上可用，则以下常量在 `os.constants.dlopen` 中导出。 
+有关详细信息，请参阅 dlopen(3) 信息。
 
 <table>
   <tr>
-    <th>Constant</th>
-    <th>Description</th>
+    <th>常量</th>
+    <th>描述</th>
   </tr>
   <tr>
     <td><code>RTLD_LAZY</code></td>
-    <td>Perform lazy binding. Node.js sets this flag by default.</td>
+    <td>执行延迟绑定。 Node.js 默认设置此标志。</td>
   </tr>
   <tr>
     <td><code>RTLD_NOW</code></td>
-    <td>Resolve all undefined symbols in the library before dlopen(3)
-    returns.</td>
+    <td>在 dlopen(3) 返回之前解析库中的所有未定义符号。</td>
   </tr>
   <tr>
     <td><code>RTLD_GLOBAL</code></td>
-    <td>Symbols defined by the library will be made available for symbol
-    resolution of subsequently loaded libraries.</td>
+    <td>库定义的符号将可用于后续加载的库的符号解析。</td>
   </tr>
   <tr>
     <td><code>RTLD_LOCAL</code></td>
-    <td>The converse of `RTLD_GLOBAL`. This is the default behavior if neither
-    flag is specified.</td>
+    <td>与 <code>RTLD_GLOBAL</code> 相反。 如果未指定任何标志，则这是默认行为。</td>
   </tr>
   <tr>
     <td><code>RTLD_DEEPBIND</code></td>
-    <td>Make a self-contained library use its own symbols in preference to
-    symbols from previously loaded libraries.</td>
+    <td>使一个独立的库使用自己的符号，而不是先前加载的库中的符号。</td>
   </tr>
 </table>
 
