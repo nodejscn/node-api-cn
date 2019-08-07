@@ -4,7 +4,7 @@ added: v0.1.90
 
 * `options` {Object} 必须。调用 [`new net.Socket([options])`][`new net.Socket(options)`] 和 [`socket.connect(options[, connectListener])`][`socket.connect(options)`] 方法都会传入。
 * `connectListener` {Function} [`net.createConnection()`][] 方法的通用参数。如果制定了，将被添加为返回 socket 上的 [`'connect'`][] 事件上的监听器。
-* Returns: {net.Socket} 新创建的 socket，用于开始连接。
+* 返回: {net.Socket} 新创建的 socket，用于开始连接。
 
 可选的选项，查看 [`new net.Socket([options])`][`new net.Socket(options)`] 和 [`socket.connect(options[, connectListener])`][`socket.connect(options)`]。
 
@@ -17,16 +17,16 @@ added: v0.1.90
 ```js
 const net = require('net');
 const client = net.createConnection({ port: 8124 }, () => {
-  //'connect' listener
-  console.log('connected to server!');
-  client.write('world!\r\n');
+  // 'connect' 监听器
+  console.log('已连接到服务器');
+  client.write('你好世界!\r\n');
 });
 client.on('data', (data) => {
   console.log(data.toString());
   client.end();
 });
 client.on('end', () => {
-  console.log('disconnected from server');
+  console.log('已从服务器断开');
 });
 ```
 

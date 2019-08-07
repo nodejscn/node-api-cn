@@ -7,7 +7,7 @@
     `SIGINT` (Ctrl+C) is received. Existing handlers for the event that have
     been attached via `process.on('SIGINT')` will be disabled during script
     execution, but will continue to work after that. If execution is
-    interrupted, an [`Error`][] will be thrown.
+    interrupted, an [`Error`][] will be thrown. **Default:** `false`.
 * Returns: {Promise}
 
 Evaluate the module.

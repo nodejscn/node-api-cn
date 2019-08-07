@@ -4,7 +4,5 @@ added: v11.2.0
 
 * {boolean}
 
-This is `true` if the socket is not connected yet, either because `.connect()`
-has not yet been called or because it is still in the process of connecting
-(see [`socket.connecting`][]).
+如果 socket 尚未连接，则为 `true`，因为尚未调用 `.connect()` 或者因为它仍处于连接过程中（参阅 [`socket.connecting`]）。
 

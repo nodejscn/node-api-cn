@@ -2,27 +2,25 @@
 added: v0.1.90
 -->
 
-如果在IP socket上监听,则返回绑定的ip地址, 地址族和操作系统报告的服务端口
-在找到操作系统分配的地址时，找到指定的端口是有用的.返回一个有 `port`, `family`, 和 `address` 属性:
-`{ port: 12346, family: 'IPv4', address: '127.0.0.1' }`的对象
+* 返回: {Object|string}
 
-对于在管道或UNIX域套接字上侦听的server,该名称将返回为字符串
+如果在 IP socket 上监听，则返回操作系统报告的绑定的 `address`、地址 `family` 名称、以及服务器 `port`（用于查找在获取操作系统分配的地址时分配的端口）：`{ port: 12346, family: 'IPv4', address: '127.0.0.1' }`。
 
-例子:
+对于在管道或 Unix 域套接字上监听的 server，该名称将返回为字符串。
 
 ```js
 const server = net.createServer((socket) => {
-  socket.end('goodbye\n');
+  socket.end('再见\n');
 }).on('error', (err) => {
-  // handle errors here
+  // 处理错误
   throw err;
 });
 
-// grab an arbitrary unused port.
+// 获取任意未使用的端口。
 server.listen(() => {
-  console.log('opened server on', server.address());
+  console.log('打开服务器', server.address());
 });
 ```
 
-不要在 `'listening'` 事件触发之前调用 `server.address()` 
+不要在 `'listening'` 事件触发之前调用 `server.address()`。
 

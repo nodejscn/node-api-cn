@@ -2,7 +2,8 @@
 added: v0.1.90
 -->
 
-* Returns: {net.Socket}
+* `exception` {Object}
+* 返回: {net.Socket}
 
 确保在该 socket 上不再有 I/O 活动。仅在出现错误的时候才需要（如解析错误等）。
 

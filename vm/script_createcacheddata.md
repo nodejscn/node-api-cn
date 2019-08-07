@@ -2,7 +2,7 @@
 added: v10.6.0
 -->
 
-* Returns: {Buffer}
+* 返回: {Buffer}
 
 创建一个可以被 Script 构造函数中 `cachedData` 选项使用的代码缓存。返回 Buffer。可以在任何时候不限次数地调用该方法。
 

@@ -55,7 +55,7 @@ server.listen('/tmp/echo.sock', () => {
 });
 ```
 
-使用 `nc` 连接到 UNIX 域套接字服务器：
+使用 `nc` 连接到 Unix 域套接字服务器：
 
 ```console
 $ nc -U /tmp/echo.sock

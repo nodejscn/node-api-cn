@@ -8,5 +8,5 @@
 * [`net.createConnection(path[, connectListener])`][`net.createConnection(path)`] 用于 [IPC][] 连接。
 * [`net.createConnection(port[, host][, connectListener])`][`net.createConnection(port, host)`] 用于 TCP 连接。
 
-*注意*: The [`net.connect()`][] 函数也是该函数的别名。
+[`net.connect()`][] 函数也是该函数的别名。
 

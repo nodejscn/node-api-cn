@@ -1,19 +1,18 @@
 
 * `linker` {Function}
+  * `specifier` {string} The specifier of the requested module:
+    <!-- eslint-skip -->
+    ```js
+    import foo from 'foo';
+    //              ^^^^^ the module specifier
+    ```
+  * `referencingModule` {vm.SourceTextModule} The `Module` object `link()` is
+    called on.
+  * Returns: {vm.SourceTextModule|Promise}
 * Returns: {Promise}
 
 Link module dependencies. This method must be called before instantiation, and
 can only be called once per module.
-
-Two parameters will be passed to the `linker` function:
-
-- `specifier` The specifier of the requested module:
-  <!-- eslint-skip -->
-  ```js
-  import foo from 'foo';
-  //              ^^^^^ the module specifier
-  ```
-- `referencingModule` The `Module` object `link()` is called on.
 
 The function is expected to return a `Module` object or a `Promise` that
 eventually resolves to a `Module` object. The returned `Module` must satisfy the

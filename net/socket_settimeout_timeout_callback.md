@@ -2,7 +2,9 @@
 added: v0.1.90
 -->
 
-* Returns: {net.Socket} Socket 本身。
+* `timeout` {number}
+* `callback` {Function}
+* 返回: {net.Socket} Socket 本身。
 
 当 socket 在 `timeout` 毫秒不活动之后将其设置为超时状态。默认 `net.Socket` 没有超时。
 
@@ -11,7 +13,7 @@ added: v0.1.90
 ```js
 socket.setTimeout(3000);
 socket.on('timeout', () => {
-  console.log('socket timeout');
+  console.log('socket 超时');
   socket.end();
 });
 ```

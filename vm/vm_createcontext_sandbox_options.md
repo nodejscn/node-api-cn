@@ -3,7 +3,7 @@ added: v0.3.1
 changes:
   - version: v10.0.0
     pr-url: https://github.com/nodejs/node/pull/19398
-    description: The `sandbox` option can no longer be a function.
+    description: The `sandbox` object can no longer be a function.
   - version: v10.0.0
     pr-url: https://github.com/nodejs/node/pull/19016
     description: The `codeGeneration` option is supported now.
@@ -11,19 +11,17 @@ changes:
 
 * `sandbox` {Object}
 * `options` {Object}
-  * `name` {string} 阅读友好的新创建的上下文名字。
-    **默认:** `'VM Context i'`，其中 `i` 是创建的上下文的递增数字索引。
-  * `origin` {string} [Origin][origin] 相当于新创建的用于展示的上下文。	
-    Origin 的格式就想一个 URL，但只有协议、主机和端口（如果需要的话），就像 [`URL`][] 对象的 [`url.origin`][] 属性。	
-    尤其需要注意的是，origin 字符串需要去掉尾部的斜杠，因为它表示一个路径。**默认:** `''`。
+  * `name` {string} 新创建的上下文的人类可读名称。 **默认值:** `'VM Context i'`，其中 `i` 是创建的上下文的升序数字索引。
+  * `origin` {string} 对应于新创建用于显示目的的上下文的[原点][origin]。 
+    原点应格式化为类似一个 URL，但只包含协议，主机和端口（如果需要），例如 [`URL`] 对象的 [`url.origin`] 属性的值。 最值得注意的是，此字符串应省略尾部斜杠，因为它表示路径。 **默认值:** `''`。
   * `codeGeneration` {Object}
-    * `strings` {boolean} 如果设置为 false，则调用 `eval` 或构造函数（`Function`、`GeneratorFunction` 等） 都将抛出 `EvalError` 错误。**默认:** `true`.
-    * `wasm` {boolean} 如果设置为 false，则尝试编译 WebAssembly 模块将会抛出 `WebAssembly.CompileError` 错误。**默认:** `true`.
-      
+    * `strings` {boolean} 如果设置为 `false`，则对 `eval` 或函数构造函数（`Function`、`GeneratorFunction` 等）的任何调用都将抛出 `EvalError`。**默认值:** `true`。
+    * `wasm` {boolean} 如果设置为 `false`，则任何编译 WebAssembly 模块的尝试都将抛出 `WebAssembly.CompileError`。**默认值:** `true`。
+* 返回: {Object} 上下文隔离化的沙盒。
 
-如果提供了 `sandbox` 对象，则 `vm.createContext()` 方法将会对沙盒进行预处理（[prepare
-that sandbox][contextified]），所以它可以在调用 [`vm.runInContext()`][] or [`script.runInContext()`][] 的时候使用。在下面的脚本中，`sandbox` 对象将是全局对象，保留所有现有属性，并具有任何标准 [全局对象][] 所拥有的内置对象和函数。在 vm 模块运行的脚本外面，全局变量将保持不变。
-
+给定一个 `sandbox` 对象，`vm.createContext()` 会[设置此沙盒][contextified]，从而让它具备在 [`vm.runInContext()`][] 或者 [`script.runInContext()`][] 中被使用的能力。
+对于此二方法中所调用的脚本，他们的全局对象不仅拥有我们提供的 `sandbox` 对象的所有属性，同时还有任何[全局对象][global object]所拥有的属性。
+对于这些脚本之外的所有代码，他们的全局变量将保持不变。
 
 ```js
 const util = require('util');
@@ -41,10 +39,10 @@ console.log(util.inspect(sandbox)); // { globalVar: 2 }
 console.log(util.inspect(globalVar)); // 3
 ```
 
-如果省略了 `sandbox` （或显示传入 `undefined`），将返回一个新的、空的上下文隔离（[contextified][]）的沙盒对象。
+如果未提供 `sandbox`（或者传入`undefined`），那么会返回一个全新的空的[上下文隔离化][contextified]后的 `sandbox` 对象。
 
-`vm.createContext()` 方法的主要用于创建可以运行多个脚本的单个沙盒。例如，如果要模仿一个 Web 浏览器，则该方法可以用于创建表示 window 全局对象的单个沙盒，然后在该沙盒的上下文中一起运行所有 `<script>` 标签。
+`vm.createContext()` 主要是用于创建一个能运行多个脚本的沙盒。
+比如说，在模拟一个网页浏览器时，此方法可以被用于创建一个单独的沙盒来代表一个窗口的全局对象，然后所有的 `<script>` 标签都可以在这个沙盒的上下文中运行。
 
-
-通过 Inspector API 可以看到给上下文提供的 `name` 和 `origin`。
+通过 Inspector API 可以看到提供的上下文的 `name` 和 `origin`。
 

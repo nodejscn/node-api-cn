@@ -3,7 +3,7 @@ added: v0.3.4
 -->
 
 
-此类是 TCP 套接字或流式 [IPC] 端点的抽象（在 Windows 上使用命名管道，否则使用 UNIX 域套接字）。 
+此类是 TCP 套接字或流式 [IPC] 端点的抽象（在 Windows 上使用命名管道，否则使用 Unix 域套接字）。 
 `net.Socket` 也是[双工流][duplex stream]，因此它既可读也可写，也是一个 [`EventEmitter`]。
 
 `net.Socket` 可以由用户创建并直接用于与服务器交互。 

@@ -2,7 +2,7 @@
 added: v9.11.0
 -->
 
-Emitted when a socket is ready to be used.
+套接字准备好使用时触发。
 
-Triggered immediately after `'connect'`.
+`'connect'` 后立即触发。
 

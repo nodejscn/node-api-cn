@@ -3,7 +3,7 @@ added: v0.1.90
 -->
 
 * `data` {string|Buffer|Uint8Array}
-* `encoding` {string} 仅当 `data` 是字符串时有效。默认为 `'utf8'`。
+* `encoding` {string} 仅当 `data` 是字符串时有效。**默认值:** `'utf8'`。
 * `callback` {Function} 当 socket 完成时的回调函数。
 * 返回: {net.Socket} socket 本身。
 

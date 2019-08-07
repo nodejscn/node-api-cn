@@ -6,22 +6,22 @@
   * `context` {Object} The [contextified][] object as returned by the
     `vm.createContext()` method, to compile and evaluate this `Module` in.
   * `lineOffset` {integer} Specifies the line number offset that is displayed
-    in stack traces produced by this `Module`.
+    in stack traces produced by this `Module`. **Default:** `0`.
   * `columnOffset` {integer} Specifies the column number offset that is
-    displayed in stack traces produced by this `Module`.
+    displayed in stack traces produced by this `Module`. **Default:** `0`.
   * `initializeImportMeta` {Function} Called during evaluation of this `Module`
-    to initialize the `import.meta`. This function has the signature `(meta,
-    module)`, where `meta` is the `import.meta` object in the `Module`, and
-    `module` is this `vm.SourceTextModule` object.
-  * `importModuleDynamically` {Function} Called during evaluation of this
-    module when `import()` is called. This function has the signature
-    `(specifier, module)` where `specifier` is the specifier passed to
-    `import()` and `module` is this `vm.SourceTextModule`. If this option is
-    not specified, calls to `import()` will reject with
-    [`ERR_VM_DYNAMIC_IMPORT_CALLBACK_MISSING`][]. This method can return a
-    [Module Namespace Object][], but returning a `vm.SourceTextModule` is
-    recommended in order to take advantage of error tracking, and to avoid
-    issues with namespaces that contain `then` function exports.
+    to initialize the `import.meta`.
+    * `meta` {import.meta}
+    * `module` {vm.SourceTextModule}
+  * `importModuleDynamically` {Function} Called during evaluation of this module
+    when `import()` is called. If this option is not specified, calls to
+    `import()` will reject with [`ERR_VM_DYNAMIC_IMPORT_CALLBACK_MISSING`][].
+     * `specifier` {string} specifier passed to `import()`
+     * `module` {vm.SourceTextModule}
+     * Returns: {Module Namespace Object|vm.SourceTextModule} Returning a
+       `vm.SourceTextModule` is recommended in order to take advantage of error
+       tracking, and to avoid issues with namespaces that contain `then`
+       function exports.
 
 Creates a new ES `Module` object.
 

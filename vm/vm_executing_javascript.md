@@ -9,7 +9,7 @@ JavaScript 代码可以被编译并立即运行，也可以编译、保存，以
 
 一个常见的场景是在沙盒中运行代码。沙盒中的代码使用不同的 V8 上下文，这意味着它具有与其余代码不同的全局对象。
 
-可以通过 ["contextifying"][contextified] 沙箱对象来提供上下文。沙盒代码将沙盒中的任何属性视为全局对象。由沙盒代码引起的任何全局变量的更改都将反映到沙盒对象中。
+可以通过[上下文隔离化][contextified]一个沙箱对象来提供上下文。沙盒代码将沙盒中的任何属性视为全局对象。由沙盒代码引起的任何全局变量的更改都将反映到沙盒对象中。
 
 
 ```js
@@ -18,16 +18,16 @@ const vm = require('vm');
 const x = 1;
 
 const sandbox = { x: 2 };
-vm.createContext(sandbox); // Contextify the sandbox.
+vm.createContext(sandbox); // 上下文隔离化一个沙盒。
 
 const code = 'x += 40; var y = 17;';
-// x and y are global variables in the sandboxed environment.
-// Initially, x has the value 2 because that is the value of sandbox.x.
+// `x` and `y` 是沙盒环境中的全局变量。
+// 最初，x 的值为 2，因为这是 sandbox.x 的值。
 vm.runInContext(code, sandbox);
 
 console.log(sandbox.x); // 42
 console.log(sandbox.y); // 17
 
-console.log(x); // 1; y is not defined.
+console.log(x); // 1; y 没有定义。
 ```
 
