@@ -1,14 +1,14 @@
 
-* `callback` <span class="type">&lt;void (\*)(void\*)&gt;</span> - 一个退出时调用的函数的指针。
-* `args` <span class="type">&lt;void\*&gt;</span> - 一个退出时传递给回调的指针。
+* `callback` <span class="type">&lt;void (\*)(void\*)&gt;</span> 一个退出时调用的函数的指针。
+* `args` <span class="type">&lt;void\*&gt;</span> 一个退出时传递给回调的指针。
 
 注册的 AtExit 钩子会在事件循环结束之后但虚拟机被终止之前退出。
 
-AtExit 有两个参数：一个退出时运行的回调函数的指针，和一个要传入回调的无类型的上下文数据的指针。
+`AtExit` 有两个参数：一个退出时运行的回调函数的指针，和一个要传入回调的无类型的上下文数据的指针。
 
 回调按照后进先出的顺序运行。
 
-以下 `addon.cc` 实现了 AtExit：
+以下 `addon.cc` 实现了 `AtExit`：
 
 ```cpp
 // addon.cc
@@ -32,7 +32,7 @@ static void at_exit_cb1(void* arg) {
   Isolate* isolate = static_cast<Isolate*>(arg);
   HandleScope scope(isolate);
   Local<Object> obj = Object::New(isolate);
-  assert(!obj.IsEmpty()); // assert VM is still alive
+  assert(!obj.IsEmpty());  // assert VM is still alive
   assert(obj->IsObject());
   at_exit_cb1_called++;
 }
@@ -59,7 +59,7 @@ NODE_MODULE(NODE_GYP_MODULE_NAME, init)
 }  // namespace demo
 ```
 
-测试：
+在 JavaScript 中测试：
 
 ```js
 // test.js

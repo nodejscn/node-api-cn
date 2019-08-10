@@ -17,7 +17,7 @@ _isMain_ is **true** when resolving the Node.js application entry point.
 <details>
 <summary>Resolver algorithm specification</summary>
 
-**ESM_RESOLVE(_specifier_, _parentURL_, _isMain_)**
+**ESM_RESOLVE**(_specifier_, _parentURL_, _isMain_)
 > 1. Let _resolvedURL_ be **undefined**.
 > 1. If _specifier_ is a valid URL, then
 >    1. Set _resolvedURL_ to the result of parsing and reserializing
@@ -37,7 +37,7 @@ _isMain_ is **true** when resolving the Node.js application entry point.
 > 1. Let _format_ be the result of **ESM_FORMAT**(_resolvedURL_, _isMain_).
 > 1. Load _resolvedURL_ as module format, _format_.
 
-PACKAGE_RESOLVE(_packageSpecifier_, _parentURL_)
+**PACKAGE_RESOLVE**(_packageSpecifier_, _parentURL_)
 > 1. Let _packageName_ be *undefined*.
 > 1. Let _packageSubpath_ be *undefined*.
 > 1. If _packageSpecifier_ is an empty string, then
@@ -62,7 +62,7 @@ PACKAGE_RESOLVE(_packageSpecifier_, _parentURL_)
 >    module, then
 >    1. Return the string _"node:"_ concatenated with _packageSpecifier_.
 > 1. While _parentURL_ is not the file system root,
->    1. Let _packageURL_ be the URL resolution of "node_modules/"
+>    1. Let _packageURL_ be the URL resolution of _"node_modules/"_
 >       concatenated with _packageSpecifier_, relative to _parentURL_.
 >    1. Set _parentURL_ to the parent folder URL of _parentURL_.
 >    1. If the folder at _packageURL_ does not exist, then
@@ -73,10 +73,15 @@ PACKAGE_RESOLVE(_packageSpecifier_, _parentURL_)
 >       1. Return the result of **PACKAGE_MAIN_RESOLVE**(_packageURL_,
 >          _pjson_).
 >    1. Otherwise,
->       1. Return the URL resolution of _packageSubpath_ in _packageURL_.
+>       1. If _pjson_ is not **null** and _pjson_ has an _"exports"_ key, then
+>          1. Let _exports_ be _pjson.exports_.
+>          1. If _exports_ is not **null** or **undefined**, then
+>             1. Return **PACKAGE_EXPORTS_RESOLVE**(_packageURL_,
+>                _packagePath_, _pjson.exports_).
+>       1. Return the URL resolution of _packagePath_ in _packageURL_.
 > 1. Throw a _Module Not Found_ error.
 
-PACKAGE_MAIN_RESOLVE(_packageURL_, _pjson_)
+**PACKAGE_MAIN_RESOLVE**(_packageURL_, _pjson_)
 > 1. If _pjson_ is **null**, then
 >    1. Throw a _Module Not Found_ error.
 > 1. If _pjson.main_ is a String, then
@@ -93,7 +98,27 @@ PACKAGE_MAIN_RESOLVE(_packageURL_, _pjson_)
 >    1. Throw an _Unsupported File Extension_ error.
 > 1. Return _legacyMainURL_.
 
-**ESM_FORMAT(_url_, _isMain_)**
+**PACKAGE_EXPORTS_RESOLVE**(_packageURL_, _packagePath_, _exports_)
+> 1. If _exports_ is an Object, then
+>    1. Set _packagePath_ to _"./"_ concatenated with _packagePath_.
+>    1. If _packagePath_ is a key of _exports_, then
+>       1. Let _target_ be the value of _exports[packagePath]_.
+>       1. If _target_ is not a String, continue the loop.
+>       1. Return the URL resolution of the concatenation of _packageURL_ and
+>          _target_.
+>    1. Let _directoryKeys_ be the list of keys of _exports_ ending in
+>       _"/"_, sorted by length descending.
+>    1. For each key _directory_ in _directoryKeys_, do
+>       1. If _packagePath_ starts with _directory_, then
+>          1. Let _target_ be the value of _exports[directory]_.
+>          1. If _target_ is not a String, continue the loop.
+>          1. Let _subpath_ be the substring of _target_ starting at the index
+>             of the length of _directory_.
+>          1. Return the URL resolution of the concatenation of _packageURL_,
+>             _target_ and _subpath_.
+> 1. Throw a _Module Not Found_ error.
+
+**ESM_FORMAT**(_url_, _isMain_)
 > 1. Assert: _url_ corresponds to an existing file.
 > 1. Let _pjson_ be the result of **READ_PACKAGE_SCOPE**(_url_).
 > 1. If _url_ ends in _".mjs"_, then
@@ -110,7 +135,7 @@ PACKAGE_MAIN_RESOLVE(_packageURL_, _pjson_)
 >       1. Return _"commonjs"_.
 >    1. Throw an _Unsupported File Extension_ error.
 
-READ_PACKAGE_SCOPE(_url_)
+**READ_PACKAGE_SCOPE**(_url_)
 > 1. Let _scopeURL_ be _url_.
 > 1. While _scopeURL_ is not the file system root,
 >    1. Let _pjson_ be the result of **READ_PACKAGE_JSON**(_scopeURL_).
@@ -119,7 +144,7 @@ READ_PACKAGE_SCOPE(_url_)
 >    1. Set _scopeURL_ to the parent URL of _scopeURL_.
 > 1. Return **null**.
 
-READ_PACKAGE_JSON(_packageURL_)
+**READ_PACKAGE_JSON**(_packageURL_)
 > 1. Let _pjsonURL_ be the resolution of _"package.json"_ within _packageURL_.
 > 1. If the file at _pjsonURL_ does not exist, then
 >    1. Return **null**.

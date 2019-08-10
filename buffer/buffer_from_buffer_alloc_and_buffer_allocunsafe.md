@@ -11,6 +11,13 @@
 
 由于 `new Buffer()` 的行为因第一个参数的类型而异，因此当未执行参数验证或 `Buffer` 初始化时，可能会无意中将安全性和可靠性问题引入应用程序。
 
+例如，如果攻击者可以使应用程序接收到数字（实际期望的是字符串），则应用程序可能调用 `new Buffer(100)` 而不是 `new Buffer("100")`，它将分配一个 100 个字节的 buffer 而不是分配一个内容为 `“100”` 的 3 个字节的 buffer。 
+这通常可以使用 JSON API 调用。 
+由于 JSON 区分数字和字符串类型，因此它允许在天真的应用程序可能期望始终接收字符串的情况下注入数字。 
+在 Node.js 8.0.0 之前，100 个字节的 buffer 可能包含任意预先存在的内存数据，因此可能会用于向远程攻击者暴露内存中的机密。 
+从 Node.js 8.0.0 开始，由于数据会用零填充，因此不会发生内存暴露。 
+但是，其他攻击仍然存在，例如导致服务器分配非常大的 buffer，导致性能下降或内存耗尽崩溃。
+
 为了使 `Buffer` 实例的创建更可靠且更不容易出错，各种形式的 `new Buffer()` 构造函数都已被弃用，且改为单独的 `Buffer.from()`，[`Buffer.alloc()`] 和 [`Buffer.allocUnsafe()`] 方法。
 
 开发者应将 `new Buffer()` 构造函数的所有现有用法迁移到这些新的 API。
@@ -21,6 +28,7 @@
 * [`Buffer.from(string[, encoding])`][`Buffer.from(string)`] 返回一个新的 `Buffer`，其中包含提供的字符串的副本。
 * [`Buffer.alloc(size[, fill[, encoding]])`][`Buffer.alloc()`] 返回一个指定大小的新建的的已初始化的 `Buffer`。
   此方法比 [`Buffer.allocUnsafe(size)`][`Buffer.allocUnsafe()`] 慢，但能确保新创建的 `Buffer` 实例永远不会包含可能敏感的旧数据。
+  如果 `size` 不是数字，则将会抛出 `TypeError`。
 * [`Buffer.allocUnsafe(size)`][`Buffer.allocUnsafe()`] 和 [`Buffer.allocUnsafeSlow(size)`][`Buffer.allocUnsafeSlow()`] 分别返回一个指定大小的新建的未初始化的 `Buffer`。
   由于 `Buffer` 是未初始化的，因此分配的内存片段可能包含敏感的旧数据。
   

@@ -10,6 +10,7 @@
 
 namespace demo {
 
+using v8::Context;
 using v8::FunctionCallbackInfo;
 using v8::Isolate;
 using v8::Local;
@@ -24,11 +25,12 @@ void CreateObject(const FunctionCallbackInfo<Value>& args) {
 
 void Add(const FunctionCallbackInfo<Value>& args) {
   Isolate* isolate = args.GetIsolate();
+  Local<Context> context = isolate->GetCurrentContext();
 
   MyObject* obj1 = node::ObjectWrap::Unwrap<MyObject>(
-      args[0]->ToObject());
+      args[0]->ToObject(context).ToLocalChecked());
   MyObject* obj2 = node::ObjectWrap::Unwrap<MyObject>(
-      args[1]->ToObject());
+      args[1]->ToObject(context).ToLocalChecked());
 
   double sum = obj1->value() + obj2->value();
   args.GetReturnValue().Set(Number::New(isolate, sum));
@@ -93,6 +95,7 @@ using v8::FunctionCallbackInfo;
 using v8::FunctionTemplate;
 using v8::Isolate;
 using v8::Local;
+using v8::NewStringType;
 using v8::Object;
 using v8::Persistent;
 using v8::String;
@@ -109,18 +112,22 @@ MyObject::~MyObject() {
 void MyObject::Init(Isolate* isolate) {
   // Prepare constructor template
   Local<FunctionTemplate> tpl = FunctionTemplate::New(isolate, New);
-  tpl->SetClassName(String::NewFromUtf8(isolate, "MyObject"));
+  tpl->SetClassName(String::NewFromUtf8(
+      isolate, "MyObject", NewStringType::kNormal).ToLocalChecked());
   tpl->InstanceTemplate()->SetInternalFieldCount(1);
 
-  constructor.Reset(isolate, tpl->GetFunction());
+  Local<Context> context = isolate->GetCurrentContext();
+  constructor.Reset(isolate, tpl->GetFunction(context).ToLocalChecked());
 }
 
 void MyObject::New(const FunctionCallbackInfo<Value>& args) {
   Isolate* isolate = args.GetIsolate();
+  Local<Context> context = isolate->GetCurrentContext();
 
   if (args.IsConstructCall()) {
     // 像构造函数一样调用：`new MyObject(...)`
-    double value = args[0]->IsUndefined() ? 0 : args[0]->NumberValue();
+    double value = args[0]->IsUndefined() ?
+        0 : args[0]->NumberValue(context).FromMaybe(0);
     MyObject* obj = new MyObject(value);
     obj->Wrap(args.This());
     args.GetReturnValue().Set(args.This());
@@ -128,7 +135,6 @@ void MyObject::New(const FunctionCallbackInfo<Value>& args) {
     // 像普通方法 `MyObject(...)` 一样调用，转为构造调用。
     const int argc = 1;
     Local<Value> argv[argc] = { args[0] };
-    Local<Context> context = isolate->GetCurrentContext();
     Local<Function> cons = Local<Function>::New(isolate, constructor);
     Local<Object> instance =
         cons->NewInstance(context, argc, argv).ToLocalChecked();

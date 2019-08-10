@@ -8,18 +8,26 @@
 
 namespace demo {
 
+using v8::Context;
 using v8::FunctionCallbackInfo;
 using v8::Isolate;
 using v8::Local;
+using v8::NewStringType;
 using v8::Object;
 using v8::String;
 using v8::Value;
 
 void CreateObject(const FunctionCallbackInfo<Value>& args) {
   Isolate* isolate = args.GetIsolate();
+  Local<Context> context = isolate->GetCurrentContext();
 
   Local<Object> obj = Object::New(isolate);
-  obj->Set(String::NewFromUtf8(isolate, "msg"), args[0]->ToString());
+  obj->Set(context,
+           String::NewFromUtf8(isolate,
+                               "msg",
+                               NewStringType::kNormal).ToLocalChecked(),
+                               args[0]->ToString(context).ToLocalChecked())
+           .FromJust();
 
   args.GetReturnValue().Set(obj);
 }

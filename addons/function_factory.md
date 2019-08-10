@@ -7,28 +7,33 @@
 
 namespace demo {
 
+using v8::Context;
 using v8::Function;
 using v8::FunctionCallbackInfo;
 using v8::FunctionTemplate;
 using v8::Isolate;
 using v8::Local;
+using v8::NewStringType;
 using v8::Object;
 using v8::String;
 using v8::Value;
 
 void MyFunction(const FunctionCallbackInfo<Value>& args) {
   Isolate* isolate = args.GetIsolate();
-  args.GetReturnValue().Set(String::NewFromUtf8(isolate, "hello world"));
+  args.GetReturnValue().Set(String::NewFromUtf8(
+      isolate, "hello world", NewStringType::kNormal).ToLocalChecked());
 }
 
 void CreateFunction(const FunctionCallbackInfo<Value>& args) {
   Isolate* isolate = args.GetIsolate();
 
+  Local<Context> context = isolate->GetCurrentContext();
   Local<FunctionTemplate> tpl = FunctionTemplate::New(isolate, MyFunction);
-  Local<Function> fn = tpl->GetFunction();
+  Local<Function> fn = tpl->GetFunction(context).ToLocalChecked();
 
   // 可以省略这步使它匿名
-  fn->SetName(String::NewFromUtf8(isolate, "theFunction"));
+  fn->SetName(String::NewFromUtf8(
+      isolate, "theFunction", NewStringType::kNormal).ToLocalChecked());
 
   args.GetReturnValue().Set(fn);
 }

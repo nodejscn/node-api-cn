@@ -67,6 +67,7 @@ using v8::FunctionCallbackInfo;
 using v8::FunctionTemplate;
 using v8::Isolate;
 using v8::Local;
+using v8::NewStringType;
 using v8::Number;
 using v8::Object;
 using v8::Persistent;
@@ -86,23 +87,28 @@ void MyObject::Init(Local<Object> exports) {
 
   // 准备构造函数模版
   Local<FunctionTemplate> tpl = FunctionTemplate::New(isolate, New);
-  tpl->SetClassName(String::NewFromUtf8(isolate, "MyObject"));
+  tpl->SetClassName(String::NewFromUtf8(
+      isolate, "MyObject", NewStringType::kNormal).ToLocalChecked());
   tpl->InstanceTemplate()->SetInternalFieldCount(1);
 
   // 原型
   NODE_SET_PROTOTYPE_METHOD(tpl, "plusOne", PlusOne);
 
-  constructor.Reset(isolate, tpl->GetFunction());
-  exports->Set(String::NewFromUtf8(isolate, "MyObject"),
-               tpl->GetFunction());
+  Local<Context> context = isolate->GetCurrentContext();
+  constructor.Reset(isolate, tpl->GetFunction(context).ToLocalChecked());
+  exports->Set(context, String::NewFromUtf8(
+      isolate, "MyObject", NewStringType::kNormal).ToLocalChecked(),
+               tpl->GetFunction(context).ToLocalChecked()).FromJust();
 }
 
 void MyObject::New(const FunctionCallbackInfo<Value>& args) {
   Isolate* isolate = args.GetIsolate();
+  Local<Context> context = isolate->GetCurrentContext();
 
   if (args.IsConstructCall()) {
     // 像构造函数一样调用：`new MyObject(...)`
-    double value = args[0]->IsUndefined() ? 0 : args[0]->NumberValue();
+    double value = args[0]->IsUndefined() ?
+        0 : args[0]->NumberValue(context).FromMaybe(0);
     MyObject* obj = new MyObject(value);
     obj->Wrap(args.This());
     args.GetReturnValue().Set(args.This());
@@ -110,7 +116,6 @@ void MyObject::New(const FunctionCallbackInfo<Value>& args) {
     // 像普通方法 `MyObject(...)` 一样调用，转为构造调用。
     const int argc = 1;
     Local<Value> argv[argc] = { args[0] };
-    Local<Context> context = isolate->GetCurrentContext();
     Local<Function> cons = Local<Function>::New(isolate, constructor);
     Local<Object> result =
         cons->NewInstance(context, argc, argv).ToLocalChecked();
@@ -160,4 +165,10 @@ console.log(obj.plusOne());
 console.log(obj.plusOne());
 // 打印: 13
 ```
+
+当对象被垃圾收集时，包装器对象的析构函数将会运行。 
+对于析构函数测试，有一些命令行标志可用于强制垃圾收集。 
+这些标志由底层 V8 JavaScript 引擎提供。 
+它们随时可能更改或删除。 
+它们没有由 Node.js 或 V8 记录，并且它们永远不应该在测试之外使用。
 
