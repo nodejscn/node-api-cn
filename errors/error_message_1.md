@@ -1,5 +1,5 @@
 
 * {string}
 
-`error.message` is a system-provided human-readable description of the error.
+系统提供的自带可读性错误描述
 
