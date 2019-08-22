@@ -23,13 +23,13 @@ throw when an attempt is made to import them:
 
 ```js
 import submodule from 'es-module-package/private-module.js';
-// Throws - Package exports error
+// Throws - Module not found
 ```
 
 > Note: this is not a strong encapsulation as any private modules can still be
 > loaded by absolute paths.
 
-Folders can also be mapped with package exports as well:
+Folders can also be mapped with package exports:
 
 <!-- eslint-skip -->
 ```js
@@ -49,6 +49,22 @@ import feature from 'es-module-package/features/x.js';
 If a package has no exports, setting `"exports": false` can be used instead of
 `"exports": {}` to indicate the package does not intend for submodules to be
 exposed.
-This is just a convention that works because `false`, just like `{}`, has no
-iterable own properties.
+
+Any invalid exports entries will be ignored. This includes exports not
+starting with `"./"` or a missing trailing `"/"` for directory exports.
+
+Array fallback support is provided for exports, similarly to import maps
+in order to be forward-compatible with fallback workflows in future:
+
+<!-- eslint-skip -->
+```js
+{
+  "exports": {
+    "./submodule": ["not:valid", "./submodule.js"]
+  }
+}
+```
+
+Since `"not:valid"` is not a supported target, `"./submodule.js"` is used
+instead as the fallback, as if it were the only target.
 

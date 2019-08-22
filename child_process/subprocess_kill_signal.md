@@ -48,7 +48,7 @@ const subprocess = spawn(
 );
 
 setTimeout(() => {
-  subprocess.kill(); // 不会终止 shell 中的 node 进程。
+  subprocess.kill(); // 不会终止 shell 中的 Node.js 进程。
 }, 2000);
 ```
 

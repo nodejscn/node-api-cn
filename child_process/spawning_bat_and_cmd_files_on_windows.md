@@ -15,7 +15,7 @@ bat.stdout.on('data', (data) => {
 });
 
 bat.stderr.on('data', (data) => {
-  console.log(data.toString());
+  console.error(data.toString());
 });
 
 bat.on('exit', (code) => {

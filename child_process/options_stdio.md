@@ -22,7 +22,7 @@ fd 0、1 和 2 分别对应于 stdin、stdout 和 stderr。
 值可以是以下之一：
 
 1. `'pipe'` - 在子进程和父进程之间创建一个管道。
-    管道的父端作为 `child_process` 对象上的 [`subprocess.stdio[fd]`][`stdio`] 属性暴露给父进程。
+    管道的父端作为 `child_process` 对象上的 [`subprocess.stdio[fd]`][`subprocess.stdio`] 属性暴露给父进程。
     为 fd 0 - 2 创建的管道也可分别作为 [`subprocess.stdin`]、[`subprocess.stdout`] 和 [`subprocess.stderr`] 使用。
 2. `'ipc'` - 创建一个 IPC 通道，用于在父进程和子进程之间传递消息或文件描述符。 
     一个 [`ChildProcess`] 最多可以有一个 IPC stdio 文件描述符。

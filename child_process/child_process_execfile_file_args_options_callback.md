@@ -54,7 +54,7 @@ const child = execFile('node', ['--version'], (error, stdout, stderr) => {
 
 如果调用此方法的 [`util.promisify()`] 版本，则返回的 `Promise` 会返回具有 `stdout` 属性和 `stderr` 属性的 `Object`。
 返回的 `ChildProcess` 实例会作为 `child` 属性附加到该 `Promise`。
-如果出现错误（包括导致退出码不是 0 的任何错误），则返回被拒绝的 Promise，并带上与回调中相同的 `error` 对象，但是还有另外两个属性 `stdout` 和 `stderr`。
+如果出现错误（包括导致退出码不是 0 的任何错误），则返回被拒绝的 Promise，并带上与回调中相同的 `error` 对象，但是还有两个另外的属性 `stdout` 和 `stderr`。
 
 ```js
 const util = require('util');

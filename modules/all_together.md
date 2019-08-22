@@ -58,9 +58,10 @@ NODE_MODULES_PATHS(START)
 5. return DIRS
 ```
 
-如果启用了 `--experimental-exports`，则 node 允许通过 `LOAD_NODE_MODULES` 加载的包显式地声明要导入的文件路径以及如何解析它们。 
+如果启用了 `--experimental-exports`，则 Node.js 允许通过 `LOAD_NODE_MODULES` 加载的包显式地声明要导入的文件路径以及如何解析它们。 
 这扩展了使用 `main` 字段已经拥有的控件包。 
-启用此功能后，`LOAD_NODE_MODULES` 将更改如下：
+
+启用此功能后，`LOAD_NODE_MODULES` 将更改为：
 
 
 ```txt
@@ -79,10 +80,10 @@ RESOLVE_BARE_SPECIFIER(DIR, X)
    b. If "exports" is null or undefined, GOTO 3.
    c. Find the longest key in "exports" that the subpath starts with.
    d. If no such key can be found, throw "not found".
-   e. If the key matches the subpath entirely, return DIR/name/${exports[key]}.
-   f. If either the key or exports[key] do not end with a slash (`/`),
-      throw "not found".
-   g. Return DIR/name/${exports[key]}${subpath.slice(key.length)}.
+   e. let RESOLVED_URL =
+        PACKAGE_EXPORTS_TARGET_RESOLVE(pathToFileURL(DIR/name), exports[key],
+        subpath.slice(key.length)), as defined in the esm resolver.
+   f. return fileURLToPath(RESOLVED_URL)
 3. return DIR/X
 ```
 

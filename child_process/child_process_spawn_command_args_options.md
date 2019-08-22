@@ -64,7 +64,7 @@ ls.stdout.on('data', (data) => {
 });
 
 ls.stderr.on('data', (data) => {
-  console.log(`stderr: ${data}`);
+  console.error(`stderr: ${data}`);
 });
 
 ls.on('close', (code) => {
@@ -84,7 +84,7 @@ ps.stdout.on('data', (data) => {
 });
 
 ps.stderr.on('data', (data) => {
-  console.log(`ps stderr: ${data}`);
+  console.error(`ps stderr: ${data}`);
 });
 
 ps.on('close', (code) => {
@@ -99,7 +99,7 @@ grep.stdout.on('data', (data) => {
 });
 
 grep.stderr.on('data', (data) => {
-  console.log(`grep stderr: ${data}`);
+  console.error(`grep stderr: ${data}`);
 });
 
 grep.on('close', (code) => {
@@ -116,7 +116,7 @@ const { spawn } = require('child_process');
 const subprocess = spawn('bad_command');
 
 subprocess.on('error', (err) => {
-  console.log('启动子进程失败');
+  console.error('启动子进程失败');
 });
 ```
 

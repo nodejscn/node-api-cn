@@ -30,7 +30,7 @@ changes:
 
 ```js
 exec('"/path/to/test file/test.sh" arg1 arg2');
-// 使用双引号，以便路径中的空格不被解析为多个参数。
+// 使用双引号，以便路径中的空格不被解析为多个参数的分隔符。
 
 exec('echo "The \\$HOME variable is $HOME"');
 // 第一个 $HOME 变量会被转义，第二个则不会。
@@ -58,7 +58,7 @@ exec('cat *.js missing_file | wc -l', (error, stdout, stderr) => {
     return;
   }
   console.log(`stdout: ${stdout}`);
-  console.log(`stderr: ${stderr}`);
+  console.error(`stderr: ${stderr}`);
 });
 ```
 
@@ -68,7 +68,7 @@ exec('cat *.js missing_file | wc -l', (error, stdout, stderr) => {
 
 如果调用此方法的 [`util.promisify()`] 版本，则返回的 `Promise` 会返回具有 `stdout` 属性和 `stderr` 属性的 `Object`。
 返回的 `ChildProcess` 实例会作为 `child` 属性附加到该 `Promise`。
-如果出现错误（包括导致退出码不是 0 的任何错误），则返回被拒绝的 Promise，并带上与回调中相同的 `error` 对象，但是还有另外两个属性 `stdout` 和 `stderr`。
+如果出现错误（包括导致退出码不是 0 的任何错误），则返回被拒绝的 Promise，并带上与回调中相同的 `error` 对象，但是还有两个另外的属性 `stdout` 和 `stderr`。
 
 ```js
 const util = require('util');
@@ -77,7 +77,7 @@ const exec = util.promisify(require('child_process').exec);
 async function lsExample() {
   const { stdout, stderr } = await exec('ls');
   console.log('stdout:', stdout);
-  console.log('stderr:', stderr);
+  console.error('stderr:', stderr);
 }
 lsExample();
 ```
