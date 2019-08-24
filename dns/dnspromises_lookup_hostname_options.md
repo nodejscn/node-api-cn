@@ -3,8 +3,9 @@ added: v10.6.0
 -->
 * `hostname` {string}
 * `options` {integer | Object}
-  - `family` {integer} The record family. Must be `4` or `6`. IPv4
-    and IPv6 addresses are both returned by default.
+  - `family` {integer} The record family. Must be `4`, `6`, or `0`. The value
+    `0` indicates that IPv4 and IPv6 addresses are both returned. **Default:**
+    `0`.
   - `hints` {number} One or more [supported `getaddrinfo` flags][]. Multiple
     flags may be passed by bitwise `OR`ing their values.
   - `all` {boolean} When `true`, the `Promise` is resolved with all addresses in
@@ -26,7 +27,7 @@ being an array of objects with the properties `address` and `family`.
 
 On error, the `Promise` is rejected with an [`Error`][] object, where `err.code`
 is the error code.
-Keep in mind that `err.code` will be set to `'ENOENT'` not only when
+Keep in mind that `err.code` will be set to `'ENOTFOUND'` not only when
 the hostname does not exist but also when the lookup fails in other ways
 such as no available file descriptors.
 

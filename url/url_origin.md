@@ -1,22 +1,20 @@
 
 * {string}
 
-获取只读序列化的URL origin部分。
+获取只读的序列化的 URL 的 origin。
 
 ```js
-const { URL } = require('url');
 const myURL = new URL('https://example.org/foo/bar?baz');
 console.log(myURL.origin);
-  // 输出 https://example.org
+  // 打印 https://example.org
 ```
 
 ```js
-const { URL } = require('url');
-const idnURL = new URL('https://你好你好');
+const idnURL = new URL('https://測試');
 console.log(idnURL.origin);
-  // 输出 https://xn--6qqa088eba
+// 打印 https://xn--g6w251d
 
 console.log(idnURL.hostname);
-  // 输出 xn--6qqa088eba
+// 打印 xn--g6w251d
 ```
 

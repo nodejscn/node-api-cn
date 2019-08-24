@@ -2,22 +2,21 @@
 added: v10.12.0
 -->
 
-* `path` {string} The path to convert to a File URL.
-* Returns: {URL} The file URL object.
+* `path` {string} 要转换为文件 URL 的路径。
+* 返回: {URL} 文件 URL 对象。
 
-This function ensures that `path` is resolved absolutely, and that the URL
-control characters are correctly encoded when converting into a File URL.
+此函数可确保 `path` 会被解析为绝对路径，并在转换为文件 URL 时正确编码 URL 控制字符。
 
 ```js
-new URL(__filename);                // Incorrect: throws (POSIX)
-new URL(__filename);                // Incorrect: C:\... (Windows)
-pathToFileURL(__filename);          // Correct:   file:///... (POSIX)
-pathToFileURL(__filename);          // Correct:   file:///C:/... (Windows)
+new URL(__filename);                // 错误: throws (POSIX)
+new URL(__filename);                // 错误: C:\... (Windows)
+pathToFileURL(__filename);          // 正确:   file:///... (POSIX)
+pathToFileURL(__filename);          // 正确:   file:///C:/... (Windows)
 
-new URL('/foo#1', 'file:');         // Incorrect: file:///foo#1
-pathToFileURL('/foo#1');            // Correct:   file:///foo%231 (POSIX)
+new URL('/foo#1', 'file:');         // 错误: file:///foo#1
+pathToFileURL('/foo#1');            // 正确:   file:///foo%231 (POSIX)
 
-new URL('/some/path%.js', 'file:'); // Incorrect: file:///some/path%
-pathToFileURL('/some/path%.js');    // Correct:   file:///some/path%25 (POSIX)
+new URL('/some/path%.js', 'file:'); // 错误: file:///some/path%
+pathToFileURL('/some/path%.js');    // 正确:   file:///some/path%25 (POSIX)
 ```
 

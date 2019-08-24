@@ -1,23 +1,30 @@
 <!-- YAML
 added: v0.1.25
 changes:
+  - version: v11.0.0
+    pr-url: https://github.com/nodejs/node/pull/22715
+    description: The Legacy URL API is deprecated. Use the WHATWG URL API.
   - version: v9.0.0
     pr-url: https://github.com/nodejs/node/pull/13606
     description: The `search` property on the returned URL object is now `null`
                  when no query string is present.
 -->
 
-* `urlString` {string} 要解析的 URL 字符串。
-* `parseQueryString` {boolean} 如果设为 `true`，则返回的 URL 对象的 `query` 属性会是一个使用 [`querystring`] 模块的 `parse()` 生成的对象。
-  如果设为 `false`，则 `query` 会是一个未解析未解码的字符串。
-  默认为 `false`。
-* `slashesDenoteHost` {boolean} 如果设为 `true`，则 `//` 之后至下一个 `/` 之前的字符串会解析作为 `host`。
-  例如，`//foo/bar` 会解析为 `{host: 'foo', pathname: '/bar'}` 而不是 `{pathname: '//foo/bar'}`。
-  默认为 `false`。
+* `urlString` {string} The URL string to parse.
+* `parseQueryString` {boolean} If `true`, the `query` property will always
+  be set to an object returned by the [`querystring`][] module's `parse()`
+  method. If `false`, the `query` property on the returned URL object will be an
+  unparsed, undecoded string. **Default:** `false`.
+* `slashesDenoteHost` {boolean} If `true`, the first token after the literal
+  string `//` and preceding the next `/` will be interpreted as the `host`.
+  For instance, given `//foo/bar`, the result would be
+  `{host: 'foo', pathname: '/bar'}` rather than `{pathname: '//foo/bar'}`.
+  **Default:** `false`.
 
-解析 URL 字符串并返回 URL 对象。
+The `url.parse()` method takes a URL string, parses it, and returns a URL
+object.
 
-如果 `urlString` 不是字符串，则抛出`TypeError`。
+A `TypeError` is thrown if `urlString` is not a string.
 
-如果 `auth` 属性存在但无法解码，则抛出 `URIError`。
+A `URIError` is thrown if the `auth` property is present but cannot be decoded.
 

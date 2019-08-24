@@ -1,7 +1,9 @@
 
-`auth` 属性是 URL 的用户名与密码部分。
-该字符串跟在 `protocol` 和双斜杠（如果有）的后面，排在 `host` 部分的前面且被一个 ASCII 的 at 符号（`@`）分隔。
-该字符的格式为 `{username}[:{password}]`，`[:{password}]` 部分是可选的。
+The `auth` property is the username and password portion of the URL, also
+referred to as _userinfo_. This string subset follows the `protocol` and
+double slashes (if present) and precedes the `host` component, delimited by `@`.
+The string is either the username, or it is the username and password separated
+by `:`.
 
-例如：`'user:pass'`
+For example: `'user:pass'`.
 

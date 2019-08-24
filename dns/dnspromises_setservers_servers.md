@@ -1,10 +1,10 @@
 <!-- YAML
 added: v10.6.0
 -->
-* `servers` {string[]} array of [rfc5952][] formatted addresses
+* `servers` {string[]} array of [RFC 5952][] formatted addresses
 
 Sets the IP address and port of servers to be used when performing DNS
-resolution. The `servers` argument is an array of [rfc5952][] formatted
+resolution. The `servers` argument is an array of [RFC 5952][] formatted
 addresses. If the port is the IANA default DNS port (53) it can be omitted.
 
 ```js
@@ -21,7 +21,7 @@ An error will be thrown if an invalid address is provided.
 The `dnsPromises.setServers()` method must not be called while a DNS query is in
 progress.
 
-Note that this method works much like
+This method works much like
 
 That is, if attempting to resolve with the first server provided results in a
 `NOTFOUND` error, the `resolve()` method will *not* attempt to resolve with

@@ -4,7 +4,7 @@ added: v10.6.0
 
 An independent resolver for DNS requests.
 
-Note that creating a new resolver uses the default server settings. Setting
+Creating a new resolver uses the default server settings. Setting
 the servers used for a resolver using
 [`resolver.setServers()`][`dnsPromises.setServers()`] does not affect
 other resolvers:

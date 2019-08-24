@@ -1,6 +1,9 @@
 <!-- YAML
 added: v0.1.25
 changes:
+  - version: v11.0.0
+    pr-url: https://github.com/nodejs/node/pull/22715
+    description: The Legacy URL API is deprecated. Use the WHATWG URL API.
   - version: v7.0.0
     pr-url: https://github.com/nodejs/node/pull/7234
     description: URLs with a `file:` scheme will now always use the correct
@@ -9,43 +12,79 @@ changes:
                  times.
 -->
 
-* `urlObject` {Object|string} 一个 URL 对象（就像 `url.parse()` 返回的）。
-  如果是一个字符串，则通过 `url.parse()` 转换为一个对象。
+* `urlObject` {Object|string} A URL object (as returned by `url.parse()` or
+  constructed otherwise). If a string, it is converted to an object by passing
+  it to `url.parse()`.
 
-`url.format()` 方法返回一个从 `urlObject` 格式化后的 URL 字符串。
+The `url.format()` method returns a formatted URL string derived from
+`urlObject`.
 
-如果 `urlObject` 不是一个对象或字符串，则 `url.format()` 抛出 [`TypeError`]。
+```js
+url.format({
+  protocol: 'https',
+  hostname: 'example.com',
+  pathname: '/some/path',
+  query: {
+    page: 1,
+    format: 'json'
+  }
+});
 
-格式化过程如下：
+// => 'https://example.com/some/path?page=1&format=json'
+```
 
-* 创建一个新的空字符串 `result`。
-* 如果 `urlObject.protocol` 是一个字符串，则它会被原样添加到 `result`。
-* 否则，如果 `urlObject.protocol` 不是 `undefined` 也不是一个字符串，则抛出 [`Error`]。
-* 对于不是以 `:` 结束的 `urlObject.protocol`，`:` 会被添加到 `result`。
-* 如果以下条件之一为真，则 `//` 会被添加到 `result`：
-    * `urlObject.slashes` 属性为真；
-    * `urlObject.protocol` 以 `http`、`https`、`ftp`、`gopher` 或 `file` 开头；
-* 如果 `urlObject.auth` 属性的值为真，且 `urlObject.host` 或 `urlObject.hostname` 不为 `undefined`，则 `urlObject.auth` 会被添加到 `result`，且后面带上 `@`。
-* 如果 `urlObject.host` 属性为 `undefined`，则：
-  * 如果 `urlObject.hostname` 是一个字符串，则它会被添加到 `result`。
-  * 否则，如果 `urlObject.hostname` 不是 `undefined` 也不是一个字符串，则抛出 [`Error`]。
-  * 如果 `urlObject.port` 属性的值为真，且 `urlObject.hostname` 不为 `undefined`：
-    * `:` 会被添加到 `result`。
-    * `urlObject.port` 的值会被添加到 `result`。
-* 否则，如果 `urlObject.host` 属性的值为真，则 `urlObject.host` 的值会被添加到 `result`。
-* 如果 `urlObject.pathname` 属性是一个字符串且不是一个空字符串：
-  * 如果 `urlObject.pathname` 不是以 `/` 开头，则 `/` 会被添加到 `result`。
-  * `urlObject.pathname` 的值会被添加到 `result`。
-* 否则，如果 `urlObject.pathname` 不是 `undefined` 也不是一个字符串，则抛出 [`Error`]。
-* 如果 `urlObject.search` 属性为 `undefined` 且 `urlObject.query` 属性是一个 `Object`，则 `?` 会被添加到 `result`，后面跟上把 `urlObject.query` 的值传入 [`querystring`] 模块的 `stringify()` 方法的调用结果。
-* 否则，如果 `urlObject.search` 是一个字符串：
-  * 如果 `urlObject.search` 的值不是以 `?` 开头，则 `?` 会被添加到 `result`。
-  * `urlObject.search` 的值会被添加到 `result`。
-* 否则，如果 `urlObject.search` 不是 `undefined` 也不是一个字符串，则抛出 [`Error`]。
-* 如果 `urlObject.hash` 属性是一个字符串：
-  * 如果 `urlObject.hash` 的值不是以 `#` 开头，则 `#` 会被添加到 `result`。
-  * `urlObject.hash` 的值会被添加到 `result`。
-* 否则，如果 `urlObject.hash` 属性不是 `undefined` 也不是一个字符串，则抛出 [`Error`]。
-* 返回 `result`。
+If `urlObject` is not an object or a string, `url.format()` will throw a
+[`TypeError`][].
 
+The formatting process operates as follows:
+
+* A new empty string `result` is created.
+* If `urlObject.protocol` is a string, it is appended as-is to `result`.
+* Otherwise, if `urlObject.protocol` is not `undefined` and is not a string, an
+  [`Error`][] is thrown.
+* For all string values of `urlObject.protocol` that *do not end* with an ASCII
+  colon (`:`) character, the literal string `:` will be appended to `result`.
+* If either of the following conditions is true, then the literal string `//`
+  will be appended to `result`:
+    * `urlObject.slashes` property is true;
+    * `urlObject.protocol` begins with `http`, `https`, `ftp`, `gopher`, or
+      `file`;
+* If the value of the `urlObject.auth` property is truthy, and either
+  `urlObject.host` or `urlObject.hostname` are not `undefined`, the value of
+  `urlObject.auth` will be coerced into a string and appended to `result`
+   followed by the literal string `@`.
+* If the `urlObject.host` property is `undefined` then:
+  * If the `urlObject.hostname` is a string, it is appended to `result`.
+  * Otherwise, if `urlObject.hostname` is not `undefined` and is not a string,
+    an [`Error`][] is thrown.
+  * If the `urlObject.port` property value is truthy, and `urlObject.hostname`
+    is not `undefined`:
+    * The literal string `:` is appended to `result`, and
+    * The value of `urlObject.port` is coerced to a string and appended to
+      `result`.
+* Otherwise, if the `urlObject.host` property value is truthy, the value of
+  `urlObject.host` is coerced to a string and appended to `result`.
+* If the `urlObject.pathname` property is a string that is not an empty string:
+  * If the `urlObject.pathname` *does not start* with an ASCII forward slash
+    (`/`), then the literal string `'/'` is appended to `result`.
+  * The value of `urlObject.pathname` is appended to `result`.
+* Otherwise, if `urlObject.pathname` is not `undefined` and is not a string, an
+  [`Error`][] is thrown.
+* If the `urlObject.search` property is `undefined` and if the `urlObject.query`
+  property is an `Object`, the literal string `?` is appended to `result`
+  followed by the output of calling the [`querystring`][] module's `stringify()`
+  method passing the value of `urlObject.query`.
+* Otherwise, if `urlObject.search` is a string:
+  * If the value of `urlObject.search` *does not start* with the ASCII question
+    mark (`?`) character, the literal string `?` is appended to `result`.
+  * The value of `urlObject.search` is appended to `result`.
+* Otherwise, if `urlObject.search` is not `undefined` and is not a string, an
+  [`Error`][] is thrown.
+* If the `urlObject.hash` property is a string:
+  * If the value of `urlObject.hash` *does not start* with the ASCII hash (`#`)
+    character, the literal string `#` is appended to `result`.
+  * The value of `urlObject.hash` is appended to `result`.
+* Otherwise, if the `urlObject.hash` property is not `undefined` and is not a
+  string, an [`Error`][] is thrown.
+* `result` is returned.
 

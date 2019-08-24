@@ -1,6 +1,9 @@
 <!-- YAML
 added: v0.1.25
 changes:
+  - version: v11.0.0
+    pr-url: https://github.com/nodejs/node/pull/22715
+    description: The Legacy URL API is deprecated. Use the WHATWG URL API.
   - version: v6.6.0
     pr-url: https://github.com/nodejs/node/pull/8215
     description: The `auth` fields are now kept intact when `from` and `to`
@@ -14,12 +17,11 @@ changes:
                  contains a hostname.
 -->
 
-* `from` {string} 解析时相对的基本 URL。
-* `to` {string} 要解析的超链接 URL。
+* `from` {string} The Base URL being resolved against.
+* `to` {string} The HREF URL being resolved.
 
-`url.resolve()` 方法会以一种 Web 浏览器解析超链接的方式把一个目标 URL 解析成相对于一个基础 URL。
-
-例子：
+The `url.resolve()` method resolves a target URL relative to a base URL in a
+manner similar to that of a Web browser resolving an anchor tag HREF.
 
 ```js
 const url = require('url');
@@ -29,4 +31,3 @@ url.resolve('http://example.com/one', '/two'); // 'http://example.com/two'
 ```
 
 <a id="whatwg-percent-encoding"></a>
-

@@ -1,26 +1,28 @@
 <!-- YAML
 added: v0.11.14
 -->
-- `address` {string}
-- `port` {number}
-- `callback` {Function}
+* `address` {string}
+* `port` {number}
+* `callback` {Function}
   - `err` {Error}
-  - `hostname` {string} e.g. `example.com`
-  - `service` {string} e.g. `http`
+  - `hostname` {string} 例如 `nodejs.cn`。
+  - `service` {string} 例如 `http`。
 
-将参数`address`和`port`传入操作系统底层`getnameinfo`服务来解析处理并返回主机名。
+使用操作系统的底层 `getnameinfo` 实现将给定的 `address` 和 `port` 解析为主机名和服务。
 
-如果`address`不是有效的IP地址，会抛出`TypeError`。`port`必须是一个整数.如果不是规定的端口号，会抛出`TypeError`.
+如果 `address` 不是有效的 IP 地址，则将会抛出 `TypeError`。
+`port` 会被强制转换为数字。
+如果它不是合法的端口，则抛出 `TypeError`。
 
-出错情况下，`err`是一个`Error`对象，`err.code`代码错误码。
+出错情况下，`err` 是一个 [`Error`] 对象，其中 `err.code` 是错误码。
 
 ```js
 const dns = require('dns');
 dns.lookupService('127.0.0.1', 22, (err, hostname, service) => {
   console.log(hostname, service);
-  // Prints: localhost ssh
+  // 打印: localhost ssh
 });
 ```
 
-如果以 [`util.promisify()`][] 方式进行调用, 它将返回一个包含`hostname`和`service`属性的 Promise 对象。
+如果调用此方法的 [`util.promisify()`] 化的版本，则它返回的 `Promise` 会返回一个具有 `hostname` 和 `service` 属性的 `Object`。
 

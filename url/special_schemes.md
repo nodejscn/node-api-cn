@@ -1,11 +1,8 @@
 
-The [WHATWG URL Standard][] considers a handful of URL protocol schemes to be
-_special_ in terms of how they are parsed and serialized. When a URL is
-parsed using one of these special protocols, the `url.protocol` property
-may be changed to another special protocol but cannot be changed to a
-non-special protocol, and vice versa.
+[WHATWG URL 标准][WHATWG URL Standard]认为少数 URL 协议规范在解析和序列化方面具有特殊性。 
+使用这些特殊协议之一解析 URL 时，`url.protocol` 属性可能会被更改为其他特殊协议，但不能更改为非特殊协议，反之亦然。
 
-For instance, changing from `http` to `https` works:
+例如，从 `http` 更改为 `https` 工作如下：
 
 ```js
 const u = new URL('http://example.org');
@@ -14,8 +11,7 @@ console.log(u.href);
 // https://example.org
 ```
 
-However, changing from `http` to a hypothetical `fish` protocol does not
-because the new protocol is not special.
+但是，从 `http` 更改为假设的 `fish` 议并不是因为新协议并不特殊。
 
 ```js
 const u = new URL('http://example.org');
@@ -24,8 +20,7 @@ console.log(u.href);
 // http://example.org
 ```
 
-Likewise, changing from a non-special protocol to a special protocol is also
-not permitted:
+同样，也不允许从非特殊协议更改为特殊协议：
 
 ```js
 const u = new URL('fish://example.org');
@@ -34,6 +29,5 @@ console.log(u.href);
 // fish://example.org
 ```
 
-The protocol schemes considered to be special by the WHATWG URL Standard
-include: `ftp`, `file`, `gopher`, `http`, `https`, `ws`, and `wss`.
+根据 WHATWG URL 标准，特殊协议规范是 `ftp`、`file`、`gopher`、`http`、`https`、`ws` 和 `wss`。
 

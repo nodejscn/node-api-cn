@@ -2,30 +2,32 @@
 added: v7.6.0
 -->
 
-* `URL` {URL} 一个[WHATWG URL][]对象
+* `URL` {URL} [WHATWG URL] 对象。
 * `options` {Object}
-  * `auth` {boolean} 如果序列化的URL字符串应该包含用户名和密码为`true`，否则为`false`。默认为`true`。
-  * `fragment` {boolean} 如果序列化的URL字符串应该包含分段为`true`，否则为`false`。默认为`true`。
-  * `search` {boolean} 如果序列化的URL字符串应该包含搜索查询为`true`，否则为`false`。默认为`true`。
-  * `unicode` {boolean} `true` 如果出现在URL字符串主机元素里的Unicode字符应该被直接编码而不是使用Punycode编码为`true`，默认为`false`。
+  * `auth` {boolean} 如果序列化的 URL 字符串应该包含用户名和密码则为 `true`，否则为 `false`。**默认值:** `true`。
+  * `fragment` {boolean} 如果序列化的 URL 字符串应该包含分段则为 `true`，否则为 `false`。**默认值:** `true`。
+  * `search` {boolean} 如果序列化的 URL 字符串应该包含搜索查询则为 `true`，否则为 `false`。**默认值:** `true`。
+  * `unicode` {boolean} 如果出现在 URL 字符串主机元素里的 Unicode 字符应该被直接编码而不是使用 Punycode 编码则为 `true`。**默认值:** `false`。
+* 返回: {string}
 
-返回一个[WHATWG URL][]对象的可自定义序列化的URL字符串表达。
+返回代表 [WHATWG URL] 对象的可自定义序列化的 URL `String`。
 
-虽然URL对象的`toString()`方法和`href`属性都可以返回URL的序列化的字符串。然而，两者都不可以被自定义。而`url.format(URL[, options])`方法允许输出的基本自定义。
+虽然 URL 对象的 `toString()` 方法和 `href` 属性都可以返回 URL 的序列化的字符串。
+然而，两者都不可以被自定义。
+而 `url.format(URL[, options])` 方法允许输出的基本自定义。
 
-例如：
+
 
 ```js
-const { URL } = require('url');
-const myURL = new URL('https://a:b@你好你好?abc#foo');
+const myURL = new URL('https://a:b@測試?abc#foo');
 
 console.log(myURL.href);
-  // 输出 https://a:b@xn--6qqa088eba/?abc#foo
+// 打印 https://a:b@xn--g6w251d/?abc#foo
 
 console.log(myURL.toString());
-  // 输出 https://a:b@xn--6qqa088eba/?abc#foo
+// 打印 https://a:b@xn--g6w251d/?abc#foo
 
 console.log(url.format(myURL, { fragment: false, unicode: true, auth: false }));
-  // 输出 'https://你好你好/?abc'
+// 打印 'https://測試/?abc'
 ```
 

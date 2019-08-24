@@ -1,5 +1,6 @@
 
-`hash` 属性包含 URL 的碎片部分，包括开头的 ASCII 哈希字符（`#`）。
+The `hash` property is the fragment identifier portion of the URL including the
+leading `#` character.
 
-例如：`'#hash'`
+For example: `'#hash'`.
 
