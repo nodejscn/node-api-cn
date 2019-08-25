@@ -22,7 +22,7 @@ util.isError({ name: 'Error', message: 'an error occurred' });
 // Returns: false
 ```
 
-Note that this method relies on `Object.prototype.toString()` behavior. It is
+This method relies on `Object.prototype.toString()` behavior. It is
 possible to obtain an incorrect result when the `object` argument manipulates
 `@@toStringTag`.
 

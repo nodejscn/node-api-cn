@@ -11,7 +11,7 @@ single argument when called:
 The `tlsSocket.authorized` property is a `boolean` indicating whether the
 client has been verified by one of the supplied Certificate Authorities for the
 server. If `tlsSocket.authorized` is `false`, then `socket.authorizationError`
-is set to describe how authorization failed. Note that depending on the settings
+is set to describe how authorization failed. Depending on the settings
 of the TLS server, unauthorized connections may still be accepted.
 
 The `tlsSocket.alpnProtocol` property is a string that contains the selected

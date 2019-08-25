@@ -7,7 +7,7 @@ added: v10.0.0
 
 Returns `true` if the value is a generator object as returned from a
 built-in generator function.
-Note that this only reports back what the JavaScript engine is seeing;
+This only reports back what the JavaScript engine is seeing;
 in particular, the return value may not match the original source code if
 a transpilation tool was used.
 

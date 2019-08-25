@@ -1,15 +1,22 @@
 <!-- YAML
 added: v0.11.4
+changes:
+  - version: v12.0.0
+    pr-url: https://github.com/nodejs/node/pull/26625
+    description: Return the minimum cipher version, instead of a fixed string
+      (`'TLSv1/SSLv3'`).
 -->
 
 * Returns: {Object}
+  * `name` {string} The name of the cipher suite.
+  * `version` {string} The minimum TLS protocol version supported by this cipher
+    suite.
 
-Returns an object representing the cipher name. The `version` key is a legacy
-field which always contains the value `'TLSv1/SSLv3'`.
+Returns an object containing information on the negotiated cipher suite.
 
-For example: `{ name: 'AES256-SHA', version: 'TLSv1/SSLv3' }`.
+For example: `{ name: 'AES256-SHA', version: 'TLSv1.2' }`.
 
-See `SSL_CIPHER_get_name()` in
-<https://www.openssl.org/docs/man1.1.0/ssl/SSL_CIPHER_get_name.html> for more
-information.
+See
+
+for more information.
 

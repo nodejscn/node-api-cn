@@ -1,3 +1,10 @@
+<!-- YAML
+added: v8.3.0
+changes:
+  - version: v11.0.0
+    pr-url: v11.0.0
+    description: The class is now available on the global object.
+-->
 
 * `encoding` {string} Identifies the `encoding` that this `TextDecoder` instance
   supports. **Default:** `'utf-8'`.
@@ -12,4 +19,6 @@
 
 Creates an new `TextDecoder` instance. The `encoding` may specify one of the
 supported encodings or an alias.
+
+The `TextDecoder` class is also available on the global object.
 

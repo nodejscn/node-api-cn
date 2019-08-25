@@ -1,27 +1,37 @@
 <!-- YAML
 added: v0.3.2
 changes:
+  - version: v12.3.0
+    pr-url: https://github.com/nodejs/node/pull/27665
+    description: The `options` parameter now supports `net.createServer()`
+                 options.
   - version: v9.3.0
     pr-url: https://github.com/nodejs/node/pull/14903
     description: The `options` parameter can now include `clientCertEngine`.
   - version: v8.0.0
     pr-url: https://github.com/nodejs/node/pull/11984
-    description: The `ALPNProtocols` option can be a `Uint8Array` now.
+    description: The `ALPNProtocols` option can be a `TypedArray` or
+     `DataView` now.
   - version: v5.0.0
     pr-url: https://github.com/nodejs/node/pull/2564
     description: ALPN options are supported now.
 -->
 
 * `options` {Object}
-  * `ALPNProtocols`: {string[]|Buffer[]|Uint8Array[]|Buffer|Uint8Array}
-    An array of strings, `Buffer`s or `Uint8Array`s, or a single `Buffer` or
-    `Uint8Array` containing the supported ALPN protocols. `Buffer`s should have
-    the format `[len][name][len][name]...` e.g. `0x05hello0x05world`, where the
-    first byte is the length of the next protocol name. Passing an array is
-    usually much simpler, e.g. `['hello', 'world']`.
-    (Protocols should be ordered by their priority.)
+  * `ALPNProtocols`: {string[]|Buffer[]|TypedArray[]|DataView[]|Buffer|
+    TypedArray|DataView}
+    An array of strings, `Buffer`s or `TypedArray`s or `DataView`s, or a single
+    `Buffer` or `TypedArray` or `DataView` containing the supported ALPN
+    protocols. `Buffer`s should have the format `[len][name][len][name]...`
+    e.g. `0x05hello0x05world`, where the first byte is the length of the next
+    protocol name. Passing an array is usually much simpler, e.g.
+    `['hello', 'world']`. (Protocols should be ordered by their priority.)
   * `clientCertEngine` {string} Name of an OpenSSL engine which can provide the
     client certificate.
+  * `enableTrace` {boolean} If `true`, [`tls.TLSSocket.enableTrace()`][] will be
+    called on new connections. Tracing can be enabled after the secure
+    connection is established, but this option must be used to trace the secure
+    connection setup. **Default:** `false`.
   * `handshakeTimeout` {number} Abort the connection if the SSL/TLS handshake
     does not finish in the specified number of milliseconds.
     A `'tlsClientError'` is emitted on the `tls.Server` object whenever
@@ -45,6 +55,7 @@ changes:
     data. See [Session Resumption][] for more information.
   * ...: Any [`tls.createSecureContext()`][] option can be provided. For
     servers, the identity options (`pfx` or `key`/`cert`) are usually required.
+  * ...: Any [`net.createServer()`][] option can be provided.
 * `secureConnectionListener` {Function}
 * Returns: {tls.Server}
 

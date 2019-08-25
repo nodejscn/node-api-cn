@@ -11,11 +11,11 @@ be returned for server sockets or disconnected client sockets.
 
 Protocol versions are:
 
+* `'SSLv3'`
 * `'TLSv1'`
 * `'TLSv1.1'`
 * `'TLSv1.2'`
-* `'SSLv3'`
+* `'TLSv1.3'`
 
-See <https://www.openssl.org/docs/man1.1.0/ssl/SSL_get_version.html> for more
-information.
+See the OpenSSL [`SSL_get_version`][] documentation for more information.
 

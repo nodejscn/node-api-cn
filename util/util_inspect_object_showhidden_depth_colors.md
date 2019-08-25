@@ -1,16 +1,44 @@
 <!-- YAML
 added: v0.3.0
 changes:
+  - version: v12.0.0
+    pr-url: https://github.com/nodejs/node/pull/27109
+    description: The `compact` options default is changed to `3` and the
+                 `breakLength` options default is changed to `80`.
+  - version: v11.11.0
+    pr-url: https://github.com/nodejs/node/pull/26269
+    description: The `compact` option accepts numbers for a new output mode.
+  - version: v12.0.0
+    pr-url: https://github.com/nodejs/node/pull/24971
+    description: Internal properties no longer appear in the context argument
+                 of a custom inspection function.
+  - version: v11.7.0
+    pr-url: https://github.com/nodejs/node/pull/25006
+    description: ArrayBuffers now also show their binary contents.
+  - version: v11.5.0
+    pr-url: https://github.com/nodejs/node/pull/24852
+    description: The `getters` option is supported now.
+  - version: v11.4.0
+    pr-url: https://github.com/nodejs/node/pull/24326
+    description: The `depth` default changed back to `2`.
+  - version: v11.0.0
+    pr-url: https://github.com/nodejs/node/pull/22846
+    description: The `depth` default changed to `20`.
   - version: v10.12.0
     pr-url: https://github.com/nodejs/node/pull/22788
     description: The `sorted` option is supported now.
+  - version: v11.0.0
+    pr-url: https://github.com/nodejs/node/pull/22756
+    description: The inspection output is now limited to about 128 MB. Data
+                 above that size will not be fully inspected.
   - version: v10.6.0
     pr-url: https://github.com/nodejs/node/pull/20725
     description: Inspecting linked lists and similar objects is now possible
                  up to the maximum call stack size.
   - version: v10.0.0
     pr-url: https://github.com/nodejs/node/pull/19259
-    description: The `WeakMap` and `WeakSet` entries can now be inspected.
+    description: The `WeakMap` and `WeakSet` entries can now be inspected
+                 as well.
   - version: v9.9.0
     pr-url: https://github.com/nodejs/node/pull/17576
     description: The `compact` option is supported now.
@@ -31,45 +59,51 @@ changes:
 
 * `object` {any} Any JavaScript primitive or `Object`.
 * `options` {Object}
-  * `showHidden` {boolean} If `true`, the `object`'s non-enumerable symbols and
-    properties will be included in the formatted result as well as [`WeakMap`][]
-    and [`WeakSet`][] entries. **Default:** `false`.
+  * `showHidden` {boolean} If `true`, `object`'s non-enumerable symbols and
+    properties are included in the formatted result. [`WeakMap`][] and
+    [`WeakSet`][] entries are also included. **Default:** `false`.
   * `depth` {number} Specifies the number of times to recurse while formatting
-    the `object`. This is useful for inspecting large complicated objects. To
-    make it recurse up to the maximum call stack size pass `Infinity` or `null`.
+    `object`. This is useful for inspecting large objects. To recurse up to
+    the maximum call stack size pass `Infinity` or `null`.
     **Default:** `2`.
-  * `colors` {boolean} If `true`, the output will be styled with ANSI color
-    codes. Colors are customizable, see [Customizing `util.inspect` colors][].
+  * `colors` {boolean} If `true`, the output is styled with ANSI color
+    codes. Colors are customizable. See [Customizing `util.inspect` colors][].
     **Default:** `false`.
-  * `customInspect` {boolean} If `false`, then custom `inspect(depth, opts)`
-    functions will not be called. **Default:** `true`.
-  * `showProxy` {boolean} If `true`, then objects and functions that are
-    `Proxy` objects will be introspected to show their `target` and `handler`
-    objects. **Default:** `false`.
-  * `maxArrayLength` {number} Specifies the maximum number of `Array`,
+  * `customInspect` {boolean} If `false`,
+    `[util.inspect.custom](depth, opts)` functions are not invoked.
+    **Default:** `true`.
+  * `showProxy` {boolean} If `true`, `Proxy` inspection includes
+    the [`target` and `handler`][] objects. **Default:** `false`.
+  * `maxArrayLength` {integer} Specifies the maximum number of `Array`,
     [`TypedArray`][], [`WeakMap`][] and [`WeakSet`][] elements to include when
     formatting. Set to `null` or `Infinity` to show all elements. Set to `0` or
     negative to show no elements. **Default:** `100`.
-  * `breakLength` {number} The length at which an object's keys are split
-    across multiple lines. Set to `Infinity` to format an object as a single
-    line. **Default:** `60` for legacy compatibility.
-  * `compact` {boolean} Setting this to `false` changes the default indentation
-    to use a line break for each object key instead of lining up multiple
-    properties in one line. It will also break text that is above the
-    `breakLength` size into smaller and better readable chunks and indents
-    objects the same as arrays. Note that no text will be reduced below 16
-    characters, no matter the `breakLength` size. For more information, see the
-    example below. **Default:** `true`.
+  * `breakLength` {integer} The length at which input values are split across
+    multiple lines. Set to `Infinity` to format the input as a single line
+    (in combination with `compact` set to `true` or any number >= `1`).
+    **Default:** `80`.
+  * `compact` {boolean|integer} Setting this to `false` causes each object key
+    to be displayed on a new line. It will also add new lines to text that is
+    longer than `breakLength`. If set to a number, the most `n` inner elements
+    are united on a single line as long as all properties fit into
+    `breakLength`. Short array elements are also grouped together. No
+    text will be reduced below 16 characters, no matter the `breakLength` size.
+    For more information, see the example below. **Default:** `3`.
   * `sorted` {boolean|Function} If set to `true` or a function, all properties
-    of an object and Set and Map entries will be sorted in the returned string.
-    If set to `true` the [default sort][] is going to be used. If set to a
-    function, it is used as a [compare function][].
-* Returns: {string} The representation of passed object
+    of an object, and `Set` and `Map` entries are sorted in the resulting
+    string. If set to `true` the [default sort][] is used. If set to a function,
+    it is used as a [compare function][].
+  * `getters` {boolean|string} If set to `true`, getters are inspected. If set
+    to `'get'`, only getters without a corresponding setter are inspected. If
+    set to `'set'`, only getters with a corresponding setter are inspected.
+    This might cause side effects depending on the getter function.
+    **Default:** `false`.
+* Returns: {string} The representation of `object`.
 
 The `util.inspect()` method returns a string representation of `object` that is
 intended for debugging. The output of `util.inspect` may change at any time
 and should not be depended upon programmatically. Additional `options` may be
-passed that alter certain aspects of the formatted string.
+passed that alter the result.
 `util.inspect()` will use the constructor's name and/or `@@toStringTag` to make
 an identifiable tag for an inspected value.
 
@@ -97,11 +131,7 @@ const util = require('util');
 console.log(util.inspect(util, { showHidden: true, depth: null }));
 ```
 
-Values may supply their own custom `inspect(depth, opts)` functions, when
-called these receive the current `depth` in the recursive inspection, as well as
-the options object passed to `util.inspect()`.
-
-The following example highlights the difference with the `compact` option:
+The following example highlights the effect of the `compact` option:
 
 ```js
 const util = require('util');
@@ -158,13 +188,11 @@ console.log(util.inspect(o, { compact: false, depth: 5, breakLength: 80 }));
 // chunks.
 ```
 
-Using the `showHidden` option allows to inspect [`WeakMap`][] and [`WeakSet`][]
-entries. If there are more entries than `maxArrayLength`, there is no guarantee
-which entries are displayed. That means retrieving the same [`WeakSet`][]
-entries twice might actually result in a different output. Besides this any item
-might be collected at any point of time by the garbage collector if there is no
-strong reference left to that object. Therefore there is no guarantee to get a
-reliable output.
+The `showHidden` option allows [`WeakMap`][] and [`WeakSet`][] entries to be
+inspected. If there are more entries than `maxArrayLength`, there is no
+guarantee which entries are displayed. That means retrieving the same
+[`WeakSet`][] entries twice may result in different output. Furthermore, entries
+with no remaining strong references may be garbage collected at any time.
 
 ```js
 const { inspect } = require('util');
@@ -177,8 +205,8 @@ console.log(inspect(weakSet, { showHidden: true }));
 // WeakSet { { a: 1 }, { b: 2 } }
 ```
 
-The `sorted` option makes sure the output is identical, no matter of the
-properties insertion order:
+The `sorted` option ensures that an object's property insertion order does not
+impact the result of `util.inspect()`.
 
 ```js
 const { inspect } = require('util');
@@ -205,8 +233,7 @@ assert.strict.equal(
 );
 ```
 
-Please note that `util.inspect()` is a synchronous method that is mainly
-intended as a debugging tool. Some input values can have a significant
-performance overhead that can block the event loop. Use this function
-with care and never in a hot code path.
+`util.inspect()` is a synchronous method intended for debugging. Its maximum
+output length is approximately 128 MB. Inputs that result in longer output will
+be truncated.
 

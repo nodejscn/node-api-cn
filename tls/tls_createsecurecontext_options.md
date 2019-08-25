@@ -1,7 +1,13 @@
 <!-- YAML
 added: v0.11.13
 changes:
-  - version: v10.16.0
+  - version: v12.0.0
+    pr-url: https://github.com/nodejs/node/pull/26209
+    description: TLSv1.3 support added.
+  - version: v11.5.0
+    pr-url: https://github.com/nodejs/node/pull/24733
+    description: The `ca:` option now supports `BEGIN TRUSTED CERTIFICATE`.
+  - version: v11.4.0
     pr-url: https://github.com/nodejs/node/pull/24405
     description: The `minVersion` and `maxVersion` can be used to restrict
                  the allowed TLS protocol versions.
@@ -43,8 +49,9 @@ changes:
     certificate can match or chain to.
     For self-signed certificates, the certificate is its own CA, and must be
     provided.
-    For PEM encoded certificates, supported types are "X509 CERTIFICATE", and
-    "CERTIFICATE".
+    For PEM encoded certificates, supported types are "TRUSTED CERTIFICATE",
+    "X509 CERTIFICATE", and "CERTIFICATE".
+    See also [`tls.rootCertificates`].
   * `cert` {string|string[]|Buffer|Buffer[]} Cert chains in PEM format. One cert
     chain should be provided per private key. Each cert chain should consist of
     the PEM formatted certificate for a provided private `key`, followed by the
@@ -55,15 +62,17 @@ changes:
     not provided, the peer will not be able to validate the certificate, and the
     handshake will fail.
   * `ciphers` {string} Cipher suite specification, replacing the default. For
-    more information, see [modifying the default cipher suite][].
+    more information, see [modifying the default cipher suite][]. Permitted
+    ciphers can be obtained via [`tls.getCiphers()`][]. Cipher names must be
+    uppercased in order for OpenSSL to accept them.
   * `clientCertEngine` {string} Name of an OpenSSL engine which can provide the
     client certificate.
   * `crl` {string|string[]|Buffer|Buffer[]} PEM formatted CRLs (Certificate
     Revocation Lists).
   * `dhparam` {string|Buffer} Diffie Hellman parameters, required for
     [Perfect Forward Secrecy][]. Use `openssl dhparam` to create the parameters.
-    The key length must be greater than or equal to 1024 bits, otherwise an
-    error will be thrown. It is strongly recommended to use 2048 bits or larger
+    The key length must be greater than or equal to 1024 bits or else an error
+    will be thrown. Although 1024 bits is permissible, use 2048 bits or larger
     for stronger security. If omitted or invalid, the parameters are silently
     discarded and DHE ciphers will not be available.
   * `ecdhCurve` {string} A string describing a named curve or a colon separated
@@ -86,13 +95,15 @@ changes:
     `object.passphrase` is optional. Encrypted keys will be decrypted with
     `object.passphrase` if provided, or `options.passphrase` if it is not.
   * `maxVersion` {string} Optionally set the maximum TLS version to allow. One
-    of `TLSv1.2'`, `'TLSv1.1'`, or `'TLSv1'`. Cannot be specified along with the
-    `secureProtocol` option, use one or the other.  **Default:** `'TLSv1.2'`.
+    of `TLSv1.3`, `TLSv1.2'`, `'TLSv1.1'`, or `'TLSv1'`. Cannot be specified
+    along with the `secureProtocol` option, use one or the other.
+    **Default:** [`tls.DEFAULT_MAX_VERSION`][].
   * `minVersion` {string} Optionally set the minimum TLS version to allow. One
-    of `TLSv1.2'`, `'TLSv1.1'`, or `'TLSv1'`. Cannot be specified along with the
-    `secureProtocol` option, use one or the other.  It is not recommended to use
-    less than TLSv1.2, but it may be required for interoperability.
-    **Default:** `'TLSv1'`.
+    of `TLSv1.3`, `TLSv1.2'`, `'TLSv1.1'`, or `'TLSv1'`. Cannot be specified
+    along with the `secureProtocol` option, use one or the other. It is not
+    recommended to use less than TLSv1.2, but it may be required for
+    interoperability.
+    **Default:** [`tls.DEFAULT_MIN_VERSION`][].
   * `passphrase` {string} Shared passphrase used for a single private key and/or
     a PFX.
   * `pfx` {string|string[]|Buffer|Buffer[]|Object[]} PFX or PKCS12 encoded
@@ -108,12 +119,15 @@ changes:
     which is not usually necessary. This should be used carefully if at all!
     Value is a numeric bitmask of the `SSL_OP_*` options from
     [OpenSSL Options][].
-  * `secureProtocol` {string} The TLS protocol version to use. The possible
-    values are listed as [SSL_METHODS][], use the function names as strings. For
-    example, use `'TLSv1_1_method'` to force TLS version 1.1, or `'TLS_method'`
-    to allow any TLS protocol version. It is not recommended to use TLS versions
-    less than 1.2, but it may be required for interoperability.  **Default:**
-    none, see `minVersion`.
+  * `secureProtocol` {string} Legacy mechanism to select the TLS protocol
+    version to use, it does not support independent control of the minimum and
+    maximum version, and does not support limiting the protocol to TLSv1.3.  Use
+    `minVersion` and `maxVersion` instead.  The possible values are listed as
+    [SSL_METHODS][], use the function names as strings.  For example, use
+    `'TLSv1_1_method'` to force TLS version 1.1, or `'TLS_method'` to allow any
+    TLS protocol version up to TLSv1.3.  It is not recommended to use TLS
+    versions less than 1.2, but it may be required for interoperability.
+    **Default:** none, see `minVersion`.
   * `sessionIdContext` {string} Opaque identifier used by servers to ensure
     session state is not shared between applications. Unused by clients.
 
@@ -124,12 +138,13 @@ to `true`, other APIs that create secure contexts leave it unset.
 from `process.argv` as the default value of the `sessionIdContext` option, other
 APIs that create secure contexts have no default value.
 
-The `tls.createSecureContext()` method creates a credentials object.
+The `tls.createSecureContext()` method creates a `SecureContext` object. It is
+usable as an argument to several `tls` APIs, such as [`tls.createServer()`][]
+and [`server.addContext()`][], but has no public methods.
 
 A key is *required* for ciphers that make use of certificates. Either `key` or
 `pfx` can be used to provide it.
 
-If the 'ca' option is not given, then Node.js will use the default
-publicly trusted list of CAs as given in
-<https://hg.mozilla.org/mozilla-central/raw-file/tip/security/nss/lib/ckfw/builtins/certdata.txt>.
+If the `ca` option is not given, then Node.js will default to using
+[Mozilla's publicly trusted list of CAs][].
 

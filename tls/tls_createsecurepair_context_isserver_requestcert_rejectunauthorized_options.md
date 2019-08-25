@@ -18,6 +18,7 @@ changes:
 * `rejectUnauthorized` {boolean} If not `false` a server automatically reject
   clients with invalid certificates. Only applies when `isServer` is `true`.
 * `options`
+  * `enableTrace`: See [`tls.createServer()`][]
   * `secureContext`: A TLS context object from [`tls.createSecureContext()`][]
   * `isServer`: If `true` the TLS socket will be instantiated in server-mode.
     **Default:** `false`.
@@ -58,6 +59,16 @@ secureSocket = tls.TLSSocket(socket, options);
 ```
 
 where `secureSocket` has the same API as `pair.cleartext`.
+
+
+
+
+
+
+
+
+
+
 
 
 

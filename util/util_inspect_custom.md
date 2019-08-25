@@ -34,5 +34,5 @@ console.log(password);
 // Prints Password <xxxxxxxx>
 ```
 
-详见[自定义对象的查看函数][Custom inspection functions on Objects]。
+See [Custom inspection functions on Objects][] for more details.
 

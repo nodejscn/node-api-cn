@@ -1,7 +1,16 @@
 <!-- YAML
 added: v0.11.3
 changes:
-  - version: v10.16.0
+  - version: v12.9.0
+    pr-url: https://github.com/nodejs/node/pull/27836
+    description: Support the `allowHalfOpen` option.
+  - version: v12.4.0
+    pr-url: https://github.com/nodejs/node/pull/27816
+    description: The `hints` option is now supported.
+  - version: v12.2.0
+    pr-url: https://github.com/nodejs/node/pull/27497
+    description: The `enableTrace` option is now supported.
+  - version: v11.8.0
     pr-url: https://github.com/nodejs/node/pull/25517
     description: The `timeout` option is supported now.
   - version: v8.0.0
@@ -9,7 +18,8 @@ changes:
     description: The `lookup` option is supported now.
   - version: v8.0.0
     pr-url: https://github.com/nodejs/node/pull/11984
-    description: The `ALPNProtocols` option can be a `Uint8Array` now.
+    description: The `ALPNProtocols` option can be a `TypedArray` or
+     `DataView` now.
   - version: v5.3.0, v4.7.0
     pr-url: https://github.com/nodejs/node/pull/4246
     description: The `secureContext` option is supported now.
@@ -19,31 +29,38 @@ changes:
 -->
 
 * `options` {Object}
+  * `enableTrace`: See [`tls.createServer()`][]
   * `host` {string} Host the client should connect to. **Default:**
     `'localhost'`.
   * `port` {number} Port the client should connect to.
-  * `path` {string} Creates unix socket connection to path. If this option is
+  * `path` {string} Creates Unix socket connection to path. If this option is
     specified, `host` and `port` are ignored.
   * `socket` {stream.Duplex} Establish secure connection on a given socket
     rather than creating a new socket. Typically, this is an instance of
     [`net.Socket`][], but any `Duplex` stream is allowed.
     If this option is specified, `path`, `host` and `port` are ignored,
     except for certificate validation. Usually, a socket is already connected
-    when passed to `tls.connect()`, but it can be connected later. Note that
-    connection/disconnection/destruction of `socket` is the user's
-    responsibility, calling `tls.connect()` will not cause `net.connect()` to be
+    when passed to `tls.connect()`, but it can be connected later.
+    Connection/disconnection/destruction of `socket` is the user's
+    responsibility; calling `tls.connect()` will not cause `net.connect()` to be
     called.
+  * `allowHalfOpen` {boolean} If the `socket` option is missing, indicates
+    whether or not to allow the internally created socket to be half-open,
+    otherwise the option is ignored. See the `allowHalfOpen` option of
+    [`net.Socket`][] for details. **Default:** `false`.
   * `rejectUnauthorized` {boolean} If not `false`, the server certificate is
     verified against the list of supplied CAs. An `'error'` event is emitted if
     verification fails; `err.code` contains the OpenSSL error code. **Default:**
     `true`.
-  * `ALPNProtocols`: {string[]|Buffer[]|Uint8Array[]|Buffer|Uint8Array}
-    An array of strings, `Buffer`s or `Uint8Array`s, or a single `Buffer` or
-    `Uint8Array` containing the supported ALPN protocols. `Buffer`s should have
-    the format `[len][name][len][name]...` e.g. `'\x08http/1.1\x08http/1.0'`,
-    where the `len` byte is the length of the next protocol name. Passing an
-    array is usually much simpler, e.g. `['http/1.1', 'http/1.0']`.
-    Protocols earlier in the list have higher preference than those later.
+  * `ALPNProtocols`: {string[]|Buffer[]|TypedArray[]|DataView[]|Buffer|
+    TypedArray|DataView}
+    An array of strings, `Buffer`s or `TypedArray`s or `DataView`s, or a
+    single `Buffer` or `TypedArray` or `DataView` containing the supported ALPN
+    protocols. `Buffer`s should have the format `[len][name][len][name]...`
+    e.g. `'\x08http/1.1\x08http/1.0'`, where the `len` byte is the length of the
+    next protocol name. Passing an array is usually much simpler, e.g.
+    `['http/1.1', 'http/1.0']`. Protocols earlier in the list have higher
+    preference than those later.
   * `servername`: {string} Server name for the SNI (Server Name Indication) TLS
     extension. It is the name of the host being connected to, and must be a host
     name, and not an IP address. It can be used by a multi-homed server to
@@ -64,13 +81,9 @@ changes:
     [`tls.createSecureContext()`][]. If a `secureContext` is _not_ provided, one
     will be created by passing the entire `options` object to
     `tls.createSecureContext()`.
-  * `lookup`: {Function} Custom lookup function. **Default:**
-    [`dns.lookup()`][].
-  * `timeout`: {number} If set and if a socket is created internally, will call
-    [`socket.setTimeout(timeout)`][] after the socket is created, but before it
-    starts the connection.
   * ...: [`tls.createSecureContext()`][] options that are used if the
     `secureContext` option is missing, otherwise they are ignored.
+  * ...: Any [`socket.connect()`][] option not already listed.
 * `callback` {Function}
 * Returns: {tls.TLSSocket}
 

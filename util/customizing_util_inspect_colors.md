@@ -7,18 +7,22 @@
 
 默认的样式与关联的颜色有：
 
- * `number` - `yellow`
- * `boolean` - `yellow`
- * `string` - `green`
- * `date` - `magenta`
- * `regexp` - `red`
- * `null` - `bold`
- * `undefined` - `grey`
- * `special` - `cyan` （暂时只用于函数）
- * `name` - （无样式）
+* `bigint` - `yellow`
+* `boolean` - `yellow`
+* `date` - `magenta`
+* `module` - `underline`
+* `name` - (no styling)
+* `null` - `bold`
+* `number` - `yellow`
+* `regexp` - `red`
+* `special` - `cyan` (例如 `Proxies`)
+* `string` - `green`
+* `symbol` - `green`
+* `undefined` - `grey`
 
 预定义的颜色代码有：`white`、`grey`、`black`、`blue`、`cyan`、`green`、`magenta`、`red` 和 `yellow`。
 还有 `bold`、`italic`、`underline` 和 `inverse` 代码。
 
 颜色样式使用 ANSI 控制码，可能不是所有终端都支持。
+要验证颜色支持，请使用 [`tty.hasColors()`]。
 

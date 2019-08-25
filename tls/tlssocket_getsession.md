@@ -11,3 +11,6 @@ for debugging.
 
 See [Session Resumption][] for more information.
 
+Note: `getSession()` works only for TLSv1.2 and below. For TLSv1.3, applications
+must use the [`'session'`][] event (it also works for TLSv1.2 and below).
+

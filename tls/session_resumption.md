@@ -13,9 +13,9 @@ will create a new session. See [RFC 2246][] for more information, page 23 and
 Resumption using session identifiers is supported by most web browsers when
 making HTTPS requests.
 
-For Node.js, clients must call [`tls.TLSSocket.getSession()`][] after the
-[`'secureConnect'`][] event to get the session data, and provide the data to the
-`session` option of [`tls.connect()`][] to reuse the session. Servers must
+For Node.js, clients wait for the [`'session'`][] event to get the session data,
+and provide the data to the `session` option of a subsequent [`tls.connect()`][]
+to reuse the session. Servers must
 implement handlers for the [`'newSession'`][] and [`'resumeSession'`][] events
 to save and restore the session data using the session ID as the lookup key to
 reuse sessions. To reuse sessions across load balancers or cluster workers,
@@ -36,6 +36,10 @@ For Node.js, clients use the same APIs for resumption with session identifiers
 as for resumption with session tickets. For debugging, if
 [`tls.TLSSocket.getTLSTicket()`][] returns a value, the session data contains a
 ticket, otherwise it contains client-side session state.
+
+With TLSv1.3, be aware that multiple tickets may be sent by the server,
+resulting in multiple `'session'` events, see [`'session'`][] for more
+information.
 
 Single process servers need no specific implementation to use session tickets.
 To use session tickets across server restarts or load balancers, servers must
