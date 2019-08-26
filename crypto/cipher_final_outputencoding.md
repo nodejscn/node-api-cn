@@ -1,10 +1,9 @@
 <!-- YAML
 added: v0.1.94
 -->
-- `outputEncoding` {string}
+* `outputEncoding` {string} 返回值的[字符编码][encoding]。
+* 返回: {Buffer | string} 任何剩余的加密内容。 如果指定了 `outputEncoding`，则返回一个字符串。 如果未提供 `outputEncoding`，则返回 [`Buffer`]。
 
-返回任何加密的内容。如果 `outputEncoding` 参数是`'latin1'`, `'base64'` 或者 `'hex'`，返回字符串。
-如果没有提供 `outputEncoding`，则返回[`Buffer`][]。
-
-一旦`cipher.final()`方法已被调用，`Cipher` 对象就不能再用于加密数据。如果试图再次调用`cipher.final()`，将会抛出一个错误。
+一旦 `cipher.final()` 方法被调用，`Cipher` 对象就不能再用于加密数据。
+如果试图再次调用 `cipher.final()`，将会抛出一个错误。
 

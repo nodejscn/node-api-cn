@@ -8,7 +8,7 @@ const fs = require('fs');
 
 function errorFirstCallback(err, data) {
   if (err) {
-    console.error('There was an error', err);
+    console.error('出错', err);
     return;
   }
   console.log(data);
@@ -18,23 +18,27 @@ fs.readFile('/some/file/that/does-not-exist', errorFirstCallback);
 fs.readFile('/some/file/that/does-exist', errorFirstCallback);
 ```
 
-JavaScript的 `try / catch` 机制**不能**用来截获异步方法产生的错误。新手的常见错误之一是试图在错误优先回调函数中使用 `throw` ：
+JavaScript的 `try…catch` 机制不能用来截获异步方法产生的错误。新手的常见错误之一是试图在错误优先回调函数中使用 `throw` ：
+
 ```js
 // 这不可行：
 const fs = require('fs');
 
 try {
   fs.readFile('/some/file/that/does-not-exist', (err, data) => {
-    // mistaken assumption: throwing here...
+    // 错误的假设：在这里抛出错误。
     if (err) {
       throw err;
     }
   });
 } catch (err) {
-  // 这里不会截获回调函数中的throw
+  // 这里不会截获回调函数中的 throw。
   console.error(err);
 }
 ```
 
-这样做不可行，因为传递给 `fs.readFile()` 的回调函数是异步调用的。当回调函数被调用时，程序早已退出其周围的代码（包括 `try { } catch (err) { }` 部分）。在回调函数内抛出异常在大多数时候**会使 Node.js 进程崩溃**。但如果启用了 [domains][] ，或者有与 `process.on('uncaughtException')` 相关联的异常处理器，就可以截获这种错误。
+这样做不可行，因为传递给 `fs.readFile()` 的回调函数是异步调用的。
+当回调函数被调用时，程序早已退出其周围的代码（包括 `try…catch` 部分）。
+在回调函数内抛出异常在大多数时候会使 Node.js 进程崩溃。
+但如果启用了 [domains][]，或者有与 `process.on('uncaughtException')` 相关联的异常处理器，就可以截获这种错误。
 

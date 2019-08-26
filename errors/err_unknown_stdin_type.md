@@ -1,3 +1,7 @@
+<!-- YAML
+added: v8.0.0
+removed: v11.7.0
+-->
 
 An attempt was made to launch a Node.js process with an unknown `stdin` file
 type. This error is usually an indication of a bug within Node.js itself,

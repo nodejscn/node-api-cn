@@ -1,9 +1,16 @@
 <!-- YAML
 added: v0.11.14
+changes:
+  - version: v12.9.0
+    pr-url: https://github.com/nodejs/node/pull/28335
+    description: The `oaepHash` option was added.
+  - version: v11.6.0
+    pr-url: https://github.com/nodejs/node/pull/24234
+    description: This function now supports key objects.
 -->
-* `privateKey` {Object | string}
-  - `key` {string} A PEM encoded private key.
-  - `passphrase` {string} An optional passphrase for the private key.
+* `privateKey` {Object | string | Buffer | KeyObject}
+  - `oaepHash` {string} The hash function to use for OAEP padding.
+    **Default:** `'sha1'`
   - `padding` {crypto.constants} An optional padding value defined in
     `crypto.constants`, which may be: `crypto.constants.RSA_NO_PADDING`,
     `crypto.constants.RSA_PKCS1_PADDING`, or
@@ -14,6 +21,8 @@ added: v0.11.14
 Decrypts `buffer` with `privateKey`. `buffer` was previously encrypted using
 the corresponding public key, for example using [`crypto.publicEncrypt()`][].
 
-`privateKey` can be an object or a string. If `privateKey` is a string, it is
-treated as the key with no passphrase and will use `RSA_PKCS1_OAEP_PADDING`.
+If `privateKey` is not a [`KeyObject`][], this function behaves as if
+`privateKey` had been passed to [`crypto.createPrivateKey()`][]. If it is an
+object, the `padding` property can be passed. Otherwise, this function uses
+`RSA_PKCS1_OAEP_PADDING`.
 

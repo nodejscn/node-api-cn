@@ -9,7 +9,7 @@
 try {
   require('vm').runInThisContext('binary ! isNotOk');
 } catch (err) {
-  // err 是一个 SyntaxError
+  // `err` 是一个 SyntaxError。
 }
 ```
 

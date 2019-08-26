@@ -12,7 +12,7 @@ Sets the EC Diffie-Hellman public key.
 If `encoding` is provided `publicKey` is expected to
 be a string; otherwise a [`Buffer`][], `TypedArray`, or `DataView` is expected.
 
-Note that there is not normally a reason to call this method because `ECDH`
+There is not normally a reason to call this method because `ECDH`
 only requires a private key and the other party's public key to compute the
 shared secret. Typically either [`ecdh.generateKeys()`][] or
 [`ecdh.setPrivateKey()`][] will be called. The [`ecdh.setPrivateKey()`][] method

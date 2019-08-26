@@ -1,6 +1,6 @@
 <!-- YAML
 changes:
-  - version: v10.15.0
+  - version: v11.4.0
     pr-url: https://github.com/nodejs/node/commit/186035243fad247e3955f
     description: Max header size in `http_parser` was set to 8KB.
 -->

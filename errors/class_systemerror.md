@@ -1,4 +1,9 @@
 
+Node.js generates system errors when exceptions occur within its runtime
+environment. These usually occur when an application violates an operating
+system constraint. For example, a system error will occur if an application
+attempts to read a file that does not exist.
+
 * `address` {string} If present, the address to which a network connection
   failed
 * `code` {string} The string error code

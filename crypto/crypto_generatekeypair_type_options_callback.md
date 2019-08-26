@@ -1,33 +1,40 @@
 <!-- YAML
 added: v10.12.0
+changes:
+  - version: v12.0.0
+    pr-url: https://github.com/nodejs/node/pull/26774
+    description: Add ability to generate X25519 and X448 key pairs.
+  - version: v12.0.0
+    pr-url: https://github.com/nodejs/node/pull/26554
+    description: Add ability to generate Ed25519 and Ed448 key pairs.
+  - version: v11.6.0
+    pr-url: https://github.com/nodejs/node/pull/24234
+    description: The `generateKeyPair` and `generateKeyPairSync` functions now
+                 produce key objects if no encoding was specified.
 -->
-* `type`: {string} Must be `'rsa'`, `'dsa'` or `'ec'`.
+* `type`: {string} Must be `'rsa'`, `'dsa'`, `'ec'`, `'ed25519'`, `'ed448'`,
+  `'x25519'`, or `'x448'`.
 * `options`: {Object}
   - `modulusLength`: {number} Key size in bits (RSA, DSA).
   - `publicExponent`: {number} Public exponent (RSA). **Default:** `0x10001`.
   - `divisorLength`: {number} Size of `q` in bits (DSA).
   - `namedCurve`: {string} Name of the curve to use (EC).
-  - `publicKeyEncoding`: {Object}
-    - `type`: {string} Must be one of `'pkcs1'` (RSA only) or `'spki'`.
-    - `format`: {string} Must be `'pem'` or `'der'`.
-  - `privateKeyEncoding`: {Object}
-    - `type`: {string} Must be one of `'pkcs1'` (RSA only), `'pkcs8'` or
-      `'sec1'` (EC only).
-    - `format`: {string} Must be `'pem'` or `'der'`.
-    - `cipher`: {string} If specified, the private key will be encrypted with
-      the given `cipher` and `passphrase` using PKCS#5 v2.0 password based
-      encryption.
-    - `passphrase`: {string} The passphrase to use for encryption, see `cipher`.
+  - `publicKeyEncoding`: {Object} See [`keyObject.export()`][].
+  - `privateKeyEncoding`: {Object} See [`keyObject.export()`][].
 * `callback`: {Function}
   - `err`: {Error}
-  - `publicKey`: {string|Buffer}
-  - `privateKey`: {string|Buffer}
+  - `publicKey`: {string | Buffer | KeyObject}
+  - `privateKey`: {string | Buffer | KeyObject}
 
-Generates a new asymmetric key pair of the given `type`. Only RSA, DSA and EC
-are currently supported.
+Generates a new asymmetric key pair of the given `type`. RSA, DSA, EC, Ed25519
+and Ed448 are currently supported.
+
+If a `publicKeyEncoding` or `privateKeyEncoding` was specified, this function
+behaves as if [`keyObject.export()`][] had been called on its result. Otherwise,
+the respective part of the key is returned as a [`KeyObject`].
 
 It is recommended to encode public keys as `'spki'` and private keys as
-`'pkcs8'` with encryption:
+`'pkcs8'` with encryption for long-term storage:
 
 ```js
 const { generateKeyPair } = require('crypto');
@@ -49,11 +56,7 @@ generateKeyPair('rsa', {
 ```
 
 On completion, `callback` will be called with `err` set to `undefined` and
-`publicKey` / `privateKey` representing the generated key pair. When PEM
-encoding was selected, the result will be a string, otherwise it will be a
-buffer containing the data encoded as DER. Note that Node.js itself does not
-accept DER, it is supported for interoperability with other libraries such as
-WebCrypto only.
+`publicKey` / `privateKey` representing the generated key pair.
 
 If this method is invoked as its [`util.promisify()`][]ed version, it returns
 a `Promise` for an `Object` with `publicKey` and `privateKey` properties.

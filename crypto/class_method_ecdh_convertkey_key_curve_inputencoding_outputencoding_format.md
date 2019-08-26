@@ -41,7 +41,7 @@ const uncompressedKey = ECDH.convertKey(compressedKey,
                                         'hex',
                                         'uncompressed');
 
-// the converted key and the uncompressed public key should be the same
+// The converted key and the uncompressed public key should be the same
 console.log(uncompressedKey === ecdh.getPublicKey('hex'));
 ```
 

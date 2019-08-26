@@ -25,8 +25,8 @@ applied to derive a key of the requested byte length (`keylen`) from the
 If an error occurs an `Error` will be thrown, otherwise the derived key will be
 returned as a [`Buffer`][].
 
-If `digest` is `null`, `'sha1'` will be used. This behavior will be deprecated
-in a future version of Node.js.
+If `digest` is `null`, `'sha1'` will be used. This behavior is deprecated,
+please specify a `digest` explicitly.
 
 The `iterations` argument must be a number set as high as possible. The
 higher the number of iterations, the more secure the derived key will be,

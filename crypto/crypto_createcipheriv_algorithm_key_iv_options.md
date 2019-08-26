@@ -1,6 +1,12 @@
 <!-- YAML
 added: v0.1.94
 changes:
+  - version: v11.6.0
+    pr-url: https://github.com/nodejs/node/pull/24234
+    description: The `key` argument can now be a `KeyObject`.
+  - version: v11.2.0
+    pr-url: https://github.com/nodejs/node/pull/24081
+    description: The cipher `chacha20-poly1305` is now supported.
   - version: v10.10.0
     pr-url: https://github.com/nodejs/node/pull/21447
     description: Ciphers in OCB mode are now supported.
@@ -14,7 +20,7 @@ changes:
                  need an initialization vector.
 -->
 * `algorithm` {string}
-* `key` {string | Buffer | TypedArray | DataView}
+* `key` {string | Buffer | TypedArray | DataView | KeyObject}
 * `iv` {string | Buffer | TypedArray | DataView}
 * `options` {Object} [`stream.transform` options][]
 * Returns: {Cipher}
@@ -36,7 +42,8 @@ display the available cipher algorithms.
 
 The `key` is the raw key used by the `algorithm` and `iv` is an
 [initialization vector][]. Both arguments must be `'utf8'` encoded strings,
-[Buffers][`Buffer`], `TypedArray`, or `DataView`s. If the cipher does not need
+[Buffers][`Buffer`], `TypedArray`, or `DataView`s. The `key` may optionally be
+a [`KeyObject`][] of type `secret`. If the cipher does not need
 an initialization vector, `iv` may be `null`.
 
 Initialization vectors should be unpredictable and unique; ideally, they will be

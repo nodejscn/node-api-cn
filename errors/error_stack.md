@@ -3,8 +3,6 @@
 
 `error.stack` 属性是一个字符串，描述代码中 `Error` 被实例化的位置。
 
-例子：
-
 ```txt
 Error: Things keep happening!
    at /home/gbusey/file.js:525:2
@@ -27,7 +25,7 @@ V8 引擎会试图显示每个函数的名称（变量名、函数名、或对�
 const cheetahify = require('./native-binding.node');
 
 function makeFaster() {
-  // cheetahify 同步地调用 speedy.
+  // `cheetahify()` 同步地调用 speedy。
   cheetahify(function speedy() {
     throw new Error('oh no!');
   });
@@ -61,5 +59,4 @@ makeFaster();
 
 堆栈跟踪捕获的帧的数量是由 `Error.stackTraceLimit` 或当前事件循环中可用的帧数量的最小值界定的。
 
-系统级的错误是由扩展的 `Error` 实例产生的，详见[系统错误](#errors_system_errors)。
 

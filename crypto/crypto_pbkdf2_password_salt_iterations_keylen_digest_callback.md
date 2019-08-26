@@ -33,8 +33,8 @@ otherwise `err` will be `null`. By default, the successfully generated
 `derivedKey` will be passed to the callback as a [`Buffer`][]. An error will be
 thrown if any of the input arguments specify invalid values or types.
 
-If `digest` is `null`, `'sha1'` will be used. This behavior will be deprecated
-in a future version of Node.js.
+If `digest` is `null`, `'sha1'` will be used. This behavior is deprecated,
+please specify a `digest` explicitly.
 
 The `iterations` argument must be a number set as high as possible. The
 higher the number of iterations, the more secure the derived key will be,
@@ -67,7 +67,7 @@ crypto.pbkdf2('secret', 'salt', 100000, 512, 'sha512', (err, derivedKey) => {
 An array of supported digest functions can be retrieved using
 [`crypto.getHashes()`][].
 
-Note that this API uses libuv's threadpool, which can have surprising and
-negative performance implications for some applications, see the
+This API uses libuv's threadpool, which can have surprising and
+negative performance implications for some applications; see the
 [`UV_THREADPOOL_SIZE`][] documentation for more information.
 

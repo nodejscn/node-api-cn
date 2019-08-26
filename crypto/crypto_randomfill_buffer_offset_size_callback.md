@@ -63,8 +63,8 @@ crypto.randomFill(c, (err, buf) => {
 });
 ```
 
-Note that this API uses libuv's threadpool, which can have surprising and
-negative performance implications for some applications, see the
+This API uses libuv's threadpool, which can have surprising and
+negative performance implications for some applications; see the
 [`UV_THREADPOOL_SIZE`][] documentation for more information.
 
 The asynchronous version of `crypto.randomFill()` is carried out in a single

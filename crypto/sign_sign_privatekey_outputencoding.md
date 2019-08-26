@@ -1,13 +1,17 @@
 <!-- YAML
 added: v0.1.92
 changes:
+  - version: v12.0.0
+    pr-url: https://github.com/nodejs/node/pull/26960
+    description: This function now supports RSA-PSS keys.
+  - version: v11.6.0
+    pr-url: https://github.com/nodejs/node/pull/24234
+    description: This function now supports key objects.
   - version: v8.0.0
     pr-url: https://github.com/nodejs/node/pull/11705
     description: Support for RSASSA-PSS and additional options was added.
 -->
-* `privateKey` {string | Object}
-  - `key` {string}
-  - `passphrase` {string}
+* `privateKey` {Object | string | Buffer | KeyObject}
   - `padding` {integer}
   - `saltLength` {integer}
 * `outputEncoding` {string} The [encoding][] of the return value.
@@ -16,18 +20,18 @@ changes:
 Calculates the signature on all the data passed through using either
 [`sign.update()`][] or [`sign.write()`][stream-writable-write].
 
-The `privateKey` argument can be an object or a string. If `privateKey` is a
-string, it is treated as a raw key with no passphrase. If `privateKey` is an
-object, it must contain one or more of the following properties:
+If `privateKey` is not a [`KeyObject`][], this function behaves as if
+`privateKey` had been passed to [`crypto.createPrivateKey()`][]. If it is an
+object, the following additional properties can be passed:
 
-* `key`: {string} - PEM encoded private key (required)
-* `passphrase`: {string} - passphrase for the private key
 * `padding`: {integer} - Optional padding value for RSA, one of the following:
   * `crypto.constants.RSA_PKCS1_PADDING` (default)
   * `crypto.constants.RSA_PKCS1_PSS_PADDING`
 
-  Note that `RSA_PKCS1_PSS_PADDING` will use MGF1 with the same hash function
-  used to sign the message as specified in section 3.1 of [RFC 4055][].
+  `RSA_PKCS1_PSS_PADDING` will use MGF1 with the same hash function
+  used to sign the message as specified in section 3.1 of [RFC 4055][], unless
+  an MGF1 hash function has been specified as part of the key in compliance with
+  section 3.3 of [RFC 4055][].
 * `saltLength`: {integer} - salt length for when padding is
   `RSA_PKCS1_PSS_PADDING`. The special value
   `crypto.constants.RSA_PSS_SALTLEN_DIGEST` sets the salt length to the digest

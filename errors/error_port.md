@@ -1,4 +1,5 @@
 
 * {number}
 
-错误出现时 (比如 在 `net` 或 `dgram`), `error.port`是一个链接端口不可用的端口值
+
+如果存在，则 `error.port` 是不可用的网络连接端口。

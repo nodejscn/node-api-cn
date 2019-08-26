@@ -1,6 +1,9 @@
 <!-- YAML
 added: v10.5.0
 changes:
+  - version: v12.8.0
+    pr-url: https://github.com/nodejs/node/pull/28799
+    description: The `maxmem` value can now be any safe integer.
   - version: v10.9.0
     pr-url: https://github.com/nodejs/node/pull/21525
     description: The `cost`, `blockSize` and `parallelization` option names
@@ -11,7 +14,6 @@ changes:
 * `keylen` {number}
 * `options` {Object}
   - `cost` {number} CPU/memory cost parameter. Must be a power of two greater
-  - `N` {number} CPU/memory cost parameter. Must be a power of two greater
     than one. **Default:** `16384`.
   - `blockSize` {number} Block size parameter. **Default:** `8`.
   - `parallelization` {number} Parallelization parameter. **Default:** `1`.
