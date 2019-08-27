@@ -10,6 +10,9 @@ added: v0.9.4
 当调用 `readable.pipe()`，`readable.resume()` 或绑定监听器到 `'data'` 事件时，流会转换到流动模式。
 当调用 `readable.read()` 且有数据块返回时，也会触发 `'data'` 事件。
 
+将 `'data'` 事件监听器附加到尚未显式暂停的流将会使流切换为流动模式。 
+数据将会在可用时立即传递。
+
 如果使用 `readable.setEncoding()` 为流指定了默认的字符编码，则监听器回调传入的数据为字符串，否则传入的数据为 `Buffer`。
 
 ```js

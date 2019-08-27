@@ -1,8 +1,8 @@
 <!-- YAML
-added: v0.8.0
+added: v11.4.0
 -->
 
 * {boolean}
 
-Is `true` if it is safe to call [`readable.read()`][].
+Is `true` if it is safe to call [`readable.read()`][stream-read].
 

@@ -2,7 +2,7 @@
 added: v0.11.2
 -->
 
-将调用 [`stream.cork()`][] 后缓冲的所有数据输出到目标。
+`writable.uncork()` 方法将调用 [`stream.cork()`][] 后缓冲的所有数据输出到目标。
 
 当使用 [`writable.cork()`] 和 `writable.uncork()` 来管理流的写入缓冲时，建议使用 `process.nextTick()` 来延迟调用 `writable.uncork()`。
 通过这种方式，可以对单个 Node.js 事件循环中调用的所有 `writable.write()` 进行批处理。
@@ -27,4 +27,6 @@ process.nextTick(() => {
   stream.uncork();
 });
 ```
+
+也可参阅：[`writable.cork()`][]。
 

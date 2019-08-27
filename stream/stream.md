@@ -12,7 +12,7 @@ Node.js 提供了多种流对象。
 流可以是可读的、可写的、或者可读可写的。
 所有的流都是 [`EventEmitter`] 的实例。
 
-使用方法如下：
+访问 `stream` 模块：
 
 ```js
 const stream = require('stream');

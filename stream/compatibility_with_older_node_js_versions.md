@@ -33,7 +33,7 @@ For example, consider the following code:
 // WARNING!  BROKEN!
 net.createServer((socket) => {
 
-  // we add an 'end' listener, but never consume the data
+  // We add an 'end' listener, but never consume the data.
   socket.on('end', () => {
     // It will never get here.
     socket.end('The message was received but was not processed.\n');
@@ -49,13 +49,13 @@ The workaround in this situation is to call the
 
 
 ```js
-// Workaround
+// Workaround.
 net.createServer((socket) => {
   socket.on('end', () => {
     socket.end('The message was received but was not processed.\n');
   });
 
-  // start the flow of data, discarding it.
+  // Start the flow of data, discarding it.
   socket.resume();
 }).listen(1337);
 ```

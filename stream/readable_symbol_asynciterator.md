@@ -1,8 +1,10 @@
 <!-- YAML
 added: v10.0.0
+changes:
+  - version: v11.14.0
+    pr-url: https://github.com/nodejs/node/pull/26989
+    description: Symbol.asyncIterator support is no longer experimental.
 -->
-
-> Stability: 1 - Experimental
 
 * Returns: {AsyncIterator} to fully consume the stream.
 
@@ -12,13 +14,13 @@ const fs = require('fs');
 async function print(readable) {
   readable.setEncoding('utf8');
   let data = '';
-  for await (const k of readable) {
-    data += k;
+  for await (const chunk of readable) {
+    data += chunk;
   }
   console.log(data);
 }
 
-print(fs.createReadStream('file')).catch(console.log);
+print(fs.createReadStream('file')).catch(console.error);
 ```
 
 If the loop terminates with a `break` or a `throw`, the stream will be

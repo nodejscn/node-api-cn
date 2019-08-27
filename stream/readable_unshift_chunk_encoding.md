@@ -6,7 +6,7 @@ changes:
     description: The `chunk` argument can now be a `Uint8Array` instance.
 -->
 
-* `chunk` {Buffer|Uint8Array|string|any} 要推回可读队列的数据块。
+* `chunk` {Buffer|Uint8Array|string|null|any} 要推回可读队列的数据块。
 	对于非对象模式的流，`chunk` 必须是字符串、`Buffer` 或 `Uint8Array`。
 	对于对象模式的流，`chunk` 可以是任何值，除了 `null`。
 

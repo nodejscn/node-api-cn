@@ -1,8 +1,8 @@
 <!-- YAML
-added: v0.8.0
+added: v11.4.0
 -->
 
 * {boolean}
 
-Is `true` if it is safe to call [`writable.write()`][].
+如果调用 [`writable.write()`][stream-write] 是安全的，则为 `true`。
 

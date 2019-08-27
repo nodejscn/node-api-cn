@@ -12,5 +12,5 @@
 * [子进程 stdout 与 stderr][child process stdout and stderr]
 * [`process.stdin`][]
 
-所有可读流都实现了 [`stream.Readable`] 类定义的接口。
+所有[可读流]都实现了 `stream.Readable` 类定义的接口。
 

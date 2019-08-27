@@ -3,15 +3,15 @@ added: v0.9.4
 changes:
   - version: v10.0.0
     pr-url: https://github.com/nodejs/node/pull/17979
-    description: >
-      The `'readable'` is always emitted in the next tick after `.push()`
-      is called
+    description: The `'readable'` is always emitted in the next tick after
+                 `.push()` is called.
   - version: v10.0.0
     pr-url: https://github.com/nodejs/node/pull/18994
     description: Using `'readable'` requires calling `.read()`.
 -->
 
-当流中有数据可供读取时触发。
+当有数据可从流中读取时，就会触发 `'readable'` 事件。 
+在某些情况下，为 `'readable'` 事件附加监听器将会导致将一些数据读入内部缓冲区。
 
 ```javascript
 const readable = getReadableStreamSomehow();

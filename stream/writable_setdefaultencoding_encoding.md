@@ -9,5 +9,5 @@ changes:
 * `encoding` {string} 默认的字符编码。
 * 返回: {this}
 
-为[可写流]设置默认的 `encoding`。
+`writable.setDefaultEncoding()` 方法为[可写流]设置默认的 `encoding`。
 
