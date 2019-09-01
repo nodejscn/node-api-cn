@@ -5,7 +5,7 @@ added: v0.9.4
 * `destination` {stream.Writable} 要移除管道的可写流。
 * 返回: {this}
 
-解绑之前使用 [`stream.pipe()`] 绑定的可写流。
+`readable.unpipe()` 方法解绑之前使用 [`stream.pipe()`] 方法绑定的可写流。
 
 如果没有指定 `destination`, 则解绑所有管道.
 

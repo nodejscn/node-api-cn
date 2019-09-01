@@ -6,7 +6,7 @@ changes:
     description: Symbol.asyncIterator support is no longer experimental.
 -->
 
-* Returns: {AsyncIterator} to fully consume the stream.
+* 返回: {AsyncIterator} 用于完全地消费流。
 
 ```js
 const fs = require('fs');
@@ -23,10 +23,9 @@ async function print(readable) {
 print(fs.createReadStream('file')).catch(console.error);
 ```
 
-If the loop terminates with a `break` or a `throw`, the stream will be
-destroyed. In other terms, iterating over a stream will consume the stream
-fully. The stream will be read in chunks of size equal to the `highWaterMark`
-option. In the code example above, data will be in a single chunk if the file
-has less then 64kb of data because no `highWaterMark` option is provided to
-[`fs.createReadStream()`][].
+如果循环以 `break` 或 `throw` 终止，则流将会被销毁。 
+换句话说，迭代流将完全地消费流。 
+将以大小等于 `highWaterMark` 选项的块读取流。 
+在上面的代码示例中，如果文件的数据少于 64kb，则数据将位于单个块中，因为没有为 [`fs.createReadStream()`] 提供 `highWaterMark` 选项。
+
 

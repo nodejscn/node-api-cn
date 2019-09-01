@@ -1,9 +1,5 @@
 <!-- YAML
 added: v0.9.4
-changes:
-  - version: v10.0.0
-    pr-url: https://github.com/nodejs/node/pull/17979
-    description: call `_read()` only once per microtick
 -->
 
 * `size` {number} 要异步读取的字节数。

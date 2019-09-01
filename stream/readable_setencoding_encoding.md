@@ -5,11 +5,13 @@ added: v0.9.4
 * `encoding` {string} 字符编码。
 * 返回: {this}
 
-为从可读流读取的数据设置字符编码。
+`readable.setEncoding()` 方法为从可读流读取的数据设置字符编码。
 
 默认情况下没有设置字符编码，流数据返回的是 `Buffer` 对象。
 如果设置了字符编码，则流数据返回指定编码的字符串。
 例如，调用 `readable.setEncoding('utf-8')` 会将数据解析为 UTF-8 数据，并返回字符串，调用 `readable.setEncoding('hex')` 则会将数据编码成十六进制字符串。
+
+可读流将会正确地处理通过流传递的多字节字符，否则如果简单地从流中作为 `Buffer` 对象拉出，则会被不正确地解码。
 
 ```js
 const readable = getReadableStreamSomehow();

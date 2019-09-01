@@ -12,7 +12,7 @@ changes:
   必须是有效的 `Buffer` 字符编码，例如 `'utf8'` 或 `'ascii'`。
 * 返回: {boolean} 如果还有数据块可以继续推入，则返回 `true`，否则返回 `false`。
 
-当 `chunk` 是 `Buffer`、`Uint8Array` 或字符串时，`chunk` 的数据会被添加到内部队列中供流消费。
+当 `chunk` 是 `Buffer`、`Uint8Array` 或 `string` 时，`chunk` 的数据会被添加到内部队列中供流消费。
 在没有数据可写入后，给 `chunk` 传入 `null` 表示流的结束（EOF）。
 
 当可读流处在暂停模式时，使用 `readable.push()` 添加的数据可以在触发 [`'readable'`] 事件时通过调用 [`readable.read()`][stream-read] 读取。
@@ -31,7 +31,7 @@ class SourceWrapper extends Readable {
   constructor(options) {
     super(options);
 
-    this._source = getLowlevelSourceObject();
+    this._source = getLowLevelSourceObject();
 
     // 每当有数据时，将其推入内部缓冲。
     this._source.ondata = (chunk) => {

@@ -4,6 +4,7 @@
 
 输出流的大小、数据块的数量都不一定会和输入流的一致。
 例如，`Hash` 流在输入结束时只会输出一个数据块，而 `zlib` 流的输出可能比输入大很多或小很多。
+
 `stream.Transform` 类可用于实现了一个[转换流]。
 
 `stream.Transform` 类继承自 `stream.Duplex`，并且实现了自有的 `writable._write()` 和 `readable._read()` 方法。

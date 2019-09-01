@@ -4,6 +4,8 @@
 从 `writable._write()` 中抛出错误可能会导致无法预期的结果。
 使用回调可以确保对错误进行一致且可预测的处理。
 
+如果可读流 pipe 到可写流时可写流触发错误，则可读流将会被 unpipe。
+
 ```js
 const { Writable } = require('stream');
 

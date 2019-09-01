@@ -7,21 +7,24 @@ changes:
 -->
 
 * `chunk` {Buffer|Uint8Array|string|null|any} 要推回可读队列的数据块。
-	对于非对象模式的流，`chunk` 必须是字符串、`Buffer` 或 `Uint8Array`。
-	对于对象模式的流，`chunk` 可以是任何值，除了 `null`。
+	对于非对象模式的流，`chunk` 必须是字符串、`Buffer`、`Uint8Array` 或 `null`。
+	对于对象模式的流，`chunk` 可以是任何 JavaScript 值。
+* `encoding` {string} 字符串块的编码。 必须是有效的 `Buffer` 编码，例如 `'utf8'` 或 `'ascii'`。
 
-将数据块推回内部缓冲。
+将 `chunk` 作为 `null` 传递信号表示流的末尾（EOF），之后不能再写入数据。
+
+`readable.unshift()` 方法将数据块推回内部缓冲。
 可用于以下情景：正被消费中的流需要将一些已经被拉出的数据重置为未消费状态，以便这些数据可以传给其他方。
 
-触发 [`'end'`] 事件或抛出运行时错误之后，不能再调用 `stream.unshift()`。
+触发 [`'end'`] 事件或抛出运行时错误之后，不能再调用 `stream.unshift()` 方法。
 
 使用 `stream.unshift()` 的开发者可以考虑切换到 [`Transform`] 流。
 详见[用于实现流的API][API for Stream Implementers]。
 
 ```js
-// Pull off a header delimited by \n\n
-// use unshift() if we get too much
-// Call the callback with (error, header, stream)
+// 拉出由 \n\n 分隔的标题。
+// 如果获取太多，则使用 unshift()。
+// 使用 (error, header, stream) 调用回调。
 const { StringDecoder } = require('string_decoder');
 function parseHeader(stream, callback) {
   stream.on('error', callback);
@@ -53,4 +56,8 @@ function parseHeader(stream, callback) {
   }
 }
 ```
+
+与 [`stream.push(chunk)`][stream-push] 不同，`stream.unshift(chunk)` 不会通过重置流的内部读取状态来结束读取过程。 
+如果在读取期间调用 `readable.unshift()`（即从自定义的流上的 [`stream._read()`][stream-_read] 实现中调用），则会导致意外结果。 
+在使用立即的 [`stream.push('')`][stream-push] 调用 `readable.unshift()` 之后，将适当地重置读取状态，但最好在执行读取的过程中避免调用 `readable.unshift()`。
 

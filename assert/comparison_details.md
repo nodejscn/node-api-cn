@@ -1,98 +1,58 @@
 
-* 使用 [SameValue比较][SameValue Comparison]（使用 [`Object.is()`]）来比较原始值。
+* 使用[抽象的相等性比较][Abstract Equality Comparison]来比较原始值。
 * 对象的[类型标签][Object.prototype.toString()]应该相同。
-* 使用[严格相等比较][Strict Equality Comparison]来比较对象的[原型][prototype-spec]。
 * 只考虑[可枚举的自身属性][enumerable "own" properties]。
 * 始终比较 [`Error`] 的名称和消息，即使这些不是可枚举的属性。
-* 可枚举的自身 [`Symbol`] 属性也会比较。
 * [对象封装器][Object wrappers]作为对象和解封装后的值都进行比较。
 * `Object` 属性的比较是无序的。
-* `Map` 键名与 `Set` 子项的比较是无序的。
+* [`Map`] 键名与 [`Set`] 子项的比较是无序的。
 * 当两边的值不相同或遇到循环引用时，递归停止。
-* [`WeakMap`] 和 [`WeakSet`] 的比较不依赖于它们的值。请参阅下文了解更多详情。
+* 不测试对象的 [`[[Prototype]]`][prototype-spec]。
+* 可枚举的自身 [`Symbol`] 属性也会比较。
+* [`WeakMap`] 和 [`WeakSet`] 的比较不依赖于它们的值。
+
+以下示例不会抛出 `AssertionError`，因为[抽象的相等性比较][Abstract Equality Comparison]（`==`）会将原始类型视为相等。
 
 ```js
-const assert = require('assert').strict;
+// 不会抛出 AssertionError。
+assert.deepEqual('+00000000', false);
+```
 
-// 失败，因为 1 !== '1'。
-assert.deepStrictEqual({ a: 1 }, { a: '1' });
-// AssertionError: Input A expected to strictly deep-equal input B:
-// + expected - actual
-//   {
-// -   a: 1
-// +   a: '1'
-//   }
+“深度”相等意味着还会比较子对象的可枚举“自有”属性：
 
-// 以下对象没有自身属性。
-const date = new Date();
-const object = {};
-const fakeDate = {};
-Object.setPrototypeOf(fakeDate, Date.prototype);
+```js
+const assert = require('assert');
 
-// 原型不同：
-assert.deepStrictEqual(object, fakeDate);
-// AssertionError: Input A expected to strictly deep-equal input B:
-// + expected - actual
-// - {}
-// + Date {}
+const obj1 = {
+  a: {
+    b: 1
+  }
+};
+const obj2 = {
+  a: {
+    b: 2
+  }
+};
+const obj3 = {
+  a: {
+    b: 1
+  }
+};
+const obj4 = Object.create(obj1);
 
-// 类型标签不同：
-assert.deepStrictEqual(date, fakeDate);
-// AssertionError: Input A expected to strictly deep-equal input B:
-// + expected - actual
-// - 2018-04-26T00:49:08.604Z
-// + Date {}
+assert.deepEqual(obj1, obj1);
+// OK
 
-assert.deepStrictEqual(NaN, NaN);
-// 通过，因为使用 SameValue 比较。
+// b 的值不同：
+assert.deepEqual(obj1, obj2);
+// 抛出 AssertionError: { a: { b: 1 } } deepEqual { a: { b: 2 } }
 
-// 解封装后的数字不同：
-assert.deepStrictEqual(new Number(1), new Number(2));
-// AssertionError: Input A expected to strictly deep-equal input B:
-// + expected - actual
-// - [Number: 1]
-// + [Number: 2]
+assert.deepEqual(obj1, obj3);
+// OK
 
-assert.deepStrictEqual(new String('foo'), Object('foo'));
-// 通过，因为对象与解封装后的字符串都是相同的。
-
-assert.deepStrictEqual(-0, -0);
-// 通过。
-
-// 使用 SameValue 比较的零不同：
-assert.deepStrictEqual(0, -0);
-// AssertionError: Input A expected to strictly deep-equal input B:
-// + expected - actual
-// - 0
-// + -0
-
-const symbol1 = Symbol();
-const symbol2 = Symbol();
-assert.deepStrictEqual({ [symbol1]: 1 }, { [symbol1]: 1 });
-// 通过，因为在两个对象上的 symbol 相同。
-assert.deepStrictEqual({ [symbol1]: 1 }, { [symbol2]: 1 });
-// AssertionError [ERR_ASSERTION]: Input objects not identical:
-// {
-//   [Symbol()]: 1
-// }
-
-const weakMap1 = new WeakMap();
-const weakMap2 = new WeakMap([[{}, {}]]);
-const weakMap3 = new WeakMap();
-weakMap3.unequal = true;
-
-assert.deepStrictEqual(weakMap1, weakMap2);
-// 通过，因为无法比较条目。
-
-// 失败，因为 weakMap3 有一个 weakMap1 不包含的属性：
-assert.deepStrictEqual(weakMap1, weakMap3);
-// AssertionError: Input A expected to strictly deep-equal input B:
-// + expected - actual
-//   WeakMap {
-// -   [items unknown]
-// +   [items unknown],
-// +   unequal: true
-//   }
+// 原型会被忽略：
+assert.deepEqual(obj1, obj4);
+// 抛出 AssertionError: { a: { b: 1 } } deepEqual {}
 ```
 
 如果值不相等，则抛出 `AssertionError`，并将 `message` 属性设置为等于 `message` 参数的值。

@@ -1,8 +1,6 @@
 
-With the support of async generators and iterators in JavaScript, async
-generators are effectively a first-class language-level stream construct at
-this point.
+借助 JavaScript 中异步生成器和迭代器的支持，异步生成器实际上是此时的一流语言级流构造。
 
-Some common interop cases of using Node.js streams with async generators
-and async iterators are provided below.
+下面提供了使用带有异步生成器和异步迭代器的 Node.js 流的一些常见互操作情况。
+
 

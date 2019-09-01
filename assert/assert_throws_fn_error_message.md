@@ -47,7 +47,7 @@ assert.throws(
       nested: true,
       baz: 'text'
     }
-    // 注意，将仅测试验证对象上的属性。
+    // 仅测试验证对象上的属性。
     // 使用嵌套对象需要存在所有属性。
     // 否则验证将失败。
   }
@@ -118,16 +118,20 @@ assert.throws(
   () => {
     throw new Error('错误值');
   },
-  function(err) {
-    if ((err instanceof Error) && /值/.test(err)) {
-      return true;
-    }
+  (err) => {
+    assert(err instanceof Error);
+    assert(/value/.test(err));
+    // 除了 `true` 之外，不建议从验证函数返回任何内容。 
+    // 这样做会导致再次抛出捕获的错误。 
+    // 这通常不是理想的结果。 
+    // 抛出有关失败的特定验证的错误（如本例所示）。
+    return true;
   },
   '不是期望的错误'
 );
 ```
 
-注意，`error` 不能是字符串。
+`error` 不能是字符串。
 如果提供了一个字符串作为第二个参数，则假定 `error` 被忽略，而字符串将用于 `message`。
 这可能导致容易错过的错误。
 使用与抛出的错误消息相同的消息将导致 `ERR_AMBIGUOUS_ARGUMENT` 错误。
@@ -150,7 +154,6 @@ assert.throws(throwingFirst, '错误二');
 // 并且由于不清楚用户是否打算实际匹配错误消息，
 // 因此 Node.js 抛出了 `ERR_AMBIGUOUS_ARGUMENT` 错误。
 assert.throws(throwingSecond, '错误二');
-// 抛出错误：
 // TypeError [ERR_AMBIGUOUS_ARGUMENT]
 
 // 该字符串仅在函数未抛出时使用（作为消息）：
@@ -158,10 +161,11 @@ assert.throws(notThrowing, '错误二');
 // AssertionError [ERR_ASSERTION]: Missing expected exception: 错误二
 
 // 如果要匹配错误消息，请执行以下操作：
+// 它不会抛出错误，因为错误消息匹配。
 assert.throws(throwingSecond, /错误二$/);
-// 因为错误消息匹配而不抛出。
+
+// 如果错误消息不匹配，则不会捕获函数内的错误。
 assert.throws(throwingFirst, /错误二$/);
-// 抛出错误：
 // Error: 错误一
 //     at throwingFirst (repl:2:9)
 ```

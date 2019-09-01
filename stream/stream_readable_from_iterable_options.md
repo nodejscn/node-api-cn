@@ -2,14 +2,12 @@
 added: v12.3.0
 -->
 
-* `iterable` {Iterable} Object implementing the `Symbol.asyncIterator` or
-  `Symbol.iterator` iterable protocol.
-* `options` {Object} Options provided to `new stream.Readable([options])`.
-  By default, `Readable.from()` will set `options.objectMode` to `true`, unless
-  this is explicitly opted out by setting `options.objectMode` to `false`.
-* Returns: {stream.Readable}
+* `iterable` {Iterable} 实现 `Symbol.asyncIterator` 或 `Symbol.iterator` 可迭代协议的对象。
+* `options` {Object} 提供给 `new stream.Readable([options])` 的选项。 
+   默认情况下，`Readable.from()` 会将 `options.objectMode` 设置为 `true`，除非通过将 `options.objectMode` 设置为 `false` 显式地选择此选项。
+* 返回: {stream.Readable}
 
-A utility method for creating Readable Streams out of iterators.
+一个从迭代器中创建可读流的实用方法。
 
 ```js
 const { Readable } = require('stream');

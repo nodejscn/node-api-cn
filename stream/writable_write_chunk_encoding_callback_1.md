@@ -1,6 +1,6 @@
 
-* `chunk` {Buffer|string|any} 要写入的数据块。
-  会一直是 `buffer`，除非 `decodeStrings` 选项设为 `false` 或者流处于对象模式。
+* `chunk` {Buffer|string|any} 要写入的 `Buffer`，从传给 [`stream.write()`][stream-write] 的 `string` 转换而来。 
+   如果流的 `decodeStrings` 选项为 `false` 或者流在对象模式下运行，则数据块将不会被转换，并且将是传给 [`stream.write()`][stream-write] 的任何内容。
 * `encoding` {string} 如果 `chunk` 是字符串，则指定字符编码。
   如果 `chunk` 是 `Buffer` 或者流处于对象模式，则无视该选项。
 * `callback` {Function} 当数据块被处理完成后的回调函数。
@@ -22,7 +22,7 @@
 
 如果在构造函数选项中设置 `decodeStrings` 属性为 `false`，则 `chunk` 会保持原样传入 `.write()`，它可能是字符串而不是 `Buffer`。
 这是为了实现对某些特定字符串数据编码的支持。 
-当 `decodeStrings` 为 `false` 时，则 `encoding` 参数指定字符串的字符编码。 
-否则，则 `encoding` 不起作用。
+在这种情况下，`encoding` 参数将指示字符串的字符编码。 否则，可以安全地忽略编码参数。
+
 `writable._write()` 方法有下划线前缀，因为它是在定义在类的内部，不应该被用户程序直接调用。
 

@@ -4,6 +4,6 @@ added: v12.7.0
 
 * {null|string}
 
-Getter for the property `encoding` of a given `Readable` stream. The `encoding`
-property can be set using the [`readable.setEncoding()`][] method.
+获取用于给定可读流的 `encoding` 属性。 
+可以使用 [`readable.setEncoding()`] 方法设置 `encoding` 属性。
 

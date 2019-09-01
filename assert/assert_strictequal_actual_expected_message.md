@@ -16,19 +16,28 @@ changes:
 const assert = require('assert').strict;
 
 assert.strictEqual(1, 2);
-// AssertionError [ERR_ASSERTION]: Input A expected to strictly equal input B:
-// + expected - actual
-// - 1
-// + 2
+// AssertionError [ERR_ASSERTION]: Expected inputs to be strictly equal:
+//
+// 1 !== 2
 
 assert.strictEqual(1, 1);
 // OK
 
-assert.strictEqual(1, '1');
-// AssertionError [ERR_ASSERTION]: Input A expected to strictly equal input B:
-// + expected - actual
-// - 1
-// + '1'
+assert.strictEqual('Hello foobar', 'Hello World!');
+// AssertionError [ERR_ASSERTION]: Expected inputs to be strictly equal:
+// + actual - expected
+//
+// + 'Hello foobar'
+// - 'Hello World!'
+//          ^
+
+const apples = 1;
+const oranges = 2;
+assert.strictEqual(apples, oranges, `apples ${apples} !== oranges ${oranges}`);
+// AssertionError [ERR_ASSERTION]: apples 1 !== oranges 2
+
+assert.strictEqual(1, '1', new TypeError('Inputs are not identical'));
+// TypeError: Inputs are not identical
 ```
 
 如果值不严格相等，则抛出 `AssertionError`，并将 `message` 属性设置为等于 `message` 参数的值。 

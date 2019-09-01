@@ -9,13 +9,13 @@ changes:
     description: Added strict mode to the assert module.
 -->
 
-当使用严格模式（`strict mode`）时，任何 `assert` 函数都将使用严格函数模式中使用的相等性。 
-因此，[`assert.deepEqual()`] 将与 [`assert.deepStrictEqual()`] 一样效果。
+在严格模式中，任何 `assert` 函数都将使用严格函数模式中使用的相等性。 
+例如，[`assert.deepEqual()`] 将与 [`assert.deepStrictEqual()`] 一样效果。
 
-最重要的是，涉及对象的错误消息将产生错误的差异，而不是显示两个对象。 
-遗留模式则不是这种情况。
+在严格模式中，对象的错误消息会显示差异。
+在遗留模式下，对象的错误消息会显示对象，通常是截断的。
 
-它可以使用以下方式访问：
+使用严格模式：
 
 ```js
 const assert = require('assert').strict;
@@ -27,15 +27,15 @@ const assert = require('assert').strict;
 const assert = require('assert').strict;
 
 assert.deepEqual([[[1, 2, 3]], 4, 5], [[[1, 2, '3']], 4, 5]);
-// AssertionError: Input A expected to strictly deep-equal input B:
-// + expected - actual ... Lines skipped
+// AssertionError: Expected inputs to be strictly deep-equal:
+// + actual - expected ... Lines skipped
 //
 //   [
 //     [
 // ...
 //       2,
-// -     3
-// +     '3'
+// +     3
+// -     '3'
 //     ],
 // ...
 //     5

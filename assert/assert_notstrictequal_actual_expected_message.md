@@ -18,7 +18,9 @@ assert.notStrictEqual(1, 2);
 // 通过。
 
 assert.notStrictEqual(1, 1);
-// AssertionError [ERR_ASSERTION]: Identical input passed to notStrictEqual: 1
+// AssertionError [ERR_ASSERTION]: Expected "actual" to be strictly unequal to:
+//
+// 1
 
 assert.notStrictEqual(1, '1');
 // 通过。

@@ -4,5 +4,5 @@ added: v11.4.0
 
 * {boolean}
 
-Is `true` if it is safe to call [`readable.read()`][stream-read].
+如果可以安全地调用 [`readable.read()`][stream-read]，则为 `true`。
 

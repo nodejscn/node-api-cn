@@ -11,8 +11,6 @@ added: v0.9.4
 
 现在几乎无需使用 `readable.wrap()`，该方法主要用于老版本的 Node.js 应用和库。
 
-例子：
-
 ```js
 const { OldReader } = require('./old-api-module.js');
 const { Readable } = require('stream');

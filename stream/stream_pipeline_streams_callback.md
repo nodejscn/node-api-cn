@@ -3,7 +3,8 @@ added: v10.0.0
 -->
 
 * `...streams` {Stream} 要用管道连接的两个或多个流。
-* `callback` {Function} 通知回调函数。
+* `callback` {Function} 在管道完全完成时调用。
+  * `err` {Error}
 
 使用管道连接多个流，并传递错误与完成清理工作，当管道连接完成时通知回调函数。
 

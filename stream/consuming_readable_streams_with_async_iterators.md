@@ -7,6 +7,5 @@
 })();
 ```
 
-Async iterators register a permanent error handler on the stream to prevent any
-unhandled post-destroy errors.
+异步迭代器在流上注册一个永久的错误处理程序，以防止任何未处理的 post-destroy 错误。
 

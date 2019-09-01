@@ -21,6 +21,7 @@ added: v10.0.0
 除了等待的异步性质之外，完成行为与 [`assert.doesNotThrow()`] 完全相同。
 
 
+<!-- eslint-disable no-restricted-syntax -->
 ```js
 (async () => {
   await assert.doesNotReject(
@@ -32,6 +33,7 @@ added: v10.0.0
 })();
 ```
 
+<!-- eslint-disable no-restricted-syntax -->
 ```js
 assert.doesNotReject(Promise.reject(new TypeError('错误值')))
   .then(() => {

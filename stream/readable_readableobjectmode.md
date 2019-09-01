@@ -4,5 +4,5 @@ added: v12.3.0
 
 * {boolean}
 
-Getter for the property `objectMode` of a given `Readable` stream.
+获取用于给定可读流的 `objectMode` 属性。
 

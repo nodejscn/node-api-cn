@@ -1,6 +1,6 @@
 
-We can construct a Node.js Readable Stream from an asynchronous generator
-using the `Readable.from()` utility method:
+我们可以使用 `Readable.from()` 实用方法从异步生成器构造 Node.js 可读流：
+
 
 ```js
 const { Readable } = require('stream');
