@@ -4,6 +4,5 @@ added: v12.7.0
 
 * {boolean}
 
-Is `true` if all data has been flushed to the underlying system, immediately
-before the [`'finish'`][] event is emitted.
+如果在触发 [`'finish'`] 事件之前，所有数据都已刷新到底层的系统，则为 `true`。
 

@@ -1,6 +1,10 @@
 <!-- YAML
 added: v0.1.30
 changes:
+  - version: v11.10.0
+    pr-url: https://github.com/nodejs/node/pull/25974
+    description: Return `this` from `writeHead()` to allow chaining with
+                 `end()`.
   - version: v5.11.0, v4.4.5
     pr-url: https://github.com/nodejs/node/pull/6291
     description: A `RangeError` is thrown if `statusCode` is not a number in
@@ -10,17 +14,23 @@ changes:
 * `statusCode` {number}
 * `statusMessage` {string}
 * `headers` {Object}
+* 返回: {http.ServerResponse}
 
 向请求发送响应头。
 状态码是一个 3 位的 HTTP 状态码，如 `404`。
 最后一个参数 `headers` 是响应头。
 可以可选地将用户可读的 `statusMessage` 作为第二个参数。
 
+返回对 `ServerResponse` 的引用，以便可以链式调用。
+
 ```js
 const body = 'hello world';
-response.writeHead(200, {
-  'Content-Length': Buffer.byteLength(body),
-  'Content-Type': 'text/plain' });
+response
+  .writeHead(200, {
+    'Content-Length': Buffer.byteLength(body),
+    'Content-Type': 'text/plain'
+  })
+  .end(body);
 ```
 
 此方法只能在消息上调用一次，并且必须在调用 [`response.end()`] 之前调用。
@@ -42,10 +52,10 @@ const server = http.createServer((req, res) => {
 });
 ```
 
-注意，Content-Length 以字节而非字符为单位。
+`Content-Length` 以字节而非字符为单位。
 上面的示例可行是因为字符串 `'hello world'` 仅包含单字节字符。
 如果主体包含更高编码的字符，则应使用 `Buffer.byteLength()` 来判断给定编码中的字节数。
-Node.js 不检查 Content-Length 和已传输的主体的长度是否相等。
+Node.js 不检查 `Content-Length` 和已传输的主体的长度是否相等。
 
 尝试设置包含无效字符的响应头字段名称或值将导致抛出 [`TypeError`]。
 

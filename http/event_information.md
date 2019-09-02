@@ -2,8 +2,18 @@
 added: v10.0.0
 -->
 
-服务器发送 `1xx` 响应时触发（不包括 `101 Upgrade`）。 
-使用包含具有状态码的对象的回调触发此事件。
+* `info` {Object}
+  * `httpVersion` {string}
+  * `httpVersionMajor` {integer}
+  * `httpVersionMinor` {integer}
+  * `statusCode` {integer}
+  * `statusMessage` {string}
+  * `headers` {Object}
+  * `rawHeaders` {string[]}
+
+
+服务器发送 1xx 中间响应（不包括 101 Upgrade）时触发。 
+此事件的监听器将会接收一个对象，该对象包含 HTTP 版本，状态码，状态消息，键值对请求头对象、以及具有原始请求头名称和值的数组。
 
 ```js
 const http = require('http');
@@ -18,8 +28,8 @@ const options = {
 const req = http.request(options);
 req.end();
 
-req.on('information', (res) => {
-  console.log(`获得主响应之前的信息: ${res.statusCode}`);
+req.on('information', (info) => {
+  console.log(`获得主响应之前的信息: ${info.statusCode}`);
 });
 ```
 

@@ -1,5 +1,5 @@
 <!-- YAML
-added: v10.15.0
+added: v11.6.0
 -->
 
 * {number}

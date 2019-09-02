@@ -11,6 +11,10 @@ changes:
     description: The `rawPacket` is the current buffer that just parsed. Adding
                  this buffer to the error object of `'clientError'` event is to
                  make it possible that developers can log the broken packet.
+  - version: v12.0.0
+    pr-url: https://github.com/nodejs/node/pull/25605
+    description: The default behavior will return a 431 Request Header
+                 Fields Too Large if a HPE_HEADER_OVERFLOW error occurs.
 -->
 
 * `exception` {Error}
@@ -20,7 +24,8 @@ changes:
 此事件的监听器负责关闭或销毁底层套接字。
 例如，用户可能希望使用自定义 HTTP 响应更优雅地关闭套接字，而不是突然切断连接。
 
-默认行为是尽可能使用 HTTP `400 Bad Request` 响应关闭套接字，否则立即销毁套接字。
+默认行为是尝试使用 HTTP `400 Bad Request` 关闭套接字、或者在 [`HPE_HEADER_OVERFLOW`] 错误的情况下尝试关闭 HTTP `431 Request Header Fields Too Large`。 
+如果套接字不可写，则会被立即销毁。
 
 `socket` 是发生错误的 [`net.Socket`] 对象。
 

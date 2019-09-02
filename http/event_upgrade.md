@@ -15,7 +15,7 @@ added: v0.1.94
 const http = require('http');
 
 // 创建 HTTP 服务器。
-const srv = http.createServer( (req, res) => {
+const srv = http.createServer((req, res) => {
   res.writeHead(200, { 'Content-Type': 'text/plain' });
   res.end('响应内容');
 });
@@ -25,7 +25,7 @@ srv.on('upgrade', (req, socket, head) => {
                'Connection: Upgrade\r\n' +
                '\r\n');
 
-  socket.pipe(socket);
+  socket.pipe(socket); // 响应回去。
 });
 
 // 服务器正在运行。

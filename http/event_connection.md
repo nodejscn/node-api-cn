@@ -13,3 +13,5 @@ added: v0.1.0
 用户也可以显式触发此事件，以将连接注入 HTTP 服务器。 
 在这种情况下，可以传入任何 [`Duplex`] 流。
 
+如果在此处调用 `socket.setTimeout()`，则当套接字已提供请求时（如果 `server.keepAliveTimeout` 为非零），超时将会被 `server.keepAliveTimeout` 替换。
+

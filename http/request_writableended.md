@@ -4,7 +4,6 @@ added: v12.9.0
 
 * {boolean}
 
-Is `true` after [`request.end()`][] has been called. This property
-does not indicate whether the data has been flushed, for this use
-[`request.writableFinished`][] instead.
+在调用 [`request.end()`] 之后为 `true`。 
+此属性不表明是否已刷新数据，对于这种应该使用 [`request.writableFinished`]。
 
