@@ -10,12 +10,9 @@ changes:
 * `...args` {any} 当调用 `callback` 时传入的其他参数。
 
 `process.nextTick()` 方法将 `callback` 添加到下一个时间点的队列。
-一旦当轮的事件循环全部完成，则调用下一个时间点的队列中的所有回调。
-
-这不是 [`setTimeout(fn, 0)`] 的简单别名。
-它的效率更高。
-它会在事件循环的下一个时间点中触发任何其他 I/O 事件（包括定时器）之前运行。
-
+在 JavaScript 堆栈上的当前操作运行完成之后以及允许事件循环继续之前，此队列会被完全耗尽。 
+如果要递归地调用 `process.nextTick()`，则可以创建无限的循环。 
+有关更多背景信息，请参阅[事件循环][Event Loop]指南。
 
 ```js
 console.log('开始');
@@ -88,7 +85,4 @@ function definitelyAsync(arg, cb) {
   fs.stat('file', cb);
 }
 ```
-
-在处理其他 I/O 之前，下一个时间点的队列在事件循环的每次传递中完全耗尽。
-因此，递归地设置 `nextTick()` 回调将阻塞任何 I/O 的发生，就像一个 `while(true);` 循环。
 

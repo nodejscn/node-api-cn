@@ -8,29 +8,23 @@ changes:
 
 * `module` {Object}
 * `filename` {string}
-* `flags` {os.constants.dlopen} **Default:** `os.constants.dlopen.RTLD_LAZY`
+* `flags` {os.constants.dlopen} **默认值:** `os.constants.dlopen.RTLD_LAZY`。
 
-The `process.dlopen()` method allows to dynamically load shared
-objects. It is primarily used by `require()` to load
-C++ Addons, and should not be used directly, except in special
-cases. In other words, [`require()`][] should be preferred over
-`process.dlopen()`, unless there are specific reasons.
+`process.dlopen()` 方法允许动态加载共享对象。 
+它主要由 `require()` 用于加载 C++ 插件，除特殊情况外，不应直接使用。 
+换句话说，除非有特殊原因，否则 [`require()`] 应优先于 `process.dlopen()`。
 
-The `flags` argument is an integer that allows to specify dlopen
-behavior. See the [`os.constants.dlopen`][] documentation for details.
+`flags` 参数是一个允许指定 dlopen 行为的整数。 
+有关详细信息，请参阅 [`os.constants.dlopen`] 文档。
 
-If there are specific reasons to use `process.dlopen()` (for instance,
-to specify dlopen flags), it's often useful to use [`require.resolve()`][]
-to look up the module's path.
+如果有特定原因要使用 `process.dlopen()`（例如，指定 dlopen 标志），使用 [`require.resolve()`] 来查找模块的路径通常很有用。
 
-An important drawback when calling `process.dlopen()` is that the `module`
-instance must be passed. Functions exported by the C++ Addon will be accessible
-via `module.exports`.
+调用 `process.dlopen()` 时的一个重要缺点是必须传入 `module` 实例。 
+可以通过 `module.exports` 访问 C++ 插件导出的函数。
 
-The example below shows how to load a C++ Addon, named as `binding`,
-that exports a `foo` function. All the symbols will be loaded before
-the call returns, by passing the `RTLD_NOW` constant. In this example
-the constant is assumed to be available.
+下面的示例显示了如何加载导出 `foo` 函数的名为 `binding` 的 C++ 插件。 
+通过传入 `RTLD_NOW` 常量，将在调用返回之前加载所有符号。 
+在此示例中，假定常量可用。
 
 ```js
 const os = require('os');

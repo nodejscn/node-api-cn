@@ -1,12 +1,12 @@
 <!-- YAML
-added: v8.10.0
+added: v9.2.0
 -->
 
 * {integer}
 
-`process.ppid` 属性返回当前父进程的进程ID
+`process.ppid` 属性返回当前父进程的 PID。
 
 ```js
-console.log(`The parent process is pid ${process.ppid}`);
+console.log(`父进程的 pid 是 ${process.ppid}`);
 ```
 

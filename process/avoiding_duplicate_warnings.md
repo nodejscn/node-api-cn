@@ -6,12 +6,12 @@
 function emitMyWarning() {
   if (!emitMyWarning.warned) {
     emitMyWarning.warned = true;
-    process.emitWarning('Only warn once!');
+    process.emitWarning('只警告一次');
   }
 }
 emitMyWarning();
-// Emits: (node: 56339) Warning: Only warn once!
+// 触发: (node: 56339) Warning: 只警告一次
 emitMyWarning();
-// Emits nothing
+// 什么都没触发。
 ```
 

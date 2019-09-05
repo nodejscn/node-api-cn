@@ -8,8 +8,9 @@
 process.stdin.setEncoding('utf8');
 
 process.stdin.on('readable', () => {
-  const chunk = process.stdin.read();
-  if (chunk !== null) {
+  let chunk;
+  // 使用循环确保我们读取所有的可用数据。
+  while ((chunk = process.stdin.read()) !== null) {
     process.stdout.write(`数据: ${chunk}`);
   }
 });

@@ -4,9 +4,9 @@ added: v0.1.16
 
 * {string}
 
-`process.platform`属性返回字符串，标识Node.js进程运行其上的操作系统平台。
+`process.platform` 属性返回字符串，标识 Node.js 进程运行其上的操作系统平台。
 
-例如
+当前可能的值有：
 
 * `'aix'`
 * `'darwin'`
@@ -17,10 +17,10 @@ added: v0.1.16
 * `'win32'`
 
 ```js
-console.log(`This platform is ${process.platform}`);
+console.log(`此平台是 ${process.platform}`);
 ```
 
-The value `'android'` may also be returned if the Node.js is built on the
-Android operating system. However, Android support in Node.js
-[is experimental][Supported platforms].
+如果 Node.js 是在 Android 操作系统上构建的，也可以返回值 `'android'`。 
+但是，Node.js 中的 Android 支持是[实验性的][Android building]。
+
 

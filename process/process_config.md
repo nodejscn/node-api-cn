@@ -4,8 +4,8 @@ added: v0.7.7
 
 * {Object}
 
-`process.config` 属性返回一个Javascript对象。此对象描述了用于编译当前Node.js执行程序时涉及的配置项信息。
-这与执行`./configure`脚本生成的`config.gypi`文件结果是一样的。
+`process.config` 属性返回一个 `Object`，其中包含用于编译当前 Node.js 可执行文件的配置选项的 JavaScript 表示形式。 
+这与运行 `./configure` 脚本时生成的 `config.gypi` 文件相同。
 
 可能的输出样例:
 
@@ -21,6 +21,7 @@ added: v0.7.7
   variables:
    {
      host_arch: 'x64',
+     napi_build_version: 4,
      node_install_npm: 'true',
      node_prefix: '',
      node_shared_cares: 'false',
@@ -32,11 +33,11 @@ added: v0.7.7
      node_shared_openssl: 'false',
      strict_aliasing: 'true',
      target_arch: 'x64',
-     v8_use_snapshot: 'true'
+     v8_use_snapshot: 1
    }
 }
 ```
 
-*注意*： `process.config`属性值**不是**只读的，在Node.js生态系统中已经有模块扩展，修改或完全替换了`process.config`的值。
+`process.config` 属性值不是只读的，在 Node.js 生态系统中已经有模块扩展、修改或完全替换了 `process.config` 的值。
 
 

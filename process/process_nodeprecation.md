@@ -4,9 +4,6 @@ added: v0.8.0
 
 * {boolean}
 
-The `process.noDeprecation` property indicates whether the `--no-deprecation`
-flag is set on the current Node.js process. See the documentation for
-the [`'warning'` event][process_warning] and the
-[`emitWarning()` method][process_emit_warning] for more information about this
-flag's behavior.
+`process.noDeprecation` 属性表明是否在当前 Node.js 进程上设置了 `--no-deprecation` 标志。 
+有关此标志行为的更多信息，请参阅 [`'warning'` 事件][process_warning]和 [`emitWarning()` 方法][process_emit_warning]的文档。
 

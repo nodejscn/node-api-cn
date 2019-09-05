@@ -11,3 +11,22 @@ added: v0.11.12
 
 除非打算安排额外的工作，否则不应将 `'beforeExit'` 用作 `'exit'` 事件的替代方案。
 
+```js
+process.on('beforeExit', (code) => {
+  console.log('进程 beforeExit 事件的代码: ', code);
+});
+
+process.on('exit', (code) => {
+  console.log('进程 exit 事件的代码: ', code);
+});
+
+console.log('此消息最新显示');
+
+// 打印:
+// 此消息最新显示
+// 进程 beforeExit 事件的代码: 0
+// 进程 exit 事件的代码: 0
+```
+
+
+

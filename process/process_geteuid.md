@@ -2,15 +2,15 @@
 added: v2.0.0
 -->
 
-* Returns: {Object}
+* 返回: {Object}
 
-`process.geteuid()`方法返回Node.js进程的有效数字标记的用户身份(See geteuid(2))。
+`process.geteuid()` 方法返回 Node.js 进程的有效数字标记的用户身份（参阅 geteuid(2)）。
 
 ```js
 if (process.geteuid) {
-  console.log(`Current uid: ${process.geteuid()}`);
+  console.log(`当前的 uid: ${process.geteuid()}`);
 }
 ```
 
-*注意*：这个函数只在POSIX平台有效(在Windows或Android平台无效)。
+这个函数只在 POSIX 平台有效（在 Windows 或 Android 平台无效）。
 

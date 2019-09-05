@@ -12,15 +12,15 @@ changes:
     * `heapUsed` {integer}
     * `external` {integer}
 
-`process.memoryUsage()`方法返回Node.js进程的内存使用情况的对象，该对象每个属性值的单位为字节。
+`process.memoryUsage()` 方法返回 Node.js 进程的内存使用情况的对象，该对象每个属性值的单位为字节。
 
-例如:
+例如：
 
 ```js
 console.log(process.memoryUsage());
 ```
 
-会得到:
+会得到：
 
 <!-- eslint-skip -->
 ```js
@@ -32,11 +32,12 @@ console.log(process.memoryUsage());
 }
 ```
 
-`heapTotal` 和 `heapUsed` 代表V8的内存使用情况。
-`external`代表V8管理的，绑定到Javascript的C++对象的内存使用情况。
-`rss`, 驻留集大小, 是给这个进程分配了多少物理内存(占总分配内存的一部分)
-这些物理内存中包含堆，栈，和代码段。
+`heapTotal` 和 `heapUsed` 代表 V8 的内存使用情况。
+`external` 代表 V8 管理的，绑定到 Javascript 的 C++ 对象的内存使用情况。
+`rss` 是驻留集大小, 是给这个进程分配了多少物理内存（占总分配内存的一部分），这些物理内存中包含堆、代码段、以及栈。
 
-对象，字符串，闭包等存于堆内存。
-变量存于栈内存。
-实际的JavaScript源代码存于代码段内存。
+对象、字符串、闭包等存于堆内存。
+变量存于栈内存，实际的 JavaScript 源代码存于代码段内存。
+
+使用 [`Worker`] 线程时，`rss` 将会是一个对整个进程有效的值，而其他字段只指向当前线程。
+

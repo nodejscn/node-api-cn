@@ -2,8 +2,7 @@
 added: v9.3.0
 -->
 
-* Returns: {boolean}
+* 返回: {boolean}
 
-Indicates whether a callback has been set using
-[`process.setUncaughtExceptionCaptureCallback()`][].
+表明是否已使用 [`process.setUncaughtExceptionCaptureCallback()`] 设置回调。
 
