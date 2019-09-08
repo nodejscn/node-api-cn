@@ -2,6 +2,7 @@
 added: v8.0.0
 napiVersion: 1
 -->
+
 ```C
 napi_status napi_new_instance(napi_env env,
                               napi_value cons,
@@ -22,6 +23,7 @@ which in this case is the constructed object.
 This method is used to instantiate a new JavaScript value using a given
 `napi_value` that represents the constructor for the object. For example,
 consider the following snippet:
+
 ```js
 function MyObject(param) {
   this.param = param;
@@ -32,6 +34,7 @@ const value = new MyObject(arg);
 ```
 
 The following can be approximated in N-API using the following snippet:
+
 ```C
 // Get the constructor function MyObject
 napi_value global, constructor, arg, value;

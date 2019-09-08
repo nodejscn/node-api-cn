@@ -4,6 +4,7 @@ napiVersion: 1
 -->
 Integral status code indicating the success or failure of a N-API call.
 Currently, the following status codes are supported.
+
 ```C
 typedef enum {
   napi_ok,
@@ -27,6 +28,7 @@ typedef enum {
   napi_date_expected,
 } napi_status;
 ```
+
 If additional information is required upon an API returning a failed status,
 it can be obtained by calling `napi_get_last_error_info`.
 

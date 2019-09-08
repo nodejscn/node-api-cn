@@ -2,10 +2,12 @@
 added: v8.0.0
 napiVersion: 1
 -->
+
 ```C
 NAPI_EXTERN napi_status napi_open_handle_scope(napi_env env,
                                                napi_handle_scope* result);
 ```
+
 - `[in] env`: The environment that the API is invoked under.
 - `[out] result`: `napi_value` representing the new scope.
 

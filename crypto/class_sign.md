@@ -2,15 +2,19 @@
 added: v0.1.92
 -->
 
-`Sign` 类是生成签名的实用工具。它有两种使用方式:
+* 继承自: {stream.Writable}
 
-- 作为一个[可写流][stream]，写入要签名的数据，并使用 [`sign.sign()`][] 方法生成并返回签名。
-- 使用 [`sign.update()`][] 和 [`sign.sign()`][] 方法生产签名。
+`Sign` 类是一个实用工具，用于生成签名。
+它可以通过以下两种方式之一使用：
 
-[`crypto.createSign()`][] 方法用于创建 `Sign` 实例，参数为即将用来生成 hash 值的函数名。
-`Sign` 实例不能直接使用 `new` 关键字创建。
+- 作为可写的[流][stream]，其中写入要签名的数据，并使用 [`sign.sign()`] 方法生成和返回签名。
+- 使用 [`sign.update()`] 和 [`sign.sign()`] 方法生成签名。
 
-示例，像使用流对象一样使用 `Sign` 和 [`Verify`] 对象:
+[`crypto.createSign()`] 方法用于创建 `Sign` 实例。
+参数是要使用的哈希函数的字符串名称。 
+不能使用 `new` 关键字直接地创建 `Sign` 对象。
+
+示例，使用 `Sign` 和 [`Verify`] 对象作为流：
 
 ```js
 const crypto = require('crypto');
@@ -20,18 +24,18 @@ const { privateKey, publicKey } = crypto.generateKeyPairSync('ec', {
 });
 
 const sign = crypto.createSign('SHA256');
-sign.write('some data to sign');
+sign.write('要生成签名的数据');
 sign.end();
 const signature = sign.sign(privateKey, 'hex');
 
 const verify = crypto.createVerify('SHA256');
-verify.write('some data to sign');
+verify.write('要生成签名的数据');
 verify.end();
 console.log(verify.verify(publicKey, signature));
 // 打印 true 或 false。
 ```
 
-示例，使用 [`sign.update()`][] 和 [`sign.sign()`][] 方法：
+示例，使用 [`sign.update()`] 和 [`verify.update()`] 方法：
 
 ```js
 const crypto = require('crypto');
@@ -41,12 +45,12 @@ const { privateKey, publicKey } = crypto.generateKeyPairSync('rsa', {
 });
 
 const sign = crypto.createSign('SHA256');
-sign.update('some data to sign');
+sign.update('要生成签名的数据');
 sign.end();
 const signature = sign.sign(privateKey);
 
 const verify = crypto.createVerify('SHA256');
-verify.update('some data to sign');
+verify.update('要生成签名的数据');
 verify.end();
 console.log(verify.verify(publicKey, signature));
 // 打印: true

@@ -2,6 +2,7 @@
 added: v8.0.0
 napiVersion: 1
 -->
+
 ```C
 napi_status napi_call_function(napi_env env,
                                napi_value recv,
@@ -29,6 +30,7 @@ after an async operation, see [`napi_make_callback`][].
 
 A sample use case might look as follows. Consider the following JavaScript
 snippet:
+
 ```js
 function AddTwo(num) {
   return num + 2;
@@ -37,6 +39,7 @@ function AddTwo(num) {
 
 Then, the above function can be invoked from a native add-on using the
 following code:
+
 ```C
 // Get the function named "AddTwo" on the global object
 napi_value global, add_two, arg;

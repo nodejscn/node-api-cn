@@ -4,6 +4,7 @@
 <!-- YAML
 added: v8.0.0
 -->
+
 ```C
 napi_status napi_add_finalizer(napi_env env,
                                napi_value js_object,

@@ -2,11 +2,13 @@
 added: v8.0.0
 napiVersion: 1
 -->
+
 ```C
 napi_status
 napi_get_last_error_info(napi_env env,
                          const napi_extended_error_info** result);
 ```
+
 - `[in] env`: The environment that the API is invoked under.
 - `[out] result`: The `napi_extended_error_info` structure with more
 information about the error.

@@ -24,4 +24,3 @@ returns `napi_bigint_expected`.
 This API returns the C `uint64_t` primitive equivalent of the given JavaScript
 `BigInt`. If needed it will truncate the value, setting `lossless` to `false`.
 
-

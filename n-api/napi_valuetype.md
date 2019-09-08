@@ -1,3 +1,4 @@
+
 ```C
 typedef enum {
   // ES6 types (corresponds to typeof)

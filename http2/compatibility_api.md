@@ -23,8 +23,8 @@ In order to create a mixed [HTTPS][] and HTTP/2 server, refer to the
 [ALPN negotiation][] section.
 Upgrading from non-tls HTTP/1 servers is not supported.
 
-The HTTP/2 compatibility API is composed of [`Http2ServerRequest`]() and
-[`Http2ServerResponse`](). They aim at API compatibility with HTTP/1, but
+The HTTP/2 compatibility API is composed of [`Http2ServerRequest`][] and
+[`Http2ServerResponse`][]. They aim at API compatibility with HTTP/1, but
 they do not hide the differences between the protocols. As an example,
 the status message for HTTP codes is ignored.
 

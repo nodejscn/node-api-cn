@@ -20,7 +20,7 @@ There are four types of specifiers:
 Bare specifiers, and the bare specifier portion of deep import specifiers, are
 strings; but everything else in a specifier is a URL.
 
-Only `file://` URLs are supported. A specifier like
+Only `file:` and `data:` URLs are supported. A specifier like
 `'https://example.com/app.js'` may be supported by browsers but it is not
 supported in Node.js.
 

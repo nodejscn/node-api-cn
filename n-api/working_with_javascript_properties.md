@@ -22,11 +22,14 @@ get and set properties on arbitrary JavaScript objects represented by
 `napi_value`.
 
 For instance, consider the following JavaScript code snippet:
+
 ```js
 const obj = {};
 obj.myProp = 123;
 ```
+
 The equivalent can be done using N-API values with the following snippet:
+
 ```C
 napi_status status = napi_generic_failure;
 
@@ -46,11 +49,14 @@ if (status != napi_ok) return status;
 
 Indexed properties can be set in a similar manner. Consider the following
 JavaScript snippet:
+
 ```js
 const arr = [];
 arr[123] = 'hello';
 ```
+
 The equivalent can be done using N-API values with the following snippet:
+
 ```C
 napi_status status = napi_generic_failure;
 
@@ -70,12 +76,14 @@ if (status != napi_ok) return status;
 
 Properties can be retrieved using the APIs described in this section.
 Consider the following JavaScript snippet:
+
 ```js
 const arr = [];
 const value = arr[123];
 ```
 
 The following is the approximate equivalent of the N-API counterpart:
+
 ```C
 napi_status status = napi_generic_failure;
 
@@ -91,6 +99,7 @@ if (status != napi_ok) return status;
 
 Finally, multiple properties can also be defined on an object for performance
 reasons. Consider the following JavaScript:
+
 ```js
 const obj = {};
 Object.defineProperties(obj, {
@@ -100,6 +109,7 @@ Object.defineProperties(obj, {
 ```
 
 The following is the approximate equivalent of the N-API counterpart:
+
 ```C
 napi_status status = napi_status_generic_failure;
 

@@ -3,6 +3,7 @@
 added: v10.6.0
 napiVersion: 4
 -->
+
 ```C
 NAPI_EXTERN napi_status
 napi_ref_threadsafe_function(napi_env env, napi_threadsafe_function func);

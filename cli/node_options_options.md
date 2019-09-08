@@ -102,6 +102,7 @@ Node.js options that are allowed are:
 V8 options that are allowed are:
 <!-- node-options-v8 start -->
 - `--abort-on-uncaught-exception`
+- `--interpreted-frames-native-stack`
 - `--max-old-space-size`
 - `--perf-basic-prof-only-functions`
 - `--perf-basic-prof`

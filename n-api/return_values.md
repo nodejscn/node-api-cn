@@ -28,6 +28,7 @@ The format of the `napi_extended_error_info` structure is as follows:
 added: v10.6.0
 napiVersion: 4
 -->
+
 ```C
 typedef struct napi_extended_error_info {
   const char* error_message;
@@ -36,6 +37,7 @@ typedef struct napi_extended_error_info {
   napi_status error_code;
 };
 ```
+
 - `error_message`: Textual representation of the error that occurred.
 - `engine_reserved`: Opaque handle reserved for engine use only.
 - `engine_error_code`: VM specific error code.

@@ -1,11 +1,13 @@
 
-`Error` 的一个子类，表明提供的参数不是一个被允许的类型。
-例如，将一个函数传给一个期望字符串的参数会被视为一个 `TypeError`。
+* 继承自 {errors.Error}
+
+表明提供的参数不是被允许的类型。
+例如，将函数传给期望字符串的参数，将会被视为 `TypeError`。
 
 ```js
 require('url').parse(() => { });
-// 抛出 TypeError，因为它期望的是一个字符串
+// 抛出 TypeError，因为它期望的是字符串。
 ```
 
-Node.js 会生成并以参数校验的形式立即抛出 `TypeError` 实例。
+Node.js 将会以参数验证的形式立即地生成并抛出 `TypeError` 实例。
 

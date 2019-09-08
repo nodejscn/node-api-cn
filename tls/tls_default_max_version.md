@@ -10,4 +10,3 @@ added: v11.4.0
   the default to `'TLSv1.3'`. If multiple of the options are provided, the
   highest maximum is used.
 
-

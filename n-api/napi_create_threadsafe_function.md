@@ -7,6 +7,7 @@ changes:
     pr-url: https://github.com/nodejs/node/pull/27791
     description: Made `func` parameter optional with custom `call_js_cb`.
 -->
+
 ```C
 NAPI_EXTERN napi_status
 napi_create_threadsafe_function(napi_env env,
