@@ -46,12 +46,12 @@ import 'commonjs-package/src/index.mjs';
 The `.mjs` and `.cjs` extensions may be used to mix types within the same
 package scope:
 
-- Within a `"type": "module"` package scope, Node.js can be instructed to
+* Within a `"type": "module"` package scope, Node.js can be instructed to
   interpret a particular file as CommonJS by naming it with a `.cjs` extension
   (since both `.js` and `.mjs` files are treated as ES modules within a
   `"module"` package scope).
 
-- Within a `"type": "commonjs"` package scope, Node.js can be instructed to
+* Within a `"type": "commonjs"` package scope, Node.js can be instructed to
   interpret a particular file as an ES module by naming it with an `.mjs`
   extension (since both `.js` and `.cjs` files are treated as CommonJS within a
   `"commonjs"` package scope).

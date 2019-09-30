@@ -9,9 +9,9 @@ napi_status napi_resolve_deferred(napi_env env,
                                   napi_value resolution);
 ```
 
-- `[in] env`: The environment that the API is invoked under.
-- `[in] deferred`: The deferred object whose associated promise to resolve.
-- `[in] resolution`: The value with which to resolve the promise.
+* `[in] env`: The environment that the API is invoked under.
+* `[in] deferred`: The deferred object whose associated promise to resolve.
+* `[in] resolution`: The value with which to resolve the promise.
 
 This API resolves a JavaScript promise by way of the deferred object
 with which it is associated. Thus, it can only be used to resolve JavaScript

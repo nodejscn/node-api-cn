@@ -13,15 +13,15 @@ napi_create_external_arraybuffer(napi_env env,
                                  napi_value* result)
 ```
 
-- `[in] env`: The environment that the API is invoked under.
-- `[in] external_data`: Pointer to the underlying byte buffer of the
+* `[in] env`: The environment that the API is invoked under.
+* `[in] external_data`: Pointer to the underlying byte buffer of the
 `ArrayBuffer`.
-- `[in] byte_length`: The length in bytes of the underlying buffer.
-- `[in] finalize_cb`: Optional callback to call when the `ArrayBuffer` is
+* `[in] byte_length`: The length in bytes of the underlying buffer.
+* `[in] finalize_cb`: Optional callback to call when the `ArrayBuffer` is
 being collected.
-- `[in] finalize_hint`: Optional hint to pass to the finalize callback
+* `[in] finalize_hint`: Optional hint to pass to the finalize callback
 during collection.
-- `[out] result`: A `napi_value` representing a JavaScript `ArrayBuffer`.
+* `[out] result`: A `napi_value` representing a JavaScript `ArrayBuffer`.
 
 Returns `napi_ok` if the API succeeded.
 

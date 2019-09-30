@@ -1,6 +1,7 @@
 <!-- YAML
 added: v6.6.0
 -->
+
 * `a` {Buffer | TypedArray | DataView}
 * `b` {Buffer | TypedArray | DataView}
 * Returns: {boolean}

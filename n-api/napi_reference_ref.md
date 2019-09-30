@@ -9,9 +9,9 @@ NAPI_EXTERN napi_status napi_reference_ref(napi_env env,
                                            int* result);
 ```
 
-- `[in] env`: The environment that the API is invoked under.
-- `[in] ref`: `napi_ref` for which the reference count will be incremented.
-- `[out] result`: The new reference count.
+* `[in] env`: The environment that the API is invoked under.
+* `[in] ref`: `napi_ref` for which the reference count will be incremented.
+* `[out] result`: The new reference count.
 
 Returns `napi_ok` if the API succeeded.
 

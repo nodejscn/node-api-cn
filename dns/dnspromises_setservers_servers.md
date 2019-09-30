@@ -1,6 +1,7 @@
 <!-- YAML
 added: v10.6.0
 -->
+
 * `servers` {string[]} array of [RFC 5952][] formatted addresses
 
 Sets the IP address and port of servers to be used when performing DNS

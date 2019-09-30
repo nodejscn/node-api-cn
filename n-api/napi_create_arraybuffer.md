@@ -10,10 +10,10 @@ napi_status napi_create_arraybuffer(napi_env env,
                                     napi_value* result)
 ```
 
-- `[in] env`: The environment that the API is invoked under.
-- `[in] length`: The length in bytes of the array buffer to create.
-- `[out] data`: Pointer to the underlying byte buffer of the `ArrayBuffer`.
-- `[out] result`: A `napi_value` representing a JavaScript `ArrayBuffer`.
+* `[in] env`: The environment that the API is invoked under.
+* `[in] length`: The length in bytes of the array buffer to create.
+* `[out] data`: Pointer to the underlying byte buffer of the `ArrayBuffer`.
+* `[out] result`: A `napi_value` representing a JavaScript `ArrayBuffer`.
 
 Returns `napi_ok` if the API succeeded.
 

@@ -7,8 +7,8 @@ napiVersion: 1
 napi_status napi_create_array(napi_env env, napi_value* result)
 ```
 
-- `[in] env`: The environment that the N-API call is invoked under.
-- `[out] result`: A `napi_value` representing a JavaScript `Array`.
+* `[in] env`: The environment that the N-API call is invoked under.
+* `[out] result`: A `napi_value` representing a JavaScript `Array`.
 
 Returns `napi_ok` if the API succeeded.
 

@@ -17,20 +17,20 @@ napi_status napi_create_async_work(napi_env env,
                                    napi_async_work* result);
 ```
 
-- `[in] env`: The environment that the API is invoked under.
-- `[in] async_resource`: An optional object associated with the async work
+* `[in] env`: The environment that the API is invoked under.
+* `[in] async_resource`: An optional object associated with the async work
   that will be passed to possible `async_hooks` [`init` hooks][].
-- `[in] async_resource_name`: Identifier for the kind of resource that is
+* `[in] async_resource_name`: Identifier for the kind of resource that is
 being provided for diagnostic information exposed by the `async_hooks` API.
-- `[in] execute`: The native function which should be called to execute
+* `[in] execute`: The native function which should be called to execute
 the logic asynchronously. The given function is called from a worker pool
 thread and can execute in parallel with the main event loop thread.
-- `[in] complete`: The native function which will be called when the
+* `[in] complete`: The native function which will be called when the
 asynchronous logic is completed or is cancelled. The given function is called
 from the main event loop thread.
-- `[in] data`: User-provided data context. This will be passed back into the
+* `[in] data`: User-provided data context. This will be passed back into the
 execute and complete functions.
-- `[out] result`: `napi_async_work*` which is the handle to the newly created
+* `[out] result`: `napi_async_work*` which is the handle to the newly created
 async work.
 
 Returns `napi_ok` if the API succeeded.

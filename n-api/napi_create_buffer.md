@@ -10,10 +10,10 @@ napi_status napi_create_buffer(napi_env env,
                                napi_value* result)
 ```
 
-- `[in] env`: The environment that the API is invoked under.
-- `[in] size`: Size in bytes of the underlying buffer.
-- `[out] data`: Raw pointer to the underlying buffer.
-- `[out] result`: A `napi_value` representing a `node::Buffer`.
+* `[in] env`: The environment that the API is invoked under.
+* `[in] size`: Size in bytes of the underlying buffer.
+* `[out] data`: Raw pointer to the underlying buffer.
+* `[out] result`: A `napi_value` representing a `node::Buffer`.
 
 Returns `napi_ok` if the API succeeded.
 

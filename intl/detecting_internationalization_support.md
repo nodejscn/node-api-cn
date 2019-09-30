@@ -31,9 +31,9 @@ const hasFullICU = (() => {
 For more verbose tests for `Intl` support, the following resources may be found
 to be helpful:
 
-- [btest402][]: Generally used to check whether Node.js with `Intl` support is
+* [btest402][]: Generally used to check whether Node.js with `Intl` support is
   built correctly.
-- [Test262][]: ECMAScript's official conformance test suite includes a section
+* [Test262][]: ECMAScript's official conformance test suite includes a section
   dedicated to ECMA-402.
 
 

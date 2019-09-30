@@ -5,9 +5,10 @@ changes:
     pr-url: https://github.com/nodejs/node/pull/9398
     description: This method now returns a reference to `decipher`.
 -->
+
 * `buffer` {Buffer | TypedArray | DataView}
 * `options` {Object} [`stream.transform` options][]
-  - `plaintextLength` {number}
+  * `plaintextLength` {number}
 * Returns: {Decipher} for method chaining.
 
 When using an authenticated encryption mode (`GCM`, `CCM` and `OCB` are

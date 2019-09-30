@@ -7,12 +7,13 @@ napiVersion: 1
 napi_status napi_typeof(napi_env env, napi_value value, napi_valuetype* result)
 ```
 
-- `[in] env`: The environment that the API is invoked under.
-- `[in] value`: The JavaScript value whose type to query.
-- `[out] result`: The type of the JavaScript value.
+* `[in] env`: The environment that the API is invoked under.
+* `[in] value`: The JavaScript value whose type to query.
+* `[out] result`: The type of the JavaScript value.
 
 Returns `napi_ok` if the API succeeded.
-- `napi_invalid_arg` if the type of `value` is not a known ECMAScript type and
+
+* `napi_invalid_arg` if the type of `value` is not a known ECMAScript type and
  `value` is not an External value.
 
 This API represents behavior similar to invoking the `typeof` Operator on

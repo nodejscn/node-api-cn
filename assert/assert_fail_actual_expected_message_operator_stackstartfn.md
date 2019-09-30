@@ -6,6 +6,7 @@ changes:
     description: Calling `assert.fail()` with more than one argument is
                  deprecated and emits a warning.
 -->
+
 * `actual` {any}
 * `expected` {any}
 * `message` {string|Error}

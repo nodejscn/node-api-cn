@@ -37,6 +37,7 @@ The certificate may contain information about the public key, depending on
 the key type.
 
 For RSA keys, the following properties may be defined:
+
 * `bits` {number} The RSA bit size. Example: `1024`.
 * `exponent` {string} The RSA exponent, as a string in hexadecimal number
   notation. Example: `'0x010001'`.
@@ -45,6 +46,7 @@ For RSA keys, the following properties may be defined:
 * `pubkey` {Buffer} The public key.
 
 For EC keys, the following properties may be defined:
+
 * `pubkey` {Buffer} The public key.
 * `bits` {number} The key size in bits. Example: `256`.
 * `asn1Curve` {string} (Optional) The ASN.1 name of the OID of the elliptic

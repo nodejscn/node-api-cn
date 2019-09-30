@@ -1,6 +1,10 @@
 <!-- YAML
 added: v0.11.13
 changes:
+  - version: v12.11.0
+    pr-url: https://github.com/nodejs/node/pull/29598
+    description: Added `sigalgs` option to override supported signature
+                 algorithms.
   - version: v12.0.0
     pr-url: https://github.com/nodejs/node/pull/26209
     description: TLSv1.3 support added.
@@ -61,6 +65,12 @@ changes:
     order as their private keys in `key`. If the intermediate certificates are
     not provided, the peer will not be able to validate the certificate, and the
     handshake will fail.
+  * `sigalgs` {string}` Colon-separated list of supported signature algorithms.
+    The list can contain digest algorithms (`SHA256`, `MD5` etc.), public key
+    algorithms (`RSA-PSS`, `ECDSA` etc.), combination of both (e.g
+    'RSA+SHA384') or TLS v1.3 scheme names (e.g. `rsa_pss_pss_sha512`).
+    See [OpenSSL man pages](https://www.openssl.org/docs/man1.1.1/man3/SSL_CTX_set1_sigalgs_list.html)
+    for more info.
   * `ciphers` {string} Cipher suite specification, replacing the default. For
     more information, see [modifying the default cipher suite][]. Permitted
     ciphers can be obtained via [`tls.getCiphers()`][]. Cipher names must be

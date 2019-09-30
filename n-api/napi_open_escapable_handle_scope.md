@@ -9,8 +9,8 @@ NAPI_EXTERN napi_status
                                      napi_handle_scope* result);
 ```
 
-- `[in] env`: The environment that the API is invoked under.
-- `[out] result`: `napi_value` representing the new scope.
+* `[in] env`: The environment that the API is invoked under.
+* `[out] result`: `napi_value` representing the new scope.
 
 Returns `napi_ok` if the API succeeded.
 

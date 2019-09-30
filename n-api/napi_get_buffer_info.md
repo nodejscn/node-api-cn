@@ -10,10 +10,10 @@ napi_status napi_get_buffer_info(napi_env env,
                                  size_t* length)
 ```
 
-- `[in] env`: The environment that the API is invoked under.
-- `[in] value`: `napi_value` representing the `node::Buffer` being queried.
-- `[out] data`: The underlying data buffer of the `node::Buffer`.
-- `[out] length`: Length in bytes of the underlying data buffer.
+* `[in] env`: The environment that the API is invoked under.
+* `[in] value`: `napi_value` representing the `node::Buffer` being queried.
+* `[out] data`: The underlying data buffer of the `node::Buffer`.
+* `[out] length`: Length in bytes of the underlying data buffer.
 
 Returns `napi_ok` if the API succeeded.
 

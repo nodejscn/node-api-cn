@@ -1,6 +1,7 @@
 <!-- YAML
 added: v0.9.3
 -->
+
 * Returns: {string[]} An array with the names of the supported cipher
   algorithms.
 

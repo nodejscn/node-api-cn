@@ -3,6 +3,7 @@ Although N-API provides an ABI stability guarantee, other parts of Node.js do
 not, and any external libraries used from the addon may not. In particular,
 none of the following APIs provide an ABI stability guarantee across major
 versions:
+
 * the Node.js C++ APIs available via any of
 
     ```C++

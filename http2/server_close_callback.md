@@ -1,6 +1,7 @@
 <!-- YAML
 added: v8.4.0
 -->
+
 * `callback` {Function}
 
 Stops the server from establishing new sessions. This does not prevent new

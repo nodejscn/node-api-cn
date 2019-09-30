@@ -1,6 +1,7 @@
 <!-- YAML
 added: v0.5.0
 -->
+
 * `primeLength` {number}
 * `generator` {number | string | Buffer | TypedArray | DataView} **Default:**
   `2`

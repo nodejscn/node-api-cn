@@ -11,9 +11,10 @@ changes:
     pr-url: https://github.com/nodejs/node/pull/11705
     description: Support for RSASSA-PSS and additional options was added.
 -->
+
 * `object` {Object | string | Buffer | KeyObject}
-  - `padding` {integer}
-  - `saltLength` {integer}
+  * `padding` {integer}
+  * `saltLength` {integer}
 * `signature` {string | Buffer | TypedArray | DataView}
 * `signatureEncoding` {string} The [encoding][] of the `signature` string.
 * Returns: {boolean} `true` or `false` depending on the validity of the

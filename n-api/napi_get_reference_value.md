@@ -11,9 +11,10 @@ NAPI_EXTERN napi_status napi_get_reference_value(napi_env env,
 
 the `napi_value passed` in or out of these methods is a handle to the
 object to which the reference is related.
-- `[in] env`: The environment that the API is invoked under.
-- `[in] ref`: `napi_ref` for which we requesting the corresponding `Object`.
-- `[out] result`: The `napi_value` for the `Object` referenced by the
+
+* `[in] env`: The environment that the API is invoked under.
+* `[in] ref`: `napi_ref` for which we requesting the corresponding `Object`.
+* `[out] result`: The `napi_value` for the `Object` referenced by the
 `napi_ref`.
 
 Returns `napi_ok` if the API succeeded.

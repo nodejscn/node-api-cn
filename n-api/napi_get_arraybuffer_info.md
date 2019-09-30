@@ -10,10 +10,10 @@ napi_status napi_get_arraybuffer_info(napi_env env,
                                       size_t* byte_length)
 ```
 
-- `[in] env`: The environment that the API is invoked under.
-- `[in] arraybuffer`: `napi_value` representing the `ArrayBuffer` being queried.
-- `[out] data`: The underlying data buffer of the `ArrayBuffer`.
-- `[out] byte_length`: Length in bytes of the underlying data buffer.
+* `[in] env`: The environment that the API is invoked under.
+* `[in] arraybuffer`: `napi_value` representing the `ArrayBuffer` being queried.
+* `[out] data`: The underlying data buffer of the `ArrayBuffer`.
+* `[out] byte_length`: Length in bytes of the underlying data buffer.
 
 Returns `napi_ok` if the API succeeded.
 

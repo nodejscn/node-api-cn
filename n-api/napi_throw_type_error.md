@@ -9,9 +9,9 @@ NAPI_EXTERN napi_status napi_throw_type_error(napi_env env,
                                               const char* msg);
 ```
 
-- `[in] env`: The environment that the API is invoked under.
-- `[in] code`: Optional error code to be set on the error.
-- `[in] msg`: C string representing the text to be associated with
+* `[in] env`: The environment that the API is invoked under.
+* `[in] code`: Optional error code to be set on the error.
+* `[in] msg`: C string representing the text to be associated with
 the error.
 
 Returns `napi_ok` if the API succeeded.

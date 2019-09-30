@@ -1,6 +1,7 @@
 <!-- YAML
 added: v8.5.0
 -->
+
 * `options` {Object}
   * `entryTypes` {string[]} An array of strings identifying the types of
     `PerformanceEntry` instances the observer is interested in. If not

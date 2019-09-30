@@ -1,6 +1,7 @@
 <!-- YAML
 added: v8.4.0
 -->
+
 * `headers` {HTTP/2 Headers Object} An object describing the headers
 * `callback` {Function} Called once `http2stream.pushStream()` is finished,
   or either when the attempt to create the pushed `Http2Stream` has failed or

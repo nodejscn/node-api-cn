@@ -12,12 +12,12 @@ napi_status napi_create_bigint_words(napi_env env,
                                      napi_value* result);
 ```
 
-- `[in] env`: The environment that the API is invoked under.
-- `[in] sign_bit`: Determines if the resulting `BigInt` will be positive or
+* `[in] env`: The environment that the API is invoked under.
+* `[in] sign_bit`: Determines if the resulting `BigInt` will be positive or
   negative.
-- `[in] word_count`: The length of the `words` array.
-- `[in] words`: An array of `uint64_t` little-endian 64-bit words.
-- `[out] result`: A `napi_value` representing a JavaScript `BigInt`.
+* `[in] word_count`: The length of the `words` array.
+* `[in] words`: An array of `uint64_t` little-endian 64-bit words.
+* `[out] result`: A `napi_value` representing a JavaScript `BigInt`.
 
 Returns `napi_ok` if the API succeeded.
 

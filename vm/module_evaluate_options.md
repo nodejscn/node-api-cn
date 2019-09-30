@@ -16,9 +16,9 @@ This must be called after the module has been instantiated; otherwise it will
 throw an error. It could be called also when the module has already been
 evaluated, in which case it will do one of the following two things:
 
-- return `undefined` if the initial evaluation ended in success (`module.status`
+* return `undefined` if the initial evaluation ended in success (`module.status`
   is `'evaluated'`)
-- rethrow the same exception the initial evaluation threw if the initial
+* rethrow the same exception the initial evaluation threw if the initial
   evaluation ended in an error (`module.status` is `'errored'`)
 
 This method cannot be called while the module is being evaluated

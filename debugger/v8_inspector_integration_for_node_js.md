@@ -7,7 +7,7 @@ V8 检查器集成允许将 Chrome 开发者工具附加到 Node.js 实例以进
 
 要在应用代码的第一行断开，请传入 `--inspect-brk` 标志而不是 `--inspect`。
 
-```txt
+```console
 $ node --inspect index.js
 Debugger listening on 127.0.0.1:9229.
 To start debugging, open the following URL in Chrome:

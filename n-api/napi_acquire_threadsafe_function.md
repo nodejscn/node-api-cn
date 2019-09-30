@@ -9,7 +9,7 @@ NAPI_EXTERN napi_status
 napi_acquire_threadsafe_function(napi_threadsafe_function func);
 ```
 
-- `[in] func`: The asynchronous thread-safe JavaScript function to start making
+* `[in] func`: The asynchronous thread-safe JavaScript function to start making
 use of.
 
 A thread should call this API before passing `func` to any other thread-safe

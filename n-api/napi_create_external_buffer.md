@@ -12,15 +12,15 @@ napi_status napi_create_external_buffer(napi_env env,
                                         napi_value* result)
 ```
 
-- `[in] env`: The environment that the API is invoked under.
-- `[in] length`: Size in bytes of the input buffer (should be the same as
+* `[in] env`: The environment that the API is invoked under.
+* `[in] length`: Size in bytes of the input buffer (should be the same as
 the size of the new buffer).
-- `[in] data`: Raw pointer to the underlying buffer to copy from.
-- `[in] finalize_cb`: Optional callback to call when the `ArrayBuffer` is
+* `[in] data`: Raw pointer to the underlying buffer to copy from.
+* `[in] finalize_cb`: Optional callback to call when the `ArrayBuffer` is
 being collected.
-- `[in] finalize_hint`: Optional hint to pass to the finalize callback
+* `[in] finalize_hint`: Optional hint to pass to the finalize callback
 during collection.
-- `[out] result`: A `napi_value` representing a `node::Buffer`.
+* `[out] result`: A `napi_value` representing a `node::Buffer`.
 
 Returns `napi_ok` if the API succeeded.
 

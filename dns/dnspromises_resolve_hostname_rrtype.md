@@ -1,6 +1,7 @@
 <!-- YAML
 added: v10.6.0
 -->
+
 * `hostname` {string} Hostname to resolve.
 * `rrtype` {string} Resource record type. **Default:** `'A'`.
 

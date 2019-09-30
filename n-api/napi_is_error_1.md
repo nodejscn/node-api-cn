@@ -7,9 +7,9 @@ napiVersion: 1
 napi_status napi_is_error(napi_env env, napi_value value, bool* result)
 ```
 
-- `[in] env`: The environment that the API is invoked under.
-- `[in] value`: The JavaScript value to check.
-- `[out] result`: Whether the given `napi_value` represents an `Error` object.
+* `[in] env`: The environment that the API is invoked under.
+* `[in] value`: The JavaScript value to check.
+* `[out] result`: Whether the given `napi_value` represents an `Error` object.
 
 Returns `napi_ok` if the API succeeded.
 

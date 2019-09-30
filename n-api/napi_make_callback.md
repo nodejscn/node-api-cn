@@ -16,19 +16,19 @@ napi_status napi_make_callback(napi_env env,
                                napi_value* result)
 ```
 
-- `[in] env`: The environment that the API is invoked under.
-- `[in] async_context`: Context for the async operation that is
+* `[in] env`: The environment that the API is invoked under.
+* `[in] async_context`: Context for the async operation that is
    invoking the callback. This should normally be a value previously
    obtained from [`napi_async_init`][]. However `NULL` is also allowed,
    which indicates the current async context (if any) is to be used
    for the callback.
-- `[in] recv`: The `this` object passed to the called function.
-- `[in] func`: `napi_value` representing the JavaScript function
+* `[in] recv`: The `this` object passed to the called function.
+* `[in] func`: `napi_value` representing the JavaScript function
 to be invoked.
-- `[in] argc`: The count of elements in the `argv` array.
-- `[in] argv`: Array of JavaScript values as `napi_value`
+* `[in] argc`: The count of elements in the `argv` array.
+* `[in] argv`: Array of JavaScript values as `napi_value`
 representing the arguments to the function.
-- `[out] result`: `napi_value` representing the JavaScript object returned.
+* `[out] result`: `napi_value` representing the JavaScript object returned.
 
 Returns `napi_ok` if the API succeeded.
 

@@ -7,9 +7,9 @@ napiVersion: 1
 napi_status napi_create_uint32(napi_env env, uint32_t value, napi_value* result)
 ```
 
-- `[in] env`: The environment that the API is invoked under.
-- `[in] value`: Unsigned integer value to be represented in JavaScript.
-- `[out] result`: A `napi_value` representing a JavaScript `Number`.
+* `[in] env`: The environment that the API is invoked under.
+* `[in] value`: Unsigned integer value to be represented in JavaScript.
+* `[out] result`: A `napi_value` representing a JavaScript `Number`.
 
 Returns `napi_ok` if the API succeeded.
 

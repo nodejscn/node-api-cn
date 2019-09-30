@@ -10,13 +10,14 @@ Sends a JavaScript value to the receiving side of this channel.
 the [HTML structured clone algorithm][].
 
 In particular, the significant differences to `JSON` are:
-- `value` may contain circular references.
-- `value` may contain instances of builtin JS types such as `RegExp`s,
+
+* `value` may contain circular references.
+* `value` may contain instances of builtin JS types such as `RegExp`s,
   `BigInt`s, `Map`s, `Set`s, etc.
-- `value` may contain typed arrays, both using `ArrayBuffer`s
+* `value` may contain typed arrays, both using `ArrayBuffer`s
    and `SharedArrayBuffer`s.
-- `value` may contain [`WebAssembly.Module`][] instances.
-- `value` may not contain native (C++-backed) objects other than `MessagePort`s.
+* `value` may contain [`WebAssembly.Module`][] instances.
+* `value` may not contain native (C++-backed) objects other than `MessagePort`s.
 
 ```js
 const { MessageChannel } = require('worker_threads');

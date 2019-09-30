@@ -1,6 +1,7 @@
 <!-- YAML
 added: v0.11.14
 -->
+
 * `curveName` {string}
 * Returns: {ECDH}
 

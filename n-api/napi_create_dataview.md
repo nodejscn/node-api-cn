@@ -11,12 +11,12 @@ napi_status napi_create_dataview(napi_env env,
                                  napi_value* result)
 ```
 
-- `[in] env`: The environment that the API is invoked under.
-- `[in] length`: Number of elements in the `DataView`.
-- `[in] arraybuffer`: `ArrayBuffer` underlying the `DataView`.
-- `[in] byte_offset`: The byte offset within the `ArrayBuffer` from which to
+* `[in] env`: The environment that the API is invoked under.
+* `[in] length`: Number of elements in the `DataView`.
+* `[in] arraybuffer`: `ArrayBuffer` underlying the `DataView`.
+* `[in] byte_offset`: The byte offset within the `ArrayBuffer` from which to
   start projecting the `DataView`.
-- `[out] result`: A `napi_value` representing a JavaScript `DataView`.
+* `[out] result`: A `napi_value` representing a JavaScript `DataView`.
 
 Returns `napi_ok` if the API succeeded.
 

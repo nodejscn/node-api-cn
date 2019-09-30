@@ -1,6 +1,7 @@
 <!-- YAML
 added: v0.11.14
 -->
+
 * `encoding` {string} The [encoding][] of the return value.
 * `format` {string} **Default:** `'uncompressed'`
 * Returns: {Buffer | string}

@@ -8,6 +8,7 @@ changes:
     pr-url: https://github.com/nodejs/node/pull/9398
     description: This method now returns a reference to `decipher`.
 -->
+
 * `buffer` {Buffer | TypedArray | DataView}
 * Returns: {Decipher} for method chaining.
 

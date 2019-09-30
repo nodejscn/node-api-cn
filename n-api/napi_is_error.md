@@ -9,9 +9,9 @@ NAPI_EXTERN napi_status napi_is_error(napi_env env,
                                       bool* result);
 ```
 
-- `[in] env`: The environment that the API is invoked under.
-- `[in] value`: The `napi_value` to be checked.
-- `[out] result`: Boolean value that is set to true if `napi_value` represents
+* `[in] env`: The environment that the API is invoked under.
+* `[in] value`: The `napi_value` to be checked.
+* `[out] result`: Boolean value that is set to true if `napi_value` represents
 an error, false otherwise.
 
 Returns `napi_ok` if the API succeeded.

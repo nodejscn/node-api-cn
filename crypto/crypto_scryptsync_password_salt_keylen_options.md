@@ -9,18 +9,19 @@ changes:
     description: The `cost`, `blockSize` and `parallelization` option names
                  have been added.
 -->
+
 * `password` {string|Buffer|TypedArray|DataView}
 * `salt` {string|Buffer|TypedArray|DataView}
 * `keylen` {number}
 * `options` {Object}
-  - `cost` {number} CPU/memory cost parameter. Must be a power of two greater
+  * `cost` {number} CPU/memory cost parameter. Must be a power of two greater
     than one. **Default:** `16384`.
-  - `blockSize` {number} Block size parameter. **Default:** `8`.
-  - `parallelization` {number} Parallelization parameter. **Default:** `1`.
-  - `N` {number} Alias for `cost`. Only one of both may be specified.
-  - `r` {number} Alias for `blockSize`. Only one of both may be specified.
-  - `p` {number} Alias for `parallelization`. Only one of both may be specified.
-  - `maxmem` {number} Memory upper bound. It is an error when (approximately)
+  * `blockSize` {number} Block size parameter. **Default:** `8`.
+  * `parallelization` {number} Parallelization parameter. **Default:** `1`.
+  * `N` {number} Alias for `cost`. Only one of both may be specified.
+  * `r` {number} Alias for `blockSize`. Only one of both may be specified.
+  * `p` {number} Alias for `parallelization`. Only one of both may be specified.
+  * `maxmem` {number} Memory upper bound. It is an error when (approximately)
     `128 * N * r > maxmem`. **Default:** `32 * 1024 * 1024`.
 * Returns: {Buffer}
 

@@ -9,10 +9,11 @@ changes:
     pr-url: https://github.com/nodejs/node/pull/25217
     description: The `key` argument can now be a private key.
 -->
+
 * `key` {Object | string | Buffer | KeyObject}
-  - `key`: {string | Buffer}
-  - `format`: {string} Must be `'pem'` or `'der'`. **Default:** `'pem'`.
-  - `type`: {string} Must be `'pkcs1'` or `'spki'`. This option is required
+  * `key`: {string | Buffer}
+  * `format`: {string} Must be `'pem'` or `'der'`. **Default:** `'pem'`.
+  * `type`: {string} Must be `'pkcs1'` or `'spki'`. This option is required
     only if the `format` is `'der'`.
 * Returns: {KeyObject}
 

@@ -9,6 +9,7 @@ changes:
     description: Changed error format to better support invalid public key
                  error
 -->
+
 * `otherPublicKey` {string | Buffer | TypedArray | DataView}
 * `inputEncoding` {string} The [encoding][] of the `otherPublicKey` string.
 * `outputEncoding` {string} The [encoding][] of the return value.

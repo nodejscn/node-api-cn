@@ -1,6 +1,7 @@
 <!-- YAML
 added: v0.1.92
 -->
+
 * `algorithm` {string}
 * `options` {Object} [`stream.Writable` options][]
 * Returns: {Sign}

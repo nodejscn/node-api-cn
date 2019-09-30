@@ -45,7 +45,7 @@ rr.on('end', () => {
 
 运行上面的脚本输出如下：
 
-```txt
+```console
 $ node test.js
 读取的数据: null
 结束

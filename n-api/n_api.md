@@ -23,12 +23,13 @@ APIs exposed by N-API are generally used to create and manipulate
 JavaScript values. Concepts and operations generally map to ideas specified
 in the ECMA-262 Language Specification. The APIs have the following
 properties:
-- All N-API calls return a status code of type `napi_status`. This
+
+* All N-API calls return a status code of type `napi_status`. This
   status indicates whether the API call succeeded or failed.
-- The API's return value is passed via an out parameter.
-- All JavaScript values are abstracted behind an opaque type named
+* The API's return value is passed via an out parameter.
+* All JavaScript values are abstracted behind an opaque type named
   `napi_value`.
-- In case of an error status code, additional information can be obtained
+* In case of an error status code, additional information can be obtained
   using `napi_get_last_error_info`. More information can be found in the error
   handling section [Error Handling][].
 

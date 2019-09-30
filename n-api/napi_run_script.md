@@ -9,7 +9,7 @@ NAPI_EXTERN napi_status napi_run_script(napi_env env,
                                         napi_value* result);
 ```
 
-- `[in] env`: The environment that the API is invoked under.
-- `[in] script`: A JavaScript string containing the script to execute.
-- `[out] result`: The value resulting from having executed the script.
+* `[in] env`: The environment that the API is invoked under.
+* `[in] script`: A JavaScript string containing the script to execute.
+* `[out] result`: The value resulting from having executed the script.
 

@@ -9,10 +9,10 @@ napi_status napi_get_array_length(napi_env env,
                                   uint32_t* result)
 ```
 
-- `[in] env`: The environment that the API is invoked under.
-- `[in] value`: `napi_value` representing the JavaScript `Array` whose length is
+* `[in] env`: The environment that the API is invoked under.
+* `[in] value`: `napi_value` representing the JavaScript `Array` whose length is
 being queried.
-- `[out] result`: `uint32` representing length of the array.
+* `[out] result`: `uint32` representing length of the array.
 
 Returns `napi_ok` if the API succeeded.
 

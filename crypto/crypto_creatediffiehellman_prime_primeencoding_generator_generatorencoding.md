@@ -12,6 +12,7 @@ changes:
     description: The default for the encoding parameters changed
                  from `binary` to `utf8`.
 -->
+
 * `prime` {string | Buffer | TypedArray | DataView}
 * `primeEncoding` {string} The [encoding][] of the `prime` string.
 * `generator` {number | string | Buffer | TypedArray | DataView} **Default:**

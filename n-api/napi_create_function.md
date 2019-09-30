@@ -12,16 +12,16 @@ napi_status napi_create_function(napi_env env,
                                  napi_value* result);
 ```
 
-- `[in] env`: The environment that the API is invoked under.
-- `[in] utf8Name`: The name of the function encoded as UTF8. This is visible
+* `[in] env`: The environment that the API is invoked under.
+* `[in] utf8Name`: The name of the function encoded as UTF8. This is visible
 within JavaScript as the new function object's `name` property.
-- `[in] length`: The length of the `utf8name` in bytes, or
+* `[in] length`: The length of the `utf8name` in bytes, or
 `NAPI_AUTO_LENGTH` if it is null-terminated.
-- `[in] cb`: The native function which should be called when this function
+* `[in] cb`: The native function which should be called when this function
 object is invoked.
-- `[in] data`: User-provided data context. This will be passed back into the
+* `[in] data`: User-provided data context. This will be passed back into the
 function when invoked later.
-- `[out] result`: `napi_value` representing the JavaScript function object for
+* `[out] result`: `napi_value` representing the JavaScript function object for
 the newly created function.
 
 Returns `napi_ok` if the API succeeded.

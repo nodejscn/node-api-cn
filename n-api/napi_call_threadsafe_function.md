@@ -11,10 +11,10 @@ napi_call_threadsafe_function(napi_threadsafe_function func,
                               napi_threadsafe_function_call_mode is_blocking);
 ```
 
-- `[in] func`: The asynchronous thread-safe JavaScript function to invoke.
-- `[in] data`: Data to send into JavaScript via the callback `call_js_cb`
+* `[in] func`: The asynchronous thread-safe JavaScript function to invoke.
+* `[in] data`: Data to send into JavaScript via the callback `call_js_cb`
 provided during the creation of the thread-safe JavaScript function.
-- `[in] is_blocking`: Flag whose value can be either `napi_tsfn_blocking` to
+* `[in] is_blocking`: Flag whose value can be either `napi_tsfn_blocking` to
 indicate that the call should block if the queue is full or
 `napi_tsfn_nonblocking` to indicate that the call should return immediately with
 a status of `napi_queue_full` whenever the queue is full.

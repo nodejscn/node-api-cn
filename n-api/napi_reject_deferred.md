@@ -9,9 +9,9 @@ napi_status napi_reject_deferred(napi_env env,
                                  napi_value rejection);
 ```
 
-- `[in] env`: The environment that the API is invoked under.
-- `[in] deferred`: The deferred object whose associated promise to resolve.
-- `[in] rejection`: The value with which to reject the promise.
+* `[in] env`: The environment that the API is invoked under.
+* `[in] deferred`: The deferred object whose associated promise to resolve.
+* `[in] rejection`: The value with which to reject the promise.
 
 This API rejects a JavaScript promise by way of the deferred object
 with which it is associated. Thus, it can only be used to reject JavaScript

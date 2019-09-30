@@ -26,7 +26,7 @@ process.on('warning', (warning) => {
 
 下面的例子展示了当一个事件绑定了太多的监听器时，输出到`stderr`的告警。
 
-```txt
+```console
 $ node
 > events.defaultMaxListeners = 1;
 > process.on('foo', () => {});
@@ -37,7 +37,7 @@ detected. 2 foo listeners added. Use emitter.setMaxListeners() to increase limit
 
 与上述相反，如下例子关闭了默认的告警输出，并且给`'warning'`事件添加了一个定制的处理器。
 
-```txt
+```console
 $ node --no-warnings
 > const p = process.on('warning', (warning) => console.warn('Do not do that!'));
 > events.defaultMaxListeners = 1;

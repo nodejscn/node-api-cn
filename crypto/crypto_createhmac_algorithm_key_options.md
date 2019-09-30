@@ -5,6 +5,7 @@ changes:
     pr-url: https://github.com/nodejs/node/pull/24234
     description: The `key` argument can now be a `KeyObject`.
 -->
+
 * `algorithm` {string}
 * `key` {string | Buffer | TypedArray | DataView | KeyObject}
 * `options` {Object} [`stream.transform` options][]

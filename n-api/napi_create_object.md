@@ -7,8 +7,8 @@ napiVersion: 1
 napi_status napi_create_object(napi_env env, napi_value* result)
 ```
 
-- `[in] env`: The environment that the API is invoked under.
-- `[out] result`: A `napi_value` representing a JavaScript `Object`.
+* `[in] env`: The environment that the API is invoked under.
+* `[out] result`: A `napi_value` representing a JavaScript `Object`.
 
 Returns `napi_ok` if the API succeeded.
 

@@ -10,11 +10,11 @@ napi_status napi_escape_handle(napi_env env,
                                napi_value* result);
 ```
 
-- `[in] env`: The environment that the API is invoked under.
-- `[in] scope`: `napi_value` representing the current scope.
-- `[in] escapee`: `napi_value` representing the JavaScript `Object` to be
+* `[in] env`: The environment that the API is invoked under.
+* `[in] scope`: `napi_value` representing the current scope.
+* `[in] escapee`: `napi_value` representing the JavaScript `Object` to be
 escaped.
-- `[out] result`: `napi_value` representing the handle to the escaped
+* `[out] result`: `napi_value` representing the handle to the escaped
 `Object` in the outer scope.
 
 Returns `napi_ok` if the API succeeded.

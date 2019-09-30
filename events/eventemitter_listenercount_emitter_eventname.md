@@ -2,6 +2,7 @@
 added: v0.9.12
 deprecated: v4.0.0
 -->
+
 * `emitter` {EventEmitter} The emitter to query
 * `eventName` {string|symbol} The event name
 

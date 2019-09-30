@@ -1,6 +1,7 @@
 <!-- YAML
 added: v0.1.21
 -->
+
 * `actual` {any}
 * `expected` {any}
 * `message` {string|Error}

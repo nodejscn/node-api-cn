@@ -13,14 +13,15 @@ changes:
     description: The default encoding for `password` if it is a string changed
                  from `binary` to `utf8`.
 -->
+
 * `password` {string|Buffer|TypedArray|DataView}
 * `salt` {string|Buffer|TypedArray|DataView}
 * `iterations` {number}
 * `keylen` {number}
 * `digest` {string}
 * `callback` {Function}
-  - `err` {Error}
-  - `derivedKey` {Buffer}
+  * `err` {Error}
+  * `derivedKey` {Buffer}
 
 Provides an asynchronous Password-Based Key Derivation Function 2 (PBKDF2)
 implementation. A selected HMAC digest algorithm specified by `digest` is

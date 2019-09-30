@@ -20,17 +20,18 @@ means that normal JavaScript object methods such as
 not work.
 
 For incoming headers:
+
 * The `:status` header is converted to `number`.
 * Duplicates of `:status`, `:method`, `:authority`, `:scheme`, `:path`,
-`:protocol`, `age`, `authorization`, `access-control-allow-credentials`,
-`access-control-max-age`, `access-control-request-method`, `content-encoding`,
-`content-language`, `content-length`, `content-location`, `content-md5`,
-`content-range`, `content-type`, `date`, `dnt`, `etag`, `expires`, `from`,
-`if-match`, `if-modified-since`, `if-none-match`, `if-range`,
-`if-unmodified-since`, `last-modified`, `location`, `max-forwards`,
-`proxy-authorization`, `range`, `referer`,`retry-after`, `tk`,
-`upgrade-insecure-requests`, `user-agent` or `x-content-type-options` are
-discarded.
+  `:protocol`, `age`, `authorization`, `access-control-allow-credentials`,
+  `access-control-max-age`, `access-control-request-method`, `content-encoding`,
+  `content-language`, `content-length`, `content-location`, `content-md5`,
+  `content-range`, `content-type`, `date`, `dnt`, `etag`, `expires`, `from`,
+  `if-match`, `if-modified-since`, `if-none-match`, `if-range`,
+  `if-unmodified-since`, `last-modified`, `location`, `max-forwards`,
+  `proxy-authorization`, `range`, `referer`,`retry-after`, `tk`,
+  `upgrade-insecure-requests`, `user-agent` or `x-content-type-options` are
+  discarded.
 * `set-cookie` is always an array. Duplicates are added to the array.
 * For duplicate `cookie` headers, the values are joined together with '; '.
 * For all other headers, the values are joined together with ', '.

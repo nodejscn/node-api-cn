@@ -9,10 +9,10 @@ NAPI_EXTERN napi_status napi_adjust_external_memory(napi_env env,
                                                     int64_t* result);
 ```
 
-- `[in] env`: The environment that the API is invoked under.
-- `[in] change_in_bytes`: The change in externally allocated memory that is
+* `[in] env`: The environment that the API is invoked under.
+* `[in] change_in_bytes`: The change in externally allocated memory that is
 kept alive by JavaScript objects.
-- `[out] result`: The adjusted value
+* `[out] result`: The adjusted value
 
 Returns `napi_ok` if the API succeeded.
 

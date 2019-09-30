@@ -38,7 +38,7 @@ if (cluster.isMaster) {
 
 运行代码，则工作进程会共享 8000 端口：
 
-```txt
+```console
 $ node server.js
 主进程 3596 正在运行
 工作进程 4324 已启动

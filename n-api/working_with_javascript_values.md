@@ -4,6 +4,7 @@ Some of these types are documented under
 of the [ECMAScript Language Specification][].
 
 Fundamentally, these APIs are used to do one of the following:
+
 1. Create a new JavaScript object
 2. Convert from a primitive C type to an N-API value
 3. Convert from N-API value to a primitive C type

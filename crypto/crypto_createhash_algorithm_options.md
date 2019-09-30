@@ -5,6 +5,7 @@ changes:
     pr-url: https://github.com/nodejs/node/pull/28805
     description: The `outputLength` option was added for XOF hash functions.
 -->
+
 * `algorithm` {string}
 * `options` {Object} [`stream.transform` options][]
 * Returns: {Hash}

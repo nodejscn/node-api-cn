@@ -1,6 +1,7 @@
 <!-- YAML
 added: v0.11.14
 -->
+
 * `privateKey` {string | Buffer | TypedArray | DataView}
 * `encoding` {string} The [encoding][] of the `privateKey` string.
 

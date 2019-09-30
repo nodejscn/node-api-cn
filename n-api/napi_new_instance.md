@@ -11,13 +11,13 @@ napi_status napi_new_instance(napi_env env,
                               napi_value* result)
 ```
 
-- `[in] env`: The environment that the API is invoked under.
-- `[in] cons`: `napi_value` representing the JavaScript function
+* `[in] env`: The environment that the API is invoked under.
+* `[in] cons`: `napi_value` representing the JavaScript function
 to be invoked as a constructor.
-- `[in] argc`: The count of elements in the `argv` array.
-- `[in] argv`: Array of JavaScript values as `napi_value`
+* `[in] argc`: The count of elements in the `argv` array.
+* `[in] argv`: Array of JavaScript values as `napi_value`
 representing the arguments to the constructor.
-- `[out] result`: `napi_value` representing the JavaScript object returned,
+* `[out] result`: `napi_value` representing the JavaScript object returned,
 which in this case is the constructed object.
 
 This method is used to instantiate a new JavaScript value using a given

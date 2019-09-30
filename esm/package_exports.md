@@ -50,6 +50,33 @@ If a package has no exports, setting `"exports": false` can be used instead of
 `"exports": {}` to indicate the package does not intend for submodules to be
 exposed.
 
+Exports can also be used to map the main entry point of a package:
+
+<!-- eslint-skip -->
+```js
+// ./node_modules/es-module-package/package.json
+{
+  "exports": {
+    ".": "./main.js"
+  }
+}
+```
+
+where the "." indicates loading the package without any subpath. Exports will
+always override any existing `"main"` value for both CommonJS and
+ES module packages.
+
+For packages with only a main entry point, an `"exports"` value of just
+a string is also supported:
+
+<!-- eslint-skip -->
+```js
+// ./node_modules/es-module-package/package.json
+{
+  "exports": "./main.js"
+}
+```
+
 Any invalid exports entries will be ignored. This includes exports not
 starting with `"./"` or a missing trailing `"/"` for directory exports.
 

@@ -7,7 +7,7 @@
 
 也可以在尚未加载的文件（模块）中设置断点：
 
-```txt
+```console
 $ node inspect main.js
 < Debugger listening on ws://127.0.0.1:9229/4e3db158-9791-4274-8909-914f7facf3bd
 < For help, see: https://nodejs.org/en/docs/inspector

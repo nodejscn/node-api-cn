@@ -34,3 +34,9 @@ if the nearest parent `package.json` contains `"type": "module"`.
 import './startup.js'; // Loaded as ES module because of package.json
 ```
 
+Package authors should include the `"type"` field, even in packages where all
+sources are CommonJS. Being explicit about the `type` of the package will
+future-proof the package in case the default type of Node.js ever changes, and
+it will also make things easier for build tools and loaders to determine how the
+files in the package should be interpreted.
+

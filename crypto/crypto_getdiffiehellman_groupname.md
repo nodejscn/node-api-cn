@@ -1,6 +1,7 @@
 <!-- YAML
 added: v0.7.5
 -->
+
 * `groupName` {string}
 * Returns: {DiffieHellman}
 

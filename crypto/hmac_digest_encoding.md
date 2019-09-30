@@ -1,6 +1,7 @@
 <!-- YAML
 added: v0.1.94
 -->
+
 * `encoding` {string} The [encoding][] of the return value.
 * Returns: {Buffer | string}
 

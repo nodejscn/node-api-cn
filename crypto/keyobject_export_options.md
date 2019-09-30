@@ -1,6 +1,7 @@
 <!-- YAML
 added: v11.6.0
 -->
+
 * `options`: {Object}
 * Returns: {string | Buffer}
 

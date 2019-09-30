@@ -1,6 +1,7 @@
 <!-- YAML
 added: v0.7.1
 -->
+
 * `autoPadding` {boolean} **Default:** `true`
 * Returns: {Decipher} for method chaining.
 

@@ -9,10 +9,10 @@ napi_status napi_create_symbol(napi_env env,
                                napi_value* result)
 ```
 
-- `[in] env`: The environment that the API is invoked under.
-- `[in] description`: Optional `napi_value` which refers to a JavaScript
+* `[in] env`: The environment that the API is invoked under.
+* `[in] description`: Optional `napi_value` which refers to a JavaScript
 `String` to be set as the description for the symbol.
-- `[out] result`: A `napi_value` representing a JavaScript `Symbol`.
+* `[out] result`: A `napi_value` representing a JavaScript `Symbol`.
 
 Returns `napi_ok` if the API succeeded.
 

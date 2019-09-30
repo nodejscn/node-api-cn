@@ -1,6 +1,7 @@
 <!-- YAML
 added: v10.6.0
 -->
+
 * `address` {string}
 * `port` {number}
 

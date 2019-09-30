@@ -10,10 +10,10 @@ napi_status napi_has_element(napi_env env,
                              bool* result);
 ```
 
-- `[in] env`: The environment that the N-API call is invoked under.
-- `[in] object`: The object to query.
-- `[in] index`: The index of the property whose existence to check.
-- `[out] result`: Whether the property exists on the object or not.
+* `[in] env`: The environment that the N-API call is invoked under.
+* `[in] object`: The object to query.
+* `[in] index`: The index of the property whose existence to check.
+* `[out] result`: Whether the property exists on the object or not.
 
 Returns `napi_ok` if the API succeeded.
 

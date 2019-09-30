@@ -9,9 +9,9 @@ napi_status napi_create_array_with_length(napi_env env,
                                           napi_value* result)
 ```
 
-- `[in] env`: The environment that the API is invoked under.
-- `[in] length`: The initial length of the `Array`.
-- `[out] result`: A `napi_value` representing a JavaScript `Array`.
+* `[in] env`: The environment that the API is invoked under.
+* `[in] length`: The initial length of the `Array`.
+* `[out] result`: A `napi_value` representing a JavaScript `Array`.
 
 Returns `napi_ok` if the API succeeded.
 

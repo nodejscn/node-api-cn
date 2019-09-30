@@ -9,8 +9,8 @@ napi_status napi_is_promise(napi_env env,
                             bool* is_promise);
 ```
 
-- `[in] env`: The environment that the API is invoked under.
-- `[in] promise`: The promise to examine
-- `[out] is_promise`: Flag indicating whether `promise` is a native promise
+* `[in] env`: The environment that the API is invoked under.
+* `[in] promise`: The promise to examine
+* `[out] is_promise`: Flag indicating whether `promise` is a native promise
 object - that is, a promise object created by the underlying engine.
 

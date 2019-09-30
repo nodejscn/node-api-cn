@@ -10,11 +10,11 @@ napi_status napi_instanceof(napi_env env,
                             bool* result)
 ```
 
-- `[in] env`: The environment that the API is invoked under.
-- `[in] object`: The JavaScript value to check.
-- `[in] constructor`: The JavaScript function object of the constructor
+* `[in] env`: The environment that the API is invoked under.
+* `[in] object`: The JavaScript value to check.
+* `[in] constructor`: The JavaScript function object of the constructor
 function to check against.
-- `[out] result`: Boolean that is set to true if `object instanceof constructor`
+* `[out] result`: Boolean that is set to true if `object instanceof constructor`
 is true.
 
 Returns `napi_ok` if the API succeeded.

@@ -19,8 +19,8 @@ The function is expected to return a `Module` object or a `Promise` that
 eventually resolves to a `Module` object. The returned `Module` must satisfy the
 following two invariants:
 
-- It must belong to the same context as the parent `Module`.
-- Its `linkingStatus` must not be `'errored'`.
+* It must belong to the same context as the parent `Module`.
+* Its `linkingStatus` must not be `'errored'`.
 
 If the returned `Module`'s `linkingStatus` is `'unlinked'`, this method will be
 recursively called on the returned `Module` with the same provided `linker`
@@ -34,9 +34,9 @@ The linker function roughly corresponds to the implementation-defined
 [HostResolveImportedModule][] abstract operation in the ECMAScript
 specification, with a few key differences:
 
-- The linker function is allowed to be asynchronous while
+* The linker function is allowed to be asynchronous while
   [HostResolveImportedModule][] is synchronous.
-- The linker function is executed during linking, a Node.js-specific stage
+* The linker function is executed during linking, a Node.js-specific stage
   before instantiation, while [HostResolveImportedModule][] is called during
   instantiation.
 

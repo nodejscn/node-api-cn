@@ -5,16 +5,16 @@ e.g. `'path'` in `import { sep } from 'path'`. Specifiers are also used in
 
 There are four types of specifiers:
 
-- _Bare specifiers_ like `'some-package'`. They refer to an entry point of a
+* _Bare specifiers_ like `'some-package'`. They refer to an entry point of a
   package by the package name.
 
-- _Deep import specifiers_ like `'some-package/lib/shuffle.mjs'`. They refer to
+* _Deep import specifiers_ like `'some-package/lib/shuffle.mjs'`. They refer to
   a path within a package prefixed by the package name.
 
-- _Relative specifiers_ like `'./startup.js'` or `'../config.mjs'`. They refer
+* _Relative specifiers_ like `'./startup.js'` or `'../config.mjs'`. They refer
   to a path relative to the location of the importing file.
 
-- _Absolute specifiers_ like `'file:///opt/nodejs/config.js'`. They refer
+* _Absolute specifiers_ like `'file:///opt/nodejs/config.js'`. They refer
   directly and explicitly to a full path.
 
 Bare specifiers, and the bare specifier portion of deep import specifiers, are

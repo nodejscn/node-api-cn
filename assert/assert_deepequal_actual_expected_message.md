@@ -21,6 +21,7 @@ changes:
     pr-url: https://github.com/nodejs/node/pull/5910
     description: Handle non-`Uint8Array` typed arrays correctly.
 -->
+
 * `actual` {any}
 * `expected` {any}
 * `message` {string|Error}

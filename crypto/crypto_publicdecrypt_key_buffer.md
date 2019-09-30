@@ -5,9 +5,10 @@ changes:
     pr-url: https://github.com/nodejs/node/pull/24234
     description: This function now supports key objects.
 -->
+
 * `key` {Object | string | Buffer | KeyObject}
-  - `passphrase` {string | Buffer} An optional passphrase for the private key.
-  - `padding` {crypto.constants} An optional padding value defined in
+  * `passphrase` {string | Buffer} An optional passphrase for the private key.
+  * `padding` {crypto.constants} An optional padding value defined in
     `crypto.constants`, which may be: `crypto.constants.RSA_NO_PADDING` or
     `crypto.constants.RSA_PKCS1_PADDING`.
 * `buffer` {Buffer | TypedArray | DataView}

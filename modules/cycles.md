@@ -44,7 +44,7 @@ console.log('在 main 中，a.done=%j，b.done=%j', a.done, b.done);
 当 `main.js` 加载这两个模块时，它们都已经完成加载。
 因此，该程序的输出会是：
 
-```txt
+```console
 $ node main.js
 main 开始
 a 开始

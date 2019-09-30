@@ -5,6 +5,8 @@ deprecated: v0.9.7
 
 > Stability: 0 - Deprecated: Use [`server.getConnections()`][] instead.
 
+* {integer|null}
+
 The number of concurrent connections on the server.
 
 This becomes `null` when sending a socket to a child with

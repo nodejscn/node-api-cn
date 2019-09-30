@@ -1,6 +1,7 @@
 <!-- YAML
 added: v10.6.0
 -->
+
 * `hostname` {string}
 
 Uses the DNS protocol to resolve regular expression based records (`NAPTR`

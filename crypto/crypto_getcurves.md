@@ -1,6 +1,7 @@
 <!-- YAML
 added: v2.3.0
 -->
+
 * Returns: {string[]} An array with the names of the supported elliptic curves.
 
 ```js

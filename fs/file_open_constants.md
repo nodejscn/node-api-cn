@@ -28,7 +28,7 @@
   </tr>
   <tr>
     <td><code>O_NOCTTY</code></td>
-    <td>表明如果路径是终端设备，则打开该路径不应该造成该终端变成进程的控制终端（如果进程还没有终端）。</td>
+    <td>表明如果路径表示终端设备，则打开该路径不应该造成该终端变成进程的控制终端（如果进程还没有终端）。</td>
   </tr>
   <tr>
     <td><code>O_TRUNC</code></td>
@@ -36,7 +36,7 @@
   </tr>
   <tr>
     <td><code>O_APPEND</code></td>
-    <td>表明数据将追加到文件末尾。</td>
+    <td>表明数据将会追加到文件的末尾。</td>
   </tr>
   <tr>
     <td><code>O_DIRECTORY</code></td>
@@ -53,11 +53,11 @@
   </tr>
   <tr>
     <td><code>O_SYNC</code></td>
-    <td>表明文件是为同步 I/O 打开的，写入操作将等待文件的完整性。</td>
+    <td>表明文件是为同步 I/O 打开的，写入操作将会等待文件的完整性。</td>
   </tr>
   <tr>
     <td><code>O_DSYNC</code></td>
-    <td>表明文件是为同步 I/O 打开的，写入操作将等待数据的完整性</td>
+    <td>表明文件是为同步 I/O 打开的，写入操作将会等待数据的完整性</td>
   </tr>
   <tr>
     <td><code>O_SYMLINK</code></td>
@@ -70,6 +70,12 @@
   <tr>
     <td><code>O_NONBLOCK</code></td>
     <td>表明在可能的情况下以非阻塞模式打开文件。</td>
+  </tr>
+  <tr>
+    <td><code>UV_FS_O_FILEMAP</code></td>
+    <td>当设置后，将会使用内存文件的映射来访问文件。 
+    此标志仅在 Windows 操作系统上可用。 
+    在其他操作系统上，此标志会被忽略。</td>
   </tr>
 </table>
 

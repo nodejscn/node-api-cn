@@ -1,3 +1,9 @@
+<!-- YAML
+changes:
+  - version: v12.11.0
+    pr-url: https://github.com/nodejs/node/pull/29639
+    description: _write() is optional when providing _writev().
+-->
 
 * `chunk` {Buffer|string|any} 要写入的 `Buffer`，从传给 [`stream.write()`][stream-write] 的 `string` 转换而来。 
    如果流的 `decodeStrings` 选项为 `false` 或者流在对象模式下运行，则数据块将不会被转换，并且将是传给 [`stream.write()`][stream-write] 的任何内容。
@@ -5,7 +11,7 @@
   如果 `chunk` 是 `Buffer` 或者流处于对象模式，则无视该选项。
 * `callback` {Function} 当数据块被处理完成后的回调函数。
 
-所有可写流的实现必须提供 [`writable._write()`][stream-_write] 方法将数据发送到底层资源。
+所有可写流的实现必须提供 [`writable._write()`][stream-_write] 和/或 [`writable._writev()`][stream-_writev] 方法将数据发送到底层资源。
 
 [`Transform`] 流会提供自身实现的 [`writable._write()`][stream-_write]。
 

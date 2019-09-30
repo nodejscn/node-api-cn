@@ -10,9 +10,9 @@ napi_status napi_create_bigint_uint64(napi_env env,
                                       napi_value* result);
 ```
 
-- `[in] env`: The environment that the API is invoked under.
-- `[in] value`: Unsigned integer value to be represented in JavaScript.
-- `[out] result`: A `napi_value` representing a JavaScript `BigInt`.
+* `[in] env`: The environment that the API is invoked under.
+* `[in] value`: Unsigned integer value to be represented in JavaScript.
+* `[out] result`: A `napi_value` representing a JavaScript `BigInt`.
 
 Returns `napi_ok` if the API succeeded.
 

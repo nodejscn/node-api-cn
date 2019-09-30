@@ -15,6 +15,7 @@ changes:
     pr-url: https://github.com/nodejs/node/pull/26319
     description: Added support for `'ed25519'` and `'ed448'`.
 -->
+
 * {string}
 
 For asymmetric keys, this property represents the type of the key. Supported key

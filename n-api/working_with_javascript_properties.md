@@ -7,10 +7,11 @@ objects. Some of these types are documented under
 Properties in JavaScript are represented as a tuple of a key and a value.
 Fundamentally, all property keys in N-API can be represented in one of the
 following forms:
-- Named: a simple UTF8-encoded string
-- Integer-Indexed: an index value represented by `uint32_t`
-- JavaScript value: these are represented in N-API by `napi_value`. This can
-be a `napi_value` representing a `String`, `Number`, or `Symbol`.
+
+* Named: a simple UTF8-encoded string
+* Integer-Indexed: an index value represented by `uint32_t`
+* JavaScript value: these are represented in N-API by `napi_value`. This can
+  be a `napi_value` representing a `String`, `Number`, or `Symbol`.
 
 N-API values are represented by the type `napi_value`.
 Any N-API call that requires a JavaScript value takes in a `napi_value`.

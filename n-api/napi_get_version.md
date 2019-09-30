@@ -8,8 +8,8 @@ napi_status napi_get_version(napi_env env,
                              uint32_t* result);
 ```
 
-- `[in] env`: The environment that the API is invoked under.
-- `[out] result`: The highest version of N-API supported.
+* `[in] env`: The environment that the API is invoked under.
+* `[out] result`: The highest version of N-API supported.
 
 Returns `napi_ok` if the API succeeded.
 

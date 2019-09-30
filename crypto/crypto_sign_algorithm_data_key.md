@@ -1,6 +1,7 @@
 <!-- YAML
 added: v12.0.0
 -->
+
 * `algorithm` {string | null | undefined}
 * `data` {Buffer | TypedArray | DataView}
 * `key` {Object | string | Buffer | KeyObject}

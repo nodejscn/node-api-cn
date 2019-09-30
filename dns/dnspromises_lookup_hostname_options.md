@@ -1,16 +1,17 @@
 <!-- YAML
 added: v10.6.0
 -->
+
 * `hostname` {string}
 * `options` {integer | Object}
-  - `family` {integer} The record family. Must be `4`, `6`, or `0`. The value
+  * `family` {integer} The record family. Must be `4`, `6`, or `0`. The value
     `0` indicates that IPv4 and IPv6 addresses are both returned. **Default:**
     `0`.
-  - `hints` {number} One or more [supported `getaddrinfo` flags][]. Multiple
+  * `hints` {number} One or more [supported `getaddrinfo` flags][]. Multiple
     flags may be passed by bitwise `OR`ing their values.
-  - `all` {boolean} When `true`, the `Promise` is resolved with all addresses in
+  * `all` {boolean} When `true`, the `Promise` is resolved with all addresses in
     an array. Otherwise, returns a single address. **Default:** `false`.
-  - `verbatim` {boolean} When `true`, the `Promise` is resolved with IPv4 and
+  * `verbatim` {boolean} When `true`, the `Promise` is resolved with IPv4 and
     IPv6 addresses in the order the DNS resolver returned them. When `false`,
     IPv4 addresses are placed before IPv6 addresses.
     **Default:** currently `false` (addresses are reordered) but this is

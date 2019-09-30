@@ -10,9 +10,9 @@ napi_release_threadsafe_function(napi_threadsafe_function func,
                                  napi_threadsafe_function_release_mode mode);
 ```
 
-- `[in] func`: The asynchronous thread-safe JavaScript function whose reference
+* `[in] func`: The asynchronous thread-safe JavaScript function whose reference
 count to decrement.
-- `[in] mode`: Flag whose value can be either `napi_tsfn_release` to indicate
+* `[in] mode`: Flag whose value can be either `napi_tsfn_release` to indicate
 that the current thread will make no further calls to the thread-safe function,
 or `napi_tsfn_abort` to indicate that in addition to the current thread, no
 other thread should make any further calls to the thread-safe function. If set

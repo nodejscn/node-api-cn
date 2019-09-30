@@ -77,7 +77,7 @@ fs.rename('/tmp/hello', '/tmp/world', (err) => {
 不推荐在异步的 fs 函数上省略回调函数，因为可能导致将来抛出错误。
 
 
-```txt
+```console
 $ cat script.js
 function bad() {
   require('fs').readFile('/');

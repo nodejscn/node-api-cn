@@ -5,6 +5,7 @@ changes:
     pr-url: https://github.com/nodejs/node/pull/5522
     description: The default `inputEncoding` changed from `binary` to `utf8`.
 -->
+
 * `data` {string | Buffer | TypedArray | DataView}
 * `inputEncoding` {string} The [encoding][] of the `data` string.
 

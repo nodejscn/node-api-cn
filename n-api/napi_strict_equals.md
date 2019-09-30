@@ -10,10 +10,10 @@ napi_status napi_strict_equals(napi_env env,
                                bool* result)
 ```
 
-- `[in] env`: The environment that the API is invoked under.
-- `[in] lhs`: The JavaScript value to check.
-- `[in] rhs`: The JavaScript value to check against.
-- `[out] result`: Whether the two `napi_value` objects are equal.
+* `[in] env`: The environment that the API is invoked under.
+* `[in] lhs`: The JavaScript value to check.
+* `[in] rhs`: The JavaScript value to check against.
+* `[out] result`: Whether the two `napi_value` objects are equal.
 
 Returns `napi_ok` if the API succeeded.
 

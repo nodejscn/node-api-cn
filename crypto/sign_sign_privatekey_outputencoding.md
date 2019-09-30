@@ -11,9 +11,10 @@ changes:
     pr-url: https://github.com/nodejs/node/pull/11705
     description: Support for RSASSA-PSS and additional options was added.
 -->
+
 * `privateKey` {Object | string | Buffer | KeyObject}
-  - `padding` {integer}
-  - `saltLength` {integer}
+  * `padding` {integer}
+  * `saltLength` {integer}
 * `outputEncoding` {string} The [encoding][] of the return value.
 * Returns: {Buffer | string}
 

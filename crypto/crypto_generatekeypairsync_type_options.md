@@ -9,17 +9,18 @@ changes:
     description: The `generateKeyPair` and `generateKeyPairSync` functions now
                  produce key objects if no encoding was specified.
 -->
+
 * `type`: {string} Must be `'rsa'`, `'dsa'`, `'ec'`, `'ed25519'`, or `'ed448'`.
 * `options`: {Object}
-  - `modulusLength`: {number} Key size in bits (RSA, DSA).
-  - `publicExponent`: {number} Public exponent (RSA). **Default:** `0x10001`.
-  - `divisorLength`: {number} Size of `q` in bits (DSA).
-  - `namedCurve`: {string} Name of the curve to use (EC).
-  - `publicKeyEncoding`: {Object} See [`keyObject.export()`][].
-  - `privateKeyEncoding`: {Object} See [`keyObject.export()`][].
+  * `modulusLength`: {number} Key size in bits (RSA, DSA).
+  * `publicExponent`: {number} Public exponent (RSA). **Default:** `0x10001`.
+  * `divisorLength`: {number} Size of `q` in bits (DSA).
+  * `namedCurve`: {string} Name of the curve to use (EC).
+  * `publicKeyEncoding`: {Object} See [`keyObject.export()`][].
+  * `privateKeyEncoding`: {Object} See [`keyObject.export()`][].
 * Returns: {Object}
-  - `publicKey`: {string | Buffer | KeyObject}
-  - `privateKey`: {string | Buffer | KeyObject}
+  * `publicKey`: {string | Buffer | KeyObject}
+  * `privateKey`: {string | Buffer | KeyObject}
 
 Generates a new asymmetric key pair of the given `type`. RSA, DSA, EC, Ed25519
 and Ed448 are currently supported.

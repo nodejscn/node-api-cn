@@ -1,6 +1,7 @@
 <!-- YAML
 added: v0.5.0
 -->
+
 * `otherPublicKey` {string | Buffer | TypedArray | DataView}
 * `inputEncoding` {string} The [encoding][] of an `otherPublicKey` string.
 * `outputEncoding` {string} The [encoding][] of the return value.

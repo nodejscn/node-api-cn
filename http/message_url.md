@@ -45,7 +45,7 @@ Url {
 
 要从查询字符串中提取参数，可以使用 `require('querystring').parse` 函数，或者可以将 `true` 作为第二个参数传递给 `require('url').parse`：
 
-```txt
+```console
 $ node
 > require('url').parse('/status?name=ryan', true)
 Url {

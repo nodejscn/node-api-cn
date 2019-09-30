@@ -12,14 +12,14 @@ napi_status napi_call_function(napi_env env,
                                napi_value* result)
 ```
 
-- `[in] env`: The environment that the API is invoked under.
-- `[in] recv`: The `this` object passed to the called function.
-- `[in] func`: `napi_value` representing the JavaScript function
+* `[in] env`: The environment that the API is invoked under.
+* `[in] recv`: The `this` object passed to the called function.
+* `[in] func`: `napi_value` representing the JavaScript function
 to be invoked.
-- `[in] argc`: The count of elements in the `argv` array.
-- `[in] argv`: Array of `napi_values` representing JavaScript values passed
+* `[in] argc`: The count of elements in the `argv` array.
+* `[in] argv`: Array of `napi_values` representing JavaScript values passed
 in as arguments to the function.
-- `[out] result`: `napi_value` representing the JavaScript object returned.
+* `[out] result`: `napi_value` representing the JavaScript object returned.
 
 Returns `napi_ok` if the API succeeded.
 
