@@ -6,6 +6,6 @@ added: v12.11.0
 the client in the order of decreasing preference.
 
 See
-
+[SSL_get_shared_sigalgs](https://www.openssl.org/docs/man1.1.1/man3/SSL_get_shared_sigalgs.html)
 for more information.
 

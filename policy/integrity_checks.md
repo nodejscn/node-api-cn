@@ -1,7 +1,7 @@
 
 Policy files must use integrity checks with Subresource Integrity strings
 compatible with the browser
-
+[integrity attribute](https://www.w3.org/TR/SRI/#the-integrity-attribute)
 associated with absolute URLs.
 
 When using `require()` all resources involved in loading are checked for

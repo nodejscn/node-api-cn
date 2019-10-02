@@ -1,6 +1,6 @@
 
 In order to use the N-API functions, include the file
-
+[`node_api.h`](https://github.com/nodejs/node/blob/master/src/node_api.h)
 which is located in the src directory in the node development tree:
 
 ```C

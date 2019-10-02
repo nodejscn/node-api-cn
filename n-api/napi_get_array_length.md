@@ -19,6 +19,6 @@ Returns `napi_ok` if the API succeeded.
 This API returns the length of an array.
 
 `Array` length is described in
-
+[Section 22.1.4.1](https://tc39.github.io/ecma262/#sec-properties-of-array-instances-length)
 of the ECMAScript Language Specification.
 

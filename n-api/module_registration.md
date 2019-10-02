@@ -46,7 +46,7 @@ napi_value Init(napi_env env, napi_value exports) {
 ```
 
 To define a class so that new instances can be created (often used with
-
+[Object Wrap][]):
 
 ```C
 // NOTE: partial example, not all referenced code is included

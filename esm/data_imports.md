@@ -3,7 +3,7 @@
 added: v12.10.0
 -->
 
-
+[`data:` URLs][] are supported for importing with the following MIME types:
 
 * `text/javascript` for ES Modules
 * `application/json` for JSON
@@ -11,7 +11,7 @@ added: v12.10.0
 
 `data:` URLs only resolve [_Bare specifiers_][Terminology] for builtin modules
 and [_Absolute specifiers_][Terminology]. Resolving
-
+[_Relative specifiers_][Terminology] will not work because `data:` is not a
 [special scheme][]. For example, attempting to load `./foo`
 from `data:text/javascript,import "./foo";` will fail to resolve since there
 is no concept of relative resolution for `data:` URLs. An example of a `data:`

@@ -46,7 +46,7 @@ Prior to Node.js 0.10, the incoming message data would be simply discarded.
 However, in Node.js 0.10 and beyond, the socket remains paused forever.
 
 The workaround in this situation is to call the
-
+[`stream.resume()`][stream-resume] method to begin the flow of data:
 
 ```js
 // Workaround.

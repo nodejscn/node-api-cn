@@ -37,7 +37,7 @@ The N-API is a C API that ensures ABI stability across Node.js versions
 and different compiler levels. A C++ API can be easier to use.
 To support using C++, the project maintains a
 C++ wrapper module called
-
+[node-addon-api](https://github.com/nodejs/node-addon-api).
 This wrapper provides an inlineable C++ API. Binaries built
 with `node-addon-api` will depend on the symbols for the N-API C-based
 functions exported by Node.js. `node-addon-api` is a more
@@ -77,6 +77,6 @@ The end result is that the addon only uses the exported C APIs. As a result,
 it still gets the benefits of the ABI stability provided by the C API.
 
 When using `node-addon-api` instead of the C APIs, start with the API
-
+[docs](https://github.com/nodejs/node-addon-api#api-documentation)
 for `node-addon-api`.
 

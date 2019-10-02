@@ -1,6 +1,6 @@
 
 ES modules are resolved and cached based upon
-
+[URL](https://url.spec.whatwg.org/) semantics. This means that files containing
 special characters such as `#` and `?` need to be escaped.
 
 Modules will be loaded multiple times if the `import` specifier used to resolve

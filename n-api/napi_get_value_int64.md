@@ -21,9 +21,9 @@ This API returns the C `int64` primitive equivalent of the given JavaScript
 `Number`.
 
 `Number` values outside the range of
-
+[`Number.MIN_SAFE_INTEGER`](https://tc39.github.io/ecma262/#sec-number.min_safe_integer)
 -(2^53 - 1) -
-
+[`Number.MAX_SAFE_INTEGER`](https://tc39.github.io/ecma262/#sec-number.max_safe_integer)
 (2^53 - 1) will lose precision.
 
 Non-finite number values (`NaN`, `+Infinity`, or `-Infinity`) set the

@@ -76,6 +76,6 @@ be associated with the resulting JavaScript function (which is returned in the
 passing both the JavaScript function and the data to [`napi_add_finalizer`][].
 
 JavaScript `Function`s are described in
-
+[Section 19.2](https://tc39.github.io/ecma262/#sec-function-objects)
 of the ECMAScript Language Specification.
 
