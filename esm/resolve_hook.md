@@ -91,7 +91,7 @@ export async function resolve(specifier,
 With this loader, running:
 
 ```console
-NODE_OPTIONS='--experimental-modules --loader ./custom-loader.mjs' node x.js
+NODE_OPTIONS='--experimental-modules --experimental-loader ./custom-loader.mjs' node x.js
 ```
 
 would load the module `x.js` as an ES module with relative resolution support

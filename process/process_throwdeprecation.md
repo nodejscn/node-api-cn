@@ -21,7 +21,7 @@ undefined
 true
 > process.emitWarning('test', 'DeprecationWarning');
 抛出:
-{ [DeprecationWarning: test] name: 'DeprecationWarning' }
+[DeprecationWarning: test] { name: 'DeprecationWarning' }
 ```
 
 

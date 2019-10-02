@@ -38,6 +38,7 @@ Node.js options that are allowed are:
 * `--enable-fips`
 * `--es-module-specifier-resolution`
 * `--experimental-exports`
+* `--experimental-loader`
 * `--experimental-modules`
 * `--experimental-policy`
 * `--experimental-repl-await`
@@ -55,7 +56,6 @@ Node.js options that are allowed are:
 * `--inspect-port`, `--debug-port`
 * `--inspect-publish-uid`
 * `--inspect`
-* `--loader`
 * `--max-http-header-size`
 * `--napi-modules`
 * `--no-deprecation`

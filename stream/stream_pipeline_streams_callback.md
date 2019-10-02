@@ -48,6 +48,10 @@ async function run() {
 run().catch(console.error);
 ```
 
+`stream.pipeline()` 将会在所有的流上调用 `stream.destroy(err)`，除了：
+* 已触发 `'end'` 或 `'close'` 的 `Readable` 流。
+* 已触发 `'finish'` 或 `'close'` 的 `Writable` 流。
+
 在调用 `callback` 之后，`stream.pipeline()` 会将悬挂的事件监听器留在流上。
 在失败后重新使用流的情况下，这可能导致事件监听器泄漏和误吞的错误。
 

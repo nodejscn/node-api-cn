@@ -17,6 +17,6 @@ Returns an object containing information on the negotiated cipher suite.
 For example: `{ name: 'AES256-SHA', version: 'TLSv1.2' }`.
 
 See
-[SSL_CIPHER_get_name](https://www.openssl.org/docs/man1.1.1/man3/SSL_CIPHER_get_name.html)
+
 for more information.
 

@@ -8,8 +8,8 @@ changes:
 -->
 
 * `fd` {integer}
-* `atime` {integer}
-* `mtime` {integer}
+* `atime` {number|string|Date}
+* `mtime` {number|string|Date}
 
 [`fs.futimes()`] 的同步版本。返回 `undefined`。
 
