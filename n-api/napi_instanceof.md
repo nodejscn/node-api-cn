@@ -20,7 +20,5 @@ is true.
 Returns `napi_ok` if the API succeeded.
 
 This API represents invoking the `instanceof` Operator on the object as
-defined in
-[Section 12.10.4](https://tc39.github.io/ecma262/#sec-instanceofoperator)
-of the ECMAScript Language Specification.
+defined in [Section 12.10.4][] of the ECMAScript Language Specification.
 

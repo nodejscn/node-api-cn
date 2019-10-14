@@ -1,5 +1,10 @@
 <!-- YAML
 added: v0.1.99
+changes:
+  - version: v0.10
+    description: The method was changed to an asynchronous execution model.
+                 Legacy code would need to be changed to pass a callback
+                 function to the method call.
 -->
 
 * `port` {integer}

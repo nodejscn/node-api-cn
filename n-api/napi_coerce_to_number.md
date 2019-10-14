@@ -16,7 +16,6 @@ napi_status napi_coerce_to_number(napi_env env,
 Returns `napi_ok` if the API succeeded.
 
 This API implements the abstract operation `ToNumber()` as defined in
-[Section 7.1.3](https://tc39.github.io/ecma262/#sec-tonumber)
-of the ECMAScript Language Specification.
+[Section 7.1.3][] of the ECMAScript Language Specification.
 This API can be re-entrant if getters are defined on the passed-in `Object`.
 

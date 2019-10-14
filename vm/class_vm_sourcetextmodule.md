@@ -18,9 +18,9 @@ intrinsically asynchronous, in contrast with the synchronous nature of
 `vm.Script` objects. With the help of async functions, however, manipulating
 `vm.SourceTextModule` objects is fairly straightforward.
 
-Using a `vm.SourceTextModule` object requires four distinct steps:
-creation/parsing, linking, instantiation, and evaluation. These four steps are
-illustrated in the following example.
+Using a `vm.SourceTextModule` object requires three distinct steps:
+creation/parsing, linking, and evaluation. These three steps are illustrated in
+the following example.
 
 This implementation lies at a lower level than the [ECMAScript Module
 loader][]. There is also currently no way to interact with the Loader, though
@@ -86,15 +86,6 @@ const contextifiedSandbox = vm.createContext({ secret: 42 });
   await bar.link(linker);
 
   // Step 3
-  //
-  // Instantiate the top-level Module.
-  //
-  // Only the top-level Module needs to be explicitly instantiated; its
-  // dependencies will be recursively instantiated by instantiate().
-
-  bar.instantiate();
-
-  // Step 4
   //
   // Evaluate the Module. The evaluate() method returns a Promise with a single
   // property "result" that contains the result of the very last statement

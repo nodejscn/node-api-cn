@@ -1,6 +1,10 @@
 <!-- YAML
 added: v0.11.13
 changes:
+  - version: v12.12.0
+    pr-url: https://github.com/nodejs/node/pull/28973
+    description: Added `privateKeyIdentifier` and `privateKeyEngine` options
+                 to get private key from an OpenSSL engine.
   - version: v12.11.0
     pr-url: https://github.com/nodejs/node/pull/29598
     description: Added `sigalgs` option to override supported signature
@@ -55,7 +59,7 @@ changes:
     provided.
     For PEM encoded certificates, supported types are "TRUSTED CERTIFICATE",
     "X509 CERTIFICATE", and "CERTIFICATE".
-    See also [`tls.rootCertificates`].
+    See also [`tls.rootCertificates`][].
   * `cert` {string|string[]|Buffer|Buffer[]} Cert chains in PEM format. One cert
     chain should be provided per private key. Each cert chain should consist of
     the PEM formatted certificate for a provided private `key`, followed by the
@@ -91,7 +95,7 @@ changes:
     curve automatically. Use [`crypto.getCurves()`][] to obtain a list of
     available curve names. On recent releases, `openssl ecparam -list_curves`
     will also display the name and description of each available elliptic curve.
-    **Default:** [`tls.DEFAULT_ECDH_CURVE`].
+    **Default:** [`tls.DEFAULT_ECDH_CURVE`][].
   * `honorCipherOrder` {boolean} Attempt to use the server's cipher suite
     preferences instead of the client's. When `true`, causes
     `SSL_OP_CIPHER_SERVER_PREFERENCE` to be set in `secureOptions`, see
@@ -105,6 +109,12 @@ changes:
     occur in an array. `object.passphrase` is optional. Encrypted keys will be
     decrypted with `object.passphrase` if provided, or `options.passphrase` if
     it is not.
+  * `privateKeyEngine` {string} Name of an OpenSSL engine to get private key
+    from. Should be used together with `privateKeyIdentifier`.
+  * `privateKeyIdentifier` {string} Identifier of a private key managed by
+    an OpenSSL engine. Should be used together with `privateKeyEngine`.
+    Should not be set together with `key`, because both options define a
+    private key in different ways.
   * `maxVersion` {string} Optionally set the maximum TLS version to allow. One
     of `TLSv1.3`, `TLSv1.2'`, `'TLSv1.1'`, or `'TLSv1'`. Cannot be specified
     along with the `secureProtocol` option, use one or the other.

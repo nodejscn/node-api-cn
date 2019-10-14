@@ -11,7 +11,7 @@ added: v8.4.0
   * `stream` {ServerHttp2Stream} The newly-created `ServerHttp2Stream` object
 
 Call [`http2stream.pushStream()`][] with the given headers, and wrap the
-given [`Http2Stream`] on a newly created `Http2ServerResponse` as the callback
+given [`Http2Stream`][] on a newly created `Http2ServerResponse` as the callback
 parameter if successful. When `Http2ServerRequest` is closed, the callback is
 called with an error `ERR_HTTP2_INVALID_STREAM`.
 

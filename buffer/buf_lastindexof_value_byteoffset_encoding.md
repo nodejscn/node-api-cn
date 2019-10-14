@@ -7,7 +7,7 @@ changes:
 -->
 
 * `value` {string|Buffer|Uint8Array|integer} 要查找的值。
-* `byteOffset` {integer} `buf` 中开始查找的偏移量。**默认值:** [`buf.length`]` - 1`。
+* `byteOffset` {integer} `buf` 中开始查找的偏移量。**默认值:** `buf.length - 1`。
 * `encoding` {string} 如果 `value` 是字符串，则指定 `value` 的字符编码。**默认值:** `'utf8'`。
 * 返回: {integer} `buf` 中最后一次出现 `value` 的索引，如果 `buf` 没包含 `value` 则返回 `-1`。
 

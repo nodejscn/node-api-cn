@@ -1,5 +1,8 @@
 <!-- YAML
-added: v9.2.0
+added:
+  - v9.2.0
+  - v8.10.0
+  - v6.13.0
 -->
 
 * {integer}

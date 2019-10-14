@@ -13,8 +13,8 @@ added: v0.9.4
 `_read()` 应该持续从资源读取数据并推送数据，直到 `readable.push()` 返回 `false`。
 若想再次调用 `_read()` 方法，则需要恢复推送数据到队列。
 
-一旦 `readable._read()` 被调用，它不会被再次调用，除非调用了 [`readable.push()`][stream-push]。
-这是为了确保 `readable._read()` 在同步执行时只会被调用一次。
+一旦 `readable._read()` 方法被调用，将不会再次调用它，直到更多数据通过 [`readable.push()`][stream-push] 方法被推送。 
+空的数据（例如空的 buffer 和字符串）将不会导致 `readable._read()` 被调用。
 
 `size` 是可选的参数。
 对于读取是一个单一操作的实现，可以使用 `size` 参数来决定要读取多少数据。

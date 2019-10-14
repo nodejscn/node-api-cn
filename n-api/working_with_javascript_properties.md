@@ -1,7 +1,6 @@
 
 N-API exposes a set of APIs to get and set properties on JavaScript
-objects. Some of these types are documented under
-[Section 7](https://tc39.github.io/ecma262/#sec-operations-on-objects) of the
+objects. Some of these types are documented under [Section 7][] of the
 [ECMAScript Language Specification][].
 
 Properties in JavaScript are represented as a tuple of a key and a value.

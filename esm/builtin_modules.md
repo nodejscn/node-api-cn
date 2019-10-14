@@ -1,8 +1,9 @@
 
-Builtin modules will provide named exports of their public API, as well as a
-default export which can be used for, among other things, modifying the named
-exports. Named exports of builtin modules are updated when the corresponding
-exports property is accessed, redefined, or deleted.
+Builtin modules will provide named exports of their public API. A
+default export is also provided which is the value of the CommonJS exports.
+The default export can be used for, among other things, modifying the named
+exports. Named exports of builtin modules are updated only by calling
+[`module.syncBuiltinESMExports()`][].
 
 ```js
 import EventEmitter from 'events';
@@ -22,8 +23,10 @@ readFile('./foo.txt', (err, source) => {
 
 ```js
 import fs, { readFileSync } from 'fs';
+import { syncBuiltinESMExports } from 'module';
 
 fs.readFileSync = () => Buffer.from('Hello, ESM');
+syncBuiltinESMExports();
 
 fs.readFileSync === readFileSync;
 ```

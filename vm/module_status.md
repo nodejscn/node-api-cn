@@ -3,21 +3,13 @@
 
 The current status of the module. Will be one of:
 
-* `'uninstantiated'`: The module is not instantiated. It may because of any of
-  the following reasons:
+* `'unlinked'`: `module.link()` has not yet been called.
 
-  * The module was just created.
-  * `module.instantiate()` has been called on this module, but it failed for
-    some reason.
+* `'linking'`: `module.link()` has been called, but not all Promises returned
+  by the linker function have been resolved yet.
 
-  This status does not convey any information regarding if `module.link()` has
-  been called. See `module.linkingStatus` for that.
-
-* `'instantiating'`: The module is currently being instantiated through a
-  `module.instantiate()` call on itself or a parent module.
-
-* `'instantiated'`: The module has been instantiated successfully, but
-  `module.evaluate()` has not yet been called.
+* `'linked'`: The module has been linked successfully, and all of its
+  dependencies are linked, but `module.evaluate()` has not yet been called.
 
 * `'evaluating'`: The module is being evaluated through a `module.evaluate()` on
   itself or a parent module.

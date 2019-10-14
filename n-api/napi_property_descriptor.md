@@ -39,7 +39,7 @@ property to be a JavaScript function represented by `method`. If this is
 passed in, set `value`, `getter` and `setter` to `NULL` (since these members
 won't be used).
 * `attributes`: The attributes associated with the particular property.
-See [`napi_property_attributes`](#n_api_napi_property_attributes).
+See [`napi_property_attributes`][].
 * `data`: The callback data passed into `method`, `getter` and `setter` if
 this function is invoked.
 

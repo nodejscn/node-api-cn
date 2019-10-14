@@ -28,5 +28,13 @@ This API allocates a `node::Buffer` object and initializes it with data
 backed by the passed in buffer. While this is still a fully-supported data
 structure, in most cases using a `TypedArray` will suffice.
 
+The API adds a `napi_finalize` callback which will be called when the JavaScript
+object just created is ready for garbage collection. It is similar to
+`napi_wrap()` except that:
+
+* the native data cannot be retrieved later using `napi_unwrap()`,
+* nor can it be removed later using `napi_remove_wrap()`, and
+* the object created by the API can be used with `napi_wrap()`.
+
 For Node.js >=4 `Buffers` are `Uint8Array`s.
 

@@ -21,10 +21,10 @@ class MyWritable extends Writable {
 
 | 用例 | 类 | 需实现的方法 |
 | -------- | ----- | ---------------------- |
-| 只读流 | [`Readable`] | <code>[_read][stream-_read]</code> |
-| 只写流 | [`Writable`] | <code>[_write][stream-_write]</code>, <code>[_writev][stream-_writev]</code>, <code>[_final][stream-_final]</code> |
-| 可读可写流 | [`Duplex`] | <code>[_read][stream-_read]</code>, <code>[_write][stream-_write]</code>, <code>[_writev][stream-_writev]</code>, <code>[_final][stream-_final]</code> |
-| 对写入的数据进行操作，然后读取结果 | [`Transform`] | <code>[_transform][stream-_transform]</code>, <code>[_flush][stream-_flush]</code>, <code>[_final][stream-_final]</code> |
+| 只读流 | [`Readable`] | [`_read()`][stream-_read] |
+| 只写流 | [`Writable`] | [`_write()`][stream-_write], [`_writev()`][stream-_writev], [`_final()`][stream-_final] |
+| 可读可写流 | [`Duplex`] | [`_read()`][stream-_read], [`_write()`][stream-_write], [`_writev()`][stream-_writev], [`_final()`][stream-_final] |
+| 对写入的数据进行操作，然后读取结果 | [`Transform`][] | [`_transform()`][stream-_transform], [`_flush()`][stream-_flush], [`_final()`][stream-_final] |
 
 实现流的代码中不应该调用流的公共方法，因为这些方法是给消费者使用的（详见[用于消费流的API][API for Stream Consumers]）。
 这样做可能会导致使用流的应用程序代码产生不利的副作用。

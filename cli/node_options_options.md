@@ -36,8 +36,10 @@ node --require "./a.js" --require "./b.js"
 Node.js options that are allowed are:
 <!-- node-options-node start -->
 * `--enable-fips`
+* `--enable-source-maps`
 * `--es-module-specifier-resolution`
 * `--experimental-exports`
+* `--experimental-json-modules`
 * `--experimental-loader`
 * `--experimental-modules`
 * `--experimental-policy`
@@ -45,6 +47,7 @@ Node.js options that are allowed are:
 * `--experimental-report`
 * `--experimental-vm-modules`
 * `--experimental-wasm-modules`
+* `--force-context-aware`
 * `--force-fips`
 * `--frozen-intrinsics`
 * `--heapsnapshot-signal`

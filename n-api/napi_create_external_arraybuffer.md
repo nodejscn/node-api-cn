@@ -30,6 +30,14 @@ The underlying byte buffer of the `ArrayBuffer` is externally allocated and
 managed. The caller must ensure that the byte buffer remains valid until the
 finalize callback is called.
 
+The API adds a `napi_finalize` callback which will be called when the JavaScript
+object just created is ready for garbage collection. It is similar to
+`napi_wrap()` except that:
+
+* the native data cannot be retrieved later using `napi_unwrap()`,
+* nor can it be removed later using `napi_remove_wrap()`, and
+* the object created by the API can be used with `napi_wrap()`.
+
 JavaScript `ArrayBuffer`s are described in
 [Section 24.1][] of the ECMAScript Language Specification.
 

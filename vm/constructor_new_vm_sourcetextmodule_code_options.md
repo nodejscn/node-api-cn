@@ -1,8 +1,9 @@
 
 * `code` {string} JavaScript Module code to parse
 * `options`
-  * `url` {string} URL used in module resolution and stack traces. **Default:**
-    `'vm:module(i)'` where `i` is a context-specific ascending index.
+  * `identifier` {string} String used in stack traces.
+    **Default:** `'vm:module(i)'` where `i` is a context-specific ascending
+    index.
   * `context` {Object} The [contextified][] object as returned by the
     `vm.createContext()` method, to compile and evaluate this `Module` in.
   * `lineOffset` {integer} Specifies the line number offset that is displayed
@@ -49,7 +50,6 @@ const contextifiedSandbox = vm.createContext({ secret: 42 });
     });
   // Since module has no dependencies, the linker function will never be called.
   await module.link(() => {});
-  module.instantiate();
   await module.evaluate();
 
   // Now, Object.prototype.secret will be equal to 42.

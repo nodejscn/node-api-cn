@@ -18,7 +18,6 @@ Returns `napi_ok` if the API succeeded.
 
 This API creates a JavaScript `Symbol` object from a UTF8-encoded C string.
 
-The JavaScript `Symbol` type is described in
-[Section 19.4](https://tc39.github.io/ecma262/#sec-symbol-objects)
+The JavaScript `Symbol` type is described in [Section 19.4][]
 of the ECMAScript Language Specification.
 

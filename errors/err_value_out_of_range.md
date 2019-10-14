@@ -5,4 +5,4 @@ removed: v10.0.0
 
 Used when a given value is out of the accepted range.
 
-<a id="ERR_ZLIB_BINDING_CLOSED"></a>
+<a id="ERR_VM_MODULE_NOT_LINKED"></a>

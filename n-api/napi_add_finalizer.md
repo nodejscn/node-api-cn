@@ -32,7 +32,8 @@ in `js_object` is ready for garbage collection. This API is similar to
 * the native data cannot be retrieved later using `napi_unwrap()`,
 * nor can it be removed later using `napi_remove_wrap()`, and
 * the API can be called multiple times with different data items in order to
-  attach each of them to the JavaScript object.
+  attach each of them to the JavaScript object, and
+* the object manipulated by the API can be used with `napi_wrap()`.
 
 *Caution*: The optional returned reference (if obtained) should be deleted via
 [`napi_delete_reference`][] ONLY in response to the finalize callback

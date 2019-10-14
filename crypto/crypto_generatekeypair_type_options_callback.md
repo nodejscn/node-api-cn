@@ -32,7 +32,7 @@ and Ed448 are currently supported.
 
 If a `publicKeyEncoding` or `privateKeyEncoding` was specified, this function
 behaves as if [`keyObject.export()`][] had been called on its result. Otherwise,
-the respective part of the key is returned as a [`KeyObject`].
+the respective part of the key is returned as a [`KeyObject`][].
 
 It is recommended to encode public keys as `'spki'` and private keys as
 `'pkcs8'` with encryption for long-term storage:

@@ -3,7 +3,7 @@ added: v0.9.3
 -->
 
 * `name` {string}
-* Returns: {DiffieHellman}
+* Returns: {DiffieHellmanGroup}
 
 An alias for [`crypto.getDiffieHellman()`][]
 

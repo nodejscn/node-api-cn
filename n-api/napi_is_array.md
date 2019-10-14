@@ -14,6 +14,5 @@ napi_status napi_is_array(napi_env env, napi_value value, bool* result)
 Returns `napi_ok` if the API succeeded.
 
 This API represents invoking the `IsArray` operation on the object
-as defined in [Section 7.2.2](https://tc39.github.io/ecma262/#sec-isarray)
-of the ECMAScript Language Specification.
+as defined in [Section 7.2.2][] of the ECMAScript Language Specification.
 

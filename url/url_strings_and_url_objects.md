@@ -4,9 +4,6 @@ URL 字符串是结构化的字符串，包含多个含义不同的组成部分�
 
 `url` 模块提供了两套 API 来处理 URL：一个是旧版本遗留的 API，一个是实现了 [WHATWG标准][WHATWG URL Standard]的新 API。
 
-遗留的 API 还没有被废弃，保留是为了兼容已存在的应用程序。
-新的应用程序应使用 WHATWG 的 API。
-
 WHATWG 的 API 与遗留的 API 的区别如下。
 在下图中，URL `'http://user:pass@sub.example.com:8080/p/a/t/h?query=string#hash'` 上方的是遗留的 `url.parse()` 返回的对象的属性。
 下方的则是 WHATWG 的 `URL` 对象的属性。

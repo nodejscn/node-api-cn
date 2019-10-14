@@ -12,7 +12,7 @@
 
 Evaluate the module.
 
-This must be called after the module has been instantiated; otherwise it will
+This must be called after the module has been linked; otherwise it will
 throw an error. It could be called also when the module has already been
 evaluated, in which case it will do one of the following two things:
 

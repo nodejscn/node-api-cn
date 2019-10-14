@@ -29,7 +29,7 @@ The typical flow of an OCSP Request is as follows:
 2. Server receives the request and emits the `'OCSPRequest'` event, calling the
    listener if registered.
 3. Server extracts the OCSP URL from either the `certificate` or `issuer` and
-   performs an [OCSP request] to the CA.
+   performs an [OCSP request][] to the CA.
 4. Server receives `'OCSPResponse'` from the CA and sends it back to the client
    via the `callback` argument
 5. Client validates the response and either destroys the socket or performs a
@@ -42,5 +42,5 @@ via the `ca` option when establishing the TLS connection.)
 Listening for this event will have an effect only on connections established
 after the addition of the event listener.
 
-An npm module like [asn1.js] may be used to parse the certificates.
+An npm module like [asn1.js][] may be used to parse the certificates.
 

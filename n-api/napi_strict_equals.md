@@ -18,7 +18,5 @@ napi_status napi_strict_equals(napi_env env,
 Returns `napi_ok` if the API succeeded.
 
 This API represents the invocation of the Strict Equality algorithm as
-defined in
-[Section 7.2.14](https://tc39.github.io/ecma262/#sec-strict-equality-comparison)
-of the ECMAScript Language Specification.
+defined in [Section 7.2.14][] of the ECMAScript Language Specification.
 
