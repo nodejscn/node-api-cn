@@ -2,7 +2,5 @@
 added: v12.0.0
 -->
 
-A synchronous function that disassociates a connected `dgram.Socket` from
-its remote address. Trying to call `disconnect()` on an already disconnected
-socket will result in an [`ERR_SOCKET_DGRAM_NOT_CONNECTED`][] exception.
-
+一个将相连的`dgram.Socket`与远程地址断掉的同步函数。
+在一个已经未连接的socket上尝试调用`disconnect()`会导致一个[`ERR_SOCKET_DGRAM_NOT_CONNECTED`][]异常
