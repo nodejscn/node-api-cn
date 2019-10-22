@@ -14,7 +14,7 @@ added: v0.7.0
 ```js
 const http = require('http');
 const net = require('net');
-const url = require('url');
+const { URL } = require('url');
 
 // 创建 HTTP 隧道代理。
 const proxy = http.createServer((req, res) => {
@@ -23,8 +23,8 @@ const proxy = http.createServer((req, res) => {
 });
 proxy.on('connect', (req, cltSocket, head) => {
   // 连接到原始服务器。
-  const srvUrl = url.parse(`http://${req.url}`);
-  const srvSocket = net.connect(srvUrl.port, srvUrl.hostname, () => {
+  const { port, hostname } = new URL(`http://${req.url}`);
+  const srvSocket = net.connect(port || 80, hostname, () => {
     cltSocket.write('HTTP/1.1 200 Connection Established\r\n' +
                     'Proxy-agent: Node.js-Proxy\r\n' +
                     '\r\n');

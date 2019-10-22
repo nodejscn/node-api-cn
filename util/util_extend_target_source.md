@@ -3,7 +3,7 @@ added: v0.7.5
 deprecated: v6.0.0
 -->
 
-> Stability: 0 - Deprecated: Use [`Object.assign()`] instead.
+> Stability: 0 - Deprecated: Use [`Object.assign()`][] instead.
 
 * `target` {Object}
 * `source` {Object}
