@@ -5,8 +5,8 @@ added: v12.12.0
 * `callback` {Function}
   * `err` {Error}
 
-Asynchronously close the directory's underlying resource handle.
-Subsequent reads will result in errors.
+异步地关闭目录的底层资源句柄。 
+随后的读取将会导致错误。
 
-The `callback` will be called after the resource handle has been closed.
+关闭资源句柄之后将会调用 `callback`。
 

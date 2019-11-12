@@ -2,11 +2,10 @@
 added: v12.12.0
 -->
 
-* Returns: {Promise}
+* 返回: {Promise}
 
-Asynchronously close the directory's underlying resource handle.
-Subsequent reads will result in errors.
+异步地关闭目录的底层资源句柄。 
+随后的读取将会导致错误。
 
-A `Promise` is returned that will be resolved after the resource has been
-closed.
+返回一个	`Promise`，将会在关闭资源之后被解决。
 

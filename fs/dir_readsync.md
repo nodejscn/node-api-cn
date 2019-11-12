@@ -2,13 +2,11 @@
 added: v12.12.0
 -->
 
-* Returns: {fs.Dirent|null}
+* 返回: {fs.Dirent|null}
 
-Synchronously read the next directory entry via readdir(3) as an
-[`fs.Dirent`][].
+通过 readdir(3) 异步地读取下一个目录项作为 [`fs.Dirent`]。
 
-If there are no more directory entries to read, `null` will be returned.
+如果没有更多的目录项要读取，则将会返回 `null`。
 
-_Directory entries returned by this function are in no particular order as
-provided by the operating system's underlying directory mechanisms._
+此函数返回的目录项不遵循操作系统的底层目录机制所提供的特定顺序。
 

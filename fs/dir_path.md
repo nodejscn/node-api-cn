@@ -4,6 +4,5 @@ added: v12.12.0
 
 * {string}
 
-The read-only path of this directory as was provided to [`fs.opendir()`][],
-[`fs.opendirSync()`][], or [`fsPromises.opendir()`][].
+此目录的只读路径，与提供给 [`fs.opendir()`]、[`fs.opendirSync()`] 或 [`fsPromises.opendir()`] 的一样。
 

@@ -2,9 +2,9 @@
 added: v12.12.0
 -->
 
-A class representing a directory stream.
+代表目录流的类。
 
-Created by [`fs.opendir()`][], [`fs.opendirSync()`][], or [`fsPromises.opendir()`][].
+由 [`fs.opendir()`]、[`fs.opendirSync()`] 或 [`fsPromises.opendir()`] 创建。
 
 ```js
 const fs = require('fs');
