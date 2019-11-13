@@ -23,34 +23,25 @@ changes:
 * `algorithm` {string}
 * `key` {string | Buffer | TypedArray | DataView | KeyObject}
 * `iv` {string | Buffer | TypedArray | DataView | null}
-* `options` {Object} [`stream.transform` options][]
-* Returns: {Cipher}
+* `options` {Object} [`stream.transform` 的选项][`stream.transform` options]。
+* 返回: {Cipher}
 
-Creates and returns a `Cipher` object, with the given `algorithm`, `key` and
-initialization vector (`iv`).
+使用给定的 `algorithm`、`key` 和初始化向量（`iv`）创建并返回一个 `Cipher` 对象。
 
-The `options` argument controls stream behavior and is optional except when a
-cipher in CCM or OCB mode is used (e.g. `'aes-128-ccm'`). In that case, the
-`authTagLength` option is required and specifies the length of the
-authentication tag in bytes, see [CCM mode][]. In GCM mode, the `authTagLength`
-option is not required but can be used to set the length of the authentication
-tag that will be returned by `getAuthTag()` and defaults to 16 bytes.
+`options` 参数控制流的行为，它是可选的，除非使用 CCM 或 OCB 模式的密码（例如 `'aes-128-ccm'`）。
+在这种情况下，必须使用 `authTagLength` 选项，并以字节为单位指定身份验证标签的长度，参阅 [CCM 模式][CCM mode]。
+在 GCM 模式中，不需要 `authTagLength` 选项，但可以使用它来设置将会由 `getAuthTag()` 返回的身份验证标签的长度，默认为 16 个字节。
 
-The `algorithm` is dependent on OpenSSL, examples are `'aes192'`, etc. On
-recent OpenSSL releases, `openssl list -cipher-algorithms`
-(`openssl list-cipher-algorithms` for older versions of OpenSSL) will
-display the available cipher algorithms.
+`algorithm` 取决于 OpenSSL，例如 `'aes192'` 等。
+在 OpenSSL 的最新版本中，`openssl list -cipher-algorithms`（在较旧版本的 OpenSSL 中是 `openssl list-cipher-algorithms`）将会显示可用的密码算法。
 
-The `key` is the raw key used by the `algorithm` and `iv` is an
-[initialization vector][]. Both arguments must be `'utf8'` encoded strings,
-[Buffers][`Buffer`], `TypedArray`, or `DataView`s. The `key` may optionally be
-a [`KeyObject`][] of type `secret`. If the cipher does not need
-an initialization vector, `iv` may be `null`.
+`key` 是 `algorithm` 使用的原始密钥，`iv` 是[初始化向量][initialization vector]。
+两个参数都必须是 `'utf8'` 编码的字符串、[Buffer][`Buffer`]、`TypedArray` 或 `DataView`。
+`key` 可以是 `secret` 类型的 [`KeyObject`]。
+如果密码不需要初始化向量，则 `iv` 可以为 `null`。
 
-Initialization vectors should be unpredictable and unique; ideally, they will be
-cryptographically random. They do not have to be secret: IVs are typically just
-added to ciphertext messages unencrypted. It may sound contradictory that
-something has to be unpredictable and unique, but does not have to be secret;
-it is important to remember that an attacker must not be able to predict ahead
-of time what a given IV will be.
+初始化向量应该是不可预测的且唯一的，理想情况下，它们在密码上是随机的。
+它们不必是私密的：IV 通常只是添加到未加密的密文消息中。
+它们必须是不可预测的且唯一的，但不一定是私密的，这听起来似乎是矛盾的。
+重要的是要记住，攻击者必须无法提前预测给定的 IV 将会是什么。
 

@@ -23,7 +23,7 @@ const password = '用于生成密钥的密码';
 // 密钥长度取决于算法。 
 // 在此示例中，对于 aes192，它是 24 个字节（192 位）。
 // 改为使用异步的 `crypto.scrypt()`。
-const key = crypto.scryptSync(password, 'salt', 24);
+const key = crypto.scryptSync(password, '盐值', 24);
 // IV 通常与密文一起传递。
 const iv = Buffer.alloc(16, 0); // 初始化向量。
 
@@ -42,7 +42,7 @@ decipher.on('end', () => {
 
 // 使用相同的算法、密钥和 iv 进行加密。
 const encrypted =
-  '3accbdcaf5574941a9c879da51711ffc2a5a017757fa736eacc579b9088ba712';
+  '9d47959b80d428936beef61216ef0b7653b5d23a670e082bd739f6cebcb6038f';
 decipher.write(encrypted, 'hex');
 decipher.end();
 ```
@@ -56,7 +56,7 @@ const fs = require('fs');
 const algorithm = 'aes-192-cbc';
 const password = '用于生成密钥的密码';
 // 改为使用异步的 `crypto.scrypt()`。
-const key = crypto.scryptSync(password, 'salt', 24);
+const key = crypto.scryptSync(password, '盐值', 24);
 // IV 通常与密文一起传递。
 const iv = Buffer.alloc(16, 0); // 初始化向量。
 
@@ -76,7 +76,7 @@ const crypto = require('crypto');
 const algorithm = 'aes-192-cbc';
 const password = '用于生成密钥的密码';
 // 改为使用异步的 `crypto.scrypt()`。
-const key = crypto.scryptSync(password, 'salt', 24);
+const key = crypto.scryptSync(password, '盐值', 24);
 // IV 通常与密文一起传递。
 const iv = Buffer.alloc(16, 0); // 初始化向量。
 
@@ -84,7 +84,7 @@ const decipher = crypto.createDecipheriv(algorithm, key, iv);
 
 // 使用相同的算法、密钥和 iv 进行加密。
 const encrypted =
-  '3accbdcaf5574941a9c879da51711ffc2a5a017757fa736eacc579b9088ba712';
+  '9d47959b80d428936beef61216ef0b7653b5d23a670e082bd739f6cebcb6038f';
 let decrypted = decipher.update(encrypted, 'hex', 'utf8');
 decrypted += decipher.final('utf8');
 console.log(decrypted);

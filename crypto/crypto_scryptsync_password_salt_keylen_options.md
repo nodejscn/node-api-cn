@@ -14,37 +14,33 @@ changes:
 * `salt` {string|Buffer|TypedArray|DataView}
 * `keylen` {number}
 * `options` {Object}
-  * `cost` {number} CPU/memory cost parameter. Must be a power of two greater
-    than one. **Default:** `16384`.
-  * `blockSize` {number} Block size parameter. **Default:** `8`.
-  * `parallelization` {number} Parallelization parameter. **Default:** `1`.
-  * `N` {number} Alias for `cost`. Only one of both may be specified.
-  * `r` {number} Alias for `blockSize`. Only one of both may be specified.
-  * `p` {number} Alias for `parallelization`. Only one of both may be specified.
-  * `maxmem` {number} Memory upper bound. It is an error when (approximately)
-    `128 * N * r > maxmem`. **Default:** `32 * 1024 * 1024`.
-* Returns: {Buffer}
+  * `cost` {number} CPU 或内存的成本参数。必须是 2 的次方且大于1。**默认值:** `16384`。
+  * `blockSize` {number} 块大小参数。**默认值:** `8`。
+  * `parallelization` {number} 并行化参数。**默认值:** `1`。
+  * `N` {number} `cost` 的别名。只能指定两者之一。
+  * `r` {number} `blockSize` 的别名。只能指定两者之一。
+  * `p` {number} `parallelization` 的别名。只能指定两者之一。
+  * `maxmem` {number} 内存的上限。当（大约） `128 * N * r > maxmem` 时是错误的。**默认值:** `32 * 1024 * 1024`。
+* 返回: {Buffer}
 
-Provides a synchronous [scrypt][] implementation. Scrypt is a password-based
-key derivation function that is designed to be expensive computationally and
-memory-wise in order to make brute-force attacks unrewarding.
+提供同步的 [scrypt] 实现。 
+Scrypt 是一个基于密码的密钥派生函数，被设计为在计算和内存方面都非常高成本，目的是使暴力破解无法成功。
 
-The `salt` should be as unique as possible. It is recommended that a salt is
-random and at least 16 bytes long. See [NIST SP 800-132][] for details.
+`salt` 应尽可能独特。 
+建议盐值是随机的并且至少 16 个字节长。 
+有关详细信息，请参阅 [NIST SP 800-132]。
 
-An exception is thrown when key derivation fails, otherwise the derived key is
-returned as a [`Buffer`][].
+当密钥派生失败时，会抛出异常，否则派生的密钥会作为 [`Buffer`] 返回。
 
-An exception is thrown when any of the input arguments specify invalid values
-or types.
+当任何的输入参数指定了无效的值或类型时，会抛出异常。
 
 ```js
 const crypto = require('crypto');
-// Using the factory defaults.
-const key1 = crypto.scryptSync('secret', 'salt', 64);
-console.log(key1.toString('hex'));  // '3745e48...08d59ae'
-// Using a custom N parameter. Must be a power of two.
-const key2 = crypto.scryptSync('secret', 'salt', 64, { N: 1024 });
-console.log(key2.toString('hex'));  // '3745e48...aa39b34'
+// 使用出厂默认值。
+const key1 = crypto.scryptSync('密码', '盐值', 64);
+console.log(key1.toString('hex'));  // '00d9e09...8a4f15a'
+// 使用自定义的 N 参数。必须是 2 的次方。
+const key2 = crypto.scryptSync('密码', '盐值', 64, { N: 1024 });
+console.log(key2.toString('hex'));  // 'f710b45...f04e377'
 ```
 

@@ -7,13 +7,11 @@ changes:
 -->
 
 * `data` {string | Buffer | TypedArray | DataView}
-* `inputEncoding` {string} The [encoding][] of the `data` string.
+* `inputEncoding` {string} `data` 字符串的[字符编码][encoding]。
 
-Updates the `Hmac` content with the given `data`, the encoding of which
-is given in `inputEncoding`.
-If `encoding` is not provided, and the `data` is a string, an
-encoding of `'utf8'` is enforced. If `data` is a [`Buffer`][], `TypedArray`, or
-`DataView`, then `inputEncoding` is ignored.
+使用给定的 `data` 更新 `Hmac` 的内容，该数据的字符编码在 `inputEncoding` 中给出。
+如果未提供 `encoding`，并且 `data` 是字符串，则强制执行 `'utf8'` 的编码。 
+如果 `data` 是一个 [`Buffer`]、`TypedArray` 或 `DataView`，则 `inputEncoding` 会被忽略。
 
-This can be called many times with new data as it is streamed.
+在流式传输时，可以使用新数据多次调用此方法。
 
