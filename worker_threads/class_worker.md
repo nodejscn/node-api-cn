@@ -2,54 +2,36 @@
 added: v10.5.0
 -->
 
-* Extends: {EventEmitter}
+* 继承自: {EventEmitter}
 
-The `Worker` class represents an independent JavaScript execution thread.
-Most Node.js APIs are available inside of it.
+`Worker` 类代表一个独立的 JavaScript 执行线程。
+大多数 Node.js API 都在其中可用。
 
-Notable differences inside a Worker environment are:
+工作线程环境中的显着差异是：
 
-* The [`process.stdin`][], [`process.stdout`][] and [`process.stderr`][]
-  may be redirected by the parent thread.
-* The [`require('worker_threads').isMainThread`][] property is set to `false`.
-* The [`require('worker_threads').parentPort`][] message port is available.
-* [`process.exit()`][] does not stop the whole program, just the single thread,
-  and [`process.abort()`][] is not available.
-* [`process.chdir()`][] and `process` methods that set group or user ids
-  are not available.
-* [`process.env`][] is a copy of the parent thread's environment variables,
-  unless otherwise specified. Changes to one copy will not be visible in other
-  threads, and will not be visible to native add-ons (unless
-  [`worker.SHARE_ENV`][] has been passed as the `env` option to the
-  [`Worker`][] constructor).
-* [`process.title`][] cannot be modified.
-* Signals will not be delivered through [`process.on('...')`][Signals events].
-* Execution may stop at any point as a result of [`worker.terminate()`][]
-  being invoked.
-* IPC channels from parent processes are not accessible.
-* The [`trace_events`][] module is not supported.
-* Native add-ons can only be loaded from multiple threads if they fulfill
-  [certain conditions][Addons worker support].
+* 父线程可以重定向 [`process.stdin`]、[`process.stdout`] 和 [`process.stderr`]。
+* [`require('worker_threads').isMainThread`] 属性被设置为 `false`。
+* [`require('worker_threads').parentPort`] 消息端口可用。
+* [`process.exit()`] 不会停止整个程序，仅停止单个线程，且 [`process.abort()`] 不可用。
+* [`process.chdir()`] 和设置群组或用户标识的 `process` 方法不可用。
+* [`process.env`] 是父线程的环境变量的副本，除非另外指定。
+  对一个副本的更改将会在其他线程中不可见，并且对原生插件也不可见（除非 [`worker.SHARE_ENV`] 作为 `env` 选项传给 [`Worker`] 的构造函数）。
+* [`process.title`] 无法被修改。
+* 信号将不会通过 [`process.on('...')`][Signals events] 传递。
+* 调用 [`worker.terminate()`] 可能会随时停止执行。
+* 无法访问父进程的 IPC 通道。
+* 不支持 [`trace_events`] 模块。
+* 如果原生插件满足[特定条件][Addons worker support]，则只能从多个线程中加载它们。
 
-Creating `Worker` instances inside of other `Worker`s is possible.
+可以在其他 `Worker` 实例中创建 `Worker` 实例。
 
-Like [Web Workers][] and the [`cluster` module][], two-way communication can be
-achieved through inter-thread message passing. Internally, a `Worker` has a
-built-in pair of [`MessagePort`][]s that are already associated with each other
-when the `Worker` is created. While the `MessagePort` object on the parent side
-is not directly exposed, its functionalities are exposed through
-[`worker.postMessage()`][] and the [`worker.on('message')`][] event
-on the `Worker` object for the parent thread.
+与 [Web 工作线程][Web Workers]和 [`cluster` 模块][`cluster` module]一样，可以通过线程间的消息传递来实现双向通信。 
+在内部，一个 `Worker` 具有一对内置的 [`MessagePort`]，在创建该 `Worker` 时它们已经相互关联。 
+虽然父端的 `MessagePort` 对象没有直接公开，但其功能是通过父线程的 `Worker` 对象上的 [`worker.postMessage()`] 和 [`worker.on('message')`] 事件公开的。
 
-To create custom messaging channels (which is encouraged over using the default
-global channel because it facilitates separation of concerns), users can create
-a `MessageChannel` object on either thread and pass one of the
-`MessagePort`s on that `MessageChannel` to the other thread through a
-pre-existing channel, such as the global one.
+要创建自定义的消息传递通道（建议使用默认的全局通道，因为这样可以促进关联点的分离），用户可以在任一线程上创建一个 `MessageChannel` 对象，并将该 `MessageChannel` 上的 `MessagePort` 中的一个通过预先存在的通道传给另一个线程，例如全局的通道。
 
-See [`port.postMessage()`][] for more information on how messages are passed,
-and what kind of JavaScript values can be successfully transported through
-the thread barrier.
+有关如何传递消息以及可以通过线程屏障成功地传输哪类 JavaScript 值的更多信息，请参阅 [`port.postMessage()`]。
 
 ```js
 const assert = require('assert');
@@ -61,12 +43,12 @@ if (isMainThread) {
   const subChannel = new MessageChannel();
   worker.postMessage({ hereIsYourPort: subChannel.port1 }, [subChannel.port1]);
   subChannel.port2.on('message', (value) => {
-    console.log('received:', value);
+    console.log('接收到:', value);
   });
 } else {
   parentPort.once('message', (value) => {
     assert(value.hereIsYourPort instanceof MessagePort);
-    value.hereIsYourPort.postMessage('the worker is sending this');
+    value.hereIsYourPort.postMessage('工作线程正在发送此消息');
     value.hereIsYourPort.close();
   });
 }

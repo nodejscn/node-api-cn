@@ -1,22 +1,21 @@
 
 <!--introduced_in=v10.5.0-->
 
-> Stability: 2 - Stable
+> 稳定性: 2 - 稳定
 
-The `worker_threads` module enables the use of threads that execute JavaScript
-in parallel. To access it:
+`worker_threads` 模块允许使用并行地执行 JavaScript 的线程。 
+要访问它：
 
 ```js
 const worker = require('worker_threads');
 ```
 
-Workers (threads) are useful for performing CPU-intensive JavaScript operations.
-They will not help much with I/O-intensive work. Node.js’s built-in asynchronous
-I/O operations are more efficient than Workers can be.
+工作线程对于执行 CPU 密集型的 JavaScript 操作非常有用。 
+它们在 I/O 密集型的工作中用途不大。 
+Node.js 的内置的异步 I/O 操作比工作线程效率更高。
 
-Unlike `child_process` or `cluster`, `worker_threads` can share memory. They do
-so by transferring `ArrayBuffer` instances or sharing `SharedArrayBuffer`
-instances.
+与 `child_process` 或 `cluster` 不同，`worker_threads` 可以共享内存。 
+它们通过传输 `ArrayBuffer` 实例或共享 `SharedArrayBuffer` 实例来实现。
 
 ```js
 const {
@@ -33,22 +32,20 @@ if (isMainThread) {
       worker.on('error', reject);
       worker.on('exit', (code) => {
         if (code !== 0)
-          reject(new Error(`Worker stopped with exit code ${code}`));
+          reject(new Error(`工作线程使用退出码 ${code} 停止`));
       });
     });
   };
 } else {
-  const { parse } = require('some-js-parsing-library');
+  const { parse } = require('一些 js 解析库');
   const script = workerData;
   parentPort.postMessage(parse(script));
 }
 ```
 
-The above example spawns a Worker thread for each `parse()` call. In actual
-practice, use a pool of Workers instead for these kinds of tasks. Otherwise, the
-overhead of creating Workers would likely exceed their benefit.
+上面的示例为每个 `parse()` 调用衍生一个工作线程。 
+在实际的实践中，应使用工作线程池代替这些任务。 
+否则，创建工作线程的开销可能会超出其收益。
 
-When implementing a worker pool, use the [`AsyncResource`][] API to inform
-diagnostic tools (e.g. in order to provide asynchronous stack traces) about the
-correlation between tasks and their outcomes.
+当实现工作线程池时，可使用 [`AsyncResource`] API 来通知诊断的工具（例如为了提供异步的堆栈跟踪）有关任务及其结果之间的相关性。
 
