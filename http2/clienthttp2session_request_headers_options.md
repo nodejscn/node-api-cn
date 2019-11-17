@@ -4,29 +4,19 @@ added: v8.4.0
 
 * `headers` {HTTP/2 Headers Object}
 * `options` {Object}
-  * `endStream` {boolean} `true` if the `Http2Stream` *writable* side should
-    be closed initially, such as when sending a `GET` request that should not
-    expect a payload body.
-  * `exclusive` {boolean} When `true` and `parent` identifies a parent Stream,
-    the created stream is made the sole direct dependency of the parent, with
-    all other existing dependents made a dependent of the newly created stream.
-    **Default:** `false`.
-  * `parent` {number} Specifies the numeric identifier of a stream the newly
-    created stream is dependent on.
-  * `weight` {number} Specifies the relative dependency of a stream in relation
-    to other streams with the same `parent`. The value is a number between `1`
-    and `256` (inclusive).
-  * `waitForTrailers` {boolean} When `true`, the `Http2Stream` will emit the
-    `'wantTrailers'` event after the final `DATA` frame has been sent.
+  * `endStream` {boolean} 如果 `Http2Stream` 可写端初始应该被关闭（例如，当发送不应期望有效载荷主体的 `GET` 请求时），则为 `true`。
+  * `exclusive` {boolean} 当为 `true` 且 `parent` 标识一个父流时，则会使创建的流成为父流的唯一直接的依赖，而所有其他现有的依赖会成为新创建的流的依赖。 
+     **默认值:** `false`。
+  * `parent` {number} 指定新创建的流所依赖的流的数字标识符。
+  * `weight` {number} 指定流相对于具有相同 `parent` 的其他流的相对依赖性。 
+     该值是一个介于 `1` 到 `256`（含）之间的数字。
+  * `waitForTrailers` {boolean} 当为 `true` 时，在发送完最后的 `DATA` 帧之后，`Http2Stream` 将会触发 `'wantTrailers'` 事件。
 
-* Returns: {ClientHttp2Stream}
+* 返回: {ClientHttp2Stream}
 
-For HTTP/2 Client `Http2Session` instances only, the `http2session.request()`
-creates and returns an `Http2Stream` instance that can be used to send an
-HTTP/2 request to the connected server.
+仅用于 HTTP/2 客户端的 `Http2Session` 实例，`http2session.request()` 会创建并返回一个 `Http2Stream` 实例，该实例可用于将 HTTP/2 请求发送到连接的服务器。
 
-This method is only available if `http2session.type` is equal to
-`http2.constants.NGHTTP2_SESSION_CLIENT`.
+仅当 `http2session.type` 等于 `http2.constants.NGHTTP2_SESSION_CLIENT` 时，此方法才可用。
 
 ```js
 const http2 = require('http2');
@@ -44,18 +34,13 @@ req.on('response', (headers) => {
 });
 ```
 
-When the `options.waitForTrailers` option is set, the `'wantTrailers'` event
-is emitted immediately after queuing the last chunk of payload data to be sent.
-The `http2stream.sendTrailers()` method can then be called to send trailing
-headers to the peer.
+当设置了 `options.waitForTrailers` 选项时，在排队要发送的最后一块有效载荷数据之后，会立即触发 `'wantTrailers'` 事件。 
+然后可以调用 `http2stream.sendTrailers()` 方法将尾部消息头发送到对等方。
 
-When `options.waitForTrailers` is set, the `Http2Stream` will not automatically
-close when the final `DATA` frame is transmitted. User code must call either
-`http2stream.sendTrailers()` or `http2stream.close()` to close the
-`Http2Stream`.
+当设置了 `options.waitForTrailers` 时，在发送最终的 `DATA` 帧时 `Http2Stream` 将不会自动地关闭。 
+用户代码必须调用 `http2stream.sendTrailers()` 或 `http2stream.close()` 来关闭 `Http2Stream`。
 
-The `:method` and `:path` pseudo-headers are not specified within `headers`,
-they respectively default to:
+`headers` 中未指定 `:method` 和 `:path` 伪消息头，它们分别默认为：
 
 * `:method` = `'GET'`
 * `:path` = `/`

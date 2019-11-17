@@ -1,10 +1,8 @@
 
-The Core API provides a low-level interface designed specifically around
-support for HTTP/2 protocol features. It is specifically *not* designed for
-compatibility with the existing [HTTP/1][] module API. However,
-the [Compatibility API][] is.
+核心 API 提供了专门针对支持 HTTP/2 协议的特性而设计的底层接口。 
+它不是专门设计为与现有的 [HTTP/1] 模块 API 兼容。 
+当然，也有[兼容的 API][Compatibility API]。
 
-The `http2` Core API is much more symmetric between client and server than the
-`http` API. For instance, most events, like `'error'`, `'connect'` and
-`'stream'`, can be emitted either by client-side code or server-side code.
+`http2` 核心 API 在客户端和服务器之间比 `http` API 更加对称。 
+例如，大多数事件，比如 `'error'`、`'connect'` 和 `'stream'`，都可以由客户端代码或服务器端代码触发。
 

@@ -2,5 +2,5 @@
 added: v8.4.0
 -->
 
-* Extends: {Http2Session}
+* 继承自: {Http2Session}
 
