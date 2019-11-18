@@ -4,7 +4,7 @@ added: v12.12.0
 
 * 返回: {fs.Dirent|null}
 
-通过 readdir(3) 异步地读取下一个目录项作为 [`fs.Dirent`]。
+通过 readdir(3) 同步地读取下一个目录项作为 [`fs.Dirent`]。
 
 如果没有更多的目录项要读取，则将会返回 `null`。
 
