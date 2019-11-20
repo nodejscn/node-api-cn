@@ -2,8 +2,8 @@
 added: v0.1.99
 -->
 
-* `type` {string} - `'udp4'` 或 `'udp6'`。
-* `callback` {Function} - 为 `'message'` 事件添加一个监听器。
+* `type` {string} `'udp4'` 或 `'udp6'`。
+* `callback` {Function} 为 `'message'` 事件添加一个监听器。
 * 返回: {dgram.Socket}
 
 创建一个特定 `type` 的 `dgram.Socket` 对象。

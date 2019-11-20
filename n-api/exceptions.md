@@ -23,11 +23,11 @@ When an exception is pending one of two approaches can be employed.
 
 The first approach is to do any appropriate cleanup and then return so that
 execution will return to JavaScript. As part of the transition back to
-JavaScript the exception will be thrown at the point in the JavaScript
+JavaScript, the exception will be thrown at the point in the JavaScript
 code where the native method was invoked. The behavior of most N-API calls
 is unspecified while an exception is pending, and many will simply return
-`napi_pending_exception`, so it is important to do as little as possible
-and then return to JavaScript where the exception can be handled.
+`napi_pending_exception`, so do as little as possible and then return to
+JavaScript where the exception can be handled.
 
 The second approach is to try to handle the exception. There will be cases
 where the native code can catch the exception, take the appropriate action,

@@ -22,9 +22,9 @@ Upon creation of a `napi_threadsafe_function` a `napi_finalize` callback can be
 provided. This callback will be invoked on the main thread when the thread-safe
 function is about to be destroyed. It receives the context and the finalize data
 given during construction, and provides an opportunity for cleaning up after the
-threads e.g. by calling `uv_thread_join()`. **It is important that, aside from
-the main loop thread, there be no threads left using the thread-safe function
-after the finalize callback completes.**
+threads e.g. by calling `uv_thread_join()`. **Aside from the main loop thread,
+no threads should be using the thread-safe function after the finalize callback
+completes.**
 
 The `context` given during the call to `napi_create_threadsafe_function()` can
 be retrieved from any thread with a call to
@@ -69,13 +69,13 @@ existing thread will stop making use of the thread-safe function.
 the object has called `napi_release_threadsafe_function()` or has received a
 return status of `napi_closing` in response to a call to
 `napi_call_threadsafe_function`. The queue is emptied before the
-`napi_threadsafe_function` is destroyed. It is important that
-`napi_release_threadsafe_function()` be the last API call made in conjunction
-with a given `napi_threadsafe_function`, because after the call completes, there
-is no guarantee that the `napi_threadsafe_function` is still allocated. For the
-same reason it is also important that no more use be made of a thread-safe
-function after receiving a return value of `napi_closing` in response to a call
-to `napi_call_threadsafe_function`. Data associated with the
+`napi_threadsafe_function` is destroyed. `napi_release_threadsafe_function()`
+should be the last API call made in conjunction with a given
+`napi_threadsafe_function`, because after the call completes, there is no
+guarantee that the `napi_threadsafe_function` is still allocated. For the same
+reason, do not make use of a thread-safe function
+after receiving a return value of `napi_closing` in response to a call to
+`napi_call_threadsafe_function`. Data associated with the
 `napi_threadsafe_function` can be freed in its `napi_finalize` callback which
 was passed to `napi_create_threadsafe_function()`.
 

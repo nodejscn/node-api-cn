@@ -1,4 +1,3 @@
-<!--lint enable maximum-line-length remark-lint-->
 
 <table>
   <tr>

@@ -22,5 +22,3 @@ that points to its own memory allocated by a native module). Registering
 externally allocated memory will trigger global garbage collections more
 often than it would otherwise.
 
-<!-- it's very convenient to have all the anchors indexed -->
-<!--lint disable no-unused-definitions remark-lint-->

@@ -4,7 +4,7 @@
 
 在 Unix 上，本地域也称为 Unix 域。
 参数 `path` 是文件系统路径名。
-它被从 `sizeof(sockaddr_un.sun_path) - 1` 处被截断，其长度因操作系统不同而在 91 至 107 字节之间变化。
+它被截断为 `sizeof(sockaddr_un.sun_path) - 1` 的长度，该长度因操作系统而异，在 91 至 107 字节之间。
 典型值在 Linux 上为 107，在 macOS 上为 103。
 该路径受到与创建文件相同的命名约定和权限检查。
 如果创建 Unix 域套接字（作为文件系统路径可见）并与 Node.js 的 API 抽象之一（例如 [`net.createServer()`]）一起使用，则它将作为 [`server.close()`] 的一部分取消链接。 

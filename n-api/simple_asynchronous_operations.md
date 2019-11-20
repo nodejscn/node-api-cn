@@ -2,8 +2,7 @@
 Addon modules often need to leverage async helpers from libuv as part of their
 implementation. This allows them to schedule work to be executed asynchronously
 so that their methods can return in advance of the work being completed. This
-is important in order to allow them to avoid blocking overall execution
-of the Node.js application.
+allows them to avoid blocking overall execution of the Node.js application.
 
 N-API provides an ABI-stable interface for these
 supporting functions which covers the most common asynchronous use cases.

@@ -18,15 +18,13 @@ attributes listed in [Section 6.1.7.1][]
 of the [ECMAScript Language Specification][].
 They can be one or more of the following bitflags:
 
-* `napi_default` - Used to indicate that no explicit attributes are set on the
-given property. By default, a property is read only, not enumerable and not
-configurable.
-* `napi_writable` - Used to indicate that a given property is writable.
-* `napi_enumerable` - Used to indicate that a given property is enumerable.
-* `napi_configurable` - Used to indicate that a given property is configurable,
-as defined in [Section 6.1.7.1][] of the [ECMAScript Language Specification][].
-* `napi_static` - Used to indicate that the property will be defined as
-a static property on a class as opposed to an instance property, which is the
-default. This is used only by [`napi_define_class`][]. It is ignored by
-`napi_define_properties`.
+* `napi_default`: No explicit attributes are set on the property. By default, a
+  property is read only, not enumerable and not configurable.
+* `napi_writable`: The property is writable.
+* `napi_enumerable`: The property is enumerable.
+* `napi_configurable`: The property is configurable as defined in
+  [Section 6.1.7.1][] of the [ECMAScript Language Specification][].
+* `napi_static`: The property will be defined as a static property on a class as
+  opposed to an instance property, which is the default. This is used only by
+  [`napi_define_class`][]. It is ignored by `napi_define_properties`.
 

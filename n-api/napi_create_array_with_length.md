@@ -18,9 +18,8 @@ Returns `napi_ok` if the API succeeded.
 This API returns an N-API value corresponding to a JavaScript `Array` type.
 The `Array`'s length property is set to the passed-in length parameter.
 However, the underlying buffer is not guaranteed to be pre-allocated by the VM
-when the array is created - that behavior is left to the underlying VM
-implementation.
-If the buffer must be a contiguous block of memory that can be
+when the array is created. That behavior is left to the underlying VM
+implementation. If the buffer must be a contiguous block of memory that can be
 directly read and/or written via C, consider using
 [`napi_create_external_arraybuffer`][].
 

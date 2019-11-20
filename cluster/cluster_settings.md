@@ -27,7 +27,7 @@ changes:
   * `inspectPort` {number|Function} 设置工作进程的检查端口。这可以是一个数字、或不带参数并返回数字的函数。默认情况下，每个工作进程都有自己的端口，从主进程的 `process.debugPort` 开始递增。
   * `windowsHide` {boolean} 隐藏衍生的进程的控制台窗口（通常在 Windows 系统上会创建）。**默认值:** `false`。
 
-调用 `.setupMaster()`（或 `.fork()`）之后，这个配置对象将会包含这些配置项，包括默认值。
+调用 [`.setupMaster()`]（或 [`.fork()`]）之后，这个配置对象将会包含这些配置项，包括默认值。
 
 这个对象不打算被修改或手动设置。
 

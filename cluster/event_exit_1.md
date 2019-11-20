@@ -8,7 +8,7 @@ added: v0.7.9
 
 当任何一个工作进程关闭的时候，cluster 模块都将会触发 `'exit'` 事件。
 
-这可以用于重启工作进程（通过再次调用 `.fork()`）。
+这可以用于重启工作进程（通过再次调用 [`.fork()`]）。
 
 ```js
 cluster.on('exit', (worker, code, signal) => {

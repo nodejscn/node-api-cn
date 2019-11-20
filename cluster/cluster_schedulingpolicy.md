@@ -4,7 +4,7 @@ added: v0.11.2
 
 
 调度策略，包括循环计数的 `cluster.SCHED_RR`，以及由操作系统决定的 `cluster.SCHED_NONE`。
-这是一个全局设置，当第一个工作进程被衍生或者调用 `cluster.setupMaster()` 时，都将第一时间生效。
+这是一个全局设置，当第一个工作进程被衍生或者调用 [`.setupMaster()`] 时，都将第一时间生效。
 
 除 Windows 外的所有操作系统中，`SCHED_RR` 都是默认设置。
 只要 libuv 可以有效地分发 IOCP 句柄，而不会导致严重的性能冲击的话，Windows 系统也会更改为 `SCHED_RR`。

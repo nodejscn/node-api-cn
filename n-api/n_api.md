@@ -13,11 +13,10 @@ changes in the underlying JavaScript engine and allow modules
 compiled for one major version to run on later major versions of Node.js without
 recompilation. The [ABI Stability][] guide provides a more in-depth explanation.
 
-Addons are built/packaged with the same approach/tools
-outlined in the section titled [C++ Addons](addons.html).
-The only difference is the set of APIs that are used by the native code.
-Instead of using the V8 or [Native Abstractions for Node.js][] APIs,
-the functions available in the N-API are used.
+Addons are built/packaged with the same approach/tools outlined in the section
+titled [C++ Addons][]. The only difference is the set of APIs that are used by
+the native code. Instead of using the V8 or [Native Abstractions for Node.js][]
+APIs, the functions available in the N-API are used.
 
 APIs exposed by N-API are generally used to create and manipulate
 JavaScript values. Concepts and operations generally map to ideas specified
@@ -75,7 +74,6 @@ if (status != napi_ok) {
 The end result is that the addon only uses the exported C APIs. As a result,
 it still gets the benefits of the ABI stability provided by the C API.
 
-When using `node-addon-api` instead of the C APIs, start with the API
-[docs](https://github.com/nodejs/node-addon-api#api-documentation)
+When using `node-addon-api` instead of the C APIs, start with the API [docs][]
 for `node-addon-api`.
 

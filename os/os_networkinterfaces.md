@@ -4,20 +4,20 @@ added: v0.6.0
 
 * 返回: {Object}
 
-`os.networkInterfaces()` 方法返回一个对象，包含只有被赋予网络地址的网络接口。
+返回一个对象，该对象包含已分配了网络地址的网络接口。
 
-在返回对象的每个关键词都指明了一个网络接口。
-返回的值是一个对象数组，每个都描述了赋予的网络地址。
+返回的对象上的每个键都标识了一个网络接口。
+关联的值是一个对象数组，每个对象描述了一个分配的网络地址。
 
-被赋予网络地址的对象包含的属性：
+分配的网络地址的对象上可用的属性包括：
 
-* `address` {string} 被赋予的 IPv4 或 IPv6 地址。
-* `netmask` {string}  IPv4 或 IPv6 子网掩码。
+* `address` {string} 分配的 IPv4 或 IPv6 地址。
+* `netmask` {string}  IPv4 或 IPv6 的子网掩码。
 * `family` {string}  `IPv4` 或 `IPv6`。
 * `mac` {string} 网络接口的 MAC 地址。
-* `internal` {boolean} 如果网络接口是 loopback 或相似的远程不能用的接口时，值为 `true`，否则为 `false`。
-* `scopeid` {number} IPv6 数字领域识别码（只有当 `family` 是 `IPv6` 时可用）。
-* `cidr` {string} 以 CIDR 表示法分配的带有路由前缀的 IPv4 或 IPv6 地址。如果 `netmask` 参数不可用，则该属性是 `null`。
+* `internal` {boolean} 如果网络接口是不可远程访问的环回接口或类似接口，则为 `true`，否则为 `false`。
+* `scopeid` {number} 数值型的 IPv6 作用域 ID（仅当 `family` 为 `IPv6` 时指定）。
+* `cidr` {string} 以 CIDR 表示法分配的带有路由前缀的 IPv4 或 IPv6 地址。如果 `netmask` 无效，则此属性会被设为 `null`。
 
 <!-- eslint-skip -->
 ```js

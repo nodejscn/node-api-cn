@@ -11,9 +11,9 @@ changes:
 `setupMaster` 用于修改默认的 'fork' 行为。
 一旦调用，将会按照 `cluster.settings` 进行设置。
 
-所有的设置只对后来的 `.fork()` 调用有效，对之前的工作进程无影响。
+所有的设置只对后来的 [`.fork()`] 调用有效，对之前的工作进程无影响。
 
-唯一无法通过 `.setupMaster()` 设置的属性是传给 `.fork()` 的 `env` 属性。
+唯一无法通过 `.setupMaster()` 设置的属性是传给 [`.fork()`] 的 `env` 属性。
 
 上述的默认值只在第一次调用时有效，当后续调用时，将采用 `cluster.setupMaster()` 调用时的当前值。
 

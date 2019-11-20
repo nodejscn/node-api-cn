@@ -1,4 +1,4 @@
-<!--lint disable maximum-line-length-->
+
 <table>
   <tr>
     <th>Constant</th>
