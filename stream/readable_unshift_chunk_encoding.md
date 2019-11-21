@@ -11,7 +11,8 @@ changes:
 	对于对象模式的流，`chunk` 可以是任何 JavaScript 值。
 * `encoding` {string} 字符串块的编码。 必须是有效的 `Buffer` 编码，例如 `'utf8'` 或 `'ascii'`。
 
-将 `chunk` 作为 `null` 传递信号表示流的末尾（EOF），之后不能再写入数据。
+将 `chunk` 作为 `null` 传递信号表示流的末尾（EOF），其行为与 `readable.push(null)` 相同，之后不能再写入数据。
+EOF 信号会被放在 buffer 的末尾，任何缓冲的数据仍将会被刷新。
 
 `readable.unshift()` 方法将数据块推回内部缓冲。
 可用于以下情景：正被消费中的流需要将一些已经被拉出的数据重置为未消费状态，以便这些数据可以传给其他方。

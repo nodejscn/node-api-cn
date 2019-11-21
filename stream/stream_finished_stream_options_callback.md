@@ -51,7 +51,7 @@ rs.resume(); // 排空流。
 如果这是不想要的行为，则需要在回调中调用返回的清理函数：
 
 ```js
-const cleanup = finished(...streams, (err) => {
+const cleanup = finished(rs, (err) => {
   cleanup();
   // ...
 });

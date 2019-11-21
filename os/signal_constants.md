@@ -5,7 +5,7 @@ changes:
     description: Added support for `SIGINFO`.
 -->
 
-下面的信号常量由 `os.constants.signals` 导出：
+下面的信号常量由 `os.constants.signals` 导出。
 
 <table>
   <tr>

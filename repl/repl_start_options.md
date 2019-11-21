@@ -35,9 +35,9 @@ changes:
     详见 [`readline.InterfaceCompleter`]。
   * `replMode` {symbol} 一个标志位，指定默认的解释器使用严格模式或默认（sloppy）模式来执行 JavaScript 命令。
     可选的值有：
-    * `repl.REPL_MODE_SLOPPY` - 使用默认模式解释表达式。
-    * `repl.REPL_MODE_STRICT` - 使用严格模式解释表达式。该模式等同于在每个 repl 声明前加上 `'use strict'`。
-  * `breakEvalOnSigint` - 当接收到 `SIGINT` 时停止解释当前代码，比如按下 `Ctrl+C`。
+    * `repl.REPL_MODE_SLOPPY` 要使用默认模式解释表达式。
+    * `repl.REPL_MODE_STRICT` 要使用严格模式解释表达式。该模式等同于在每个 repl 声明前加上 `'use strict'`。
+  * `breakEvalOnSigint` {boolean} 当接收到 `SIGINT` 时停止解释当前代码，比如当按下 `Ctrl+C`。
     不能与自定义的 `eval` 函数同时使用。
     **默认值:** `false`。
 * 返回: {repl.REPLServer}

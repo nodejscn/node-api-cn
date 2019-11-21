@@ -2,7 +2,7 @@
 added: v10.10.0
 -->
 
-以下进程调度常量由 `os.constants.priority` 导出：
+以下进程调度常量由 `os.constants.priority` 导出。
 
 <table>
   <tr>

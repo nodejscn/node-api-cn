@@ -1,7 +1,7 @@
 
 * `chunk` {Buffer|string|any} 要转换的 `Buffer`，从传给 [`stream.write()`][stream-write] 的 `string` 转换而来。 
    如果流的 `decodeStrings` 选项为 `false` 或者流在对象模式下运行，则数据块将不会被转换，并且将是传给 [`stream.write()`][stream-write] 的任何内容。
-* `encoding` {string} 如果数据块是一个字符串，则这是编码类型。 如果数据块是一个 buffer，则为特殊值 `'buffer'`，在这种情况下忽略它。
+* `encoding` {string} 如果数据块是一个字符串，则这是编码类型。 如果数据块是一个 buffer，则为特殊值 `'buffer'`。在这种情况下忽略它。
 * `callback` {Function} 当 `chunk` 处理完成时的回调函数。
 
 该函数不能被应用程序代码直接调用。

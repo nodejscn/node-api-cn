@@ -26,7 +26,7 @@
   </tr>
   <tr>
     <td><code>EAGAIN</code></td>
-    <td>表明当前没有可用数据,稍后再次尝试操作。</td>
+    <td>表明没有可用数据,稍后再次尝试操作。</td>
   </tr>
   <tr>
     <td><code>EALREADY</code></td>

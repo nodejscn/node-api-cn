@@ -23,7 +23,7 @@ console.log(request.headers);
 * 重复的 `age`、`authorization`、`content-length`、`content-type`、
 `etag`、`expires`、`from`、`host`、`if-modified-since`、`if-unmodified-since`、 
 `last-modified`、`location`、`max-forwards`、`proxy-authorization`、`referer`、
-`retry-after` 或 `user-agent` 会被丢弃。
+`retry-after`、`server` 或 `user-agent` 会被丢弃。
 * `set-cookie` 始终是一个数组。重复项都会添加到数组中。
 * 对于重复的 `cookie` 消息头，其值会使用与 '; ' 连接到一起。
 * 对于所有其他消息头，其值会使用 ', ' 连接到一起。

@@ -1,5 +1,5 @@
 
-下面的错误码与 Windows 系统相关：
+下面的错误码与 Windows 系统相关。
 
 <table>
   <tr>

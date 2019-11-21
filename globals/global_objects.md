@@ -13,5 +13,5 @@
 - [`require()`]
 
 此处列出的对象特定于 Node.js。 
-有许多[内置对象][built-in objects]是 JavaScript 语言本身的一部分，它们也是全局可访问的。
+有些[内置对象][built-in objects]是 JavaScript 语言本身的一部分，它们也是全局可访问的。
 
