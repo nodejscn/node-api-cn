@@ -1,13 +1,13 @@
 
 
-遗留模式在以下方法中使用[抽象的相等性比较][Abstract Equality Comparison]：
+传统模式在以下方法中使用[抽象的相等性比较][Abstract Equality Comparison]：
 
 * [`assert.deepEqual()`][]
 * [`assert.equal()`][]
 * [`assert.notDeepEqual()`][]
 * [`assert.notEqual()`][]
 
-使用遗留模式：
+使用传统模式：
 
 ```js
 const assert = require('assert');
