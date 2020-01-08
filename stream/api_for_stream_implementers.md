@@ -37,3 +37,7 @@ class MyWritable extends Writable {
 流的实现代码应永远不要调用旨在供消费者使用的公共方法（详见[用于消费流的API][API for Stream Consumers]）。
 这样做可能会导致消费流的应用程序代码产生不利的副作用。
 
+避免重写诸如 `write()`、`end()`、`cork()`、`uncork()`、`read()` 和 `destroy()` 之类的公共方法，或通过 `.emit()` 触发诸如 `'error'`、`'data'`、`'end'`、`'finish'` 和 `'close'` 之类的内部事件。 
+这样做会破坏当前和未来的流的不变量，从而导致与其他流、流的实用工具、以及用户期望的行为和/或兼容性问题。
+
+

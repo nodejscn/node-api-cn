@@ -39,7 +39,9 @@ changes:
 对于这两种类型，可用 `options` 包括：
 
 * `onread` {Object} 如果指定，则传入的数据会存储在单个 `buffer` 中，并在数据到达套接字时传给提供的 `callback`。 
-   这将会导致流式的功能不会提供任何数据，但 `'error'`、`'end'` 和 `'close'` 等事件仍将会被正常触发，且 `pause()` 和 `resume()` 等方法也将会按预期运行。
+   这将会导致流式的功能不会提供任何数据。
+   该套接字将会正常触发 `'error'`、`'end'` 和 `'close'` 之类的事件。 
+   诸如 `pause()` 和 `resume()` 之类的方法也将会按预期运行。
   * `buffer` {Buffer|Uint8Array|Function} 用于存储传入数据的可复用的内存块、或返回此类数据的函数。
   * `callback` {Function} 为每个传入的数据块调用此函数。有两个参数传给它：写入 `buffer` 的字节数和对 `buffer` 的引用。从此函数返回 `false` 可以隐式地 `pause()` 套接字。该函数将会在全局的上下文中执行。
 

@@ -18,4 +18,6 @@ To start debugging, open the following URL in Chrome:
 
 如果 Chrome 浏览器的版本低于 66.0.3345.0，请在上述网址中使用 `inspector.html` 而不是 `js_app.html`。
 
+Chrome DevTools 目前还不支持调试[工作线程][Worker Threads]。 
+可以使用 [ndb] 调试它们。
 

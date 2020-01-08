@@ -24,6 +24,7 @@ changes:
   * `host` {string} 请求发送至的服务器的域名或 IP 地址。**默认值:** `'localhost'`。
   * `hostname` {string} `host` 的别名。为了支持 [`url.parse()`]，如果同时指定 `host` 和 `hostname`，则使用 `hostname`。
   * `localAddress` {string} 为网络连接绑定的本地接口。
+  * `lookup` {Function} 自定义的查找函数。 **默认值:** [`dns.lookup()`]。
   * `method` {string} 一个字符串，指定 HTTP 请求的方法。**默认值:** `'GET'`。
   * `path` {string} 请求的路径。应包括查询字符串（如果有）。例如 `'/index.html?page=12'`。当请求的路径包含非法的字符时，则抛出异常。目前只有空格被拒绝，但未来可能会有所变化。**默认值:** `'/'`。
   * `port` {number} 远程服务器的端口。**默认值:** `defaultPort`（如果有设置）或 `80`。

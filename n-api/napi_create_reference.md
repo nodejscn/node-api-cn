@@ -6,7 +6,7 @@ napiVersion: 1
 ```C
 NAPI_EXTERN napi_status napi_create_reference(napi_env env,
                                               napi_value value,
-                                              int initial_refcount,
+                                              uint32_t initial_refcount,
                                               napi_ref* result);
 ```
 

@@ -142,9 +142,11 @@ assert.throws(
 function throwingFirst() {
   throw new Error('错误一');
 }
+
 function throwingSecond() {
   throw new Error('错误二');
 }
+
 function notThrowing() {}
 
 // 第二个参数是一个字符串，输入函数抛出一个错误。

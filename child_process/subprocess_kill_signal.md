@@ -3,10 +3,12 @@ added: v0.1.90
 -->
 
 * `signal` {number|string}
+* 返回: {boolean}
 
 `subprocess.kill()` 方法会向子进程发送一个信号。
 如果没有给定参数，则进程将会发送 `'SIGTERM'` 信号。
 参阅 signal(7) 了解可用的信号列表。
+如果 kill(2) 成功，则此函数返回 `true`，否则返回 `false`。
 
 ```js
 const { spawn } = require('child_process');

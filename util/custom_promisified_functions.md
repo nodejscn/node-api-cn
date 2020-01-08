@@ -1,6 +1,5 @@
 
-Using the `util.promisify.custom` symbol one can override the return value of
-
+使用 `util.promisify.custom` 符号可以重写 [`util.promisify()`] 的返回值：
 
 ```js
 const util = require('util');
@@ -15,14 +14,12 @@ doSomething[util.promisify.custom] = (foo) => {
 
 const promisified = util.promisify(doSomething);
 console.log(promisified === doSomething[util.promisify.custom]);
-// prints 'true'
+// 打印 'true'
 ```
 
-This can be useful for cases where the original function does not follow the
-standard format of taking an error-first callback as the last argument.
+对于原始函数不遵循将错误优先的回调作为最后一个参数的标准格式的情况，这很有用。
 
-For example, with a function that takes in
-`(foo, onSuccessCallback, onErrorCallback)`:
+例如，使用一个接受 `(foo, onSuccessCallback, onErrorCallback)` 的函数:
 
 ```js
 doSomething[util.promisify.custom] = (foo) => {
@@ -32,6 +29,5 @@ doSomething[util.promisify.custom] = (foo) => {
 };
 ```
 
-If `promisify.custom` is defined but is not a function, `promisify()` will
-throw an error.
+如果定义了 `promisify.custom` 但不是一个函数，则 `promisify()` 将会抛出错误。
 

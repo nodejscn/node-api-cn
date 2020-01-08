@@ -4,12 +4,12 @@ napiVersion: 1
 -->
 
 ```C
-napi_status napi_call_function(napi_env env,
-                               napi_value recv,
-                               napi_value func,
-                               int argc,
-                               const napi_value* argv,
-                               napi_value* result)
+NAPI_EXTERN napi_status napi_call_function(napi_env env,
+                                           napi_value recv,
+                                           napi_value func,
+                                           size_t argc,
+                                           const napi_value* argv,
+                                           napi_value* result);
 ```
 
 * `[in] env`: The environment that the API is invoked under.

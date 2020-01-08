@@ -25,8 +25,8 @@ is provided which returns a `napi_extended_error_info` structure.
 The format of the `napi_extended_error_info` structure is as follows:
 
 <!-- YAML
-added: v10.6.0
-napiVersion: 4
+added: v8.0.0
+napiVersion: 1
 -->
 
 ```C

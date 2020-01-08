@@ -6,13 +6,13 @@ changes:
     description: The class is now available on the global object.
 -->
 
-An implementation of the [WHATWG Encoding Standard][] `TextEncoder` API. All
-instances of `TextEncoder` only support UTF-8 encoding.
+[WHATWG 编码标准][WHATWG Encoding Standard] 的 `TextEncoder` API 的实现。 
+`TextEncoder` 的所有实例仅支持 UTF-8 编码。
 
 ```js
 const encoder = new TextEncoder();
-const uint8array = encoder.encode('this is some data');
+const uint8array = encoder.encode('这是一些数据');
 ```
 
-The `TextEncoder` class is also available on the global object.
+`TextEncoder` 类在全局对象上也可用。
 
