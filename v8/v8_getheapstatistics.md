@@ -8,6 +8,10 @@ changes:
   - version: v7.5.0
     pr-url: https://github.com/nodejs/node/pull/10186
     description: Support values exceeding the 32-bit unsigned integer range.
+
+  - version: v12.4.0
+    pr-url: https://github.com/nodejs/node/pull/27933
+    description: 增加 number_of_native_contexts 和 number_of_detached_contexts 新属性.
 -->
 
 * 返回: {Object}
