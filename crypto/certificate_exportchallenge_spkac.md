@@ -2,7 +2,7 @@
 added: v9.0.0
 -->
 * `spkac` {string | Buffer | TypedArray | DataView}
-* 返回 {Buffer} 返回 `spkac` 数据结构的 challenge 部分，`spkac` 包含一个公钥和一个 challange。
+* 返回 {Buffer} 返回 `spkac` 数据结构的 challenge 部分，`spkac` 包含一个公钥和一个 challenge。
 
 ```js
 const { Certificate } = require('crypto');
