@@ -13,7 +13,7 @@ changes:
 * `size` {number} **Default:** `buffer.length - offset`
 * Returns: {Buffer|TypedArray|DataView} The object passed as `buffer` argument.
 
-Synchronous version of [`crypto.randomFill()`][].
+Asynchronous version of [`crypto.randomFill()`][].
 
 ```js
 const buf = Buffer.alloc(10);
