@@ -55,6 +55,7 @@ Node.js options that are allowed are:
 * `--http-server-default-timeout`
 * `--icu-data-dir`
 * `--input-type`
+* `--insecure-http-parser`
 * `--inspect-brk`
 * `--inspect-port`, `--debug-port`
 * `--inspect-publish-uid`
