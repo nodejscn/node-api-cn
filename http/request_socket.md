@@ -2,7 +2,7 @@
 added: v0.3.0
 -->
 
-* {net.Socket}
+* {stream.Duplex}
 
 指向底层套接字。 
 通常用户无需访问此属性。 
@@ -24,3 +24,6 @@ req.once('response', (res) => {
   // 使用响应对象。
 });
 ```
+
+此属性保证是 {net.Socket} 类（{stream.Duplex} 的子类）的实例，除非用户指定了 {net.Socket} 以外的套接字类型。
+

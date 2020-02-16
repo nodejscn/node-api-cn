@@ -32,8 +32,8 @@ NODE_MODULE_INITIALIZER(Local<Object> exports,
 
 可以通过执行以下步骤来构造上下文感知的插件以避免全局静态数据：
 
-* 定义一个持有每个插件实例数据的类。这样的类应该包含一个 `v8::Persistent<v8::Object>` 持有 `exports` 对象的弱引用。与该弱引用关联的回调函数将会破坏该类的实例。
-* 在插件实例化过程中构造这个类的实例，把`v8::Persistent<v8::Object>` 挂到 `exports` 对象上去。
+* 定义一个持有每个插件实例数据的类。这样的类应该包含一个 `v8::Global<v8::Object>` 持有 `exports` 对象的弱引用。与该弱引用关联的回调函数将会破坏该类的实例。
+* 在插件实例化过程中构造这个类的实例，把`v8::Global<v8::Object>` 挂到 `exports` 对象上去。
 * 在 `v8::External` 中保存这个类的实例。
 * 通过将 `v8::External` 传给 `v8::FunctionTemplate` 构造函数，该函数会创建本地支持的 JavaScript 函数，把 `v8::External` 传递给所有暴露给 JavaScript 的方法。
   `v8::FunctionTemplate` 构造函数的第三个参数接受 `v8::External`。
@@ -56,14 +56,6 @@ class AddonData {
     exports_.SetWeak(this, DeleteMe, WeakCallbackType::kParameter);
   }
 
-  ~AddonData() {
-    if (!exports_.IsEmpty()) {
-      // 重新设置引用以避免数据泄露。
-      exports_.ClearWeak();
-      exports_.Reset();
-    }
-  }
-
   // 每个插件的数据。
   int call_count;
 
@@ -74,7 +66,7 @@ class AddonData {
   }
 
   // 导出对象弱句柄。该类的实例将与其若绑定的 exports 对象一起销毁。
-  v8::Persistent<v8::Object> exports_;
+  v8::Global<v8::Object> exports_;
 };
 
 static void Method(const v8::FunctionCallbackInfo<v8::Value>& info) {

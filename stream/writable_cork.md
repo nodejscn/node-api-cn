@@ -3,10 +3,12 @@ added: v0.11.2
 -->
 
 `writable.cork()` 方法强制把所有写入的数据都缓冲到内存中。
-当调用 [`stream.uncork()`][] 或 [`stream.end()`][stream-end] 时，缓冲的数据才会被输出。
+当调用 [`stream.uncork()`][] 或 [`stream.end()`][stream-end] 方法时，缓冲的数据才会被输出。
 
-当写入大量小块数据到流时，内部缓冲可能失效，从而导致性能下降，`writable.cork()` 主要用于避免这种情况。
-对于这种情况，实现了 `writable._writev()` 的流可以用更优的方式对写入的数据进行缓冲。
+`writable.cork()` 的主要目的是为了适应将几个数据快速连续地写入流的情况。 
+`writable.cork()` 不会立即将它们转发到底层的目标，而是缓冲所有数据块，直到调用 `writable.uncork()`，这会将它们全部传给 `writable._writev()`（如果存在）。 
+这可以防止出现行头阻塞的情况，在这种情况下，正在等待第一个数据块被处理的同时对数据进行缓冲。 
+但是，使用 `writable.cork()` 而不实现 `writable._writev()` 可能会对吞吐量产生不利影响。
 
-也可参阅：[`writable.uncork()`]。
+也可参阅：[`writable.uncork()`]、[`writable._writev()`][stream-_writev]。
 

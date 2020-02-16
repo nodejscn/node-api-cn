@@ -9,9 +9,9 @@ const writer = getWritableStreamSomehow();
 for (let i = 0; i < 100; i++) {
   writer.write(`写入 #${i}!\n`);
 }
-writer.end('写入结尾\n');
 writer.on('finish', () => {
   console.error('写入已完成');
 });
+writer.end('写入结尾\n');
 ```
 

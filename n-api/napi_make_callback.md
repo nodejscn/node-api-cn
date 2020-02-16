@@ -23,11 +23,10 @@ NAPI_EXTERN napi_status napi_make_callback(napi_env env,
    which indicates the current async context (if any) is to be used
    for the callback.
 * `[in] recv`: The `this` object passed to the called function.
-* `[in] func`: `napi_value` representing the JavaScript function
-to be invoked.
+* `[in] func`: `napi_value` representing the JavaScript function to be invoked.
 * `[in] argc`: The count of elements in the `argv` array.
-* `[in] argv`: Array of JavaScript values as `napi_value`
-representing the arguments to the function.
+* `[in] argv`: Array of JavaScript values as `napi_value` representing the
+  arguments to the function.
 * `[out] result`: `napi_value` representing the JavaScript object returned.
 
 Returns `napi_ok` if the API succeeded.

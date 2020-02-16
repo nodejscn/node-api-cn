@@ -17,7 +17,9 @@ changes:
   * `stderr` {stream.Writable}
   * `ignoreErrors` {boolean} 在写入底层流时忽略错误。**默认值:** `true`。
   * `colorMode` {boolean|string} 此 `Console` 实例设置颜色支持。
-    设置为 `true` 会在检查值时启用着色，设置为 `'auto'` 将使颜色支持取决 `isTTY` 属性的值和 `getColorDepth()` 在相应流上返回的值。
+    设置为 `true` 会在检查值时启用着色。
+    设置为 `false` 会在检查值时禁用着色。
+    设置为 `'auto'` 会使颜色支持取决 `isTTY` 属性的值和 `getColorDepth()` 在相应流上返回的值。
     如果设置了 `inspectOptions.colors`，则不能使用此选项。
     **默认值:** `'auto'`。
   * `inspectOptions` {Object} 指定传给 [`util.inspect()`] 的选项。

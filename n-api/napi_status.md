@@ -26,6 +26,8 @@ typedef enum {
   napi_closing,
   napi_bigint_expected,
   napi_date_expected,
+  napi_arraybuffer_expected,
+  napi_detachable_arraybuffer_expected,
 } napi_status;
 ```
 

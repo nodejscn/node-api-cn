@@ -2,8 +2,9 @@
 <!--introduced_in=v0.10.0-->
 <!-- type=misc -->
 
-Node.js 插件是用 C++ 编写的动态链接共享对象，可以使用 [`require()`][require] 函数加载到 Node.js 中，且像普通的 Node.js 模块一样被使用。
-它们主要用于为运行在 Node.js 中的 JavaScript 与 C/C++ 库之间提供接口。
+插件是用 C++ 编写的动态链接共享对象。
+[`require()`][require] 函数可以将插件加载为普通的 Node.js 模块。
+插件提供了 JavaScript 和 C/C++ 库之间的接口。
 
 实现插件有三种选择：N-API、nan、或直接使用内部的 V8、libuv 和 Node.js 库。 
 除非你需要直接访问 N-API 未公开的函数，否则请使用 N-API。 

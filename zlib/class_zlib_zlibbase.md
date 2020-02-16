@@ -6,9 +6,8 @@ changes:
     description: This class was renamed from `Zlib` to `ZlibBase`.
 -->
 
-Not exported by the `zlib` module. It is documented here because it is the base
-class of the compressor/decompressor classes.
+未被 `zlib` 模块导出。
+在此进行记录，因为它是压缩器/解压缩器类的基类。
 
-This class inherits from [`stream.Transform`][], allowing `zlib` objects to be
-used in pipes and similar stream operations.
+该类继承自 [`stream.Transform`]，允许 `zlib` 对象用于管道和类似的流操作中。
 

@@ -3,11 +3,13 @@ added: v0.1.94
 -->
 
 * `response` {http.IncomingMessage}
-* `socket` {net.Socket}
+* `socket` {stream.Duplex}
 * `head` {Buffer}
 
 每次服务器响应升级请求时发出。
 如果未监听此事件且响应状态码为 `101 Switching Protocols`，则接收升级响应头的客户端将关闭其连接。
+
+此事件保证传入 {net.Socket} 类（{stream.Duplex} 的子类）的实例，除非用户指定了 {net.Socket} 以外的套接字类型。
 
 客户端服务器对，演示如何监听 `'upgrade'` 事件。
 

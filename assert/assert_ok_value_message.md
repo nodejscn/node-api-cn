@@ -12,7 +12,7 @@ changes:
 测试 `value` 是否为真值。
 等同于 `assert.equal(!!value, true, message)`。
 
-如果 `value` 不是真值，则抛出 `AssertionError`，并将 `message` 属性设置为等于 `message` 参数的值。
+如果 `value` 不是真值，则抛出 [`AssertionError`]，并将 `message` 属性设置为等于 `message` 参数的值。
 如果未定义 `message` 参数，则会分配默认错误消息。
 如果 `message` 参数是 [`Error`] 的实例，则它将被抛出而不是 `AssertionError`。
 如果没有传入任何参数，则将 `message` 设置为字符串：``'No value argument passed to `assert.ok()`'``。

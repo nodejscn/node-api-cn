@@ -8,6 +8,7 @@ changes:
     pr-url: https://github.com/nodejs/node/pull/3276
     description: The `error` parameter can now be an arrow function.
 -->
+
 * `fn` {Function}
 * `error` {RegExp|Function}
 * `message` {string}
@@ -19,7 +20,7 @@ changes:
 
 当调用 `assert.doesNotThrow()` 时，它将立即调用 `fn` 函数。
 
-如果抛出错误并且它与 `error` 参数指定的类型相同，则抛出 `AssertionError`。
+如果抛出错误并且它与 `error` 参数指定的类型相同，则抛出 [`AssertionError`]。
 如果错误的类型不同，或者 `error` 参数未定义，则错误将传播回调用方。
 
 如果指定，则 `error` 可以是 [`Class`]、[`RegExp`] 或验证函数。
@@ -38,7 +39,7 @@ assert.doesNotThrow(
 );
 ```
 
-以下示例将导致 `AssertionError`，并显示消息 'Got unwanted exception...'：
+以下示例将导致 [`AssertionError`]，并显示消息 'Got unwanted exception...'：
 
 <!-- eslint-disable no-restricted-syntax -->
 ```js
@@ -50,7 +51,7 @@ assert.doesNotThrow(
 );
 ```
 
-如果抛出 `AssertionError` 并为 `message` 参数提供了值，则 `message` 的值将附加到 `AssertionError` 消息：
+如果抛出 [`AssertionError`] 并为 `message` 参数提供了值，则 `message` 的值将附加到 `AssertionError` 消息：
 
 <!-- eslint-disable no-restricted-syntax -->
 ```js

@@ -16,7 +16,7 @@ changes:
 -->
 
 * `path` {string|Buffer|URL}
-* `mode` {integer}
+* `mode` {string|integer}
 * `callback` {Function}
   * `err` {Error}
 

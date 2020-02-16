@@ -2,7 +2,7 @@
 added: v10.6.0
 -->
 
-* `hostname` {string} Hostname to resolve.
+* `hostname` {string} Host name to resolve.
 * `options` {Object}
   * `ttl` {boolean} Retrieve the Time-To-Live value (TTL) of each record.
     When `true`, the `Promise` is resolved with an array of

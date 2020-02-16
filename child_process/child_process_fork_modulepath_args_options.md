@@ -1,6 +1,9 @@
 <!-- YAML
 added: v0.5.0
 changes:
+  - version: v12.16.0
+    pr-url: https://github.com/nodejs/node/pull/30162
+    description: The `serialization` option is supported now.
   - version: v8.0.0
     pr-url: https://github.com/nodejs/node/pull/10866
     description: The `stdio` option can now be a string.
@@ -17,6 +20,7 @@ changes:
   * `env` {Object} 环境变量的键值对。**默认值:** `process.env`。
   * `execPath` {string} 用于创建子进程的可执行文件。
   * `execArgv` {string[]} 传给可执行文件的字符串参数的列表。**默认值:** `process.execArgv`。
+  * `serialization` {string} 指定用于在进程之间发送消息的序列化类型。可能的值为 `'json'` 和 `'advanced'`。有关更多详细信息，请参阅[高级序列化][Advanced Serialization]。**默认值:** `'json'`。
   * `silent` {boolean} 如果为 `true`，则子进程的 stdin、stdout 和 stderr 将会被输送到父进程，否则它们将会继承自父进程，详见 [`child_process.spawn()`] 的 [`stdio`] 中的 `'pipe'` 和 `'inherit'` 选项。**默认值:** `false`。
   * `stdio` {Array|string} 参阅 [`child_process.spawn()`] 的 [`stdio`]。当提供此选项时，则它覆盖 `silent` 选项。如果使用了数组变量，则它必须包含一个值为 `'ipc'` 的元素，否则将会抛出错误。例如 `[0, 1, 2, 'ipc']`。
   * `windowsVerbatimArguments` {boolean} 在 Windows 上不为参数加上引号或转义。在 Unix 上则忽略。**默认值:** `false`。

@@ -4,7 +4,7 @@ added: v0.5.10
 
 * `handle` {Object}
 * `backlog` {number} [`server.listen()`] 函数的通用参数。
-* `callback` {Function} [`server.listen()`] 函数的通用参数。
+* `callback` {Function}
 * 返回: {net.Server}
 
 启动一个服务器，监听已经绑定到端口、Unix 域套接字或 Windows 命名管道的给定 `handle` 上的连接。

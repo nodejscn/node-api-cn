@@ -17,7 +17,7 @@ napi_status napi_create_typedarray(napi_env env,
 * `[in] length`: Number of elements in the `TypedArray`.
 * `[in] arraybuffer`: `ArrayBuffer` underlying the typed array.
 * `[in] byte_offset`: The byte offset within the `ArrayBuffer` from which to
-start projecting the `TypedArray`.
+  start projecting the `TypedArray`.
 * `[out] result`: A `napi_value` representing a JavaScript `TypedArray`.
 
 Returns `napi_ok` if the API succeeded.

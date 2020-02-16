@@ -2,7 +2,7 @@
 added: v0.3.0
 -->
 
-* {net.Socket}
+* {stream.Duplex}
 
 指向底层的套接字。 
 通常用户不需要访问此属性。 
@@ -19,4 +19,6 @@ const server = http.createServer((req, res) => {
   res.end(`您的 IP 地址是 ${ip}，您的源端口是 ${port}`);
 }).listen(3000);
 ```
+
+此属性保证是 {net.Socket} 类（{stream.Duplex} 的子类）的实例，除非用户指定了 {net.Socket} 以外的套接字类型。
 

@@ -8,7 +8,7 @@ changes:
 
 * `path` {string|Buffer|URL}
 * `flags` {string|number} 参阅[支持的文件系统标志][support of file system `flags`]。**默认值:** `'r'`。
-* `mode` {integer} **默认值:** `0o666`（可读写）。
+* `mode` {string|integer} **默认值:** `0o666`（可读写）。
 * 返回: {Promise}
 
 异步地打开文件并返回一个 `Promise`，当解决时会带上一个 `FileHandle` 对象。

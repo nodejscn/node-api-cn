@@ -13,7 +13,7 @@ napi_status napi_create_string_utf16(napi_env env,
 * `[in] env`: The environment that the API is invoked under.
 * `[in] str`: Character buffer representing a UTF16-LE-encoded string.
 * `[in] length`: The length of the string in two-byte code units, or
-`NAPI_AUTO_LENGTH` if it is null-terminated.
+  `NAPI_AUTO_LENGTH` if it is null-terminated.
 * `[out] result`: A `napi_value` representing a JavaScript `String`.
 
 Returns `napi_ok` if the API succeeded.

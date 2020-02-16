@@ -3,8 +3,8 @@ added: v0.1.21
 -->
 * `message` {string|Error} **默认值:** `'Failed'`。
 
-使用提供的错误消息或默认错误消息抛出 `AssertionError`。 
-如果 `message` 参数是 [`Error`] 的实例，则它将被抛出而不是 `AssertionError`。
+使用提供的错误消息或默认错误消息抛出 [`AssertionError`]。 
+如果 `message` 参数是 [`Error`] 的实例，则它将被抛出而不是 [`AssertionError`]。
 
 
 ```js

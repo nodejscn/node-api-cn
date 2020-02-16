@@ -13,7 +13,5 @@ napi_status napi_get_and_clear_last_exception(napi_env env,
 
 Returns `napi_ok` if the API succeeded.
 
-This API returns true if an exception is pending.
-
 This API can be called even if there is a pending JavaScript exception.
 

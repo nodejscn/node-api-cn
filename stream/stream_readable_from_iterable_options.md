@@ -24,3 +24,5 @@ readable.on('data', (chunk) => {
 });
 ```
 
+出于性能原因，调用 `Readable.from(string)` 或 `Readable.from(buffer)` 将不会迭代字符串或 buffer 以匹配其他流的语义。
+

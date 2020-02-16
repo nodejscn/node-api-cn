@@ -9,6 +9,7 @@ added: v0.1.90
 
 根据 `encoding` 指定的字符编码将 `buf` 解码成字符串。
 传入 `start` 和 `end` 可以只解码 `buf` 的子集。
+如果输入中的字节序列在给定的 `encoding` 中无效，则将其替换为替换字符 `U+FFFD`。
 
 字符串的最大长度（以 UTF-16 为单位）可查看 [`buffer.constants.MAX_STRING_LENGTH`]。
 

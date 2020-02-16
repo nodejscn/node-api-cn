@@ -65,9 +65,9 @@ assert.notDeepEqual(obj1, obj4);
 // OK
 ```
 
-If the values are deeply equal, an `AssertionError` is thrown with a `message`
-property set equal to the value of the `message` parameter. If the `message`
-parameter is undefined, a default error message is assigned. If the `message`
-parameter is an instance of an [`Error`][] then it will be thrown instead of the
-`AssertionError`.
+If the values are deeply equal, an [`AssertionError`][] is thrown with a
+`message` property set equal to the value of the `message` parameter. If the
+`message` parameter is undefined, a default error message is assigned. If the
+`message` parameter is an instance of an [`Error`][] then it will be thrown
+instead of the `AssertionError`.
 

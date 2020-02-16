@@ -4,7 +4,7 @@ added: v0.1.90
 * `port` {number}
 * `host` {string}
 * `backlog` {number} [`server.listen()`][] 函数的通用参数。
-* `callback` {Function} [`server.listen()`][] 函数的通用参数。
+* `callback` {Function}
 * 返回: {net.Server}
 
 启动一个 TCP 服务监听输入的 `port` 和 `host`。

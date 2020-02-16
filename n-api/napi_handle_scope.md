@@ -1,3 +1,4 @@
+
 This is an abstraction used to control and modify the lifetime of objects
 created within a particular scope. In general, N-API values are created within
 the context of a handle scope. When a native method is called from

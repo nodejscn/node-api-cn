@@ -15,7 +15,7 @@ changes:
   * `readableAll` {boolean} 对于 IPC 服务器，使管道对所有用户都可读。**默认值:** `false`。
   * `writableAll` {boolean} 对于 IPC 服务器，使管道对所有用户都可写。**默认值:** `false`。
   * `ipv6Only` {boolean} 对于 TCP 服务器，将 `ipv6Only` 设置为 `true` 将会禁用双栈支持，即绑定到主机 `::` 不会使 `0.0.0.0` 绑定。**默认值:** `false`。
-* `callback` {Function} [`server.listen()`] 函数的通用参数。
+* `callback` {Function}
 * 返回: {net.Server}
 
 如果指定了 `port` 参数，该方法的行为跟 [server.listen([port[, host[, backlog]]][, callback])][server_listen_port] 一样。

@@ -16,7 +16,7 @@ added: v10.0.0
 
 如果指定，则 `error` 可以是 [`Class`]、[`RegExp`]、验证函数、将测试每个属性的对象、或者将测试每个属性的错误实例（包括不可枚举的 `message` 和 `name` 属性）。
 
-如果指定 `message`，则当 `asyncFn` 无法拒绝时 `message` 将是 `AssertionError` 提供的消息。
+如果指定 `message`，则当 `asyncFn` 无法拒绝时 `message` 将是 [`AssertionError`] 提供的消息。
 
 ```js
 (async () => {

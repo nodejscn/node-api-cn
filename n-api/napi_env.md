@@ -1,3 +1,4 @@
+
 `napi_env` is used to represent a context that the underlying N-API
 implementation can use to persist VM-specific state. This structure is passed
 to native functions when they're invoked, and it must be passed back when

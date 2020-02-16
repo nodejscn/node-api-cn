@@ -26,7 +26,7 @@ assert.notStrictEqual(1, '1');
 // 通过。
 ```
 
-如果值严格相等，则抛出 `AssertionError`，并将 `message` 属性设置为等于 `message` 参数的值。 
+如果值严格相等，则抛出 [`AssertionError`]，并将 `message` 属性设置为等于 `message` 参数的值。 
 如果未定义 `message` 参数，则会分配默认错误消息。 
 如果 `message` 参数是 [`Error`] 的实例，则它将被抛出而不是 `AssertionError`。
 

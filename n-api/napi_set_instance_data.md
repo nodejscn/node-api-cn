@@ -12,9 +12,9 @@ napi_status napi_set_instance_data(napi_env env,
 * `[in] env`: The environment that the N-API call is invoked under.
 * `[in] data`: The data item to make available to bindings of this instance.
 * `[in] finalize_cb`: The function to call when the environment is being torn
-down. The function receives `data` so that it might free it.
-* `[in] finalize_hint`: Optional hint to pass to the finalize callback
-during collection.
+  down. The function receives `data` so that it might free it.
+* `[in] finalize_hint`: Optional hint to pass to the finalize callback during
+  collection.
 
 Returns `napi_ok` if the API succeeded.
 

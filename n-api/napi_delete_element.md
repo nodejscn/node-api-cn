@@ -14,7 +14,7 @@ napi_status napi_delete_element(napi_env env,
 * `[in] object`: The object to query.
 * `[in] index`: The index of the property to delete.
 * `[out] result`: Whether the element deletion succeeded or not. `result` can
-optionally be ignored by passing `NULL`.
+  optionally be ignored by passing `NULL`.
 
 Returns `napi_ok` if the API succeeded.
 

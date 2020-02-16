@@ -1,6 +1,9 @@
 <!-- YAML
 added: v0.1.90
 changes:
+  - version: v12.16.0
+    pr-url: https://github.com/nodejs/node/pull/30162
+    description: The `serialization` option is supported now.
   - version: v8.8.0
     pr-url: https://github.com/nodejs/node/pull/15380
     description: The `windowsHide` option is supported now.
@@ -22,6 +25,7 @@ changes:
   * `detached` {boolean} 准备子进程独立于其父进程运行。具体行为取决于平台，参阅 [`options.detached`]。
   * `uid` {number} 设置进程的用户标识，参阅 setuid(2)。
   * `gid` {number} 设置进程的群组标识，参阅 setgid(2)。
+  * `serialization` {string} 指定用于在进程之间发送消息的序列化类型。可能的值为 `'json'` 和 `'advanced'`。有关更多详细信息，请参阅[高级序列化][Advanced Serialization]。**默认值:** `'json'`。
   * `shell` {boolean|string} 如果为 `true`，则在 shell 中运行 `command`。
      在 Unix 上使用 `'/bin/sh'`，在 Windows 上使用 `process.env.ComSpec`。
      可以将不同的 shell 指定为字符串。

@@ -20,9 +20,8 @@
 * `symbol` - `green`
 * `undefined` - `grey`
 
-预定义的颜色代码有：`white`、`grey`、`black`、`blue`、`cyan`、`green`、`magenta`、`red` 和 `yellow`。
-还有 `bold`、`italic`、`underline` 和 `inverse` 代码。
-
 颜色样式使用 ANSI 控制码，可能不是所有终端都支持。
 要验证颜色支持，请使用 [`tty.hasColors()`]。
+
+下面列出了预定义的控制代码（分为“修饰符”、“前景颜色”和“背景颜色”）。
 

@@ -12,12 +12,13 @@ updates.
 In the following algorithms, all subroutine errors are propagated as errors
 of these top-level routines unless stated otherwise.
 
-_isMain_ is **true** when resolving the Node.js application entry point.
+_defaultEnv_ is the conditional environment name priority array,
+`["node", "import"]`.
 
 <details>
 <summary>Resolver algorithm specification</summary>
 
-**ESM_RESOLVE**(_specifier_, _parentURL_, _isMain_)
+**ESM_RESOLVE**(_specifier_, _parentURL_)
 
 > 1. Let _resolvedURL_ be **undefined**.
 > 1. If _specifier_ is a valid URL, then
@@ -38,7 +39,7 @@ _isMain_ is **true** when resolving the Node.js application entry point.
 > 1. If the file at _resolvedURL_ does not exist, then
 >    1. Throw a _Module Not Found_ error.
 > 1. Set _resolvedURL_ to the real path of _resolvedURL_.
-> 1. Let _format_ be the result of **ESM_FORMAT**(_resolvedURL_, _isMain_).
+> 1. Let _format_ be the result of **ESM_FORMAT**(_resolvedURL_).
 > 1. Load _resolvedURL_ as module format, _format_.
 
 **PACKAGE_RESOLVE**(_packageSpecifier_, _parentURL_)
@@ -47,9 +48,6 @@ _isMain_ is **true** when resolving the Node.js application entry point.
 > 1. Let _packageSubpath_ be *undefined*.
 > 1. If _packageSpecifier_ is an empty string, then
 >    1. Throw an _Invalid Specifier_ error.
-> 1. If _packageSpecifier_ does not start with _"@"_, then
->    1. Set _packageName_ to the substring of _packageSpecifier_ until the
->       first _"/"_ separator or the end of the string.
 > 1. Otherwise,
 >    1. If _packageSpecifier_ does not contain a _"/"_ separator, then
 >       1. Throw an _Invalid Specifier_ error.
@@ -63,8 +61,11 @@ _isMain_ is **true** when resolving the Node.js application entry point.
 >    1. Set _packageSubpath_ to _"."_ concatenated with the substring of
 >       _packageSpecifier_ from the position at the length of _packageName_.
 > 1. If _packageSubpath_ contains any _"."_ or _".."_ segments or percent
->    encoded strings for _"/"_ or _"\\"_ then,
+>    encoded strings for _"/"_ or _"\\"_, then
 >    1. Throw an _Invalid Specifier_ error.
+> 1. Set _selfUrl_ to the result of
+>    **SELF_REFERENCE_RESOLVE**(_packageName_, _packageSubpath_, _parentURL_).
+> 1. If _selfUrl_ isn't empty, return _selfUrl_.
 > 1. If _packageSubpath_ is _undefined_ and _packageName_ is a Node.js builtin
 >    module, then
 >    1. Return the string _"node:"_ concatenated with _packageSpecifier_.
@@ -88,19 +89,41 @@ _isMain_ is **true** when resolving the Node.js application entry point.
 >       1. Return the URL resolution of _packageSubpath_ in _packageURL_.
 > 1. Throw a _Module Not Found_ error.
 
+**SELF_REFERENCE_RESOLVE**(_packageName_, _packageSubpath_, _parentURL_)
+
+> 1. Let _packageURL_ be the result of **READ_PACKAGE_SCOPE**(_parentURL_).
+> 1. If _packageURL_ is **null**, then
+>    1. Return **undefined**.
+> 1. Let _pjson_ be the result of **READ_PACKAGE_JSON**(_packageURL_).
+> 1. If _pjson_ does not include an _"exports"_ property, then
+>    1. Return **undefined**.
+> 1. If _pjson.name_ is equal to _packageName_, then
+>    1. If _packageSubpath_ is _undefined_, then
+>       1. Return the result of **PACKAGE_MAIN_RESOLVE**(_packageURL_, _pjson_).
+>    1. Otherwise,
+>       1. If _pjson_ is not **null** and _pjson_ has an _"exports"_ key, then
+>          1. Let _exports_ be _pjson.exports_.
+>          1. If _exports_ is not **null** or **undefined**, then
+>             1. Return **PACKAGE_EXPORTS_RESOLVE**(_packageURL_, _subpath_,
+>                _pjson.exports_).
+>       1. Return the URL resolution of _subpath_ in _packageURL_.
+> 1. Otherwise, return **undefined**.
+
 **PACKAGE_MAIN_RESOLVE**(_packageURL_, _pjson_)
 
 > 1. If _pjson_ is **null**, then
 >    1. Throw a _Module Not Found_ error.
 > 1. If _pjson.exports_ is not **null** or **undefined**, then
->    1. If _pjson.exports_ is a String or Array, then
->       1. Return _PACKAGE_EXPORTS_TARGET_RESOLVE(packageURL, pjson.exports,
->          "")_.
->    1. If _pjson.exports is an Object, then
->       1. If _pjson.exports_ contains a _"."_ property, then
->          1. Let _mainExport_ be the _"."_ property in _pjson.exports_.
->          1. Return _PACKAGE_EXPORTS_TARGET_RESOLVE(packageURL, mainExport,
->             "")_.
+>    1. If _exports_ is an Object with both a key starting with _"."_ and a key
+>       not starting with _"."_, throw an "Invalid Package Configuration" error.
+>    1. If _pjson.exports_ is a String or Array, or an Object containing no
+>       keys starting with _"."_, then
+>       1. Return **PACKAGE_EXPORTS_TARGET_RESOLVE**(_packageURL_,
+>          _pjson.exports_, _""_).
+>    1. If _pjson.exports_ is an Object containing a _"."_ property, then
+>       1. Let _mainExport_ be the _"."_ property in _pjson.exports_.
+>       1. Return **PACKAGE_EXPORTS_TARGET_RESOLVE**(_packageURL_,
+>          _mainExport_, _""_).
 > 1. If _pjson.main_ is a String, then
 >    1. Let _resolvedMain_ be the URL resolution of _packageURL_, "/", and
 >       _pjson.main_.
@@ -114,13 +137,14 @@ _isMain_ is **true** when resolving the Node.js application entry point.
 > 1. Return _legacyMainURL_.
 
 **PACKAGE_EXPORTS_RESOLVE**(_packageURL_, _packagePath_, _exports_)
-
-> 1. If _exports_ is an Object, then
+> 1. If _exports_ is an Object with both a key starting with _"."_ and a key not
+>    starting with _"."_, throw an "Invalid Package Configuration" error.
+> 1. If _exports_ is an Object and all keys of _exports_ start with _"."_, then
 >    1. Set _packagePath_ to _"./"_ concatenated with _packagePath_.
 >    1. If _packagePath_ is a key of _exports_, then
 >       1. Let _target_ be the value of _exports\[packagePath\]_.
 >       1. Return **PACKAGE_EXPORTS_TARGET_RESOLVE**(_packageURL_, _target_,
->          _""_).
+>          _""_, _defaultEnv_).
 >    1. Let _directoryKeys_ be the list of keys of _exports_ ending in
 >       _"/"_, sorted by length descending.
 >    1. For each key _directory_ in _directoryKeys_, do
@@ -129,10 +153,10 @@ _isMain_ is **true** when resolving the Node.js application entry point.
 >          1. Let _subpath_ be the substring of _target_ starting at the index
 >             of the length of _directory_.
 >          1. Return **PACKAGE_EXPORTS_TARGET_RESOLVE**(_packageURL_, _target_,
->             _subpath_).
+>             _subpath_, _defaultEnv_).
 > 1. Throw a _Module Not Found_ error.
 
-**PACKAGE_EXPORTS_TARGET_RESOLVE**(_packageURL_, _target_, _subpath_)
+**PACKAGE_EXPORTS_TARGET_RESOLVE**(_packageURL_, _target_, _subpath_, _env_)
 
 > 1. If _target_ is a String, then
 >    1. If _target_ does not start with _"./"_, throw a _Module Not Found_
@@ -148,31 +172,40 @@ _isMain_ is **true** when resolving the Node.js application entry point.
 >          _subpath_ and _resolvedTarget_.
 >       1. If _resolved_ is contained in _resolvedTarget_, then
 >          1. Return _resolved_.
+> 1. Otherwise, if _target_ is a non-null Object, then
+>    1. If _exports_ contains any index property keys, as defined in ECMA-262
+>       [6.1.7 Array Index][], throw an _Invalid Package Configuration_ error.
+>    1. For each property _p_ of _target_, in object insertion order as,
+>       1. If _env_ contains an entry for _p_, then
+>          1. Let _targetValue_ be the value of the _p_ property in _target_.
+>          1. Let _resolved_ be the result of **PACKAGE_EXPORTS_TARGET_RESOLVE**
+>             (_packageURL_, _targetValue_, _subpath_, _env_).
+>          1. Assert: _resolved_ is a String.
+>          1. Return _resolved_.
 > 1. Otherwise, if _target_ is an Array, then
 >    1. For each item _targetValue_ in _target_, do
->       1. If _targetValue_ is not a String, continue the loop.
+>       1. If _targetValue_ is an Array, continue the loop.
 >       1. Let _resolved_ be the result of
 >          **PACKAGE_EXPORTS_TARGET_RESOLVE**(_packageURL_, _targetValue_,
->          _subpath_), continuing the loop on abrupt completion.
+>          _subpath_, _env_), continuing the loop on abrupt completion.
 >       1. Assert: _resolved_ is a String.
 >       1. Return _resolved_.
 > 1. Throw a _Module Not Found_ error.
 
-**ESM_FORMAT**(_url_, _isMain_)
+**ESM_FORMAT**(_url_)
 
-> 1. Assert: _url_ corresponds to an existing file.
+> 1. Assert: _url_ corresponds to an existing file pathname.
 > 1. Let _pjson_ be the result of **READ_PACKAGE_SCOPE**(_url_).
 > 1. If _url_ ends in _".mjs"_, then
 >    1. Return _"module"_.
 > 1. If _url_ ends in _".cjs"_, then
 >    1. Return _"commonjs"_.
 > 1. If _pjson?.type_ exists and is _"module"_, then
->    1. If _isMain_ is **true** or _url_ ends in _".js"_, then
+>    1. If _url_ ends in _".js"_ or lacks a file extension, then
 >       1. Return _"module"_.
 >    1. Throw an _Unsupported File Extension_ error.
 > 1. Otherwise,
->    1. If _isMain_ is **true** or _url_ ends in _".js"_, _".json"_ or
->       _".node"_, then
+>    1. If _url_ lacks a file extension, then
 >       1. Return _"commonjs"_.
 >    1. Throw an _Unsupported File Extension_ error.
 

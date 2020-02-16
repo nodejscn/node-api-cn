@@ -5,7 +5,7 @@ added: v10.6.0
 * `address` {string}
 * `port` {number}
 
-Resolves the given `address` and `port` into a hostname and service using
+Resolves the given `address` and `port` into a host name and service using
 the operating system's underlying `getnameinfo` implementation.
 
 If `address` is not a valid IP address, a `TypeError` will be thrown.

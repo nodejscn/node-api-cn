@@ -2,7 +2,7 @@
 added: v0.1.0
 -->
 
-* `socket` {net.Socket}
+* `socket` {stream.Duplex}
 
 建立新的 TCP 流时会触发此事件。 
 `socket` 通常是 [`net.Socket`] 类型的对象。 
@@ -14,4 +14,6 @@ added: v0.1.0
 在这种情况下，可以传入任何 [`Duplex`] 流。
 
 如果在此处调用 `socket.setTimeout()`，则当套接字已提供请求时（如果 `server.keepAliveTimeout` 为非零），超时将会被 `server.keepAliveTimeout` 替换。
+
+此事件保证传入 {net.Socket} 类（{stream.Duplex} 的子类）的实例，除非用户指定了 {net.Socket} 以外的套接字类型。
 

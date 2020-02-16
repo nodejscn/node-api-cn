@@ -5,7 +5,7 @@
 > 在 V8 中，一个上下文是一个执行环境，它允许分离的，无关的 JavaScript 应用在一个 V8 的单例中被运行。
 > 必须明确地指定用于运行所有 JavaScript 代码的上下文。
 
-当调用 `vm.createContext()` 时，传入的 `sandbox` 对象（或者新建的一个 `sandbox` 对象，若原 `sandbox` 为 `undefined`）在底层会和一个新的V8上下文实例联系上。
-这个 V8 上下文在一个隔离的全局环境中，使用 `vm` 模块的方法运行 `code`。
-创建 V8 上下文和使之联系上 `sandbox` 的过程在此文档中被称作为"上下文隔离化" `sandbox`。
+当调用 `vm.createContext()` 方法时，`contextObject`参数（如果 `contextObject` 为 `undefined`，则为新创建的对象）在内部与 V8 上下文的新实例相关联。 
+该 V8 上下文提供了使用 `vm` 模块的方法运行的 `code` 以及可在其中运行的隔离的全局环境。 
+创建 V8 上下文并将其与 `contextObject` 关联的过程是本文档所称的“上下文隔离化”对象。
 

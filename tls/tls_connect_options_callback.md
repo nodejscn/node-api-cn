@@ -1,6 +1,9 @@
 <!-- YAML
 added: v0.11.3
 changes:
+  - version: v12.16.0
+    pr-url: https://github.com/nodejs/node/pull/23188
+    description: The `pskCallback` option is now supported.
   - version: v12.9.0
     pr-url: https://github.com/nodejs/node/pull/27836
     description: Support the `allowHalfOpen` option.
@@ -52,6 +55,23 @@ changes:
     verified against the list of supplied CAs. An `'error'` event is emitted if
     verification fails; `err.code` contains the OpenSSL error code. **Default:**
     `true`.
+  * `pskCallback` {Function}
+    * hint: {string} optional message sent from the server to help client
+      decide which identity to use during negotiation.
+      Always `null` if TLS 1.3 is used.
+    * Returns: {Object} in the form
+      `{ psk: <Buffer|TypedArray|DataView>, identity: <string> }`
+      or `null` to stop the negotiation process. `psk` must be
+      compatible with the selected cipher's digest.
+      `identity` must use UTF-8 encoding.
+    When negotiating TLS-PSK (pre-shared keys), this function is called
+    with optional identity `hint` provided by the server or `null`
+    in case of TLS 1.3 where `hint` was removed.
+    It will be necessary to provide a custom `tls.checkServerIdentity()`
+    for the connection as the default one will try to check hostname/IP
+    of the server against the certificate but that's not applicable for PSK
+    because there won't be a certificate present.
+    More information can be found in the [RFC 4279][].
   * `ALPNProtocols`: {string[]|Buffer[]|TypedArray[]|DataView[]|Buffer|
     TypedArray|DataView}
     An array of strings, `Buffer`s or `TypedArray`s or `DataView`s, or a

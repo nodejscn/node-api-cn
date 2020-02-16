@@ -9,7 +9,7 @@ changes:
     description: Added strict mode to the assert module.
 -->
 
-在严格模式中，任何 `assert` 函数都将使用严格函数模式中使用的相等性。 
+在严格模式中（不要与 `"use strict"` 混淆），任何 `assert` 函数都将使用严格函数模式中使用的相等性。 
 例如，[`assert.deepEqual()`] 将与 [`assert.deepStrictEqual()`] 一样效果。
 
 在严格模式中，对象的错误消息会显示差异。

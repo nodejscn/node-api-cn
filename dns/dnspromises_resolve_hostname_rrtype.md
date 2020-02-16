@@ -2,10 +2,10 @@
 added: v10.6.0
 -->
 
-* `hostname` {string} Hostname to resolve.
+* `hostname` {string} Host name to resolve.
 * `rrtype` {string} Resource record type. **Default:** `'A'`.
 
-Uses the DNS protocol to resolve a hostname (e.g. `'nodejs.org'`) into an array
+Uses the DNS protocol to resolve a host name (e.g. `'nodejs.org'`) into an array
 of the resource records. When successful, the `Promise` is resolved with an
 array of resource records. The type and structure of individual results vary
 based on `rrtype`:

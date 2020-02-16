@@ -16,8 +16,9 @@ require(X) from module at path Y
    a. LOAD_AS_FILE(Y + X)
    b. LOAD_AS_DIRECTORY(Y + X)
    c. THROW "not found"
-4. LOAD_NODE_MODULES(X, dirname(Y))
-5. THROW "not found"
+4. LOAD_SELF_REFERENCE(X, dirname(Y))
+5. LOAD_NODE_MODULES(X, dirname(Y))
+7. THROW "not found"
 
 LOAD_AS_FILE(X)
 1. If X is a file, load X as JavaScript text.  STOP
@@ -57,9 +58,17 @@ NODE_MODULES_PATHS(START)
    c. DIRS = DIRS + DIR
    d. let I = I - 1
 5. return DIRS
+
+LOAD_SELF_REFERENCE(X, START)
+1. Find the closest package scope to START.
+2. If no scope was found, return.
+3. If the `package.json` has no "exports", return.
+4. If the name in `package.json` isn't a prefix of X, throw "not found".
+5. Otherwise, resolve the remainder of X relative to this package as if it
+   was loaded via `LOAD_NODE_MODULES` with a name in `package.json`.
 ```
 
-如果启用了 `--experimental-exports`，则 Node.js 允许通过 `LOAD_NODE_MODULES` 加载的包显式地声明要导入的文件路径以及如何解析它们。 
+Node.js 允许通过 `LOAD_NODE_MODULES` 加载的包显式地声明要导入的文件路径以及如何解析它们。 
 这扩展了使用 `main` 字段已经拥有的控件包。 
 
 启用此功能后，`LOAD_NODE_MODULES` 将更改为：
@@ -70,8 +79,8 @@ LOAD_NODE_MODULES(X, START)
 1. let DIRS = NODE_MODULES_PATHS(START)
 2. for each DIR in DIRS:
    a. let FILE_PATH = RESOLVE_BARE_SPECIFIER(DIR, X)
-   a. LOAD_AS_FILE(FILE_PATH)
-   b. LOAD_AS_DIRECTORY(FILE_PATH)
+   b. LOAD_AS_FILE(FILE_PATH)
+   c. LOAD_AS_DIRECTORY(FILE_PATH)
 
 RESOLVE_BARE_SPECIFIER(DIR, X)
 1. Try to interpret X as a combination of name and subpath where the name
@@ -79,12 +88,18 @@ RESOLVE_BARE_SPECIFIER(DIR, X)
 2. If X matches this pattern and DIR/name/package.json is a file:
    a. Parse DIR/name/package.json, and look for "exports" field.
    b. If "exports" is null or undefined, GOTO 3.
-   c. Find the longest key in "exports" that the subpath starts with.
-   d. If no such key can be found, throw "not found".
-   e. let RESOLVED_URL =
+   c. If "exports" is an object with some keys starting with "." and some keys
+      not starting with ".", throw "invalid config".
+   d. If "exports" is a string, or object with no keys starting with ".", treat
+      it as having that value as its "." object property.
+   e. If subpath is "." and "exports" does not have a "." entry, GOTO 3.
+   f. Find the longest key in "exports" that the subpath starts with.
+   g. If no such key can be found, throw "not found".
+   h. let RESOLVED_URL =
         PACKAGE_EXPORTS_TARGET_RESOLVE(pathToFileURL(DIR/name), exports[key],
-        subpath.slice(key.length)), as defined in the esm resolver.
-   f. return fileURLToPath(RESOLVED_URL)
+        subpath.slice(key.length), ["node", "require"]), as defined in the ESM
+        resolver.
+   i. return fileURLToPath(RESOLVED_URL)
 3. return DIR/X
 ```
 

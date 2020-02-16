@@ -7,9 +7,8 @@
     //              ^^^^^ the module specifier
     ```
 
-  * `referencingModule` {vm.SourceTextModule} The `Module` object `link()` is
-    called on.
-  * Returns: {vm.SourceTextModule|Promise}
+  * `referencingModule` {vm.Module} The `Module` object `link()` is called on.
+  * Returns: {vm.Module|Promise}
 * Returns: {Promise}
 
 Link module dependencies. This method must be called before evaluation, and
@@ -43,6 +42,6 @@ that point all modules would have been fully linked already, the
 [HostResolveImportedModule][] implementation is fully synchronous per
 specification.
 
-Corresponds to the [Link() concrete method][] field of [Source Text Module
+Corresponds to the [Link() concrete method][] field of [Cyclic Module
 Record][]s in the ECMAScript specification.
 

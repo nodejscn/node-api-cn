@@ -15,7 +15,7 @@ object to which the reference is related.
 * `[in] env`: The environment that the API is invoked under.
 * `[in] ref`: `napi_ref` for which we requesting the corresponding `Object`.
 * `[out] result`: The `napi_value` for the `Object` referenced by the
-`napi_ref`.
+  `napi_ref`.
 
 Returns `napi_ok` if the API succeeded.
 

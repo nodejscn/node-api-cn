@@ -3,11 +3,13 @@ added: v0.7.0
 -->
 
 * `response` {http.IncomingMessage}
-* `socket` {net.Socket}
+* `socket` {stream.Duplex}
 * `head` {Buffer}
 
 每次服务器使用 `CONNECT` 方法响应请求时都会触发。
 如果未监听此事件，则接收 `CONNECT` 方法的客户端将关闭其连接。
+
+此事件保证传入 {net.Socket} 类（{stream.Duplex} 的子类）的实例，除非用户指定了 {net.Socket} 以外的套接字类型。
 
 客户端和服务器对演示了如何监听 `'connect'` 事件：
 

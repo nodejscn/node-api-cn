@@ -27,15 +27,16 @@ typedef void (*napi_threadsafe_function_call_js)(napi_env env,
 ```
 
 * `[in] env`: The environment to use for API calls, or `NULL` if the thread-safe
-function is being torn down and `data` may need to be freed.
+  function is being torn down and `data` may need to be freed.
 * `[in] js_callback`: The JavaScript function to call, or `NULL` if the
-thread-safe function is being torn down and `data` may need to be freed. It may
-also be `NULL` if the thread-safe function was created without `js_callback`.
+  thread-safe function is being torn down and `data` may need to be freed. It
+  may also be `NULL` if the thread-safe function was created without
+  `js_callback`.
 * `[in] context`: The optional data with which the thread-safe function was
-created.
+  created.
 * `[in] data`: Data created by the secondary thread. It is the responsibility of
-the callback to convert this native data to JavaScript values (with N-API
-functions) that can be passed as parameters when `js_callback` is invoked. This
-pointer is managed entirely by the threads and this callback. Thus this callback
-should free the data.
+  the callback to convert this native data to JavaScript values (with N-API
+  functions) that can be passed as parameters when `js_callback` is invoked.
+  This pointer is managed entirely by the threads and this callback. Thus this
+  callback should free the data.
 

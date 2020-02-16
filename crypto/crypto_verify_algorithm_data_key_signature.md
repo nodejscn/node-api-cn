@@ -16,6 +16,10 @@ If `key` is not a [`KeyObject`][], this function behaves as if `key` had been
 passed to [`crypto.createPublicKey()`][]. If it is an object, the following
 additional properties can be passed:
 
+* `dsaEncoding` {string} For DSA and ECDSA, this option specifies the
+  format of the generated signature. It can be one of the following:
+  * `'der'` (default): DER-encoded ASN.1 signature structure encoding `(r, s)`.
+  * `'ieee-p1363'`: Signature format `r || s` as proposed in IEEE-P1363.
 * `padding` {integer} Optional padding value for RSA, one of the following:
   * `crypto.constants.RSA_PKCS1_PADDING` (default)
   * `crypto.constants.RSA_PKCS1_PSS_PADDING`

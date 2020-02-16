@@ -24,6 +24,6 @@ evaluated, in which case it will do one of the following two things:
 This method cannot be called while the module is being evaluated
 (`module.status` is `'evaluating'`) to prevent infinite recursion.
 
-Corresponds to the [Evaluate() concrete method][] field of [Source Text Module
+Corresponds to the [Evaluate() concrete method][] field of [Cyclic Module
 Record][]s in the ECMAScript specification.
 

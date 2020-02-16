@@ -11,8 +11,8 @@ napi_status napi_create_promise(napi_env env,
 
 * `[in] env`: The environment that the API is invoked under.
 * `[out] deferred`: A newly created deferred object which can later be passed to
-`napi_resolve_deferred()` or `napi_reject_deferred()` to resolve resp. reject
-the associated promise.
+  `napi_resolve_deferred()` or `napi_reject_deferred()` to resolve resp. reject
+  the associated promise.
 * `[out] promise`: The JavaScript promise associated with the deferred object.
 
 Returns `napi_ok` if the API succeeded.

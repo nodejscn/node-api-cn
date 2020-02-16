@@ -4,7 +4,7 @@ added: v0.11.4
 
 * `options` {Object} 包含连接详细信息的选项。 查看 [`net.createConnection()`] 以获取选项的格式。
 * `callback` {Function} 接收创建的套接字的回调函数。
-* 返回: {net.Socket}
+* 返回: {stream.Duplex}
 
 生成用于 HTTP 请求的套接字或流。
 
@@ -12,6 +12,8 @@ added: v0.11.4
 但是，如果需要更大的灵活性，自定义代理可能会覆盖此方法。
 
 可以通过以下两种方式之一提供套接字或流：通过从此函数返回套接字或流，或者通过将套接字或流传给 `callback`。
+
+此方法保证返回 {net.Socket} 类（{stream.Duplex} 的子类）的实例，除非用户指定了 {net.Socket} 以外的套接字类型。
 
 `callback` 的参数是 `(err, stream)`。
 

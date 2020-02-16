@@ -11,8 +11,8 @@ napi_status napi_get_date_value(napi_env env,
 
 * `[in] env`: The environment that the API is invoked under.
 * `[in] value`: `napi_value` representing a JavaScript `Date`.
-* `[out] result`: Time value as a `double` represented as milliseconds
-since midnight at the beginning of 01 January, 1970 UTC.
+* `[out] result`: Time value as a `double` represented as milliseconds since
+  midnight at the beginning of 01 January, 1970 UTC.
 
 This API does not observe leap seconds; they are ignored, as
 ECMAScript aligns with POSIX time specification.

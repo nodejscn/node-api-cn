@@ -11,7 +11,7 @@
 * 可枚举的自身 [`Symbol`] 属性也会比较。
 * [`WeakMap`] 和 [`WeakSet`] 的比较不依赖于它们的值。
 
-以下示例不会抛出 `AssertionError`，因为[抽象的相等性比较][Abstract Equality Comparison]（`==`）会将原始类型视为相等。
+以下示例不会抛出 [`AssertionError`]，因为[抽象的相等性比较][Abstract Equality Comparison]（`==`）会将原始类型视为相等。
 
 ```js
 // 不会抛出 AssertionError。
@@ -55,7 +55,7 @@ assert.deepEqual(obj1, obj4);
 // 抛出 AssertionError: { a: { b: 1 } } deepEqual {}
 ```
 
-如果值不相等，则抛出 `AssertionError`，并将 `message` 属性设置为等于 `message` 参数的值。
+如果值不相等，则抛出 [`AssertionError`]，并将 `message` 属性设置为等于 `message` 参数的值。
 如果未定义 `message` 参数，则会分配默认错误消息。
-如果 `message` 参数是 [`Error`] 的实例，那么它将被抛出而不是 `AssertionError`。
+如果 `message` 参数是 [`Error`] 的实例，那么它将被抛出而不是 [`AssertionError`]。
 

@@ -15,7 +15,7 @@ changes:
 
 * `path` {string|Buffer|URL}
 * `flags` {string|number} **默认值:** `'r'`。参阅[支持的文件系统标志][support of file system `flags`]。
-* `mode` {integer} **默认值:** `0o666`。
+* `mode` {string|integer} **默认值:** `0o666`。
 * 返回: {number}
 
 返回表示文件描述符的整数。

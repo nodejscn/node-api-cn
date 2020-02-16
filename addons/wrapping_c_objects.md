@@ -42,7 +42,7 @@ class MyObject : public node::ObjectWrap {
 
   static void New(const v8::FunctionCallbackInfo<v8::Value>& args);
   static void PlusOne(const v8::FunctionCallbackInfo<v8::Value>& args);
-  static v8::Persistent<v8::Function> constructor;
+
   double value_;
 };
 
@@ -70,11 +70,9 @@ using v8::Local;
 using v8::NewStringType;
 using v8::Number;
 using v8::Object;
-using v8::Persistent;
+using v8::ObjectTemplate;
 using v8::String;
 using v8::Value;
-
-Persistent<Function> MyObject::constructor;
 
 MyObject::MyObject(double value) : value_(value) {
 }
@@ -84,9 +82,15 @@ MyObject::~MyObject() {
 
 void MyObject::Init(Local<Object> exports) {
   Isolate* isolate = exports->GetIsolate();
+  Local<Context> context = isolate->GetCurrentContext();
+
+  Local<ObjectTemplate> addon_data_tpl = ObjectTemplate::New(isolate);
+  addon_data_tpl->SetInternalFieldCount(1);  // MyObject::New() 的一个字段。
+  Local<Object> addon_data =
+      addon_data_tpl->NewInstance(context).ToLocalChecked();
 
   // 准备构造函数模版
-  Local<FunctionTemplate> tpl = FunctionTemplate::New(isolate, New);
+  Local<FunctionTemplate> tpl = FunctionTemplate::New(isolate, New, addon_data);
   tpl->SetClassName(String::NewFromUtf8(
       isolate, "MyObject", NewStringType::kNormal).ToLocalChecked());
   tpl->InstanceTemplate()->SetInternalFieldCount(1);
@@ -94,11 +98,11 @@ void MyObject::Init(Local<Object> exports) {
   // 原型
   NODE_SET_PROTOTYPE_METHOD(tpl, "plusOne", PlusOne);
 
-  Local<Context> context = isolate->GetCurrentContext();
-  constructor.Reset(isolate, tpl->GetFunction(context).ToLocalChecked());
+  Local<Function> constructor = tpl->GetFunction(context).ToLocalChecked();
+  addon_data->SetInternalField(0, constructor);
   exports->Set(context, String::NewFromUtf8(
       isolate, "MyObject", NewStringType::kNormal).ToLocalChecked(),
-               tpl->GetFunction(context).ToLocalChecked()).FromJust();
+               constructor).FromJust();
 }
 
 void MyObject::New(const FunctionCallbackInfo<Value>& args) {
@@ -116,7 +120,8 @@ void MyObject::New(const FunctionCallbackInfo<Value>& args) {
     // 像普通方法 `MyObject(...)` 一样调用，转为构造调用。
     const int argc = 1;
     Local<Value> argv[argc] = { args[0] };
-    Local<Function> cons = Local<Function>::New(isolate, constructor);
+    Local<Function> cons =
+        args.Data().As<Object>()->GetInternalField(0).As<Function>();
     Local<Object> result =
         cons->NewInstance(context, argc, argv).ToLocalChecked();
     args.GetReturnValue().Set(result);

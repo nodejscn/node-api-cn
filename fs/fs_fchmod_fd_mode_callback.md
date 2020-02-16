@@ -12,7 +12,7 @@ changes:
 -->
 
 * `fd` {integer}
-* `mode` {integer}
+* `mode` {string|integer}
 * `callback` {Function}
   * `err` {Error}
 

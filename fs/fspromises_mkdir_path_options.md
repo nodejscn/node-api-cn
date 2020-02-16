@@ -5,7 +5,7 @@ added: v10.0.0
 * `path` {string|Buffer|URL}
 * `options` {Object|integer}
   * `recursive` {boolean} **默认值:** `false`。
-  * `mode` {integer} Windows 上不支持。**默认值:** `0o777`。
+  * `mode` {string|integer} Windows 上不支持。**默认值:** `0o777`。
 * 返回: {Promise}
 
 异步地创建目录，然后在成功时解决 `Promise` 且不带参数。

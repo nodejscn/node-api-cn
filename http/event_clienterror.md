@@ -18,11 +18,13 @@ changes:
 -->
 
 * `exception` {Error}
-* `socket` {net.Socket}
+* `socket` {stream.Duplex}
 
 如果客户端连接触发 `'error'` 事件，则会在此处转发。
 此事件的监听器负责关闭或销毁底层套接字。
 例如，用户可能希望使用自定义 HTTP 响应更优雅地关闭套接字，而不是突然切断连接。
+
+此事件保证传入 {net.Socket} 类（{stream.Duplex} 的子类）的实例，除非用户指定了 {net.Socket} 以外的套接字类型。
 
 默认行为是尝试使用 HTTP `400 Bad Request` 关闭套接字、或者在 [`HPE_HEADER_OVERFLOW`] 错误的情况下尝试关闭 HTTP `431 Request Header Fields Too Large`。 
 如果套接字不可写，则会被立即销毁。

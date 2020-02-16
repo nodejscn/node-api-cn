@@ -19,7 +19,7 @@ The current status of the module. Will be one of:
 * `'errored'`: The module has been evaluated, but an exception was thrown.
 
 Other than `'errored'`, this status string corresponds to the specification's
-[Source Text Module Record][]'s `[[Status]]` field. `'errored'` corresponds to
+[Cyclic Module Record][]'s `[[Status]]` field. `'errored'` corresponds to
 `'evaluated'` in the specification, but with `[[EvaluationError]]` set to a
 value that is not `undefined`.
 

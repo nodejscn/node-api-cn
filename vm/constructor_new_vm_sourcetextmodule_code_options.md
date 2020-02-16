@@ -18,23 +18,21 @@
     when `import()` is called. If this option is not specified, calls to
     `import()` will reject with [`ERR_VM_DYNAMIC_IMPORT_CALLBACK_MISSING`][].
     * `specifier` {string} specifier passed to `import()`
-    * `module` {vm.SourceTextModule}
-    * Returns: {Module Namespace Object|vm.SourceTextModule} Returning a
-      `vm.SourceTextModule` is recommended in order to take advantage of error
-      tracking, and to avoid issues with namespaces that contain `then`
-      function exports.
+    * `module` {vm.Module}
+    * Returns: {Module Namespace Object|vm.Module} Returning a `vm.Module` is
+      recommended in order to take advantage of error tracking, and to avoid
+      issues with namespaces that contain `then` function exports.
 
-Creates a new ES `Module` object.
+Creates a new `SourceTextModule` instance.
 
 Properties assigned to the `import.meta` object that are objects may
-allow the `Module` to access information outside the specified `context`, if the
-object is created in the top level context. Use `vm.runInContext()` to create
-objects in a specific context.
+allow the module to access information outside the specified `context`. Use
+`vm.runInContext()` to create objects in a specific context.
 
 ```js
 const vm = require('vm');
 
-const contextifiedSandbox = vm.createContext({ secret: 42 });
+const contextifiedObject = vm.createContext({ secret: 42 });
 
 (async () => {
   const module = new vm.SourceTextModule(
@@ -44,7 +42,7 @@ const contextifiedSandbox = vm.createContext({ secret: 42 });
         // Note: this object is created in the top context. As such,
         // Object.getPrototypeOf(import.meta.prop) points to the
         // Object.prototype in the top context rather than that in
-        // the sandbox.
+        // the contextified object.
         meta.prop = {};
       }
     });
@@ -57,7 +55,7 @@ const contextifiedSandbox = vm.createContext({ secret: 42 });
   // To fix this problem, replace
   //     meta.prop = {};
   // above with
-  //     meta.prop = vm.runInContext('{}', contextifiedSandbox);
+  //     meta.prop = vm.runInContext('{}', contextifiedObject);
 })();
 ```
 

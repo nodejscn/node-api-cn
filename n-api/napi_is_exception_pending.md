@@ -12,7 +12,5 @@ napi_status napi_is_exception_pending(napi_env env, bool* result);
 
 Returns `napi_ok` if the API succeeded.
 
-This API returns true if an exception is pending.
-
 This API can be called even if there is a pending JavaScript exception.
 

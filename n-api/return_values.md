@@ -1,3 +1,4 @@
+
 All of the N-API functions share the same error handling pattern. The
 return type of all API functions is `napi_status`.
 

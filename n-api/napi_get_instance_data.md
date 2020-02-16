@@ -9,7 +9,7 @@ napi_status napi_get_instance_data(napi_env env,
 
 * `[in] env`: The environment that the N-API call is invoked under.
 * `[out] data`: The data item that was previously associated with the currently
-running Agent by a call to `napi_set_instance_data()`.
+  running Agent by a call to `napi_set_instance_data()`.
 
 Returns `napi_ok` if the API succeeded.
 

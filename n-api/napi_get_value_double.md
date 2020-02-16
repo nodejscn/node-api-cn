@@ -12,7 +12,7 @@ napi_status napi_get_value_double(napi_env env,
 * `[in] env`: The environment that the API is invoked under.
 * `[in] value`: `napi_value` representing JavaScript `Number`.
 * `[out] result`: C double primitive equivalent of the given JavaScript
-`Number`.
+  `Number`.
 
 Returns `napi_ok` if the API succeeded. If a non-number `napi_value` is passed
 in it returns `napi_number_expected`.

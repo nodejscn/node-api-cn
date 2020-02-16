@@ -12,6 +12,7 @@ changes:
     pr-url: https://github.com/nodejs/node/pull/3276
     description: The `error` parameter can now be an arrow function.
 -->
+
 * `fn` {Function}
 * `error` {RegExp|Function|Object|Error}
 * `message` {string}
@@ -80,10 +81,14 @@ assert.throws(
 assert.throws(
   () => {
     const otherErr = new Error('未找到');
-    otherErr.code = 404;
+    // 将所有可枚举的属性从 `err` 拷贝到 `otherErr`。
+    for (const [key, value] of Object.entries(err)) {
+      otherErr[key] = value;
+    }
     throw otherErr;
   },
-  err // 测试 `message`、`name` 和 `code`。
+  // 当使用错误作为验证对象时，也会检查错误的 `message`  和 `name` 属性。
+  err
 );
 ```
 
@@ -113,6 +118,9 @@ assert.throws(
 
 自定义的错误验证函数：
 
+该函数必须返回 `true`，以表明已通过所有的内部验证。 
+否则它将会失败并带上 [`AssertionError`]。
+
 ```js
 assert.throws(
   () => {
@@ -121,10 +129,9 @@ assert.throws(
   (err) => {
     assert(err instanceof Error);
     assert(/value/.test(err));
-    // 除了 `true` 之外，不建议从验证函数返回任何内容。 
-    // 这样做会导致再次抛出捕获的错误。 
-    // 这通常不是理想的结果。 
-    // 抛出有关失败的特定验证的错误（如本例所示）。
+    // 避免从验证函数返回 `true` 以外的任何东西。 
+    // 否则，会不清楚验证的哪一部分失败。 
+    // 应该抛出有关失败的特定验证的错误（如本例所示），并向该错误添加尽可能多的有用的调试信息。
     return true;
   },
   '不是期望的错误'
@@ -166,10 +173,9 @@ assert.throws(notThrowing, '错误二');
 // 它不会抛出错误，因为错误消息匹配。
 assert.throws(throwingSecond, /错误二$/);
 
-// 如果错误消息不匹配，则不会捕获函数内的错误。
+// 如果错误消息不匹配，则抛出 AssertionError。
 assert.throws(throwingFirst, /错误二$/);
-// Error: 错误一
-//     at throwingFirst (repl:2:9)
+// AssertionError [ERR_ASSERTION]
 ```
 
 由于令人困惑的表示法，建议不要使用字符串作为第二个参数。

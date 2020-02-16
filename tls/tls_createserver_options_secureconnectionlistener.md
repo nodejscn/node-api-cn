@@ -53,8 +53,30 @@ changes:
     provided the default callback with high-level API will be used (see below).
   * `ticketKeys`: {Buffer} 48-bytes of cryptographically strong pseudo-random
     data. See [Session Resumption][] for more information.
+  * `pskCallback` {Function}
+    * socket: {tls.TLSSocket} the server [`tls.TLSSocket`][] instance for
+      this connection.
+    * identity: {string} identity parameter sent from the client.
+    * Returns: {Buffer|TypedArray|DataView} pre-shared key that must either be
+      a buffer or `null` to stop the negotiation process. Returned PSK must be
+      compatible with the selected cipher's digest.
+    When negotiating TLS-PSK (pre-shared keys), this function is called
+    with the identity provided by the client.
+    If the return value is `null` the negotiation process will stop and an
+    "unknown_psk_identity" alert message will be sent to the other party.
+    If the server wishes to hide the fact that the PSK identity was not known,
+    the callback must provide some random data as `psk` to make the connection
+    fail with "decrypt_error" before negotiation is finished.
+    PSK ciphers are disabled by default, and using TLS-PSK thus
+    requires explicitly specifying a cipher suite with the `ciphers` option.
+    More information can be found in the [RFC 4279][].
+  * `pskIdentityHint` {string} optional hint to send to a client to help
+    with selecting the identity during TLS-PSK negotiation. Will be ignored
+    in TLS 1.3. Upon failing to set pskIdentityHint `'tlsClientError'` will be
+    emitted with `'ERR_TLS_PSK_SET_IDENTIY_HINT_FAILED'` code.
   * ...: Any [`tls.createSecureContext()`][] option can be provided. For
-    servers, the identity options (`pfx` or `key`/`cert`) are usually required.
+    servers, the identity options (`pfx`, `key`/`cert` or `pskCallback`)
+    are usually required.
   * ...: Any [`net.createServer()`][] option can be provided.
 * `secureConnectionListener` {Function}
 * Returns: {tls.Server}

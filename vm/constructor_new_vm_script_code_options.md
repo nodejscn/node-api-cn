@@ -26,8 +26,8 @@ changes:
     如果未指定此选项，则对 `import()` 的调用将拒绝 [`ERR_VM_DYNAMIC_IMPORT_CALLBACK_MISSING`]。 
     此选项是 `--experimental-modules` 标志的实验 API 的一部分，不应被视为稳定。
      * `specifier` {string} 传给 `import()` 的说明符。
-     * `module` {vm.SourceTextModule}
-     * 返回: {Module Namespace Object|vm.SourceTextModule} 返回 `vm.SourceTextModule` 以利用错误跟踪，并避免出现包含 `then` 函数导出的命名空间问题。
+     * `module` {vm.Module}
+     * 返回: {Module Namespace Object|vm.Module} 返回 `vm.Module` 以利用错误跟踪，并避免出现包含 `then` 函数导出的命名空间问题。
     
 如果 `options` 是字符串，则它指定文件名。
 

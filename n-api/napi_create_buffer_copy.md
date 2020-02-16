@@ -12,8 +12,8 @@ napi_status napi_create_buffer_copy(napi_env env,
 ```
 
 * `[in] env`: The environment that the API is invoked under.
-* `[in] size`: Size in bytes of the input buffer (should be the same as the
- size of the new buffer).
+* `[in] size`: Size in bytes of the input buffer (should be the same as the size
+  of the new buffer).
 * `[in] data`: Raw pointer to the underlying buffer to copy from.
 * `[out] result_data`: Pointer to the new `Buffer`'s underlying data buffer.
 * `[out] result`: A `napi_value` representing a `node::Buffer`.

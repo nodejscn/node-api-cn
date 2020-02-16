@@ -1,6 +1,9 @@
 <!-- YAML
 added: v8.4.0
+deprecated: v12.16.0
 -->
+
+> Stability: 0 - Deprecated. Use [`response.writableEnded`][].
 
 * {boolean}
 

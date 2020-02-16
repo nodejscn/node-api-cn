@@ -18,7 +18,7 @@ added: v10.6.0
     expected to change in the not too distant future.
     New code should use `{ verbatim: true }`.
 
-Resolves a hostname (e.g. `'nodejs.org'`) into the first found A (IPv4) or
+Resolves a host name (e.g. `'nodejs.org'`) into the first found A (IPv4) or
 AAAA (IPv6) record. All `option` properties are optional. If `options` is an
 integer, then it must be `4` or `6` – if `options` is not provided, then IPv4
 and IPv6 addresses are both returned if found.
@@ -29,7 +29,7 @@ being an array of objects with the properties `address` and `family`.
 On error, the `Promise` is rejected with an [`Error`][] object, where `err.code`
 is the error code.
 Keep in mind that `err.code` will be set to `'ENOTFOUND'` not only when
-the hostname does not exist but also when the lookup fails in other ways
+the host name does not exist but also when the lookup fails in other ways
 such as no available file descriptors.
 
 [`dnsPromises.lookup()`][] does not necessarily have anything to do with the DNS

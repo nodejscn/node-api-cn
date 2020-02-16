@@ -10,7 +10,7 @@ napi_status napi_get_boolean(napi_env env, bool value, napi_value* result)
 * `[in] env`: The environment that the API is invoked under.
 * `[in] value`: The value of the boolean to retrieve.
 * `[out] result`: `napi_value` representing JavaScript `Boolean` singleton to
-retrieve.
+  retrieve.
 
 Returns `napi_ok` if the API succeeded.
 

@@ -2,6 +2,9 @@
 added: v8.4.0
 -->
 
+* `headers` {HTTP/2 Headers Object} An object describing the headers
+* `flags` {number} The associated numeric flags
+
 The `'trailers'` event is emitted when a block of headers associated with
 trailing header fields is received. The listener callback is passed the
 [HTTP/2 Headers Object][] and flags associated with the headers.

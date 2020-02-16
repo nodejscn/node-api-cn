@@ -37,15 +37,15 @@ Node.js options that are allowed are:
 <!-- node-options-node start -->
 * `--enable-fips`
 * `--enable-source-maps`
-* `--es-module-specifier-resolution`
-* `--experimental-exports`
 * `--experimental-json-modules`
 * `--experimental-loader`
 * `--experimental-modules`
 * `--experimental-policy`
 * `--experimental-repl-await`
 * `--experimental-report`
+* `--experimental-specifier-resolution`
 * `--experimental-vm-modules`
+* `--experimental-wasi-unstable-preview1`
 * `--experimental-wasm-modules`
 * `--force-context-aware`
 * `--force-fips`
@@ -82,6 +82,7 @@ Node.js options that are allowed are:
 * `--throw-deprecation`
 * `--title`
 * `--tls-cipher-list`
+* `--tls-keylog`
 * `--tls-max-v1.2`
 * `--tls-max-v1.3`
 * `--tls-min-v1.0`
@@ -92,12 +93,15 @@ Node.js options that are allowed are:
 * `--trace-event-categories`
 * `--trace-event-file-pattern`
 * `--trace-events-enabled`
+* `--trace-exit`
 * `--trace-sync-io`
 * `--trace-tls`
+* `--trace-uncaught`
 * `--trace-warnings`
 * `--track-heap-objects`
 * `--unhandled-rejections`
 * `--use-bundled-ca`
+* `--use-largepages`
 * `--use-openssl-ca`
 * `--v8-pool-size`
 * `--zero-fill-buffers`
@@ -106,6 +110,7 @@ Node.js options that are allowed are:
 V8 options that are allowed are:
 <!-- node-options-v8 start -->
 * `--abort-on-uncaught-exception`
+* `--disallow-code-generation-from-strings`
 * `--interpreted-frames-native-stack`
 * `--max-old-space-size`
 * `--perf-basic-prof-only-functions`

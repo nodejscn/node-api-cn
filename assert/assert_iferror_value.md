@@ -4,12 +4,13 @@ changes:
   - version: v10.0.0
     pr-url: https://github.com/nodejs/node/pull/18247
     description: Instead of throwing the original error it is now wrapped into
-                 an `AssertionError` that contains the full stack trace.
+                 an [`AssertionError`][] that contains the full stack trace.
   - version: v10.0.0
     pr-url: https://github.com/nodejs/node/pull/18247
     description: Value may now only be `undefined` or `null`. Before all falsy
                  values were handled the same as `null` and did not throw.
 -->
+
 * `value` {any}
 
 如果 `value` 不为 `undefined` 或 `null`，则抛出 `value`。 
