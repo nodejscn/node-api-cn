@@ -101,7 +101,6 @@ Node.js options that are allowed are:
 * `--track-heap-objects`
 * `--unhandled-rejections`
 * `--use-bundled-ca`
-* `--use-largepages`
 * `--use-openssl-ca`
 * `--v8-pool-size`
 * `--zero-fill-buffers`
