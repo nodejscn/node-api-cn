@@ -3,15 +3,15 @@ added: v10.12.0
 -->
 
 * `type` {string} 错误类型。`'resolve'` 或 `'reject'` 之一。
-* `promise` {Promise} 不止一次解决或拒绝的 Promise。
-* `value` {any} 在原始解析后解决或拒绝的 Promise 的值。
+* `promise` {Promise} 不止一次`'resolve'`或`'reject'`的 Promise。
+* `value` {any} 在原始解析后`'resolve'`或`'reject'`的 Promise 的值。
 
 只要 `Promise` 有以下情况，就会触发 `'multipleResolves'` 事件：
 
-* 解决不止一次。
-* 拒绝不止一次。
-* 解决后拒绝。
-* 拒绝后解决。
+* resolve不止一次。
+* reject不止一次。
+* resolve后reject。
+* reject后resolve。
 
 这对于在使用 Promise 构造函数时跟踪应用程序中的潜在错误非常有用，因为会以静默方式吞没多个解决。 
 但是，此事件的发生并不一定表示错误。 
