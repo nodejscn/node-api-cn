@@ -2,6 +2,7 @@
 added: v0.6.12
 -->
 
-Every `.html` document has a corresponding `.json` document. This is for IDEs
-and other utilities that consume the documentation.
+每个 `.html` 文档都有一个对应的 `.json` 文档。 
+这适用于使用该文档的 IDE 和其他实用工具。
+
 
