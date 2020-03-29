@@ -4,7 +4,7 @@ added: v11.0.0
 
 <!-- type=global -->
 
-WHATWG `TextEncoder` 类。
+WHATWG 的 `TextEncoder` 类。
 参阅 [`TextEncoder`] 文档。
 
 

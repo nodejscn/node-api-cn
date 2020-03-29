@@ -2,9 +2,9 @@
 <!--introduced_in=v0.10.0-->
 <!-- type=misc -->
 
-所有模块都提供这些对象。 
-以下变量虽然看起来是全局的，但其实并不是。 
-它们仅存在于模块范围内，请参阅[模块系统文档][module system documentation]：
+这些对象在所有的模块中都可用。 
+以下的变量虽然看似全局的，但实际上不是。 
+它们仅存在于模块的作用域中，参阅[模块系统的文档][module system documentation]：
 
 - [`__dirname`]
 - [`__filename`]

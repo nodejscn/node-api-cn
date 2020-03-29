@@ -4,7 +4,7 @@ added: v10.0.0
 
 <!-- type=global -->
 
-WHATWG `URLSearchParams` 类。
+WHATWG 的 `URLSearchParams` 类。
 请参阅 [`URLSearchParams`] 文档。
 
 
