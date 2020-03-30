@@ -5,9 +5,9 @@
 
 <!-- type=misc -->
 
-Node.js 包括一个进程外的调试实用程序，可通过[V8检查器][V8 Inspector]和内置调试客户端访问。
-要使用它，请使用 `inspect` 参数启动 Node.js，然后使用要调试的脚本的路径。
-将显示一个提示，表明调试器成功启动：
+Node.js 包含了一个进程外的调试实用程序，可通过 [V8 调试器][V8 Inspector]或内置的调试客户端访问。
+要使用它，请使用 `inspect` 参数启动 Node.js，并带上要调试的脚本的路径。
+如果出现提示符，则表明调试器已成功启动：
 
 ```console
 $ node inspect myscript.js
@@ -21,9 +21,9 @@ Break on start in myscript.js:1
 debug>
 ```
 
-Node.js 的调试器客户端不是一个功能齐全的调试器，但可以进行简单的步骤和检查。
+Node.js 的调试器客户端不是一个具有全部特性的调试器，但可以进行简单的单步执行和调试。
 
-将 `debugger;` 语句插入到脚本的源代码，将在代码中的该位置启用断点：
+把 `debugger;` 语句插入到脚本的源代码，则将会在代码中的该位置启用一个断点：
 
 
 <!-- eslint-disable no-debugger -->
@@ -37,7 +37,7 @@ setTimeout(() => {
 console.log('你好');
 ```
 
-运行调试器后，第 3 行将出现断点：
+一旦执行调试器，则将会在第 3 行出现一个断点：
 
 ```console
 $ node inspect myscript.js
@@ -80,9 +80,9 @@ break in myscript.js:5
 debug> .exit
 ```
 
-`repl` 命令允许远程运行代码。
-`next` 命令将步入下一行。
-键入 `help` 以查看可用的其他命令。
+`repl` 命令允许远程地运行代码。
+`next` 命令会单步进入下一行。
+键入 `help` 可以查看其他可用的命令。
 
-在不键入命令的情况下按 `enter` 键将重复上一个调试器命令。
+在不键入命令的情况下按 `enter` 键，则会重复上一个调试器命令。
 

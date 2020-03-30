@@ -1,9 +1,9 @@
 
-* `setBreakpoint()`, `sb()` - 在当前行上设置断点。
-* `setBreakpoint(line)`, `sb(line)` - 在特定行上设置断点。
-* `setBreakpoint('fn()')`, `sb(...)` - 在函数体的第一个语句上设置断点。
-* `setBreakpoint('script.js', 1)`, `sb(...)` - 在 `script.js` 的第一行设置断点。
-* `clearBreakpoint('script.js', 1)`, `cb(...)` - 清除 `script.js` 中第一行的断点。
+* `setBreakpoint()`, `sb()`: 在当前行上设置断点。
+* `setBreakpoint(line)`, `sb(line)`: 在指定行上设置断点。
+* `setBreakpoint('fn()')`, `sb(...)`: 在函数体的第一个语句上设置断点。
+* `setBreakpoint('script.js', 1)`, `sb(...)`: 在 `script.js` 的第一行上设置断点。
+* `clearBreakpoint('script.js', 1)`, `cb(...)`: 清除 `script.js` 中第一行上的断点。
 
 也可以在尚未加载的文件（模块）中设置断点：
 
@@ -20,10 +20,10 @@ debug> setBreakpoint('mod.js', 22)
 Warning: script 'mod.js' was not loaded yet.
 debug> c
 break in mod.js:22
- 20 // USE OR OTHER DEALINGS IN THE SOFTWARE.
+ 20 // 软件中的其他处理。
  21
 >22 exports.hello = function() {
- 23   return 'hello from module';
+ 23   return '来自模块的问候';
  24 };
 debug>
 ```
