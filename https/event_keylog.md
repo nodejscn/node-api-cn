@@ -1,5 +1,5 @@
 <!-- YAML
-added: v12.16.0
+added: v13.2.0
 -->
 
 * `line` {Buffer} Line of ASCII text, in NSS `SSLKEYLOGFILE` format.

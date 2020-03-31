@@ -7,7 +7,7 @@ added: v0.0.1
 * `...args` {any} 当调用 `callback` 时传入的可选参数。
 * 返回: {Timeout} 用于 [`clearTimeout()`]。
 
-预定在 `delay` 毫秒之后执行一次性的 `callback`。
+安排在 `delay` 毫秒之后执行一次性的 `callback`。
 
 可能不会精确地在 `delay` 毫秒时调用 `callback`。
 Node.js 不保证回调被触发的确切时间，也不保证它们的顺序。

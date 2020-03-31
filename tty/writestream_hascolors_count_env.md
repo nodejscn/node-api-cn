@@ -2,14 +2,14 @@
 added: v11.13.0
 -->
 
-* `count` {integer} 请求的颜色数量（最少2个）。**默认值:** 16。
-* `env` {Object} 包含需要检查的环境变量的对象。这使得能够模拟特定终端的使用。**默认值:** `process.env`。
+* `count` {integer} 要求的颜色数（最小为 2）。**默认值:** 16。
+* `env` {Object} 包含要检查的环境变量的对象。这使得能够模拟特定终端的使用。**默认值:** `process.env`。
 * 返回: {boolean}
 
-如果 `writeStream` 支持至少与 `count` 中提供的颜色一样多，则返回 `true`。 
-最低支持为 2（黑色和白色）。
+如果 `writeStream` 支持至少与 `count` 中提供的颜色数一样多，则返回 `true`。 
+最小的支持为 2（黑色和白色）。
 
-这与 [`writeStream.getColorDepth()`] 中描述的假的正数或假的负数相同。
+这也存在与 [`writeStream.getColorDepth()`] 中描述的相同的假正数或假负数。
 
 ```js
 process.stdout.hasColors();

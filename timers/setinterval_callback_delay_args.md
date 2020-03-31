@@ -7,7 +7,7 @@ added: v0.0.1
 * `...args` {any} 当调用 `callback` 时传入的可选参数。
 * 返回: {Timeout} 用于 [`clearInterval()`]。
 
-预定每隔 `delay` 毫秒重复执行 `callback`。
+安排每隔 `delay` 毫秒重复执行 `callback`。
 
 当 `delay` 大于 `2147483647` 或小于 `1` 时，`delay` 将设置为 `1`。
 非整数的延迟会被截断为整数。

@@ -3,11 +3,11 @@ added: v0.7.7
 changes:
   - version: v12.7.0
     pr-url: https://github.com/nodejs/node/pull/28721
-    description: The stream's write() callback and return value are exposed.
+    description: 流的 write() 回调和返回值会被导出。
 -->
 
-* `callback` {Function} 操作完成后调用。
-* 返回: {boolean} 如果流希望调用的代码在继续写入附加的数据之前等待 `'drain'` 事件触发，则为 `false`，否则为 `true`。
+* `callback` {Function} 当操作完成时调用。
+* 返回: {boolean} 如果流期望调用的代码在继续写入其他数据之前等待 `'drain'` 事件触发，则为 `false`，否则为 `true`。
 
-`writeStream.clearScreenDown()` 从当前光标向下清除此 `WriteStream`。
+`writeStream.clearScreenDown()` 会从当前的光标向下清理此 `WriteStream`。
 

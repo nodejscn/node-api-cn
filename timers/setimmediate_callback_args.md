@@ -6,7 +6,7 @@ added: v0.9.1
 * `...args` {any} 当调用 `callback` 时传入的可选参数。
 * 返回: {Immediate} 用于 [`clearImmediate()`]。
 
-预定在 I/O 事件的回调之后立即执行的 `callback`。
+安排在 I/O 事件的回调之后立即执行的 `callback`。
 
 当多次调用 `setImmediate()` 时，`callback` 函数将按照创建它们的顺序排队等待执行。
 每次事件循环迭代都会处理整个回调队列。
