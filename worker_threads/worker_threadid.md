@@ -4,7 +4,5 @@ added: v10.5.0
 
 * {integer}
 
-An integer identifier for the current thread. On the corresponding worker object
-(if there is any), it is available as [`worker.threadId`][].
-This value is unique for each [`Worker`][] instance inside a single process.
+当前线程的ID，同时在工作线程上，每个worker实例也都有唯一的ID。
 
