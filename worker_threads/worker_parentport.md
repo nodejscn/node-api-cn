@@ -4,12 +4,7 @@ added: v10.5.0
 
 * {null|MessagePort}
 
-If this thread was spawned as a [`Worker`][], this will be a [`MessagePort`][]
-allowing communication with the parent thread. Messages sent using
-`parentPort.postMessage()` will be available in the parent thread
-using `worker.on('message')`, and messages sent from the parent thread
-using `worker.postMessage()` will be available in this thread using
-`parentPort.on('message')`.
+如果当前线程为[`Worker`][]工作线程, 该[`MessagePort`][]端口作用于与主线交换信息。通过该端口`parentPort.postMessage()`发送的消息在主线程中将可以通过`worker.on('message')`接收。主线程中通过`worker.postMessage()`发送的消息将可以在工作线程中通过`parentPort.on('message')`接收。
 
 ```js
 const { Worker, isMainThread, parentPort } = require('worker_threads');
