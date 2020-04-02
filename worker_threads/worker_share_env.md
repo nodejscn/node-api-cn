@@ -4,9 +4,7 @@ added: v11.14.0
 
 * {symbol}
 
-A special value that can be passed as the `env` option of the [`Worker`][]
-constructor, to indicate that the current thread and the Worker thread should
-share read and write access to the same set of environment variables.
+传递给构造函数[`Worker`][]选项对象`env`属性的值，用以指定主线程与工作线程将可共享环境变量的读写。
 
 ```js
 const { Worker, SHARE_ENV } = require('worker_threads');
