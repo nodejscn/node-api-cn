@@ -2,18 +2,14 @@
 added: v13.2.0
 -->
 
-* `line` {Buffer} Line of ASCII text, in NSS `SSLKEYLOGFILE` format.
-* `tlsSocket` {tls.TLSSocket} The `tls.TLSSocket` instance on which it was
-  generated.
+* `line` {Buffer} ASCII 的文本行，采用 NSS 的 `SSLKEYLOGFILE` 格式。
+* `tlsSocket` {tls.TLSSocket} 生成 keylog 的 `tls.TLSSocket` 实例。
 
-The `keylog` event is emitted when key material is generated or received by a
-connection managed by this agent (typically before handshake has completed, but
-not necessarily). This keying material can be stored for debugging, as it
-allows captured TLS traffic to be decrypted. It may be emitted multiple times
-for each socket.
+当此 agent 管理的连接生成或接收到密钥材料时（通常在握手完成之前，但不一定），则触发 `keylog` 事件。 
+此密钥材料可以保存起来用以调试，因为它可以对捕获的 TLS 通信进行解密。 
+每个 socket 可以被多次触发。
 
-A typical use case is to append received lines to a common text file, which is
-later used by software (such as Wireshark) to decrypt the traffic:
+一个典型的用例是，将接收到的文本行附加到一个普通的文本文件，该文件随后可被软件（例如 Wireshark）进行解密通信：
 
 ```js
 // ...

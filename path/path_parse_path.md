@@ -35,7 +35,7 @@ path.parse('/home/user/dir/file.txt');
 │ root │              │ name │ ext │
 "  /    home/user/dir / file  .txt "
 └──────┴──────────────┴──────┴─────┘
-（"" 行中的所有空格都应该被忽略，它们纯粹是为了格式化）
+（"" 行中的所有空格都应该被忽略。它们纯粹是为了格式化）
 ```
 
 在 Windows 上：
@@ -57,7 +57,7 @@ path.parse('C:\\path\\dir\\file.txt');
 │ root │              │ name │ ext │
 " C:\      path\dir   \ file  .txt "
 └──────┴──────────────┴──────┴─────┘
-（"" 行中的所有空格都应该被忽略，它们纯粹是为了格式化）
+（"" 行中的所有空格都应该被忽略。它们纯粹是为了格式化）
 ```
 
 如果 `path` 不是字符串，则抛出 [`TypeError`]。

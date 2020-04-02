@@ -17,7 +17,7 @@ const options = {
 
 https.createServer(options, (req, res) => {
   res.writeHead(200);
-  res.end('hello world\n');
+  res.end('你好，世界\n');
 }).listen(8000);
 ```
 
@@ -29,12 +29,12 @@ const fs = require('fs');
 
 const options = {
   pfx: fs.readFileSync('test/fixtures/test_cert.pfx'),
-  passphrase: 'sample'
+  passphrase: '密码'
 };
 
 https.createServer(options, (req, res) => {
   res.writeHead(200);
-  res.end('hello world\n');
+  res.end('你好，世界\n');
 }).listen(8000);
 ```
 

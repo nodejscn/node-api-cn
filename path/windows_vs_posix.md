@@ -38,6 +38,6 @@ path.posix.basename('/tmp/myfile.html');
 
 在 Windows 上，Node.js 遵循每个驱动器工作目录的概念。
 当使用没有反斜杠的驱动器路径时，可以观察到此行为。
-例如，`path.resolve('c:\\')` 可能会返回与 `path.resolve('c:')` 不同的结果。
+例如，`path.resolve('C:\\')` 可能会返回与 `path.resolve('C:')` 不同的结果。
 有关详细信息，参阅[此 MSDN 页面][MSDN-Rel-Path]。
 
