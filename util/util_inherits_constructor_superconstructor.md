@@ -17,7 +17,7 @@ changes:
 `constructor` 的原型会被设置到一个从 `superConstructor` 创建的新对象上。
 
 这主要在 `Object.setPrototypeOf(constructor.prototype, superConstructor.prototype)` 之上添加了一些输入验证。 
-作为额外的便利，可以通过 `constructor.super`_属性访问 `superConstructor`。
+作为额外的便利，可以通过 `constructor.super_`属性访问 `superConstructor`。
 
 ```js
 const util = require('util');
