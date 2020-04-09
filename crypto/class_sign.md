@@ -31,8 +31,8 @@ const signature = sign.sign(privateKey, 'hex');
 const verify = crypto.createVerify('SHA256');
 verify.write('要生成签名的数据');
 verify.end();
-console.log(verify.verify(publicKey, signature));
-// 打印 true 或 false。
+console.log(verify.verify(publicKey, signature, 'hex'));
+// 打印 true
 ```
 
 示例，使用 [`sign.update()`] 和 [`verify.update()`] 方法：

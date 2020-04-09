@@ -38,8 +38,7 @@ contexts.forEach((context) => {
   script.runInNewContext(context);
 });
 
-console.log(util.inspect(contexts));
-
-// [{ globalVar: 'set' }, { globalVar: 'set' }, { globalVar: 'set' }]
+console.log(contexts);
+// 打印: [{ globalVar: 'set' }, { globalVar: 'set' }, { globalVar: 'set' }]
 ```
 

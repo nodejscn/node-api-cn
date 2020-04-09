@@ -7,15 +7,33 @@ const finished = util.promisify(stream.finished);
 
 const writable = fs.createWriteStream('./file');
 
-(async function() {
-  for await (const chunk of iterator) {
+function drain(writable) {
+  if (writable.destroyed) {
+    return Promise.reject(new Error('过早关闭'));
+  }
+  return Promise.race([
+    once(writable, 'drain'),
+    once(writable, 'close')
+      .then(() => Promise.reject(new Error('过早关闭')))
+  ]);
+}
+
+async function pump(iterable, writable) {
+  for await (const chunk of iterable) {
     // 处理 write() 上的背压。
-    if (!writable.write(chunk))
-      await once(writable, 'drain');
+    if (!writable.write(chunk)) {
+      await drain(writable);
+    }
   }
   writable.end();
+}
+
+(async function() {
   // 确保完成没有错误。
-  await finished(writable);
+  await Promise.all([
+    pump(iterable, writable),
+    finished(writable)
+  ]);
 })();
 ```
 
@@ -31,7 +49,7 @@ const finished = util.promisify(stream.finished);
 const writable = fs.createWriteStream('./file');
 
 (async function() {
-  const readable = Readable.from(iterator);
+  const readable = Readable.from(iterable);
   readable.pipe(writable);
   // 确保完成没有错误。
   await finished(writable);
@@ -46,7 +64,7 @@ const pipeline = util.promisify(stream.pipeline);
 const writable = fs.createWriteStream('./file');
 
 (async function() {
-  const readable = Readable.from(iterator);
+  const readable = Readable.from(iterable);
   await pipeline(readable, writable);
 })();
 ```

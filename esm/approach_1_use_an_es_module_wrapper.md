@@ -11,8 +11,8 @@ CommonJS entry point for `require`.
   "type": "module",
   "main": "./index.cjs",
   "exports": {
-    "require": "./index.cjs",
-    "import": "./wrapper.mjs"
+    "import": "./wrapper.mjs",
+    "require": "./index.cjs"
   }
 }
 ```

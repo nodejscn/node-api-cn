@@ -9,3 +9,5 @@ exited by calling [`process.exit()`][], the `exitCode` parameter will be the
 passed exit code. If the worker was terminated, the `exitCode` parameter will
 be `1`.
 
+This is the final event emitted by any `Worker` instance.
+

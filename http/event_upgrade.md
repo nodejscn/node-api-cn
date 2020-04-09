@@ -17,11 +17,11 @@ added: v0.1.94
 const http = require('http');
 
 // 创建 HTTP 服务器。
-const srv = http.createServer((req, res) => {
+const server = http.createServer((req, res) => {
   res.writeHead(200, { 'Content-Type': 'text/plain' });
   res.end('响应内容');
 });
-srv.on('upgrade', (req, socket, head) => {
+server.on('upgrade', (req, socket, head) => {
   socket.write('HTTP/1.1 101 Web Socket Protocol Handshake\r\n' +
                'Upgrade: WebSocket\r\n' +
                'Connection: Upgrade\r\n' +
@@ -31,7 +31,7 @@ srv.on('upgrade', (req, socket, head) => {
 });
 
 // 服务器正在运行。
-srv.listen(1337, '127.0.0.1', () => {
+server.listen(1337, '127.0.0.1', () => {
 
   // 发送请求。
   const options = {

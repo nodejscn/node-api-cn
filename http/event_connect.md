@@ -23,16 +23,16 @@ const proxy = http.createServer((req, res) => {
   res.writeHead(200, { 'Content-Type': 'text/plain' });
   res.end('响应内容');
 });
-proxy.on('connect', (req, cltSocket, head) => {
+proxy.on('connect', (req, clientSocket, head) => {
   // 连接到原始服务器。
   const { port, hostname } = new URL(`http://${req.url}`);
-  const srvSocket = net.connect(port || 80, hostname, () => {
-    cltSocket.write('HTTP/1.1 200 Connection Established\r\n' +
+  const serverSocket = net.connect(port || 80, hostname, () => {
+    clientSocket.write('HTTP/1.1 200 Connection Established\r\n' +
                     'Proxy-agent: Node.js-Proxy\r\n' +
                     '\r\n');
-    srvSocket.write(head);
-    srvSocket.pipe(cltSocket);
-    cltSocket.pipe(srvSocket);
+    serverSocket.write(head);
+    serverSocket.pipe(clientSocket);
+    clientSocket.pipe(serverSocket);
   });
 });
 

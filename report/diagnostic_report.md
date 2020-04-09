@@ -296,6 +296,7 @@ is provided below for reference.
       "address": "0x000055fc7b2cb180"
     }
   ],
+  "workers": [],
   "environmentVariables": {
     "REMOTEHOST": "REMOVED",
     "MANPATH": "/opt/rh/devtoolset-3/root/usr/share/man:",

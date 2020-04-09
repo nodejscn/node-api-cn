@@ -26,7 +26,7 @@
  - Node.js 包含了其他的静态链接库，如 OpenSSL。
    这些库位于 Node.js 源代码树中的 `deps/` 目录。
    只有 libuv、OpenSSL、V8 和 zlib 符号是被 Node.js 有目的地重新公开，并且可以被插件在不同程度上使用。
-   更多信息可查看[链接到 Node.js 自有的依赖项][Linking to Node.js' own dependencies]。
+   更多信息可查看[链接到 Node.js 自带的库][Linking to libraries included with Node.js]。
 
 以下所有示例均可供[下载][download]，并可用作学习插件的起点。
 

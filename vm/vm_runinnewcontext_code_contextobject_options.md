@@ -56,8 +56,7 @@ const contextObject = {
 };
 
 vm.runInNewContext('count += 1; name = "kitty"', contextObject);
-console.log(util.inspect(contextObject));
-
-// { animal: 'cat', count: 3, name: 'kitty' }
+console.log(contextObject);
+// 打印: { animal: 'cat', count: 3, name: 'kitty' }
 ```
 

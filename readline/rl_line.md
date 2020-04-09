@@ -1,5 +1,5 @@
 <!-- YAML
-added: 0.1.98
+added: v0.1.98
 -->
 
 * {string|undefined}

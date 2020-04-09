@@ -25,7 +25,7 @@ changes:
   [`SharedArrayBuffer`][] or the `.buffer` property of a [`TypedArray`][].
 * `byteOffset` {integer} Index of first byte to expose. **Default:** `0`.
 * `length` {integer} Number of bytes to expose.
-  **Default:** `arrayBuffer.length - byteOffset`.
+  **Default:** `arrayBuffer.byteLength - byteOffset`.
 
 This creates a view of the [`ArrayBuffer`][] or [`SharedArrayBuffer`][] without
 copying the underlying memory. For example, when passed a reference to the

@@ -6,14 +6,27 @@
 ```js
 const zlib = require('zlib');
 const http = require('http');
+const { pipeline } = require('stream');
 
 http.createServer((request, response) => {
   // 为了简单起见，省略了对 Accept-Encoding 的检测。
   response.writeHead(200, { 'content-encoding': 'gzip' });
   const output = zlib.createGzip();
-  output.pipe(response);
+  let i;
 
-  setInterval(() => {
+  pipeline(output, response, (err) => {
+    if (err) {
+      // 如果发生错误，则我们将会无能为力，
+      // 因为服务器已经发送了 200 响应码，
+      // 并且已经向客户端发送了一些数据。 
+      // 我们能做的最好就是立即终止响应并记录错误。
+      clearInterval(i);
+      response.end();
+      console.error('发生错误:', err);
+    }
+  });
+
+  i = setInterval(() => {
     output.write(`The current time is ${Date()}\n`, () => {
       // 数据已经传递给了 zlib，但压缩算法看能已经决定缓存数据以便得到更高的压缩效率。
       // 一旦客户端准备接收数据，调用 .flush() 将会使数据可用。

@@ -70,8 +70,8 @@ Timeout(7) -> TickObject(6) -> root(1)
 ```
 
 The `TCPSERVERWRAP` is not part of this graph, even though it was the reason for
-`console.log()` being called. This is because binding to a port without a
-hostname is a *synchronous* operation, but to maintain a completely asynchronous
+`console.log()` being called. This is because binding to a port without a host
+name is a *synchronous* operation, but to maintain a completely asynchronous
 API the user's callback is placed in a `process.nextTick()`.
 
 The graph only shows *when* a resource was created, not *why*, so to track

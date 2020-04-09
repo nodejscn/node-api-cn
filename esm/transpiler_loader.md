@@ -4,7 +4,7 @@ JavaScript using the [`transformSource` hook][]. Before that hook gets called,
 however, other hooks need to tell Node.js not to throw an error on unknown file
 types; and to tell Node.js how to load this new file type.
 
-This is obviously less performant than transpiling source files before running
+This is less performant than transpiling source files before running
 Node.js; a transpiler loader should only be used for development and testing
 purposes.
 

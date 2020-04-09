@@ -1,6 +1,9 @@
 <!-- YAML
 added: v0.1.31
 changes:
+  - version: v10.5.0
+    pr-url: https://github.com/nodejs/node/pull/20220
+    description: The `bigint` option is now supported.
   - version: v7.6.0
     pr-url: https://github.com/nodejs/node/pull/10739
     description: The `filename` parameter can be a WHATWG `URL` object using
@@ -9,6 +12,7 @@ changes:
 
 * `filename` {string|Buffer|URL}
 * `options` {Object}
+  * `bigint` {boolean} **默认值:** `false`。
   * `persistent` {boolean} **默认值:** `true`。
   * `interval` {integer} **默认值:** `5007`。
 * `listener` {Function}
@@ -33,6 +37,7 @@ fs.watchFile('message.text', (curr, prev) => {
 ```
 
 这些 stat 对象是 `fs.Stat` 的实例。
+如果 `bigint` 选项为 `true`，则这些对象中的数值会被指定为 `BigInts` 类型。
 
 要在修改文件（而不仅仅是访问）时收到通知，则需要比较 `curr.mtime` 和 `prev.mtime`。
 

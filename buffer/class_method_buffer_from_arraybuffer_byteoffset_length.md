@@ -4,7 +4,7 @@ added: v5.10.0
 
 * `arrayBuffer` {ArrayBuffer|SharedArrayBuffer} 一个 [`ArrayBuffer`]、[`SharedArrayBuffer`]、或 [`TypedArray`] 的 `.buffer` 属性。
 * `byteOffset` {integer} 开始拷贝的索引。**默认值:** `0`。
-* `length` {integer} 拷贝的字节数。**默认值:** `arrayBuffer.length - byteOffset`。
+* `length` {integer} 拷贝的字节数。**默认值:** `arrayBuffer.byteLength - byteOffset`。
 
 创建 [`ArrayBuffer`] 的视图，但不会拷贝底层内存。
 例如，当传入 [`TypedArray`] 的 `.buffer` 属性的引用时，新建的 `Buffer` 会与 [`TypedArray`] 共享同一内存。

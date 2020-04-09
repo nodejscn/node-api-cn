@@ -20,7 +20,7 @@ changes:
 
 ```js
 if (fs.existsSync('/etc/passwd')) {
-  console.log('文件已存在');
+  console.log('路径已存在');
 }
 ```
 

@@ -19,3 +19,15 @@ changes:
 
 如果 `options.withFileTypes` 设置为 `true`，则解决的数组将包含 [`fs.Dirent`] 对象。
 
+```js
+const fs = require('fs');
+
+async function print(path) {
+  const files = await fs.promises.readdir(path);
+  for (const file of files) {
+    console.log(file);
+  }
+}
+print('./').catch(console.error);
+```
+

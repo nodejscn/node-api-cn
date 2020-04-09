@@ -10,9 +10,8 @@ ES module code:
 
 * Files ending in `.mjs`.
 
-* Files ending in `.js`, or extensionless files, when the nearest parent
-  `package.json` file contains a top-level field `"type"` with a value of
-  `"module"`.
+* Files ending in `.js` when the nearest parent `package.json` file contains a
+  top-level field `"type"` with a value of `"module"`.
 
 * Strings passed in as an argument to `--eval` or `--print`, or piped to
   `node` via `STDIN`, with the flag `--input-type=module`.
@@ -27,9 +26,8 @@ or when referenced by `import` statements within ES module code:
 
 * Files ending in `.cjs`.
 
-* Files ending in `.js`, or extensionless files, when the nearest parent
-  `package.json` file contains a top-level field `"type"` with a value of
-  `"commonjs"`.
+* Files ending in `.js` when the nearest parent `package.json` file contains a
+  top-level field `"type"` with a value of `"commonjs"`.
 
 * Strings passed in as an argument to `--eval` or `--print`, or piped to
   `node` via `STDIN`, with the flag `--input-type=commonjs`.

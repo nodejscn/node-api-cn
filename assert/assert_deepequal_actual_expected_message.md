@@ -26,18 +26,18 @@ changes:
 * `expected` {any}
 * `message` {string|Error}
 
-**Strict mode**
+**Strict assertion mode**
 
 An alias of [`assert.deepStrictEqual()`][].
 
-**Legacy mode**
+**Legacy assertion mode**
 
 > Stability: 0 - Deprecated: Use [`assert.deepStrictEqual()`][] instead.
 
 Tests for deep equality between the `actual` and `expected` parameters. Consider
 using [`assert.deepStrictEqual()`][] instead. [`assert.deepEqual()`][] can have
-potentially surprising results.
+surprising results.
 
-"Deep" equality means that the enumerable "own" properties of child objects
+_Deep equality_ means that the enumerable "own" properties of child objects
 are also recursively evaluated by the following rules.
 

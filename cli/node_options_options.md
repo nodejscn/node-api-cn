@@ -37,6 +37,7 @@ Node.js options that are allowed are:
 <!-- node-options-node start -->
 * `--enable-fips`
 * `--enable-source-maps`
+* `--experimental-import-meta-resolve`
 * `--experimental-json-modules`
 * `--experimental-loader`
 * `--experimental-modules`
@@ -111,6 +112,7 @@ V8 options that are allowed are:
 * `--abort-on-uncaught-exception`
 * `--disallow-code-generation-from-strings`
 * `--interpreted-frames-native-stack`
+* `--jitless`
 * `--max-old-space-size`
 * `--perf-basic-prof-only-functions`
 * `--perf-basic-prof`
@@ -118,4 +120,7 @@ V8 options that are allowed are:
 * `--perf-prof`
 * `--stack-trace-limit`
 <!-- node-options-v8 end -->
+
+`--perf-basic-prof-only-functions`, `--perf-basic-prof`,
+`--perf-prof-unwinding-info`, and `--perf-prof` are only available on Linux.
 

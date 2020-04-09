@@ -33,6 +33,21 @@ added: v10.0.0
 ```
 
 ```js
+(async () => {
+  await assert.rejects(
+    async () => {
+      throw new TypeError('错误值');
+    },
+    (err) => {
+      assert.strictEqual(err.name, 'TypeError');
+      assert.strictEqual(err.message, '错误值');
+      return true;
+    }
+  );
+})();
+```
+
+```js
 assert.rejects(
   Promise.reject(new Error('错误值')),
   Error

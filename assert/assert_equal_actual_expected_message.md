@@ -6,11 +6,11 @@ added: v0.1.21
 * `expected` {any}
 * `message` {string|Error}
 
-**Strict mode**
+**Strict assertion mode**
 
 An alias of [`assert.strictEqual()`][].
 
-**Legacy mode**
+**Legacy assertion mode**
 
 > Stability: 0 - Deprecated: Use [`assert.strictEqual()`][] instead.
 

@@ -1,6 +1,6 @@
 
-The most straightforward `package.json` would be one that defines the separate
-CommonJS and ES module entry points directly:
+A `package.json` file can define the separate CommonJS and ES module entry
+points directly:
 
 <!-- eslint-skip -->
 ```js

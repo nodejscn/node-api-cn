@@ -34,9 +34,8 @@ for (let i = 0; i < 10; ++i) {
   script.runInContext(context);
 }
 
-console.log(util.inspect(context));
-
-// { animal: 'cat', count: 12, name: 'kitty' }
+console.log(context);
+// 打印: { animal: 'cat', count: 12, name: 'kitty' }
 ```
 
 使用 `timeout` 或者 `breakOnSigint` 选项会导致若干新的事件循环以及对应的线程，这有一个非零的性能消耗。

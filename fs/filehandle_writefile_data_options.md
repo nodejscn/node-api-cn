@@ -4,8 +4,6 @@ added: v10.0.0
 * `data` {string|Buffer|Uint8Array}
 * `options` {Object|string}
   * `encoding` {string|null} **默认值:** `'utf8'`。
-  * `mode` {integer} **默认值:** `0o666`。
-  * `flag` {string} 参阅[支持的文件系统标志][support of file system `flags`]。**默认值:** `'w'`。
 * 返回: {Promise}
 
 

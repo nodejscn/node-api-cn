@@ -11,8 +11,8 @@ can either be an URL-style relative path like `'./file.mjs'` or a package name
 like `'fs'`.
 
 Like in CommonJS, files within packages can be accessed by appending a path to
-the package name; unless the package’s `package.json` contains an [`"exports"`
-field][], in which case files within packages need to be accessed via the path
+the package name; unless the package’s `package.json` contains an `"exports"`
+field, in which case files within packages need to be accessed via the path
 defined in `"exports"`.
 
 ```js
@@ -27,4 +27,7 @@ import packageMain from 'commonjs-package'; // Works
 
 import { method } from 'commonjs-package'; // Errors
 ```
+
+It is also possible to
+[import an ES or CommonJS module for its side effects only][].
 

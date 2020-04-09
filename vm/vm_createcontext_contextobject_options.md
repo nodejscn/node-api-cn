@@ -35,9 +35,11 @@ vm.createContext(context);
 
 vm.runInContext('globalVar *= 2;', context);
 
-console.log(util.inspect(context)); // { globalVar: 2 }
+console.log(context);
+// 打印: { globalVar: 2 }
 
-console.log(util.inspect(globalVar)); // 3
+console.log(global.globalVar);
+// 打印: 3
 ```
 
 如果未提供 `contextObject`（或者传入`undefined`），那么会返回一个全新的空的[上下文隔离化][contextified]对象。

@@ -13,6 +13,8 @@ HTTP 的 [`Accept-Encoding`] 消息头用来标记客户端接受的压缩编码
 const zlib = require('zlib');
 const http = require('http');
 const fs = require('fs');
+const { pipeline } = require('stream');
+
 const request = http.get({ host: 'example.com',
                            path: '/',
                            port: 80,
@@ -20,19 +22,26 @@ const request = http.get({ host: 'example.com',
 request.on('response', (response) => {
   const output = fs.createWriteStream('example.com_index.html');
 
+  const onError = (err) => {
+    if (err) {
+      console.error('发生错误:', err);
+      process.exitCode = 1;
+    }
+  };
+
   switch (response.headers['content-encoding']) {
     case 'br':
-      response.pipe(zlib.createBrotliDecompress()).pipe(output);
+      pipeline(response, zlib.createBrotliDecompress(), output, onError);
       break;
     // 或者, 只是使用 zlib.createUnzip() 方法去处理这两种情况：
     case 'gzip':
-      response.pipe(zlib.createGunzip()).pipe(output);
+      pipeline(response, zlib.createGunzip(), output, onError);
       break;
     case 'deflate':
-      response.pipe(zlib.createInflate()).pipe(output);
+      pipeline(response, zlib.createInflate(), outout, onError);
       break;
     default:
-      response.pipe(output);
+      pipeline(response, output, onError);
       break;
   }
 });
@@ -45,29 +54,42 @@ request.on('response', (response) => {
 const zlib = require('zlib');
 const http = require('http');
 const fs = require('fs');
+const { pipeline } = require('stream');
+
 http.createServer((request, response) => {
   const raw = fs.createReadStream('index.html');
   // 存储资源的压缩版本和未压缩版本。
-  response.setHeader('Vary: Accept-Encoding');
+  response.setHeader('Vary', 'Accept-Encoding');
   let acceptEncoding = request.headers['accept-encoding'];
   if (!acceptEncoding) {
     acceptEncoding = '';
   }
 
+  const onError = (err) => {
+    if (err) {
+      // 如果发生错误，则我们将会无能为力，
+      // 因为服务器已经发送了 200 响应码，
+      // 并且已经向客户端发送了一些数据。 
+      // 我们能做的最好就是立即终止响应并记录错误。
+      response.end();
+      console.error('发生错误:', err);
+    }
+  };
+
   // 注意：这不是一个合适的 accept-encoding 解析器。
   // 查阅 https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.3
   if (/\bdeflate\b/.test(acceptEncoding)) {
     response.writeHead(200, { 'Content-Encoding': 'deflate' });
-    raw.pipe(zlib.createDeflate()).pipe(response);
+    pipeline(raw, zlib.createDeflate(), response, onError);
   } else if (/\bgzip\b/.test(acceptEncoding)) {
     response.writeHead(200, { 'Content-Encoding': 'gzip' });
-    raw.pipe(zlib.createGzip()).pipe(response);
+    pipeline(raw, zlib.createGzip(), response, onError);
   } else if (/\bbr\b/.test(acceptEncoding)) {
     response.writeHead(200, { 'Content-Encoding': 'br' });
-    raw.pipe(zlib.createBrotliCompress()).pipe(response);
+    pipeline(raw, zlib.createBrotliCompress(), response, onError);
   } else {
     response.writeHead(200, {});
-    raw.pipe(response);
+    pipeline(raw, response, onError);
   }
 }).listen(1337);
 ```
@@ -84,11 +106,11 @@ zlib.unzip(
   // 对于 Brotli，等效的是 zlib.constants.BROTLI_OPERATION_FLUSH。
   { finishFlush: zlib.constants.Z_SYNC_FLUSH },
   (err, buffer) => {
-    if (!err) {
-      console.log(buffer.toString());
-    } else {
-      // 错误处理
+    if (err) {
+      console.error('发生错误:', err);
+      process.exitCode = 1;
     }
+    console.log(buffer.toString());
   });
 ```
 

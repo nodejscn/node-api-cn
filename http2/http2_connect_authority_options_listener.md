@@ -11,7 +11,11 @@ changes:
                  128 header pairs.
 -->
 
-* `authority` {string|URL}
+* `authority` {string|URL} The remote HTTP/2 server to connect to. This must
+  be in the form of a minimal, valid URL with the `http://` or `https://`
+  prefix, host name, and IP port (if a non-default port is used). Userinfo
+  (user ID and password), path, querystring, and fragment details in the
+  URL will be ignored.
 * `options` {Object}
   * `maxDeflateDynamicTableSize` {number} Sets the maximum dynamic table size
     for deflating header fields. **Default:** `4Kib`.
@@ -63,6 +67,9 @@ changes:
   * `selectPadding` {Function} When `options.paddingStrategy` is equal to
     `http2.constants.PADDING_STRATEGY_CALLBACK`, provides the callback function
     used to determine the padding. See [Using `options.selectPadding()`][].
+  * `protocol` {string} The protocol to connect with, if not set in the
+    `authority`. Value may be either `'http:'` or `'https:'`. **Default:**
+    `'https:'`
   * `settings` {HTTP/2 Settings Object} The initial settings to send to the
     remote peer upon connection.
   * `createConnection` {Function} An optional callback that receives the `URL`

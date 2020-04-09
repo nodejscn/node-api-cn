@@ -22,11 +22,11 @@ changes:
 * `expected` {any}
 * `message` {string|Error}
 
-**Strict mode**
+**Strict assertion mode**
 
 An alias of [`assert.notDeepStrictEqual()`][].
 
-**Legacy mode**
+**Legacy assertion mode**
 
 > Stability: 0 - Deprecated: Use [`assert.notDeepStrictEqual()`][] instead.
 

@@ -48,8 +48,7 @@ vm.createContext(contextObject);
 for (let i = 0; i < 10; ++i) {
   vm.runInContext('globalVar *= 2;', contextObject);
 }
-console.log(util.inspect(contextObject));
-
-// { globalVar: 1024 }
+console.log(contextObject);
+// 打印: { globalVar: 1024 }
 ```
 
