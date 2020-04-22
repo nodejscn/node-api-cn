@@ -1,5 +1,5 @@
 <!-- YAML
-added: v12.16.0
+added: v13.1.0
 -->
 
 Print stack traces for uncaught exceptions; usually, the stack trace associated

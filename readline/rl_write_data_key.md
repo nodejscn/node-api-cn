@@ -11,6 +11,7 @@ added: v0.1.98
 
 `rl.write()` 方法将 `data` 或 `key` 标识的按键序列写入 `output`。
 仅当 `output` 是 [TTY] 文本终端时才支持 `key` 参数。
+有快捷键组合的列表，请参阅 [TTY 快捷键][TTY keybindings]。
 
 如果指定了 `key`，则忽略 `data`。
 

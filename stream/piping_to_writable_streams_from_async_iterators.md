@@ -64,8 +64,7 @@ const pipeline = util.promisify(stream.pipeline);
 const writable = fs.createWriteStream('./file');
 
 (async function() {
-  const readable = Readable.from(iterable);
-  await pipeline(readable, writable);
+  await pipeline(iterable, writable);
 })();
 ```
 

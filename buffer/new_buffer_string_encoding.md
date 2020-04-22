@@ -19,18 +19,5 @@ changes:
 * `string` {string} String to encode.
 * `encoding` {string} The encoding of `string`. **Default:** `'utf8'`.
 
-Creates a new `Buffer` containing `string`. The `encoding` parameter identifies
-the character encoding of `string`.
-
-```js
-const buf1 = new Buffer('this is a tést');
-const buf2 = new Buffer('7468697320697320612074c3a97374', 'hex');
-
-console.log(buf1.toString());
-// Prints: this is a tést
-console.log(buf2.toString());
-// Prints: this is a tést
-console.log(buf1.toString('ascii'));
-// Prints: this is a tC)st
-```
+See [`Buffer.from(string[, encoding])`][`Buffer.from(string)`].
 

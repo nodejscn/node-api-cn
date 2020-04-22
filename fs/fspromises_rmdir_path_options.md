@@ -1,7 +1,7 @@
 <!-- YAML
 added: v10.0.0
 changes:
-  - version: v12.16.0
+  - version: v13.3.0
     pr-url: https://github.com/nodejs/node/pull/30644
     description: The `maxBusyTries` option is renamed to `maxRetries`, and its
                  default is 0. The `emfileWait` option has been removed, and

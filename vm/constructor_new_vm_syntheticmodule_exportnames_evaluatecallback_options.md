@@ -1,5 +1,5 @@
 <!-- YAML
-added: v12.16.0
+added: v13.0.0
 -->
 
 * `exportNames` {string[]} Array of names that will be exported from the module.

@@ -3,7 +3,7 @@ added: v0.1.25
 changes:
   - version: v6.0.0
     pr-url: https://github.com/nodejs/node/pull/5348
-    description: Passing a non-string as the `path` argument will throw now.
+    description: 现在将非字符串作为 `path` 参数传入会抛出异常。
 -->
 
 * `path` {string}

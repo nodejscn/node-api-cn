@@ -8,7 +8,7 @@ changes:
 
 * `buf1` {Buffer|Uint8Array}
 * `buf2` {Buffer|Uint8Array}
-* 返回: {integer}
+* 返回: {integer} `-1`、`0` 或 `1`，取决于比较的结果。 有关详细信息，参阅 [`buf.compare()`]。
 
 比较 `buf1` 与 `buf2`，主要用于 `Buffer` 实例数组的排序。
 相当于调用 [`buf1.compare(buf2)`][`buf.compare()`]。

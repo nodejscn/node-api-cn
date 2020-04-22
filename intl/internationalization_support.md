@@ -22,10 +22,8 @@ programs. Some of them are:
 * [`RegExp` Unicode Property Escapes][]
 
 Node.js (and its underlying V8 engine) uses [ICU][] to implement these features
-in native C/C++ code. However, some of them require a very large ICU data file
-in order to support all locales of the world. Because it is expected that most
-Node.js users will make use of only a small portion of ICU functionality, only
-a subset of the full ICU data set is provided by Node.js by default. Several
-options are provided for customizing and expanding the ICU data set either when
+in native C/C++ code. The full ICU data set is provided by Node.js by default.
+However, due to the size of the ICU data file, several
+options are provided for customizing the ICU data set either when
 building or running Node.js.
 

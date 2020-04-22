@@ -1,6 +1,10 @@
 <!-- YAML
 added: v0.0.2
 changes:
+  - version: v14.0.0
+    pr-url: https://github.com/nodejs/node/pull/31030
+    description: The `buffer` parameter won't coerce unsupported input to
+                 strings anymore.
   - version: v10.10.0
     pr-url: https://github.com/nodejs/node/pull/22150
     description: The `buffer` parameter can now be any `TypedArray` or a

@@ -15,7 +15,7 @@ napi_value Init(napi_env env, napi_value exports);
 
 The return value from `Init` is treated as the `exports` object for the module.
 The `Init` method is passed an empty object via the `exports` parameter as a
-convenience. If `Init` returns NULL, the parameter passed as `exports` is
+convenience. If `Init` returns `NULL`, the parameter passed as `exports` is
 exported by the module. N-API modules cannot modify the `module` object but can
 specify anything as the `exports` property of the module.
 

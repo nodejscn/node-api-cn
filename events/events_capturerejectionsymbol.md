@@ -1,5 +1,5 @@
 <!-- YAML
-added: v12.16.0
+added: v13.4.0
 -->
 
 > Stability: 1 - captureRejections is experimental.

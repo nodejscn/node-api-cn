@@ -1,5 +1,9 @@
 <!-- YAML
 added: v0.9.12
+changes:
+  - version: v13.0.0
+    pr-url: https://github.com/nodejs/node/pull/27558
+    description: The default timeout changed from 120s to 0 (no timeout).
 -->
 
 * `msecs` {number} **默认值:** `120000`（2 分钟）。
@@ -10,9 +14,7 @@ added: v0.9.12
 
 如果服务器对象上有 `'timeout'` 事件监听器，则将使用超时的套接字作为参数调用它。
 
-默认情况下，服务器的超时值为 2 分钟，如果超时，套接字会自动销毁。 
+默认情况下，服务器不会使 socket 超时。 
 但是，如果将回调分配给服务器的 `'timeout'` 事件，则必须显式处理超时。
-
-若要更改默认的超时，请使用 [`--http-server-default-timeout`] 标志。
 
 

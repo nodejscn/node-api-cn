@@ -17,6 +17,10 @@ changes:
   - version: v2.3.0
     pr-url: https://github.com/nodejs/node/pull/1845
     description: The passed `options` object can be a string now.
+  - version: v13.6.0
+    pr-url: https://github.com/nodejs/node/pull/29083
+    description: The `fs` options allow overriding the used `fs`
+                 implementation.
 -->
 
 * `path` {string|Buffer|URL}
@@ -28,7 +32,8 @@ changes:
   * `autoClose` {boolean} **默认值:** `true`。
   * `emitClose` {boolean} **默认值:** `false`。
   * `start` {integer}
-* 返回: {fs.WriteStream}
+  * `fs` {Object|null} **默认值:** `null`。
+* 返回: {fs.WriteStream} 参阅 [Writable Stream]。
 
 `options` 可以包括 `start` 选项，允许在文件的开头之后的某个位置写入数据，允许的值在 [0, [`Number.MAX_SAFE_INTEGER`]] 的范围内。
 若要修改文件而不是覆盖它，则 `flags` 模式需要为 `r+` 而不是默认的 `w` 模式。
@@ -41,6 +46,10 @@ changes:
 默认情况下，流在销毁后将不会触发 `'close'` 事件。 
 这与其他 `Writable` 流的默认行为相反。 
 将 `emitClose` 选项设置为 `true` 可更改此行为。
+
+通过提供 `fs` 选项，可以重写相应的 `fs` 实现以进行 `open`、`write`、`writev` 和 `close`。 
+不使用 `writev()` 重写 `write()` 会降低性能，因为某些优化（`_writev()`）会被禁用。 
+当提供 `fs` 选项时，需要重写 `open`、`close`，以及 `write` 或 `writev` 两者之一。
 
 与 [`ReadStream`] 类似，如果指定了 `fd`，则 [`WriteStream`] 将会忽略 `path` 参数并将会使用指定的文件描述符。
 这意味着不会触发 `'open'` 事件。

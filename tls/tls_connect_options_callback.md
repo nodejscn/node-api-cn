@@ -1,7 +1,7 @@
 <!-- YAML
 added: v0.11.3
 changes:
-  - version: v12.16.0
+  - version: v13.6.0
     pr-url: https://github.com/nodejs/node/pull/23188
     description: The `pskCallback` option is now supported.
   - version: v12.9.0

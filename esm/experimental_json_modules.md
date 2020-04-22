@@ -23,7 +23,7 @@ The `--experimental-json-modules` flag is needed for the module
 to work.
 
 ```bash
-node --experimental-modules index.mjs # fails
-node --experimental-modules --experimental-json-modules index.mjs # works
+node index.mjs # fails
+node --experimental-json-modules index.mjs # works
 ```
 

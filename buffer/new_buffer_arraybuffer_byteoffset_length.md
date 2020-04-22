@@ -27,30 +27,6 @@ changes:
 * `length` {integer} Number of bytes to expose.
   **Default:** `arrayBuffer.byteLength - byteOffset`.
 
-This creates a view of the [`ArrayBuffer`][] or [`SharedArrayBuffer`][] without
-copying the underlying memory. For example, when passed a reference to the
-`.buffer` property of a [`TypedArray`][] instance, the newly created `Buffer`
-will share the same allocated memory as the [`TypedArray`][].
-
-The optional `byteOffset` and `length` arguments specify a memory range within
-the `arrayBuffer` that will be shared by the `Buffer`.
-
-```js
-const arr = new Uint16Array(2);
-
-arr[0] = 5000;
-arr[1] = 4000;
-
-// Shares memory with `arr`.
-const buf = new Buffer(arr.buffer);
-
-console.log(buf);
-// Prints: <Buffer 88 13 a0 0f>
-
-// Changing the original Uint16Array changes the Buffer also.
-arr[1] = 6000;
-
-console.log(buf);
-// Prints: <Buffer 88 13 70 17>
-```
+See
+[`Buffer.from(arrayBuffer[, byteOffset[, length]])`][`Buffer.from(arrayBuf)`].
 

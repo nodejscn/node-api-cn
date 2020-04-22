@@ -10,7 +10,7 @@ changes:
 * `offset` {integer} 开始读取之前要跳过的字节数。必须满足：`0 <= offset <= buf.length - 4`。**默认值:** `0`。
 * 返回: {number}
 
-用指定的字节序格式（`readFloatBE()` 返回大端序，`readFloatLE()` 返回小端序）从 `buf` 中指定的 `offset` 读取一个 32 位浮点值。
+用指定的[字节序][endianness]（`readFloatBE()` 读取为大端序，`readFloatLE()` 读取为小端序）从 `buf` 中指定的 `offset` 读取一个 32 位浮点值。
 
 ```js
 const buf = Buffer.from([1, 2, 3, 4]);

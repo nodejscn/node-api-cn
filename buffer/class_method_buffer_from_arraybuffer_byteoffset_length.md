@@ -2,7 +2,7 @@
 added: v5.10.0
 -->
 
-* `arrayBuffer` {ArrayBuffer|SharedArrayBuffer} 一个 [`ArrayBuffer`]、[`SharedArrayBuffer`]、或 [`TypedArray`] 的 `.buffer` 属性。
+* `arrayBuffer` {ArrayBuffer|SharedArrayBuffer} 一个 [`ArrayBuffer`] 或 [`SharedArrayBuffer`]，例如 [`TypedArray`] 的 `.buffer` 属性。
 * `byteOffset` {integer} 开始拷贝的索引。**默认值:** `0`。
 * `length` {integer} 拷贝的字节数。**默认值:** `arrayBuffer.byteLength - byteOffset`。
 

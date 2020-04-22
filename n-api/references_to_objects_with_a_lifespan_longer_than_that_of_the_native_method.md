@@ -22,7 +22,7 @@ then be modified through [`napi_reference_ref`][] and
 [`napi_reference_unref`][]. If an object is collected while the count
 for a reference is 0, all subsequent calls to
 get the object associated with the reference [`napi_get_reference_value`][]
-will return NULL for the returned `napi_value`. An attempt to call
+will return `NULL` for the returned `napi_value`. An attempt to call
 [`napi_reference_ref`][] for a reference whose object has been collected
 will result in an error.
 

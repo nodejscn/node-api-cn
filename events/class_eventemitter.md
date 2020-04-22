@@ -1,7 +1,7 @@
 <!-- YAML
 added: v0.1.26
 changes:
-  - version: v12.16.0
+  - version: v13.4.0
     pr-url: https://github.com/nodejs/node/pull/27867
     description: Added captureRejections option.
 -->

@@ -1,5 +1,10 @@
 <!-- YAML
 added: v10.0.0
+changes:
+  - version: v14.0.0
+    pr-url: https://github.com/nodejs/node/pull/31030
+    description: The `data` parameter won't coerce unsupported input to
+                 strings anymore.
 -->
 * `data` {string|Buffer|Uint8Array}
 * `options` {Object|string}

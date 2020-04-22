@@ -5,7 +5,7 @@ changes:
     pr-url: https://github.com/nodejs/node/pull/26625
     description: Return the minimum cipher version, instead of a fixed string
       (`'TLSv1/SSLv3'`).
-  - version: v12.16.0
+  - version: v13.4.0
     pr-url: https://github.com/nodejs/node/pull/30637
     description: Return the IETF cipher name as `standardName`.
 -->

@@ -3,7 +3,7 @@
 
 * 将数字作为第一个参数传给 `Buffer()`（例如 `new Buffer(10)`）会分配一个指定大小的新建的 `Buffer` 对象。
   在 Node.js 8.0.0 之前，为此类 `Buffer` 实例分配的内存是未初始化的，并且可能包含敏感数据。
-  此类 `Buffer` 实例随后必须被初始化，可以使用 [`buf.fill(0)`][`buf.fill()`] 或写满整个 `Buffer`。
+  此类 `Buffer` 实例随后必须被初始化，在从 `Buffer` 读取数据之前，可以使用 [`buf.fill(0)`][`buf.fill()`] 或写满整个 `Buffer`。
   虽然这种行为是为了提高性能，但开发经验表明，创建一个快速但未初始化的 `Buffer` 与创建一个速度更慢但更安全的 `Buffer` 之间需要有更明确的区分。
   从 Node.js 8.0.0 开始，`Buffer(num)` 和 `new Buffer(num)` 将返回已初始化内存的 `Buffer`。
 * 传入字符串、数组、或 `Buffer` 作为第一个参数，则会将传入的对象的数据拷贝到 `Buffer` 中。
@@ -11,9 +11,9 @@
 
 由于 `new Buffer()` 的行为因第一个参数的类型而异，因此当未执行参数验证或 `Buffer` 初始化时，可能会无意中将安全性和可靠性问题引入应用程序。
 
-例如，如果攻击者可以使应用程序接收到数字（实际期望的是字符串），则应用程序可能调用 `new Buffer(100)` 而不是 `new Buffer("100")`，它将分配一个 100 个字节的 buffer 而不是分配一个内容为 `“100”` 的 3 个字节的 buffer。 
+例如，如果攻击者可以使应用程序接收到数字（实际期望的是字符串），则应用程序可能调用 `new Buffer(100)` 而不是 `new Buffer("100")`，使其分配一个 100 个字节的 buffer 而不是分配一个内容为 `“100”` 的 3 个字节的 buffer。 
 使用 JSON API 调用时，是非常有可能发生这种情况的。 
-由于 JSON 区分数字和字符串类型，因此它允许在简单的应用程序可能期望始终接收字符串的情况下注入数字。 
+由于 JSON 区分数字和字符串类型，因此它允许在未充分验证其输入的简单写入的应用程序可能期望始终接收字符串的情况下注入数字。 
 在 Node.js 8.0.0 之前，100 个字节的 buffer 可能包含任意预先存在的内存数据，因此可能会用于向远程攻击者暴露内存中的机密。 
 从 Node.js 8.0.0 开始，由于数据会用零填充，因此不会发生内存暴露。 
 但是，其他攻击仍然存在，例如导致服务器分配非常大的 buffer，导致性能下降或内存耗尽崩溃。
@@ -32,7 +32,7 @@
 * [`Buffer.allocUnsafe(size)`][`Buffer.allocUnsafe()`] 和 [`Buffer.allocUnsafeSlow(size)`][`Buffer.allocUnsafeSlow()`] 分别返回一个指定大小的新建的未初始化的 `Buffer`。
   由于 `Buffer` 是未初始化的，因此分配的内存片段可能包含敏感的旧数据。
   
-如果 `size` 小于或等于 [`Buffer.poolSize`] 的一半，则 [`Buffer.allocUnsafe()`] 返回的 `Buffer` 实例可能是从共享的内部内存池中分配。 
+如果 `size` 小于或等于 [`Buffer.poolSize`] 的一半，则 [`Buffer.allocUnsafe()`] 和 [`Buffer.from(array)`] 返回的 `Buffer` 实例可能是从共享的内部内存池中分配。 
 [`Buffer.allocUnsafeSlow()`] 返回的实例则从不使用共享的内部内存池。
   
   

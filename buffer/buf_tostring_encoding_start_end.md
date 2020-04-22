@@ -9,7 +9,8 @@ added: v0.1.90
 
 根据 `encoding` 指定的字符编码将 `buf` 解码成字符串。
 传入 `start` 和 `end` 可以只解码 `buf` 的子集。
-如果输入中的字节序列在给定的 `encoding` 中无效，则将其替换为替换字符 `U+FFFD`。
+
+如果 `encoding` 为 `'utf8'`，并且输入中的字节序列不是有效的 UTF-8，则每个无效的字节都会由替换字符 `U+FFFD` 替换。
 
 字符串的最大长度（以 UTF-16 为单位）可查看 [`buffer.constants.MAX_STRING_LENGTH`]。
 
@@ -21,9 +22,9 @@ for (let i = 0; i < 26; i++) {
   buf1[i] = i + 97;
 }
 
-console.log(buf1.toString('ascii'));
+console.log(buf1.toString('utf8'));
 // 打印: abcdefghijklmnopqrstuvwxyz
-console.log(buf1.toString('ascii', 0, 5));
+console.log(buf1.toString('utf8', 0, 5));
 // 打印: abcde
 
 const buf2 = Buffer.from('tést');

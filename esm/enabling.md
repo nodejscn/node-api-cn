@@ -1,12 +1,9 @@
 
 <!-- type=misc -->
 
-The `--experimental-modules` flag can be used to enable support for
-ECMAScript modules (ES modules).
-
-Once enabled, Node.js will treat the following as ES modules when passed to
-`node` as the initial input, or when referenced by `import` statements within
-ES module code:
+Experimental support for ECMAScript modules is enabled by default.
+Node.js will treat the following as ES modules when passed to `node` as the
+initial input, or when referenced by `import` statements within ES module code:
 
 * Files ending in `.mjs`.
 

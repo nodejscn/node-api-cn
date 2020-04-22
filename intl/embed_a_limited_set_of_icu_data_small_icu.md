@@ -20,7 +20,5 @@ console.log(spanish.format(january));
 // Should print "enero"
 ```
 
-This mode provides a good balance between features and binary size, and it is
-the default behavior if no `--with-intl` flag is passed. The official binaries
-are also built in this mode.
+This mode provides a balance between features and binary size.
 

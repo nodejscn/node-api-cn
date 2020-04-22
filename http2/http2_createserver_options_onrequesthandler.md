@@ -1,12 +1,17 @@
 <!-- YAML
 added: v8.4.0
 changes:
-  - version: v12.16.0
+  - version: v13.3.0
     pr-url: https://github.com/nodejs/node/pull/30534
     description: Added `maxSessionRejectedStreams` option with a default of 100.
-  - version: v12.16.0
+  - version: v13.3.0
     pr-url: https://github.com/nodejs/node/pull/30534
     description: Added `maxSessionInvalidFrames` option with a default of 1000.
+  - version: v13.0.0
+    pr-url: https://github.com/nodejs/node/pull/29144
+    description: The `PADDING_STRATEGY_CALLBACK` has been made equivalent to
+                 providing `PADDING_STRATEGY_ALIGNED` and `selectPadding`
+                 has been removed.
   - version: v12.4.0
     pr-url: https://github.com/nodejs/node/pull/27782
     description: The `options` parameter now supports `net.createServer()`
@@ -48,21 +53,16 @@ changes:
   * `paddingStrategy` {number} The strategy used for determining the amount of
     padding to use for `HEADERS` and `DATA` frames. **Default:**
     `http2.constants.PADDING_STRATEGY_NONE`. Value may be one of:
-    * `http2.constants.PADDING_STRATEGY_NONE`: Specifies that no padding is
-      to be applied.
-    * `http2.constants.PADDING_STRATEGY_MAX`: Specifies that the maximum
-      amount of padding, as determined by the internal implementation, is to
-      be applied.
-    * `http2.constants.PADDING_STRATEGY_CALLBACK`: Specifies that the user
-      provided `options.selectPadding()` callback is to be used to determine
-      the amount of padding.
-    * `http2.constants.PADDING_STRATEGY_ALIGNED`: Will *attempt* to apply
-      enough padding to ensure that the total frame length, including the
-      9-byte header, is a multiple of 8. For each frame, however, there is a
-      maximum allowed number of padding bytes that is determined by current
-      flow control state and settings. If this maximum is less than the
-      calculated amount needed to ensure alignment, the maximum will be used
-      and the total frame length will *not* necessarily be aligned at 8 bytes.
+    * `http2.constants.PADDING_STRATEGY_NONE`: No padding is applied.
+    * `http2.constants.PADDING_STRATEGY_MAX`: The maximum amount of padding,
+      determined by the internal implementation, is applied.
+    * `http2.constants.PADDING_STRATEGY_ALIGNED`: Attempts to apply enough
+      padding to ensure that the total frame length, including the 9-byte
+      header, is a multiple of 8. For each frame, there is a maximum allowed
+      number of padding bytes that is determined by current flow control state
+      and settings. If this maximum is less than the calculated amount needed to
+      ensure alignment, the maximum is used and the total frame length is not
+      necessarily aligned at 8 bytes.
   * `peerMaxConcurrentStreams` {number} Sets the maximum number of concurrent
     streams for the remote peer as if a `SETTINGS` frame had been received. Will
     be overridden if the remote peer sets its own value for
@@ -76,9 +76,6 @@ changes:
     error that should tell the peer to not open any more streams, continuing
     to open streams is therefore regarded as a sign of a misbehaving peer.
     **Default:** `100`.
-  * `selectPadding` {Function} When `options.paddingStrategy` is equal to
-    `http2.constants.PADDING_STRATEGY_CALLBACK`, provides the callback function
-    used to determine the padding. See [Using `options.selectPadding()`][].
   * `settings` {HTTP/2 Settings Object} The initial settings to send to the
     remote peer upon connection.
   * `Http1IncomingMessage` {http.IncomingMessage} Specifies the

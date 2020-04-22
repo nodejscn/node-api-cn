@@ -1,5 +1,8 @@
 <!-- YAML
 changes:
+  - version: v14.0.0
+    pr-url: https://github.com/nodejs/node/pull/31166
+    description: End-of-Life (for `digest === null`)
   - version: v11.0.0
     pr-url: https://github.com/nodejs/node/pull/22861
     description: Runtime deprecation (for `digest === null`).
@@ -14,7 +17,7 @@ changes:
     description: Runtime deprecation (for `digest === undefined`).
 -->
 
-Type: Runtime
+Type: End-of-Life
 
 Use of the [`crypto.pbkdf2()`][] API without specifying a digest was deprecated
 in Node.js 6.0 because the method defaulted to using the non-recommended
@@ -23,7 +26,9 @@ Node.js 8.0.0, calling `crypto.pbkdf2()` or `crypto.pbkdf2Sync()` with
 `digest` set to `undefined` will throw a `TypeError`.
 
 Beginning in Node.js v11.0.0, calling these functions with `digest` set to
-`null` will print a deprecation warning to align with the behavior when `digest`
+`null` would print a deprecation warning to align with the behavior when `digest`
 is `undefined`.
+
+Now, however, passing either `undefined` or `null` will throw a `TypeError`.
 
 <a id="DEP0010"></a>

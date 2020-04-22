@@ -1,5 +1,5 @@
 <!-- YAML
-added: v12.16.0
+added: v13.2.0
 -->
 
 * {Object}
@@ -12,3 +12,4 @@ If the `resourceLimits` option was passed to the [`Worker`][] constructor,
 this matches its values.
 
 If the worker has stopped, the return value is an empty object.
+

@@ -32,7 +32,6 @@ console.log(process.versions);
   nghttp2: '1.34.0',
   napi: '4',
   llhttp: '1.1.1',
-  http_parser: '2.8.0',
   openssl: '1.1.1b',
   cldr: '34.0',
   icu: '63.1',

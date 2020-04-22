@@ -14,11 +14,11 @@ changes:
 * `encoding` {string} 如果 `string` 是字符串，则这是它的字符编码。**默认值:** `'utf8'`。
 * 返回: {integer} `string` 中包含的字节数。
 
-返回字符串的实际字节长度。
-与 [`String.prototype.length`] 不同，后者返回字符串的字符数。
+当使用 `encoding` 进行编码时，返回字符串的字节长度。
+与 [`String.prototype.length`] 不同，后者不会考虑用于将字符串转换为字节的编码。
 
 对于 `'base64'` 和 `'hex'`，此函数会假定输入是有效的。 
-对于包含非 Base64/Hex 编码的数据（例如空格）的字符串，返回值可能是大于从字符串创建的 `Buffer` 的长度。
+对于包含非 base64/hex 编码的数据（例如空格）的字符串，返回值可能是大于从字符串创建的 `Buffer` 的长度。
 
 ```js
 const str = '\u00bd + \u00bc = \u00be';
@@ -28,5 +28,5 @@ console.log(`${str}: ${str.length} 个字符, ` +
 // 打印: ½ + ¼ = ¾: 9 个字符, 12 个字节
 ```
 
-当 `string` 是一个 `Buffer`/[`DataView`][]/[`TypedArray`][]/[`ArrayBuffer`][]/[`SharedArrayBuffer`] 时，返回实际的字节长度。
+当 `string` 是一个 `Buffer`/[`DataView`][]/[`TypedArray`][]/[`ArrayBuffer`][]/[`SharedArrayBuffer`] 时，返回 `.byteLength` 报告的字节长度。
 

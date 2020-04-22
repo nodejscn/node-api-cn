@@ -24,7 +24,7 @@ console.log('I just set some globals!');
 
 const { createRequire } = getBuiltin('module');
 
-const require = createRequire(process.cwd + '/<preload>');
+const require = createRequire(process.cwd() + '/<preload>');
 // [...]
 `;
 }

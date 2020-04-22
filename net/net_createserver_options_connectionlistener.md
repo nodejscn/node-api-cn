@@ -47,7 +47,7 @@ server.listen(8124, () => {
 $ telnet localhost 8124
 ```
 
-要想在 `/tmp/echo.sock` 上监听，则最后三行需改为：
+要想在 `/tmp/echo.sock` 上监听：
 
 ```js
 server.listen('/tmp/echo.sock', () => {

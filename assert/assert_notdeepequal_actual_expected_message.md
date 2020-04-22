@@ -1,6 +1,10 @@
 <!-- YAML
 added: v0.1.21
 changes:
+  - version: v14.0.0
+    pr-url: https://github.com/nodejs/node/pull/30766
+    description: NaN is now treated as being identical in case both sides are
+                 NaN.
   - version: v9.0.0
     pr-url: https://github.com/nodejs/node/pull/15001
     description: The `Error` names and messages are now properly compared

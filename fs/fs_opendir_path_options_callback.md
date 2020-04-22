@@ -1,7 +1,7 @@
 <!-- YAML
 added: v12.12.0
 changes:
-  - version: v12.16.0
+  - version: v13.1.0
     pr-url: https://github.com/nodejs/node/pull/30114
     description: The `bufferSize` option was introduced.
 -->

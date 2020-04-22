@@ -1,9 +1,12 @@
 <!-- YAML
 added: v0.3.6
 changes:
-  - version: v12.15.0
+  - version: v13.8.0
     pr-url: https://github.com/nodejs/node/pull/31448
     description: The `insecureHTTPParser` option is supported now.
+  - version: v13.3.0
+    pr-url: https://github.com/nodejs/node/pull/30570
+    description: The `maxHeaderSize` option is supported now.
   - version: v10.9.0
     pr-url: https://github.com/nodejs/node/pull/21616
     description: The `url` parameter can now be passed along with a separate
@@ -29,6 +32,7 @@ changes:
   * `insecureHTTPParser` {boolean} 使用不安全的 HTTP 解析器，当为 `true` 时接受无效的 HTTP 请求头。应避免使用不安全的解析器。有关更多信息，参阅 [`--insecure-http-parser`]。**默认值:** `false`。
   * `localAddress` {string} 为网络连接绑定的本地接口。
   * `lookup` {Function} 自定义的查找函数。 **默认值:** [`dns.lookup()`]。
+  * `maxHeaderSize` {number} 可选地，重写此服务器接收的请求的 [`--max-http-header-size`] 值，即请求头的最大长度（以字节为单位）。 **默认值:** 16384（16KB）。
   * `method` {string} 一个字符串，指定 HTTP 请求的方法。**默认值:** `'GET'`。
   * `path` {string} 请求的路径。应包括查询字符串（如果有）。例如 `'/index.html?page=12'`。当请求的路径包含非法的字符时，则抛出异常。目前只有空格被拒绝，但未来可能会有所变化。**默认值:** `'/'`。
   * `port` {number} 远程服务器的端口。**默认值:** `defaultPort`（如果有设置）或 `80`。
@@ -138,6 +142,23 @@ const req = http.request(options, (res) => {
 * `'abort'` 事件
 * `'error'` 事件并带上错误信息 `'Error: socket hang up'` 和错误码 `'ECONNRESET'`
 * `'close'` 事件
+
+如果收到响应之前过早关闭连接，则按以下顺序触发以下事件：
+
+* `'socket'` 事件
+* `'error'` 事件并带上错误信 `'Error: socket hang up'` 和错误码 `'ECONNRESET'`
+* `'close'` 事件
+
+如果收到响应之后过早关闭连接，则按以下顺序触发以下事件：
+
+
+* `'socket'` 事件
+* `'response'` 事件
+  * `res` 对象上任意次数的 `'data'` 事件
+* （此处连接已关闭）
+* `res` 对象上的 `'aborted'` 事件
+* `'close'`
+* `res` 对象上的 `'close'` 事件
 
 如果在响应被接收之后调用 `req.abort()`，则按以下顺序触发以下事件：
 

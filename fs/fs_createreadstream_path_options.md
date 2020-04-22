@@ -19,6 +19,10 @@ changes:
   - version: v2.3.0
     pr-url: https://github.com/nodejs/node/pull/1845
     description: The passed `options` object can be a string now.
+  - version: v13.6.0
+    pr-url: https://github.com/nodejs/node/pull/29083
+    description: The `fs` options allow overriding the used `fs`
+                 implementation.
 -->
 
 * `path` {string|Buffer|URL}
@@ -32,7 +36,8 @@ changes:
   * `start` {integer}
   * `end` {integer} **默认值:** `Infinity`。
   * `highWaterMark` {integer} **默认值:** `64 * 1024`。
-* 返回: {fs.ReadStream}
+  * `fs` {Object|null} **默认值:** `null`。
+* 返回: {fs.ReadStream} 参阅 [Readable Stream]。
 
 与用于可读流的 16 kb 的默认的 `highWaterMark` 不同，此方法返回的流具有 64 kb 的默认的 `highWaterMark`。
 
@@ -51,6 +56,9 @@ changes:
 默认情况下，流在销毁后将不会触发 `'close'` 事件。 
 这与其他 `Readable` 流的默认行为相反。 
 将 `emitClose` 选项设置为 `true` 可更改此行为。
+
+通过提供 `fs` 选项，可以重写相应的 `fs` 实现以进行 `open`、`read` 和 `close`。 
+当提供 `fs` 选项时，需要重写 `open`、`read` 和 `close`。
 
 ```js
 const fs = require('fs');

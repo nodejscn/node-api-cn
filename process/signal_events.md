@@ -43,9 +43,12 @@ process.on('SIGTERM', handle);
 * `'SIGSTOP'` 不能绑定监听器。
 * `'SIGBUS'`、`'SIGFPE'`、`'SIGSEGV'` 和 `'SIGILL'`, 如果不是通过 kill(2) 产生，默认会使进程停留在某个状态，在此状态下尝试调用 JS 监听器是不安全的。
    如果尝试调用 JS 监听器可能会导致进程在无限循环中挂死，因为使用 `process.on()` 附加的监听器是以异步的方式被调用，因此不能纠正隐含的问题。
+* 可以发送 `0` 来测试某个进程是否存在，如果该进程存在则没有影响，但是如果该进程不存在则会抛出错误。
 
-Windows 不支持发送信号，但是 Node.js 通过 [`process.kill()`][] 和 [`subprocess.kill()`][] 提供了某些模拟机制。
-发送信号 `0` 可以测试进程是否存在。
-发送 `SIGINT`、`SIGTERM` 和 `SIGKILL` 使得目标进程无条件终止。
+Windows 不支持信号，因此没有等效物来通过信号终止，但是 Node.js 提供了一些 [`process.kill()`] 和 [`subprocess.kill()`] 的模拟：
+
+
+* 发送 `SIGINT`、`SIGTERM` 和 `SIGKILL` 会导致目标进程被无条件地终止，然后子进程会报告该进程已被信号终止。
+* 发送信号 `0` 可以用作与平台无关的方式来测试进程的存在性。
 
 

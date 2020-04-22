@@ -1,8 +1,4 @@
 
-```console
-NODE_OPTIONS='--experimental-modules --experimental-loader ./custom-loader.mjs' node x.js
-```
-
 > Note: The loaders API is being redesigned. This hook may disappear or its
 > signature may change. Do not rely on the API described below.
 

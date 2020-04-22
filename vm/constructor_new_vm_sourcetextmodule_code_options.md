@@ -4,6 +4,10 @@
   * `identifier` {string} String used in stack traces.
     **Default:** `'vm:module(i)'` where `i` is a context-specific ascending
     index.
+  * `cachedData` {Buffer|TypedArray|DataView} Provides an optional `Buffer` or
+    `TypedArray`, or `DataView` with V8's code cache data for the supplied
+     source. The `code` must be the same as the module from which this
+     `cachedData` was created.
   * `context` {Object} The [contextified][] object as returned by the
     `vm.createContext()` method, to compile and evaluate this `Module` in.
   * `lineOffset` {integer} Specifies the line number offset that is displayed

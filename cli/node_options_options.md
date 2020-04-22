@@ -35,6 +35,7 @@ node --require "./a.js" --require "./b.js"
 
 Node.js options that are allowed are:
 <!-- node-options-node start -->
+* `--disable-proto`
 * `--enable-fips`
 * `--enable-source-maps`
 * `--experimental-import-meta-resolve`
@@ -43,7 +44,6 @@ Node.js options that are allowed are:
 * `--experimental-modules`
 * `--experimental-policy`
 * `--experimental-repl-await`
-* `--experimental-report`
 * `--experimental-specifier-resolution`
 * `--experimental-vm-modules`
 * `--experimental-wasi-unstable-preview1`
@@ -53,7 +53,6 @@ Node.js options that are allowed are:
 * `--frozen-intrinsics`
 * `--heapsnapshot-signal`
 * `--http-parser`
-* `--http-server-default-timeout`
 * `--icu-data-dir`
 * `--input-type`
 * `--insecure-http-parser`
@@ -73,6 +72,7 @@ Node.js options that are allowed are:
 * `--preserve-symlinks`
 * `--prof-process`
 * `--redirect-warnings`
+* `--report-compact`
 * `--report-directory`
 * `--report-filename`
 * `--report-on-fatalerror`
@@ -95,6 +95,7 @@ Node.js options that are allowed are:
 * `--trace-event-file-pattern`
 * `--trace-events-enabled`
 * `--trace-exit`
+* `--trace-sigint`
 * `--trace-sync-io`
 * `--trace-tls`
 * `--trace-uncaught`
@@ -102,6 +103,7 @@ Node.js options that are allowed are:
 * `--track-heap-objects`
 * `--unhandled-rejections`
 * `--use-bundled-ca`
+* `--use-largepages`
 * `--use-openssl-ca`
 * `--v8-pool-size`
 * `--zero-fill-buffers`
@@ -111,6 +113,7 @@ V8 options that are allowed are:
 <!-- node-options-v8 start -->
 * `--abort-on-uncaught-exception`
 * `--disallow-code-generation-from-strings`
+* `--huge-max-old-generation-size`
 * `--interpreted-frames-native-stack`
 * `--jitless`
 * `--max-old-space-size`

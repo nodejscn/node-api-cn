@@ -1,8 +1,10 @@
 <!-- YAML
 added: v11.8.0
+changes:
+  - version: v13.12.0
+    pr-url: https://github.com/nodejs/node/pull/32242
+    description: This API is no longer considered experimental.
 -->
-
-> Stability: 1 - Experimental
 
 * `filename` {string} Name of the file where the report is written. This
   should be a relative path, that will be appended to the directory specified in

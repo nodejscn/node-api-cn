@@ -44,10 +44,10 @@ console.log(b.toString());
 如果 `fill()` 最后写入的是一个多字节字符，则只写入适合 `buf` 的字节：
 
 ```js
-// 用一个双字节字符填充 `Buffer`。
+// 使用在 UTF-8 中占用两个字节的字符来填充 `Buffer`。
 
-console.log(Buffer.allocUnsafe(3).fill('\u0222'));
-// 打印: <Buffer c8 a2 c8>
+console.log(Buffer.allocUnsafe(5).fill('\u0222'));
+// 打印: <Buffer c8 a2 c8 a2 c8>
 ```
 
 如果 `value` 包含无效的字符，则截掉无效的字符。

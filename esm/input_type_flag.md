@@ -4,11 +4,9 @@ piped to `node` via `STDIN`, will be treated as ES modules when the
 `--input-type=module` flag is set.
 
 ```sh
-node --experimental-modules --input-type=module --eval \
-  "import { sep } from 'path'; console.log(sep);"
+node --input-type=module --eval "import { sep } from 'path'; console.log(sep);"
 
-echo "import { sep } from 'path'; console.log(sep);" | \
-  node --experimental-modules --input-type=module
+echo "import { sep } from 'path'; console.log(sep);" | node --input-type=module
 ```
 
 For completeness there is also `--input-type=commonjs`, for explicitly running

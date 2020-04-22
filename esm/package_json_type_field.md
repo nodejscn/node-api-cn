@@ -17,7 +17,7 @@ until the root of the volume is reached.
 
 ```sh
 # In same folder as above package.json
-node --experimental-modules my-app.js # Runs as ES module
+node my-app.js # Runs as ES module
 ```
 
 If the nearest parent `package.json` lacks a `"type"` field, or contains

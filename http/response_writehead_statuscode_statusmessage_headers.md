@@ -53,8 +53,7 @@ const server = http.createServer((req, res) => {
 ```
 
 `Content-Length` 以字节而非字符为单位。
-上面的示例可行是因为字符串 `'hello world'` 仅包含单字节字符。
-如果主体包含更高编码的字符，则应使用 `Buffer.byteLength()` 来判断给定编码中的字节数。
+使用 `Buffer.byteLength()` 来判断主体的长度（以字节为单位）。
 Node.js 不检查 `Content-Length` 和已传输的主体的长度是否相等。
 
 尝试设置包含无效字符的响应头字段名称或值将导致抛出 [`TypeError`]。

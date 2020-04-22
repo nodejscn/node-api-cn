@@ -1,5 +1,10 @@
 <!-- YAML
 added: v0.1.21
+changes:
+  - version: v14.0.0
+    pr-url: https://github.com/nodejs/node/pull/30766
+    description: NaN is now treated as being identical in case both sides are
+                 NaN.
 -->
 
 * `actual` {any}
@@ -15,7 +20,8 @@ An alias of [`assert.strictEqual()`][].
 > Stability: 0 - Deprecated: Use [`assert.strictEqual()`][] instead.
 
 Tests shallow, coercive equality between the `actual` and `expected` parameters
-using the [Abstract Equality Comparison][] ( `==` ).
+using the [Abstract Equality Comparison][] ( `==` ). `NaN` is special handled
+and treated as being identical in case both sides are `NaN`.
 
 ```js
 const assert = require('assert');
@@ -24,6 +30,8 @@ assert.equal(1, 1);
 // OK, 1 == 1
 assert.equal(1, '1');
 // OK, 1 == '1'
+assert.equal(NaN, NaN);
+// OK
 
 assert.equal(1, 2);
 // AssertionError: 1 == 2

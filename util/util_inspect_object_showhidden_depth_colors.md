@@ -1,10 +1,16 @@
 <!-- YAML
 added: v0.3.0
 changes:
-  - version: v12.16.0
+  - version: v14.0.0
+    pr-url: https://github.com/nodejs/node/pull/32392
+    description: The `maxStringLength` option is supported now.
+  - version: v13.5.0
     pr-url: https://github.com/nodejs/node/pull/30768
     description: User defined prototype properties are inspected in case
                  `showHidden` is `true`.
+  - version: v13.0.0
+    pr-url: https://github.com/nodejs/node/pull/27685
+    description: Circular references now include a marker to the reference.
   - version: v12.0.0
     pr-url: https://github.com/nodejs/node/pull/27109
     description: The `compact` options default is changed to `3` and the
@@ -83,6 +89,9 @@ changes:
     [`TypedArray`][], [`WeakMap`][] and [`WeakSet`][] elements to include when
     formatting. Set to `null` or `Infinity` to show all elements. Set to `0` or
     negative to show no elements. **Default:** `100`.
+  * `maxStringLength` {integer} Specifies the maximum number of characters to
+    include when formatting. Set to `null` or `Infinity` to show all elements.
+    Set to `0` or negative to show no characters. **Default:** `Infinity`.
   * `breakLength` {integer} The length at which input values are split across
     multiple lines. Set to `Infinity` to format the input as a single line
     (in combination with `compact` set to `true` or any number >= `1`).
@@ -128,7 +137,7 @@ util.inspect(new Bar()); // 'Bar {}'
 util.inspect(baz);       // '[foo] {}'
 ```
 
-Circular references are marked as `'[Circular]'`:
+Circular references point to their anchor by using a reference index:
 
 ```js
 const { inspect } = require('util');
@@ -140,9 +149,9 @@ obj.b.inner = obj.b;
 obj.b.obj = obj;
 
 console.log(inspect(obj));
-// {
-//   a: [ [Circular] ],
-//   b: { inner: [Circular], obj: [Circular] }
+// <ref *1> {
+//   a: [ [Circular *1] ],
+//   b: <ref *2> { inner: [Circular *2], obj: [Circular *1] }
 // }
 ```
 
@@ -176,7 +185,7 @@ console.log(util.inspect(o, { compact: true, depth: 5, breakLength: 80 }));
 //           'test',
 //           'foo' ] ],
 //     4 ],
-//   b: Map { 'za' => 1, 'zb' => 'test' } }
+//   b: Map(2) { 'za' => 1, 'zb' => 'test' } }
 
 // Setting `compact` to false changes the output to be more reader friendly.
 console.log(util.inspect(o, { compact: false, depth: 5, breakLength: 80 }));
@@ -197,7 +206,7 @@ console.log(util.inspect(o, { compact: false, depth: 5, breakLength: 80 }));
 //     ],
 //     4
 //   ],
-//   b: Map {
+//   b: Map(2) {
 //     'za' => 1,
 //     'zb' => 'test'
 //   }
@@ -239,9 +248,9 @@ const o1 = {
   c: new Set([2, 3, 1])
 };
 console.log(inspect(o1, { sorted: true }));
-// { a: '`a` comes before `b`', b: [ 2, 3, 1 ], c: Set { 1, 2, 3 } }
+// { a: '`a` comes before `b`', b: [ 2, 3, 1 ], c: Set(3) { 1, 2, 3 } }
 console.log(inspect(o1, { sorted: (a, b) => b.localeCompare(a) }));
-// { c: Set { 3, 2, 1 }, b: [ 2, 3, 1 ], a: '`a` comes before `b`' }
+// { c: Set(3) { 3, 2, 1 }, b: [ 2, 3, 1 ], a: '`a` comes before `b`' }
 
 const o2 = {
   c: new Set([2, 1, 3]),

@@ -48,7 +48,7 @@ Configuration on module initialization is also available via
 environment variables:
 
 ```bash
-NODE_OPTIONS="--experimental-report --report-uncaught-exception \
+NODE_OPTIONS="--report-uncaught-exception \
   --report-on-fatalerror --report-on-signal \
   --report-signal=SIGUSR2  --report-filename=./report.json \
   --report-directory=/home/nodeuser"

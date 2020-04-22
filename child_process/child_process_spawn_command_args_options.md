@@ -1,7 +1,7 @@
 <!-- YAML
 added: v0.1.90
 changes:
-  - version: v12.16.0
+  - version: v13.2.0
     pr-url: https://github.com/nodejs/node/pull/30162
     description: The `serialization` option is supported now.
   - version: v8.8.0

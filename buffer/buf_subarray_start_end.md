@@ -10,6 +10,8 @@ added: v3.0.0
 
 指定大于 [`buf.length`] 的 `end` 将会返回与 `end` 等于 [`buf.length`] 时相同的结果。
 
+此方法继承自 [`TypedArray#subarray()`]。
+
 修改新的 `Buffer` 切片将会修改原始 `Buffer` 中的内存，因为两个对象分配的内存是重叠的。
 
 ```js

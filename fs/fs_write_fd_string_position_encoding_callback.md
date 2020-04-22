@@ -1,6 +1,10 @@
 <!-- YAML
 added: v0.11.5
 changes:
+  - version: v14.0.0
+    pr-url: https://github.com/nodejs/node/pull/31030
+    description: The `string` parameter won't coerce unsupported input to
+                 strings anymore.
   - version: v10.0.0
     pr-url: https://github.com/nodejs/node/pull/12562
     description: The `callback` parameter is no longer optional. Not passing
@@ -24,7 +28,7 @@ changes:
   * `string` {string}
 
 将 `string` 写入到 `fd` 指定的文件。
-如果 `string` 不是一个字符串，则该值会被强制转换为字符串。
+如果 `string` 不是一个字符串，则会抛出异常。
 
 `position` 指定文件开头的偏移量（数据应该被写入的位置）。
 如果 `typeof position !== 'number'`，则数据会被写入当前的位置。

@@ -33,3 +33,5 @@ nonexistentFunc();
 console.log('这里不会运行');
 ```
 
+通过安装 `'uncaughtExceptionMonitor'` 监听器，可以监视 `'uncaughtException'` 事件，而不会覆盖默认行为以退出该进程。
+

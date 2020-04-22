@@ -20,25 +20,3 @@ threadpool by setting the `'UV_THREADPOOL_SIZE'` environment variable to a value
 greater than `4` (its current default value). For more information, see the
 [libuv threadpool documentation][].
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

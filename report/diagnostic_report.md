@@ -2,7 +2,7 @@
 <!--introduced_in=v11.8.0-->
 <!-- type=misc -->
 
-> Stability: 1 - Experimental
+> Stability: 2 - Stable
 
 <!-- name=report -->
 
@@ -31,7 +31,6 @@ is provided below for reference.
     "cwd": "/home/nodeuser/project/node",
     "commandLine": [
       "/home/nodeuser/project/node/out/Release/node",
-      "--experimental-report",
       "--report-uncaught-exception",
       "/home/nodeuser/project/node/test/report/test-exception.js",
       "child"
@@ -52,7 +51,6 @@ is provided below for reference.
       "nghttp2": "1.34.0",
       "napi": "3",
       "llhttp": "1.0.1",
-      "http_parser": "2.8.0",
       "openssl": "1.1.0j"
     },
     "release": {

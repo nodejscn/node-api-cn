@@ -1,5 +1,7 @@
 <!-- YAML
-added: v12.3.0
+added:
+  - v12.3.0
+  - v10.17.0
 -->
 
 * `iterable` {Iterable} 实现 `Symbol.asyncIterator` 或 `Symbol.iterator` 可迭代协议的对象。

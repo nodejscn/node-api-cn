@@ -1,6 +1,10 @@
 <!-- YAML
 added: v0.5.5
 changes:
+  - version: v14.0.0
+    pr-url: https://github.com/nodejs/node/pull/30578
+    description: The `iterations` parameter is now restricted to positive
+                 values. Earlier releases treated other values as one.
   - version: v8.0.0
     pr-url: https://github.com/nodejs/node/pull/11305
     description: The `digest` parameter is always required now.

@@ -20,6 +20,7 @@ changes:
 `writable.write()` 写入数据到流，并在数据被完全处理之后调用 `callback`。
 如果发生错误，则 `callback` 可能被调用也可能不被调用。
 为了可靠地检测错误，可以为 `'error'` 事件添加监听器。
+`callback` 会在触发 `'error'` 之前被异步地调用。
 
 在接收了 `chunk` 后，如果内部的缓冲小于创建流时配置的 `highWaterMark`，则返回 `true` 。
 如果返回 `false` ，则应该停止向流写入数据，直到 [`'drain'`][] 事件被触发。

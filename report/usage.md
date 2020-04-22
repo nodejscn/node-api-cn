@@ -1,12 +1,8 @@
 
 ```bash
-node --experimental-report --report-uncaught-exception \
-  --report-on-signal --report-on-fatalerror app.js
+node --report-uncaught-exception --report-on-signal \
+--report-on-fatalerror app.js
 ```
-
-* `--experimental-report` Enables the diagnostic report feature.
- In the absence of this flag, use of all other related options will result in
- an error.
 
 * `--report-uncaught-exception` Enables report to be generated on
 un-caught exceptions. Useful when inspecting JavaScript stack in conjunction
@@ -31,6 +27,10 @@ fatal errors (internal errors within the Node.js runtime, such as out of memory)
 that leads to termination of the application. Useful to inspect various
 diagnostic data elements such as heap, stack, event loop state, resource
 consumption etc. to reason about the fatal error.
+
+* `--report-compact` Write reports in a compact format, single-line JSON, more
+easily consumable by log processing systems than the default multi-line format
+designed for human consumption.
 
 * `--report-directory` Location at which the report will be
 generated.

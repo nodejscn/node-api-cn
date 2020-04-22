@@ -12,6 +12,6 @@ on the `Http2SecureServer` after `msecs` milliseconds.
 
 The given callback is registered as a listener on the `'timeout'` event.
 
-In case of no callback function were assigned, a new `ERR_INVALID_CALLBACK`
+In case if `callback` is not a function, a new `ERR_INVALID_CALLBACK`
 error will be thrown.
 

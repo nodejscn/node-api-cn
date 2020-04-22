@@ -1,8 +1,7 @@
 <!-- YAML
 added: v10.7.0
+napiVersion: 6
 -->
-
-> Stability: 1 - Experimental
 
 ```C
 napi_status napi_get_value_bigint_uint64(napi_env env,

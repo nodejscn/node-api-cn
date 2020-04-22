@@ -11,11 +11,7 @@ const { Writable } = require('stream');
 
 class MyWritable extends Writable {
   constructor({ highWaterMark, ...options }) {
-    super({
-      highWaterMark,
-      autoDestroy: true,
-      emitClose: true
-    });
+    super({ highWaterMark });
     // ...
   }
 }

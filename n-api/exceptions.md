@@ -1,8 +1,7 @@
 
 Any N-API function call may result in a pending JavaScript exception. This is
-obviously the case for any function that may cause the execution of
-JavaScript, but N-API specifies that an exception may be pending
-on return from any of the API functions.
+the case for any of the API functions, even those that may not cause the
+execution of JavaScript.
 
 If the `napi_status` returned by a function is `napi_ok` then no
 exception is pending and no additional action is required. If the
@@ -62,7 +61,7 @@ SemVer applying. In order to support this model with N-API, both
 in internal functionality and for module specific functionality
 (as its good practice), the `throw_` and `create_` functions
 take an optional code parameter which is the string for the code
-to be added to the error object. If the optional parameter is NULL
+to be added to the error object. If the optional parameter is `NULL`
 then no code will be associated with the error. If a code is provided,
 the name associated with the error is also updated to be:
 

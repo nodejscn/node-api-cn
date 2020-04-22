@@ -21,7 +21,7 @@ require(X) from module at path Y
 6. THROW "not found"
 
 LOAD_AS_FILE(X)
-1. If X is a file, load X as JavaScript text.  STOP
+1. If X is a file, load X as its file extension format.  STOP
 2. If X.js is a file, load X.js as JavaScript text.  STOP
 3. If X.json is a file, parse X.json to a JavaScript Object.  STOP
 4. If X.node is a file, load X.node as binary addon.  STOP
@@ -45,8 +45,9 @@ LOAD_AS_DIRECTORY(X)
 LOAD_NODE_MODULES(X, START)
 1. let DIRS = NODE_MODULES_PATHS(START)
 2. for each DIR in DIRS:
-   a. LOAD_AS_FILE(DIR/X)
-   b. LOAD_AS_DIRECTORY(DIR/X)
+   a. LOAD_PACKAGE_EXPORTS(DIR, X)
+   b. LOAD_AS_FILE(DIR/X)
+   c. LOAD_AS_DIRECTORY(DIR/X)
 
 NODE_MODULES_PATHS(START)
 1. let PARTS = path split(START)
@@ -64,45 +65,32 @@ LOAD_SELF_REFERENCE(X, START)
 2. If no scope was found, return.
 3. If the `package.json` has no "exports", return.
 4. If the name in `package.json` isn't a prefix of X, throw "not found".
-5. Otherwise, resolve the remainder of X relative to this package as if it
-   was loaded via `LOAD_NODE_MODULES` with a name in `package.json`.
-```
+5. Otherwise, load the remainder of X relative to this package as if it
+  was loaded via `LOAD_NODE_MODULES` with a name in `package.json`.
 
-Node.js 允许通过 `LOAD_NODE_MODULES` 加载的包显式地声明要导入的文件路径以及如何解析它们。 
-这扩展了使用 `main` 字段已经拥有的控件包。 
-
-启用此功能后，`LOAD_NODE_MODULES` 将更改为：
-
-
-```txt
-LOAD_NODE_MODULES(X, START)
-1. let DIRS = NODE_MODULES_PATHS(START)
-2. for each DIR in DIRS:
-   a. let FILE_PATH = RESOLVE_BARE_SPECIFIER(DIR, X)
-   b. LOAD_AS_FILE(FILE_PATH)
-   c. LOAD_AS_DIRECTORY(FILE_PATH)
-
-RESOLVE_BARE_SPECIFIER(DIR, X)
+LOAD_PACKAGE_EXPORTS(DIR, X)
 1. Try to interpret X as a combination of name and subpath where the name
    may have a @scope/ prefix and the subpath begins with a slash (`/`).
-2. If X matches this pattern and DIR/name/package.json is a file:
-   a. Parse DIR/name/package.json, and look for "exports" field.
-   b. If "exports" is null or undefined, GOTO 3.
-   c. If "exports" is an object with some keys starting with "." and some keys
-      not starting with ".", throw "invalid config".
-   d. If "exports" is a string, or object with no keys starting with ".", treat
-      it as having that value as its "." object property.
-   e. If subpath is "." and "exports" does not have a "." entry, GOTO 3.
-   f. Find the longest key in "exports" that the subpath starts with.
-   g. If no such key can be found, throw "not found".
-   h. let RESOLVED_URL =
-        PACKAGE_EXPORTS_TARGET_RESOLVE(pathToFileURL(DIR/name), exports[key],
-        subpath.slice(key.length), ["node", "require"]), as defined in the ESM
-        resolver.
-   i. return fileURLToPath(RESOLVED_URL)
-3. return DIR/X
+2. If X does not match this pattern or DIR/name/package.json is not a file,
+   return.
+3. Parse DIR/name/package.json, and look for "exports" field.
+4. If "exports" is null or undefined, return.
+5. If "exports" is an object with some keys starting with "." and some keys
+  not starting with ".", throw "invalid config".
+6. If "exports" is a string, or object with no keys starting with ".", treat
+  it as having that value as its "." object property.
+7. If subpath is "." and "exports" does not have a "." entry, return.
+8. Find the longest key in "exports" that the subpath starts with.
+9. If no such key can be found, throw "not found".
+10. let RESOLVED =
+    fileURLToPath(PACKAGE_EXPORTS_TARGET_RESOLVE(pathToFileURL(DIR/name),
+    exports[key], subpath.slice(key.length), ["node", "require"])), as defined
+    in the ESM resolver.
+11. If key ends with "/":
+    a. LOAD_AS_FILE(RESOLVED)
+    b. LOAD_AS_DIRECTORY(RESOLVED)
+12. Otherwise
+   a. If RESOLVED is a file, load it as its file extension format.  STOP
+13. Throw "not found"
 ```
-
-只有当加载上面定义的包名时才会遵守 `"exports"`。 
-嵌套目录和包中的任何 `"exports"` 值必须由负责名称的 `package.json` 声明。
 

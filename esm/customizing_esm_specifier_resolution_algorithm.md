@@ -11,11 +11,11 @@ automatic extension resolution and importing from directories that include an
 index file use the `node` mode.
 
 ```bash
-$ node --experimental-modules index.mjs
+$ node index.mjs
 success!
-$ node --experimental-modules index #Failure!
+$ node index # Failure!
 Error: Cannot find module
-$ node --experimental-modules --experimental-specifier-resolution=node index
+$ node --experimental-specifier-resolution=node index
 success!
 ```
 

@@ -1,6 +1,10 @@
 <!-- YAML
 added: v0.11.5
 changes:
+  - version: v14.0.0
+    pr-url: https://github.com/nodejs/node/pull/31030
+    description: The `string` parameter won't coerce unsupported input to
+                 strings anymore.
   - version: v7.2.0
     pr-url: https://github.com/nodejs/node/pull/7856
     description: The `position` parameter is optional now.

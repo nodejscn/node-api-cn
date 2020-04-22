@@ -1,5 +1,5 @@
 <!-- YAML
-added: v12.16.0
+added: v13.1.0
 -->
 
 * `options` {Object} [`stream.transform` options][]

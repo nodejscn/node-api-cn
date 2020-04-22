@@ -16,7 +16,7 @@ console.log(M);
 executed under:
 
 ```bash
-node --experimental-modules --experimental-wasm-modules index.mjs
+node --experimental-wasm-modules index.mjs
 ```
 
 would provide the exports interface for the instantiation of `module.wasm`.

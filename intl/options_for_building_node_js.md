@@ -5,8 +5,8 @@ in [BUILDING.md][].
 
 * `--with-intl=none`/`--without-intl`
 * `--with-intl=system-icu`
-* `--with-intl=small-icu` (default)
-* `--with-intl=full-icu`
+* `--with-intl=small-icu`
+* `--with-intl=full-icu` (default)
 
 An overview of available Node.js and JavaScript features for each `configure`
 option:

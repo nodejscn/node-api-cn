@@ -13,7 +13,7 @@ napi_status napi_get_value_string_latin1(napi_env env,
 
 * `[in] env`: The environment that the API is invoked under.
 * `[in] value`: `napi_value` representing JavaScript string.
-* `[in] buf`: Buffer to write the ISO-8859-1-encoded string into. If NULL is
+* `[in] buf`: Buffer to write the ISO-8859-1-encoded string into. If `NULL` is
   passed in, the length of the string (in bytes) is returned.
 * `[in] bufsize`: Size of the destination buffer. When this value is
   insufficient, the returned string will be truncated.

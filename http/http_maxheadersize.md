@@ -8,4 +8,5 @@ added: v11.6.0
 默认为 8KB。 
 可使用 [`--max-http-header-size`] 命令行选项进行配置。
 
+通过传入 `maxHeaderSize` 选项，可以为服务器和客户端的请求重写此值。
 

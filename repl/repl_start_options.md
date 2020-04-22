@@ -1,6 +1,9 @@
 <!-- YAML
 added: v0.1.91
 changes:
+  - version: v13.4.0
+    pr-url: https://github.com/nodejs/node/pull/30811
+    description: The `preview` option is now available.
   - version: v12.0.0
     pr-url: https://github.com/nodejs/node/pull/26518
     description: The `terminal` option now follows the default description in
@@ -40,6 +43,9 @@ changes:
   * `breakEvalOnSigint` {boolean} 当接收到 `SIGINT` 时停止解释当前代码，比如当按下 `Ctrl+C`。
     不能与自定义的 `eval` 函数同时使用。
     **默认值:** `false`。
+  * `preview` {boolean} 定义 repl 是否打印自动补全并输出预览。
+    **默认值**: 如果使用默认的 eval 函数，则为 `true`,如果使用自定义的 eval 函数，则为 `false`。 
+    如果 `terminal` 为假，则没有预览，并且 `preview` 的值无效。
 * 返回: {repl.REPLServer}
 
 `repl.start()` 方法创建并启动一个 [`repl.REPLServer`] 实例。

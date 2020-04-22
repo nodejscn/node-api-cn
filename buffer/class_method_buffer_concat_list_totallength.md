@@ -14,8 +14,7 @@ changes:
 
 如果 `list` 中没有元素、或 `totalLength` 为 0，则返回一个长度为 0 的 `Buffer`。
 
-如果没有提供 `totalLength`，则计算 `list` 中的 `Buffer` 实例的总长度。
-但是这会导致执行额外的循环用于计算 `totalLength`，因此如果已知长度，则明确提供长度会更快。
+如果没有提供 `totalLength`，则通过将 `list` 中的 `Buffer` 实例的长度相加来计算得出。
 
 如果提供了 `totalLength`，则会强制转换为无符号整数。
 如果 `list` 中的 `Buffer` 合并后的总长度大于 `totalLength`，则结果会被截断到 `totalLength` 的长度。

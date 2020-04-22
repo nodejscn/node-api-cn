@@ -10,7 +10,7 @@ changes:
 * 返回: {boolean}
 
 如果 `buf` 与 `otherBuffer` 具有完全相同的字节，则返回 `true`，否则返回 `false`。
-
+相当于 [`buf.compare(otherBuffer) === 0`][`buf.compare()`]。
 
 ```js
 const buf1 = Buffer.from('ABC');

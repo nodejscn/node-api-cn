@@ -1,5 +1,10 @@
 <!-- YAML
 added: v10.0.0
+changes:
+  - version: v14.0.0
+    pr-url: https://github.com/nodejs/node/pull/31030
+    description: The `string` parameter won't coerce unsupported input to
+                 strings anymore.
 -->
 
 * `string` {string}
@@ -8,7 +13,7 @@ added: v10.0.0
 * 返回: {Promise}
 
 将 `string` 写入到文件。
-如果 `string` 不是一个字符串，则该值会被强制转换为字符串。
+如果 `string` 不是一个字符串，则会抛出异常。
 
 
 `Promise` 会被解决并带上一个对象，对象包含一个 `bytesWritten` 属性（指定写入的字节数）和一个 `buffer` 属性（指向写入的 `string`）。

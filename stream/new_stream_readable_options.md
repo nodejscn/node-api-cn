@@ -4,6 +4,9 @@ changes:
     pr-url: https://github.com/nodejs/node/pull/22795
     description: Add `autoDestroy` option to automatically `destroy()` the
                  stream when it emits `'end'` or errors.
+  - version: v14.0.0
+    pr-url: https://github.com/nodejs/node/pull/30623
+    description: Change `autoDestroy` option default to `true`.
 -->
 
 * `options` {Object}
@@ -17,7 +20,7 @@ changes:
   * `emitClose` {boolean} 流被销毁后是否应该触发 `'close'`。**默认值:** `true`。
   * `read` {Function} 对 [`stream._read()`][stream-_read] 方法的实现。
   * `destroy` {Function} 对 [`stream._destroy()`][readable-_destroy] 方法的实现。
-  * `autoDestroy` {boolean} 流是否应在结束后自动调用 `.destroy()`。**默认值:** `false`。
+  * `autoDestroy` {boolean} 流是否应在结束后自动调用 `.destroy()`。**默认值:** `true`。
 
 <!-- eslint-disable no-useless-constructor -->
 ```js

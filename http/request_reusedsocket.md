@@ -1,6 +1,6 @@
 
 <!-- YAML
-added: v12.16.0
+added: v13.0.0
 -->
 
 * {boolean} Whether the request is send through a reused socket.

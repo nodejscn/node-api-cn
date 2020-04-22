@@ -1,5 +1,10 @@
 <!-- YAML
 added: v10.0.0
+changes:
+  - version: v14.0.0
+    pr-url: https://github.com/nodejs/node/pull/31030
+    description: The `data` parameter won't coerce unsupported input to
+                 strings anymore.
 -->
 
 * `file` {string|Buffer|URL|FileHandle} 文件名或 `FileHandle`。

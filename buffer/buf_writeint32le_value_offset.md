@@ -11,7 +11,7 @@ changes:
 * `offset` {integer} 开始写入之前要跳过的字节数。必须满足：`0 <= offset <= buf.length - 4`。**默认值:** `0`。
 * 返回: {integer} `offset` 加上已写入的字节数。
 
-用指定的字节序格式（`writeInt32BE()` 写入大端序，`writeInt32LE()` 写入小端序）将 `value` 写入到 `buf` 中指定的 `offset` 位置。
+用指定的[字节序][endianness]（`writeInt32BE()` 写入为大端序，`writeInt32LE()` 写入为小端序）将 `value` 写入到 `buf` 中指定的 `offset` 位置。
 `value` 必须是有符号的 32 位整数。
 当 `value` 不是有符号的 32 位整数，行为是未定义的。
 

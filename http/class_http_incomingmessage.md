@@ -1,7 +1,7 @@
 <!-- YAML
 added: v0.1.17
 changes:
-  - version: v12.16.0
+  - version: v13.1.0
     pr-url: https://github.com/nodejs/node/pull/30135
     description: The `readableHighWaterMark` value mirrors that of the socket.
 -->

@@ -30,7 +30,7 @@ client.on('end', () => {
 });
 ```
 
-如果要连接到 `/tmp/echo.sock`，第二行只需要改为：
+如果要连接到 `/tmp/echo.sock`：
 
 ```js
 const client = net.createConnection({ path: '/tmp/echo.sock' });

@@ -1,5 +1,5 @@
 
-* 使用[抽象的相等性比较][Abstract Equality Comparison]来比较原始值。
+* 除 `NaN` 之外，使用[抽象的相等性比较][Abstract Equality Comparison]（`==`）来比较原始值。如果双方均为 `NaN`，则视为相同。
 * 对象的[类型标签][Object.prototype.toString()]应该相同。
 * 只考虑[可枚举的自身属性][enumerable "own" properties]。
 * 始终比较 [`Error`] 的名称和消息，即使这些不是可枚举的属性。

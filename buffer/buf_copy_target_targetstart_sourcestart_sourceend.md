@@ -10,6 +10,8 @@ added: v0.1.90
 
 拷贝 `buf` 中某个区域的数据到 `target` 中的某个区域，即使 `target` 的内存区域与 `buf` 的重叠。
 
+[`TypedArray#set()`] 执行相同的操作，并且可用于所有的 TypedArray，包括 Node.js 的 Buffer，尽管它采用不同的函数参数。
+
 ```js
 // 创建两个 `Buffer` 实例。
 const buf1 = Buffer.allocUnsafe(26);
@@ -22,6 +24,8 @@ for (let i = 0; i < 26; i++) {
 
 // 拷贝 `buf1` 中第 16 至 19 字节偏移量的数据到 `buf2` 第 8 字节偏移量开始。
 buf1.copy(buf2, 8, 16, 20);
+// 这等效于：
+// buf2.set(buf1.subarray(16, 20), 8);
 
 console.log(buf2.toString('ascii', 0, 25));
 // 打印: !!!!!!!!qrst!!!!!!!!!!!!!

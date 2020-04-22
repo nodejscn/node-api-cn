@@ -1,5 +1,5 @@
 <!-- YAML
-added: v12.16.0
+added: v13.3.0
 -->
 
 * `options` {Object}
@@ -12,4 +12,8 @@ added: v12.16.0
     sandbox directory structure. The string keys of `preopens` are treated as
     directories within the sandbox. The corresponding values in `preopens` are
     the real paths to those directories on the host machine.
+  * `returnOnExit` {boolean} By default, WASI applications terminate the Node.js
+    process via the `__wasi_proc_exit()` function. Setting this option to `true`
+    causes `wasi.start()` to return the exit code rather than terminate the
+    process. **Default:** `false`.
 

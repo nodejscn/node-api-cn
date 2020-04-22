@@ -2,9 +2,9 @@
 
 可能的签名：
 
-* [socket.connect(options[, connectListener])][`socket.connect(options)`]
-* [socket.connect(path[, connectListener])][`socket.connect(path)`] 用于 [IPC][] 连接。
-* [socket.connect(port[, host][, connectListener])][`socket.connect(port, host)`] 用于 TCP 连接。
+* [`socket.connect(options[, connectListener])`][`socket.connect(options)`]
+* [`socket.connect(path[, connectListener])`][`socket.connect(path)`] 用于 [IPC][] 连接。
+* [`socket.connect(port[, host][, connectListener])`][`socket.connect(port)`] 用于 TCP 连接。
 * 返回: {net.Socket} socket 自身。
 
 该方法是异步的。当连接建立了的时候，[`'connect'`][] 事件将会被触发。如果连接过程中有问题，[`'error'`][] 事件将会代替 [`'connect'`][] 事件被触发，并将错误信息传递给 [`'error'`][] 监听器。

@@ -25,7 +25,7 @@ changes:
 
 从 `fd` 指定的文件中读取数据。
 
-`buffer` 是数据将写入的缓冲区。
+`buffer` 是数据（从 fd 读取）将写入的缓冲区。
 
 `offset` 是 buffer 中开始写入的偏移量。
 

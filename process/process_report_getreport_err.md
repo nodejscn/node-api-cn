@@ -1,8 +1,10 @@
 <!-- YAML
 added: v11.8.0
+changes:
+  - version: v13.12.0
+    pr-url: https://github.com/nodejs/node/pull/32242
+    description: This API is no longer considered experimental.
 -->
-
-> Stability: 1 - Experimental
 
 * `err` {Error} A custom error used for reporting the JavaScript stack.
 * Returns: {Object}

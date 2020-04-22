@@ -17,10 +17,5 @@ changes:
 
 * `array` {integer[]} An array of bytes to copy from.
 
-Allocates a new `Buffer` using an `array` of octets.
-
-```js
-// Creates a new Buffer containing the UTF-8 bytes of the string 'buffer'.
-const buf = new Buffer([0x62, 0x75, 0x66, 0x66, 0x65, 0x72]);
-```
+See [`Buffer.from(array)`][].
 

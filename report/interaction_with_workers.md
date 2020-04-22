@@ -1,6 +1,6 @@
 <!-- YAML
 changes:
-  - version: v12.16.2
+  - version: v13.9.0
     pr-url: https://github.com/nodejs/node/pull/31386
     description: Workers are now included in the report.
 -->

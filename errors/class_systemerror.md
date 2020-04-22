@@ -11,7 +11,7 @@ attempts to read a file that does not exist.
 * `code` {string} The string error code
 * `dest` {string} If present, the file path destination when reporting a file
   system error
-* `errno` {number|string} The system-provided error number
+* `errno` {number} The system-provided error number
 * `info` {Object} If present, extra details about the error condition
 * `message` {string} A system-provided human-readable description of the error
 * `path` {string} If present, the file path when reporting a file system error

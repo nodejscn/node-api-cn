@@ -30,7 +30,6 @@ console.log(buf);
 ```
 
 如果 `size` 大于 [`buffer.constants.MAX_LENGTH`] 或小于 0，则抛出 [`ERR_INVALID_OPT_VALUE`]。
-如果 `size` 为 0，则创建一个零长度的 `Buffer`。
 
 如果指定了 `fill`，则分配的 `Buffer` 通过调用 [`buf.fill(fill)`][`buf.fill()`] 进行初始化。
 
@@ -50,7 +49,7 @@ console.log(buf);
 // 打印: <Buffer 68 65 6c 6c 6f 20 77 6f 72 6c 64>
 ```
 
-调用 [`Buffer.alloc()`] 可能比替代的 [`Buffer.allocUnsafe()`] 慢得多，但能确保新创建的 `Buffer` 实例的内容永远不会包含敏感的数据。
+调用 [`Buffer.alloc()`] 可能比替代的 [`Buffer.allocUnsafe()`] 慢得多，但能确保新创建的 `Buffer` 实例的内容永远不会包含来自先前分配的敏感数据，包括可能尚未分配给 `Buffer` 的数据。
 
 如果 `size` 不是一个数字，则抛出 `TypeError`。
 

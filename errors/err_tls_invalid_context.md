@@ -1,7 +1,7 @@
 <!-- YAML
-added: v12.16.0
+added: v13.3.0
 -->
 
 The context must be a `SecureContext`.
 
-<a id="ERR_TLS_INVALID_PROTOCOL_METHOD"></a>
+<a id="ERR_TLS_INVALID_STATE"></a>

@@ -21,5 +21,5 @@ Returns `napi_ok` if the API succeeded.
 
 If still valid, this API returns the `napi_value` representing the
 JavaScript `Object` associated with the `napi_ref`. Otherwise, result
-will be NULL.
+will be `NULL`.
 

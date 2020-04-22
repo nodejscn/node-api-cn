@@ -1,6 +1,9 @@
 <!-- YAML
 added: v0.1.98
 changes:
+  - version: v13.9.0
+    pr-url: https://github.com/nodejs/node/pull/31318
+    description: The `tabSize` option is supported now.
   - version: v8.3.0, 6.11.4
     pr-url: https://github.com/nodejs/node/pull/13497
     description: Remove max limit of `crlfDelay` option.
@@ -34,6 +37,7 @@ changes:
     **默认值:** `false`。
   * `escapeCodeTimeout` {number} `readline` 将会等待一个字符的持续时间（当以毫秒为单位读取模糊键序列时，可以使用输入读取到目前为止形成完整的键序列，并且可以采取额外的输入来完成更长的键序列）。
      **默认值:** `500`。
+  * `tabSize` {integer} 制表符的空格数（最小值为 1）。**默认值:** `8`。
 
 `readline.createInterface()` 方法创建一个新的 `readline.Interface` 实例。
 

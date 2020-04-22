@@ -7,9 +7,8 @@ project’s `node_modules` folder contains its own `package.json` file, so each
 project’s dependencies have their own package scopes. A `package.json` lacking a
 `"type"` field is treated as if it contained `"type": "commonjs"`.
 
-The package scope applies not only to initial entry points (`node
---experimental-modules my-app.js`) but also to files referenced by `import`
-statements and `import()` expressions.
+The package scope applies not only to initial entry points (`node my-app.js`)
+but also to files referenced by `import` statements and `import()` expressions.
 
 ```js
 // my-app.js, in an ES module package scope because there is a package.json

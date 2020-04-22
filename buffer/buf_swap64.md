@@ -24,6 +24,4 @@ buf2.swap64();
 // 抛出异常 ERR_INVALID_BUFFER_SIZE。
 ```
 
-JavaScript 不能编码 64 位整数。
-该方法是用来处理 64 位浮点数的。
 

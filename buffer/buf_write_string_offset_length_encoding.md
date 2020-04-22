@@ -4,7 +4,7 @@ added: v0.1.90
 
 * `string` {string} 要写入 `buf` 的字符串。
 * `offset` {integer} 开始写入 `string` 之前要跳过的字节数。**默认值:** `0`。
-* `length` {integer} 要写入的字节数。**默认值:** `buf.length - offset`。
+* `length` {integer} 要写入的最大字节数（写入的字节数不会超出 `buf.length - offset`）。**默认值:** `buf.length - offset`。
 * `encoding` {string} `string` 的字符编码。**默认值:** `'utf8'`。
 * 返回: {integer} 已写入的字节数。
 
@@ -20,5 +20,12 @@ const len = buf.write('\u00bd + \u00bc = \u00be', 0);
 
 console.log(`${len} 个字节: ${buf.toString('utf8', 0, len)}`);
 // 打印: 12 个字节: ½ + ¼ = ¾
+
+const buffer = Buffer.alloc(10);
+
+const length = buffer.write('abcd', 8);
+
+console.log(`${length} bytes: ${buffer.toString('utf8', 8, 10)}`);
+// 打印: 2 个字节 : ab
 ```
 

@@ -1,5 +1,5 @@
 <!-- YAML
-added: v12.16.0
+added: v13.6.0
 -->
 
 * `emitter` {EventEmitter}
@@ -24,6 +24,7 @@ const { on, EventEmitter } = require('events');
     // if concurrent execution is required.
     console.log(event); // prints ['bar'] [42]
   }
+  // Unreachable here
 })();
 ```
 

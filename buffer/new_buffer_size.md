@@ -22,20 +22,8 @@ changes:
 
 * `size` {integer} The desired length of the new `Buffer`.
 
-Allocates a new `Buffer` of `size` bytes. If `size` is larger than
-[`buffer.constants.MAX_LENGTH`][] or smaller than 0, [`ERR_INVALID_OPT_VALUE`][]
-is thrown. A zero-length `Buffer` is created if `size` is 0.
-
-Prior to Node.js 8.0.0, the underlying memory for `Buffer` instances
-created in this way is *not initialized*. The contents of a newly created
-`Buffer` are unknown and *may contain sensitive data*. Use
-[`Buffer.alloc(size)`][`Buffer.alloc()`] instead to initialize a `Buffer`
-with zeroes.
-
-```js
-const buf = new Buffer(10);
-
-console.log(buf);
-// Prints: <Buffer 00 00 00 00 00 00 00 00 00 00>
-```
+See [`Buffer.alloc()`][] and [`Buffer.allocUnsafe()`][]. This variant of the
+constructor is equivalent to [`Buffer.allocUnsafe()`][], although using
+[`Buffer.alloc()`][] is recommended in code paths that are not critical to
+performance.
 
