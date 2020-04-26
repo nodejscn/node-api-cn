@@ -31,7 +31,7 @@ added: v10.5.0
 
 要创建自定义的消息传递通道（建议使用默认的全局通道，因为这样可以促进关联点的分离），用户可以在任一线程上创建一个 `MessageChannel` 对象，并将该 `MessageChannel` 上的 `MessagePort` 中的一个通过预先存在的通道传给另一个线程，例如全局的通道。
 
-有关如何传递消息以及可以通过线程屏障成功地传输哪类 JavaScript 值的更多信息，请参阅 [`port.postMessage()`]。
+有关如何传递消息以及可以通过线程屏障成功地传输哪类 JavaScript 值的更多信息，请参见 [`port.postMessage()`]。
 
 ```js
 const assert = require('assert');

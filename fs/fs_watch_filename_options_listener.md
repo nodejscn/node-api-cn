@@ -7,13 +7,13 @@ changes:
                  `file:` protocol. Support is currently still *experimental*.
   - version: v7.0.0
     pr-url: https://github.com/nodejs/node/pull/7831
-    description: The passed `options` object will never be modified.
+    description: 传入的 `options` 对象无法再被修改。
 -->
 
 * `filename` {string|Buffer|URL}
 * `options` {string|Object}
   * `persistent` {boolean} 指示如果文件已正被监视，进程是否应继续运行。**默认值:** `true`。
-  * `recursive` {boolean} 指示应该监视所有子目录，还是仅监视当前目录。这适用于监视目录时，并且仅适用于受支持的平台（参阅[注意事项][Caveats]）。**默认值:** `false`。
+  * `recursive` {boolean} 指示应该监视所有子目录，还是仅监视当前目录。这适用于监视目录时，并且仅适用于受支持的平台（参见[注意事项][Caveats]）。**默认值:** `false`。
   * `encoding` {string} 指定用于传给监听器的文件名的字符编码。**默认值:** `'utf8'`。
 * `listener` {Function|undefined} **默认值:** `undefined`。
   * `eventType` {string}

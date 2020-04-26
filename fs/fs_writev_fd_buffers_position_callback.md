@@ -20,7 +20,7 @@ added: v12.9.0
 
 如果此方法是 [`util.promisify()`] 化的版本，则它返回的 `Promise` 会返回具有 `bytesWritten` 和 `buffers` 属性的 `Object`。
 
-在同一个文件上多次使用 `fs.writev()` 且不等待回调是不安全的。 
+不等待回调就对同一个文件多次使用 `fs.writev()` 是不安全的。
 对于这种情况，建议使用 [`fs.createWriteStream()`]。
 
 

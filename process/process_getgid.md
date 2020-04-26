@@ -4,7 +4,7 @@ added: v0.1.31
 
 * 返回: {Object}
 
-`process.getgid()` 方法返回 Node.js 进程的数字标记的组身份（参阅 getgid(2)）。
+`process.getgid()` 方法返回 Node.js 进程的数字标记的组身份（参见 getgid(2)）。
 
 ```js
 if (process.getgid) {

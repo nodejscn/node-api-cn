@@ -3,8 +3,8 @@ added: v0.11.15
 changes:
   - version: v7.6.0
     pr-url: https://github.com/nodejs/node/pull/10739
-    description: The `path` parameter can be a WHATWG `URL` object using `file:`
-                 protocol. Support is currently still *experimental*.
+    description: 参数 `path` 可以是 WHATWG `URL` 对象（使用 `file:` 协议）。 
+      该支持目前仍是实验的。
 -->
 
 * `path` {string|Buffer|URL}
@@ -12,7 +12,7 @@ changes:
 
 同步地测试用户对 `path` 指定的文件或目录的权限。
 `mode` 参数是一个可选的整数，指定要执行的可访问性检查。
-`mode` 可选的值参阅[文件可访问性的常量][File Access Constants]。
+`mode` 可选的值参见[文件可访问性的常量][File Access Constants]。
 可以创建由两个或更多个值按位或组成的掩码（例如 `fs.constants.W_OK | fs.constants.R_OK`）。
 
 如果可访问性检查失败，则抛出 `Error`。

@@ -7,15 +7,15 @@ changes:
                  strings anymore.
   - version: v10.0.0
     pr-url: https://github.com/nodejs/node/pull/12562
-    description: The `callback` parameter is no longer optional. Not passing
-                 it will throw a `TypeError` at runtime.
+    description: 参数 `callback` 不再是可选的。 
+      如果不传入，则在运行时会抛出 `TypeError`。
   - version: v7.2.0
     pr-url: https://github.com/nodejs/node/pull/7856
     description: The `position` parameter is optional now.
   - version: v7.0.0
     pr-url: https://github.com/nodejs/node/pull/7897
-    description: The `callback` parameter is no longer optional. Not passing
-                 it will emit a deprecation warning with id DEP0013.
+    description: 参数 `callback` 不再是可选的。 
+      如果不传入，则会触发弃用警告（id 为 DEP0013）。
 -->
 
 * `fd` {integer}
@@ -32,15 +32,15 @@ changes:
 
 `position` 指定文件开头的偏移量（数据应该被写入的位置）。
 如果 `typeof position !== 'number'`，则数据会被写入当前的位置。
-参阅 pwrite(2)。
+参见 pwrite(2)。
 
 `encoding` 是期望的字符串编码。
 
 回调会接收到参数 `(err, written, string)`，其中 `written` 指定传入的字符串中被要求写入的字节数。
 被写入的字节数不一定与被写入的字符串字符数相同。
-参阅 [`Buffer.byteLength`]。
+参见 [`Buffer.byteLength`]。
 
-在同一个文件上多次使用 `fs.write()` 且不等待回调是不安全的。
+不等待回调就对同一个文件多次使用 `fs.write()` 是不安全的。
 对于这种情况，建议使用 [`fs.createWriteStream()`]。
 
 在 Linux 上，当以追加模式打开文件时，写入无法指定位置。

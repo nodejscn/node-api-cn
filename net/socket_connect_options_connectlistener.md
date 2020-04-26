@@ -34,7 +34,7 @@ changes:
 
 对于 [IPC] 连接，可用的 `options` 有：
 
-* `path` {string} 必须。客户端要连接的路径。参阅[识别 IPC 连接的路径][Identifying paths for IPC connections]。如果提供了，则忽略上面的 TCP 特定的选项。
+* `path` {string} 必须。客户端要连接的路径。参见[识别 IPC 连接的路径][Identifying paths for IPC connections]。如果提供了，则忽略上面的 TCP 特定的选项。
 
 对于这两种类型，可用 `options` 包括：
 

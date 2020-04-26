@@ -57,4 +57,4 @@ server.listen(1337);
 
 对于只需写入数据到流或从流消费数据的应用程序，并不需要直接实现流的接口，通常也不需要调用 `require('stream')`。
 
-对于需要实现新类型的流的开发者，可以参阅[用于实现流的API][API for Stream Implementers]章节。
+对于需要实现新类型的流的开发者，可以参见[用于实现流的API][API for Stream Implementers]章节。

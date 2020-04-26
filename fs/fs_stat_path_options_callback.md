@@ -3,53 +3,53 @@ added: v0.0.2
 changes:
   - version: v10.0.0
     pr-url: https://github.com/nodejs/node/pull/12562
-    description: The `callback` parameter is no longer optional. Not passing
-                 it will throw a `TypeError` at runtime.
+    description: 参数 `callback` 不再是可选的。 
+      如果不传入，则在运行时会抛出 `TypeError`。
   - version: v7.6.0
     pr-url: https://github.com/nodejs/node/pull/10739
-    description: The `path` parameter can be a WHATWG `URL` object using `file:`
-                 protocol. Support is currently still *experimental*.
+    description: 参数 `path` 可以是 WHATWG `URL` 对象（使用 `file:` 协议）。 
+      该支持目前仍是实验的。
   - version: v7.0.0
     pr-url: https://github.com/nodejs/node/pull/7897
-    description: The `callback` parameter is no longer optional. Not passing
-                 it will emit a deprecation warning with id DEP0013.
+    description: 参数 `callback` 不再是可选的。 
+      如果不传入，则会触发弃用警告（id 为 DEP0013）。
   - version: v10.5.0
     pr-url: https://github.com/nodejs/node/pull/20220
-    description: Accepts an additional `options` object to specify whether
-                 the numeric values returned should be bigint.
+    description: 接受额外的 `options` 对象，用于指定返回的数值是否为 bigint。
 -->
 
 * `path` {string|Buffer|URL}
 * `options` {Object}
-  * `bigint` {boolean} 返回的 [`fs.Stats`] 对象中的数值是否应为 `bigint` 型。**默认值:** `false`。
+  * `bigint` {boolean} 返回的 [`fs.Stats`] 对象中的数值是否为 `bigint` 型。
+    **默认值:** `false`。
 * `callback` {Function}
   * `err` {Error}
   * `stats` {fs.Stats}
 
 异步的 stat(2)。
-回调有两个参数 `(err, stats)`，其中 `stats` 是一个 [`fs.Stats`] 对象。
+回调有两个参数 `(err, stats)`，其中 `stats` 是 [`fs.Stats`] 对象。
 
-如果出现错误，则 `err.code` 将是[常见系统错误][Common System Errors]之一。
+如果发生错误，则 `err.code` 会是[常见的系统错误][Common System Errors]之一。
 
-不建议在调用 `fs.open()`、`fs.readFile()` 或 `fs.writeFile()` 之前使用 `fs.stat()` 检查文件是否存在。
-而是应该直接打开、读取或写入文件，如果文件不可用则处理引发的错误。
+不建议在调用 `fs.open()`、`fs.readFile()` 或 `fs.writeFile()` 之前使用 `fs.stat()` 检查文件的存在性。
+而是应该直接地打开、读取或写入文件，如果文件不可用，则处理引发的错误。
 
-要检查文件是否存在但随后并不对其进行操作，则建议使用 [`fs.access()`]。
+若要只检查文件是否存在，但没有更多的操作，则建议使用 [`fs.access()`]。
 
 例如，给定以下的文件夹结构：
 
 ```fundamental
-- txtDir
--- file.txt
-- app.js
+- 目录
+-- 文件.txt
+- 文件.js
 ```
 
-以下程序将会检查给定路径的统计信息：
+以下程序会检查给定路径的文件属性：
 
 ```js
 const fs = require('fs');
 
-const pathsToCheck = ['./txtDir', './txtDir/file.txt'];
+const pathsToCheck = ['./目录', './目录/文件.txt'];
 
 for (let i = 0; i < pathsToCheck.length; i++) {
   fs.stat(pathsToCheck[i], function(err, stats) {
@@ -59,7 +59,7 @@ for (let i = 0; i < pathsToCheck.length; i++) {
 }
 ```
 
-得到的输出将会类似于：
+结果的输出会类似于：
 
 ```console
 true

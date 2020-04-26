@@ -12,5 +12,5 @@ changes:
 
 当集群主进程从任何工作进程接收到消息时触发。
 
-参阅 [`child_process` 事件 `'message'`][`child_process` event: `'message'`]。
+参见 [`child_process` 事件 `'message'`][`child_process` event: `'message'`]。
 

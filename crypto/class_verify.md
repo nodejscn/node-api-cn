@@ -13,5 +13,5 @@ added: v0.1.92
 [`crypto.createVerify()`] 方法用于创建 `Verify` 实例。
 不能使用 `new` 关键字直接地创建 `Verify` 对象。
 
-有关示例，请参阅 [`Sign`]。
+有关示例，请参见 [`Sign`]。
 

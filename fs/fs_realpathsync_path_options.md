@@ -6,8 +6,8 @@ changes:
     description: Pipe/Socket resolve support was added.
   - version: v7.6.0
     pr-url: https://github.com/nodejs/node/pull/10739
-    description: The `path` parameter can be a WHATWG `URL` object using
-                 `file:` protocol. Support is currently still *experimental*.
+    description: 参数 `path` 可以是 WHATWG `URL` 对象（使用 `file:` 协议）。 
+      该支持目前仍是实验的。
   - version: v6.4.0
     pr-url: https://github.com/nodejs/node/pull/7899
     description: Calling `realpathSync` now works again for various edge cases
@@ -24,5 +24,5 @@ changes:
 
 返回已解析的路径名。
 
-有关详细信息，参阅此 API 的异步版本的文档：[`fs.realpath()`]。
+详见此 API 的异步版本的文档：[`fs.realpath()`]。
 

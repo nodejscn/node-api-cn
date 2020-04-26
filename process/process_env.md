@@ -14,7 +14,7 @@ changes:
 * {Object}
 
 `process.env` 属性返回包含用户环境的对象。
-参阅 environ(7)。
+参见 environ(7)。
 
 此对象的示例如下所示：
 

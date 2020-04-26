@@ -4,7 +4,7 @@ added: v2.0.0
 
 * 返回: {Object}
 
-`process.geteuid()` 方法返回 Node.js 进程的有效数字标记的用户身份（参阅 geteuid(2)）。
+`process.geteuid()` 方法返回 Node.js 进程的有效数字标记的用户身份（参见 geteuid(2)）。
 
 ```js
 if (process.geteuid) {

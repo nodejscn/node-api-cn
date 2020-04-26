@@ -28,5 +28,5 @@ process.nextTick(() => {
 });
 ```
 
-也可参阅：[`writable.cork()`][]。
+也可参见：[`writable.cork()`][]。
 

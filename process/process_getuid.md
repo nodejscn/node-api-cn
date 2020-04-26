@@ -4,7 +4,7 @@ added: v0.1.28
 
 * 返回: {integer}
 
-`process.getuid()` 方法返回 Node.js 进程的数字标记的用户身份（参阅 getuid(2)）。
+`process.getuid()` 方法返回 Node.js 进程的数字标记的用户身份（参见 getuid(2)）。
 
 ```js
 if (process.getuid) {

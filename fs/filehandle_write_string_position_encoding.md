@@ -20,7 +20,7 @@ changes:
 
 `position` 指定文件开头的偏移量（数据应该被写入的位置）。
 如果 `position` 的类型不是一个 `number`，则数据会被写入当前的位置。
-参阅 pwrite(2)。
+参见 pwrite(2)。
 
 `encoding` 是期望的字符串编码。
 

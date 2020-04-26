@@ -6,16 +6,16 @@ changes:
     description: New option `withFileTypes` was added.
   - version: v10.0.0
     pr-url: https://github.com/nodejs/node/pull/12562
-    description: The `callback` parameter is no longer optional. Not passing
-                 it will throw a `TypeError` at runtime.
+    description: 参数 `callback` 不再是可选的。 
+      如果不传入，则在运行时会抛出 `TypeError`。
   - version: v7.6.0
     pr-url: https://github.com/nodejs/node/pull/10739
-    description: The `path` parameter can be a WHATWG `URL` object using `file:`
-                 protocol. Support is currently still *experimental*.
+    description: 参数 `path` 可以是 WHATWG `URL` 对象（使用 `file:` 协议）。 
+      该支持目前仍是实验的。
   - version: v7.0.0
     pr-url: https://github.com/nodejs/node/pull/7897
-    description: The `callback` parameter is no longer optional. Not passing
-                 it will emit a deprecation warning with id DEP0013.
+    description: 参数 `callback` 不再是可选的。 
+      如果不传入，则会触发弃用警告（id 为 DEP0013）。
   - version: v6.0.0
     pr-url: https://github.com/nodejs/node/pull/5616
     description: The `options` parameter was added.

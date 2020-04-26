@@ -4,7 +4,7 @@ added: v0.1.31
 
 * `id` {string|number} 组名或 ID。
 
-`process.setgid()` 方法为进程设置组标识。（参阅 setgid(2)）。
+`process.setgid()` 方法为进程设置组标识。（参见 setgid(2)）。
 `id` 可以传入数字 ID 或组名字符串。
 如果指定了组名，则此方法在解析关联的数字 ID 时会阻塞。
 

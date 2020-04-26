@@ -8,5 +8,5 @@ changes:
 
 - {number} **默认值:** 0（不超时）。
 
-请参阅 [`http.Server#timeout`]。
+请参见 [`http.Server#timeout`]。
 

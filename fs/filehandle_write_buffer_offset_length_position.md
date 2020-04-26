@@ -20,7 +20,7 @@ changes:
 
 `position` 指定文件开头的偏移量（数据应该被写入的位置）。
 如果 `typeof position !== 'number'`，则数据会被写入当前的位置。
-参阅 pwrite(2)。
+参见 pwrite(2)。
 
 在同一个文件上多次使用 `filehandle.write()` 且不等待 `Promise` 被解决（或被拒绝）是不安全的。
 对于这种情况，建议使用 [`fs.createWriteStream()`]。

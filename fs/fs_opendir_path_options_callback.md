@@ -15,7 +15,7 @@ changes:
   * `dir` {fs.Dir}
 
 异步地打开目录。 
-参阅 opendir(3)。
+参见 opendir(3)。
 
 创建一个 [`fs.Dir`]，其中包含所有用于更进一步读取和清理目录的的函数。
 

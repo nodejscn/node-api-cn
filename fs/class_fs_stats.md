@@ -3,13 +3,13 @@ added: v0.1.21
 changes:
   - version: v8.1.0
     pr-url: https://github.com/nodejs/node/pull/13173
-    description: Added times as numbers.
+    description: 新增数值型的时间。
 -->
 
 `fs.Stats` 对象提供了关于文件的信息。
 
-从 [`fs.stat()`]、[`fs.lstat()`] 和 [`fs.fstat()`] 及其同步的方法返回的对象都属于此类型。
-如果传给这些方法的 `options` 中的 `bigint` 为 true，则数值将会为 `bigint` 型而不是 `number` 型，并且该对象将会包含额外的以 `Ns` 为后缀的纳秒精度的属性。
+从 [`fs.stat()`]、[`fs.lstat()`]、[`fs.fstat()`]、以及它们的同步方法返回的对象都是此类型。
+如果传给这些方法的 `options` 中的 `bigint` 为 true，则数值会是 `bigint` 型而不是 `number` 型，并且该对象还会包含额外的纳秒级精度的属性（以 `Ns` 为后缀）。
 
 ```console
 Stats {

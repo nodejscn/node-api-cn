@@ -7,5 +7,5 @@ added: v0.1.7
 * {Object}
 
 进程对象。
-请参阅 [`process`][`process` object] 文档。
+请参见 [`process`][`process` object] 文档。
 

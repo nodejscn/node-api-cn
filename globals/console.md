@@ -7,5 +7,5 @@ added: v0.1.100
 * {Object}
 
 用于打印到 stdout 和 stderr。
-请参阅 [`console`] 文档。
+请参见 [`console`] 文档。
 

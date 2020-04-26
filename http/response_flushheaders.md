@@ -3,5 +3,5 @@ added: v1.6.0
 -->
 
 刷新响应头。 
-另可参阅：[`request.flushHeaders()`]。
+另可参见：[`request.flushHeaders()`]。
 

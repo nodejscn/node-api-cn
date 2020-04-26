@@ -1,5 +1,5 @@
 
-* `path` {string} 客户端要连接的路径。参阅[识别 IPC 连接的路径][Identifying paths for IPC connections]。
+* `path` {string} 客户端要连接的路径。参见[识别 IPC 连接的路径][Identifying paths for IPC connections]。
 * `connectListener` {Function} [`socket.connect()`] 方法的通用参数。将会作为 [`'connect'`] 事件的监听器被添加一次。
 * 返回: {net.Socket} 套接字自身。
 

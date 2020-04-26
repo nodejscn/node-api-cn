@@ -3,8 +3,7 @@ added: v10.0.0
 changes:
   - version: v14.0.0
     pr-url: https://github.com/nodejs/node/pull/31030
-    description: The `data` parameter won't coerce unsupported input to
-                 strings anymore.
+    description: 参数 `data` 不再强制转换不支持的输入为字符串。
 -->
 * `data` {string|Buffer|Uint8Array}
 * `options` {Object|string}
@@ -16,9 +15,9 @@ changes:
 `data` 可以是字符串或 buffer。
 `Promise` 将会在成功时解决，且不带参数。
 
-如果 `data` 是一个 buffer，则 `encoding` 选项会被忽略。
+如果 `data` 是 buffer，则 `encoding` 选项会被忽略。
 
-如果 `options` 是一个字符串，则它指定字符编码。
+如果 `options` 是字符串，则它指定字符编码。
 
 `FileHandle` 必须支持写入。
 

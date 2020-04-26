@@ -57,7 +57,7 @@ process.emitWarning(myWarning);
 
 如果警告的 `type` 是 `'DeprecationWarning'`，则会涉及如下额外的处理：
 
-* 如果使用 `--throw-deprecation` 命令行标识，则废弃的警告会作为异常抛出，而不是作为事件被触发。
-* 如果使用`--no-deprecation` 命令行标识，则废弃的警告会被忽略。
-* 如果使用`--trace-deprecation` 命令行标识，则废弃的警告及其全部堆栈信息会被打印到 `stderr`。
+* 如果使用 `--throw-deprecation` 命令行标识，则弃用的警告会作为异常抛出，而不是作为事件被触发。
+* 如果使用`--no-deprecation` 命令行标识，则弃用的警告会被忽略。
+* 如果使用`--trace-deprecation` 命令行标识，则弃用的警告及其全部堆栈信息会被打印到 `stderr`。
 

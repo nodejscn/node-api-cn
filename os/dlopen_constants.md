@@ -1,6 +1,6 @@
 
 如果在操作系统上可用，则以下常量在 `os.constants.dlopen` 中导出。 
-有关详细信息，请参阅 dlopen(3) 信息。
+有关详细信息，请参见 dlopen(3) 信息。
 
 <table>
   <tr>

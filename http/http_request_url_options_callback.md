@@ -29,7 +29,7 @@ changes:
   * `headers` {Object} 包含请求头的对象。
   * `host` {string} 请求发送至的服务器的域名或 IP 地址。**默认值:** `'localhost'`。
   * `hostname` {string} `host` 的别名。为了支持 [`url.parse()`]，如果同时指定 `host` 和 `hostname`，则使用 `hostname`。
-  * `insecureHTTPParser` {boolean} 使用不安全的 HTTP 解析器，当为 `true` 时接受无效的 HTTP 请求头。应避免使用不安全的解析器。有关更多信息，参阅 [`--insecure-http-parser`]。**默认值:** `false`。
+  * `insecureHTTPParser` {boolean} 使用不安全的 HTTP 解析器，当为 `true` 时接受无效的 HTTP 请求头。应避免使用不安全的解析器。有关更多信息，参见 [`--insecure-http-parser`]。**默认值:** `false`。
   * `localAddress` {string} 为网络连接绑定的本地接口。
   * `lookup` {Function} 自定义的查找函数。 **默认值:** [`dns.lookup()`]。
   * `maxHeaderSize` {number} 可选地，重写此服务器接收的请求的 [`--max-http-header-size`] 值，即请求头的最大长度（以字节为单位）。 **默认值:** 16384（16KB）。

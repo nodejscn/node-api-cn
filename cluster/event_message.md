@@ -9,7 +9,7 @@ added: v0.7.0
 
 在工作进程内，也可以使用 `process.on('message')`。
 
-参阅 [`process` event: `'message'`]。
+参见 [`process` event: `'message'`]。
 
 以下是一个使用消息系统的示例。
 它在主进程中对工作进程接收的 HTTP 请求数量保持计数：

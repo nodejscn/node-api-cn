@@ -15,7 +15,7 @@ changes:
 换句话说，除非有特殊原因，否则 [`require()`] 应优先于 `process.dlopen()`。
 
 `flags` 参数是一个允许指定 dlopen 行为的整数。 
-有关详细信息，请参阅 [`os.constants.dlopen`] 文档。
+有关详细信息，请参见 [`os.constants.dlopen`] 文档。
 
 如果有特定原因要使用 `process.dlopen()`（例如，指定 dlopen 标志），使用 [`require.resolve()`] 来查找模块的路径通常很有用。
 

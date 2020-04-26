@@ -3,16 +3,15 @@ added: v0.1.95
 changes:
   - version: v10.0.0
     pr-url: https://github.com/nodejs/node/pull/12562
-    description: The `callback` parameter is no longer optional. Not passing
-                 it will throw a `TypeError` at runtime.
+    description: 参数 `callback` 不再是可选的。 
+      如果不传入，则在运行时会抛出 `TypeError`。
   - version: v7.0.0
     pr-url: https://github.com/nodejs/node/pull/7897
-    description: The `callback` parameter is no longer optional. Not passing
-                 it will emit a deprecation warning with id DEP0013.
+    description: 参数 `callback` 不再是可选的。 
+      如果不传入，则会触发弃用警告（id 为 DEP0013）。
   - version: v10.5.0
     pr-url: https://github.com/nodejs/node/pull/20220
-    description: Accepts an additional `options` object to specify whether
-                 the numeric values returned should be bigint.
+    description: 接受额外的 `options` 对象，用于指定返回的数值是否为 bigint。
 -->
 
 * `fd` {integer}

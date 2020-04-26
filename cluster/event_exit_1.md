@@ -18,5 +18,5 @@ cluster.on('exit', (worker, code, signal) => {
 });
 ```
 
-参阅 [`child_process` event: `'exit'`]。
+参见 [`child_process` event: `'exit'`]。
 

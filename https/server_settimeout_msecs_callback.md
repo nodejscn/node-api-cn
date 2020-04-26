@@ -5,5 +5,5 @@ added: v0.11.2
 * `callback` {Function}
 * 返回: {https.Server}
 
-请参阅 [`http.Server#setTimeout()`]。
+请参见 [`http.Server#setTimeout()`]。
 

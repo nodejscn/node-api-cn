@@ -5,7 +5,7 @@ added: v10.0.0
 * `path` {string|Buffer|URL|FileHandle} 文件名或 `FileHandle`。
 * `options` {Object|string}
   * `encoding` {string|null} **默认值:** `null`。
-  * `flag` {string} 参阅[支持的文件系统标志][support of file system `flags`]。**默认值:** `'r'`。
+  * `flag` {string} 参见[文件系统 `flag` 的支持][support of file system `flags`]。**默认值:** `'r'`。
 * 返回: {Promise}
 
 异步地读取文件的全部内容。

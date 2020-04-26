@@ -3,8 +3,8 @@ added: v0.0.2
 changes:
   - version: v10.0.0
     pr-url: https://github.com/nodejs/node/pull/12562
-    description: The `callback` parameter is no longer optional. Not passing
-                 it will throw a `TypeError` at runtime.
+    description: 参数 `callback` 不再是可选的。 
+      如果不传入，则在运行时会抛出 `TypeError`。
   - version: v7.6.0
     pr-url: https://github.com/nodejs/node/pull/10739
     description: The `oldPath` and `newPath` parameters can be WHATWG `URL`
@@ -12,8 +12,8 @@ changes:
                  *experimental*.
   - version: v7.0.0
     pr-url: https://github.com/nodejs/node/pull/7897
-    description: The `callback` parameter is no longer optional. Not passing
-                 it will emit a deprecation warning with id DEP0013.
+    description: 参数 `callback` 不再是可选的。 
+      如果不传入，则会触发弃用警告（id 为 DEP0013）。
 -->
 
 * `oldPath` {string|Buffer|URL}
@@ -25,7 +25,7 @@ changes:
 如果 `newPath` 已存在，则覆盖它。
 除了可能的异常，完成回调没有其他参数。
 
-也可参阅 rename(2)。
+也可参见 rename(2)。
 
 ```js
 fs.rename('旧文件.txt', '新文件.txt', (err) => {

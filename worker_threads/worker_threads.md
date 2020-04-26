@@ -48,8 +48,8 @@ if (isMainThread) {
 否则，创建工作线程的开销可能会超出其收益。
 
 当实现工作线程池时，可使用 [`AsyncResource`] API 来通知诊断的工具（例如为了提供异步的堆栈跟踪）有关任务及其结果之间的相关性。
-有关示例的实现，请参阅 `async_hooks` 文档中的[“为 `Worker` 线程池使用 `AsyncResource`”][async-resource-worker-pool]。
+有关示例的实现，请参见 `async_hooks` 文档中的[“为 `Worker` 线程池使用 `AsyncResource`”][async-resource-worker-pool]。
 
 默认情况下，工作线程继承非特定于进程的选项。 
-请参阅[工作线程的构造函数选项][`Worker constructor options`]，以了解如何自定义工作线程的选项，特别是 `argv` 和 `execArgv` 选项。
+请参见[工作线程的构造函数选项][`Worker constructor options`]，以了解如何自定义工作线程的选项，特别是 `argv` 和 `execArgv` 选项。
 

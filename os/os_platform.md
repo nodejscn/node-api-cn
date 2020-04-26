@@ -11,6 +11,6 @@ added: v0.5.0
 返回的值等价于 [`process.platform`]。
 
 如果 Node.js 在 Android 操作系统上构建，则也可能返回 `'android'` 值。
-[Android 的支持是试验性的][Android building]。
+[Android 的支持是实验性的][Android building]。
 
 

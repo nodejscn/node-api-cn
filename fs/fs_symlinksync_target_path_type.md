@@ -18,5 +18,5 @@ changes:
 
 返回 `undefined`。
 
-有关详细信息，参阅此 API 的异步版本的文档：[`fs.symlink()`]。
+详见此 API 的异步版本的文档：[`fs.symlink()`]。
 

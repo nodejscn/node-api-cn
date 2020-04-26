@@ -33,7 +33,7 @@
 
 * `'wx+'` - 与 `'w+'` 相似，但如果路径已存在则失败。
 
-`flag` 也可以是一个数字，参阅 open(2) 文档。
+`flag` 也可以是一个数字，参见 open(2) 文档。
 常用的常量可以从 `fs.constants` 获取。
 在 Windows 上，标志会被适当地转换为等效的标志，例如 `O_WRONLY` 转换为 `FILE_GENERIC_WRITE`、`O_EXCL|O_CREAT` 转换为能被 `CreateFileW` 接受的 `CREATE_NEW`。
 
@@ -47,7 +47,7 @@
 如果要修改文件而不是覆盖文件，则 `flag` 选项需要被设置为 `'r+'` 而不是默认的 `'w'`。
 
 某些标志的行为是特定于平台的。
-例如，在 macOS 和 Linux 上使用 `'a+'` 标志打开目录（参阅下面的示例）会返回一个错误。
+例如，在 macOS 和 Linux 上使用 `'a+'` 标志打开目录（参见下面的示例）会返回一个错误。
 而在 Windows 和 FreeBSD 上，则返回一个文件描述符或 `FileHandle`。
 
 ```js

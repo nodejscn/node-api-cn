@@ -10,5 +10,5 @@ changes:
 -->
 
 HTTPS 的 [`Agent`] 对象，类似于 [`http.Agent`]。 
-有关更多信息，请参阅 [`https.request()`]。
+有关更多信息，请参见 [`https.request()`]。
 

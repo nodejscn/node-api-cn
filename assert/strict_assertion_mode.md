@@ -48,5 +48,5 @@ assert.deepEqual([[[1, 2, 3]], 4, 5], [[[1, 2, '3']], 4, 5]);
 
 要停用颜色，则使用 `NO_COLOR` 或 `NODE_DISABLE_COLORS` 环境变量。 
 这也将停用 REPL 中的颜色。
-有关终端环境中颜色支持的更多信息，参阅 [getColorDepth()][_tty_writestream_getcolordepth] 文档。
+有关终端环境中颜色支持的更多信息，参见 [getColorDepth()][_tty_writestream_getcolordepth] 文档。
 

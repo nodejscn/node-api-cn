@@ -65,5 +65,5 @@ spawn('prg', [], { stdio: ['pipe', null, null, null, 'pipe'] });
 具有大内存占用的应用程序可能会发现频繁的 [`child_process.spawn()`] 调用成为瓶颈。
 详见 [V8 问题 7381][V8 issue 7381]。
 
-还可参阅：[`child_process.exec()`] 和 [`child_process.fork()`]。
+还可参见：[`child_process.exec()`] 和 [`child_process.fork()`]。
 

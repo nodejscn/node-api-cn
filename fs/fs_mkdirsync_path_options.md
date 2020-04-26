@@ -10,8 +10,8 @@ changes:
                  `recursive` and `mode` properties.
   - version: v7.6.0
     pr-url: https://github.com/nodejs/node/pull/10739
-    description: The `path` parameter can be a WHATWG `URL` object using `file:`
-                 protocol. Support is currently still *experimental*.
+    description: 参数 `path` 可以是 WHATWG `URL` 对象（使用 `file:` 协议）。 
+      该支持目前仍是实验的。
 -->
 
 * `path` {string|Buffer|URL}
@@ -24,5 +24,5 @@ changes:
 返回 `undefined`，或者如果 `recursive` 为 `true`，则返回创建的第一个文件夹的路径。
 [`fs.mkdir()`] 的同步版本。
 
-也可参阅 mkdir(2)。
+也可参见 mkdir(2)。
 

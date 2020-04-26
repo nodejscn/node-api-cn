@@ -44,6 +44,6 @@ dns.resolve4('archive.org', (err, addresses) => {
 });
 ```
 
-有关更多信息，参阅[实现的注意事项][Implementation considerations section]。
+有关更多信息，参见[实现的注意事项][Implementation considerations section]。
 
 

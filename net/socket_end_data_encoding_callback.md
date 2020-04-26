@@ -13,5 +13,5 @@ added: v0.1.90
 
 如果指定了 `data`，则相当于调用 `socket.write(data, encoding)` 之后再调用 [`socket.end()`]。
 
-有关更多详细信息，参阅 [`writable.end()`]。
+有关更多详细信息，参见 [`writable.end()`]。
 

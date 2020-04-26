@@ -4,7 +4,7 @@
 
 这些对象在所有的模块中都可用。 
 以下的变量虽然看似全局的，但实际上不是。 
-它们仅存在于模块的作用域中，参阅[模块系统的文档][module system documentation]：
+它们仅存在于模块的作用域中，参见[模块系统的文档][module system documentation]：
 
 - [`__dirname`]
 - [`__filename`]

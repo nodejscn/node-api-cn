@@ -1,5 +1,5 @@
 
-* `options` {Object} 参阅 [`net.createServer([options][, connectionListener])`][`net.createServer()`]。
+* `options` {Object} 参见 [`net.createServer([options][, connectionListener])`][`net.createServer()`]。
 * `connectionListener` {Function} 自动设置为 [`'connection'`][] 事件的监听器。
 * 返回: {net.Server}
 

@@ -9,16 +9,16 @@ changes:
     description: The `as` and `as+` flags are supported now.
   - version: v7.6.0
     pr-url: https://github.com/nodejs/node/pull/10739
-    description: The `path` parameter can be a WHATWG `URL` object using `file:`
-                 protocol. Support is currently still *experimental*.
+    description: 参数 `path` 可以是 WHATWG `URL` 对象（使用 `file:` 协议）。 
+      该支持目前仍是实验的。
 -->
 
 * `path` {string|Buffer|URL}
-* `flags` {string|number} **默认值:** `'r'`。参阅[支持的文件系统标志][support of file system `flags`]。
+* `flags` {string|number} **默认值:** `'r'`。参见[文件系统 `flag` 的支持][support of file system `flags`]。
 * `mode` {string|integer} **默认值:** `0o666`。
 * 返回: {number}
 
 返回表示文件描述符的整数。
 
-有关详细信息，参阅此 API 的异步版本的文档：[`fs.open()`]。
+详见此 API 的异步版本的文档：[`fs.open()`]。
 

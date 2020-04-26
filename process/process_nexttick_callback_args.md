@@ -12,7 +12,7 @@ changes:
 `process.nextTick()` 方法将 `callback` 添加到下一个时间点的队列。
 在 JavaScript 堆栈上的当前操作运行完成之后以及允许事件循环继续之前，此队列会被完全耗尽。 
 如果要递归地调用 `process.nextTick()`，则可以创建无限的循环。 
-有关更多背景信息，请参阅[事件循环][Event Loop]指南。
+有关更多背景信息，请参见[事件循环][Event Loop]指南。
 
 ```js
 console.log('开始');

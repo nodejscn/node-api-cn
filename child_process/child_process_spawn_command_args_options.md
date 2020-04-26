@@ -21,15 +21,15 @@ changes:
   * `cwd` {string} 子进程的当前工作目录。
   * `env` {Object} 环境变量的键值对。**默认值:** `process.env`。
   * `argv0` {string} 显式地设置发送给子进程的 `argv[0]` 的值。如果没有指定，则将会被设置为 `command` 的值。
-  * `stdio` {Array|string} 子进程的 stdio 配置。参阅 [`options.stdio`][`stdio`]。
-  * `detached` {boolean} 准备子进程独立于其父进程运行。具体行为取决于平台，参阅 [`options.detached`]。
-  * `uid` {number} 设置进程的用户标识，参阅 setuid(2)。
-  * `gid` {number} 设置进程的群组标识，参阅 setgid(2)。
-  * `serialization` {string} 指定用于在进程之间发送消息的序列化类型。可能的值为 `'json'` 和 `'advanced'`。有关更多详细信息，请参阅[高级序列化][Advanced Serialization]。**默认值:** `'json'`。
+  * `stdio` {Array|string} 子进程的 stdio 配置。参见 [`options.stdio`][`stdio`]。
+  * `detached` {boolean} 准备子进程独立于其父进程运行。具体行为取决于平台，参见 [`options.detached`]。
+  * `uid` {number} 设置进程的用户标识，参见 setuid(2)。
+  * `gid` {number} 设置进程的群组标识，参见 setgid(2)。
+  * `serialization` {string} 指定用于在进程之间发送消息的序列化类型。可能的值为 `'json'` 和 `'advanced'`。有关更多详细信息，请参见[高级序列化][Advanced Serialization]。**默认值:** `'json'`。
   * `shell` {boolean|string} 如果为 `true`，则在 shell 中运行 `command`。
      在 Unix 上使用 `'/bin/sh'`，在 Windows 上使用 `process.env.ComSpec`。
      可以将不同的 shell 指定为字符串。
-     参阅 [shell 的要求][Shell Requirements]与 [Windows 默认的 shell][Default Windows Shell]。
+     参见 [shell 的要求][Shell Requirements]与 [Windows 默认的 shell][Default Windows Shell]。
      **默认值:** `false`（没有 shell）。
   * `windowsVerbatimArguments` {boolean} 在 Windows 上不为参数加上引号或转义。在 Unix 上忽略。如果指定了 `shell` 并且是 CMD，则自动设为 `true`。**默认值:** `false`。
   * `windowsHide` {boolean} 隐藏子进程的控制台窗口（在 Windows 系统上通常会创建）。**默认值:** `false`。

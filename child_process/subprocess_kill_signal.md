@@ -7,7 +7,7 @@ added: v0.1.90
 
 `subprocess.kill()` 方法会向子进程发送一个信号。
 如果没有给定参数，则进程将会发送 `'SIGTERM'` 信号。
-参阅 signal(7) 了解可用的信号列表。
+参见 signal(7) 了解可用的信号列表。
 如果 kill(2) 成功，则此函数返回 `true`，否则返回 `false`。
 
 ```js
@@ -28,7 +28,7 @@ grep.kill('SIGHUP');
 
 虽然该函数被称为 `kill`，但传给子进程的信号可能实际上不会终止该进程。
 
-参阅 kill(2)。
+参见 kill(2)。
 
 在 Linux 上，子进程的子进程在试图杀死其父进程时将不会被终止。
 当在 shell 中运行新进程、或使用 `ChildProcess` 的 `shell` 选项时，可能会发生这种情况：

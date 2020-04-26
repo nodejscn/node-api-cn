@@ -6,7 +6,7 @@ changes:
     description: This is now defined as a shared symbol.
 -->
 
-* {symbol} 可用于声明函数的自定义的 promise 化变量，参阅[自定义的 promise 化函数][Custom promisified functions]。
+* {symbol} 可用于声明函数的自定义的 promise 化变量，参见[自定义的 promise 化函数][Custom promisified functions]。
 
 除了可以通过 `util.promisify.custom` 进行访问之外，该符号还被[注册为全局]的[global symbol registry]，并且可以在任何环境中作为 `Symbol.for('nodejs.util.promisify.custom')` 进行访问。
 

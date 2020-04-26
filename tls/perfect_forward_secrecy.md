@@ -22,7 +22,7 @@ TLS/SSL 握手时，使用完全前向即每次会话都会随机生成一个临
 openssl dhparam -outform PEM -out dhparam.pem 2048
 ```
 如需使用 `ECDHE` 算法，则不需要生成 Diffie-Hellman 参数，因为可以使用默认的 ECDHE 曲线。
-在创建 TLS Server 时，可使用 `ecdhCurve` 属性声明服务器支持的曲线名词，详请参阅 [`tls.createServer()`]。
+在创建 TLS Server 时，可使用 `ecdhCurve` 属性声明服务器支持的曲线名词，详请参见 [`tls.createServer()`]。
 
 完全前向保密在 TLSv1.2 之前是可选的，但它不是 TLSv1.3 的可选项，因为所有 TLSv1.3 密码套件都使用 ECDHE。
 

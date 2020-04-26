@@ -17,7 +17,7 @@ changes:
 如果 `message` 参数是 [`Error`] 的实例，则它将被抛出而不是 `AssertionError`。
 如果没有传入任何参数，则将 `message` 设置为字符串：``'No value argument passed to `assert.ok()`'``。
 
-注意，在 `repl` 中，错误消息将与文件中抛出的错误消息不同！请参阅下文了解更多详情。
+注意，在 `repl` 中，错误消息将与文件中抛出的错误消息不同！请参见下文了解更多详情。
 
 ```js
 const assert = require('assert').strict;

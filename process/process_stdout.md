@@ -11,5 +11,5 @@ process.stdin.pipe(process.stdout);
 ```
 
 `process.stdout` 与其他的 Node.js 流有重大区别。
-有关更多信息，参阅有关[进程 I/O 的注意事项][note on process I/O]。
+有关更多信息，参见有关[进程 I/O 的注意事项][note on process I/O]。
 

@@ -21,7 +21,7 @@ process.stdin.on('end', () => {
 ```
 
 作为[双工流][Duplex]，`process.stdin` 也可以在“旧”模式下使用，该模式与在 v0.10 之前为 Node.js 编写的脚本兼容。 
-有关更多信息，参阅[流的兼容性][Stream compatibility]。
+有关更多信息，参见[流的兼容性][Stream compatibility]。
 
 在“旧”的流模式下，默认情况下 `stdin` 流是暂停的，因此必须调用 `process.stdin.resume()` 从中读取。 
 注意，调用 `process.stdin.resume()` 本身会将流切换为“旧”模式。

@@ -9,7 +9,7 @@
 * `Object` 属性的比较是无序的。
 * [`Map`] 键名与 [`Set`] 子项的比较是无序的。
 * 当两边的值不相同或遇到循环引用时，递归停止。
-* [`WeakMap`] 和 [`WeakSet`] 的比较不依赖于它们的值。请参阅下文了解更多详情。
+* [`WeakMap`] 和 [`WeakSet`] 的比较不依赖于它们的值。请参见下文了解更多详情。
 
 ```js
 const assert = require('assert').strict;

@@ -3,12 +3,12 @@ added: v0.0.2
 changes:
   - version: v7.6.0
     pr-url: https://github.com/nodejs/node/pull/10739
-    description: The `path` parameter can be a WHATWG `URL` object using
-                 `file:` protocol. Support is currently still *experimental*.
+    description: 参数 `path` 可以是 WHATWG `URL` 对象（使用 `file:` 协议）。 
+      该支持目前仍是实验的。
 deprecated: v1.0.0
 -->
 
-> 稳定性: 0 - 废弃: 改为使用 [`fs.stat()`] 或 [`fs.access()`]。
+> 稳定性: 0 - 弃用: 改为使用 [`fs.stat()`] 或 [`fs.access()`]。
 
 * `path` {string|Buffer|URL}
 * `callback` {Function}

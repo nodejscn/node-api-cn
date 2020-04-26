@@ -7,7 +7,7 @@ added: v0.0.6
 
 `process.kill()` 方法将 `signal` 发送给 `pid` 标识的进程。
 
-信号名称是如 `'SIGINT'` 或 `'SIGHUP'`的字符串。更多信息，参阅[信号事件][Signal Events]和 kill(2)。
+信号名称是如 `'SIGINT'` 或 `'SIGHUP'`的字符串。更多信息，参见[信号事件][Signal Events]和 kill(2)。
 
 如果目标 `pid` 不存在，该方法会抛出错误。
 作为一个特殊例子，信号 `0` 可以用于测试进程是否存在。
@@ -29,5 +29,5 @@ setTimeout(() => {
 process.kill(process.pid, 'SIGHUP');
 ```
 
-当 Node.js 进程接收到 `SIGUSR1` 时，Node.js 将会启动调试器，参阅[信号事件][Signal Events]。
+当 Node.js 进程接收到 `SIGUSR1` 时，Node.js 将会启动调试器，参见[信号事件][Signal Events]。
 

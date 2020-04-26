@@ -33,7 +33,7 @@ async function callStat() {
 }
 ```
 
-如果存在 `original[util.promisify.custom]` 属性，则 `promisify` 将会返回其值，参阅[自定义的 promise 化函数][Custom promisified functions]。
+如果存在 `original[util.promisify.custom]` 属性，则 `promisify` 将会返回其值，参见[自定义的 promise 化函数][Custom promisified functions]。
 
 `promisify()` 在所有情况下都会假定 `original` 是一个以回调作为其最后参数的函数。
 如果 `original` 不是一个函数，则 `promisify()` 将会抛出错误。 

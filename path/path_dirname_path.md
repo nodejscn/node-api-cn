@@ -10,7 +10,7 @@ changes:
 * 返回: {string}
 
 `path.dirname()` 方法返回 `path` 的目录名，类似于 Unix 的 `dirname` 命令。 
-尾部的目录分隔符将被忽略，参阅 [`path.sep`]。
+尾部的目录分隔符将被忽略，参见 [`path.sep`]。
 
 ```js
 path.dirname('/foo/bar/baz/asdf/quux');

@@ -29,7 +29,7 @@ changes:
 使用给定的 `algorithm`、`key` 和初始化向量（`iv`）创建并返回一个 `Decipher` 对象。
 
 `options` 参数控制流的行为，它是可选的，除非使用 CCM 或 OCB 模式的密码（例如 `'aes-128-ccm'`）。
-在这种情况下，必须使用 `authTagLength` 选项，并以字节为单位指定身份验证标签的长度，参阅 [CCM 模式][CCM mode]。
+在这种情况下，必须使用 `authTagLength` 选项，并以字节为单位指定身份验证标签的长度，参见 [CCM 模式][CCM mode]。
 在 GCM 模式中，不需要 `authTagLength` 选项，但可用于将接受的身份验证标签限制为具有指定的长度。
 
 `algorithm` 取决于 OpenSSL，例如 `'aes192'` 等。

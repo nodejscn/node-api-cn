@@ -46,5 +46,5 @@ NAPI_MODULE(NODE_GYP_MODULE_NAME, init)
 }  // namespace demo
 ```
 
-可用的函数和使用文档请参阅[具有 N-API 的 C/C++ 插件][_n-api]。
+可用的函数和使用文档请参见[具有 N-API 的 C/C++ 插件][_n-api]。
 

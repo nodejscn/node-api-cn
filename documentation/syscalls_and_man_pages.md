@@ -4,5 +4,5 @@ Node.js 函数简单地封装了系统调用，例如 [`fs.open()`]。
 相应的帮助文档描述了系统调用的工作方式。
 
 大多数 Unix 系统调用都有 Windows 等价物，但 Windows 相对于 Linux 和 macOS 的行为可能不同。 
-有关在 Windows 上有时无法替换 Unix 系统调用语义的微妙方法的示例，请参阅 Node.js 的[讨论贴](https://github.com/nodejs/node/issues/4760)。
+有关在 Windows 上有时无法替换 Unix 系统调用语义的微妙方法的示例，请参见 Node.js 的[讨论贴](https://github.com/nodejs/node/issues/4760)。
 
