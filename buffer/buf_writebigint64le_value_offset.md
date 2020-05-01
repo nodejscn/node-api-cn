@@ -1,5 +1,7 @@
 <!-- YAML
-added: v12.0.0
+added:
+ - v12.0.0
+ - v10.20.0
 -->
 
 * `value` {bigint} 要写入 `buf` 的数值。

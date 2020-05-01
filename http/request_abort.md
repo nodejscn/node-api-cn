@@ -1,5 +1,6 @@
 <!-- YAML
 added: v0.3.8
+deprecated: v14.1.0
 -->
 
 将请求标记为中止。 

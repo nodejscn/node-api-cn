@@ -21,7 +21,7 @@ changes:
 * 返回: {string|undefined}
 
 同步地创建目录。
-返回 `undefined`，或者如果 `recursive` 为 `true`，则返回创建的第一个文件夹的路径。
+返回 `undefined`，或者如果 `recursive` 为 `true`，则返回创建的第一个目录的路径。
 [`fs.mkdir()`] 的同步版本。
 
 也可参见 mkdir(2)。

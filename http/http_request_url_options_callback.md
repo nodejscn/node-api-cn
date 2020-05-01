@@ -1,7 +1,10 @@
 <!-- YAML
 added: v0.3.6
 changes:
-  - version: v13.8.0
+  - version:
+     - v13.8.0
+     - v12.15.0
+     - v10.19.0
     pr-url: https://github.com/nodejs/node/pull/31448
     description: The `insecureHTTPParser` option is supported now.
   - version: v13.3.0
@@ -135,14 +138,6 @@ const req = http.request(options, (res) => {
 * `'error'` 事件
 * `'close'` 事件
 
-如果在连接成功之前调用 `req.abort()`，则按以下顺序触发以下事件：
-
-* `'socket'` 事件
-* (在这里调用 `req.abort()`)
-* `'abort'` 事件
-* `'error'` 事件并带上错误信息 `'Error: socket hang up'` 和错误码 `'ECONNRESET'`
-* `'close'` 事件
-
 如果收到响应之前过早关闭连接，则按以下顺序触发以下事件：
 
 * `'socket'` 事件
@@ -159,6 +154,51 @@ const req = http.request(options, (res) => {
 * `res` 对象上的 `'aborted'` 事件
 * `'close'`
 * `res` 对象上的 `'close'` 事件
+
+
+If `req.destroy()` is called before a socket is assigned, the following
+events will be emitted in the following order:
+
+* (`req.destroy()` called here)
+* `'error'` with an error with message `'Error: socket hang up'` and code
+  `'ECONNRESET'`
+* `'close'`
+
+If `req.destroy()` is called before the connection succeeds, the following
+events will be emitted in the following order:
+
+* `'socket'`
+* (`req.destroy()` called here)
+* `'error'` with an error with message `'Error: socket hang up'` and code
+  `'ECONNRESET'`
+* `'close'`
+
+If `req.destroy()` is called after the response is received, the following
+events will be emitted in the following order:
+
+* `'socket'`
+* `'response'`
+  * `'data'` any number of times, on the `res` object
+* (`req.destroy()` called here)
+* `'aborted'` on the `res` object
+* `'close'`
+* `'close'` on the `res` object
+
+If `req.abort()` is called before a socket is assigned, the following
+events will be emitted in the following order:
+
+* (`req.abort()` called here)
+* `'abort'`
+* `'close'`
+
+如果在连接成功之前调用 `req.abort()`，则按以下顺序触发以下事件：
+
+* `'socket'` 事件
+* (在这里调用 `req.abort()`)
+* `'abort'` 事件
+* `'error'` 事件并带上错误信息 `'Error: socket hang up'` 和错误码 `'ECONNRESET'`
+* `'close'` 事件
+
 
 如果在响应被接收之后调用 `req.abort()`，则按以下顺序触发以下事件：
 

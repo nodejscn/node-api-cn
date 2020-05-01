@@ -1,7 +1,12 @@
 <!-- YAML
 added: v0.11.3
 changes:
-  - version: v13.6.0
+  - version: v14.1.0
+    pr-url: https://github.com/nodejs/node/pull/32786
+    description: The `highWaterMark` option is accepted now.
+  - version:
+     - v13.6.0
+     - v12.16.0
     pr-url: https://github.com/nodejs/node/pull/23188
     description: The `pskCallback` option is now supported.
   - version: v12.9.0
@@ -13,7 +18,9 @@ changes:
   - version: v12.2.0
     pr-url: https://github.com/nodejs/node/pull/27497
     description: The `enableTrace` option is now supported.
-  - version: v11.8.0
+  - version:
+     - v11.8.0
+     - v10.16.0
     pr-url: https://github.com/nodejs/node/pull/25517
     description: The `timeout` option is supported now.
   - version: v8.0.0
@@ -97,6 +104,8 @@ changes:
     TLS connection. When a server offers a DH parameter with a size less
     than `minDHSize`, the TLS connection is destroyed and an error is thrown.
     **Default:** `1024`.
+  * `highWaterMark`: {number} Consistent with the readable stream `highWaterMark` parameter.
+    **Default:** `16 * 1024`.
   * `secureContext`: TLS context object created with
     [`tls.createSecureContext()`][]. If a `secureContext` is _not_ provided, one
     will be created by passing the entire `options` object to
@@ -113,7 +122,7 @@ The `callback` function, if specified, will be added as a listener for the
 `tls.connect()` returns a [`tls.TLSSocket`][] object.
 
 The following illustrates a client for the echo server example from
-
+[`tls.createServer()`][]:
 
 ```js
 // Assumes an echo server that is listening on port 8000.

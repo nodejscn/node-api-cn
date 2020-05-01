@@ -1,5 +1,7 @@
 <!-- YAML
-added: v12.0.0
+added:
+ - v12.0.0
+ - v10.17.0
 -->
 
 By default all unhandled rejections trigger a warning plus a deprecation warning

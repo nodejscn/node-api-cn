@@ -11,6 +11,13 @@ const myURL = new URL('/foo', 'https://example.org/');
 // https://example.org/foo
 ```
 
+The URL constructor is accessible as a property on the global object.
+It can also be imported from the built-in url module:
+
+```js
+console.log(URL === require('url').URL); // Prints 'true'.
+```
+
 如果 `input` 或 `base` 是无效的 URL，则将会抛出 `TypeError`。
 注意，给定值将会被强制转换为字符串。
 例如：

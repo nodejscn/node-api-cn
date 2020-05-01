@@ -1,7 +1,10 @@
 <!-- YAML
 added: v0.1.13
 changes:
-  - version: v13.8.0
+  - version:
+     - v13.8.0
+     - v12.15.0
+     - v10.19.0
     pr-url: https://github.com/nodejs/node/pull/31448
     description: The `insecureHTTPParser` option is supported now.
   - version: v13.3.0

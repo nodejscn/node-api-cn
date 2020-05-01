@@ -1,6 +1,9 @@
 <!-- YAML
 added: v0.3.6
 changes:
+  - version: v14.1.0
+    pr-url: https://github.com/nodejs/node/pull/32786
+    description: The `highWaterMark` option is accepted now.
   - version: v10.9.0
     pr-url: https://github.com/nodejs/node/pull/21616
     description: 现在可以将 `url` 参数与一个单独的 `options` 对象一起传入。
@@ -21,7 +24,7 @@ changes:
 发送一个请求到一个加密的 Web 服务器。
 
 以下来自 [`tls.connect()`] 的额外的 `options` 也会被接收：
-`ca`、`cert`、`ciphers`、`clientCertEngine`、`crl`、`dhparam`、`ecdhCurve`、`honorCipherOrder`、`key`、`passphrase`、`pfx`、`rejectUnauthorized`、`secureOptions`、`secureProtocol`、`servername`、`sessionIdContext`。
+`ca`、`cert`、`ciphers`、`clientCertEngine`、`crl`、`dhparam`、`ecdhCurve`、`honorCipherOrder`、`key`、`passphrase`、`pfx`、`rejectUnauthorized`、`secureOptions`、`secureProtocol`、`servername`、`sessionIdContext`、`highWaterMark`。
 
 `options` 可以是对象、字符串、或 [`URL`] 对象。
 如果 `options` 是一个字符串, 则会被自动地使用 [`new URL()`] 解析。

@@ -1,5 +1,7 @@
 <!-- YAML
-added: v11.11.0
+added:
+ - v11.11.0
+ - v10.17.0
 napiVersion: 5
 -->
 

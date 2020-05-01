@@ -1,5 +1,7 @@
 <!-- YAML
-added: v12.2.0
+added:
+ - v12.2.0
+ - v10.20.0
 -->
 
 Set default [`tls.DEFAULT_MIN_VERSION`][] to 'TLSv1.2'. This is the default for

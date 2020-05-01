@@ -1,6 +1,8 @@
 <!-- YAML
 added: v0.0.1
-deprecated: v13.4.0
+deprecated:
+ - v13.4.0
+ - v12.16.0
 -->
 
 > Stability: 0 - Deprecated. Use [`request.writableEnded`][].

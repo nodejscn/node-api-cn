@@ -1,5 +1,7 @@
 <!-- YAML
-added: v13.4.0
+added:
+ - v13.4.0
+ - v12.16.0
 -->
 
 Sets the resolution algorithm for resolving ES module specifiers. Valid options

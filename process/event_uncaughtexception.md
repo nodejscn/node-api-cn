@@ -1,7 +1,9 @@
 <!-- YAML
 added: v0.1.18
 changes:
-  - version: v12.0.0
+  - version:
+     - v12.0.0
+     - v10.17.0
     pr-url: https://github.com/nodejs/node/pull/26599
     description: Added the `origin` argument.
 -->

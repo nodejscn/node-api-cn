@@ -8,10 +8,14 @@ changes:
     pr-url: https://github.com/nodejs/node/pull/31664
     description: The `filename` parameter can be a WHATWG `URL` object using
                  `file:` protocol.
-  - version: v13.2.0
+  - version:
+     - v13.2.0
+     - v12.16.0
     pr-url: https://github.com/nodejs/node/pull/26628
     description: The `resourceLimits` option was introduced.
-  - version: v13.4.0
+  - version:
+     - v13.4.0
+     - v12.16.0
     pr-url: https://github.com/nodejs/node/pull/30559
     description: The `argv` option was introduced.
 -->
@@ -36,6 +40,10 @@ changes:
   * `stderr` {boolean} 如果将其设置为 `true`，则 `worker.stderr` 将不会自动地通过管道传递到父线程中的 `process.stderr`。
   * `workerData` {any} 能被克隆并作为 [`require('worker_threads').workerData`] 的任何 JavaScript 值。
      克隆将会按照 [HTML 结构化克隆算法][HTML structured clone algorithm]中描述的进行，如果对象无法被克隆（例如，因为它包含 `function`），则会抛出错误。
+  * `transferList` {Object[]} If one or more `MessagePort`-like objects
+    are passed in `workerData`, a `transferList` is required for those
+    items or [`ERR_MISSING_MESSAGE_PORT_IN_TRANSFER_LIST`][] will be thrown.
+    See [`port.postMessage()`][] for more information.
   * `resourceLimits` {Object} 新的 JS 引擎实例的一组可选的资源限制。 
     达到这些限制将会导致终止 `Worker` 实例。 
     这些限制仅影响 JS 引擎，并且不影响任何外部数据，包括 `ArrayBuffers`。 

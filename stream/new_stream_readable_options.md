@@ -1,6 +1,8 @@
 <!-- YAML
 changes:
-  - version: v11.2.0
+  - version:
+     - v11.2.0
+     - v10.16.0
     pr-url: https://github.com/nodejs/node/pull/22795
     description: Add `autoDestroy` option to automatically `destroy()` the
                  stream when it emits `'end'` or errors.

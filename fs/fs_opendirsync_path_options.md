@@ -1,7 +1,9 @@
 <!-- YAML
 added: v12.12.0
 changes:
-  - version: v13.1.0
+  - version:
+     - v13.1.0
+     - v12.16.0
     pr-url: https://github.com/nodejs/node/pull/30114
     description: The `bufferSize` option was introduced.
 -->
@@ -9,7 +11,7 @@ changes:
 * `path` {string|Buffer|URL}
 * `options` {Object}
   * `encoding` {string|null} **默认值:** `'utf8'`。
-  * `bufferSize` {number} 当从目录读取时在内部缓冲的目录条目数。值越高，则性能越好，但内存占用更高。**默认值:** `32`。
+  * `bufferSize` {number} 当从目录读取时在内部缓冲的目录项的数量。值越高，则性能越好，但内存占用更高。**默认值:** `32`。
 * 返回: {fs.Dir}
 
 同步地打开目录。 

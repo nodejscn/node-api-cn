@@ -3,7 +3,9 @@
 added: v10.6.0
 napiVersion: 4
 changes:
-  - version: v12.6.0
+  - version:
+     - v12.6.0
+     - v10.17.0
     pr-url: https://github.com/nodejs/node/pull/27791
     description: Made `func` parameter optional with custom `call_js_cb`.
 -->

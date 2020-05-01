@@ -1,7 +1,9 @@
 <!-- YAML
 added: v10.5.0
 changes:
-  - version: v12.8.0
+  - version:
+     - v12.8.0
+     - v10.17.0
     pr-url: https://github.com/nodejs/node/pull/28799
     description: The `maxmem` value can now be any safe integer.
   - version: v10.9.0

@@ -1,13 +1,15 @@
 <!-- YAML
 added: v0.11.4
 changes:
+  - version:
+     - v13.4.0
+     - v12.16.0
+    pr-url: https://github.com/nodejs/node/pull/30637
+    description: Return the IETF cipher name as `standardName`.
   - version: v12.0.0
     pr-url: https://github.com/nodejs/node/pull/26625
     description: Return the minimum cipher version, instead of a fixed string
       (`'TLSv1/SSLv3'`).
-  - version: v13.4.0
-    pr-url: https://github.com/nodejs/node/pull/30637
-    description: Return the IETF cipher name as `standardName`.
 -->
 
 * Returns: {Object}

@@ -1,5 +1,7 @@
 <!-- YAML
-added: v11.13.0
+added:
+ - v11.13.0
+ - v10.16.0
 -->
 
 * `emitter` {EventEmitter}

@@ -4,7 +4,9 @@ changes:
   - version: v14.0.0
     pr-url: https://github.com/nodejs/node/pull/32392
     description: The `maxStringLength` option is supported now.
-  - version: v13.5.0
+  - version:
+     - v13.5.0
+     - v12.16.0
     pr-url: https://github.com/nodejs/node/pull/30768
     description: User defined prototype properties are inspected in case
                  `showHidden` is `true`.

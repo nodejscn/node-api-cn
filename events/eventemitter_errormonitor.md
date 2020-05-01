@@ -1,5 +1,7 @@
 <!-- YAML
-added: v13.6.0
+added:
+ - v13.6.0
+ - v12.16.0
 -->
 
 This symbol shall be used to install a listener for only monitoring `'error'`

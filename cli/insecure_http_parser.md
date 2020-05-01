@@ -1,5 +1,8 @@
 <!-- YAML
-added: v13.4.0
+added:
+ - v13.4.0
+ - v12.15.0
+ - v10.19.0
 -->
 
 Use an insecure HTTP parser that accepts invalid HTTP headers. This may allow

@@ -1,5 +1,7 @@
 <!-- YAML
-added: v13.0.0
+added:
+ - v13.0.0
+ - v12.16.0
 -->
 
 * `name` {string} Name of the export to set.

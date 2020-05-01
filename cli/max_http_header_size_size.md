@@ -1,5 +1,7 @@
 <!-- YAML
-added: v11.6.0
+added:
+ - v11.6.0
+ - v10.15.0
 changes:
   - version: v14.0.0
     pr-url: https://github.com/nodejs/node/pull/32520

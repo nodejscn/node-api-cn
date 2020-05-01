@@ -1,5 +1,7 @@
 <!-- YAML
-added: v12.0.0
+added:
+ - v12.0.0
+ - v10.20.0
 -->
 
 * `offset` {integer} 开始读取之前要跳过的字节数。必须满足：`0 <= offset <= buf.length - 8`。**默认值:** `0`。

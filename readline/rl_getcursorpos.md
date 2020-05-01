@@ -1,5 +1,7 @@
 <!-- YAML
-added: v13.5.0
+added:
+ - v13.5.0
+ - v12.16.0
 -->
 
 * Returns: {Object}

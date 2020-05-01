@@ -1,5 +1,7 @@
 <!-- YAML
-added: v13.2.0
+added:
+ - v13.2.0
+ - v12.16.0
 -->
 
 Log TLS key material to a file. The key material is in NSS `SSLKEYLOGFILE`

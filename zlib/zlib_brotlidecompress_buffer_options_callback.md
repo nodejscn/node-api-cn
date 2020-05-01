@@ -1,5 +1,7 @@
 <!-- YAML
-added: v11.7.0
+added:
+ - v11.7.0
+ - v10.16.0
 -->
 
 * `buffer` {Buffer|TypedArray|DataView|ArrayBuffer|string}

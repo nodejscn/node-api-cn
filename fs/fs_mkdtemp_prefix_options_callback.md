@@ -19,7 +19,7 @@ changes:
   * `encoding` {string} **默认值:** `'utf8'`。
 * `callback` {Function}
   * `err` {Error}
-  * `folder` {string}
+  * `directory` {string}
 
 创建一个唯一的临时目录。
 
@@ -33,9 +33,9 @@ changes:
 
 
 ```js
-fs.mkdtemp(path.join(os.tmpdir(), '目录-'), (err, folder) => {
+fs.mkdtemp(path.join(os.tmpdir(), '目录-'), (err, directory) => {
   if (err) throw err;
-  console.log(folder);
+  console.log(directory);
   // 打印: /tmp/目录-itXde2 或 C:\Users\...\AppData\Local\Temp\目录-itXde2
 });
 ```
@@ -48,18 +48,18 @@ fs.mkdtemp(path.join(os.tmpdir(), '目录-'), (err, folder) => {
 const tmpDir = os.tmpdir();
 
 // 此用法是错误的：
-fs.mkdtemp(tmpDir, (err, folder) => {
+fs.mkdtemp(tmpDir, (err, directory) => {
   if (err) throw err;
-  console.log(folder);
+  console.log(directory);
   // 输出类似 `/tmpabc123`。
   // 新的临时目录会被创建在文件系统根目录，而不是在 /tmp 目录中。
 });
 
 // 此用法是正确的：
 const { sep } = require('path');
-fs.mkdtemp(`${tmpDir}${sep}`, (err, folder) => {
+fs.mkdtemp(`${tmpDir}${sep}`, (err, directory) => {
   if (err) throw err;
-  console.log(folder);
+  console.log(directory);
   // 输出类似 `/tmp/abc123`。
   // 新的临时目录会被创建在 /tmp 目录中。
 });

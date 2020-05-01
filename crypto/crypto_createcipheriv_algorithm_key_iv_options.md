@@ -4,7 +4,9 @@ changes:
   - version: v11.6.0
     pr-url: https://github.com/nodejs/node/pull/24234
     description: The `key` argument can now be a `KeyObject`.
-  - version: v11.2.0
+  - version:
+     - v11.2.0
+     - v10.17.0
     pr-url: https://github.com/nodejs/node/pull/24081
     description: The cipher `chacha20-poly1305` is now supported.
   - version: v10.10.0

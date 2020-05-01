@@ -39,6 +39,19 @@ preventing data from being successfully added to the queue. If set to
 `napi_call_threadsafe_function()` never blocks if the thread-safe function was
 created with a maximum queue size of 0.
 
+As a special case, when `napi_call_threadsafe_function()` is called from a
+JavaScript thread, it will return `napi_would_deadlock` if the queue is full
+and it was called with `napi_tsfn_blocking`. The reason for this is that the
+JavaScript thread is responsible for removing items from the queue, thereby
+reducing their number. Thus, if it waits for room to become available on the
+queue, then it will deadlock.
+
+`napi_call_threadsafe_function()` will also return `napi_would_deadlock` if the
+thread-safe function created on one JavaScript thread is called from another
+JavaScript thread. The reason for this is to prevent a deadlock arising from the
+possibility that the two JavaScript threads end up waiting on one another,
+thereby both deadlocking.
+
 The actual call into JavaScript is controlled by the callback given via the
 `call_js_cb` parameter. `call_js_cb` is invoked on the main thread once for each
 value that was placed into the queue by a successful call to

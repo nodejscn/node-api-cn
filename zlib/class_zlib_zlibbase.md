@@ -1,7 +1,9 @@
 <!-- YAML
 added: v0.5.8
 changes:
-  - version: v11.7.0
+  - version:
+     - v11.7.0
+     - v10.16.0
     pr-url: https://github.com/nodejs/node/pull/24939
     description: This class was renamed from `Zlib` to `ZlibBase`.
 -->

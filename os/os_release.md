@@ -8,5 +8,5 @@ added: v0.3.3
 
 在 POSIX 系统上，操作系统的发行版是通过调用 [uname(3)] 判断的。
 在 Windows 上, 则使用 `GetVersionExW()`。
-详见 https://en.wikipedia.org/wiki/Uname#Examples。
+详见 <https://en.wikipedia.org/wiki/Uname#Examples>。
 

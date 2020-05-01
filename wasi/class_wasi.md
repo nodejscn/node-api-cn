@@ -1,5 +1,7 @@
 <!-- YAML
-added: v13.3.0
+added:
+ - v13.3.0
+ - v12.16.0
 -->
 
 The `WASI` class provides the WASI system call API and additional convenience

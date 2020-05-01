@@ -1,5 +1,7 @@
 <!-- YAML
-added: v13.2.0
+added:
+ - v13.2.0
+ - v12.16.0
 -->
 
 Child processes support a serialization mechanism for IPC that is based on the
