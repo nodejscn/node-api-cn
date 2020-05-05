@@ -7,9 +7,8 @@ changes:
       如果不传入，则在运行时会抛出 `TypeError`。
   - version: v7.6.0
     pr-url: https://github.com/nodejs/node/pull/10739
-    description: The `oldPath` and `newPath` parameters can be WHATWG `URL`
-                 objects using `file:` protocol. Support is currently still
-                 *experimental*.
+    description: 参数 `oldPath` 和 `newPath` 可以是 WHATWG `URL` 对象（使用 `file:` 协议）。 
+      该支持目前仍是实验的。
   - version: v7.0.0
     pr-url: https://github.com/nodejs/node/pull/7897
     description: 参数 `callback` 不再是可选的。 
@@ -21,7 +20,7 @@ changes:
 * `callback` {Function}
   * `err` {Error}
 
-异步地将 `oldPath` 上的文件重命名为 `newPath` 提供的路径名。
+异步地把 `oldPath` 文件重命名为 `newPath` 提供的路径名。
 如果 `newPath` 已存在，则覆盖它。
 除了可能的异常，完成回调没有其他参数。
 

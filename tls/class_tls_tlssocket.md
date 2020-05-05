@@ -2,7 +2,7 @@
 added: v0.11.4
 -->
 
-* Extends: {net.Socket}
+* 继承自: {net.Socket}
 
 Performs transparent encryption of written data and all required TLS
 negotiation.

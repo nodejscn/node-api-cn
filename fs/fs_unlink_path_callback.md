@@ -23,15 +23,15 @@ changes:
 除了可能的异常，完成回调没有其他参数。
 
 ```js
-// 假设 'path/file.txt' 是常规文件。
-fs.unlink('path/file.txt', (err) => {
+// 假设 '文件.txt' 是普通的文件。
+fs.unlink('文件.txt', (err) => {
   if (err) throw err;
-  console.log('文件已删除');
+  console.log('文件已被删除');
 });
 ```
 
-`fs.unlink()` 不能用于目录。
-要删除目录，则使用 [`fs.rmdir()`]。
+`fs.unlink()` 对空或非空的目录均不起作用。
+若要删除目录，则使用 [`fs.rmdir()`]。
 
 也可参见 unlink(2)。
 

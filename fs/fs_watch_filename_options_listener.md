@@ -3,8 +3,8 @@ added: v0.5.10
 changes:
   - version: v7.6.0
     pr-url: https://github.com/nodejs/node/pull/10739
-    description: The `filename` parameter can be a WHATWG `URL` object using
-                 `file:` protocol. Support is currently still *experimental*.
+    description: 参数 `filename` 可以是 WHATWG `URL` 对象（使用 `file:` 协议）。
+      该支持目前仍在实验的。
   - version: v7.0.0
     pr-url: https://github.com/nodejs/node/pull/7831
     description: 传入的 `options` 对象无法再被修改。

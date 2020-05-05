@@ -12,7 +12,7 @@ changes:
 * `options` {Object}
   * `encoding` {string|null} **默认值:** `'utf8'`。
   * `bufferSize` {number} 当从目录读取时在内部缓冲的目录项的数量。值越高，则性能越好，但内存占用更高。**默认值:** `32`。
-* 返回: {Promise} 包含 {fs.Dir}。
+* 返回: 包含 {fs.Dir} 的 {Promise}
 
 异步地打开目录。 
 参见 opendir(3)。

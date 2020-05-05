@@ -2,7 +2,7 @@
 added: v8.4.0
 -->
 
-* Extends: {stream.Duplex}
+* 继承自: {stream.Duplex}
 
 Each instance of the `Http2Stream` class represents a bidirectional HTTP/2
 communications stream over an `Http2Session` instance. Any single `Http2Session`

@@ -26,27 +26,27 @@ changes:
 * `callback` {Function}
   * `err` {Error}
 
-异步地将数据追加到文件，如果文件尚不存在则创建该文件。
+异步地追加数据到文件，如果文件尚不存在则创建文件。
 `data` 可以是字符串或 [`Buffer`]。
 
 ```js
-fs.appendFile('message.txt', '追加的数据', (err) => {
+fs.appendFile('文件.txt', '追加的数据', (err) => {
   if (err) throw err;
-  console.log('数据已追加到文件');
+  console.log('数据已被追加到文件');
 });
 ```
 
 如果 `options` 是字符串，则它指定字符编码：
 
 ```js
-fs.appendFile('message.txt', '追加的数据', 'utf8', callback);
+fs.appendFile('文件.txt', '追加的数据', 'utf8', callback);
 ```
 
 `path` 可以指定为已打开用于追加（使用 `fs.open()` 或 `fs.openSync()`）的数字型文件描述符。
 文件描述符不会自动关闭。
 
 ```js
-fs.open('message.txt', 'a', (err, fd) => {
+fs.open('文件.txt', 'a', (err, fd) => {
   if (err) throw err;
   fs.appendFile(fd, '追加的数据', 'utf8', (err) => {
     fs.close(fd, (err) => {

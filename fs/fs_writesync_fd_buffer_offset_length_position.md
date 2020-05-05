@@ -3,18 +3,16 @@ added: v0.1.21
 changes:
   - version: v14.0.0
     pr-url: https://github.com/nodejs/node/pull/31030
-    description: The `buffer` parameter won't coerce unsupported input to
-                 strings anymore.
+    description: 参数 `buffer` 不再强制把不支持的输入转换为字符串。
   - version: v10.10.0
     pr-url: https://github.com/nodejs/node/pull/22150
-    description: The `buffer` parameter can now be any `TypedArray` or a
-                 `DataView`.
+    description: 参数 `buffer` 可以是任何 `TypedArray` 或 `DataView`。
   - version: v7.4.0
     pr-url: https://github.com/nodejs/node/pull/10382
-    description: The `buffer` parameter can now be a `Uint8Array`.
+    description: 参数 `buffer` 可以是 `Uint8Array`。
   - version: v7.2.0
     pr-url: https://github.com/nodejs/node/pull/7856
-    description: The `offset` and `length` parameters are optional now.
+    description: 参数 `offset` 和 `length` 是可选的。
 -->
 
 * `fd` {integer}

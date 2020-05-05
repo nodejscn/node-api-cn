@@ -3,7 +3,7 @@ added: v10.0.0
 changes:
   - version: v11.1.0
     pr-url: https://github.com/nodejs/node/pull/23767
-    description: The `flags` argument is now optional and defaults to `'r'`.
+    description: 参数 `flags` 是可选的，并且默认为 `'r'`。
 -->
 
 * `path` {string|Buffer|URL}
@@ -17,5 +17,5 @@ changes:
 `mode` 用于设置文件模式（权限和粘滞位），但仅限于创建文件时。
 
 有些字符 (`< > : " / \ | ? *`) 在 Windows 上是预留的，参见[命名文件、路径以及命名空间][Naming Files, Paths, and Namespaces]。
-在 NTFS 上，如果文件名包含冒号，则 Node.js 将打开文件系统流，参见[此 MSDN 页面][MSDN-Using-Streams]。
+在 NTFS 上，如果文件名包含冒号，则 Node.js 会打开文件系统流，参见[此 MSDN 页面][MSDN-Using-Streams]。
 

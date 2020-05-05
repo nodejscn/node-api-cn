@@ -1,5 +1,5 @@
 
-* Extends: {EventEmitter}
+* 继承自: {EventEmitter}
 
 The `Domain` class encapsulates the functionality of routing errors and
 uncaught exceptions to the active `Domain` object.

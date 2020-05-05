@@ -12,7 +12,7 @@
   </tr>
   <tr>
     <td><code>S_IFREG</code></td>
-    <td>表示常规文件。</td>
+    <td>表示普通的文件。</td>
   </tr>
   <tr>
     <td><code>S_IFDIR</code></td>

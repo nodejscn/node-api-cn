@@ -10,7 +10,7 @@ added: v10.0.0
   * `flag` {string} 参见[文件系统 `flag` 的支持][support of file system `flags`]。默认值: `'a'`。
 * 返回: {Promise}
 
-异步地将数据追加到文件，如果文件尚不存在则创建该文件。 
+异步地追加数据到文件，如果文件尚不存在则创建文件。 
 `data` 可以是字符串或 [`Buffer`]。
 `Promise` 将会在成功时解决，且不带参数。
 

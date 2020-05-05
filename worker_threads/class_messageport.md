@@ -2,7 +2,7 @@
 added: v10.5.0
 -->
 
-* Extends: {EventEmitter}
+* 继承自: {EventEmitter}
 
 Instances of the `worker.MessagePort` class represent one end of an
 asynchronous, two-way communications channel. It can be used to transfer

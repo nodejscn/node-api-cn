@@ -21,8 +21,8 @@ changes:
 
 ```js
 try {
-  fs.appendFileSync('message.txt', '追加的数据');
-  console.log('数据已追加到文件');
+  fs.appendFileSync('文件.txt', '追加的数据');
+  console.log('数据已被追加到文件');
 } catch (err) {
   /* 处理错误 */
 }
@@ -31,7 +31,7 @@ try {
 如果 `options` 是字符串，则它指定字符编码：
 
 ```js
-fs.appendFileSync('message.txt', '追加的数据', 'utf8');
+fs.appendFileSync('文件.txt', '追加的数据', 'utf8');
 ```
 
 `path` 可以指定为已打开用于追加（使用 `fs.open()` 或 `fs.openSync()`）的数字型文件描述符。
@@ -41,7 +41,7 @@ fs.appendFileSync('message.txt', '追加的数据', 'utf8');
 let fd;
 
 try {
-  fd = fs.openSync('message.txt', 'a');
+  fd = fs.openSync('文件.txt', 'a');
   fs.appendFileSync(fd, '追加的数据', 'utf8');
 } catch (err) {
   /* 处理错误 */

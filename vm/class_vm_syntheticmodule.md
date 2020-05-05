@@ -9,7 +9,7 @@ added:
 *This feature is only available with the `--experimental-vm-modules` command
 flag enabled.*
 
-* Extends: {vm.Module}
+* 继承自: {vm.Module}
 
 The `vm.SyntheticModule` class provides the [Synthetic Module Record][] as
 defined in the WebIDL specification. The purpose of synthetic modules is to

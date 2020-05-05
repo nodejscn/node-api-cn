@@ -9,5 +9,6 @@ changes:
 
 * `path` {string|Buffer|URL}
 
-同步的 unlink(2)。返回 `undefined`。
+同步的 unlink(2)。
+返回 `undefined`。
 

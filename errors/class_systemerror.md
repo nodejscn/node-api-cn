@@ -1,5 +1,5 @@
 
-* Extends: {errors.Error}
+* 继承自: {errors.Error}
 
 Node.js generates system errors when exceptions occur within its runtime
 environment. These usually occur when an application violates an operating

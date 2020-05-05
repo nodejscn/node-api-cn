@@ -3,11 +3,10 @@ added: v0.1.21
 changes:
   - version: v10.10.0
     pr-url: https://github.com/nodejs/node/pull/22150
-    description: The `buffer` parameter can now be any `TypedArray` or a
-                 `DataView`.
+    description: 参数 `buffer` 可以是任何 `TypedArray` 或 `DataView`。
   - version: v6.0.0
     pr-url: https://github.com/nodejs/node/pull/4518
-    description: The `length` parameter can now be `0`.
+    description: 参数 `length` 可以为 `0`。
 -->
 
 * `fd` {integer}

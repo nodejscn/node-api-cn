@@ -3,7 +3,7 @@ added: v0.1.8
 changes:
   - version: v10.10.0
     pr-url: https://github.com/nodejs/node/pull/22020
-    description: New option `withFileTypes` was added.
+    description: 添加新的选项 `withFileTypes`。
   - version: v10.0.0
     pr-url: https://github.com/nodejs/node/pull/12562
     description: 参数 `callback` 不再是可选的。 
@@ -18,7 +18,7 @@ changes:
       如果不传入，则会触发弃用警告（id 为 DEP0013）。
   - version: v6.0.0
     pr-url: https://github.com/nodejs/node/pull/5616
-    description: The `options` parameter was added.
+    description: 添加 `options` 参数。
 -->
 
 * `path` {string|Buffer|URL}
@@ -31,10 +31,10 @@ changes:
 
 异步的 readdir(3)。
 读取目录的内容。
-回调有两个参数 `(err, files)`，其中 `files` 是目录中的文件名的数组（不包括 `'.'` 和 `'..'`）。
+回调有两个参数 `(err, files)`，其中 `files` 是目录中文件的名称的数组（不包括 `'.'` 和 `'..'`）。
 
-可选的 `options` 参数可以是指定编码的字符串，也可以是具有 `encoding` 属性的对象，该属性指定用于传给回调的文件名的字符编码。 
-如果 `encoding` 设置为 `'buffer'`，则返回的文件名是 `Buffer` 对象。
+可选的 `options` 参数可以是字符串（指定字符编码）、或具有 `encoding` 属性（指定用于传给回调的文件名的字符编码）的对象。 
+如果 `encoding` 被设置为 `'buffer'`，则返回的文件名会作为 `Buffer` 对象传入。
 
-如果 `options.withFileTypes` 设置为 `true`，则 `files` 数组将包含 [`fs.Dirent`] 对象。
+如果 `options.withFileTypes` 被设置为 `true`，则 `files` 数组会包含 [`fs.Dirent`] 对象。
 

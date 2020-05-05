@@ -3,10 +3,10 @@ added: v0.1.21
 changes:
   - version: v11.1.0
     pr-url: https://github.com/nodejs/node/pull/23767
-    description: The `flags` argument is now optional and defaults to `'r'`.
+    description: 参数 `flags` 是可选的，并且默认为 `'r'`。
   - version: v9.9.0
     pr-url: https://github.com/nodejs/node/pull/18801
-    description: The `as` and `as+` flags are supported now.
+    description: 支持 `as` 和 `as+` 标志。
   - version: v7.6.0
     pr-url: https://github.com/nodejs/node/pull/10739
     description: 参数 `path` 可以是 WHATWG `URL` 对象（使用 `file:` 协议）。 

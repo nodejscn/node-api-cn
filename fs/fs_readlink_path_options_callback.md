@@ -25,6 +25,6 @@ changes:
 异步的 readlink(2)。
 回调会传入两个参数 `(err, linkString)`。
 
-可选的 `options` 参数可以是指定编码的字符串，也可以是具有 `encoding` 属性的对象，该属性指定用于传递给回调的链接路径的字符编码。 
-如果 `encoding` 设置为 `'buffer'`，则返回的链接路径将作为 `Buffer` 对象传入。
+可选的 `options` 参数可以是字符串（指定字符编码）、或具有 `encoding` 属性（指定用于传给回调的链接路径的字符编码）的对象。 
+如果 `encoding` 被设置为 `'buffer'`，则返回的链接路径会作为 `Buffer` 对象传入。
 
