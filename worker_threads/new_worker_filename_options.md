@@ -51,4 +51,6 @@ changes:
     * `maxOldGenerationSizeMb` {number} 主堆的最大大小，以 MB 为单位。
     * `maxYoungGenerationSizeMb` {number} 最近创建的对象的堆空间的最大大小。
     * `codeRangeSizeMb` {number} 用于生成代码的预分配的内存范围的大小。
+    * `stackSizeMb` {number} The default maximum stack size for the thread.
+      Small values may lead to unusable Worker instances. **Default:** `4`.
 

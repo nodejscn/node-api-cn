@@ -72,6 +72,7 @@ class WorkerPool extends EventEmitter {
     });
     this.workers.push(worker);
     this.freeWorkers.push(worker);
+    this.emit(kWorkerFreedEvent);
   }
 
   runTask(task, callback) {

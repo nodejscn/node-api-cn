@@ -4,7 +4,8 @@ added:
   - v10.17.0
 -->
 
-* `iterable` {Iterable} 实现 `Symbol.asyncIterator` 或 `Symbol.iterator` 可迭代协议的对象。
+* `iterable` {Iterable} 实现 `Symbol.asyncIterator` 或 `Symbol.iterator` 可迭代协议的对象。Emits an 'error' event if a null
+   value is passed.
 * `options` {Object} 提供给 `new stream.Readable([options])` 的选项。 
    默认情况下，`Readable.from()` 会将 `options.objectMode` 设置为 `true`，除非通过将 `options.objectMode` 设置为 `false` 显式地选择此选项。
 * 返回: {stream.Readable}

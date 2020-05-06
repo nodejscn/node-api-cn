@@ -17,7 +17,7 @@ changes:
 
 * `options` {Object}
   * `highWaterMark` {number} 当调用 [`stream.write()`][stream-write] 开始返回 `false` 时的缓冲大小。
-    默认为 `16384` (16kb), 对象模式的流默认为 `16`。
+    默认为 `16384` (16KB), 对象模式的流默认为 `16`。
   * `decodeStrings` {boolean} 是否把传入 [`stream._write()`][stream-_write] 的 `string` 编码为 `Buffer`，使用的字符编码为调用 [`stream.write()`][stream-write] 时指定的。
     不转换其他类型的数据（即不将 `Buffer` 解码为 `string`）。 设置为 `false` 将会阻止转换 `string`。 **默认值:** `true`。
   * `defaultEncoding` {string} 当 [`stream.write()`][stream-write] 的参数没有指定字符编码时默认的字符编码。**默认值:** `'utf8'`。

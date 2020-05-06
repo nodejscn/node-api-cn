@@ -1,15 +1,18 @@
 <!-- YAML
 changes:
-  - version: v8.0.0
-    pr-url: https://github.com/nodejs/node/pull/9744
-    description: The `ignoreErrors` option was introduced.
+  - version: v14.2.0
+    pr-url: https://github.com/nodejs/node/pull/32964
+    description: The `groupIndentation` option was introduced.
+  - version: v11.7.0
+    pr-url: https://github.com/nodejs/node/pull/24978
+    description: The `inspectOptions` option is introduced.
   - version: v10.0.0
     pr-url: https://github.com/nodejs/node/pull/19372
     description: The `Console` constructor now supports an `options` argument,
                  and the `colorMode` option was introduced.
-  - version: v11.7.0
-    pr-url: https://github.com/nodejs/node/pull/24978
-    description: The `inspectOptions` option is introduced.
+  - version: v8.0.0
+    pr-url: https://github.com/nodejs/node/pull/9744
+    description: The `ignoreErrors` option was introduced.
 -->
 
 * `options` {Object}
@@ -23,7 +26,9 @@ changes:
     如果设置了 `inspectOptions.colors`，则不能使用此选项。
     **默认值:** `'auto'`。
   * `inspectOptions` {Object} 指定传给 [`util.inspect()`] 的选项。
-
+  * `groupIndentation` {number} Set group indentation.
+    **Default:** `2`.
+    
 创建具有一个或两个可写流实例的新 `Console`。
 `stdout` 是一个可写流，用于打印日志或信息输出。 
 `stderr` 用于警告或错误输出。

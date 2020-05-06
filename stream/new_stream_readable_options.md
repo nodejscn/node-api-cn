@@ -13,7 +13,7 @@ changes:
 
 * `options` {Object}
   * `highWaterMark` {number} 从底层资源读取数据并存储在内部缓冲区中的最大[字节数][hwm-gotcha]。
-    **默认值:** `16384` (16kb), 对象模式的流默认为 `16`。
+    **默认值:** `16384` (16KB), 对象模式的流默认为 `16`。
   * `encoding` {string} 如果指定了，则使用指定的字符编码将 buffer 解码成字符串。
     **默认值:** `null`。
   * `objectMode` {boolean} 流是否可以是一个对象流。

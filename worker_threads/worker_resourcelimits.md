@@ -8,6 +8,7 @@ added:
   * `maxYoungGenerationSizeMb` {number}
   * `maxOldGenerationSizeMb` {number}
   * `codeRangeSizeMb` {number}
+  * `stackSizeMb` {number}
 
 Provides the set of JS engine resource constraints inside this Worker thread.
 If the `resourceLimits` option was passed to the [`Worker`][] constructor,
