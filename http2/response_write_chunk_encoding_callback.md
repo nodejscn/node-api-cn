@@ -2,7 +2,7 @@
 added: v8.4.0
 -->
 
-* `chunk` {string|Buffer}
+* `chunk` {string|Buffer|Uint8Array}
 * `encoding` {string}
 * `callback` {Function}
 * Returns: {boolean}

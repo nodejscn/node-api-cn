@@ -25,7 +25,6 @@ changes:
 
 
 ```js
-const util = require('util');
 const vm = require('vm');
 
 global.globalVar = 3;

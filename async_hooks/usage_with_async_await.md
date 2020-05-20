@@ -15,12 +15,3 @@ In this example, the store is only available in the callback function and the
 functions called by `foo`. Outside of `run`, calling `getStore` will return
 `undefined`.
 
-
-
-
-
-
-
-
-
-

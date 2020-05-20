@@ -47,7 +47,6 @@ changes:
 以下的例子会编译一段代码，该代码会递增一个全局变量，给另外一个全局变量赋值。同时该代码被编译后会被多次执行。全局变量会被置于 `contextObject` 对象内。
 
 ```js
-const util = require('util');
 const vm = require('vm');
 
 const contextObject = {

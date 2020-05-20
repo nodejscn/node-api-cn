@@ -30,7 +30,10 @@ support is planned.
 ```js
 const vm = require('vm');
 
-const contextifiedObject = vm.createContext({ secret: 42 });
+const contextifiedObject = vm.createContext({
+  secret: 42,
+  print: console.log,
+});
 
 (async () => {
   // Step 1
@@ -46,6 +49,7 @@ const contextifiedObject = vm.createContext({ secret: 42 });
   const bar = new vm.SourceTextModule(`
     import s from 'foo';
     s;
+    print(s);
   `, { context: contextifiedObject });
 
   // Step 2
@@ -88,16 +92,11 @@ const contextifiedObject = vm.createContext({ secret: 42 });
 
   // Step 3
   //
-  // Evaluate the Module. The evaluate() method returns a Promise with a single
-  // property "result" that contains the result of the very last statement
-  // executed in the Module. In the case of `bar`, it is `s;`, which refers to
-  // the default export of the `foo` module, the `secret` we set in the
-  // beginning to 42.
+  // Evaluate the Module. The evaluate() method returns a promise which will
+  // resolve after the module has finished evaluating.
 
-  const { result } = await bar.evaluate();
-
-  console.log(result);
   // Prints 42.
+  await bar.evaluate();
 })();
 ```
 

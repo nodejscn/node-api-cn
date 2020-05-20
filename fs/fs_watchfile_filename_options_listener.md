@@ -18,6 +18,7 @@ changes:
 * `listener` {Function}
   * `current` {fs.Stats}
   * `previous` {fs.Stats}
+* Returns: {fs.StatWatcher}
 
 监视 `filename` 的更改。
 每当访问文件时都会调用 `listener` 回调。

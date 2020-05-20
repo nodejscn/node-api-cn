@@ -51,4 +51,18 @@ server.listen(8000);
 + `bytesParsed`: Node.js 可能正确解析的请求包的字节数。
 + `rawPacket`: 当前请求的原始数据包。
 
+In some cases, the client has already received the response and/or the socket
+has already been destroyed, like in case of `ECONNRESET` errors. Before
+trying to send data to the socket, it is better to check that it is still
+writable.
+
+```js
+server.on('clientError', (err, socket) => {
+  if (err.code === 'ECONNRESET' || !socket.writable) {
+    return;
+  }
+
+  socket.end('HTTP/1.1 400 Bad Request\r\n\r\n');
+});
+```
 

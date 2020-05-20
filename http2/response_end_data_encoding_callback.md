@@ -6,7 +6,7 @@ changes:
     description: This method now returns a reference to `ServerResponse`.
 -->
 
-* `data` {string|Buffer}
+* `data` {string|Buffer|Uint8Array}
 * `encoding` {string}
 * `callback` {Function}
 * Returns: {this}

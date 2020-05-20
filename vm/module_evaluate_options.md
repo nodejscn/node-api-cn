@@ -12,17 +12,14 @@
 
 Evaluate the module.
 
-This must be called after the module has been linked; otherwise it will
-throw an error. It could be called also when the module has already been
-evaluated, in which case it will do one of the following two things:
-
-* return `undefined` if the initial evaluation ended in success (`module.status`
-  is `'evaluated'`)
-* rethrow the same exception the initial evaluation threw if the initial
-  evaluation ended in an error (`module.status` is `'errored'`)
+This must be called after the module has been linked; otherwise it will reject.
+It could be called also when the module has already been evaluated, in which
+case it will either do nothing if the initial evaluation ended in success
+(`module.status` is `'evaluated'`) or it will re-throw the exception that the
+initial evaluation resulted in (`module.status` is `'errored'`).
 
 This method cannot be called while the module is being evaluated
-(`module.status` is `'evaluating'`) to prevent infinite recursion.
+(`module.status` is `'evaluating'`).
 
 Corresponds to the [Evaluate() concrete method][] field of [Cyclic Module
 Record][]s in the ECMAScript specification.

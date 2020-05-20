@@ -1,4 +1,4 @@
 
 The WASI instance has already started.
 
-<a id="ERR_WORKER_INIT_FAILED"></a>
+<a id="ERR_WASI_NOT_STARTED"></a>

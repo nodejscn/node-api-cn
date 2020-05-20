@@ -39,7 +39,6 @@ changes:
 以下例子使用一个单独的[上下文隔离化][contextified]过的对象来编译并运行几个不同的脚本：
 
 ```js
-const util = require('util');
 const vm = require('vm');
 
 const contextObject = { globalVar: 1 };
