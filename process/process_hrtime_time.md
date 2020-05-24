@@ -5,7 +5,7 @@ added: v0.7.6
 * `time` {integer[]} 上一次调用 `process.hrtime()` 的结果。
 * 返回: {integer[]}
 
-这是在 JavaScript 中引入 `bigint` 之前的 [`process.hrtime.bigint()`] 的遗留版本。
+这是在 JavaScript 中引入 `bigint` 之前的 [`process.hrtime.bigint()`] 的传统版本。
 
 `process.hrtime()` 方法返回当前时间以 `[seconds, nanoseconds]` 元数组表示的高精度解析值，其中 `nanoseconds` 是当前时间无法使用秒的精度表示的剩余部分。
 

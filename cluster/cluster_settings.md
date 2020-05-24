@@ -5,19 +5,19 @@ changes:
      - v13.2.0
      - v12.16.0
     pr-url: https://github.com/nodejs/node/pull/30162
-    description: The `serialization` option is supported now.
+    description: 支持 `serialization` 选项。
   - version: v9.5.0
     pr-url: https://github.com/nodejs/node/pull/18399
     description: The `cwd` option is supported now.
   - version: v9.4.0
     pr-url: https://github.com/nodejs/node/pull/17412
-    description: The `windowsHide` option is supported now.
+    description: 支持 `windowsHide` 选项。
   - version: v8.2.0
     pr-url: https://github.com/nodejs/node/pull/14140
     description: The `inspectPort` option is supported now.
   - version: v6.4.0
     pr-url: https://github.com/nodejs/node/pull/7838
-    description: The `stdio` option is supported now.
+    description: 支持 `stdio` 选项。
 -->
 
 * {Object}

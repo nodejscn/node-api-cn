@@ -1,8 +1,8 @@
 
-V8 调试器的集成允许将 Chrome 开发者工具附加到 Node.js 实例，以便进行调试和性能分析。 
+V8 检查器的集成允许将 Chrome 开发者工具附加到 Node.js 实例，以便进行调试和性能分析。 
 它使用了 [Chrome 开发者工具协议][Chrome DevTools Protocol]。
 
-可以通过在启动 Node.js 应用程序时传入 `--inspect` 标志来启用 V8 调试器。 
+可以通过在启动 Node.js 应用程序时传入 `--inspect` 标志来启用 V8 检查器。 
 也可以使用该标志提供自定义的端口，例如 `--inspect=9222` 将会在 9222 端口上接受开发者工具的连接。
 
 如果要在应用程序代码的第一行进行断点，则传入 `--inspect-brk` 标志而不是 `--inspect`。

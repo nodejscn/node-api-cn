@@ -1,5 +1,5 @@
 
-[WHATWG URL 标志][WHATWG URL Standard]使用比遗留的 API 更具选择性和更精细的方法来选择使用的编码字符。
+[WHATWG URL 标志][WHATWG URL Standard]使用比传统的 API 更具选择性和更精细的方法来选择使用的编码字符。
 
 WHATWG 算法定义了四个“百分比编码集”，它们描述了必须进行百分编码的字符范围：
 
