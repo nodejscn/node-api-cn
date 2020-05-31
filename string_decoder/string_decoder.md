@@ -4,7 +4,7 @@
 > 稳定性: 2 - 稳定
 
 `string_decoder` 模块提供了一个 API，用一种能保护已编码的多字节 UTF-8 和 UTF-16 字符的方式将 `Buffer` 对象解码为字符串。
-它可以使用以下方式访问：
+可以使用以下方式访问它：
 
 ```js
 const { StringDecoder } = require('string_decoder');

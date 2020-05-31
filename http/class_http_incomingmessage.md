@@ -5,7 +5,7 @@ changes:
      - v13.1.0
      - v12.16.0
     pr-url: https://github.com/nodejs/node/pull/30135
-    description: The `readableHighWaterMark` value mirrors that of the socket.
+    description: 属性 `readableHighWaterMark` 的值映射了 socket 中的值。
 -->
 
 * 继承自: {stream.Readable}

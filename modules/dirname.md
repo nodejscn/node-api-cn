@@ -7,7 +7,7 @@ added: v0.1.27
 * {string}
 
 当前模块的目录名。
-与 [`__filename`] 的 [`path.dirname()`] 相同。
+相当于 [`__filename`] 的 [`path.dirname()`]。
 
 示例，从 `/Users/mjr` 运行 `node example.js`：
 

@@ -4,7 +4,7 @@
 > 稳定性: 2 - 稳定
 
 `readline` 模块提供了一个接口，用于一次一行地读取[可读流][Readable]（例如 [`process.stdin`]）中的数据。 
-它可以使用以下方式访问：
+可以使用以下方式访问它：
 
 ```js
 const readline = require('readline');
