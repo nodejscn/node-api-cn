@@ -6,6 +6,5 @@ added:
 
 * {integer}
 
-Number of times [`writable.uncork()`][stream-uncork] needs to be
-called in order to fully uncork the stream.
+为了完全 uncork 流所需要调用的 [`writable.uncork()`][stream-uncork] 的次数。
 
