@@ -4,9 +4,8 @@ added: v10.6.0
 
 * Returns: {string[]}
 
-Returns an array of IP address strings, formatted according to [RFC 5952][],
-that are currently configured for DNS resolution. A string will include a port
-section if a custom port is used.
+返回一个格式为`[RFC 5952][]`的IP地址字符串数组，
+这个IP地址字符串数组配置于DNS解析文件。如果使用了自定义的端口，那么字符串将包含端口值。
 
 <!-- eslint-disable semi-->
 ```js
