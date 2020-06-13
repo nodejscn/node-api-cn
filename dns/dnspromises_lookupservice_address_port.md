@@ -5,15 +5,13 @@ added: v10.6.0
 * `address` {string}
 * `port` {number}
 
-Resolves the given `address` and `port` into a host name and service using
-the operating system's underlying `getnameinfo` implementation.
+使用操作系统底层的`getnameinfo`实现去解析`address` and `port`得到主机名和服务。
 
-If `address` is not a valid IP address, a `TypeError` will be thrown.
-The `port` will be coerced to a number. If it is not a legal port, a `TypeError`
-will be thrown.
+如果`address`不是有效的IP地址，则将引发`TypeError`。 该`端口`必须为一个数字。 如果不是合法端口，则将引发`TypeError`。
 
-On error, the `Promise` is rejected with an [`Error`][] object, where `err.code`
-is the error code.
+发生错误时，`Promise`将被[`Error`][]对象拒绝，其中`err.code`是错误代码。
+
+
 
 ```js
 const dnsPromises = require('dns').promises;
