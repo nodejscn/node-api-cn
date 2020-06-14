@@ -2,30 +2,26 @@
 added: v10.6.0
 -->
 
-An independent resolver for DNS requests.
+一个DNS请求的独立解析器。
 
-Creating a new resolver uses the default server settings. Setting
-the servers used for a resolver using
-[`resolver.setServers()`][`dnsPromises.setServers()`] does not affect
-other resolvers:
-
+创建新的解析器将使用默认服务器设置。使用[`resolver.setServers()`][`dnsPromises.setServers()`]设置解析器的服务器并不会影响其他的解析器：
 ```js
 const { Resolver } = require('dns').promises;
 const resolver = new Resolver();
 resolver.setServers(['4.4.4.4']);
 
-// This request will use the server at 4.4.4.4, independent of global settings.
+// 该请求使用4.4.4.4的服务器，独立于全局设置。
 resolver.resolve4('example.org').then((addresses) => {
   // ...
 });
 
-// Alternatively, the same code can be written using async-await style.
+// 或者, 你可以用`async-await`编写异步代码。
 (async function() {
   const addresses = await resolver.resolve4('example.org');
 })();
 ```
 
-The following methods from the `dnsPromises` API are available:
+以下是`dns.Promises` API提供的方法。
 
 * [`resolver.getServers()`][`dnsPromises.getServers()`]
 * [`resolver.resolve()`][`dnsPromises.resolve()`]
