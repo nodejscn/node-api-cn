@@ -4,9 +4,7 @@ added: v10.6.0
 
 * `hostname` {string}
 
-Uses the DNS protocol to resolve regular expression based records (`NAPTR`
-records) for the `hostname`. On success, the `Promise` is resolved with an array
-of objects with the following properties:
+使用DNS协议解析`主机名`的基于正则表达式的记录（`NAPTR`记录）。 成功后，将使用具有以下属性的对象数组来解决 `Promise` ：
 
 * `flags`
 * `service`
