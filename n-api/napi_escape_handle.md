@@ -3,7 +3,7 @@ added: v8.0.0
 napiVersion: 1
 -->
 
-```C
+```c
 napi_status napi_escape_handle(napi_env env,
                                napi_escapable_handle_scope scope,
                                napi_value escapee,

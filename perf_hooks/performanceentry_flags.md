@@ -4,6 +4,8 @@ added: v13.9.0
 
 * {number}
 
+_This property is an extension by Node.js. It is not available in Web browsers._
+
 When `performanceEntry.entryType` is equal to `'gc'`, the `performance.flags`
 property contains additional information about garbage collection operation.
 The value may be one of:

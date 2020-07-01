@@ -3,7 +3,7 @@ added: v8.0.0
 napiVersion: 1
 -->
 
-```C
+```c
 napi_status napi_wrap(napi_env env,
                       napi_value js_object,
                       void* native_object,

@@ -25,7 +25,7 @@ The `node::NewIsolate()` helper function creates a `v8::Isolate`,
 sets it up with some Node.js-specific hooks (e.g. the Node.js error handler),
 and registers it with the platform automatically.
 
-```c++
+```cpp
 int RunNodeInstance(MultiIsolatePlatform* platform,
                     const std::vector<std::string>& args,
                     const std::vector<std::string>& exec_args) {

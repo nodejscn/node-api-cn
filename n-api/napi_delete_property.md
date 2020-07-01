@@ -3,7 +3,7 @@ added: v8.2.0
 napiVersion: 1
 -->
 
-```C
+```c
 napi_status napi_delete_property(napi_env env,
                                  napi_value object,
                                  napi_value key,

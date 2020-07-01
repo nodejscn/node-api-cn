@@ -2,7 +2,7 @@ It is often necessary to make the lifespan of handles shorter than
 the lifespan of a native method. For example, consider a native method
 that has a loop which iterates through the elements in a large array:
 
-```C
+```c
 for (int i = 0; i < 1000000; i++) {
   napi_value result;
   napi_status status = napi_get_element(env, object, i, &result);
@@ -34,7 +34,7 @@ Taking the earlier example, adding calls to [`napi_open_handle_scope`][] and
 [`napi_close_handle_scope`][] would ensure that at most a single handle
 is valid throughout the execution of the loop:
 
-```C
+```c
 for (int i = 0; i < 1000000; i++) {
   napi_handle_scope scope;
   napi_status status = napi_open_handle_scope(env, &scope);

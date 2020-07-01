@@ -36,7 +36,7 @@ N-API or any implementation of N-API outside of Node.js.
 to the addon and which instantiates the addon by calling into `addon.c` when the
 addon is loaded into a Node.js environment.
 
-```C
+```c
 // addon.h
 #ifndef _ADDON_H_
 #define _ADDON_H_
@@ -45,7 +45,7 @@ napi_value create_addon(napi_env env);
 #endif  // _ADDON_H_
 ```
 
-```C
+```c
 // addon.c
 #include "addon.h"
 
@@ -94,7 +94,7 @@ napi_value create_addon(napi_env env) {
 }
 ```
 
-```C
+```c
 // addon_node.c
 #include <node_api.h>
 #include "addon.h"

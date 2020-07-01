@@ -3,7 +3,7 @@ added: v8.0.0
 napiVersion: 1
 -->
 
-```C
+```c
 NAPI_EXTERN napi_status napi_open_handle_scope(napi_env env,
                                                napi_handle_scope* result);
 ```
@@ -13,5 +13,5 @@ NAPI_EXTERN napi_status napi_open_handle_scope(napi_env env,
 
 Returns `napi_ok` if the API succeeded.
 
-This API open a new scope.
+This API opens a new scope.
 

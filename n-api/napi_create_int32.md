@@ -3,7 +3,7 @@ added: v8.4.0
 napiVersion: 1
 -->
 
-```C
+```c
 napi_status napi_create_int32(napi_env env, int32_t value, napi_value* result)
 ```
 

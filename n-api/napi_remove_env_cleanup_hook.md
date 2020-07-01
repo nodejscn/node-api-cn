@@ -3,7 +3,7 @@ added: v10.2.0
 napiVersion: 3
 -->
 
-```C
+```c
 NAPI_EXTERN napi_status napi_remove_env_cleanup_hook(napi_env env,
                                                      void (*fun)(void* arg),
                                                      void* arg);

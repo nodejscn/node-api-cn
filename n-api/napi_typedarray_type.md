@@ -1,5 +1,5 @@
 
-```C
+```c
 typedef enum {
   napi_int8_array,
   napi_uint8_array,

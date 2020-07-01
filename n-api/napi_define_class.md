@@ -3,7 +3,7 @@ added: v8.0.0
 napiVersion: 1
 -->
 
-```C
+```c
 napi_status napi_define_class(napi_env env,
                               const char* utf8name,
                               size_t length,

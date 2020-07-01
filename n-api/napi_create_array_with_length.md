@@ -3,7 +3,7 @@ added: v8.0.0
 napiVersion: 1
 -->
 
-```C
+```c
 napi_status napi_create_array_with_length(napi_env env,
                                           size_t length,
                                           napi_value* result)

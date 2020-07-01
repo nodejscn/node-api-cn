@@ -3,7 +3,7 @@ added: v10.7.0
 napiVersion: 6
 -->
 
-```C
+```c
 napi_status napi_create_bigint_words(napi_env env,
                                      int sign_bit,
                                      size_t word_count,

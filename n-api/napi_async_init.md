@@ -3,7 +3,7 @@ added: v8.6.0
 napiVersion: 1
 -->
 
-```C
+```c
 napi_status napi_async_init(napi_env env,
                             napi_value async_resource,
                             napi_value async_resource_name,

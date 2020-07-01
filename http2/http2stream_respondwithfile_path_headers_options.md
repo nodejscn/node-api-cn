@@ -1,6 +1,9 @@
 <!-- YAML
 added: v8.4.0
 changes:
+  - version: v14.5.0
+    pr-url: https://github.com/nodejs/node/pull/33160
+    description: Allow explicity setting date headers.
   - version: v10.0.0
     pr-url: https://github.com/nodejs/node/pull/18936
     description: Any readable file, not necessarily a

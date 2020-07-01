@@ -5,7 +5,7 @@ napiVersion: 1
 Integral status code indicating the success or failure of a N-API call.
 Currently, the following status codes are supported.
 
-```C
+```c
 typedef enum {
   napi_ok,
   napi_invalid_arg,
@@ -28,7 +28,7 @@ typedef enum {
   napi_date_expected,
   napi_arraybuffer_expected,
   napi_detachable_arraybuffer_expected,
-  napi_would_deadlock,
+  napi_would_deadlock,  /* unused */
 } napi_status;
 ```
 

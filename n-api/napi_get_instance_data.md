@@ -5,7 +5,7 @@ added:
 napiVersion: 6
 -->
 
-```C
+```c
 napi_status napi_get_instance_data(napi_env env,
                                    void** data);
 ```

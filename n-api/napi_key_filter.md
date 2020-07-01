@@ -5,7 +5,7 @@ added:
 napiVersion: 6
 -->
 
-```C
+```c
 typedef enum {
   napi_key_all_properties = 0,
   napi_key_writable = 1,

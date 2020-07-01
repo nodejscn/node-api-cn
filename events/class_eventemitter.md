@@ -18,5 +18,5 @@ const EventEmitter = require('events');
 
 它支持以下选项：
 
-* `captureRejections` {boolean} 它可以[自动捕获 promise 的拒绝][capturerejections]。 默认值：`false`。
+* `captureRejections` {boolean} 它可以[自动捕获 promise 的拒绝][capturerejections]。 **默认值:** `false`。
 

@@ -16,7 +16,7 @@ pathToFileURL(__filename);          // 正确:   file:///C:/... (Windows)
 new URL('/foo#1', 'file:');         // 错误: file:///foo#1
 pathToFileURL('/foo#1');            // 正确:   file:///foo%231 (POSIX)
 
-new URL('/some/path%.js', 'file:'); // 错误: file:///some/path%
-pathToFileURL('/some/path%.js');    // 正确:   file:///some/path%25 (POSIX)
+new URL('/some/path%.c', 'file:'); // 错误: file:///some/path%.c
+pathToFileURL('/some/path%.c');    // 正确:   file:///some/path%25.c (POSIX)
 ```
 

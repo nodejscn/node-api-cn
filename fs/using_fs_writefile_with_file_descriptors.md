@@ -1,7 +1,7 @@
 
 当 `file` 是一个文件描述符时，行为几乎与直接调用 `fs.write()` 类似：
 
-```javascript
+```js
 fs.write(fd, Buffer.from(data, options.encoding), callback);
 ```
 

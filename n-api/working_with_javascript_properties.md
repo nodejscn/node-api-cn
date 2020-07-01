@@ -30,7 +30,7 @@ obj.myProp = 123;
 
 The equivalent can be done using N-API values with the following snippet:
 
-```C
+```c
 napi_status status = napi_generic_failure;
 
 // const obj = {}
@@ -57,7 +57,7 @@ arr[123] = 'hello';
 
 The equivalent can be done using N-API values with the following snippet:
 
-```C
+```c
 napi_status status = napi_generic_failure;
 
 // const arr = [];
@@ -84,7 +84,7 @@ const value = arr[123];
 
 The following is the approximate equivalent of the N-API counterpart:
 
-```C
+```c
 napi_status status = napi_generic_failure;
 
 // const arr = []
@@ -110,7 +110,7 @@ Object.defineProperties(obj, {
 
 The following is the approximate equivalent of the N-API counterpart:
 
-```C
+```c
 napi_status status = napi_status_generic_failure;
 
 // const obj = {};

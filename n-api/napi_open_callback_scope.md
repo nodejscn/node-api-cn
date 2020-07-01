@@ -3,7 +3,7 @@ added: v9.6.0
 napiVersion: 3
 -->
 
-```C
+```c
 NAPI_EXTERN napi_status napi_open_callback_scope(napi_env env,
                                                  napi_value resource_object,
                                                  napi_async_context context,

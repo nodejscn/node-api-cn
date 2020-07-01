@@ -7,7 +7,7 @@ A value to be given to `napi_call_threadsafe_function()` to indicate whether
 the call should block whenever the queue associated with the thread-safe
 function is full.
 
-```C
+```c
 typedef enum {
   napi_tsfn_nonblocking,
   napi_tsfn_blocking

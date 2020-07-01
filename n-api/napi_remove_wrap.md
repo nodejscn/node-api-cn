@@ -3,7 +3,7 @@ added: v8.5.0
 napiVersion: 1
 -->
 
-```C
+```c
 napi_status napi_remove_wrap(napi_env env,
                              napi_value js_object,
                              void** result);

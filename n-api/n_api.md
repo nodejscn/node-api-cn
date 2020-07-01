@@ -44,12 +44,12 @@ following `node-addon-api` code. The first section shows the
 `node-addon-api` code and the second section shows what actually gets
 used in the addon.
 
-```C++
+```cpp
 Object obj = Object::New(env);
 obj["foo"] = String::New(env, "bar");
 ```
 
-```C++
+```cpp
 napi_status status;
 napi_value object, string;
 status = napi_create_object(env, &object);

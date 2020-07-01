@@ -6,7 +6,7 @@ versions:
 
 * the Node.js C++ APIs available via any of
 
-    ```C++
+    ```cpp
     #include <node.h>
     #include <node_buffer.h>
     #include <node_version.h>
@@ -15,20 +15,20 @@ versions:
 
 * the libuv APIs which are also included with Node.js and available via
 
-    ```C++
+    ```cpp
     #include <uv.h>
     ```
 
 * the V8 API available via
 
-    ```C++
+    ```cpp
     #include <v8.h>
     ```
 
 Thus, for an addon to remain ABI-compatible across Node.js major versions, it
 must make use exclusively of N-API by restricting itself to using
 
-```C
+```c
 #include <node_api.h>
 ```
 

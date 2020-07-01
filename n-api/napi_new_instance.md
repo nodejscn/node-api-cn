@@ -3,7 +3,7 @@ added: v8.0.0
 napiVersion: 1
 -->
 
-```C
+```c
 napi_status napi_new_instance(napi_env env,
                               napi_value cons,
                               size_t argc,
@@ -35,7 +35,7 @@ const value = new MyObject(arg);
 
 The following can be approximated in N-API using the following snippet:
 
-```C
+```c
 // Get the constructor function MyObject
 napi_value global, constructor, arg, value;
 napi_status status = napi_get_global(env, &global);

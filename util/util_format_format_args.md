@@ -47,7 +47,7 @@ changes:
 * `%j` - JSON。如果参数包含循环引用，则替换为字符串 `'[Circular]'`。
 * `%o` -  `Object`。具有通用 JavaScript 对象格式的对象的字符串表示形式。 类似于带有选项 `{ showHidden: true, showProxy: true }` 的 `util.inspect()`。 这将显示完整对象，包括非可枚举属性和代理。
 * `%O` - `Object`。具有通用 JavaScript 对象格式的对象的字符串表示形式。 类似于 `util.inspect()` 但没有选项。 这将显示完整对象，不包括非可枚举属性和代理。
-* `%c` - `CSS`。该说明符当前会被忽略，将会跳过任何传入的 CSS。
+* `%c` - `CSS`。该说明符会被忽略，将会跳过任何传入的 CSS。
 * `%%` - 单个百分号（`'%'`）。这不会消耗参数。
 * 返回: {string} 格式化的字符串。
 

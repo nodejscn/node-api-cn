@@ -1,6 +1,9 @@
 <!-- YAML
 added: v0.11.1
 changes:
+  - version: v14.5.0
+    pr-url: https://github.com/nodejs/node/pull/33516
+    description: The `maxOutputLength` option is supported now.
   - version: v9.4.0
     pr-url: https://github.com/nodejs/node/pull/16042
     description: The `dictionary` option can be an `ArrayBuffer`.
@@ -28,6 +31,8 @@ changes:
 * `strategy` {integer} (compression only)
 * `dictionary` {Buffer|TypedArray|DataView|ArrayBuffer} （只能是 deflate/inflate，默认是空目录）。
 * `info` {boolean} （如果为 `true`，则返回一个包含 `buffer` 和 `engine` 的对象）。
+* `maxOutputLength` {integer} Limits output size when using
+  [convenience methods][]. **Default:** [`buffer.kMaxLength`][]
 
 更多信息请查阅 [`deflateInit2` 和 `inflateInit2`][`deflateInit2` and `inflateInit2`] 文档。
 

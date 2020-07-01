@@ -30,7 +30,7 @@ added: v8.0.0
 napiVersion: 1
 -->
 
-```C
+```c
 typedef struct napi_extended_error_info {
   const char* error_message;
   void* engine_reserved;

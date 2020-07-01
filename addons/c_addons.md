@@ -12,7 +12,7 @@
 
 当不使用 N-API 时，实现插件很复杂，涉及多个组件和 API 的知识：
 
- - V8：Node.js 目前用于提供 JavaScript 实现的 C++ 库。
+ - V8：Node.js 用于提供 JavaScript 实现的 C++ 库。
    V8 提供了用于创建对象、调用函数等的机制。
    V8 的 API 文档主要在 `v8.h` 头文件中（Node.js 源代码树中的 `deps/v8/include/v8.h`），也可以在查看[在线文档][v8-docs]。
 

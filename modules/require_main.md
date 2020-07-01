@@ -13,7 +13,7 @@ added: v0.1.17
 console.log(require.main);
 ```
 
-```sh
+```bash
 node entry.js
 ```
 
@@ -21,6 +21,7 @@ node entry.js
 ```js
 Module {
   id: '.',
+  path: '/absolute/path/to',
   exports: {},
   parent: null,
   filename: '/absolute/path/to/entry.js',

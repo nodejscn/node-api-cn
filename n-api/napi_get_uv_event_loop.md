@@ -5,7 +5,7 @@ added:
 napiVersion: 2
 -->
 
-```C
+```c
 NAPI_EXTERN napi_status napi_get_uv_event_loop(napi_env env,
                                                struct uv_loop_s** loop);
 ```

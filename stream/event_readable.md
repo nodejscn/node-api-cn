@@ -13,7 +13,7 @@ changes:
 当有数据可从流中读取时，就会触发 `'readable'` 事件。 
 在某些情况下，为 `'readable'` 事件附加监听器将会导致将一些数据读入内部缓冲区。
 
-```javascript
+```js
 const readable = getReadableStreamSomehow();
 readable.on('readable', function() {
   // 有数据可读取。

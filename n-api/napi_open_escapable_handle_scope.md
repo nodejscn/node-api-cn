@@ -3,7 +3,7 @@ added: v8.0.0
 napiVersion: 1
 -->
 
-```C
+```c
 NAPI_EXTERN napi_status
     napi_open_escapable_handle_scope(napi_env env,
                                      napi_handle_scope* result);
@@ -14,6 +14,6 @@ NAPI_EXTERN napi_status
 
 Returns `napi_ok` if the API succeeded.
 
-This API open a new scope from which one object can be promoted
+This API opens a new scope from which one object can be promoted
 to the outer scope.
 

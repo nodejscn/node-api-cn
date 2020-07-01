@@ -7,6 +7,8 @@ added: v11.10.0
     than zero. **Default:** `10`.
 * Returns: {Histogram}
 
+_This property is an extension by Node.js. It is not available in Web browsers._
+
 Creates a `Histogram` object that samples and reports the event loop delay
 over time. The delays will be reported in nanoseconds.
 

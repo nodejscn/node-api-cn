@@ -3,7 +3,7 @@ added: v8.0.0
 napiVersion: 1
 -->
 
-```C
+```c
 napi_status
 napi_get_last_error_info(napi_env env,
                          const napi_extended_error_info** result);

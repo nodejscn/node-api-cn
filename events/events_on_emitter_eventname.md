@@ -35,18 +35,3 @@ if the `EventEmitter` emits `'error'`. It removes all listeners when
 exiting the loop. The `value` returned by each iteration is an array
 composed of the emitted event arguments.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -5,7 +5,7 @@ added:
 napiVersion: 6
 -->
 
-```C
+```c
 napi_get_all_property_names(napi_env env,
                             napi_value object,
                             napi_key_collection_mode key_mode,

@@ -45,6 +45,7 @@ Node.js options that are allowed are:
 * `--experimental-policy`
 * `--experimental-repl-await`
 * `--experimental-specifier-resolution`
+* `--experimental-top-level-await`
 * `--experimental-vm-modules`
 * `--experimental-wasi-unstable-preview1`
 * `--experimental-wasm-modules`
@@ -73,7 +74,7 @@ Node.js options that are allowed are:
 * `--prof-process`
 * `--redirect-warnings`
 * `--report-compact`
-* `--report-directory`
+* `--report-dir`, `--report-directory`
 * `--report-filename`
 * `--report-on-fatalerror`
 * `--report-on-signal`

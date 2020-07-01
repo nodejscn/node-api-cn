@@ -5,7 +5,7 @@ added:
 napiVersion: 6
 -->
 
-```C
+```c
 typedef enum {
   napi_key_include_prototypes,
   napi_key_own_only

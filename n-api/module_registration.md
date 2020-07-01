@@ -2,14 +2,14 @@ N-API modules are registered in a manner similar to other modules
 except that instead of using the `NODE_MODULE` macro the following
 is used:
 
-```C
+```c
 NAPI_MODULE(NODE_GYP_MODULE_NAME, Init)
 ```
 
 The next difference is the signature for the `Init` method. For a N-API
 module it is as follows:
 
-```C
+```c
 napi_value Init(napi_env env, napi_value exports);
 ```
 
@@ -22,7 +22,7 @@ specify anything as the `exports` property of the module.
 To add the method `hello` as a function so that it can be called as a method
 provided by the addon:
 
-```C
+```c
 napi_value Init(napi_env env, napi_value exports) {
   napi_status status;
   napi_property_descriptor desc =
@@ -35,7 +35,7 @@ napi_value Init(napi_env env, napi_value exports) {
 
 To set a function to be returned by the `require()` for the addon:
 
-```C
+```c
 napi_value Init(napi_env env, napi_value exports) {
   napi_value method;
   napi_status status;
@@ -48,7 +48,7 @@ napi_value Init(napi_env env, napi_value exports) {
 To define a class so that new instances can be created (often used with
 [Object Wrap][]):
 
-```C
+```c
 // NOTE: partial example, not all referenced code is included
 napi_value Init(napi_env env, napi_value exports) {
   napi_status status;
@@ -76,7 +76,7 @@ napi_value Init(napi_env env, napi_value exports) {
 If the module will be loaded multiple times during the lifetime of the Node.js
 process, use the `NAPI_MODULE_INIT` macro to initialize the module:
 
-```C
+```c
 NAPI_MODULE_INIT() {
   napi_value answer;
   napi_status result;

@@ -24,7 +24,7 @@ callbackFunction((err, ret) => {
 
 将会打印出：
 
-```txt
+```text
 hello world
 ```
 

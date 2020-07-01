@@ -14,7 +14,7 @@ const tty = require('tty');
 当 Node.js 检测到它被运行时附加了一个文本终端（TTY），则默认情况下，[`process.stdin`] 会被初始化为 `tty.ReadStream` 的实例，[`process.stdout`] 和 [`process.stderr`] 会被初始化为 `tty.WriteStream` 的实例。 
 判断 Node.js 是否被运行在一个 TTY 上下文中的首选方法是检查 `process.stdout.isTTY` 属性的值是否为 `true`：
 
-```sh
+```console
 $ node -p -e "Boolean(process.stdout.isTTY)"
 true
 $ node -p -e "Boolean(process.stdout.isTTY)" | cat

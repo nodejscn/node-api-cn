@@ -1,5 +1,5 @@
 
-```C
+```c
 typedef enum {
   napi_default = 0,
   napi_writable = 1 << 0,

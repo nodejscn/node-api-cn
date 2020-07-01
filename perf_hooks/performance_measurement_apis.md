@@ -3,10 +3,15 @@
 
 > Stability: 2 - Stable
 
-The Performance Timing API provides an implementation of the
-[W3C Performance Timeline][] specification. The purpose of the API
-is to support collection of high resolution performance metrics.
-This is the same Performance API as implemented in modern Web browsers.
+This module provides an implementation of a subset of the W3C
+[Web Performance APIs][] as well as additional APIs for
+Node.js-specific performance measurements.
+
+Node.js supports the following [Web Performance APIs][]:
+
+* [High Resolution Time][]
+* [Performance Timeline][]
+* [User Timing][]
 
 ```js
 const { PerformanceObserver, performance } = require('perf_hooks');

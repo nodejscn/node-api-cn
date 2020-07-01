@@ -24,7 +24,7 @@
 
 如果这些尝试失败，则 Node.js 将会使用默认错误报告整个模块的缺失：
 
-```txt
+```console
 Error: Cannot find module 'some-library'
 ```
 

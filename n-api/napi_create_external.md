@@ -3,7 +3,7 @@ added: v8.0.0
 napiVersion: 1
 -->
 
-```C
+```c
 napi_status napi_create_external(napi_env env,
                                  void* data,
                                  napi_finalize finalize_cb,

@@ -7,7 +7,7 @@ Node.js requires some per-process state management in order to run:
 The following example shows how these can be set up. Some class names are from
 the `node` and `v8` C++ namespaces, respectively.
 
-```c++
+```cpp
 int main(int argc, char** argv) {
   std::vector<std::string> args(argv, argv + argc);
   std::vector<std::string> exec_args;

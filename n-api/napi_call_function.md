@@ -3,7 +3,7 @@ added: v8.0.0
 napiVersion: 1
 -->
 
-```C
+```c
 NAPI_EXTERN napi_status napi_call_function(napi_env env,
                                            napi_value recv,
                                            napi_value func,
@@ -39,7 +39,7 @@ function AddTwo(num) {
 Then, the above function can be invoked from a native add-on using the
 following code:
 
-```C
+```c
 // Get the function named "AddTwo" on the global object
 napi_value global, add_two, arg;
 napi_status status = napi_get_global(env, &global);

@@ -3,7 +3,7 @@ added: v8.0.0
 napiVersion: 1
 -->
 
-```C
+```c
 typedef struct {
   const char* error_message;
   void* engine_reserved;

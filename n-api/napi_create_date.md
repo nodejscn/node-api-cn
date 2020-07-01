@@ -5,7 +5,7 @@ added:
 napiVersion: 5
 -->
 
-```C
+```c
 napi_status napi_create_date(napi_env env,
                              double time,
                              napi_value* result);

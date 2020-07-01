@@ -19,6 +19,11 @@
 
 `stream` API 的主要目标，特别是 [`stream.pipe()`]，是为了限制数据的缓冲到可接受的程度，也就是读写速度不一致的源头与目的地不会压垮内存。
 
+The `highWaterMark` option is a threshold, not a limit: it dictates the amount
+of data that a stream buffers before it stops asking for more data. It does not
+enforce a strict memory limitation in general. Specific stream implementations
+may choose to enforce stricter limits but doing so is optional.
+
 因为 [`Duplex`] 和 [`Transform`] 都是可读又可写的，所以它们各自维护着两个相互独立的内部缓冲器用于读取和写入，
 这使得它们在维护数据流时，读取和写入两边可以各自独立地运作。
 例如，[`net.Socket`] 实例是 [`Duplex`] 流，它的可读端可以消费从 socket 接收的数据，而可写端则可以将数据写入到 socket。

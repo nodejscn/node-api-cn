@@ -7,7 +7,7 @@
 为了支持 [`Worker`] 线程，插件需要清理可能分配的任何资源（当存在这样的线程时）。 
 这可以通过使用 `AddEnvironmentCleanupHook()` 函数来实现：
 
-```c++
+```cpp
 void AddEnvironmentCleanupHook(v8::Isolate* isolate,
                                void (*fun)(void* arg),
                                void* arg);

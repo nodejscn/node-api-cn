@@ -3,7 +3,7 @@ added: v8.3.0
 napiVersion: 1
 -->
 
-```C
+```c
 napi_status napi_get_dataview_info(napi_env env,
                                    napi_value dataview,
                                    size_t* byte_length,

@@ -4,7 +4,7 @@ added: v10.6.0
 napiVersion: 4
 -->
 
-```C
+```c
 NAPI_EXTERN napi_status
 napi_unref_threadsafe_function(napi_env env, napi_threadsafe_function func);
 ```

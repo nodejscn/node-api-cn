@@ -53,7 +53,7 @@ class SourceWrapper extends Readable {
 ```
 
 `readable.push()` 方法用于将内容推入内部的 buffer。 
-它可以由 `readable._read()` 方法驱动。
+它可以由 [`readable._read()`] 方法驱动。
 
 对于非对象模式的流，如果 `readable.push()` 的 `chunk` 参数为 `undefined`，则它会被当成空字符串或 buffer。
 详见 [`readable.push('')`]。

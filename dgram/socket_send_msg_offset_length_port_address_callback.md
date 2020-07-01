@@ -1,6 +1,9 @@
 <!-- YAML
 added: v0.1.99
 changes:
+  - version: v14.5.0
+    pr-url: https://github.com/nodejs/node/pull/22413
+    description: The `msg` parameter can now be any `TypedArray` or `DataView`.
   - version: v8.0.0
     pr-url: https://github.com/nodejs/node/pull/11985
     description: The `msg` parameter can be an `Uint8Array` now.
@@ -20,7 +23,7 @@ changes:
     description: Added support for sending data on connected sockets.
 -->
 
-* `msg` {Buffer|Uint8Array|string|Array} 要发送的消息。
+* `msg` {Buffer|TypedArray|DataView|string|Array} 要发送的消息。
 * `offset` {integer} 指定消息的开头在 buffer 中的偏移量。
 * `length` {integer} 消息的字节数。
 * `port` {integer} 目标端口。
@@ -33,7 +36,7 @@ changes:
 
 `msg` 参数包含了要发送的消息。
 根据消息的类型可以有不同的做法。
-如果 `msg` 是一个 `Buffer` 或 `Uint8Array`，则 `offset` 和 `length` 指定了消息在 `Buffer` 中对应的偏移量和字节数。
+如果 `msg` 是一个 `Buffer`、`TypedArray` 或 `DataView`，则 `offset` 和 `length` 指定了消息在 `Buffer` 中对应的偏移量和字节数。
 如果 `msg` 是一个` String`，那么它会被自动地按照 `'utf8'` 编码转换为 `Buffer`。
 对于包含了多字节字符的消息，`offset` 和 `length` 会根据对应的[字节长度][byte length]进行计算，而不是根据字符的位置。
 如果 `msg` 是一个数组，那么 `offset` 和 `length` 必须都不能被指定。
@@ -52,7 +55,7 @@ changes:
 若 `callback` 未被指定，该错误会以 `'error'` 事件的方式投射到 `socket` 对象上。
 
 偏移量和长度是可选的，但如其中一个被指定则另一个也必须被指定。
-另外，它们只在第一个参数是 `Buffer` 或 `Uint8Array` 的情况下才能被使用。
+另外，它们只在第一个参数是 `Buffer`、`TypedArray` 或 `DataView` 的情况下才能被使用。
 
 示例，发送 UDP 包到 `localhost` 上的某个端口：
 

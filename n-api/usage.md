@@ -2,7 +2,7 @@
 In order to use the N-API functions, include the file [`node_api.h`][] which is
 located in the src directory in the node development tree:
 
-```C
+```c
 #include <node_api.h>
 ```
 
@@ -10,7 +10,7 @@ This will opt into the default `NAPI_VERSION` for the given release of Node.js.
 In order to ensure compatibility with specific versions of N-API, the version
 can be specified explicitly when including the header:
 
-```C
+```c
 #define NAPI_VERSION 3
 #include <node_api.h>
 ```
@@ -21,7 +21,7 @@ the specified (and earlier) versions.
 Some of the N-API surface is considered experimental and requires explicit
 opt-in to access those APIs:
 
-```C
+```c
 #define NAPI_EXPERIMENTAL
 #include <node_api.h>
 ```

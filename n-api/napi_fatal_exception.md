@@ -3,7 +3,7 @@ added: v9.10.0
 napiVersion: 3
 -->
 
-```C
+```c
 napi_status napi_fatal_exception(napi_env env, napi_value err);
 ```
 

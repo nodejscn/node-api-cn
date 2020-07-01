@@ -13,7 +13,7 @@ changes:
 * `chunk` {string|Buffer|Uint8Array|any} 要写入的数据。
   对于非对象模式的流，`chunk` 必须是字符串、`Buffer` 或 `Uint8Array`。
   对于对象模式的流，`chunk` 可以是任何 JavaScript 值，除了 `null`。
-* `encoding` {string} 如果 `chunk` 是字符串，则指定字符编码。
+* `encoding` {string} 如果 `chunk` 是字符串，则指定字符编码。**默认值:** `'utf8'`。
 * `callback` {Function} 当数据块被输出到目标后的回调函数。
 * 返回: {boolean} 如果流需要等待 `'drain'` 事件触发才能继续写入更多数据，则返回 `false`，否则返回 `true`。
 

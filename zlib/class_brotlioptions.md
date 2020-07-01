@@ -1,5 +1,9 @@
 <!-- YAML
 added: v11.7.0
+changes:
+  - version: v14.5.0
+    pr-url: https://github.com/nodejs/node/pull/33516
+    description: The `maxOutputLength` option is supported now.
 -->
 
 <!--type=misc-->
@@ -10,6 +14,8 @@ Each Brotli-based class takes an `options` object. All options are optional.
 * `finishFlush` {integer} **Default:** `zlib.constants.BROTLI_OPERATION_FINISH`
 * `chunkSize` {integer} **Default:** `16 * 1024`
 * `params` {Object} Key-value object containing indexed [Brotli parameters][].
+* `maxOutputLength` {integer} Limits output size when using
+  [convenience methods][]. **Default:** [`buffer.kMaxLength`][]
 
 For example:
 

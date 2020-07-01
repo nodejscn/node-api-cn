@@ -1,5 +1,5 @@
 
-```C
+```c
 typedef struct {
   // One of utf8name or name should be NULL.
   const char* utf8name;

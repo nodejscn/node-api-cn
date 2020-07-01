@@ -3,7 +3,7 @@ added: v8.0.0
 napiVersion: 1
 -->
 
-```C
+```c
 napi_status napi_get_value_int64(napi_env env,
                                  napi_value value,
                                  int64_t* result)

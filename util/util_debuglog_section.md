@@ -18,7 +18,7 @@ debuglog('hello from foo [%d]', 123);
 
 如果程序在环境中运行时带上 `NODE_DEBUG=foo`，则输出类似如下： 
 
-```txt
+```console
 FOO 3245: hello from foo [123]
 ```
 
@@ -36,7 +36,7 @@ debuglog('hi there, it\'s foo-bar [%d]', 2333);
 
 如果在环境中使用 `NODE_DEBUG=foo*` 运行，那么它将输出如下内容：
 
-```txt
+```console
 FOO-BAR 3257: hi there, it's foo-bar [2333]
 ```
 

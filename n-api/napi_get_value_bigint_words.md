@@ -3,7 +3,7 @@ added: v10.7.0
 napiVersion: 6
 -->
 
-```C
+```c
 napi_status napi_get_value_bigint_words(napi_env env,
                                         napi_value value,
                                         int* sign_bit,

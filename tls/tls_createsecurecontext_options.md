@@ -144,11 +144,11 @@ changes:
     [OpenSSL Options][].
   * `secureProtocol` {string} Legacy mechanism to select the TLS protocol
     version to use, it does not support independent control of the minimum and
-    maximum version, and does not support limiting the protocol to TLSv1.3.  Use
-    `minVersion` and `maxVersion` instead.  The possible values are listed as
-    [SSL_METHODS][], use the function names as strings.  For example, use
+    maximum version, and does not support limiting the protocol to TLSv1.3. Use
+    `minVersion` and `maxVersion` instead. The possible values are listed as
+    [SSL_METHODS][], use the function names as strings. For example, use
     `'TLSv1_1_method'` to force TLS version 1.1, or `'TLS_method'` to allow any
-    TLS protocol version up to TLSv1.3.  It is not recommended to use TLS
+    TLS protocol version up to TLSv1.3. It is not recommended to use TLS
     versions less than 1.2, but it may be required for interoperability.
     **Default:** none, see `minVersion`.
   * `sessionIdContext` {string} Opaque identifier used by servers to ensure

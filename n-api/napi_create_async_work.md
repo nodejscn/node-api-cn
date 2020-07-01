@@ -7,7 +7,7 @@ changes:
     description: Added `async_resource` and `async_resource_name` parameters.
 -->
 
-```C
+```c
 napi_status napi_create_async_work(napi_env env,
                                    napi_value async_resource,
                                    napi_value async_resource_name,

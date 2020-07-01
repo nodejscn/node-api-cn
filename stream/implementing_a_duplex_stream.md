@@ -5,4 +5,4 @@
 
 `stream.Duplex` 类的原型继承自 `stream.Readable` 和寄生自 `stream.Writable`，但是 `instanceof` 对这两个基础类都可用，因为重写了 `stream.Writable` 的 [`Symbol.hasInstance`]。
 
-自定义的双工流必须调用 `new stream.Duplex([options])` 构造函数并实现 `readable._read()` 和 `writable._write()` 方法。
+自定义的双工流必须调用 `new stream.Duplex([options])` 构造函数并实现 [`readable._read()`] 和 `writable._write()` 方法。

@@ -3,7 +3,7 @@ added: v8.0.0
 napiVersion: 1
 -->
 
-```C
+```c
 napi_status napi_create_function(napi_env env,
                                  const char* utf8name,
                                  size_t length,
@@ -38,7 +38,7 @@ In order to expose a function as part of the
 add-on's module exports, set the newly created function on the exports
 object. A sample module might look as follows:
 
-```C
+```c
 napi_value SayHello(napi_env env, napi_callback_info info) {
   printf("Hello\n");
   return NULL;

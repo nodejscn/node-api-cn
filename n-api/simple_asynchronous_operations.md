@@ -24,7 +24,7 @@ it will likely execute JavaScript.
 
 These functions implement the following interfaces:
 
-```C
+```c
 typedef void (*napi_async_execute_callback)(napi_env env,
                                             void* data);
 typedef void (*napi_async_complete_callback)(napi_env env,
@@ -39,7 +39,7 @@ addon-provided `void*` data that was passed into the
 Once created the async worker can be queued
 for execution using the [`napi_queue_async_work`][] function:
 
-```C
+```c
 napi_status napi_queue_async_work(napi_env env,
                                   napi_async_work work);
 ```

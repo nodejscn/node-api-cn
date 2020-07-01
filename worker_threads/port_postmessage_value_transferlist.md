@@ -1,5 +1,12 @@
 <!-- YAML
 added: v10.5.0
+changes:
+  - version: v14.5.0
+    pr-url: https://github.com/nodejs/node/pull/33360
+    description: Added `KeyObject` to the list of cloneable types.
+  - version: v14.5.0
+    pr-url: https://github.com/nodejs/node/pull/33772
+    description: Added `FileHandle` to the list of transferable types.
 -->
 
 * `value` {any}
@@ -17,7 +24,8 @@ In particular, the significant differences to `JSON` are:
 * `value` may contain typed arrays, both using `ArrayBuffer`s
    and `SharedArrayBuffer`s.
 * `value` may contain [`WebAssembly.Module`][] instances.
-* `value` may not contain native (C++-backed) objects other than `MessagePort`s.
+* `value` may not contain native (C++-backed) objects other than `MessagePort`s,
+  [`FileHandle`][]s, and [`KeyObject`][]s.
 
 ```js
 const { MessageChannel } = require('worker_threads');
@@ -31,7 +39,8 @@ circularData.foo = circularData;
 port2.postMessage(circularData);
 ```
 
-`transferList` may be a list of `ArrayBuffer` and `MessagePort` objects.
+`transferList` may be a list of [`ArrayBuffer`][], [`MessagePort`][] and
+[`FileHandle`][] objects.
 After transferring, they will not be usable on the sending side of the channel
 anymore (even if they are not contained in `value`). Unlike with
 [child processes][], transferring handles such as network sockets is currently

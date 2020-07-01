@@ -4,7 +4,7 @@ added: v10.6.0
 napiVersion: 4
 -->
 
-```C
+```c
 NAPI_EXTERN napi_status
 napi_release_threadsafe_function(napi_threadsafe_function func,
                                  napi_threadsafe_function_release_mode mode);

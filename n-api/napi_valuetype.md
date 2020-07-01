@@ -1,5 +1,5 @@
 
-```C
+```c
 typedef enum {
   // ES6 types (corresponds to typeof)
   napi_undefined,

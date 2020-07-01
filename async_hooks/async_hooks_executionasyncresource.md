@@ -45,7 +45,7 @@ createHook({
   }
 }).enable();
 
-const server = createServer(function(req, res) {
+const server = createServer((req, res) => {
   executionAsyncResource()[sym] = { state: req.url };
   setTimeout(function() {
     res.end(JSON.stringify(executionAsyncResource()[sym]));

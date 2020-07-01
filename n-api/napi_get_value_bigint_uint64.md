@@ -3,7 +3,7 @@ added: v10.7.0
 napiVersion: 6
 -->
 
-```C
+```c
 napi_status napi_get_value_bigint_uint64(napi_env env,
                                         napi_value value,
                                         uint64_t* result,

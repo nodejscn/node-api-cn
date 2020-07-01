@@ -3,7 +3,7 @@
 
 `error.stack` 属性是一个字符串，描述代码中 `Error` 被实例化的位置。
 
-```txt
+```console
 Error: Things keep happening!
    at /home/gbusey/file.js:525:2
    at Frobnicator.refrobulate (/home/gbusey/business-logic.js:424:21)

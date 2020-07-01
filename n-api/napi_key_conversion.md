@@ -5,7 +5,7 @@ added:
 napiVersion: 6
 -->
 
-```C
+```c
 typedef enum {
   napi_key_keep_numbers,
   napi_key_numbers_to_strings

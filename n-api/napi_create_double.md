@@ -3,7 +3,7 @@ added: v8.4.0
 napiVersion: 1
 -->
 
-```C
+```c
 napi_status napi_create_double(napi_env env, double value, napi_value* result)
 ```
 

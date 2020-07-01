@@ -38,7 +38,7 @@ changes:
 
 例如，给定以下的目录结构：
 
-```fundamental
+```text
 - 目录
 -- 文件.txt
 - 文件.js

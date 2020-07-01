@@ -18,7 +18,7 @@ TLS/SSL 握手时，使用完全前向即每次会话都会随机生成一个临
 如需使用完全前向加密，例如使用 `tls` 模块的 `DHE` 算法，使用之前需要生成一个 Diffie-Hellman 参数并将其用 `dhparam` 声明在 [`tls.createSecureContext()`][] 中。
 如下例子展示了如何使用 OpenSSL 命令生成参数：
 
-```sh
+```bash
 openssl dhparam -outform PEM -out dhparam.pem 2048
 ```
 如需使用 `ECDHE` 算法，则不需要生成 Diffie-Hellman 参数，因为可以使用默认的 ECDHE 曲线。

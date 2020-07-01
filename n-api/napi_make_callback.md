@@ -6,7 +6,7 @@ changes:
     description: Added `async_context` parameter.
 -->
 
-```C
+```c
 NAPI_EXTERN napi_status napi_make_callback(napi_env env,
                                            napi_async_context async_context,
                                            napi_value recv,
@@ -43,4 +43,7 @@ context has already been set up, so a direct call to `napi_call_function`
 is sufficient and appropriate. Use of the `napi_make_callback` function
 may be required when implementing custom async behavior that does not use
 `napi_create_async_work`.
+
+Any `process.nextTick`s or Promises scheduled on the microtask queue by
+JavaScript during the callback are ran before returning back to C/C++.
 

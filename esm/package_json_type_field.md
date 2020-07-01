@@ -15,7 +15,7 @@ until the root of the volume is reached.
 }
 ```
 
-```sh
+```bash
 # In same folder as above package.json
 node my-app.js # Runs as ES module
 ```

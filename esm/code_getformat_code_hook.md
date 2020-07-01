@@ -3,32 +3,41 @@
 > signature may change. Do not rely on the API described below.
 
 The `getFormat` hook provides a way to define a custom method of determining how
-a URL should be interpreted. This can be one of the following:
+a URL should be interpreted. The `format` returned also affects what the
+acceptable forms of source values are for a module when parsing. This can be one
+of the following:
 
-| `format` | Description |
-| --- | --- |
-| `'builtin'` | Load a Node.js builtin module |
-| `'commonjs'` | Load a Node.js CommonJS module |
-| `'dynamic'` | Use a [dynamic instantiate hook][] |
-| `'json'` | Load a JSON file |
-| `'module'` | Load a standard JavaScript module (ES module) |
-| `'wasm'` | Load a WebAssembly module |
+| `format` | Description | Acceptable Types For `source` Returned by `getSource` or `transformSource` |
+| --- | --- | --- |
+| `'builtin'` | Load a Node.js builtin module | Not applicable |
+| `'commonjs'` | Load a Node.js CommonJS module | Not applicable |
+| `'json'` | Load a JSON file | { [ArrayBuffer][], [string][], [TypedArray][] } |
+| `'module'` | Load an ES module | { [ArrayBuffer][], [string][], [TypedArray][] } |
+| `'wasm'` | Load a WebAssembly module | { [ArrayBuffer][], [string][], [TypedArray][] } |
+
+Note: These types all correspond to classes defined in ECMAScript.
+
+* The specific [ArrayBuffer][] object is a [SharedArrayBuffer][].
+* The specific [string][] object is not the class constructor, but an instance.
+* The specific [TypedArray][] object is a [Uint8Array][].
+
+Note: If the source value of a text-based format (i.e., `'json'`, `'module'`) is
+not a string, it will be converted to a string using [`util.TextDecoder`][].
 
 ```js
 /**
  * @param {string} url
- * @param {object} context (currently empty)
- * @param {function} defaultGetFormat
- * @returns {object} response
- * @returns {string} response.format
+ * @param {Object} context (currently empty)
+ * @param {Function} defaultGetFormat
+ * @returns {Promise<{ format: string }>}
  */
 export async function getFormat(url, context, defaultGetFormat) {
-  if (someCondition) {
+  if (Math.random() > 0.5) { // Some condition.
     // For some or all URLs, do some custom logic for determining format.
     // Always return an object of the form {format: <string>}, where the
     // format is one of the strings in the table above.
     return {
-      format: 'module'
+      format: 'module',
     };
   }
   // Defer to Node.js for all other URLs.

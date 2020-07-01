@@ -3,7 +3,7 @@ added: v10.7.0
 napiVersion: 6
 -->
 
-```C
+```c
 napi_status napi_create_bigint_int64(napi_env env,
                                      int64_t value,
                                      napi_value* result);

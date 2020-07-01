@@ -3,7 +3,7 @@ added: v8.0.0
 napiVersion: 1
 -->
 
-```C
+```c
 napi_status napi_strict_equals(napi_env env,
                                napi_value lhs,
                                napi_value rhs,

@@ -33,7 +33,7 @@ NODE_MODULE_INITIALIZER(Local<Object> exports,
 可以通过执行以下步骤来构造上下文感知的插件以避免全局静态数据：
 
 * 定义一个类，该类会保存每个插件实例的数据，并且具有以下形式的静态成员：
-    ```C++
+    ```cpp
     static void DeleteInstance(void* data) {
       // 将 `data` 转换为该类的实例并删除它。
     }

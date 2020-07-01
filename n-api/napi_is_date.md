@@ -5,7 +5,7 @@ added:
 napiVersion: 5
 -->
 
-```C
+```c
 napi_status napi_is_date(napi_env env, napi_value value, bool* result)
 ```
 

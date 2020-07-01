@@ -25,6 +25,9 @@ For `Buffer` instances, specifically, whether the underlying
 `ArrayBuffer` can be transferred or cloned depends entirely on how
 instances were created, which often cannot be reliably determined.
 
+An `ArrayBuffer` can be marked with [`markAsUntransferable()`][] to indicate
+that it should always be cloned and never transferred.
+
 Depending on how a `Buffer` instance was created, it may or may
 not own its underlying `ArrayBuffer`. An `ArrayBuffer` must not
 be transferred unless it is known that the `Buffer` instance

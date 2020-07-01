@@ -1,40 +1,45 @@
 
-Node.js 构造时包含了默认的 TLS 开启和关闭的加密组件。
-目前默认的加密组件是：
+Node.js 构造时包含了默认的 TLS 开启和关闭的加密组件。This
+default cipher list can be configured when building Node.js to allow
+distributions to provide their own default list.
 
-```txt
-TLS_AES_256_GCM_SHA384:
-TLS_CHACHA20_POLY1305_SHA256:
-TLS_AES_128_GCM_SHA256:
-ECDHE-RSA-AES128-GCM-SHA256:
-ECDHE-ECDSA-AES128-GCM-SHA256:
-ECDHE-RSA-AES256-GCM-SHA384:
-ECDHE-ECDSA-AES256-GCM-SHA384:
-DHE-RSA-AES128-GCM-SHA256:
-ECDHE-RSA-AES128-SHA256:
-DHE-RSA-AES128-SHA256:
-ECDHE-RSA-AES256-SHA384:
-DHE-RSA-AES256-SHA384:
-ECDHE-RSA-AES256-SHA256:
-DHE-RSA-AES256-SHA256:
-HIGH:
-!aNULL:
-!eNULL:
-!EXPORT:
-!DES:
-!RC4:
-!MD5:
-!PSK:
-!SRP:
+The following command can be used to show the default cipher suite:
+
+```console
+node -p crypto.constants.defaultCoreCipherList | tr ':' '\n'
+TLS_AES_256_GCM_SHA384
+TLS_CHACHA20_POLY1305_SHA256
+TLS_AES_128_GCM_SHA256
+ECDHE-RSA-AES128-GCM-SHA256
+ECDHE-ECDSA-AES128-GCM-SHA256
+ECDHE-RSA-AES256-GCM-SHA384
+ECDHE-ECDSA-AES256-GCM-SHA384
+DHE-RSA-AES128-GCM-SHA256
+ECDHE-RSA-AES128-SHA256
+DHE-RSA-AES128-SHA256
+ECDHE-RSA-AES256-SHA384
+DHE-RSA-AES256-SHA384
+ECDHE-RSA-AES256-SHA256
+DHE-RSA-AES256-SHA256
+HIGH
+!aNULL
+!eNULL
+!EXPORT
+!DES
+!RC4
+!MD5
+!PSK
+!SRP
 !CAMELLIA
 ```
+
 默认加密组件可以使用 [`--tls-cipher-list`] 命令进行替换（直接或通过 [`NODE_OPTIONS`] 环境变量）。
 比如，生成 `ECDHE-RSA-AES128-GCM-SHA256:!RC4` 的 TLS 加密组件：
 
-```sh
-node --tls-cipher-list="ECDHE-RSA-AES128-GCM-SHA256:!RC4" server.js
+```bash
+node --tls-cipher-list='ECDHE-RSA-AES128-GCM-SHA256:!RC4' server.js
 
-export NODE_OPTIONS=--tls-cipher-list="ECDHE-RSA-AES128-GCM-SHA256:!RC4"
+export NODE_OPTIONS=--tls-cipher-list='ECDHE-RSA-AES128-GCM-SHA256:!RC4'
 node server.js
 ```
 

@@ -6,7 +6,7 @@ added:
 
 > Stability: 1 - Experimental
 
-```C
+```c
 napi_status napi_is_detached_arraybuffer(napi_env env,
                                          napi_value arraybuffer,
                                          bool* result)

@@ -3,7 +3,7 @@ added: v8.4.0
 napiVersion: 1
 -->
 
-```C
+```c
 typedef struct {
   uint32_t major;
   uint32_t minor;

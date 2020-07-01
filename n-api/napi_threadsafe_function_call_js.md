@@ -19,7 +19,7 @@ via `napi_make_callback`.
 
 Callback functions must satisfy the following signature:
 
-```C
+```c
 typedef void (*napi_threadsafe_function_call_js)(napi_env env,
                                                  napi_value js_callback,
                                                  void* context,
