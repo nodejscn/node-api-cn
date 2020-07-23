@@ -3,6 +3,8 @@
 
 > 稳定性: 2 - 稳定
 
+<!-- source_link=lib/cluster.js -->
+
 单个 Node.js 实例运行在单个线程中。
 为了充分利用多核系统，有时需要启用一组 Node.js 进程去处理负载任务。
 

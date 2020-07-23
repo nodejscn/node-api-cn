@@ -12,7 +12,7 @@ changes:
 
 Type: End-of-Life
 
-The AsyncHooks Sensitive API was never documented and had various minor issues.
+The AsyncHooks sensitive API was never documented and had various minor issues.
 Use the `AsyncResource` API instead. See
 <https://github.com/nodejs/node/issues/15572>.
 

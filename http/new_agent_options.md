@@ -2,6 +2,9 @@
 added: v0.3.4
 changes:
   - version: v14.5.0
+    pr-url: https://github.com/nodejs/node/pull/33617
+    description: Add `maxTotalSockets` option to agent constructor.
+  - version: v14.5.0
     pr-url: https://github.com/nodejs/node/pull/33278
     description: Add `scheduling` option to specify the free socket
                  scheduling strategy.
@@ -14,6 +17,10 @@ changes:
     **默认值:** `false`。
   * `keepAliveMsecs` {number} 当使用 `keepAlive` 选项时，指定用于 TCP Keep-Alive 数据包的[初始延迟][initial delay]。当 `keepAlive` 选项为 `false` 或 `undefined` 时则忽略。**默认值:** `1000`。
   * `maxSockets` {number} 每个主机允许的套接字的最大数量。**默认值:** `Infinity`。
+  * `maxTotalSockets` {number} Maximum number of sockets allowed for
+    all hosts in total. Each request will use a new socket
+    until the maximum is reached.
+    **Default:** `Infinity`.
   * `maxFreeSockets` {number} 在空闲状态下保持打开的套接字的最大数量。仅当 `keepAlive` 被设置为 `true` 时才相关。**默认值:** `256`。
   * `scheduling` {string} Scheduling strategy to apply when picking
     the next free socket to use. It can be `'fifo'` or `'lifo'`.

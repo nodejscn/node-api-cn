@@ -3,6 +3,8 @@
 
 > 稳定性: 2 - 稳定
 
+<!-- source_link=lib/readline.js -->
+
 `readline` 模块提供了一个接口，用于一次一行地读取[可读流][Readable]（例如 [`process.stdin`]）中的数据。 
 可以使用以下方式访问它：
 

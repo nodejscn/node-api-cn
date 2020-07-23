@@ -11,17 +11,16 @@ changes:
 * `offset` {integer} 开始写入之前要跳过的字节数。必须满足：`0 <= offset <= buf.length - 2`。**默认值:** `0`。
 * 返回: {integer} `offset` 加上已写入的字节数。
 
-用指定的[字节序][endianness]（`writeInt16BE()` 写入为大端序，`writeInt16LE()` 写入为小端序）将 `value` 写入到 `buf` 中指定的 `offset` 位置。
+将 `value` 作为小端序写入到 `buf` 中指定的 `offset` 位置。
 `value` 必须是有符号的 16 位整数。
 当 `value` 不是有符号的 16 位整数时，行为是未定义的。
 
 ```js
-const buf = Buffer.allocUnsafe(4);
+const buf = Buffer.allocUnsafe(2);
 
-buf.writeInt16BE(0x0102, 0);
-buf.writeInt16LE(0x0304, 2);
+buf.writeInt16LE(0x0304, 0);
 
 console.log(buf);
-// 打印: <Buffer 01 02 04 03>
+// 打印: <Buffer 04 03>
 ```
 

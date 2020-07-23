@@ -11,3 +11,6 @@ typedef void (*napi_async_complete_callback)(napi_env env,
                                              void* data);
 ```
 
+Unless for reasons discussed in [Object Lifetime Management][], creating a
+handle and/or callback scope inside the function body is not necessary.
+

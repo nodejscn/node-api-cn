@@ -5,6 +5,8 @@
 
 <!-- name=dgram -->
 
+<!-- source_link=lib/dgram.js -->
+
 `dgram` 模块提供了 UDP 数据包 socket 的实现。
 
 ```js

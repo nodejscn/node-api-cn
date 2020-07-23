@@ -14,3 +14,6 @@ is not specified, the operating system will choose one interface and will add
 membership to it. To add membership to every available interface, call
 `socket.addSourceSpecificMembership()` multiple times, once per interface.
 
+When called on an unbound socket, this method will implicitly bind to a random
+port, listening on all interfaces.
+

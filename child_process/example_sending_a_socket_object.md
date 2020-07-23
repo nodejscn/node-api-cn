@@ -37,9 +37,8 @@ process.on('message', (m, socket) => {
 });
 ```
 
-一旦一个 socket 已被传给了子进程，则父进程不再能够跟踪 socket 何时被销毁。
-为了表明这个，`.connections` 属性会变成 `null`。
-当发生这种情况时，建议不要使用 `.maxConnections`。
+不要使用已被传给子进程的 socket 上的 `.maxConnections`。
+父进程无法追踪 socket 何时被销毁。
 
-建议在子进程中的任何 `'message'` 句柄都需要验证 `socket` 是否存在，因为连接可能会在它发送给子进程的这段时间内被关闭。
+子进程中的任何 `'message'` 句柄都应该验证 `socket` 是否存在，因为连接可能会在它发送给子进程的这段时间内被关闭。
 

@@ -9,6 +9,9 @@ added: v0.6.9
 若 `multicastInterface` 参数未指定，则操作系统将会选择一个接口并向其添加成员。
 要为所有可用的接口添加成员，可以在每个接口上调用一次 `addMembership` 方法。
 
+When called on an unbound socket, this method will implicitly bind to a random
+port, listening on all interfaces.
+
 当多个 `cluster` 工作进程之间共享 UDP socket 时，则 `socket.addMembership()` 函数必须只能被调用一次，否则将会发生 `EADDRINUSE` 错误：
 
 ```js

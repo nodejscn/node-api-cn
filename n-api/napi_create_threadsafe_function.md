@@ -46,5 +46,6 @@ napi_create_threadsafe_function(napi_env env,
   response to a call on a different thread. This callback will be called on the
   main thread. If not given, the JavaScript function will be called with no
   parameters and with `undefined` as its `this` value.
+  [`napi_threadsafe_function_call_js`][] provides more details.
 * `[out] result`: The asynchronous thread-safe JavaScript function.
 

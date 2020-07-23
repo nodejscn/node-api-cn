@@ -10,7 +10,7 @@
 
 
 所有转换流的实现都必须提供 `_transform()` 方法来接收输入并生产输出。
-`transform._transform()` 的实现会处理写入的字节，进行一些计算操作，然后使用 `readable.push()` 输出到可读流。
+`transform._transform()` 的实现会处理写入的字节，进行一些计算操作，然后使用 `transform.push()` 输出到可读流。
 
 `transform.push()` 可能会被调用零次或多次用来从每次输入的数据块产生输出，调用的次数取决需要多少数据来产生输出的结果。
 
@@ -18,7 +18,7 @@
 
 当前数据被完全消费之后，必须调用 `callback` 函数。
 当处理输入的过程中发生出错时，`callback` 的第一个参数传入 `Error` 对象，否则传入 `null`。
-如果 `callback` 传入了第二个参数，则它会被转发到 `readable.push()`。
+如果 `callback` 传入了第二个参数，则它会被转发到 `transform.push()`。
 就像下面的例子：
 
 ```js

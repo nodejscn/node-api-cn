@@ -3,6 +3,8 @@
 
 > 稳定性: 2 - 稳定
 
+<!-- source_link=lib/timers.js -->
+
 `timer` 模块开放了一个全局的 API，用于安排函数在未来某个时间点被调用。 
 因为定时器函数是全局的，所以使用 API 不需要调用 `require('timers')`。
 

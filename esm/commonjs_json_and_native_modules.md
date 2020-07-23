@@ -1,5 +1,5 @@
 
-CommonJS, JSON, and Native modules can be used with
+CommonJS, JSON, and native modules can be used with
 [`module.createRequire()`][].
 
 ```js

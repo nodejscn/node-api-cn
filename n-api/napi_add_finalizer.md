@@ -20,6 +20,7 @@ napi_status napi_add_finalizer(napi_env env,
   object.
 * `[in] finalize_cb`: Native callback that will be used to free the
   native data when the JavaScript object is ready for garbage-collection.
+  [`napi_finalize`][] provides more details.
 * `[in] finalize_hint`: Optional contextual hint that is passed to the
   finalize callback.
 * `[out] result`: Optional reference to the JavaScript object.

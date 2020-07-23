@@ -23,3 +23,5 @@ also use explicit scope in addresses, so only packets sent to a multicast
 address without specifying an explicit scope are affected by the most recent
 successful use of this call.
 
+This method throws `EBADF` if called on an unbound socket.
+

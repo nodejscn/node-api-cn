@@ -29,7 +29,7 @@ changes:
   * `shell` {boolean|string} 如果为 `true`，则在 shell 中运行 `command`。
      在 Unix 上使用 `'/bin/sh'`，在 Windows 上使用 `process.env.ComSpec`。
      可以将不同的 shell 指定为字符串。
-     参见 [shell 的要求][Shell Requirements]和[默认的 Windows shell][Default Windows Shell]。
+     参见 [shell 的要求][Shell requirements]和[默认的 Windows shell][Default Windows shell]。
      **默认值:** `false`（没有 shell）。
 * `callback` {Function} 当进程终止时调用并传入输出。
   * `error` {Error}

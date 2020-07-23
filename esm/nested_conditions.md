@@ -9,11 +9,11 @@ use in Node.js but not the browser:
 {
   "main": "./main.js",
   "exports": {
-    "browser": "./feature-browser.mjs",
     "node": {
       "import": "./feature-node.mjs",
       "require": "./feature-node.cjs"
-    }
+    },
+    "default": "./feature.mjs",
   }
 }
 ```

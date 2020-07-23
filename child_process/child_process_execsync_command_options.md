@@ -23,7 +23,7 @@ changes:
   * `env` {Object} 环境变量的键值对。
     **默认值:** `process.env`。
   * `shell` {string} 用于执行命令。
-    参见 [shell 的要求][Shell Requirements]和[默认的 Windows shell][Default Windows Shell]。
+    参见 [shell 的要求][Shell requirements]和[默认的 Windows shell][Default Windows shell]。
     **默认值:** Unix 上是 `'/bin/sh'`，Windows 上是 `process.env.ComSpec`。
   * `uid` {number} 设置进程的用户标识，参见 setuid(2)。
   * `gid` {number} 设置进程的群组标识，参见 setgid(2)。

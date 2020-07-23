@@ -3,6 +3,8 @@
 
 > 稳定性: 2 - 稳定
 
+<!-- source_link=lib/console.js -->
+
 `console` 模块提供了一个简单的调试控制台，类似于 Web 浏览器提供的 JavaScript 控制台。
 
 该模块导出两个特定组件：

@@ -8,14 +8,15 @@ and parent URL. The module specifier is the string in an `import` statement or
 this one, or `undefined` if this is the main entry point for the application.
 
 The `conditions` property on the `context` is an array of conditions for
-[Conditional Exports][] that apply to this resolution request. They can be used
+[Conditional exports][] that apply to this resolution request. They can be used
 for looking up conditional mappings elsewhere or to modify the list when calling
 the default resolution logic.
 
-The [current set of Node.js default conditions][Conditional Exports] will always
-be in the `context.conditions` list passed to the hook. If the hook wants to
-ensure Node.js-compatible resolution logic, all items from this default
-condition list **must** be passed through to the `defaultResolve` function.
+The current [package exports conditions][Conditional Exports] will always be in
+the `context.conditions` array passed into the hook. To guarantee _default
+Node.js module specifier resolution behavior_ when calling `defaultResolve`, the
+`context.conditions` array passed to it _must_ include _all_ elements of the
+`context.conditions` array originally passed into the `resolve` hook.
 
 ```js
 /**

@@ -67,7 +67,6 @@ using v8::FunctionCallbackInfo;
 using v8::FunctionTemplate;
 using v8::Isolate;
 using v8::Local;
-using v8::NewStringType;
 using v8::Number;
 using v8::Object;
 using v8::ObjectTemplate;
@@ -91,8 +90,7 @@ void MyObject::Init(Local<Object> exports) {
 
   // 准备构造函数模版
   Local<FunctionTemplate> tpl = FunctionTemplate::New(isolate, New, addon_data);
-  tpl->SetClassName(String::NewFromUtf8(
-      isolate, "MyObject", NewStringType::kNormal).ToLocalChecked());
+  tpl->SetClassName(String::NewFromUtf8(isolate, "MyObject").ToLocalChecked());
   tpl->InstanceTemplate()->SetInternalFieldCount(1);
 
   // 原型
@@ -101,8 +99,8 @@ void MyObject::Init(Local<Object> exports) {
   Local<Function> constructor = tpl->GetFunction(context).ToLocalChecked();
   addon_data->SetInternalField(0, constructor);
   exports->Set(context, String::NewFromUtf8(
-      isolate, "MyObject", NewStringType::kNormal).ToLocalChecked(),
-               constructor).FromJust();
+      isolate, "MyObject").ToLocalChecked(),
+      constructor).FromJust();
 }
 
 void MyObject::New(const FunctionCallbackInfo<Value>& args) {

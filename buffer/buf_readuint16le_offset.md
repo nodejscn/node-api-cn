@@ -10,17 +10,13 @@ changes:
 * `offset` {integer} 开始读取之前要跳过的字节数。必须满足：`0 <= offset <= buf.length - 2`。**默认值:** `0`。
 * 返回: {integer}
 
-用指定的[字节序][endianness]（`readUInt16BE()` 读取为大端序，`readUInt16LE()` 读取为小端序）从 `buf` 中指定的 `offset` 读取一个无符号的 16 位整数值。
+从 `buf` 中指定的 `offset` 读取一个无符号小端序的 16 位整数值。
 
 ```js
 const buf = Buffer.from([0x12, 0x34, 0x56]);
 
-console.log(buf.readUInt16BE(0).toString(16));
-// 打印: 1234
 console.log(buf.readUInt16LE(0).toString(16));
 // 打印: 3412
-console.log(buf.readUInt16BE(1).toString(16));
-// 打印: 3456
 console.log(buf.readUInt16LE(1).toString(16));
 // 打印: 5634
 console.log(buf.readUInt16LE(2).toString(16));

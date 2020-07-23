@@ -1,5 +1,5 @@
 
-As of Node.js 8.0.0, the handlers of Promises are run inside the domain in
+As of Node.js 8.0.0, the handlers of promises are run inside the domain in
 which the call to `.then()` or `.catch()` itself was made:
 
 ```js
@@ -37,7 +37,7 @@ d2.run(() => {
 ```
 
 Domains will not interfere with the error handling mechanisms for
-Promises. In other words, no `'error'` event will be emitted for unhandled
+promises. In other words, no `'error'` event will be emitted for unhandled
 `Promise` rejections.
 
 

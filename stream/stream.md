@@ -3,6 +3,8 @@
 
 > 稳定性: 2 - 稳定
 
+<!-- source_link=lib/stream.js -->
+
 流（stream）是 Node.js 中处理流式数据的抽象接口。
 `stream` 模块用于构建实现了流接口的对象。
 

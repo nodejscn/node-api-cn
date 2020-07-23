@@ -9,7 +9,7 @@ name: [index]
 该值指向单个字节，所以有效的值的范围是 `0x00` 至 `0xFF`（十六进制）、或 `0` 至 `255`（十进制）。
 
 该操作符继承自 `Uint8Array`，所以对越界访问的行为与 `Uint8Array` 相同。
-也就是说，当 `index` 为负数或 `>= buf.length` 时，则 `buf[index]` 返回 `undefined`，而如果 `index` 为负数或 `>= buf.length` 时，则 `buf[index] = value` 不会修改该 buffer。
+也就是说，当 `index` 为负数或大于或等于 `buf.length` 时，则 `buf[index]` 返回 `undefined`，而如果 `index` 为负数或 `>= buf.length` 时，则 `buf[index] = value` 不会修改该 buffer。
 
 ```js
 // 拷贝 ASCII 字符串到 `Buffer`，每次拷贝一个字节。

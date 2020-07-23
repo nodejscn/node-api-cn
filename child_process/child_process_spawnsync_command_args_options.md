@@ -38,7 +38,7 @@ changes:
   * `shell` {boolean|string} 如果为 `true`，则在 shell 中运行 `command`。
      在 Unix 上使用 `'/bin/sh'`，在 Windows 上使用 `process.env.ComSpec`。
      可以将不同的 shell 指定为字符串。
-     参见 [shell 的要求][Shell Requirements]和[默认的 Windows shell][Default Windows Shell]。
+     参见 [shell 的要求][Shell requirements]和[默认的 Windows shell][Default Windows shell]。
      **默认值:** `false`（没有 shell）。
   * `windowsVerbatimArguments` {boolean} 在 Windows 上不为参数加上引号或转义。在 Unix 上会被忽略。如果指定了 `shell` 并且是 CMD，则自动设为 `true`。**默认值:** `false`。
   * `windowsHide` {boolean} 隐藏子进程的控制台窗口（在 Windows 系统上通常会创建）。**默认值:** `false`。

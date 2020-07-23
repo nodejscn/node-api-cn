@@ -3,6 +3,8 @@
 
 > Stability: 1 - Experimental
 
+<!-- source_link=lib/async_hooks.js -->
+
 The `async_hooks` module provides an API to track asynchronous resources. It
 can be accessed using:
 

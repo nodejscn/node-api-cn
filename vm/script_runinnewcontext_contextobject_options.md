@@ -1,6 +1,9 @@
 <!-- YAML
 added: v0.3.1
 changes:
+  - version: v14.6.0
+    pr-url: https://github.com/nodejs/node/pull/34023
+    description: The `microtaskMode` option is supported now.
   - version: v10.0.0
     pr-url: https://github.com/nodejs/node/pull/19016
     description: The `contextCodeGeneration` option is supported now.
@@ -21,6 +24,10 @@ changes:
   * `contextCodeGeneration` {Object}
     * `strings` {boolean} 如果设置为 `false`，则对 `eval` 或函数构造函数（`Function`、`GeneratorFunction` 等）的任何调用都将抛出 `EvalError`。**默认值:** `true`。
     * `wasm` {boolean} 如果设置为 `false`，则任何编译 WebAssembly 模块的尝试都将抛出 `WebAssembly.CompileError`。**默认值:** `true`。
+  * `microtaskMode` {string} If set to `afterEvaluate`, microtasks (tasks
+    scheduled through `Promise`s any `async function`s) will be run immediately
+    after the script has run. They are included in the `timeout` and
+    `breakOnSigint` scopes in that case.
 * 返回: {any} 脚本中执行的最后一个语句的结果。
 
 首先给指定的 `contextObject` 提供一个隔离的上下文, 再在此上下文中执行 `vm.Script` 中被编译的代码，最后返回结果。运行中的代码无法获取本地作用域。

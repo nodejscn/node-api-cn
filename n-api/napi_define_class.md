@@ -21,8 +21,8 @@ napi_status napi_define_class(napi_env env,
 * `[in] length`: The length of the `utf8name` in bytes, or `NAPI_AUTO_LENGTH`
   if it is null-terminated.
 * `[in] constructor`: Callback function that handles constructing instances
-  of the class. (This should be a static method on the class, not an actual
-  C++ constructor function.)
+  of the class. This should be a static method on the class, not an actual
+  C++ constructor function. [`napi_callback`][] provides more details.
 * `[in] data`: Optional data to be passed to the constructor callback as
   the `data` property of the callback info.
 * `[in] property_count`: Number of items in the `properties` array argument.

@@ -1,7 +1,7 @@
 
 Write the package in CommonJS or transpile ES module sources into CommonJS, and
 create an ES module wrapper file that defines the named exports. Using
-[Conditional Exports][], the ES module wrapper is used for `import` and the
+[Conditional exports][], the ES module wrapper is used for `import` and the
 CommonJS entry point for `require`.
 
 <!-- eslint-skip -->

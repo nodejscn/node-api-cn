@@ -17,6 +17,6 @@ For help, see: https://nodejs.org/en/docs/inspector
 
 如果 Chrome 浏览器的版本低于 66.0.3345.0，则在上述的 URL 中使用 `inspector.html` 而不是 `js_app.html`。
 
-Chrome 开发者工具目前还不支持调试[工作线程][Worker Threads]。 
+Chrome 开发者工具目前还不支持调试[工作线程][worker threads]。 
 可以使用 [ndb] 来调试它们。
 

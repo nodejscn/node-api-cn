@@ -3,6 +3,8 @@
 
 > 稳定性: 2 - 稳定
 
+<!-- source_link=lib/zlib.js -->
+
 `zlib` 模块提供通过 Gzip、Deflate/Inflate、和 Brotli 实现的压缩功能。
 
 可以通过这样使用它：

@@ -27,7 +27,8 @@ napi_status napi_create_async_work(napi_env env,
   and can execute in parallel with the main event loop thread.
 * `[in] complete`: The native function which will be called when the
   asynchronous logic is completed or is cancelled. The given function is called
-  from the main event loop thread.
+  from the main event loop thread. [`napi_async_complete_callback`][] provides
+  more details.
 * `[in] data`: User-provided data context. This will be passed back into the
   execute and complete functions.
 * `[out] result`: `napi_async_work*` which is the handle to the newly created

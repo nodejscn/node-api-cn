@@ -1,6 +1,9 @@
 <!-- YAML
 added: v0.3.1
 changes:
+  - version: v14.6.0
+    pr-url: https://github.com/nodejs/node/pull/34023
+    description: The `microtaskMode` option is supported now.
   - version: v10.0.0
     pr-url: https://github.com/nodejs/node/pull/19398
     description: The first argument can no longer be a function.
@@ -17,6 +20,10 @@ changes:
   * `codeGeneration` {Object}
     * `strings` {boolean} 如果设置为 `false`，则对 `eval` 或函数构造函数（`Function`、`GeneratorFunction` 等）的任何调用都将抛出 `EvalError`。**默认值:** `true`。
     * `wasm` {boolean} 如果设置为 `false`，则任何编译 WebAssembly 模块的尝试都将抛出 `WebAssembly.CompileError`。**默认值:** `true`。
+  * `microtaskMode` {string} If set to `afterEvaluate`, microtasks (tasks
+    scheduled through `Promise`s any `async function`s) will be run immediately
+    after a script has run through [`script.runInContext()`][].
+    They are included in the `timeout` and `breakOnSigint` scopes in that case.
 * 返回: {Object} 上下文隔离化的沙盒。
 
 给定一个 `contextObject` 对象，`vm.createContext()` 会[设置此沙盒][contextified]，从而让它具备在 [`vm.runInContext()`][] 或者 [`script.runInContext()`][] 中被使用的能力。

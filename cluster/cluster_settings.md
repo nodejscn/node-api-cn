@@ -25,7 +25,7 @@ changes:
   * `exec` {string} 工作进程的文件路径。**默认值:** `process.argv[1]`。
   * `args` {string[]} 传给工作进程的字符串参数。**默认值:** `process.argv.slice(2)`。
   * `cwd` {string} 工作进程的当前工作目录。**默认值:** `undefined`（从父进程继承）。
-  * `serialization` {string} 指定用于在进程之间发送消息的序列化类型。可能的值为 `'json'` 和 `'advanced'`。有关更多详细信息，请参见[`child_process` 的高级序列化][Advanced Serialization for `child_process`]。**默认值:** `false`。
+  * `serialization` {string} 指定用于在进程之间发送消息的序列化类型。可能的值为 `'json'` 和 `'advanced'`。有关更多详细信息，请参见[`child_process` 的高级序列化][Advanced serialization for `child_process`]。**默认值:** `false`。
   * `silent` {boolean} 是否需要发送输出到父进程的 stdio。**默认值:** `false`。
   * `stdio` {Array} 配置衍生的进程的 stdio。 由于 cluster 模块运行依赖于 IPC，这个配置必须包含 `'ipc'`。如果提供了这个选项，则覆盖 `silent`。
   * `uid` {number} 设置进程的用户标识符。参见 setuid(2)。

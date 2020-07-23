@@ -91,8 +91,7 @@ NODE_MODULE_INIT(/* exports, module, context */) {
   // 把 `Method` 方法暴露给 JavaScript，
   // 并确保其接收我们通过把 `external` 作为 `FunctionTemplate` 构造函数第三个参数时创建的每个插件实例的数据。
   exports->Set(context,
-               String::NewFromUtf8(isolate, "method", NewStringType::kNormal)
-                  .ToLocalChecked(),
+               String::NewFromUtf8(isolate, "method").ToLocalChecked(),
                FunctionTemplate::New(isolate, Method, external)
                   ->GetFunction(context).ToLocalChecked()).FromJust();
 }

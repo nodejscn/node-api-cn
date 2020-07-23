@@ -17,7 +17,7 @@ CommonJS; `"main"` will be overridden by `"exports"` if it exists. As such
 fallback for legacy versions of Node.js that do not support the `"exports"`
 field.
 
-[Conditional Exports][] can be used within `"exports"` to define different
+[Conditional exports][] can be used within `"exports"` to define different
 package entry points per environment, including whether the package is
 referenced via `require` or via `import`. For more information about supporting
 both CommonJS and ES Modules in a single package please consult

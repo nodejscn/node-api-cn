@@ -14,7 +14,7 @@ changes:
     **默认值:** `process.env`。
   * `encoding` {string} **默认值:** `'utf8'`。
   * `shell` {string} 用于执行命令。
-    参见 [shell 的要求][Shell Requirements]和[默认的 Windows shell][Default Windows Shell]。
+    参见 [shell 的要求][Shell requirements]和[默认的 Windows shell][Default Windows shell]。
      **默认值:** Unix 上是 `'/bin/sh'`，Windows 上是 `process.env.ComSpec`。
   * `timeout` {number} **默认值:** `0`。
   * `maxBuffer` {number} stdout 或 stderr 上允许的最大数据量（以字节为单位）。
@@ -49,8 +49,9 @@ exec('echo "\\$HOME 变量为 $HOME"');
 如果提供了 `callback` 函数，则调用时会传入参数 `(error, stdout, stderr)`。
 当成功时，则 `error` 会为 `null`。
 当报错时，则 `error` 会是 [`Error`] 的实例。
-`error.code` 属性是子进程的退出码，`error.signal` 会被设为终止进程的信号。
-除 `0` 以外的任何退出码都会被视为错误。
+`error.code` 属性是进程的退出码。
+按照惯例，除 `0` 以外的任何退出码均表示错误。
+`error.signal` 是终止进程的信号。
 
 传给回调的 `stdout` 和 `stderr` 参数会包含子进程的 stdout 和 stderr 输出。
 默认情况下，Node.js 会将输出解码为 UTF-8 并将字符串传给回调。

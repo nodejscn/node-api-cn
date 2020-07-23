@@ -20,7 +20,7 @@ EOF 信号会被放在 buffer 的末尾，任何缓冲的数据仍将会被刷�
 触发 [`'end'`] 事件或抛出运行时错误之后，不能再调用 `stream.unshift()` 方法。
 
 使用 `stream.unshift()` 的开发者可以考虑切换到 [`Transform`] 流。
-详见[用于实现流的API][API for Stream Implementers]。
+详见[用于实现流的API][API for stream implementers]。
 
 ```js
 // 拉出由 \n\n 分隔的标题。

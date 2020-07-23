@@ -57,6 +57,8 @@ changes:
 偏移量和长度是可选的，但如其中一个被指定则另一个也必须被指定。
 另外，它们只在第一个参数是 `Buffer`、`TypedArray` 或 `DataView` 的情况下才能被使用。
 
+This method throws [`ERR_SOCKET_BAD_PORT`][] if called on an unbound socket.
+
 示例，发送 UDP 包到 `localhost` 上的某个端口：
 
 ```js

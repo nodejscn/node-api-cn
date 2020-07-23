@@ -21,11 +21,46 @@ added: v0.9.4
 
 ```js
 const readable = getReadableStreamSomehow();
+
+// 'readable' may be triggered multiple times as data is buffered in
+readable.on('readable', () => {
+  let chunk;
+  console.log('Stream is readable (new data received in buffer)');
+  // Use a loop to make sure we read all currently available data
+  while (null !== (chunk = readable.read())) {
+    console.log(`读取 ${chunk.length} 字节的数据`);
+  }
+});
+
+// 'end' will be triggered once when there is no more data available
+readable.on('end', () => {
+  console.log('Reached end of stream.');
+});
+```
+
+Each call to `readable.read()` returns a chunk of data, or `null`. The chunks
+are not concatenated. A `while` loop is necessary to consume all data
+currently in the buffer. When reading a large file `.read()` may return `null`,
+having consumed all buffered content so far, but there is still more data to
+come not yet buffered. In this case a new `'readable'` event will be emitted
+when there is more data in the buffer. Finally the `'end'` event will be
+emitted when there is no more data to come.
+
+Therefore to read a file's whole contents from a `readable`, it is necessary
+to collect chunks across multiple `'readable'` events:
+
+```js
+const chunks = [];
+
 readable.on('readable', () => {
   let chunk;
   while (null !== (chunk = readable.read())) {
-    console.log(`接收到 ${chunk.length} 字节的数据`);
+    chunks.push(chunk);
   }
+});
+
+readable.on('end', () => {
+  const content = chunks.join('');
 });
 ```
 

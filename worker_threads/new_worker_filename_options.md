@@ -1,6 +1,10 @@
 <!-- YAML
 added: v10.5.0
 changes:
+  - version:
+    - v14.6.0
+    pr-url: https://github.com/nodejs/node/pull/34303
+    description: The `trackUnmanagedFds` option was introduced.
   - version: v14.0.0
     pr-url: https://github.com/nodejs/node/pull/32278
     description: The `transferList` option was introduced.
@@ -40,6 +44,12 @@ changes:
   * `stderr` {boolean} 如果将其设置为 `true`，则 `worker.stderr` 将不会自动地通过管道传递到父线程中的 `process.stderr`。
   * `workerData` {any} 能被克隆并作为 [`require('worker_threads').workerData`] 的任何 JavaScript 值。
      克隆将会按照 [HTML 结构化克隆算法][HTML structured clone algorithm]中描述的进行，如果对象无法被克隆（例如，因为它包含 `function`），则会抛出错误。
+  * `trackUnmanagedFds` {boolean} If this is set to `true`, then the Worker will
+    track raw file descriptors managed through [`fs.open()`][] and
+    [`fs.close()`][], and close them when the Worker exits, similar to other
+    resources like network sockets or file descriptors managed through
+    the [`FileHandle`][] API. This option is automatically inherited by all
+    nested `Worker`s. **Default**: `false`.
   * `transferList` {Object[]} If one or more `MessagePort`-like objects
     are passed in `workerData`, a `transferList` is required for those
     items or [`ERR_MISSING_MESSAGE_PORT_IN_TRANSFER_LIST`][] will be thrown.

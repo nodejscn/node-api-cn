@@ -31,5 +31,3 @@ console.log(newBuf.toString('ascii'));
 
 因为欧元符号（`€`）无法在 US-ASCII 中表示，所以在转码 `Buffer` 时使用 `?` 代替。
 
-该属性是在 `require('buffer')` 返回的 `buffer` 模块上，而不是在 `Buffer` 全局变量或 `Buffer` 实例上。
-

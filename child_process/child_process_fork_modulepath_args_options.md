@@ -27,7 +27,7 @@ changes:
     **默认值:** `process.execArgv`。
   * `serialization` {string} 指定用于在进程之间发送消息的序列化类型。
     可能的值为 `'json'` 和 `'advanced'`。
-    详见[高级序列化][Advanced Serialization]。
+    详见[高级序列化][Advanced serialization]。
     **默认值:** `'json'`。
   * `silent` {boolean} 如果为 `true`，则子进程的 stdin、stdout 和 stderr 会被 pipe 到父进程，否则它们会继承自父进程，详见 [`child_process.spawn()`] 的 [`stdio`] 中的 `'pipe'` 和 `'inherit'` 选项。
     **默认值:** `false`。

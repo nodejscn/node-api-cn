@@ -11,17 +11,12 @@ changes:
 * `offset` {integer} 开始写入之前要跳过的字节数。必须满足：`0 <= offset <= buf.length - 4`。**默认值:** `0`。
 * 返回: {integer} `offset` 加上已写入的字节数。
 
-用指定的[字节序][endianness]（`writeUInt32BE()` 写入为大端序，`writeUInt32LE()` 写入为小端序）将 `value` 写入到 `buf` 中指定的 `offset` 位置。
+将 `value` 作为小端序写入到 `buf` 中指定的 `offset` 位置。
 `value` 必须是无符号的 32 位整数。
 当 `value` 不是无符号的 32 位整数时，行为是未定义的。
 
 ```js
 const buf = Buffer.allocUnsafe(4);
-
-buf.writeUInt32BE(0xfeedface, 0);
-
-console.log(buf);
-// 打印: <Buffer fe ed fa ce>
 
 buf.writeUInt32LE(0xfeedface, 0);
 

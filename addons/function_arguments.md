@@ -14,7 +14,6 @@ using v8::Exception;
 using v8::FunctionCallbackInfo;
 using v8::Isolate;
 using v8::Local;
-using v8::NewStringType;
 using v8::Number;
 using v8::Object;
 using v8::String;
@@ -29,18 +28,16 @@ void Add(const FunctionCallbackInfo<Value>& args) {
   if (args.Length() < 2) {
     // 抛出一个错误并传回到 JavaScript。
     isolate->ThrowException(Exception::TypeError(
-        String::NewFromUtf8(isolate, 
-	                    "参数的数量错误",
-                            NewStringType::kNormal).ToLocalChecked()));
+        String::NewFromUtf8(isolate,
+                            "参数的数量错误").ToLocalChecked()));
     return;
   }
 
   // 检查参数的类型。
   if (!args[0]->IsNumber() || !args[1]->IsNumber()) {
     isolate->ThrowException(Exception::TypeError(
-        String::NewFromUtf8(isolate, 
-	                    "参数错误",
-                            NewStringType::kNormal).ToLocalChecked()));
+        String::NewFromUtf8(isolate,
+                            "参数错误").ToLocalChecked()));
     return;
   }
 

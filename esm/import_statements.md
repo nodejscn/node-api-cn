@@ -1,6 +1,6 @@
 
 An `import` statement can reference an ES module or a CommonJS module. Other
-file types such as JSON or Native modules are not supported. For those, use
+file types such as JSON or native modules are not supported. For those, use
 [`module.createRequire()`][].
 
 `import` statements are permitted only in ES modules. For similar functionality

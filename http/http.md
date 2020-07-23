@@ -3,6 +3,8 @@
 
 > 稳定性: 2 - 稳定
 
+<!-- source_link=lib/http.js -->
+
 若要使用 HTTP 服务器和客户端，则可以 `require('http')`。
 
 Node.js 中的 HTTP 接口旨在支持许多传统上难以使用的协议的特性。

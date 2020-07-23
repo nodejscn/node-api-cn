@@ -8,12 +8,11 @@ added: v0.1.90
 
 请求的 URL 字符串。
 它仅包含实际的 HTTP 请求中存在的 URL。
-如果请求是：
+以下面的请求为例：
 
 ```http
-GET /status?name=ryan HTTP/1.1\r\n
-Accept: text/plain\r\n
-\r\n
+GET /status?name=ryan HTTP/1.1
+Accept: text/plain
 ```
 
 要将 URL 解析成各个部分：

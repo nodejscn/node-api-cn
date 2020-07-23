@@ -20,5 +20,5 @@ typedef struct {
   not implemented for any VM.
 * `error_code`: The N-API status code that originated with the last error.
 
-See the [Error Handling][] section for additional information.
+See the [Error handling][] section for additional information.
 

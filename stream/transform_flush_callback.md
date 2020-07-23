@@ -12,7 +12,7 @@
 自定义的[转换流]的 `transform._flush()` 方法是可选的。
 当没有更多数据要被消费时，就会调用这个方法，但如果是在 [`'end'`] 事件被触发之前调用则会发出可读流结束的信号。
                           
-在 `transform._flush()` 的实现中，`readable.push()` 可能会被调用零次或多次。
+在 `transform._flush()` 的实现中，`transform.push()` 可能会被调用零次或多次。
 当 flush 操作完成时，必须调用 `callback` 函数。
 
 `transform._flush()` 方法有下划线前缀，因为它是在定义在类的内部，不应该被用户程序直接调用。

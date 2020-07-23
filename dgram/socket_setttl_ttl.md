@@ -13,3 +13,4 @@ added: v0.1.101
 `ttl` 参数可以是 `0` 到 `255` 之间。
 在大多数系统上，默认值是 `64`。
 
+This method throws `EBADF` if called on an unbound socket.

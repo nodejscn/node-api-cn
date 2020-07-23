@@ -5,9 +5,8 @@ changes:
     description: The `Buffer`s class now inherits from `Uint8Array`.
 -->
 
-`Buffer` 实例也是 [`Uint8Array`] 实例，这是该语言用于处理二进制数据的内置类。
-[`Uint8Array`] 依次是 [`TypedArray`] 的子类。 
-因此，所有 [`TypedArray`] 的方法在 `Buffer` 上也可用。 
+`Buffer` 实例也是 JavaScript 的 [`Uint8Array`] 和 [`TypedArray`] 实例。
+所有的 [`TypedArray`] 方法在 `Buffer` 上也可用。 
 但是，`Buffer` 的 API 和 [`TypedArray`] 的 API 之间存在细微的不兼容。
 
 主要表现在：
@@ -18,18 +17,31 @@ changes:
 * [`buf.toString()`] 与它在 `TypedArray` 上的等价物并不兼容。
 * 一些方法，例如 [`buf.indexOf()`]，支持额外的参数。
 
-有两种方法可以从一个 `Buffer` 创建新的 [`TypedArray`] 实例。
+有两种方法可以从一个 `Buffer` 创建新的 [`TypedArray`] 实例：
 
-当将一个 `Buffer` 传给 [`TypedArray`] 的构造函数时，该 `Buffer` 的元素会被拷贝且，且会被解析为一个整数数组，而不是目标类型的字节数组。 
-例如，`new Uint32Array(Buffer.from([1, 2, 3, 4]))` 会创建一个带有 4 个元素 `[1, 2, 3, 4]` 的 [`Uint32Array`]，而不是带有单个元素 `[0x1020304]` 或 `[0x4030201]` 的 [`Uint32Array`]。
+* 将 `Buffer` 传给 [`TypedArray`] 的构造函数，则会拷贝 `Buffer` 的内容（会被解析为整数数组，而不是目标类型的字节序列）。 
 
+```js
+const buf = Buffer.from([1, 2, 3, 4]);
+const uint32array = new Uint32Array(buf);
 
-为了创建与 `Buffer` 共享其内存的 [`TypedArray`]，可以将底层的 [`ArrayBuffer`] 传给 [`TypedArray`] 的构造函数：
+console.log(uint32array);
+
+// 打印: Uint32Array(4) [ 1, 2, 3, 4 ]
+```
+
+* 传入 `Buffer` 底层的 [`ArrayBuffer`]，则会创建与 `Buffer` 共享其内存的 [`TypedArray`]：
 
 ```js
 const buf = Buffer.from('hello', 'utf16le');
 const uint16arr = new Uint16Array(
-  buf.buffer, buf.byteOffset, buf.length / Uint16Array.BYTES_PER_ELEMENT);
+  buf.buffer,
+  buf.byteOffset,
+  buf.length / Uint16Array.BYTES_PER_ELEMENT);
+
+console.log(uint16array);
+
+// 打印: Uint16Array(5) [ 104, 101, 108, 108, 111 ]
 ```
 
 也可以通过使用 `TypedArray` 对象的 `.buffer` 属性，以相同的方式来创建一个与 [`TypedArray`] 实例共享相同分配内存的新 `Buffer`。 
@@ -43,6 +55,7 @@ arr[1] = 4000;
 
 // 拷贝 `arr` 的内容。
 const buf1 = Buffer.from(arr);
+
 // 与 `arr` 共享内存。
 const buf2 = Buffer.from(arr.buffer);
 

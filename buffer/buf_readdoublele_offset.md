@@ -10,13 +10,11 @@ changes:
 * `offset` {integer} 开始读取之前要跳过的字节数。必须满足：`0 <= offset <= buf.length - 8`。**默认值:** `0`。
 * 返回: {number}
 
-用指定的[字节序][endianness]（`readDoubleBE()` 读取为大端序，`readDoubleLE()` 读取为小端序）从 `buf` 中指定的 `offset` 读取一个 64 位双精度值。
+从 `buf` 中指定的 `offset` 读取一个 64 位的小端序双精度值。
 
 ```js
 const buf = Buffer.from([1, 2, 3, 4, 5, 6, 7, 8]);
 
-console.log(buf.readDoubleBE(0));
-// 打印: 8.20788039913184e-304
 console.log(buf.readDoubleLE(0));
 // 打印: 5.447603722011605e-270
 console.log(buf.readDoubleLE(1));

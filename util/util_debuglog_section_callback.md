@@ -3,6 +3,8 @@ added: v0.11.3
 -->
 
 * `section` {string} 一个字符串，指定要为应用的哪些部分创建 `debuglog` 函数。
+* `callback` {Function} A callback invoked the first time the logging function
+is called with a function argument that is a more optimized logging function.
 * 返回: {Function} 日志函数。
 
 `util.debuglog()` 方法用于创建一个函数，基于 `NODE_DEBUG` 环境变量的存在与否有条件地写入调试信息到 `stderr`。
@@ -42,4 +44,19 @@ FOO-BAR 3257: hi there, it's foo-bar [2333]
 
 `NODE_DEBUG` 环境变量中可指定多个由逗号分隔的 `section` 名称。
 例如：`NODE_DEBUG=fs,net,tls`。
+
+The optional `callback` argument can be used to replace the logging function
+with a different function that doesn't have any initialization or
+unnecessary wrapping.
+
+```js
+const util = require('util');
+let debuglog = util.debuglog('internals', (debug) => {
+  // Replace with a logging function that optimizes out
+  // testing if the section is enabled
+  debuglog = debug;
+});
+```
+
+
 

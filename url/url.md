@@ -3,6 +3,8 @@
 
 > 稳定性: 2 - 稳定
 
+<!-- source_link=lib/url.js -->
+
 `url` 模块用于处理与解析 URL。
 使用方法如下：
 

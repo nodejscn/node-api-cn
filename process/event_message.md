@@ -11,6 +11,6 @@ added: v0.5.10
 生成的消息可能与最初发送的消息不同。
 
 如果在衍生进程时使用了 `serialization` 选项设置为 `'advanced'`，则 `message` 参数可以包含 JSON 无法表示的数据。 
-有关更多详细信息，请参见 [`child_process` 的高级序列化][Advanced Serialization]。
+有关更多详细信息，请参见 [`child_process` 的高级序列化][Advanced serialization for `child_process`]。
 
 

@@ -18,7 +18,7 @@ napi_status napi_create_function(napi_env env,
 * `[in] length`: The length of the `utf8name` in bytes, or `NAPI_AUTO_LENGTH` if
   it is null-terminated.
 * `[in] cb`: The native function which should be called when this function
-  object is invoked.
+  object is invoked. [`napi_callback`][] provides more details.
 * `[in] data`: User-provided data context. This will be passed back into the
   function when invoked later.
 * `[out] result`: `napi_value` representing the JavaScript function object for

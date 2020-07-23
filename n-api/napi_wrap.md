@@ -19,6 +19,7 @@ napi_status napi_wrap(napi_env env,
   JavaScript object.
 * `[in] finalize_cb`: Optional native callback that can be used to free the
   native instance when the JavaScript object is ready for garbage-collection.
+  [`napi_finalize`][] provides more details.
 * `[in] finalize_hint`: Optional contextual hint that is passed to the
   finalize callback.
 * `[out] result`: Optional reference to the wrapped object.

@@ -3,6 +3,8 @@
 
 > 稳定性: 2 - 稳定
 
+<!-- source_link=lib/worker_threads.js -->
+
 `worker_threads` 模块允许使用并行地执行 JavaScript 的线程。 
 要访问它：
 

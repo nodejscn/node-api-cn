@@ -15,3 +15,6 @@ typedef void (*napi_finalize)(napi_env env,
                               void* finalize_hint);
 ```
 
+Unless for reasons discussed in [Object Lifetime Management][], creating a
+handle and/or callback scope inside the function body is not necessary.
+

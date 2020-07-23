@@ -9,6 +9,8 @@ changes:
 
 > 稳定性: 2 - 稳定
 
+<!-- source_link=lib/http2.js -->
+
 `http2` 模块提供了 [HTTP/2] 协议的实现。
 使用方法如下：
 

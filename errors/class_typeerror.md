@@ -2,7 +2,7 @@
 * 继承自 {errors.Error}
 
 表明提供的参数不是被允许的类型。
-例如，将函数传给期望字符串的参数，将会被视为 `TypeError`。
+例如，将函数传给期望字符串的参数，则会抛出 `TypeError`。
 
 ```js
 require('url').parse(() => { });

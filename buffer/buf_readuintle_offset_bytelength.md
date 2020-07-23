@@ -11,17 +11,12 @@ changes:
 * `byteLength` {integer} 要读取的字节数。必须满足：`0 < byteLength <= 6`。
 * 返回: {integer}
 
-从 `buf` 中指定的 `offset` 读取 `byteLength` 个字节，并将读取的值解析为无符号的整数。
-最高支持 48 位精度。
+从 `buf` 中指定的 `offset` 读取 `byteLength` 个字节，并将读取的值解析为无符号小端序的整数，最高支持 48 位精度。
 
 ```js
 const buf = Buffer.from([0x12, 0x34, 0x56, 0x78, 0x90, 0xab]);
 
-console.log(buf.readUIntBE(0, 6).toString(16));
-// 打印: 1234567890ab
 console.log(buf.readUIntLE(0, 6).toString(16));
 // 打印: ab9078563412
-console.log(buf.readUIntBE(1, 6).toString(16));
-//抛出异常 ERR_OUT_OF_RANGE。
 ```
 

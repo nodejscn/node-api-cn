@@ -13,7 +13,6 @@ using v8::Function;
 using v8::FunctionCallbackInfo;
 using v8::Isolate;
 using v8::Local;
-using v8::NewStringType;
 using v8::Null;
 using v8::Object;
 using v8::String;
@@ -26,8 +25,7 @@ void RunCallback(const FunctionCallbackInfo<Value>& args) {
   const unsigned argc = 1;
   Local<Value> argv[argc] = {
       String::NewFromUtf8(isolate,
-                          "hello world",
-                          NewStringType::kNormal).ToLocalChecked() };
+                          "hello world").ToLocalChecked() };
   cb->Call(context, Null(isolate), argc, argv).ToLocalChecked();
 }
 

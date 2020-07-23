@@ -4,21 +4,7 @@
 `process.stdin` 属性返回连接到 `stdin` (fd `0`) 的流。 
 它是一个 [`net.Socket`] 流（也就是[双工流][Duplex]），除非 fd `0` 指向一个文件，在这种情况下它是一个[可读流][Readable]。
 
-```js
-process.stdin.setEncoding('utf8');
-
-process.stdin.on('readable', () => {
-  let chunk;
-  // 使用循环确保我们读取所有的可用数据。
-  while ((chunk = process.stdin.read()) !== null) {
-    process.stdout.write(`数据: ${chunk}`);
-  }
-});
-
-process.stdin.on('end', () => {
-  process.stdout.write('结束');
-});
-```
+有关如何从 `stdin` 中读取的详细信息，参见 [`readable.read()`]。
 
 作为[双工流][Duplex]，`process.stdin` 也可以在“旧”模式下使用，该模式与在 v0.10 之前为 Node.js 编写的脚本兼容。 
 有关更多信息，参见[流的兼容性][Stream compatibility]。

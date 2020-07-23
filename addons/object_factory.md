@@ -12,7 +12,6 @@ using v8::Context;
 using v8::FunctionCallbackInfo;
 using v8::Isolate;
 using v8::Local;
-using v8::NewStringType;
 using v8::Object;
 using v8::String;
 using v8::Value;
@@ -24,8 +23,7 @@ void CreateObject(const FunctionCallbackInfo<Value>& args) {
   Local<Object> obj = Object::New(isolate);
   obj->Set(context,
            String::NewFromUtf8(isolate,
-                               "msg",
-                               NewStringType::kNormal).ToLocalChecked(),
+                               "msg").ToLocalChecked(),
                                args[0]->ToString(context).ToLocalChecked())
            .FromJust();
 
