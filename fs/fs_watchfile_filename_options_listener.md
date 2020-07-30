@@ -49,7 +49,7 @@ fs.watchFile('message.text', (curr, prev) => {
 使用 [`fs.watch()`] 比 `fs.watchFile` 和 `fs.unwatchFile` 更高效。
 应尽可能使用 `fs.watch` 代替 `fs.watchFile` 和 `fs.unwatchFile`。
 
-当 `fs.watchFile()` 正在监视的文件消失并重新出现时，第二次回调事件（文件重新出现）返回的 `previousStat` 会与第一次回调事件（文件消失）返回的 `previousStat` 相同。
+当 `fs.watchFile()` 正在监视的文件消失并重新出现时，第二次回调事件（文件重新出现）中的 `previous` 的内容会与第一次回调事件（文件消失）中的 `previous` 的内容相同。
 
 这种情况发生在:
 - 文件被删除，然后又恢复。

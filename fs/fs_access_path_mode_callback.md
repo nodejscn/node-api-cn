@@ -54,7 +54,7 @@ fs.access(file, fs.constants.F_OK | fs.constants.W_OK, (err) => {
 });
 ```
 
-不建议在调用 `fs.open()`、`fs.readFile()` 或 `fs.writeFile()` 之前使用 `fs.access()` 检查文件的可访问性。
+不要在调用 `fs.open()`、`fs.readFile()` 或 `fs.writeFile()` 之前使用 `fs.access()` 检查文件的可访问性。
 这样做会引入竞态条件，因为其他进程可能会在两个调用之间更改文件的状态。
 而是，应该直接打开、读取或写入文件，并且当文件无法访问时处理引发的错误。
 

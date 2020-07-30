@@ -27,7 +27,7 @@ changes:
 此事件保证传入 {net.Socket} 类（{stream.Duplex} 的子类）的实例，除非用户指定了 {net.Socket} 以外的套接字类型。
 
 默认行为是尝试使用 HTTP `400 Bad Request` 关闭套接字、或者在 [`HPE_HEADER_OVERFLOW`] 错误的情况下尝试关闭 HTTP `431 Request Header Fields Too Large`。 
-如果套接字不可写，则会被立即销毁。
+如果套接字不可写或已写入数据，则会被立即销毁。
 
 `socket` 是发生错误的 [`net.Socket`] 对象。
 

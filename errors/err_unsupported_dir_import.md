@@ -1,5 +1,5 @@
 
-`import` a directory URL is unsupported. Instead, you can
+`import` a directory URL is unsupported. Instead,
 [self-reference a package using its name][] and [define a custom subpath][] in
 the `"exports"` field of the `package.json` file.
 

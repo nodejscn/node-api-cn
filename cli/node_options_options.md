@@ -35,6 +35,7 @@ node --require "./a.js" --require "./b.js"
 
 Node.js options that are allowed are:
 <!-- node-options-node start -->
+* `--diagnostic-dir`
 * `--disable-proto`
 * `--enable-fips`
 * `--enable-source-maps`
