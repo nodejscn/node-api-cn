@@ -20,7 +20,9 @@ and will lead the process to abort.
 The hooks will be called in reverse order, i.e. the most recently added one
 will be called first.
 
-Removing this hook can be done by using `napi_remove_env_cleanup_hook`.
+Removing this hook can be done by using [`napi_remove_env_cleanup_hook`][].
 Typically, that happens when the resource for which this hook was added
 is being torn down anyway.
+
+For asynchronous cleanup, [`napi_add_async_cleanup_hook`][] is available.
 

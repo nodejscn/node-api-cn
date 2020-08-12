@@ -11,3 +11,7 @@ added: v0.1.104
 通常这种限制是相当有限的。 
 例如，在 Linux 和 macOS 上，`process.title` 仅限于二进制名称的大小加上命令行参数的长度，因为设置 `process.title` 会覆盖进程的 `argv` 内存。
 Node.js 的 v0.8, 通过覆盖 `environ` 允许内存较长的过程标题字符串，但是这在一些（相当模糊的）可能是不安全的并且令人困惑情况下。
+
+Assigning a value to `process.title` might not result in an accurate label
+within process manager applications such as macOS Activity Monitor or Windows
+Services Manager.

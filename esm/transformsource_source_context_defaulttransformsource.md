@@ -2,6 +2,13 @@
 > Note: The loaders API is being redesigned. This hook may disappear or its
 > signature may change. Do not rely on the API described below.
 
+* `source` {string|SharedArrayBuffer|Uint8Array}
+* `context` {Object}
+  * `format` {string}
+  * `url` {string}
+* Returns: {Object}
+  * `source` {string|SharedArrayBuffer|Uint8Array}
+
 The `transformSource` hook provides a way to modify the source code of a loaded
 ES module file after the source string has been loaded but before Node.js has
 done anything with it.
@@ -12,13 +19,13 @@ unknown-to-Node.js file extensions. See the [transpiler loader example][] below.
 
 ```js
 /**
- * @param {!(SharedArrayBuffer | string | Uint8Array)} source
+ * @param {!(string | SharedArrayBuffer | Uint8Array)} source
  * @param {{
- *   url: string,
  *   format: string,
+ *   url: string,
  * }} context
  * @param {Function} defaultTransformSource
- * @returns {Promise<{ source: !(SharedArrayBuffer | string | Uint8Array) }>}
+ * @returns {Promise<{ source: !(string | SharedArrayBuffer | Uint8Array) }>}
  */
 export async function transformSource(source, context, defaultTransformSource) {
   const { url, format } = context;

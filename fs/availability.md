@@ -9,6 +9,7 @@
 * 在 SunOS 系统上（包括 Solaris 和 SmartOS），使用[事件端口][`event ports`]。
 * 在 Windows 系统上，此特性取决于 [`ReadDirectoryChangesW`]。
 * 在 Aix 系统上，此特性取决于 [`AHAFS`] 必须启动。
+* 在 IBM i 系统上，不支持此特性。
 
 如果底层功能由于某些原因不可用，则 `fs.watch()` 会无法运行且可能抛出异常。
 例如，当使用虚拟化软件（如 Vagrant 或 Docker）时，在网络文件系统（NFS、SMB 等）或主文件系统上监视文件或目录可能是不可靠的，在某些情况下也是不可能的。

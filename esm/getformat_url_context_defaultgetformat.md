@@ -2,24 +2,29 @@
 > Note: The loaders API is being redesigned. This hook may disappear or its
 > signature may change. Do not rely on the API described below.
 
+* `url` {string}
+* `context` {Object}
+* `defaultGetFormat` {Function}
+* Returns: {Object}
+  * `format` {string}
+
 The `getFormat` hook provides a way to define a custom method of determining how
 a URL should be interpreted. The `format` returned also affects what the
 acceptable forms of source values are for a module when parsing. This can be one
 of the following:
 
-| `format` | Description | Acceptable Types For `source` Returned by `getSource` or `transformSource` |
-| --- | --- | --- |
-| `'builtin'` | Load a Node.js builtin module | Not applicable |
-| `'commonjs'` | Load a Node.js CommonJS module | Not applicable |
-| `'json'` | Load a JSON file | { [ArrayBuffer][], [string][], [TypedArray][] } |
-| `'module'` | Load an ES module | { [ArrayBuffer][], [string][], [TypedArray][] } |
-| `'wasm'` | Load a WebAssembly module | { [ArrayBuffer][], [string][], [TypedArray][] } |
+| `format`     | Description                    | Acceptable Types For `source` Returned by `getSource` or `transformSource` |
+| ------------ | ------------------------------ | -------------------------------------------------------------------------- |
+| `'builtin'`  | Load a Node.js builtin module  | Not applicable                                                             |
+| `'commonjs'` | Load a Node.js CommonJS module | Not applicable                                                             |
+| `'json'`     | Load a JSON file               | { [`string`][], [`ArrayBuffer`][], [`TypedArray`][] }                      |
+| `'module'`   | Load an ES module              | { [`string`][], [`ArrayBuffer`][], [`TypedArray`][] }                      |
+| `'wasm'`     | Load a WebAssembly module      | { [`ArrayBuffer`][], [`TypedArray`][] }                                    |
 
 Note: These types all correspond to classes defined in ECMAScript.
 
-* The specific [ArrayBuffer][] object is a [SharedArrayBuffer][].
-* The specific [string][] object is not the class constructor, but an instance.
-* The specific [TypedArray][] object is a [Uint8Array][].
+* The specific [`ArrayBuffer`][] object is a [`SharedArrayBuffer`][].
+* The specific [`TypedArray`][] object is a [`Uint8Array`][].
 
 Note: If the source value of a text-based format (i.e., `'json'`, `'module'`) is
 not a string, it will be converted to a string using [`util.TextDecoder`][].

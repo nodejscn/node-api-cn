@@ -9,17 +9,22 @@ changes:
 * `value` {any} 测试是否为真的值。
 * `...message` {any} 除 `value` 之外的所有参数都用作错误消息。
 
-一个简单的断言测试，用于验证 `value` 是否为真。 
-如果不是，则记录 `Assertion failed`。 
-如果提供 `message`，则通过传入所有消息参数来使用 [`util.format()`] 格式化错误消息。 
-输出用作错误消息。
+
+如果 `value` 为[非真][falsy]或省略，则 `console.assert()` 会写入消息。 
+它只写入消息，不影响执行。 
+输出始终以 `"Assertion failed"` 开头。 
+如果提供了 `message`，则使用 [`util.format()`] 格式化它。
+
+如果 `value` 为[真][truthy]，则什么也不会发生。
 
 ```js
 console.assert(true, '什么都不做');
-// OK
+
 console.assert(false, '%s 工作', '无法');
 // Assertion failed: 无法工作
+
+console.assert();
+// Assertion failed
 ```
 
-使用非真的断言调用 `console.assert()` 只会导致打印 `message` 到控制台而不会中断后续代码的执行。
 

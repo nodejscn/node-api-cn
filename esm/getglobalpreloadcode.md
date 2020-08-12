@@ -2,6 +2,8 @@
 > Note: The loaders API is being redesigned. This hook may disappear or its
 > signature may change. Do not rely on the API described below.
 
+* Returns: {string}
+
 Sometimes it can be necessary to run some code inside of the same global scope
 that the application will run in. This hook allows to return a string that will
 be ran as sloppy-mode script on startup.

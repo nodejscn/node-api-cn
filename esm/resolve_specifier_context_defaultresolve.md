@@ -2,6 +2,14 @@
 > Note: The loaders API is being redesigned. This hook may disappear or its
 > signature may change. Do not rely on the API described below.
 
+* `specifier` {string}
+* `context` {Object}
+  * `conditions` {string[]}
+  * `parentURL` {string}
+* `defaultResolve` {Function}
+* Returns: {Object}
+  * `url` {string}
+
 The `resolve` hook returns the resolved file URL for a given module specifier
 and parent URL. The module specifier is the string in an `import` statement or
 `import()` expression, and the parent URL is the URL of the module that imported
@@ -22,11 +30,11 @@ Node.js module specifier resolution behavior_ when calling `defaultResolve`, the
 /**
  * @param {string} specifier
  * @param {{
+ *   conditions: !Array<string>,
  *   parentURL: !(string | undefined),
- *   conditions: !(Array<string>),
  * }} context
  * @param {Function} defaultResolve
- * @returns {!(Promise<{ url: string }>)}
+ * @returns {Promise<{ url: string }>}
  */
 export async function resolve(specifier, context, defaultResolve) {
   const { parentURL = null } = context;
