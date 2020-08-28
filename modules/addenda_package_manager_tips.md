@@ -22,7 +22,7 @@ Node.js 的 `require()` 函数的语义被设计得足够通用化，可以支�
 因此，即便存在循环依赖或依赖冲突，每个模块还是可以获得它所依赖的包的一个可用版本。
 
 当 `foo` 包中的代码调用 `require('bar')`，它会获得符号链接 `/usr/lib/node/foo/1.2.3/node_modules/bar` 指向的版本。
-然后，当 `bar` 包中的代码调用 `require('queue')`，它会获得符号链接 `/usr/lib/node/bar/4.3.2/node_modules/quux` 指向的版本。
+然后，当 `bar` 包中的代码调用 `require('quux')`，它会获得符号链接 `/usr/lib/node/bar/4.3.2/node_modules/quux` 指向的版本。
 
 此外，为了进一步优化模块查找过程，不要将包直接放在 `/usr/lib/node` 目录中，而是将它们放在 `/usr/lib/node_modules/<name>/<version>` 目录中。
 这样 Node.js 就不会在 `/usr/node_modules` 或 `/node_modules` 目录中查找缺失的依赖。
