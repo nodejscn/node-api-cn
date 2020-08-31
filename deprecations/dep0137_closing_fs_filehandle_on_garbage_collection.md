@@ -8,7 +8,7 @@ changes:
 Type: Runtime
 
 Allowing a [`fs.FileHandle`][] object to be closed on garbage collection is
-deprecated. In the future, doing so may result in a thrown error that will
+deprecated. In the future, doing so might result in a thrown error that will
 terminate the process.
 
 Please ensure that all `fs.FileHandle` objects are explicitly closed using

@@ -1,6 +1,13 @@
 <!-- YAML
 added: v10.5.0
 changes:
+  - version: v14.9.0
+    pr-url: https://github.com/nodejs/node/pull/34584
+    description: The `filename` parameter can be a WHATWG `URL` object using
+                 `data:` protocol.
+  - version: v14.9.0
+    pr-url: https://github.com/nodejs/node/pull/34394
+    description: The `trackUnmanagedFds` option was set to `true` by default.
   - version:
     - v14.6.0
     pr-url: https://github.com/nodejs/node/pull/34303
@@ -24,7 +31,8 @@ changes:
     description: The `argv` option was introduced.
 -->
 
-* `filename` {string} 工作线程主脚本的路径。必须是以 `./` 或 `../` 开头的绝对路径或相对路径（即相对于当前工作目录）、或者使用 `file:` 协议的 WHATWG `URL` 对象。
+* `filename` {string} 工作线程主脚本的路径。必须是以 `./` 或 `../` 开头的绝对路径或相对路径（即相对于当前工作目录）、或者使用 `file:` 或 `data:` 协议的 WHATWG `URL` 对象。 
+   When using a [`data:` URL][], the data is interpreted based on MIME type using the [ECMAScript module loader][].
    如果 `options.eval` 为 `true`，则这是一个包含 JavaScript 代码而不是路径的字符串。
 * `options` {Object}
   * `argv` {any[]} 参数列表，其将会被字符串化并附加到工作线程中的 `process.argv`。

@@ -32,7 +32,7 @@ The `v8/*` modules do not have any exports, and if not imported in a specific
 order would in fact throw errors. As such there are virtually no legitimate use
 cases for importing them through `require()`.
 
-On the other hand, `node-inspect` may be installed locally through a package
+On the other hand, `node-inspect` can be installed locally through a package
 manager, as it is published on the npm registry under the same name. No source
 code modification is necessary if that is done.
 

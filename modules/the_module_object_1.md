@@ -1,11 +1,9 @@
 
-<!-- YAML
-added: v0.3.7
--->
+本章节移至 [`module` 模块][_module_object]。
 
-* {Object}
-
-为 `Module` 实例提供通用方法，`module` 变量常见于文件模块中。
-通过 `require('module')` 获取。
+* [`module.builtinModules`][_module.builtinModules]
+* [`module.createRequire(filename)`][_module.createRequire]
+* [`module.createRequireFromPath(filename)`][_module.createRequireFromPath]
+* [`module.syncBuiltinESMExports()`][_module.syncBuiltinESMExports]
 
 

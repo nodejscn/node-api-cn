@@ -11,7 +11,8 @@ async_hooks.createHook({
   init(asyncId, type, triggerAsyncId) {
     const eid = async_hooks.executionAsyncId();
     fs.writeSync(
-      1, `${type}(${asyncId}): trigger: ${triggerAsyncId} execution: ${eid}\n`);
+      process.stdout.fd,
+      `${type}(${asyncId}): trigger: ${triggerAsyncId} execution: ${eid}\n`);
   }
 }).enable();
 

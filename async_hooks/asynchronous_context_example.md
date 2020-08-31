@@ -11,7 +11,7 @@ async_hooks.createHook({
     const eid = async_hooks.executionAsyncId();
     const indentStr = ' '.repeat(indent);
     fs.writeSync(
-      1,
+      process.stdout.fd,
       `${indentStr}${type}(${asyncId}):` +
       ` trigger: ${triggerAsyncId} execution: ${eid}\n`);
   },
