@@ -10,4 +10,3 @@ Type: Documentation-only
 The `produceCachedData` option is deprecated. Use
 [`script.createCachedData()`][] instead.
 
-<a id="DEP0111"></a>

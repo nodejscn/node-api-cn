@@ -12,6 +12,14 @@ added:
 注意，`module` 在此处含义与[模块封装器][module wrapper]所提供的 `module` 是不同的。可以通过引入 `Module` 模块访问：
 
 ```js
+// module.mjs
+// In an ECMAScript module
+import { builtinModules as builtin } from 'module';
+```
+
+```js
+// module.cjs
+// In a CommonJS module
 const builtin = require('module').builtinModules;
 ```
 

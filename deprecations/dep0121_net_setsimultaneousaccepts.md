@@ -13,4 +13,3 @@ and `cluster` modules on Windows. The function is not generally useful and
 is being removed. See discussion here:
 <https://github.com/nodejs/node/issues/18391>
 
-<a id="DEP0122"></a>

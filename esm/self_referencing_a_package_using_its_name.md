@@ -23,7 +23,7 @@ import { something } from 'a-package'; // Imports "something" from ./main.mjs.
 
 Self-referencing is available only if `package.json` has `exports`, and will
 allow importing only what that `exports` (in the `package.json`) allows.
-So the code below, given the package above, will generate a runtime error:
+So the code below, given the previous package, will generate a runtime error:
 
 ```js
 // ./another-module.mjs

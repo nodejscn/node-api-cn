@@ -11,4 +11,3 @@ Type: Runtime
 deprecated. Please use `fs.ftruncate()` or `fs.ftruncateSync()` to work with
 file descriptors.
 
-<a id="DEP0082"></a>

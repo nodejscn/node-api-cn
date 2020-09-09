@@ -12,4 +12,3 @@ like `dns.lookup(false)` due to backward compatibility.
 This behavior is undocumented and is thought to be unused in real world apps.
 It will become an error in future versions of Node.js.
 
-<a id="DEP0119"></a>

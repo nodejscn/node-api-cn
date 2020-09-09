@@ -17,4 +17,3 @@ Type: End-of-Life
 
 `util.error()` has been removed. Please use [`console.error()`][] instead.
 
-<a id="DEP0030"></a>

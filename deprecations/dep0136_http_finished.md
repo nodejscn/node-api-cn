@@ -19,4 +19,3 @@ accordingly instead to avoid the ambigiuty.
 To maintain existing behaviour `response.finished` should be replaced with
 `response.writableEnded`.
 
-<a id="DEP0137"></a>

@@ -18,4 +18,3 @@ Type: End-of-Life
 The `os.getNetworkInterfaces()` method is deprecated. Please use the
 [`os.networkInterfaces()`][] method instead.
 
-<a id="DEP0024"></a>

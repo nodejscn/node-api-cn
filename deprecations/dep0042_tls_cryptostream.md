@@ -18,4 +18,3 @@ Type: End-of-Life
 The [`tls.CryptoStream`][] class was removed. Please use
 [`tls.TLSSocket`][] instead.
 
-<a id="DEP0043"></a>

@@ -10,4 +10,4 @@ cannot be serialized.
 This can only happen when native addons create `SharedArrayBuffer`s in
 "externalized" mode, or put existing `SharedArrayBuffer` into externalized mode.
 
-<a id="ERR_UNKNOWN_BUILTIN_MODULE"></a>
+<a id="ERR_UNKNOWN_STDIN_TYPE"></a>

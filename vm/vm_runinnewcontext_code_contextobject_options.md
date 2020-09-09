@@ -41,7 +41,7 @@ changes:
      * `module` {vm.Module}
      * 返回: {Module Namespace Object|vm.Module} 返回 `vm.Module` 以利用错误跟踪，并避免出现包含 `then` 函数导出的命名空间问题。
   * `microtaskMode` {string} If set to `afterEvaluate`, microtasks (tasks
-    scheduled through `Promise`s any `async function`s) will be run immediately
+    scheduled through `Promise`s and `async function`s) will be run immediately
     after the script has run. They are included in the `timeout` and
     `breakOnSigint` scopes in that case.
 * 返回: {any} 脚本中执行的最后一个语句的结果。

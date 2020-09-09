@@ -16,4 +16,3 @@ methods in particular can be replaced by using [`util.types`][].
 This deprecation has been superseded by the deprecation of the
 `process.binding()` API ([DEP0111](#DEP0111)).
 
-<a id="DEP0104"></a>

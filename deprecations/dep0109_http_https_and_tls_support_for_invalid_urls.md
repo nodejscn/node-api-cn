@@ -14,4 +14,3 @@ accepted by the legacy `url.parse()` API. The mentioned APIs now use the WHATWG
 URL parser that requires strictly valid URLs. Passing an invalid URL is
 deprecated and support will be removed in the future.
 
-<a id="DEP0110"></a>

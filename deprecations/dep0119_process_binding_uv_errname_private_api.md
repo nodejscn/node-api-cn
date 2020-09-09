@@ -10,4 +10,3 @@ Type: Documentation-only (supports [`--pending-deprecation`][])
 `process.binding('uv').errname()` is deprecated. Please use
 [`util.getSystemErrorName()`][] instead.
 
-<a id="DEP0120"></a>

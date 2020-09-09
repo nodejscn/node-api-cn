@@ -21,4 +21,3 @@ Use [`asyncResource.runInAsyncScope()`][] API instead which provides a much
 safer, and more convenient, alternative. See
 <https://github.com/nodejs/node/pull/18513>.
 
-<a id="DEP0099"></a>

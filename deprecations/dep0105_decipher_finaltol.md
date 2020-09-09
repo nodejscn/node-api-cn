@@ -14,4 +14,3 @@ Type: End-of-Life
 [`decipher.final()`][]. This API has been removed, and it is recommended to use
 [`decipher.final()`][] instead.
 
-<a id="DEP0106"></a>

@@ -13,4 +13,3 @@ Type: End-of-Life
 The `crypto._toBuf()` function was not designed to be used by modules outside
 of Node.js core and was removed.
 
-<a id="DEP0115"></a>

@@ -17,4 +17,3 @@ Type: End-of-Life
 
 `util.puts()` has been removed. Please use [`console.log()`][] instead.
 
-<a id="DEP0028"></a>

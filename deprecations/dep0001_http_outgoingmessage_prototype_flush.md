@@ -18,4 +18,3 @@ Type: End-of-Life
 `OutgoingMessage.prototype.flush()` has been removed. Use
 `OutgoingMessage.prototype.flushHeaders()` instead.
 
-<a id="DEP0002"></a>

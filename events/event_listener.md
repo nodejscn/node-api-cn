@@ -2,17 +2,17 @@
 Event listeners registered for an event `type` may either be JavaScript
 functions or objects with a `handleEvent` property whose value is a function.
 
-In either case, the handler function will be invoked with the `event` argument
+In either case, the handler function is invoked with the `event` argument
 passed to the `eventTarget.dispatchEvent()` function.
 
 Async functions may be used as event listeners. If an async handler function
-rejects, the rejection will be captured and be will handled as described in
+rejects, the rejection is captured and handled as described in
 [`EventTarget` error handling][].
 
-An error thrown by one handler function will not prevent the other handlers
+An error thrown by one handler function does not prevent the other handlers
 from being invoked.
 
-The return value of a handler function will be ignored.
+The return value of a handler function is ignored.
 
 Handlers are always invoked in the order they were added.
 

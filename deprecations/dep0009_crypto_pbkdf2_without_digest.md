@@ -31,4 +31,3 @@ is `undefined`.
 
 Now, however, passing either `undefined` or `null` will throw a `TypeError`.
 
-<a id="DEP0010"></a>

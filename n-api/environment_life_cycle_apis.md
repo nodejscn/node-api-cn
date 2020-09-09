@@ -17,7 +17,7 @@ From the perspective of a native addon this means that the bindings it provides
 may be called multiple times, from multiple contexts, and even concurrently from
 multiple threads.
 
-Native addons may need to allocate global state of which they make use during
+Native addons may need to allocate global state which they use during
 their entire life cycle such that the state must be unique to each instance of
 the addon.
 

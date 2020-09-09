@@ -9,4 +9,3 @@ Type: Documentation-only
 
 [`socket.bufferSize`][] is just an alias for [`writable.writableLength`][].
 
-<a id="DEP0146"></a>

@@ -9,4 +9,3 @@ Type: Documentation-only
 
 Use [`request.destroy()`][] instead of [`request.abort()`][].
 
-<a id="DEP0141"></a>

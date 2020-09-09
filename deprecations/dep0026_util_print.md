@@ -17,4 +17,3 @@ Type: End-of-Life
 
 `util.print()` has been removed. Please use [`console.log()`][] instead.
 
-<a id="DEP0027"></a>

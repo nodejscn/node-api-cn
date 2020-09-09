@@ -16,4 +16,3 @@ the `_handle` property of the `Cipher`, `Decipher`, `DiffieHellman`,
 The `_handle` property has been removed because improper use of the native
 object can lead to crashing the application.
 
-<a id="DEP0118"></a>

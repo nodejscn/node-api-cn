@@ -5,7 +5,7 @@ added: v14.5.0
 * `type` {string}
 * `listener` {Function|EventListener}
 * `options` {Object}
-  * `once` {boolean} When `true`, the listener will be automatically removed
+  * `once` {boolean} When `true`, the listener is automatically removed
     when it is first invoked. **Default:** `false`.
   * `passive` {boolean} When `true`, serves as a hint that the listener will
     not call the `Event` object's `preventDefault()` method.
@@ -13,10 +13,10 @@ added: v14.5.0
   * `capture` {boolean} Not directly used by Node.js. Added for API
     completeness. **Default:** `false`.
 
-Adds a new handler for the `type` event. Any given `listener` will be added
+Adds a new handler for the `type` event. Any given `listener` is added
 only once per `type` and per `capture` option value.
 
-If the `once` option is `true`, the `listener` will be removed after the
+If the `once` option is `true`, the `listener` is removed after the
 next time a `type` event is dispatched.
 
 The `capture` option is not used by Node.js in any functional way other than

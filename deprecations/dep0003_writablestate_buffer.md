@@ -18,4 +18,3 @@ Type: End-of-Life
 The `_writableState.buffer` has been removed. Use `_writableState.getBuffer()`
 instead.
 
-<a id="DEP0004"></a>

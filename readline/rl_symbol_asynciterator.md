@@ -35,3 +35,7 @@ async function processLineByLine() {
 }
 ```
 
+`readline.createInterface()` will start to consume the input stream once
+invoked. Having asynchronous operations between interface creation and
+asynchronous iteration may result in missed lines.
+

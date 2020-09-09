@@ -16,4 +16,3 @@ Type: End-of-Life
 The `GLOBAL` and `root` aliases for the `global` property were deprecated
 in Node.js 6.0.0 and have since been removed.
 
-<a id="DEP0017"></a>

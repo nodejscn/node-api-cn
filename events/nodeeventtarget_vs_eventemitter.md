@@ -5,7 +5,7 @@ certain situations. A `NodeEventTarget` is *not* an instance of `EventEmitter`
 and cannot be used in place of an `EventEmitter` in most cases.
 
 1. Unlike `EventEmitter`, any given `listener` can be registered at most once
-   per event `type`. Attempts to register a `listener` multiple times will be
+   per event `type`. Attempts to register a `listener` multiple times are
    ignored.
 2. The `NodeEventTarget` does not emulate the full `EventEmitter` API.
    Specifically the `prependListener()`, `prependOnceListener()`,

@@ -14,4 +14,3 @@ modules is unsupported.
 It is deprecated in favor of [`require.main`][], because it serves the same
 purpose and is only available on CommonJS environment.
 
-<a id="DEP0139"></a>

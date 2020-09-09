@@ -1,3 +1,4 @@
-
-> Stability: 0 - Deprecated: Use the WHATWG URL API instead.
+<!-- YAML
+deprecated: v11.0.0
+-->
 

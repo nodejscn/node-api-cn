@@ -12,4 +12,3 @@ Please use the publicly documented [`timeout.refresh()`][] instead.
 If unreferencing the timeout is necessary, [`timeout.unref()`][] can be used
 with no performance impact since Node.js 10.
 
-<a id="DEP0128"></a>

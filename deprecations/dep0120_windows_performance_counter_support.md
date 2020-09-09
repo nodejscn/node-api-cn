@@ -16,4 +16,3 @@ undocumented `COUNTER_NET_SERVER_CONNECTION()`,
 `COUNTER_HTTP_SERVER_RESPONSE()`, `COUNTER_HTTP_CLIENT_REQUEST()`, and
 `COUNTER_HTTP_CLIENT_RESPONSE()` functions have been deprecated.
 
-<a id="DEP0121"></a>

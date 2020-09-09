@@ -13,4 +13,3 @@ Type: Runtime
 Module.createRequireFromPath() is deprecated. Please use
 [`module.createRequire()`][] instead.
 
-<a id="DEP0131"></a>

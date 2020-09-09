@@ -12,6 +12,8 @@ changes:
                  times.
 -->
 
+> Stability: 0 - Deprecated: Use the WHATWG URL API instead.
+
 * `urlObject` {Object|string} A URL object (as returned by `url.parse()` or
   constructed otherwise). If a string, it is converted to an object by passing
   it to `url.parse()`.

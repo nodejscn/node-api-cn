@@ -18,4 +18,3 @@ Type: End-of-Life
 The `crypto.Credentials` class was removed. Please use [`tls.SecureContext`][]
 instead.
 
-<a id="DEP0012"></a>

@@ -1,6 +1,6 @@
 
 When a registered event listener throws (or returns a Promise that rejects),
-by default the error will be forwarded to the `process.on('error')` event
+by default the error is forwarded to the `process.on('error')` event
 on `process.nextTick()`. Throwing within an event listener will *not* stop
 the other registered handlers from being invoked.
 

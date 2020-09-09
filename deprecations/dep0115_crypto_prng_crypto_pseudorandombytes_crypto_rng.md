@@ -16,4 +16,3 @@ deprecated along with the undocumented aliases `crypto.prng()` and
 `crypto.rng()` in favor of [`crypto.randomBytes()`][] and might be removed in a
 future release.
 
-<a id="DEP0116"></a>

@@ -11,4 +11,3 @@ The [Legacy URL API][] is deprecated. This includes [`url.format()`][],
 [`url.parse()`][], [`url.resolve()`][], and the [legacy `urlObject`][]. Please
 use the [WHATWG URL API][] instead.
 
-<a id="DEP0117"></a>

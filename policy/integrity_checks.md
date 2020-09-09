@@ -23,8 +23,8 @@ An example policy file that would allow loading a file `checked.js`:
 Each resource listed in the policy manifest can be of one the following
 formats to determine its location:
 
-1. A [relative url string][] to a resource from the manifest such as `./resource.js`, `../resource.js`, or `/resource.js`.
-2. A complete url string to a resource such as `file:///resource.js`.
+1. A [relative-URL string][] to a resource from the manifest such as `./resource.js`, `../resource.js`, or `/resource.js`.
+2. A complete URL string to a resource such as `file:///resource.js`.
 
 When loading resources the entire URL must match including search parameters
 and hash fragment. `./a.js?b` will not be used when attempting to load

@@ -37,4 +37,3 @@ Without `--pending-deprecation`, runtime warnings occur only for code not in
 `Buffer()` usage in dependencies. With `--pending-deprecation`, a runtime
 warning results no matter where the `Buffer()` usage occurs.
 
-<a id="DEP0006"></a>

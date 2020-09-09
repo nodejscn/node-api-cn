@@ -25,7 +25,7 @@ changes:
     * `strings` {boolean} 如果设置为 `false`，则对 `eval` 或函数构造函数（`Function`、`GeneratorFunction` 等）的任何调用都将抛出 `EvalError`。**默认值:** `true`。
     * `wasm` {boolean} 如果设置为 `false`，则任何编译 WebAssembly 模块的尝试都将抛出 `WebAssembly.CompileError`。**默认值:** `true`。
   * `microtaskMode` {string} If set to `afterEvaluate`, microtasks (tasks
-    scheduled through `Promise`s any `async function`s) will be run immediately
+    scheduled through `Promise`s and `async function`s) will be run immediately
     after the script has run. They are included in the `timeout` and
     `breakOnSigint` scopes in that case.
 * 返回: {any} 脚本中执行的最后一个语句的结果。

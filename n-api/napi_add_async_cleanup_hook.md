@@ -1,5 +1,9 @@
 <!-- YAML
 added: v14.8.0
+changes:
+  - version: v14.10.0
+    pr-url: https://github.com/nodejs/node/pull/34819
+    description: Changed signature of the `hook` callback.
 -->
 
 > Stability: 1 - Experimental
@@ -7,15 +11,22 @@ added: v14.8.0
 ```c
 NAPI_EXTERN napi_status napi_add_async_cleanup_hook(
     napi_env env,
-    void (*fun)(void* arg, void(* cb)(void*), void* cbarg),
+    napi_async_cleanup_hook hook,
     void* arg,
     napi_async_cleanup_hook_handle* remove_handle);
 ```
 
-Registers `fun` as a function to be run with the `arg` parameter once the
-current Node.js environment exits. Unlike [`napi_add_env_cleanup_hook`][],
-the hook is allowed to be asynchronous in this case, and must invoke the passed
-`cb()` function with `cbarg` once all asynchronous activity is finished.
+* `[in] env`: The environment that the API is invoked under.
+* `[in] hook`: The function pointer to call at environment teardown.
+* `[in] arg`: The pointer to pass to `hook` when it gets called.
+* `[out] remove_handle`: Optional handle that refers to the asynchronous cleanup
+hook.
+
+Registers `hook`, which is a function of type [`napi_async_cleanup_hook`][], as
+a function to be run with the `remove_handle` and `arg` parameters once the
+current Node.js environment exits.
+
+Unlike [`napi_add_env_cleanup_hook`][], the hook is allowed to be asynchronous.
 
 Otherwise, behavior generally matches that of [`napi_add_env_cleanup_hook`][].
 

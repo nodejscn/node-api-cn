@@ -22,6 +22,7 @@ server.removeListener('connection', callback);
 
 一旦事件被触发，所有绑定到该事件的监听器都会按顺序依次调用。
 这意味着，在事件触发之后、且最后一个监听器执行完成之前，`removeListener()` 或 `removeAllListeners()` 不会从 `emit()` 中移除它们。
+后续事件的行为符合预期。
 
 ```js
 const myEmitter = new MyEmitter();

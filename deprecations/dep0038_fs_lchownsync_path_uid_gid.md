@@ -17,4 +17,3 @@ Type: Deprecation revoked
 The [`fs.lchownSync(path, uid, gid)`][] API was deprecated. The deprecation was
 revoked because the requisite supporting APIs were added in libuv.
 
-<a id="DEP0039"></a>

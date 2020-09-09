@@ -5,6 +5,8 @@ changes:
     description: The Legacy URL API is deprecated. Use the WHATWG URL API.
 -->
 
+> Stability: 0 - Deprecated: Use the WHATWG URL API instead.
+
 The legacy `urlObject` (`require('url').Url`) is created and returned by the
 `url.parse()` function.
 

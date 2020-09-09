@@ -17,4 +17,3 @@ Type: End-of-Life
 
 The `CryptoStream.prototype.readyState` property was removed.
 
-<a id="DEP0005"></a>

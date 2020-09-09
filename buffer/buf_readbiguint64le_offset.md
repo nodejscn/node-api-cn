@@ -2,6 +2,10 @@
 added:
  - v12.0.0
  - v10.20.0
+changes:
+  - version: v14.10.0
+    pr-url: https://github.com/nodejs/node/pull/34960
+    description: This function is also available as `buf.readBigUint64LE()`.
 -->
 
 * `offset` {integer} 开始读取之前要跳过的字节数。必须满足：`0 <= offset <= buf.length - 8`。**默认值:** `0`。

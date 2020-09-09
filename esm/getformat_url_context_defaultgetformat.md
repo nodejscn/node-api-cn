@@ -40,7 +40,7 @@ export async function getFormat(url, context, defaultGetFormat) {
   if (Math.random() > 0.5) { // Some condition.
     // For some or all URLs, do some custom logic for determining format.
     // Always return an object of the form {format: <string>}, where the
-    // format is one of the strings in the table above.
+    // format is one of the strings in the preceding table.
     return {
       format: 'module',
     };

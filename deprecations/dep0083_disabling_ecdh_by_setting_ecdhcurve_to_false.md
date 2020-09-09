@@ -15,4 +15,3 @@ be set to `false` to disable ECDH entirely on the server only. This mode was
 deprecated in preparation for migrating to OpenSSL 1.1.0 and consistency with
 the client and is now unsupported. Use the `ciphers` parameter instead.
 
-<a id="DEP0084"></a>

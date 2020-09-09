@@ -18,4 +18,3 @@ Type: End-of-Life
 In certain cases, `require('.')` could resolve outside the package directory.
 This behavior has been removed.
 
-<a id="DEP0020"></a>

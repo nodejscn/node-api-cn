@@ -18,4 +18,3 @@ Type: End-of-Life
 The `crypto.createCredentials()` API was removed. Please use
 [`tls.createSecureContext()`][] instead.
 
-<a id="DEP0011"></a>

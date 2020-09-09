@@ -15,6 +15,8 @@ changes:
                  when no query string is present.
 -->
 
+> Stability: 0 - Deprecated: Use the WHATWG URL API instead.
+
 * `urlString` {string} The URL string to parse.
 * `parseQueryString` {boolean} If `true`, the `query` property will always
   be set to an object returned by the [`querystring`][] module's `parse()`

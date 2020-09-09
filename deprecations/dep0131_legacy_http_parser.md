@@ -15,4 +15,3 @@ is deprecated and has been removed in v13.0.0. Prior to v13.0.0, the
 `--http-parser=legacy` command-line flag could be used to revert to using the
 legacy parser.
 
-<a id="DEP0132"></a>

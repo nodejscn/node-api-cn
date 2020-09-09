@@ -12,4 +12,3 @@ Type: Documentation-only (supports [`--pending-deprecation`][])
 
 `process.binding()` is for use by Node.js internal code only.
 
-<a id="DEP0112"></a>

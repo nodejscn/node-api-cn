@@ -22,7 +22,7 @@ of the given JavaScript `Number`.
 
 If the number exceeds the range of the 32 bit integer, then the result is
 truncated to the equivalent of the bottom 32 bits. This can result in a large
-positive number becoming a negative number if the value is > 2^31 -1.
+positive number becoming a negative number if the value is > 2<sup>31</sup> - 1.
 
 Non-finite number values (`NaN`, `+Infinity`, or `-Infinity`) set the
 result to zero.

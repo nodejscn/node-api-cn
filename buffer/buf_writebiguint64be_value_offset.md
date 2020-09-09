@@ -2,6 +2,10 @@
 added:
  - v12.0.0
  - v10.20.0
+changes:
+  - version: v14.10.0
+    pr-url: https://github.com/nodejs/node/pull/34960
+    description: This function is also available as `buf.writeBigUint64BE()`.
 -->
 
 * `value` {bigint} 要写入 `buf` 的数值。

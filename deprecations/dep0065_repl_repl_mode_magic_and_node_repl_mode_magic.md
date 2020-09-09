@@ -19,4 +19,3 @@ The `NODE_REPL_MODE` environment variable is used to set the underlying
 `replMode` of an interactive `node` session. Its value, `magic`, is also
 removed. Please use `sloppy` instead.
 
-<a id="DEP0066"></a>

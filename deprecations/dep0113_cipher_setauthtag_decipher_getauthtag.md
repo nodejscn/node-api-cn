@@ -13,4 +13,3 @@ Type: End-of-Life
 `Cipher.setAuthTag()` and `Decipher.getAuthTag()` are no longer available. They
 were never documented and would throw when called.
 
-<a id="DEP0114"></a>

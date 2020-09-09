@@ -18,4 +18,3 @@ function for [`util.inspect()`][] is deprecated. Use [`util.inspect.custom`][]
 instead. For backward compatibility with Node.js prior to version 6.4.0, both
 can be specified.
 
-<a id="DEP0080"></a>

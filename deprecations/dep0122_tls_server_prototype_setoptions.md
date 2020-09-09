@@ -9,4 +9,3 @@ Type: Runtime
 
 Please use `Server.prototype.setSecureContext()` instead.
 
-<a id="DEP0123"></a>

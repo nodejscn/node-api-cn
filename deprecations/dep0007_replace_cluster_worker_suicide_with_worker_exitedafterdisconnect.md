@@ -23,4 +23,3 @@ provide an indication of how and why the `Worker` instance exited. In Node.js
 [`worker.exitedAfterDisconnect`][] property. The old property name did not
 precisely describe the actual semantics and was unnecessarily emotion-laden.
 
-<a id="DEP0008"></a>

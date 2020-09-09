@@ -14,4 +14,3 @@ accessed outside of Node.js core: `Socket.prototype._handle`,
 `Socket.prototype._healthCheck()`, `Socket.prototype._stopReceiving()`, and
 `dgram._createSocketHandle()`.
 
-<a id="DEP0113"></a>

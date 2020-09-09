@@ -10,4 +10,3 @@ Type: Runtime
 Passing a callback to [`worker.terminate()`][] is deprecated. Use the returned
 `Promise` instead, or a listener to the worker’s `'exit'` event.
 
-<a id="DEP0133"></a>

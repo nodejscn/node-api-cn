@@ -17,6 +17,8 @@ changes:
                  contains a hostname.
 -->
 
+> Stability: 0 - Deprecated: Use the WHATWG URL API instead.
+
 * `from` {string} The Base URL being resolved against.
 * `to` {string} The HREF URL being resolved.
 

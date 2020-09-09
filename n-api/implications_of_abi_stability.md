@@ -26,7 +26,7 @@ versions:
     ```
 
 Thus, for an addon to remain ABI-compatible across Node.js major versions, it
-must make use exclusively of N-API by restricting itself to using
+must use N-API exclusively by restricting itself to using
 
 ```c
 #include <node_api.h>

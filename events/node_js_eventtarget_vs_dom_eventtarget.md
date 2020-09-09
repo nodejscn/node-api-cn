@@ -9,6 +9,6 @@ There are two key differences between the Node.js `EventTarget` and the
    event.
 2. In the Node.js `EventTarget`, if an event listener is an async function
    or returns a `Promise`, and the returned `Promise` rejects, the rejection
-   will be automatically captured and handled the same way as a listener that
+   is automatically captured and handled the same way as a listener that
    throws synchronously (see [`EventTarget` error handling][] for details).
 

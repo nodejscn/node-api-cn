@@ -19,6 +19,6 @@ This API is used to convert from the C `int64_t` type to the JavaScript
 The JavaScript `Number` type is described in [Section 6.1.6][]
 of the ECMAScript Language Specification. Note the complete range of `int64_t`
 cannot be represented with full precision in JavaScript. Integer values
-outside the range of [`Number.MIN_SAFE_INTEGER`][] `-(2^53 - 1)` -
-[`Number.MAX_SAFE_INTEGER`][] `(2^53 - 1)` will lose precision.
+outside the range of [`Number.MIN_SAFE_INTEGER`][] `-(2**53 - 1)` -
+[`Number.MAX_SAFE_INTEGER`][] `(2**53 - 1)` will lose precision.
 
