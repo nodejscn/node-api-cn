@@ -1,6 +1,10 @@
 <!-- YAML
 added: v0.1.21
 changes:
+  - version: v14.12.0
+    pr-url: https://github.com/nodejs/node/pull/34993
+    description: The `buffer` parameter will stringify an object with an
+                 explicit `toString` function.
   - version: v14.0.0
     pr-url: https://github.com/nodejs/node/pull/31030
     description: 参数 `buffer` 不再强制把不支持的输入转换为字符串。
@@ -16,7 +20,7 @@ changes:
 -->
 
 * `fd` {integer}
-* `buffer` {Buffer|TypedArray|DataView}
+* `buffer` {Buffer|TypedArray|DataView|string|Object}
 * `offset` {integer}
 * `length` {integer}
 * `position` {integer}

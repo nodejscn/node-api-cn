@@ -1,6 +1,10 @@
 <!-- YAML
 added: v0.11.5
 changes:
+  - version: v14.12.0
+    pr-url: https://github.com/nodejs/node/pull/34993
+    description: The `string` parameter will stringify an object with an
+                 explicit `toString` function.
   - version: v14.0.0
     pr-url: https://github.com/nodejs/node/pull/31030
     description: The `string` parameter won't coerce unsupported input to
@@ -19,7 +23,7 @@ changes:
 -->
 
 * `fd` {integer}
-* `string` {string}
+* `string` {string|Object}
 * `position` {integer}
 * `encoding` {string} **默认值:** `'utf8'`。
 * `callback` {Function}
@@ -28,7 +32,7 @@ changes:
   * `string` {string}
 
 将 `string` 写入到 `fd` 指定的文件。
-如果 `string` 不是一个字符串，则会抛出异常。
+如果 `string` 不是字符串或具有自有 `toString` 函数属性的对象，则抛出异常。
 
 `position` 指定文件开头的偏移量（数据要被写入的位置）。
 如果 `typeof position !== 'number'`，则数据会被写入当前的位置。

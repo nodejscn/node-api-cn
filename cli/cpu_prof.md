@@ -7,10 +7,10 @@ added: v12.0.0
 Starts the V8 CPU profiler on start up, and writes the CPU profile to disk
 before exit.
 
-If `--cpu-prof-dir` is not specified, the generated profile will be placed
+If `--cpu-prof-dir` is not specified, the generated profile is placed
 in the current working directory.
 
-If `--cpu-prof-name` is not specified, the generated profile will be
+If `--cpu-prof-name` is not specified, the generated profile is
 named `CPU.${yyyymmdd}.${hhmmss}.${pid}.${tid}.${seq}.cpuprofile`.
 
 ```console

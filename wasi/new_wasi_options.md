@@ -6,7 +6,7 @@ added:
 
 * `options` {Object}
   * `args` {Array} An array of strings that the WebAssembly application will
-    see as command line arguments. The first argument is the virtual path to the
+    see as command-line arguments. The first argument is the virtual path to the
     WASI command itself. **Default:** `[]`.
   * `env` {Object} An object similar to `process.env` that the WebAssembly
     application will see as its environment. **Default:** `{}`.

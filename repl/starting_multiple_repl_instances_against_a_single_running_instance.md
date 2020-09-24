@@ -45,5 +45,5 @@ net.createServer((socket) => {
 
 例子，在一个 `net.Server` 实例和一个 `net.Socket` 实例上运行一个全特性的（`terminal`）REPL，详见：<https://gist.github.com/TooTallNate/2209310>。
 
-例子，在 [curl(1)][] 上运行一个 REPL 实例，详见：<https://gist.github.com/TooTallNate/2053342>。
+例子，在 [`curl(1)`][] 上运行一个 REPL 实例，详见：<https://gist.github.com/TooTallNate/2053342>。
 

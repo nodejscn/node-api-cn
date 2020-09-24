@@ -1,19 +1,24 @@
 <!-- YAML
 added: v10.0.0
 changes:
+  - version: v14.12.0
+    pr-url: https://github.com/nodejs/node/pull/34993
+    description: The `data` parameter will stringify an object with an
+                 explicit `toString` function.
   - version: v14.0.0
     pr-url: https://github.com/nodejs/node/pull/31030
     description: 参数 `data` 不再强制转换不支持的输入为字符串。
 -->
-* `data` {string|Buffer|Uint8Array}
+
+* `data` {string|Buffer|Uint8Array|Object}
 * `options` {Object|string}
   * `encoding` {string|null} **默认值:** `'utf8'`。
 * 返回: {Promise}
 
 
 异步地将数据写入到一个文件，如果文件已存在则覆盖该文件。
-`data` 可以是字符串或 buffer。
-`Promise` 将会在成功时解决，且不带参数。
+`data` 可以是字符串、buffer、或具有自有 `toString` 函数属性的对象。
+`Promise` 会在成功时被解决，且不带参数。
 
 如果 `data` 是 buffer，则 `encoding` 选项会被忽略。
 

@@ -85,7 +85,7 @@
   <tr>
     <td><code>ctrl</code> + <code>w</code> or <code>ctrl</code>
     + <code>backspace</code></td>
-    <td>Delete backwards to a word boundary</td>
+    <td>Delete backward to a word boundary</td>
     <td><code>ctrl</code> + <code>backspace</code> Doesn't
     work on Linux, Mac and Windows</td>
   </tr>

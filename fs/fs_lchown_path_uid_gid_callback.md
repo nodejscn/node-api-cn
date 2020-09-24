@@ -11,6 +11,8 @@ changes:
     pr-url: https://github.com/nodejs/node/pull/7897
     description: 参数 `callback` 不再是可选的。 
       如果不传入，则会触发弃用警告（id 为 DEP0013）。
+  - version: v0.4.7
+    description: Documentation-only deprecation.
 -->
 
 * `path` {string|Buffer|URL}

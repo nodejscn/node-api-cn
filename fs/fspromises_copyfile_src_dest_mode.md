@@ -1,5 +1,10 @@
 <!-- YAML
 added: v10.0.0
+changes:
+  - version: v14.0.0
+    pr-url: https://github.com/nodejs/node/pull/27044
+    description: Changed 'flags' argument to 'mode' and imposed
+                 stricter type validation.
 -->
 
 * `src` {string|Buffer|URL} 要拷贝的源文件名。

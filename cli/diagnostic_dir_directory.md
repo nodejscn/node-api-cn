@@ -1,5 +1,5 @@
 
-Set the directory to which all diagnostic output files will be written to.
+Set the directory to which all diagnostic output files are written.
 Defaults to current working directory.
 
 Affects the default output directory of:

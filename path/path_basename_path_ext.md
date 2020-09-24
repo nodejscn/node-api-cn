@@ -22,5 +22,16 @@ path.basename('/目录1/目录2/文件.html', '.html');
 // 返回: '文件'
 ```
 
+尽管 Windows 通常以不区分大小写的方式处理文件名（包括文件扩展名），但是此函数不会这样。 
+例如，`C:\\文件.html` 和 `C:\\文件.HTML` 指向相同的文件，但是 `basename` 会将扩展名视为区分大小写的字符串：
+
+```js
+path.win32.basename('C:\\文件.html', '.html');
+// 返回: '文件'
+
+path.win32.basename('C:\\文件.HTML', '.html');
+// 返回: '文件.HTML'
+```
+
 如果 `path` 不是字符串、或给定了 `ext` 但不是字符串，则抛出 [`TypeError`]。
 

@@ -9,8 +9,8 @@ This flag exists so that the main module can be opted-in to the same behavior
 that `--preserve-symlinks` gives to all other imports; they are separate flags,
 however, for backward compatibility with older Node.js versions.
 
-`--preserve-symlinks-main` does not imply `--preserve-symlinks`; it
-is expected that `--preserve-symlinks-main` will be used in addition to
+`--preserve-symlinks-main` does not imply `--preserve-symlinks`; use
+`--preserve-symlinks-main` in addition to
 `--preserve-symlinks` when it is not desirable to follow symlinks before
 resolving relative paths.
 

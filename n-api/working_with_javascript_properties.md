@@ -127,8 +127,8 @@ if (status != napi_ok) return status;
 
 // Set the properties
 napi_property_descriptor descriptors[] = {
-  { "foo", NULL, NULL, NULL, NULL, fooValue, napi_default, NULL },
-  { "bar", NULL, NULL, NULL, NULL, barValue, napi_default, NULL }
+  { "foo", NULL, NULL, NULL, NULL, fooValue, napi_writable | napi_configurable, NULL },
+  { "bar", NULL, NULL, NULL, NULL, barValue, napi_writable | napi_configurable, NULL }
 }
 status = napi_define_properties(env,
                                 obj,

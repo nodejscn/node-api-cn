@@ -19,19 +19,20 @@ changes:
 * `libUrl` {string} 指向一个_`node.lib`_文件的绝对 URL，匹配当前发布的结构和版本信息。此文件用于编译 Node.js 本地插件。这个属性只在 Windows 版本中存在，在其他平台中无效。
 * `lts` {string} 标识当前发布的 [LTS][] 标签的字符串。
   只有 LTS 版本存在这个属性，其他所有版本类型（包括当前版本）这个属性都是 `undefined`。
-  当前的有效值有：
-  - `'Argon'` 用于 4.2.0 开始的 4.x LTS 版本。
-  - `'Boron'` 用于 6.9.0 开始的 6.x LTS 版本。
-  - `'Carbon'` 用于 8.9.1 开始的 8.x LTS 版本。
+  有效值包括 LTS 发行代号（包括不再受支持的代号）。 
+  这些代号的非穷举示例包括：
+  * `'Dubnium'` 用于 10.13.0 开始的 10.x LTS 版本。
+  * `'Erbium'` 用于 12.13.0 开始的 12.x LTS 版本。
+  有关其他的 LTS 发行代号，参见 [Node.js 更新日志的存档](https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_ARCHIVE.md)。
 
 <!-- eslint-skip -->
 ```js
 {
   name: 'node',
-  lts: 'Argon',
-  sourceUrl: 'https://nodejs.org/download/release/v4.4.5/node-v4.4.5.tar.gz',
-  headersUrl: 'https://nodejs.org/download/release/v4.4.5/node-v4.4.5-headers.tar.gz',
-  libUrl: 'https://nodejs.org/download/release/v4.4.5/win-x64/node.lib'
+  lts: 'Erbium',
+  sourceUrl: 'https://nodejs.org/download/release/v12.18.1/node-v12.18.1.tar.gz',
+  headersUrl: 'https://nodejs.org/download/release/v12.18.1/node-v12.18.1-headers.tar.gz',
+  libUrl: 'https://nodejs.org/download/release/v12.18.1/win-x64/node.lib'
 }
 ```
 

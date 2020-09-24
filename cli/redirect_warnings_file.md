@@ -9,5 +9,5 @@ warning will be written to stderr instead.
 
 The `file` name may be an absolute path. If it is not, the default directory it
 will be written to is controlled by the
-[--diagnostic-dir](#cli_diagnostic_dir_directory) command line option.
+[--diagnostic-dir](#cli_diagnostic_dir_directory) command-line option.
 

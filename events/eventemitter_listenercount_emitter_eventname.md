@@ -1,6 +1,6 @@
 <!-- YAML
 added: v0.9.12
-deprecated: v4.0.0
+deprecated: v3.2.0
 -->
 
 > Stability: 0 - Deprecated: Use [`emitter.listenerCount()`][] instead.

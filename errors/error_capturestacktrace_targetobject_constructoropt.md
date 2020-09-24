@@ -15,7 +15,7 @@ myObject.stack;  // 类似 `new Error().stack`
 可选的 `constructorOpt` 参数接受一个函数。
 如果提供了，则 `constructorOpt` 之上包括自身在内的全部栈帧都会被生成的堆栈跟踪省略。
 
-`constructorOpt` 参数用在向最终用户隐藏错误生成的具体细节时非常有用。例如：
+`constructorOpt` 参数用在向用户隐藏错误生成的具体细节时非常有用。例如：
 
 
 ```js

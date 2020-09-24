@@ -12,7 +12,7 @@ Node.js 的 `require()` 函数的语义被设计得足够通用化，可以支�
 为了安装包 `foo`，可能需要安装一个指定版本的 `bar` 包。
 `bar` 包也可能有依赖，且在某些情况下，依赖可能有冲突或形成循环。
 
-因为 Node.js 会查找它所加载的模块的实际路径（也就是说会解析符号链接），然后在 `node_modules` 目录中寻找它们的依赖，[如下所述](#modules_loading_from_node_modules_folders)，这种情况使用以下体系结构很容易解决：
+因为 Node.js 会查找它所加载的模块的实际路径（也就是说会解析符号链接），然后[在 `node_modules` 目录中寻找它们的依赖](#modules_loading_from_node_modules_folders)，这种情况可以使用以下体系结构解决：
 
 * `/usr/lib/node/foo/1.2.3/` - `foo` 包的内容，版本 1.2.3。
 * `/usr/lib/node/bar/4.3.2/` - `foo` 依赖的 `bar` 包的内容。

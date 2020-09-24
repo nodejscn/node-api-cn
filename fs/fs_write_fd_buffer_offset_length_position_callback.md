@@ -1,6 +1,9 @@
 <!-- YAML
 added: v0.0.2
 changes:
+  - version: v14.12.0
+    pr-url: https://github.com/nodejs/node/pull/34993
+    description: 参数 `buffer` 会使用显式的 `toString` 函数对对象进行字符串化。
   - version: v14.0.0
     pr-url: https://github.com/nodejs/node/pull/31030
     description: 参数 `buffer` 不再强制把不支持的输入转换为字符串。

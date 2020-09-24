@@ -7,10 +7,10 @@ added: v12.4.0
 Starts the V8 heap profiler on start up, and writes the heap profile to disk
 before exit.
 
-If `--heap-prof-dir` is not specified, the generated profile will be placed
+If `--heap-prof-dir` is not specified, the generated profile is placed
 in the current working directory.
 
-If `--heap-prof-name` is not specified, the generated profile will be
+If `--heap-prof-name` is not specified, the generated profile is
 named `Heap.${yyyymmdd}.${hhmmss}.${pid}.${tid}.${seq}.heapprofile`.
 
 ```console

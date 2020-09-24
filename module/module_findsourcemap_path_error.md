@@ -12,8 +12,8 @@ added:
 should be fetched.
 
 The `error` instance should be passed as the second parameter to `findSourceMap`
-in exceptional flows, e.g., when an overridden
+in exceptional flows, such as when an overridden
 [`Error.prepareStackTrace(error, trace)`][] is invoked. Modules are not added to
-the module cache until they are successfully loaded, in these cases source maps
-will be associated with the `error` instance along with the `path`.
+the module cache until they are successfully loaded. In these cases, source maps
+are associated with the `error` instance along with the `path`.
 

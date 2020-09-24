@@ -1,12 +1,17 @@
 <!-- YAML
 added: v10.0.0
 changes:
+  - version: v14.12.0
+    pr-url: https://github.com/nodejs/node/pull/34993
+    description: The `buffer` parameter will stringify an object with an
+                 explicit `toString` function.
   - version: v14.0.0
     pr-url: https://github.com/nodejs/node/pull/31030
     description: The `buffer` parameter won't coerce unsupported input to
                  buffers anymore.
 -->
-* `buffer` {Buffer|Uint8Array}
+
+* `buffer` {Buffer|Uint8Array|string|Object}
 * `offset` {integer}
 * `length` {integer}
 * `position` {integer}

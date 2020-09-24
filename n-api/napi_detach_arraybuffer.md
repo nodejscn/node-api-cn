@@ -2,9 +2,9 @@
 added:
  - v13.0.0
  - v12.16.0
+ - v10.22.0
+napiVersion: 7
 -->
-
-> Stability: 1 - Experimental
 
 ```c
 napi_status napi_detach_arraybuffer(napi_env env,
