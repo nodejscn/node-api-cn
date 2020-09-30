@@ -1,5 +1,5 @@
 
-Builtin modules will provide named exports of their public API. A
+[Core modules][] will provide named exports of their public API. A
 default export is also provided which is the value of the CommonJS exports.
 The default export can be used for, among other things, modifying the named
 exports. Named exports of builtin modules are updated only by calling

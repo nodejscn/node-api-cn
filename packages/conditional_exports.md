@@ -1,12 +1,13 @@
 
+> Stability: 1 - Experimental
+
 Conditional exports provide a way to map to different paths depending on
 certain conditions. They are supported for both CommonJS and ES module imports.
 
 For example, a package that wants to provide different ES module exports for
 `require()` and `import` can be written:
 
-<!-- eslint-skip -->
-```js
+```json
 // package.json
 {
   "main": "./main-require.cjs",
@@ -21,19 +22,22 @@ For example, a package that wants to provide different ES module exports for
 Node.js supports the following conditions out of the box:
 
 * `"import"` - matched when the package is loaded via `import` or
-   `import()`. Can reference either an ES module or CommonJS file, as both
-   `import` and `import()` can load either ES module or CommonJS sources.
-   _Always matched when the `"require"` condition is not matched._
-* `"require"` - matched when the package is loaded via `require()`.
-   As `require()` only supports CommonJS, the referenced file must be CommonJS.
-   _Always matched when the `"import"` condition is not matched._
+   `import()`, or via any top-level import or resolve operation by the
+   ECMAScript module loader. Applies regardless of the module format of the
+   target file. _Always mutually exclusive with `"require"`._
+* `"require"` - matched when the package is loaded via `require()`. The
+   referenced file should be loadable with `require()` although the condition
+   will be matched regardless of the module format of the target file. Expected
+   formats include CommonJS, JSON, and native addons but not ES modules as
+   `require()` doesn't support them. _Always mutually exclusive with
+   `"import"`._
 * `"node"` - matched for any Node.js environment. Can be a CommonJS or ES
    module file. _This condition should always come after `"import"` or
    `"require"`._
 * `"default"` - the generic fallback that will always match. Can be a CommonJS
    or ES module file. _This condition should always come last._
 
-Within the `"exports"` object, key order is significant. During condition
+Within the [`"exports"`][] object, key order is significant. During condition
 matching, earlier entries have higher priority and take precedence over later
 entries. _The general rule is that conditions should be from most specific to
 least specific in object order_.
@@ -48,8 +52,7 @@ which are further explained in [the dual CommonJS/ES module packages section][].
 
 Conditional exports can also be extended to exports subpaths, for example:
 
-<!-- eslint-skip -->
-```js
+```json
 {
   "main": "./main.js",
   "exports": {

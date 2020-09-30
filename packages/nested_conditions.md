@@ -1,11 +1,12 @@
 
+> Stability: 1 - Experimental
+
 In addition to direct mappings, Node.js also supports nested condition objects.
 
 For example, to define a package that only has dual mode entry points for
 use in Node.js but not the browser:
 
-<!-- eslint-skip -->
-```js
+```json
 {
   "main": "./main.js",
   "exports": {

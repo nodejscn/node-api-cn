@@ -1,19 +1,18 @@
 
 To set the main entry point for a package, it is advisable to define both
-`"exports"` and `"main"` in the package’s `package.json` file:
+[`"exports"`][] and [`"main"`][] in the package’s [`package.json`][] file:
 
-<!-- eslint-skip -->
-```js
+```json
 {
   "main": "./main.js",
   "exports": "./main.js"
 }
 ```
 
-The benefit of doing this is that when using the `"exports"` field all
-subpaths of the package will no longer be available to importers under
-`require('pkg/subpath.js')`, and instead they will get a new error,
-`ERR_PACKAGE_PATH_NOT_EXPORTED`.
+When defining the [`"exports"`][] field, all subpaths of the package will be
+encapsulated and no longer available to importers. For example,
+`require('pkg/subpath.js')` would throw an [`ERR_PACKAGE_PATH_NOT_EXPORTED`][]
+error.
 
 This encapsulation of exports provides more reliable guarantees
 about package interfaces for tools and when handling semver upgrades for a

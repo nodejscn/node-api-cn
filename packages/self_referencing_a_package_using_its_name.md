@@ -1,6 +1,6 @@
 
 Within a package, the values defined in the package’s
-`package.json` `"exports"` field can be referenced via the package’s name.
+`package.json` [`"exports"`][] field can be referenced via the package’s name.
 For example, assuming the `package.json` is:
 
 ```json
@@ -21,9 +21,10 @@ Then any module _in that package_ can reference an export in the package itself:
 import { something } from 'a-package'; // Imports "something" from ./main.mjs.
 ```
 
-Self-referencing is available only if `package.json` has `exports`, and will
-allow importing only what that `exports` (in the `package.json`) allows.
-So the code below, given the previous package, will generate a runtime error:
+Self-referencing is available only if `package.json` has [`"exports"`][], and
+will allow importing only what that [`"exports"`][] (in the `package.json`)
+allows. So the code below, given the previous package, will generate a runtime
+error:
 
 ```js
 // ./another-module.mjs

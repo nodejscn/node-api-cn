@@ -1,31 +1,26 @@
 
 <!-- type=misc -->
 
-Experimental support for ECMAScript modules is enabled by default.
-Node.js will treat the following as ES modules when passed to `node` as the
-initial input, or when referenced by `import` statements within ES module code:
+Node.js treats JavaScript code as CommonJS modules by default.
+Authors can tell Node.js to treat JavaScript code as ECMAScript modules
+via the `.mjs` file extension, the `package.json` [`"type"`][] field, or the
+`--input-type` flag. See
+[Modules: Packages](packages.html#packages_determining_module_system) for more
+details.
 
-* Files ending in `.mjs`.
-
-* Files ending in `.js` when the nearest parent `package.json` file contains a
-  top-level field `"type"` with a value of `"module"`.
-
-* Strings passed in as an argument to `--eval`, or piped to `node` via `STDIN`,
-  with the flag `--input-type=module`.
-
-Node.js will treat as CommonJS all other forms of input, such as `.js` files
-where the nearest parent `package.json` file contains no top-level `"type"`
-field, or string input without the flag `--input-type`. This behavior is to
-preserve backward compatibility. However, now that Node.js supports both
-CommonJS and ES modules, it is best to be explicit whenever possible. Node.js
-will treat the following as CommonJS when passed to `node` as the initial input,
-or when referenced by `import` statements within ES module code:
-
-* Files ending in `.cjs`.
-
-* Files ending in `.js` when the nearest parent `package.json` file contains a
-  top-level field `"type"` with a value of `"commonjs"`.
-
-* Strings passed in as an argument to `--eval` or `--print`, or piped to `node`
-  via `STDIN`, with the flag `--input-type=commonjs`.
+<!-- Anchors to make sure old links find a target -->
+<i id="esm_package_entry_points"></i>
+<i id="esm_main_entry_point_export"></i>
+<i id="esm_subpath_exports"></i>
+<i id="esm_package_exports_fallbacks"></i>
+<i id="esm_exports_sugar"></i>
+<i id="esm_conditional_exports"></i>
+<i id="esm_nested_conditions"></i>
+<i id="esm_self_referencing_a_package_using_its_name"></i>
+<i id="esm_internal_package_imports"></i>
+<i id="esm_dual_commonjs_es_module_packages"></i>
+<i id="esm_dual_package_hazard"></i>
+<i id="esm_writing_dual_packages_while_avoiding_or_minimizing_hazards"></i>
+<i id="esm_approach_1_use_an_es_module_wrapper"></i>
+<i id="esm_approach_2_isolate_state"></i>
 

@@ -17,12 +17,14 @@ listed as supporting a later version.
     <th scope="col">4</th>
     <th scope="col">5</th>
     <th scope="col">6</th>
+    <th scope="col">7</th>
   </tr>
   <tr>
     <th scope="row">v6.x</th>
     <td></td>
     <td></td>
     <td>v6.14.2*</td>
+    <td></td>
     <td></td>
     <td></td>
     <td></td>
@@ -35,12 +37,14 @@ listed as supporting a later version.
     <td>v8.16.0</td>
     <td></td>
     <td></td>
+    <td></td>
   </tr>
   <tr>
     <th scope="row">v9.x</th>
     <td>v9.0.0*</td>
     <td>v9.3.0*</td>
     <td>v9.11.0*</td>
+    <td></td>
     <td></td>
     <td></td>
     <td></td>
@@ -53,6 +57,7 @@ listed as supporting a later version.
     <td>v10.16.0</td>
     <td>v10.17.0</td>
     <td>v10.20.0</td>
+    <td></td>
   </tr>
   <tr>
     <th scope="row">v11.x</th>
@@ -60,6 +65,7 @@ listed as supporting a later version.
     <td>v11.0.0</td>
     <td>v11.0.0</td>
     <td>v11.8.0</td>
+    <td></td>
     <td></td>
     <td></td>
   </tr>
@@ -71,6 +77,7 @@ listed as supporting a later version.
     <td>v12.0.0</td>
     <td>v12.11.0</td>
     <td>v12.17.0</td>
+    <td></td>
   </tr>
   <tr>
     <th scope="row">v13.x</th>
@@ -79,6 +86,7 @@ listed as supporting a later version.
     <td>v13.0.0</td>
     <td>v13.0.0</td>
     <td>v13.0.0</td>
+    <td></td>
     <td></td>
   </tr>
   <tr>
@@ -89,6 +97,7 @@ listed as supporting a later version.
     <td>v14.0.0</td>
     <td>v14.0.0</td>
     <td>v14.0.0</td>
+    <td>v14.12.0</td>
   </tr>
 </table>
 

@@ -5,7 +5,9 @@ added: v13.7.0
 * `err` {Error} The uncaught exception.
 * `origin` {string} Indicates if the exception originates from an unhandled
   rejection or from synchronous errors. Can either be `'uncaughtException'` or
-  `'unhandledRejection'`.
+  `'unhandledRejection'`. The latter is only used in conjunction with the
+  [`--unhandled-rejections`][] flag set to `strict` or `throw` and
+  an unhandled rejection.
 
 The `'uncaughtExceptionMonitor'` event is emitted before an
 `'uncaughtException'` event is emitted or a hook installed via

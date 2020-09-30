@@ -8,7 +8,7 @@
 不以 `$` 或 `>` 字符开头的命令行展示的是上一个命令的输出。
 
 首先，确保已经下载并安装了 Node.js。
-关于安装的更多信息，请参见[此指南][this guide]。
+关于安装的更多信息，请参见[通过包管理器安装 Node.js][Installing Node.js via package manager]。
 
 现在，创建一个空的名为 `projects` 的项目文件夹，然后导航到它。
 

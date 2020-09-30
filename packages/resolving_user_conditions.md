@@ -1,6 +1,6 @@
 
 When running Node.js, custom user conditions can be added with the
-`--conditions` or `-u` flag:
+`--conditions` flag:
 
 ```bash
 node --conditions=development main.js

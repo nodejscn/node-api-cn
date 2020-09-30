@@ -19,6 +19,7 @@ $ node --experimental-specifier-resolution=node index
 success!
 ```
 
+<!-- Note: The cjs-module-lexer link should be kept in-sync with the deps version -->
 
 
 

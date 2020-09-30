@@ -1,7 +1,7 @@
 
 Strings passed in as an argument to `--eval` (or `-e`), or piped to `node` via
-`STDIN`, will be treated as ES modules when the `--input-type=module` flag is
-set.
+`STDIN`, will be treated as [ES modules][] when the `--input-type=module` flag
+is set.
 
 ```bash
 node --input-type=module --eval "import { sep } from 'path'; console.log(sep);"

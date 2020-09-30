@@ -36,3 +36,8 @@ Node.js contains support for ES Modules based upon the
 Expect major changes in the implementation including interoperability support,
 specifier resolution, and default behavior.
 
+<!-- Anchors to make sure old links find a target -->
+<i id="#esm_package_json_type_field"></i>
+<i id="#esm_package_scope_and_file_extensions"></i>
+<i id="#esm_input_type_flag"></i>
+

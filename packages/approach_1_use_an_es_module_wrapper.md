@@ -4,8 +4,7 @@ create an ES module wrapper file that defines the named exports. Using
 [Conditional exports][], the ES module wrapper is used for `import` and the
 CommonJS entry point for `require`.
 
-<!-- eslint-skip -->
-```js
+```json
 // ./node_modules/pkg/package.json
 {
   "type": "module",
@@ -72,8 +71,7 @@ application, such as by dependencies; or if the CommonJS version can be loaded
 but doesn’t affect the ES module version (for example, because the package is
 stateless):
 
-<!-- eslint-skip -->
-```js
+```json
 // ./node_modules/pkg/package.json
 {
   "type": "module",

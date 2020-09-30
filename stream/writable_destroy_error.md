@@ -1,5 +1,9 @@
 <!-- YAML
 added: v8.0.0
+changes:
+  - version: v14.0.0
+    pr-url: https://github.com/nodejs/node/pull/29197
+    description: Work as noop when called on an already `destroyed` stream.
 -->
 
 * `error` {Error} 可选，使用 `'error'` 事件触发的错误。

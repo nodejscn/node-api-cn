@@ -41,7 +41,7 @@ const fs = require('fs');
 const hash = crypto.createHash('sha256');
 
 const input = fs.createReadStream('要创建哈希摘要的数据.txt');
-input.pipe(hash).pipe(process.stdout);
+input.pipe(hash).setEncoding('hex').pipe(process.stdout);
 ```
 
 示例，使用 [`hash.update()`] 和 [`hash.digest()`] 方法：

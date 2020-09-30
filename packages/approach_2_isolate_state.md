@@ -1,9 +1,8 @@
 
-A `package.json` file can define the separate CommonJS and ES module entry
+A [`package.json`][] file can define the separate CommonJS and ES module entry
 points directly:
 
-<!-- eslint-skip -->
-```js
+```json
 // ./node_modules/pkg/package.json
 {
   "type": "module",
@@ -88,8 +87,7 @@ As with the previous approach, a variant of this approach not requiring
 conditional exports for consumers could be to add an export, e.g.
 `"./module"`, to point to an all-ES module-syntax version of the package:
 
-<!-- eslint-skip -->
-```js
+```json
 // ./node_modules/pkg/package.json
 {
   "type": "module",

@@ -1,8 +1,9 @@
 
 Prior to the introduction of support for ES modules in Node.js, it was a common
 pattern for package authors to include both CommonJS and ES module JavaScript
-sources in their package, with `package.json` `"main"` specifying the CommonJS
-entry point and `package.json` `"module"` specifying the ES module entry point.
+sources in their package, with `package.json` [`"main"`][] specifying the
+CommonJS entry point and `package.json` `"module"` specifying the ES module
+entry point.
 This enabled Node.js to run the CommonJS entry point while build tools such as
 bundlers used the ES module entry point, since Node.js ignored (and still
 ignores) the top-level `"module"` field.

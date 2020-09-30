@@ -2,4 +2,4 @@
 `Console` was instantiated without `stdout` stream, or `Console` has a
 non-writable `stdout` or `stderr` stream.
 
-<a id="ERR_CONTEXT_NOT_INITIALIZED"></a>
+<a id="ERR_CONSTRUCT_CALL_INVALID"></a>

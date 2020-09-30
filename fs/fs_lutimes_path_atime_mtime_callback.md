@@ -1,5 +1,5 @@
 <!-- YAML
-addded: v14.5.0
+added: v14.5.0
 -->
 
 * `path` {string|Buffer|URL}
