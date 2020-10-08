@@ -8,7 +8,6 @@ added: v0.3.0
 通常用户不需要访问此属性。 
 特别是，由于协议解析器附加到套接字的方式，套接字将不会触发 `'readable'` 事件。 
 在调用 `response.end()` 之后，此属性将为空。 
-也可以通过 `response.connection` 访问 `socket`。
 
 
 ```js

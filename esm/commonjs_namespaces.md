@@ -19,8 +19,8 @@ console.log(cjs === cjsSugar);
 //   true
 ```
 
-The ECMAScript Module Namespace representation of a CommonJS module will always
-be a namespace with a `default` export key pointing to the CommonJS
+The ECMAScript Module Namespace representation of a CommonJS module is always
+a namespace with a `default` export key pointing to the CommonJS
 `module.exports` value.
 
 This Module Namespace Exotic Object can be directly observed either when using
@@ -36,19 +36,19 @@ console.log(m === await import('cjs'));
 //   true
 ```
 
-For better compatibility with existing usage in the JS ecosystem, Node.js will
-in addition attempt to determine the CommonJS named exports of every imported
+For better compatibility with existing usage in the JS ecosystem, Node.js
+in addition attempts to determine the CommonJS named exports of every imported
 CommonJS module to provide them as separate ES module exports using a static
 analysis process.
 
-For example, a CommonJS module written:
+For example, consider a CommonJS module written:
 
 ```js
 // cjs.cjs
 exports.name = 'exported';
 ```
 
-will support named imports in ES modules:
+The preceding module supports named imports in ES modules:
 
 <!-- eslint-disable no-duplicate-imports -->
 ```js
@@ -72,8 +72,8 @@ directly on the ES module namespace when the module is imported.
 Live binding updates or new exports added to `module.exports` are not detected
 for these named exports.
 
-The detection of named exports is based on common syntax patterns but will not
-always correctly detect named exports, in these cases using the default
+The detection of named exports is based on common syntax patterns but does not
+always correctly detect named exports. In these cases, using the default
 import form described above can be a better option.
 
 Named exports detection covers many common export patterns, reexport patterns

@@ -5,7 +5,7 @@ Node.js treats JavaScript code as CommonJS modules by default.
 Authors can tell Node.js to treat JavaScript code as ECMAScript modules
 via the `.mjs` file extension, the `package.json` [`"type"`][] field, or the
 `--input-type` flag. See
-[Modules: Packages](packages.html#packages_determining_module_system) for more
+[Modules: Packages](packages.md#packages_determining_module_system) for more
 details.
 
 <!-- Anchors to make sure old links find a target -->

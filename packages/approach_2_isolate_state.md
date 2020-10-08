@@ -20,7 +20,7 @@ the package’s management of state is carefully isolated (or the package is
 stateless).
 
 The reason that state is an issue is because both the CommonJS and ES module
-versions of the package may get used within an application; for example, the
+versions of the package might get used within an application; for example, the
 user’s application code could `import` the ES module version while a dependency
 `require`s the CommonJS version. If that were to occur, two copies of the
 package would be loaded in memory and therefore two separate states would be

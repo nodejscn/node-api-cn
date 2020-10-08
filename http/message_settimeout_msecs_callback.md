@@ -6,6 +6,6 @@ added: v0.5.9
 * `callback` {Function}
 * 返回: {http.IncomingMessage}
 
-调用 `message.connection.setTimeout(msecs, callback)`。
+调用 `message.socket.setTimeout(msecs, callback)`。
 
 

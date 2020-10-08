@@ -36,5 +36,7 @@ changes:
 
 回调有三个参数 `(err, bytesRead, buffer)`。
 
+如果文件没有被同时地修改，则当读取的字节数为零时，即到达文件的末尾。
+
 如果调用此方法的 [`util.promisify()`] 版本，则返回 `Promise`（会传入具有 `bytesRead` 属性和 `buffer` 属性的 `Object`）。
 

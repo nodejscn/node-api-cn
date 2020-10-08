@@ -19,7 +19,7 @@ from which to resolve from:
 })();
 ```
 
-This function is asynchronous since the ES module resolver in Node.js is
+This function is asynchronous because the ES module resolver in Node.js is
 asynchronous. With the introduction of [Top-Level Await][], these use cases
 will be easier as they won't require an async function wrapper.
 

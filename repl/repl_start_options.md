@@ -43,7 +43,7 @@ changes:
     可选的值有：
     * `repl.REPL_MODE_SLOPPY` 要使用默认模式解释表达式。
     * `repl.REPL_MODE_STRICT` 要使用严格模式解释表达式。该模式等同于在每个 repl 声明前加上 `'use strict'`。
-  * `breakEvalOnSigint` {boolean} 当接收到 `SIGINT` 时停止解释当前代码，比如当按下 `Ctrl+C`。
+  * `breakEvalOnSigint` {boolean} 当接收到 `SIGINT` 时停止解释当前代码，比如当按下 <kbd>Ctrl</kbd>+<kbd>C</kbd>。
     不能与自定义的 `eval` 函数同时使用。
     **默认值:** `false`。
   * `preview` {boolean} 定义 repl 是否打印自动补全并输出预览。

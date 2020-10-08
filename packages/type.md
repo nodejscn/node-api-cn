@@ -10,10 +10,10 @@ changes:
 
 * Type: {string}
 
-The `"type"` field defines the module format that Node.js will use for all
+The `"type"` field defines the module format that Node.js uses for all
 `.js` files that have that `package.json` file as their nearest parent.
 
-Files ending with `.js` will be loaded as ES modules when the nearest parent
+Files ending with `.js` are loaded as ES modules when the nearest parent
 `package.json` file contains a top-level field `"type"` with a value of
 `"module"`.
 

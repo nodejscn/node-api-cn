@@ -12,7 +12,7 @@ their package.
 
 If both [`"exports"`][] and [`"main"`][] are defined, the [`"exports"`][] field
 takes precedence over [`"main"`][]. [`"exports"`][] are not specific to ES
-modules or CommonJS; [`"main"`][] will be overridden by [`"exports"`][] if it
+modules or CommonJS; [`"main"`][] is overridden by [`"exports"`][] if it
 exists. As such [`"main"`][] cannot be used as a fallback for CommonJS but it
 can be used as a fallback for legacy versions of Node.js that do not support the
 [`"exports"`][] field.
@@ -66,12 +66,12 @@ Alternatively a project could choose to export entire folders:
 ```
 
 As a last resort, package encapsulation can be disabled entirely by creating an
-export for the root of the package `"./*": "./*"`. This will expose every file
+export for the root of the package `"./*": "./*"`. This exposes every file
 in the package at the cost of disabling the encapsulation and potential tooling
 benefits this provides. As the ES Module loader in Node.js enforces the use of
 [the full specifier path][], exporting the root rather than being explicit
 about entry is less expressive than either of the prior examples. Not only
-will encapsulation be lost but module consumers will be unable to
-`import feature from 'my-mod/feature'` as they will need to provide the full
+is encapsulation lost but module consumers are unable to
+`import feature from 'my-mod/feature'` as they need to provide the full
 path `import feature from 'my-mod/feature/index.js`.
 

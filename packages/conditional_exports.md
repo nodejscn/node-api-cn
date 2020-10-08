@@ -21,20 +21,20 @@ For example, a package that wants to provide different ES module exports for
 
 Node.js supports the following conditions out of the box:
 
-* `"import"` - matched when the package is loaded via `import` or
+* `"import"` - matches when the package is loaded via `import` or
    `import()`, or via any top-level import or resolve operation by the
    ECMAScript module loader. Applies regardless of the module format of the
    target file. _Always mutually exclusive with `"require"`._
-* `"require"` - matched when the package is loaded via `require()`. The
+* `"require"` - matches when the package is loaded via `require()`. The
    referenced file should be loadable with `require()` although the condition
-   will be matched regardless of the module format of the target file. Expected
+   matches regardless of the module format of the target file. Expected
    formats include CommonJS, JSON, and native addons but not ES modules as
    `require()` doesn't support them. _Always mutually exclusive with
    `"import"`._
-* `"node"` - matched for any Node.js environment. Can be a CommonJS or ES
+* `"node"` - matches for any Node.js environment. Can be a CommonJS or ES
    module file. _This condition should always come after `"import"` or
    `"require"`._
-* `"default"` - the generic fallback that will always match. Can be a CommonJS
+* `"default"` - the generic fallback that always matches. Can be a CommonJS
    or ES module file. _This condition should always come last._
 
 Within the [`"exports"`][] object, key order is significant. During condition
@@ -43,9 +43,9 @@ entries. _The general rule is that conditions should be from most specific to
 least specific in object order_.
 
 Other conditions such as `"browser"`, `"electron"`, `"deno"`, `"react-native"`,
-etc. are unknown to, and thus ignored by Node.js. Runtimes or tools other than
-Node.js may use them at their discretion. Further restrictions, definitions, or
-guidance on condition names may occur in the future.
+etc., are unknown to Node.js, and thus ignored. Runtimes or tools other than
+Node.js can use them at their discretion. Further restrictions, definitions, or
+guidance on condition names might occur in the future.
 
 Using the `"import"` and `"require"` conditions can lead to some hazards,
 which are further explained in [the dual CommonJS/ES module packages section][].

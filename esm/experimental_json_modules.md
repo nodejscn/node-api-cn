@@ -4,11 +4,11 @@ and are loaded using the CJS loader. [WHATWG JSON modules specification][] are
 still being standardized, and are experimentally supported by including the
 additional flag `--experimental-json-modules` when running Node.js.
 
-When the `--experimental-json-modules` flag is included both the
-`commonjs` and `module` mode will use the new experimental JSON
-loader. The imported JSON only exposes a `default`, there is no
+When the `--experimental-json-modules` flag is included, both the
+`commonjs` and `module` mode use the new experimental JSON
+loader. The imported JSON only exposes a `default`. There is no
 support for named exports. A cache entry is created in the CommonJS
-cache, to avoid duplication. The same object will be returned in
+cache to avoid duplication. The same object is returned in
 CommonJS if the JSON module has already been imported from the
 same path.
 

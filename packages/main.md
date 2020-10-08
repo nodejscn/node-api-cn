@@ -11,7 +11,7 @@ added: v0.4.0
 ```
 
 The `"main"` field defines the script that is used when the [package directory
-is loaded via `require()`](modules.html#modules_folders_as_modules). Its value
+is loaded via `require()`](modules.md#modules_folders_as_modules). Its value
 is interpreted as a path.
 
 ```js

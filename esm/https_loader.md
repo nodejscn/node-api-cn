@@ -67,12 +67,8 @@ import { VERSION } from 'https://coffeescript.org/browser-compiler-modern/coffee
 console.log(VERSION);
 ```
 
-With this loader, running:
-
-```bash
-node --experimental-loader ./https-loader.mjs ./main.mjs
-```
-
-Will print the current version of CoffeeScript per the module at the URL in
+With the preceding loader, running
+`node --experimental-loader ./https-loader.mjs ./main.mjs`
+prints the current version of CoffeeScript per the module at the URL in
 `main.mjs`.
 

@@ -9,9 +9,9 @@ To set the main entry point for a package, it is advisable to define both
 }
 ```
 
-When defining the [`"exports"`][] field, all subpaths of the package will be
+When the [`"exports"`][] field is defined, all subpaths of the package are
 encapsulated and no longer available to importers. For example,
-`require('pkg/subpath.js')` would throw an [`ERR_PACKAGE_PATH_NOT_EXPORTED`][]
+`require('pkg/subpath.js')` throws an [`ERR_PACKAGE_PATH_NOT_EXPORTED`][]
 error.
 
 This encapsulation of exports provides more reliable guarantees

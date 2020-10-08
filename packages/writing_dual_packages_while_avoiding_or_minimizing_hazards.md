@@ -2,13 +2,13 @@
 First, the hazard described in the previous section occurs when a package
 contains both CommonJS and ES module sources and both sources are provided for
 use in Node.js, either via separate main entry points or exported paths. A
-package could instead be written where any version of Node.js receives only
-CommonJS sources, and any separate ES module sources the package may contain
-could be intended only for other environments such as browsers. Such a package
+package might instead be written where any version of Node.js receives only
+CommonJS sources, and any separate ES module sources the package might contain
+are intended only for other environments such as browsers. Such a package
 would be usable by any version of Node.js, since `import` can refer to CommonJS
 files; but it would not provide any of the advantages of using ES module syntax.
 
-A package could also switch from CommonJS to ES module syntax in a [breaking
+A package might also switch from CommonJS to ES module syntax in a [breaking
 change](https://semver.org/) version bump. This has the disadvantage that the
 newest version of the package would only be usable in ES module-supporting
 versions of Node.js.

@@ -31,9 +31,13 @@ ls.on('close', (code) => {
 这与 shell 中的管道的行为相同。
 如果不消费输出，则使用 `{ stdio: 'ignore' }` 选项。
 
-如果传入 `options` 对象，则会使用 `options.env.PATH` 环境变量来执行命令查找，否则会使用 `process.env.PATH`。 
-考虑到 Windows 的环境变量不区分大小写，Node.js 会按字典顺序对所有 `env` 的键进行排序，并且不区分大小写地选择第一个匹配的 `PATH` 来执行命令查找。 
-当传给 `env` 选项的对象具有多个 `PATH` 变量时，在 Windows 上可能会出现问题。
+如果 `options` 对象中有 `options.env.PATH` 环境变量，则使用它来执行命令查找。
+否则，则使用 `process.env.PATH`。 
+
+在 Windows 上，环境变量不区分大小写。
+Node.js 按字典顺序对 `env` 的键进行排序，并使用不区分大小写的第一个键。
+只有第一个（按字典顺序）条目会被传给子流程。
+当传给 `env` 选项的对象具有多个相同键名的变量时（例如 `PATH` 和 `Path`），在 Windows 上可能会出现问题。
 
 [`child_process.spawn()`] 方法会异步地衍生子进程，且不阻塞 Node.js 事件循环。 
 [`child_process.spawnSync()`] 函数则以同步的方式提供了等效的功能，但会阻塞事件循环直到衍生的进程退出或被终止。

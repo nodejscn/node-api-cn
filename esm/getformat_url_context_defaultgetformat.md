@@ -27,7 +27,7 @@ Note: These types all correspond to classes defined in ECMAScript.
 * The specific [`TypedArray`][] object is a [`Uint8Array`][].
 
 Note: If the source value of a text-based format (i.e., `'json'`, `'module'`) is
-not a string, it will be converted to a string using [`util.TextDecoder`][].
+not a string, it is converted to a string using [`util.TextDecoder`][].
 
 ```js
 /**

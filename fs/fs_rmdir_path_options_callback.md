@@ -26,8 +26,6 @@ changes:
       如果不传入，则会触发弃用警告（id 为 DEP0013）。
 -->
 
-> 稳定性: 1 - 递归的删除是实验的。
-
 * `path` {string|Buffer|URL}
 * `options` {Object}
   * `maxRetries` {integer} 如果遇到 `EBUSY`、`EMFILE`、`ENFILE`、`ENOTEMPTY` 或 `EPERM` 错误，则 Node.js 会重试该操作（每次尝试时使用 `retryDelay` 毫秒时长的线性回退等待）。

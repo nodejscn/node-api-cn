@@ -20,7 +20,7 @@ The `conditions` property on the `context` is an array of conditions for
 for looking up conditional mappings elsewhere or to modify the list when calling
 the default resolution logic.
 
-The current [package exports conditions][Conditional Exports] will always be in
+The current [package exports conditions][Conditional Exports] are always in
 the `context.conditions` array passed into the hook. To guarantee _default
 Node.js module specifier resolution behavior_ when calling `defaultResolve`, the
 `context.conditions` array passed to it _must_ include _all_ elements of the

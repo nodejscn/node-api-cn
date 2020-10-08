@@ -40,7 +40,7 @@ import 'commonjs-package/src/index.mjs';
 // Loaded as ES module since .mjs is always loaded as ES module.
 ```
 
-The `.mjs` and `.cjs` extensions may be used to mix types within the same
+The `.mjs` and `.cjs` extensions can be used to mix types within the same
 package:
 
 * Within a `"type": "module"` package, Node.js can be instructed to

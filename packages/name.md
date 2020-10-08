@@ -19,7 +19,7 @@ changes:
 ```
 
 The `"name"` field defines your package’s name. Publishing to the
-_npm_ registry may require a name that satisfies
+_npm_ registry requires a name that satisfies
 [certain requirements](https://docs.npmjs.com/files/package.json#name).
 
 The `"name"` field can be used in addition to the [`"exports"`][] field to
