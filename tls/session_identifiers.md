@@ -1,20 +1,14 @@
 
-Servers generate a unique ID for new connections and
-send it to the client. Clients and servers save the session state. When
-reconnecting, clients send the ID of their saved session state and if the server
-also has the state for that ID, it can agree to use it. Otherwise, the server
-will create a new session. See [RFC 2246][] for more information, page 23 and
-30.
+服务器在与客户端新建连接的时候生成一个唯一的ID发送给客户端，客户端与服务器均保存这个
+会话的状态。当需要重新建立SSL会话时，客户端发送保存的ID和会话状态给服务器，如果服务器
+也有这个ID的会话状态，则可以重新建立这个ID的会话，否则就会创建新的会话。祥见[RFC 2246][]
+第23-30页。
 
-Resumption using session identifiers is supported by most web browsers when
-making HTTPS requests.
+绝大多数浏览器支持在HTTPS中使用会话ID复用技术来恢复已有会话。
 
-For Node.js, clients wait for the [`'session'`][] event to get the session data,
-and provide the data to the `session` option of a subsequent [`tls.connect()`][]
-to reuse the session. Servers must
-implement handlers for the [`'newSession'`][] and [`'resumeSession'`][] events
-to save and restore the session data using the session ID as the lookup key to
-reuse sessions. To reuse sessions across load balancers or cluster workers,
-servers must use a shared session cache (such as Redis) in their session
-handlers.
+在Node.js中，客户端通过等待 [`'session'`][]事件来获取会话信息，并提供[`tls.connect()`][]中的
+`session`选项来复用会话。服务器必须实现[`'newSession'`][]和[`'resumeSession'`][]事件的
+hander，并使用会话ID作为查找的key来保存和恢复会话信息。在负载均衡和集群下，想要复用会话需要使用
+类似Redis的共享缓存机制来存储会话信息。
+
 
