@@ -1,10 +1,7 @@
 
-Node.js 构造时包含了默认的 TLS 开启和关闭的加密组件。This
-default cipher list can be configured when building Node.js to allow
-distributions to provide their own default list.
-
-The following command can be used to show the default cipher suite:
-
+Node.js 构造时包含了默认的 TLS 开启和关闭的加密套件。在构建自己的Node.js分发版本时，
+可以配置默认支持的加密套件列表。
+下表中的命令可以查看默认的加密套件：
 ```console
 node -p crypto.constants.defaultCoreCipherList | tr ':' '\n'
 TLS_AES_256_GCM_SHA384
@@ -72,5 +69,5 @@ Node.js 包含的默认的加密组件是经过精心挑选，能体现目前最
 - `'TLS_AES_128_CCM_8_SHA256'`
 
 默认情况下启用前 3 个。 
-TLSv1.3 支持最后 2 个基于 `CCM` 的套件，因为它们在受约束的系统上可能更具性能，但默认情况下它们不会启用，因为它们提供的安全性较低。
+TLSv1.3 支持最后 2 个基于 `CCM` 的套件，因为它们在受约束的系统上可能有更好的性能，但默认情况下它们不会启用，因为它们提供的安全性较低。
 
