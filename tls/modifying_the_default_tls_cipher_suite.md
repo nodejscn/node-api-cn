@@ -1,7 +1,9 @@
 
 Node.js 构造时包含了默认的 TLS 开启和关闭的加密套件。在构建自己的Node.js分发版本时，
 可以配置默认支持的加密套件列表。
+
 下表中的命令可以查看默认的加密套件：
+
 ```console
 node -p crypto.constants.defaultCoreCipherList | tr ':' '\n'
 TLS_AES_256_GCM_SHA384
