@@ -1,7 +1,7 @@
 
 <!-- type=misc -->
 
-对象可以定义自己的 `[util.inspect.custom](depth, opts)`（或已废弃的 `inspect(depth, opts)`） 函数，`util.inspect()` 会调用并使用查看对象时的结果：
+对象可以定义自己的 [`[util.inspect.custom](depth, opts)`][util.inspect.custom] 函数，`util.inspect()` 会调用并使用查看对象时的结果：
 
 ```js
 const util = require('util');
@@ -40,7 +40,7 @@ util.inspect(box);
 const util = require('util');
 
 const obj = { foo: '这个不会出现在 inspect() 的输出中' };
-obj[util.inspect.custom] = function(depth) {
+obj[util.inspect.custom] = (depth) => {
   return { bar: 'baz' };
 };
 

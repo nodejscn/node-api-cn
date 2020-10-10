@@ -15,65 +15,59 @@ changes:
 
 * `message` {Object}
 * `sendHandle` {Handle}
-* `options` {Object}
+* `options` {Object} `options` 参数（如果存在）是一个对象，用于参数化某些类型句柄的发送。`options` 支持以下属性：
+  * `keepOpen` {boolean} 传给 `net.Socket` 实例时可以使用的值。当设为 `true` 时，则 socket 在发送过程中会保持打开状态。**默认值:** `false`。
 * `callback` {Function}
 * 返回: {boolean}
 
-当父进程和子进程之间建立了一个 IPC 通道时（例如，使用 [`child_process.fork()`]），`subprocess.send()` 方法可用于发送消息到子进程。
-当子进程是一个 Node.js 实例时，消息可以通过 [`process.on('message')`] 事件接收。
+当父进程和子进程之间已建立了一个 IPC 通道时（例如，使用 [`child_process.fork()`]），`subprocess.send()` 方法可用于发送消息到子进程。
+当子进程是一个 Node.js 实例时，则消息可以通过 [`'message'`] 事件接收。
 
-*注意*: 消息通过JSON序列化和解析进行传递，结果就是消息可能跟开始发送的不完全一样。请查看
-[the `JSON.stringify()` specification][`JSON.stringify` spec].
+消息通过序列化和解析进行传递，接收到消息可能跟最初发送的不完全一样。
 
-例子，父进程脚本如下：
+例如，在父进程的脚本中：
 
 ```js
 const cp = require('child_process');
 const n = cp.fork(`${__dirname}/sub.js`);
 
 n.on('message', (m) => {
-  console.log('父进程收到消息：', m);
+  console.log('父进程收到消息', m);
 });
 
-// Causes the child to print: CHILD got message: { hello: 'world' }
+// 使子进程打印: 子进程收到消息 { hello: 'world' }
 n.send({ hello: 'world' });
 ```
 
-然后是子进程脚本，`'sub.js'` 可能看上去像这样：
+子进程的脚本 `'sub.js'` 可能如下：
 
 ```js
 process.on('message', (m) => {
-  console.log('子进程收到消息：', m);
+  console.log('子进程收到消息', m);
 });
 
-// Causes the parent to print: PARENT got message: { foo: 'bar', baz: null }
+// 使父进程输出: 父进程收到消息 { foo: 'bar', baz: null }
 process.send({ foo: 'bar', baz: NaN });
 ```
 
-Node.js 中的子进程有一个自己的 [`process.send()`] 方法，允许子进程发送消息回父进程。
+子 Node.js 进程有一个自己的 [`process.send()`] 方法，允许子进程发送消息回父进程。
 
-当发送一个 `{cmd: 'NODE_foo'}` 消息时，是一个特例。
-所有在 `cmd` 属性里包含一个 `NODE_` 前缀的都会被认为是预留给 Node.js 核心代码内部使用的，且不会触发子进程的 [`process.on('message')`] 事件。
-而是，这种消息可使用 `process.on('internalMessage')` 事件触发，且被 Node.js 内部消费。
-应用程序应避免使用这种消息或监听 `'internalMessage'` 事件。
+当发送 `{cmd: 'NODE_foo'}` 消息时有一种特殊情况。
+`cmd` 属性中包含 `NODE_` 前缀的消息是预留给 Node.js 内核内部使用的，将不会触发子进程的 [`'message'`] 事件。
+相反，这种消息可使用 `'internalMessage'` 事件触发，且会被 Node.js 内部消费。
+应用程序应避免使用此类消息或监听 `'internalMessage'` 事件，因为它可能会被更改且不会通知。
 
-可选的 `sendHandle` 参数可能被传给 `subprocess.send()`，它用于传入一个 TCP 服务器或 socket 对象给子进程。
-子进程会接收对象作为第二个参数，并传给注册在 [`process.on('message')`] 事件上的回调函数。
-socket 上接收或缓冲的任何数据不会被发送给子进程。
+可能传给 `subprocess.send()` 的可选的 `sendHandle` 参数用于将 TCP 服务器或 socket 对象传给子进程。
+子进程将会接收该对象作为传给在 [`'message'`] 事件上注册的回调函数的第二个参数。
+在 socket 中接收和缓冲的任何数据都不会被发送给子进程。
 
-`options` 参数，如果存在的话，是一个用于处理发送数据参数对象。`options` 支持以下属性：
+可选的 `callback` 是一个函数，它在消息被发送之后、子进程已收到消息之前被调用。
+该函数被调用时只有一个参数：当成功时是 `null`，当失败时是一个 [`Error`] 对象。
 
-  * `keepOpen` - 一个 Boolean 值，当传入 `net.Socket` 实例时可用。
-    当为 `true` 时，socket 在发送进程中保持打开。
-    默认为 `false`。
-
-可选的 `callback` 是一个函数，它在消息发送之后、子进程收到消息之前被调用。
-该函数被调用时只有一个参数：成功时是 `null`，失败时是一个 [`Error`] 对象。
-
-如果没有提供 `callback` 函数，且消息没被发送，则一个 `'error'` 事件将被 [`ChildProcess`] 对象触发。
+如果没有提供 `callback` 函数，且消息无法被发送，则 [`ChildProcess`] 对象将会触发 `'error'` 事件。
 这是有可能发生的，例如当子进程已经退出时。
 
-如果通道已关闭，或当未发送的消息的积压超过阈值使其无法发送更多时，`subprocess.send()` 会返回 `false`。
-除此以外，该方法返回 `true`。
+如果通道已关闭、或当未发送的消息的积压超过阈值使其无法发送更多时，`subprocess.send()` 将会返回 `false`。
+否则，该方法返回 `true`。
 `callback` 函数可用于实现流量控制。
 

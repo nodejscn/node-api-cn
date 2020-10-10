@@ -2,7 +2,14 @@
 added: v2.3.0
 -->
 
-* Returns: {string}
+* 返回: {string}
 
-`os.homedir()` 方法以字符串的形式返回当前用户的home目录.
+返回当前用户的主目录的字符串路径。
+
+在 POSIX 上，使用 `$HOME` 环境变量（如果有定义）。 
+否则，使用[有效的 UID][EUID] 来查找用户的主目录。
+
+在 Windows 上，使用 `USERPROFILE` 环境变量（如果有定义）。 
+否则，使用当前用户的配置文件目录的路径。
+
 

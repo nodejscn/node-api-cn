@@ -1,39 +1,17 @@
 <!-- YAML
 added: v0.1.92
 -->
-`Verify`类是验证签名的工具。它可以两种方式使用:
 
-- 作为可写的[stream][]，使用书面数据来验证提供的签名
-- 使用[`verify.update()`][]和[`verify.verify()`][]的方法来验证签名。
+* 继承自: {stream.Writable}
 
-[`crypto.createVerify()`][]方法用于创建`Verify`实例。
-`Verify`对象不能直接使用`new`关键字创建。
+`Verify` 类是一个实用工具，用于验证签名。
+它可以通过以下两种方式之一使用：
 
-示例:使用“验证”对象作为流:
+- 作为可写的[流][stream]，其中使用写入的数据来验证提供的签名。
+- 使用 [`verify.update()`] 和 [`verify.verify()`] 方法来验证签名。
 
-```js
-const crypto = require('crypto');
-const verify = crypto.createVerify('SHA256');
+[`crypto.createVerify()`] 方法用于创建 `Verify` 实例。
+不能使用 `new` 关键字直接地创建 `Verify` 对象。
 
-verify.write('some data to sign');
-verify.end();
+有关示例，请参见 [`Sign`]。
 
-const publicKey = getPublicKeySomehow();
-const signature = getSignatureToVerify();
-console.log(verify.verify(publicKey, signature));
-// Prints: true or false
-```
-
-示例：使用[`verify.update()`][]和[`verify.verify()`][]方法
-
-```js
-const crypto = require('crypto');
-const verify = crypto.createVerify('SHA256');
-
-verify.update('some data to sign');
-
-const publicKey = getPublicKeySomehow();
-const signature = getSignatureToVerify();
-console.log(verify.verify(publicKey, signature));
-// Prints: true or false
-```

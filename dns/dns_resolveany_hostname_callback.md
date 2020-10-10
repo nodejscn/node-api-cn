@@ -1,29 +1,28 @@
 
-- `hostname` {string}
-- `callback` {Function}
+* `hostname` {string}
+* `callback` {Function}
   - `err` {Error}
   - `ret` {Object[]}
 
-Uses the DNS protocol to resolve all records (also known as `ANY` or `*` query).
-The `ret` argument passed to the `callback` function will be an array containing
-various types of records. Each object has a property `type` that indicates the
-type of the current record. And depending on the `type`, additional properties
-will be present on the object:
+使用 DNS 协议解析所有记录（也称为 `ANY` 或 `*` 查询）。 
+传给 `callback` 函数的 `ret` 参数将会是一个包含各种类型记录的数组。 
+每个对象都有一个 `callback` 属性，表明当前记录的类型。 
+根据 `type`，对象上将会显示其他属性：
 
-| Type | Properties |
+| 类型 | 属性 |
 |------|------------|
-| `"A"` | `address` / `ttl` |
-| `"AAAA"` | `address` / `ttl` |
-| `"CNAME"` | `value` |
-| `"MX"` | Refer to [`dns.resolveMx()`][] |
-| `"NAPTR"` | Refer to [`dns.resolveNaptr()`][] |
-| `"NS"` | `value` |
-| `"PTR"` | `value` |
-| `"SOA"` | Refer to [`dns.resolveSoa()`][] |
-| `"SRV"` | Refer to [`dns.resolveSrv()`][] |
-| `"TXT"` | This type of record contains an array property called `entries` which refers to [`dns.resolveTxt()`][], eg. `{ entries: ['...'], type: 'TXT' }` |
+| `'A'` | `address`/`ttl` |
+| `'AAAA'` | `address`/`ttl` |
+| `'CNAME'` | `value` |
+| `'MX'` | 指向 [`dns.resolveMx()`][] |
+| `'NAPTR'` | 指向 [`dns.resolveNaptr()`][] |
+| `'NS'` | `value` |
+| `'PTR'` | `value` |
+| `'SOA'` | 指向 [`dns.resolveSoa()`][] |
+| `'SRV'` | 指向 [`dns.resolveSrv()`][] |
+| `'TXT'` | 这种类型的记录包含一个名为 `entries` 的数组属性，它指向 [`dns.resolveTxt()`]，例如：`{ entries: ['...'], type: 'TXT' }` |
 
-Here is a example of the `ret` object passed to the callback:
+以下是传给回调的 `ret` 对象的示例：
 
 <!-- eslint-disable semi -->
 ```js
@@ -41,4 +40,8 @@ Here is a example of the `ret` object passed to the callback:
     expire: 1800,
     minttl: 60 } ]
 ```
+
+DNS 服务器运营商可以选择不响应 `ANY` 查询。 
+调用 [`dns.resolve4()`]、[`dns.resolveMx()`] 等单个方法可能更好。 
+有关更多详细信息，请参见 [RFC 8482]。
 

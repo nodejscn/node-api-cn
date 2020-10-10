@@ -1,58 +1,62 @@
 <!-- YAML
 added: v0.11.12
 changes:
+  - version: v10.10.0
+    pr-url: https://github.com/nodejs/node/pull/22409
+    description: 选项 `input` 可以是任何 `TypedArray` 或 `DataView`。
   - version: v8.8.0
     pr-url: https://github.com/nodejs/node/pull/15380
-    description: The `windowsHide` option is supported now.
+    description: 支持 `windowsHide` 选项。
   - version: v8.0.0
     pr-url: https://github.com/nodejs/node/pull/10653
-    description: The `input` option can now be a `Uint8Array`.
+    description: 选项 `input` 可以是 `Uint8Array`。
   - version: v6.2.1, v4.5.0
     pr-url: https://github.com/nodejs/node/pull/6939
     description: The `encoding` option can now explicitly be set to `buffer`.
   - version: v5.7.0
     pr-url: https://github.com/nodejs/node/pull/4598
-    description: The `shell` option is supported now.
+    description: 支持 `shell` 选项。
 -->
 
 * `command` {string} 要运行的命令。
-* `args` {Array} 字符串参数列表。
+* `args` {string[]} 字符串参数的列表。
 * `options` {Object}
   * `cwd` {string} 子进程的当前工作目录。
-  * `input` {string|Buffer|Uint8Array} 要作为 stdin 传给衍生进程的值。
-    - 提供该值会覆盖 `stdio[0]`
+  * `input` {string|Buffer|TypedArray|DataView} 该值会作为 stdin 传给衍生的进程。提供此值会覆盖 `stdio[0]`。
+  * `argv0` {string} 显式地设置发送给子进程的 `argv[0]` 的值。如果没有指定，则会被设置为 `command` 的值。
   * `stdio` {string|Array} 子进程的 stdio 配置。
-  * `env` {Object} 环境变量键值对。
-  * `uid` {number} 设置该进程的用户标识。（详见 setuid(2)）
-  * `gid` {number} 设置该进程的组标识。（详见 setgid(2)）
-  * `timeout` {number} 进程允许运行的最大时间数，以毫秒为单位。默认为 `undefined`。
-  * `killSignal` {string|integer} 当衍生进程将被杀死时要使用的信号值。默认为 `'SIGTERM'`。
-  * [`maxBuffer`][] {number} stdout 或 stderr 允许的最大字节数。
-    默认为 `200*1024`。
-    如果超过限制，则子进程会被终止。
-    See caveat at [`maxBuffer` and Unicode][].
-  * `encoding` {string} 用于所有 stdio 输入和输出的编码。默认为 `'buffer'`。
-  * `shell` {boolean|string} 如果为 `true`，则在一个 shell 中运行 `command`。
-    在 UNIX 上使用 `'/bin/sh'`，在 Windows 上使用 `process.env.ComSpec`。
-    一个不同的 shell 可以被指定为字符串。
-    查看 [Shell Requirements][] 和 [Default Windows Shell][].
-    默认为 `false`（没有 shell）。
-  * `windowsVerbatimArguments` {boolean} 在Windows上不会引用或转义参数。 在Unix上忽略。 当指定 shell 时，它会自动设置为true。 **默认：** false。
-  * `windowsHide` {boolean} Hide the subprocess console window that would
-    normally be created on Windows systems. **Default:** `false`.
+  * `env` {Object} 环境变量的键值对。**默认值:** `process.env`。
+  * `uid` {number} 设置进程的用户标识，参见 setuid(2)。
+  * `gid` {number} 设置进程的群组标识，参见 setgid(2)。
+  * `timeout` {number} 允许进程运行的最长时间，以毫秒为单位。**默认值:** `undefined`。
+  * `killSignal` {string|integer} 当衍生的进程被杀死时使用的信号值。**默认值:** `'SIGTERM'`。
+  * `maxBuffer` {number} stdout 或 stderr 上允许的最大数据量（以字节为单位）。
+    如果超过限制，则子进程会被终止，并且输出会被截断。
+    参见 [maxBuffer 和 Unicode][`maxBuffer` and Unicode] 的注意事项。
+    **默认值:** `1024 * 1024`。
+  * `encoding` {string} 用于所有 stdio 输入和输出的字符编码。**默认值:** `'buffer'`。
+  * `shell` {boolean|string} 如果为 `true`，则在 shell 中运行 `command`。
+     在 Unix 上使用 `'/bin/sh'`，在 Windows 上使用 `process.env.ComSpec`。
+     可以将不同的 shell 指定为字符串。
+     参见 [shell 的要求][Shell requirements]和[默认的 Windows shell][Default Windows shell]。
+     **默认值:** `false`（没有 shell）。
+  * `windowsVerbatimArguments` {boolean} 在 Windows 上不为参数加上引号或转义。在 Unix 上会被忽略。如果指定了 `shell` 并且是 CMD，则自动设为 `true`。**默认值:** `false`。
+  * `windowsHide` {boolean} 隐藏子进程的控制台窗口（在 Windows 系统上通常会创建）。**默认值:** `false`。
 * 返回: {Object}
   * `pid` {number} 子进程的 pid。
-  * `output` {Array} stdio 输出返回的结果数组。
+  * `output` {Array} stdio 输出的结果数组。
   * `stdout` {Buffer|string} `output[1]` 的内容。
   * `stderr` {Buffer|string} `output[2]` 的内容。
-  * `status` {number} 子进程的退出码。
-  * `signal` {string} 用于杀死子进程的信号。
-  * `error` {Error} 如果子进程失败或超时产生的错误对象。
+  * `status` {number} 子进程的退出码，如果子进程因信号而终止，则为 `null`。
+  * `signal` {string} 用于杀死子进程的信号，如果子进程不是因信号而终止，则为 `null`。
+  * `error` {Error} 如果子进程失败或超时的错误对象。
 
-`child_process.spawnSync()` 方法与 [`child_process.spawn()`] 基本相同，除了该方法直到子进程完全关闭后才返回。
-当遇到超时且发送了 `killSignal` 时，则该方法直到进程完全退出后才返回结果。
-注意，如果子进程拦截并处理了 `SIGTERM` 信号且没有退出，则父进程会一直等待直到子进程退出。
+`child_process.spawnSync()` 方法通常与 [`child_process.spawn()`] 相同，但在子进程完全关闭之前该函数不会返回。
+当遇到超时并且已发送 `killSignal` 时，该方法也需等到进程完全退出后才返回。
+如果进程拦截并处理了 `SIGTERM` 信号但未退出，则父进程会等待直到子进程退出。
 
-注意：不要把未经检查的用户输入传入到该函数。
-任何包括 shell 元字符的输入都可被用于触发任何命令的执行。
+**如果启用了 `shell` 选项，则不要将未经过处理的用户输入传给此函数。
+包含 shell 元字符的任何输入都可用于触发任意命令的执行。**
+
+
 

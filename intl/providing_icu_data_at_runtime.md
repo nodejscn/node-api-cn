@@ -6,13 +6,13 @@ through either:
 
 * The [`NODE_ICU_DATA`][] environment variable:
 
-  ```shell
+  ```bash
   env NODE_ICU_DATA=/some/directory node
   ```
 
 * The [`--icu-data-dir`][] CLI parameter:
 
-  ```shell
+  ```bash
   node --icu-data-dir=/some/directory
   ```
 
@@ -20,7 +20,7 @@ through either:
 
 ICU is able to automatically find and load a variety of data formats, but the
 data must be appropriate for the ICU version, and the file correctly named.
-The most common name for the data file is `icudt5X[bl].dat`, where `5X` denotes
+The most common name for the data file is `icudt6X[bl].dat`, where `6X` denotes
 the intended ICU version, and `b` or `l` indicates the system's endianness.
 Check ["ICU Data"][] article in the ICU User Guide for other supported formats
 and more details on ICU data in general.
@@ -31,3 +31,4 @@ appropriate data file. After installing the module through `npm i full-icu`,
 the data file will be available at `./node_modules/full-icu`. This path can be
 then passed either to `NODE_ICU_DATA` or `--icu-data-dir` as shown above to
 enable full `Intl` support.
+

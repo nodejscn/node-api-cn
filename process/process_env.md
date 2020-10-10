@@ -1,46 +1,54 @@
 <!-- YAML
 added: v0.1.27
+changes:
+  - version: v11.14.0
+    pr-url: https://github.com/nodejs/node/pull/26544
+    description: 默认情况下，工作线程会使用父线程的 `process.env` 的副本，该副本可通过 `Worker` 构造函数的 `env` 选项进行配置。
+  - version: v10.0.0
+    pr-url: https://github.com/nodejs/node/pull/18990
+    description: 不建议将变量的值隐式地转换为字符串。
 -->
 
 * {Object}
 
-`process.env`属性返回一个包含用户环境信息的对象
-See environ(7).
+`process.env` 属性会返回包含用户环境的对象。
+参见 environ(7)。
 
-例如这样的对象:
+此对象的示例如下所示：
 
 <!-- eslint-skip -->
 ```js
 {
   TERM: 'xterm-256color',
   SHELL: '/usr/local/bin/bash',
-  USER: 'maciej',
+  USER: 'nodejscn',
   PATH: '~/.bin/:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin',
-  PWD: '/Users/maciej',
+  PWD: '/Users/nodejscn',
   EDITOR: 'vim',
   SHLVL: '1',
-  HOME: '/Users/maciej',
-  LOGNAME: 'maciej',
+  HOME: '/Users/nodejscn',
+  LOGNAME: 'nodejscn',
   _: '/usr/local/bin/node'
 }
 ```
 
-可以修改这个对象，但是下面例子的做法是不会生效的：
+可以修改此对象，但这些修改不会反映到 Node.js 进程之外，或者（除非明确地要求）反映到其他 [`Worker`] 线程。
+换句话说，以下示例不会起作用：
 
-```命令行修改
+```console
 $ node -e 'process.env.foo = "bar"' && echo $foo
 ```
 
-下面的做法会生效：
+以下示例则会起作用：
 
-```js文件中修改
+```js
 process.env.foo = 'bar';
 console.log(process.env.foo);
 ```
 
-在`process.env`中新增一个属性，会将属性值转换成字符串
-
-例如:
+在 `process.env` 上为属性赋值会隐式地将值转换为字符串。
+**不推荐使用此行为。**
+当值不是字符串、数字或布尔值时，Node.js 未来的版本可能会抛出错误。
 
 ```js
 process.env.test = null;
@@ -51,9 +59,7 @@ console.log(process.env.test);
 // => 'undefined'
 ```
 
-用 `delete`从`process.env`中删除一个属性
-
-例如:
+使用 `delete` 可以从 `process.env` 中删除属性。
 
 ```js
 process.env.TEST = 1;
@@ -62,13 +68,15 @@ console.log(process.env.TEST);
 // => undefined
 ```
 
-在Windows系统下，环境变量是不区分大小写的
-
-例如:
+在 Windows 操作系统上，环境变量不区分大小写。
 
 ```js
 process.env.TEST = 1;
 console.log(process.env.test);
 // => 1
 ```
+
+除非在创建 [`Worker`] 实例时显式地指定，否则每个 [`Worker`] 线程都有自己的 `process.env` 副本（基于其父线程的 `process.env`，或者指定为 [`Worker`] 构造函数的 `env` 选项的任何内容）。 
+对于 `process.env` 的更改在 [`Worker`] 线程中是不可见的，并且只有主线程可以做出对操作系统或原生插件可见的更改。
+
 

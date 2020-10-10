@@ -5,22 +5,21 @@ changes:
     pr-url: https://github.com/nodejs/node/pull/5522
     description: The default `inputEncoding` changed from `binary` to `utf8`.
 -->
-- `data` {string | Buffer | TypedArray | DataView}
-- `inputEncoding` {string}
-- `outputEncoding` {string}
 
-Updates the decipher with `data`. If the `inputEncoding` argument is given,
-its value must be one of `'latin1'`, `'base64'`, or `'hex'` and the `data`
-argument is a string using the specified encoding. If the `inputEncoding`
-argument is not given, `data` must be a [`Buffer`][]. If `data` is a
-[`Buffer`][] then `inputEncoding` is ignored.
+* `data` {string | Buffer | TypedArray | DataView}
+* `inputEncoding` {string} 数据的[字符编码][encoding]。
+* `outputEncoding` {string} 返回值的[字符编码][encoding]。
+* 返回: {Buffer | string}
 
-The `outputEncoding` specifies the output format of the enciphered
-data, and can be `'latin1'`, `'ascii'` or `'utf8'`. If the `outputEncoding`
-is specified, a string using the specified encoding is returned. If no
-`outputEncoding` is provided, a [`Buffer`][] is returned.
+使用 `data` 更新解密。
+如果指定了 `inputEncoding` 参数，则 `data` 参数是使用了指定的字符编码的字符串。
+如果未指定 `inputEncoding` 参数，则 `data` 必须是一个 [`Buffer`]、`TypedArray` 或 `DataView`。
+如果 `data` 是一个 [`Buffer`]、`TypedArray` 或 `DataView`，则 `inputEncoding` 会被忽略。
 
-The `decipher.update()` method can be called multiple times with new data until
-[`decipher.final()`][] is called. Calling `decipher.update()` after
-[`decipher.final()`][] will result in an error being thrown.
+`outputEncoding` 指定了解密的数据的输出格式。
+如果指定了 `outputEncoding`，则返回使用了指定的字符编码的字符串。
+如果未提供 `outputEncoding`，则返回 [`Buffer`]。
+
+可以使用新数据多次调用 `decipher.update()` 方法，直到 [`decipher.final()`] 被调用。 
+在 [`decipher.final()`] 之后调用 `decipher.update()` 将会导致抛出错误。
 

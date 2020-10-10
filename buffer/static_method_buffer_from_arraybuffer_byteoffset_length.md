@@ -1,0 +1,42 @@
+<!-- YAML
+added: v5.10.0
+-->
+
+* `arrayBuffer` {ArrayBuffer|SharedArrayBuffer} 一个 [`ArrayBuffer`] 或 [`SharedArrayBuffer`]，例如 [`TypedArray`] 的 `.buffer` 属性。
+* `byteOffset` {integer} 开始拷贝的索引。**默认值:** `0`。
+* `length` {integer} 拷贝的字节数。**默认值:** `arrayBuffer.byteLength - byteOffset`。
+
+创建 [`ArrayBuffer`] 的视图，但不会拷贝底层内存。
+例如，当传入 [`TypedArray`] 的 `.buffer` 属性的引用时，新建的 `Buffer` 会与 [`TypedArray`] 共享同一内存。
+
+```js
+const arr = new Uint16Array(2);
+
+arr[0] = 5000;
+arr[1] = 4000;
+
+// 与 `arr` 共享内存。
+const buf = Buffer.from(arr.buffer);
+
+console.log(buf);
+// 打印: <Buffer 88 13 a0 0f>
+
+// 改变原先的 Uint16Array 也会改变 Buffer。
+arr[1] = 6000;
+
+console.log(buf);
+// 打印: <Buffer 88 13 70 17>
+```
+
+可选的  `byteOffset` 和 `length` 参数指定 `arrayBuffer` 中与 `Buffer` 共享的内存范围。
+
+```js
+const ab = new ArrayBuffer(10);
+const buf = Buffer.from(ab, 0, 2);
+
+console.log(buf.length);
+// 打印: 2
+```
+
+如果 `arrayBuffer` 不是一个 [`ArrayBuffer`]、[`SharedArrayBuffer`] 或适用于 `Buffer.from()` 变量的其他类型，则抛出 `TypeError`。
+

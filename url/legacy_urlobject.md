@@ -1,3 +1,12 @@
+<!-- YAML
+changes:
+  - version: v11.0.0
+    pr-url: https://github.com/nodejs/node/pull/22715
+    description: The Legacy URL API is deprecated. Use the WHATWG URL API.
+-->
 
-遗留的urlObject (`require('url').Url`)由`url.parse()`函数创建并返回。
+> Stability: 0 - Deprecated: Use the WHATWG URL API instead.
+
+The legacy `urlObject` (`require('url').Url`) is created and returned by the
+`url.parse()` function.
 

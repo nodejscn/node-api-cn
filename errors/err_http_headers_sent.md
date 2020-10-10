@@ -1,4 +1,4 @@
 
-当Http header已发送，添加更多header的行为会抛出这个错误代码
+当消息头已发送后，还试图添加消息头。
 
 <a id="ERR_HTTP_INVALID_CHAR"></a>

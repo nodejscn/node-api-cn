@@ -1,17 +1,29 @@
-Node.js有许多功能，使它更容易编写国际化程序.其中一些是：
-- [ECMAScript语言规格][ECMA-262]中的本地化敏感或感知统一编码功能：
-  - [`String.prototype.normalize()`][]
-  - [`String.prototype.toLowerCase()`][]
-  - [`String.prototype.toUpperCase()`][]
-- [ECMAScript国际化API规格][ECMA-402] (aka ECMA-402)中的所有的功能：
-  - [`Intl`][] 对象
-  -本地化敏感的方法如[`String.prototype.localeCompare()`][] 和 [`Date.prototype.toLocaleString()`][]
-- WHATWG URL解析器的[国际化域名 ] [ ]（IDN）的支持
-- [ `require('buffer').transcode()` ] [ ]
-- 更准确的[REPL] [ ] 行编辑
-- [`require('util').TextDecoder`][]
 
-Node.js（及其背后的V8引擎）在原生的C / C++代码使用[ICU] [ ] 实施这些功能。
-然而，其中一些为了支持世界的所有地区，需要一个非常大的ICU数据文件。
-因为预计多数Node.js的用户将只使用ICU的功能的一小部分，Node.js默认设置了所有ICU的数据集的一个子集。
-当建设或运行Node.js时提供了几个定制和扩展ICU数据集的选项。
+<!--introduced_in=v8.2.0-->
+<!-- type=misc -->
+
+Node.js has many features that make it easier to write internationalized
+programs. Some of them are:
+
+* Locale-sensitive or Unicode-aware functions in the [ECMAScript Language
+  Specification][ECMA-262]:
+  * [`String.prototype.normalize()`][]
+  * [`String.prototype.toLowerCase()`][]
+  * [`String.prototype.toUpperCase()`][]
+* All functionality described in the [ECMAScript Internationalization API
+  Specification][ECMA-402] (aka ECMA-402):
+  * [`Intl`][] object
+  * Locale-sensitive methods like [`String.prototype.localeCompare()`][] and
+    [`Date.prototype.toLocaleString()`][]
+* The [WHATWG URL parser][]'s [internationalized domain names][] (IDNs) support
+* [`require('buffer').transcode()`][]
+* More accurate [REPL][] line editing
+* [`require('util').TextDecoder`][]
+* [`RegExp` Unicode Property Escapes][]
+
+Node.js (and its underlying V8 engine) uses [ICU][] to implement these features
+in native C/C++ code. The full ICU data set is provided by Node.js by default.
+However, due to the size of the ICU data file, several
+options are provided for customizing the ICU data set either when
+building or running Node.js.
+

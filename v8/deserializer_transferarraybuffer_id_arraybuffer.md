@@ -1,5 +1,9 @@
 
-* `id` {integer} 一个 32 位无符号整型
-* `arrayBuffer` {ArrayBuffer|SharedArrayBuffer} `ArrayBuffer`实例
+* `id` {integer} A 32-bit unsigned integer.
+* `arrayBuffer` {ArrayBuffer|SharedArrayBuffer} An `ArrayBuffer` instance.
 
-标记一个`ArrayBuffer`, 表明它的内容正在被带外传输中。同时将`ArrayBuffer`包裹于一个序列化的上下文内，之后将结果传入[`serializer.transferArrayBuffer()`][]中（当`arrayBuffer`是`ShareArrayBuffer`实例时，返回[`serializer._getSharedArrayBufferId()`][]产生的`id`）
+Marks an `ArrayBuffer` as having its contents transferred out of band.
+Pass the corresponding `ArrayBuffer` in the serializing context to
+[`serializer.transferArrayBuffer()`][] (or return the `id` from
+[`serializer._getSharedArrayBufferId()`][] in the case of `SharedArrayBuffer`s).
+

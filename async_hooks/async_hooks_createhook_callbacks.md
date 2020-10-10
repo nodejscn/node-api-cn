@@ -8,7 +8,8 @@ added: v8.1.0
   * `before` {Function} The [`before` callback][].
   * `after` {Function} The [`after` callback][].
   * `destroy` {Function} The [`destroy` callback][].
-* Returns: `{AsyncHook}` Instance used for disabling and enabling hooks
+  * `promiseResolve` {Function} The [`promiseResolve` callback][].
+* Returns: {AsyncHook} Instance used for disabling and enabling hooks
 
 Registers functions to be called for different lifetime events of each async
 operation.
@@ -30,7 +31,7 @@ const asyncHook = async_hooks.createHook({
 });
 ```
 
-Note that the callbacks will be inherited via the prototype chain:
+The callbacks will be inherited via the prototype chain:
 
 ```js
 class MyAsyncCallbacks {

@@ -3,27 +3,23 @@ added: v0.3.0
 deprecated: v0.10.6
 -->
 
-> 稳定性: 0 - 废弃的
+> Stability: 0 - Deprecated
 
 * {Object}
 
-指示 `require` 怎样处理特定的文件扩展名
+Instruct `require` on how to handle certain file extensions.
 
-例如：把 `.sjs` 文件当做 `.js` 文件处理：
+Process files with the extension `.sjs` as `.js`:
 
 ```js
 require.extensions['.sjs'] = require.extensions['.js'];
 ```
 
-**废弃的**  以前这被用来将非 JavaScript 模块按需编译后加载到 Node.js 中。
-然而，在实践中，有更多更好的解决方案，比如用其它 Node.js 程序加载模块，
-或者提前将它们编译为 JavaScript 模块。
+**Deprecated.** In the past, this list has been used to load non-JavaScript
+modules into Node.js by compiling them on-demand. However, in practice, there
+are much better ways to do this, such as loading modules via some other Node.js
+program, or compiling them to JavaScript ahead of time.
 
-由于模块系统已锁定，这个特性可能永远不会消失，但是鉴于其复杂性和可能导致的小问题，
-最好不要碰它。
-
-模块系统把一个 `require(...)` 解析为文件名的操作数随着新注册文件扩展名的增加
-呈线性递增。
-
-也就是说，增加文件扩展名数量降低了模块导入的速度，这不应该被提倡。
+Avoid using `require.extensions`. Use could cause subtle bugs and resolving the
+extensions gets slower with each registered extension.
 

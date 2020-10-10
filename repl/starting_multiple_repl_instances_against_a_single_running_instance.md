@@ -43,7 +43,7 @@ net.createServer((socket) => {
 
 通过从一个基于 Unix socket 的服务器（而不是 stdin）启动一个 REPL，可以连接到一个长期运行的 Node.js 进程而无需重启它。
 
-例子，在一个 `net.Server` 实例和一个 `net.Socket` 实例上运行一个全特性的（`terminal`）REPL，详见：https://gist.github.com/2209310
+例子，在一个 `net.Server` 实例和一个 `net.Socket` 实例上运行一个全特性的（`terminal`）REPL，详见：<https://gist.github.com/TooTallNate/2209310>。
 
-例子，在 [curl(1)][] 上运行一个 REPL 实例，详见：https://gist.github.com/2053342
+例子，在 [`curl(1)`][] 上运行一个 REPL 实例，详见：<https://gist.github.com/TooTallNate/2053342>。
 

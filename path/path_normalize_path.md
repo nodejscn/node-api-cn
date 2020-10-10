@@ -5,12 +5,12 @@ added: v0.1.23
 * `path` {string}
 * 返回: {string}
 
-`path.normalize()` 方法会规范化给定的 `path`，并解析 `'..'` 和 `'.'` 片段。
+`path.normalize()` 方法规范化给定的 `path`，解析 `'..'` 和 `'.'` 片段。
 
-当发现多个连续的路径分隔符时（如 POSIX 上的 `/` 与 Windows 上的 `\` 或 `/`），它们会被单个的路径分隔符（POSIX 上是 `/`，Windows 上是 `\`）替换。
-末尾的多个分隔符会被保留。
+当找到多个连续的路径段分隔字符时（例如 POSIX 上的 `/`、Windows 上的 `\` 或 `/`），则它们将被替换为单个平台特定的路径段分隔符（POSIX 上的 `/`、Windows 上的 `\`）。 
+尾部的分隔符会保留。
 
-如果 `path` 是一个长度为零的字符串，则返回 `'.'`，表示当前工作目录。
+如果 `path` 是零长度的字符串，则返回 `'.'`，表示当前工作目录。
 
 例如，在 POSIX 上：
 
@@ -26,12 +26,12 @@ path.normalize('C:\\temp\\\\foo\\bar\\..\\');
 // 返回: 'C:\\temp\\foo\\'
 ```
 
-尽管Windows会识别多种文件路径分隔符，但是两种分隔符在Window上会被(`\`)分隔符取代：
+由于 Windows 识别多种路径分隔符，因此这些分隔符都将被替换为 Windows 首选的分隔符（`\`）：
 
 ```js
 path.win32.normalize('C:////temp\\\\/\\/\\/foo/bar');
-// Returns: 'C:\\temp\\foo\\bar'
+// 返回: 'C:\\temp\\foo\\bar'
 ```
 
-如果 `path` 不是一个字符串，则抛出 [`TypeError`]。
+如果 `path` 不是字符串，则抛出 [`TypeError`]。
 

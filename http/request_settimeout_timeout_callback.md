@@ -2,10 +2,10 @@
 added: v0.5.9
 -->
 
-* `timeout` {number} 请求被认为是超时的毫秒数。
-* `callback` {Function} 可选的函数，当超时发生时被调用。等同于绑定到 `timeout` 事件。
+* `timeout` {number} 请求超时前的毫秒数。
+* `callback` {Function} 发生超时时要调用的可选函数。相当于绑定到 `'timeout'` 事件。
+* 返回: {http.ClientRequest}
 
-一旦 socket 被分配给请求且已连接，[`socket.setTimeout()`] 会被调用。
+一旦将套接字分配给此请求并且连接了套接字，就会调用 [`socket.setTimeout()`]。
 
-返回 `request`。
 

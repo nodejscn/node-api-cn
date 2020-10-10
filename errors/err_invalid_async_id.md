@@ -1,5 +1,5 @@
 
-Used with `AsyncHooks` when an invalid `asyncId` or `triggerAsyncId` is passed.
-An id less than -1 should never happen.
+An invalid `asyncId` or `triggerAsyncId` was passed using `AsyncHooks`. An id
+less than -1 should never happen.
 
-<a id="ERR_INVALID_CALLBACK"></a>
+<a id="ERR_INVALID_BUFFER_SIZE"></a>

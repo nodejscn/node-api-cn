@@ -4,13 +4,13 @@ added: v0.7.0
 
 * `worker` {cluster.Worker}
 
-当新的工作进程被fork时，cluster模块将触发`'fork'`事件。
-可以被用来记录工作进程活动，产生一个自定义的timeout。
+当新的工作进程被衍生时，cluster 模块将会触发 `'fork'` 事件。
+可以被用来记录工作进程活动，并产生一个自定义的超时。
 
 ```js
 const timeouts = [];
 function errorMsg() {
-  console.error('Something must be wrong with the connection ...');
+  console.error('连接出错');
 }
 
 cluster.on('fork', (worker) => {

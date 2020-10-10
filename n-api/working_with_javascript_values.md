@@ -1,9 +1,9 @@
 N-API exposes a set of APIs to create all types of JavaScript values.
-Some of these types are documented under
-[Section 6](https://tc39.github.io/ecma262/#sec-ecmascript-data-types-and-values)
+Some of these types are documented under [Section 6][]
 of the [ECMAScript Language Specification][].
 
 Fundamentally, these APIs are used to do one of the following:
+
 1. Create a new JavaScript object
 2. Convert from a primitive C type to an N-API value
 3. Convert from N-API value to a primitive C type

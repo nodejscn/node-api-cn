@@ -3,38 +3,46 @@ added: v0.1.91
 changes:
   - version: v8.8.0
     pr-url: https://github.com/nodejs/node/pull/15380
-    description: The `windowsHide` option is supported now.
+    description: 支持 `windowsHide` 选项。
 -->
 
 * `file` {string} 要运行的可执行文件的名称或路径。
-* `args` {string[]} 字符串参数列表。
+* `args` {string[]} 字符串参数的列表。
 * `options` {Object}
   * `cwd` {string} 子进程的当前工作目录。
-  * `env` {Object} 环境变量键值对。
-  * `encoding` {string} 默认为 `'utf8'`。
-  * `timeout` {number} 默认为 `0`。
-  * [`maxBuffer`] {number} stdout 或 stderr 允许的最大字节数。
-    默认为 `200*1024`。
-    如果超过限制，则子进程会被终止。
-    See caveat at [`maxBuffer` and Unicode][].
-  * `killSignal` {string|integer} 默认为 `'SIGTERM'`。
-  * `uid` {number} 设置该进程的用户标识。（详见 setuid(2)）
-  * `gid` {number} 设置该进程的组标识。（详见 setgid(2)）
-  * `windowsHide` {boolean} Hide the subprocess console window that would
-    normally be created on Windows systems. **Default:** `false`.
-  * `windowsVerbatimArguments` {boolean} No quoting or escaping of arguments is
-    done on Windows. Ignored on Unix. **Default:** `false`.
-* `callback` {Function} 当进程终止时调用，并带上输出。
+  * `env` {Object} 环境变量的键值对。
+    **默认值:** `process.env`。
+  * `encoding` {string} **默认值:** `'utf8'`。
+  * `timeout` {number} **默认值:** `0`。
+  * `maxBuffer` {number} stdout 或 stderr 上允许的最大数据量（以字节为单位）。
+    如果超过限制，则子进程会被终止，并且输出会被截断。
+    参见 [maxBuffer 和 Unicode][`maxBuffer` and Unicode] 的注意事项。
+    **默认值:** `1024 * 1024`。
+  * `killSignal` {string|integer} **默认值:** `'SIGTERM'`。
+  * `uid` {number} 设置进程的用户标识，参见 setuid(2)。
+  * `gid` {number} 设置进程的群组标识，参见 setgid(2)。
+  * `windowsHide` {boolean} 隐藏子进程的控制台窗口（在 Windows 系统上通常会创建）。
+    **默认值:** `false`。
+  * `windowsVerbatimArguments` {boolean} 在 Windows 上不为参数加上引号或转义。
+    在 Unix 上会被忽略。
+    **默认值:** `false`。
+  * `shell` {boolean|string} 如果为 `true`，则在 shell 中运行 `command`。
+     在 Unix 上使用 `'/bin/sh'`，在 Windows 上使用 `process.env.ComSpec`。
+     可以将不同的 shell 指定为字符串。
+     参见 [shell 的要求][Shell requirements]和[默认的 Windows shell][Default Windows shell]。
+     **默认值:** `false`（没有 shell）。
+* `callback` {Function} 当进程终止时调用并传入输出。
   * `error` {Error}
   * `stdout` {string|Buffer}
   * `stderr` {string|Buffer}
 * 返回: {ChildProcess}
 
-`child_process.execFile()` 函数类似 [`child_process.exec()`]，除了不衍生一个 shell。
-而是，指定的可执行的 `file` 被直接衍生为一个新进程，这使得它比 [`child_process.exec()`] 更高效。
+`child_process.execFile()` 函数类似于 [`child_process.exec()`]，但默认情况下不会衍生 shell。
+指定的可执行文件 `file` 会被直接衍生作为新的进程，使其比 [`child_process.exec()`] 稍微更高效。
 
-它支持和 [`child_process.exec()`] 一样的选项。
-由于没有衍生 shell，因此不支持像 I/O 重定向和文件查找这样的行为。
+支持与 [`child_process.exec()`] 相同的选项。
+由于没有衍生 shell，因此不支持 I/O 重定向和文件通配等行为。
+
 
 ```js
 const { execFile } = require('child_process');
@@ -46,14 +54,14 @@ const child = execFile('node', ['--version'], (error, stdout, stderr) => {
 });
 ```
 
-传给回调的 `stdout` 和 `stderr` 参数会包含子进程的 stdout 和 stderr 的输出。
-默认情况下，Node.js 会解码输出为 UTF-8，并将字符串传给回调。
-`encoding` 选项可用于指定用于解码 stdout 和 stderr 输出的字符编码。
-如果 `encoding` 是 `'buffer'`、或一个无法识别的字符编码，则传入 `Buffer` 对象到回调函数。
+传给回调的 `stdout` 和 `stderr` 参数会包含子进程的 stdout 和 stderr 输出。
+默认情况下，Node.js 会将输出解码为 UTF-8 并将字符串传给回调。
+`encoding` 选项可用于指定字符编码（用于解码 stdout 和 stderr 输出）。
+如果 `encoding` 是 `'buffer'` 或无法识别的字符编码，则传给回调的会是 `Buffer` 对象。
 
-如果调用该方法的 [`util.promisify()`][] 版本， 它会返回一个拥有 `stdout` 和
-`stderr` 属性的 Promise 对象. 在发生错误的情况下, 返回一个 rejected 状态的 promise, 拥有与回调
-函数一样的 `error` 对象, 但是附加了 `stdout` 和 `stderr` 这两个属性.
+如果调用此方法的 [`util.promisify()`] 版本，则返回 `Promise`（会传入具有 `stdout` 和 `stderr` 属性的 `Object`）。
+返回的 `ChildProcess` 实例会作为 `child` 属性附加到 `Promise`。
+如果出现错误（包括导致退出码不为 0 的任何错误），则返回 reject 的 promise，并传入与回调中相同的 `error` 对象，但是还有两个额外的属性 `stdout` 和 `stderr`。
 
 ```js
 const util = require('util');
@@ -64,3 +72,7 @@ async function getVersion() {
 }
 getVersion();
 ```
+
+**如果启用了 `shell` 选项，则不要将未经过处理的用户输入传给此函数。
+包含 shell 元字符的任何输入都可用于触发任意命令的执行。**
+

@@ -1,12 +1,17 @@
 <!-- YAML
 added: v0.9.12
+changes:
+  - version: v13.0.0
+    pr-url: https://github.com/nodejs/node/pull/27558
+    description: The default timeout changed from 120s to 0 (no timeout).
 -->
 
-* {number} 超时时间，以毫秒为单位。默认为 120000 (2 分钟)。
+* {number} 超时时间（以毫秒为单位）。**默认值:** `120000`（2 分钟）。
 
-socket 被认定为超时的空闲毫秒数。
+认定套接字超时的不活动毫秒数。
 
-值设为 `0` 可禁用请求连接的超时行为。
+值为 `0` 将禁用传入连接的超时行为。
 
-注意，socket 的超时逻辑是在连接上设定的，所以改变这个值只影响服务器新建的连接，而不会影响任何已存在的连接。
+套接字超时逻辑在连接时设置，因此更改此值仅影响到服务器的新连接，而不影响任何现有连接。
+
 

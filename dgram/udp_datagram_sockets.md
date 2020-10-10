@@ -1,11 +1,13 @@
 
 <!--introduced_in=v0.10.0-->
 
-> 稳定性: 2 - 稳定的
+> 稳定性: 2 - 稳定
 
 <!-- name=dgram -->
 
-`dgram`模块提供了 UDP 数据包 socket 的实现。
+<!-- source_link=lib/dgram.js -->
+
+`dgram` 模块提供了 UDP 数据包 socket 的实现。
 
 ```js
 const dgram = require('dgram');
@@ -17,7 +19,7 @@ server.on('error', (err) => {
 });
 
 server.on('message', (msg, rinfo) => {
-  console.log(`服务器收到：${msg} 来自 ${rinfo.address}:${rinfo.port}`);
+  console.log(`服务器接收到来自 ${rinfo.address}:${rinfo.port} 的 ${msg}`);
 });
 
 server.on('listening', () => {

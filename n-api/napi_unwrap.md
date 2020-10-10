@@ -1,15 +1,17 @@
 <!-- YAML
 added: v8.0.0
+napiVersion: 1
 -->
-```C
+
+```c
 napi_status napi_unwrap(napi_env env,
                         napi_value js_object,
                         void** result);
 ```
 
- - `[in] env`: The environment that the API is invoked under.
- - `[in] js_object`: The object associated with the native instance.
- - `[out] result`: Pointer to the wrapped native instance.
+* `[in] env`: The environment that the API is invoked under.
+* `[in] js_object`: The object associated with the native instance.
+* `[out] result`: Pointer to the wrapped native instance.
 
 Returns `napi_ok` if the API succeeded.
 

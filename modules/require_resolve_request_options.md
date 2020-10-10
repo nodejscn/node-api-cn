@@ -8,10 +8,12 @@ changes:
 
 * `request` {string} 需要解析的模块路径。
 * `options` {Object}
-  * `paths` {Array} 解析模块的起点路径。此参数存在时，将使用这些路径而非默认解析路径。
-    注意此数组中的每一个路径都被用作模块解析算法的起点，意味着 `node_modules` 层级将从这里开始查询。
-* Returns: {string}
+  * `paths` {string[]} 从中解析模块位置的路径。 
+    如果存在，则使用这些路径而不是默认的解析路径，但 [GLOBAL_FOLDERS] 除外，例如 `$HOME/.node_modules`，它们总是包含在内。 
+    这些路径中的每一个都用作模块解析算法的起点，这意味着从该位置开始检查 `node_modules` 层次结构。
+* 返回: {string}
 
-使用内部的 `require()` 机制查询模块的位置,
-此操作只返回解析后的文件名，不会加载该模块。
+使用内部的 `require()` 机制查询模块的位置，此操作只返回解析后的文件名，不会加载该模块。
+
+如果找不到模块，则会抛出 `MODULE_NOT_FOUND` 错误。
 

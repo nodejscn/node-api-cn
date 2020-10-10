@@ -1,8 +1,7 @@
 
 默认的解释器支持直接解释 JavaScript 表达式：
 
-<!-- eslint-skip -->
-```js
+```console
 > 1 + 1
 2
 > const m = 2

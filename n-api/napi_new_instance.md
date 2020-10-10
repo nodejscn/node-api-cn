@@ -1,7 +1,9 @@
 <!-- YAML
 added: v8.0.0
+napiVersion: 1
 -->
-```C
+
+```c
 napi_status napi_new_instance(napi_env env,
                               napi_value cons,
                               size_t argc,
@@ -9,18 +11,19 @@ napi_status napi_new_instance(napi_env env,
                               napi_value* result)
 ```
 
-- `[in] env`: The environment that the API is invoked under.
-- `[in] cons`: `napi_value` representing the JavaScript function
-to be invoked as a constructor.
-- `[in] argc`: The count of elements in the `argv` array.
-- `[in] argv`: Array of JavaScript values as `napi_value`
-representing the arguments to the constructor.
-- `[out] result`: `napi_value` representing the JavaScript object returned,
-which in this case is the constructed object.
+* `[in] env`: The environment that the API is invoked under.
+* `[in] cons`: `napi_value` representing the JavaScript function to be invoked
+  as a constructor.
+* `[in] argc`: The count of elements in the `argv` array.
+* `[in] argv`: Array of JavaScript values as `napi_value` representing the
+  arguments to the constructor.
+* `[out] result`: `napi_value` representing the JavaScript object returned,
+  which in this case is the constructed object.
 
 This method is used to instantiate a new JavaScript value using a given
 `napi_value` that represents the constructor for the object. For example,
 consider the following snippet:
+
 ```js
 function MyObject(param) {
   this.param = param;
@@ -31,7 +34,8 @@ const value = new MyObject(arg);
 ```
 
 The following can be approximated in N-API using the following snippet:
-```C
+
+```c
 // Get the constructor function MyObject
 napi_value global, constructor, arg, value;
 napi_status status = napi_get_global(env, &global);

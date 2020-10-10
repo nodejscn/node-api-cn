@@ -5,5 +5,7 @@ deprecated: v0.9.7
 
 > Stability: 0 - Deprecated: Use [`server.getConnections()`][] instead.
 
+* {number}
+
 Returns the current number of concurrent connections on the server.
 

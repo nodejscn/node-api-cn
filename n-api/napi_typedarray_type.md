@@ -1,4 +1,5 @@
-```C
+
+```c
 typedef enum {
   napi_int8_array,
   napi_uint8_array,
@@ -9,11 +10,12 @@ typedef enum {
   napi_uint32_array,
   napi_float32_array,
   napi_float64_array,
+  napi_bigint64_array,
+  napi_biguint64_array,
 } napi_typedarray_type;
 ```
 
-This represents the underlying binary scalar datatype of the TypedArray.
+This represents the underlying binary scalar datatype of the `TypedArray`.
 Elements of this enum correspond to
-[Section 22.2](https://tc39.github.io/ecma262/#sec-typedarray-objects)
-of the [ECMAScript Language Specification][].
+[Section 22.2][] of the [ECMAScript Language Specification][].
 

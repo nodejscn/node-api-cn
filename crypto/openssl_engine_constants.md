@@ -21,12 +21,8 @@
     <td>Limit engine usage to RAND</td>
   </tr>
   <tr>
-    <td><code>ENGINE_METHOD_ECDH</code></td>
-    <td>Limit engine usage to ECDH</td>
-  </tr>
-  <tr>
-    <td><code>ENGINE_METHOD_ECDSA</code></td>
-    <td>Limit engine usage to ECDSA</td>
+    <td><code>ENGINE_METHOD_EC</code></td>
+    <td>Limit engine usage to EC</td>
   </tr>
   <tr>
     <td><code>ENGINE_METHOD_CIPHERS</code></td>
@@ -35,10 +31,6 @@
   <tr>
     <td><code>ENGINE_METHOD_DIGESTS</code></td>
     <td>Limit engine usage to DIGESTS</td>
-  </tr>
-  <tr>
-    <td><code>ENGINE_METHOD_STORE</code></td>
-    <td>Limit engine usage to STORE</td>
   </tr>
   <tr>
     <td><code>ENGINE_METHOD_PKEY_METHS</code></td>

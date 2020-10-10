@@ -2,9 +2,9 @@
 added: v0.5.8
 -->
 
-从 [`fs.watch()`] 返回的对象是该类型。
+* 继承自 {EventEmitter}
 
-提供给 `fs.watch()` 的 `listener` 回调会接收返回的 FSWatcher 的 `change` 事件。
+成功调用 [`fs.watch()`] 方法会返回新建的 `fs.FSWatcher` 对象。
 
-该对象本身可触发以下事件：
+每当指定监视的文件被修改时，所有的 `fs.FSWatcher` 对象都会触发 `'change'` 事件。
 

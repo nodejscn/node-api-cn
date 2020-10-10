@@ -1,3 +1,4 @@
+
 All of the N-API functions share the same error handling pattern. The
 return type of all API functions is `napi_status`.
 
@@ -12,7 +13,7 @@ In cases where a return value other than `napi_ok` or
 must be called to check if an exception is pending.
 See the section on exceptions for more details.
 
-The full set of possible napi_status values is defined
+The full set of possible `napi_status` values is defined
 in `napi_api_types.h`.
 
 The `napi_status` return value provides a VM-independent representation of
@@ -24,7 +25,12 @@ In order to retrieve this information [`napi_get_last_error_info`][]
 is provided which returns a `napi_extended_error_info` structure.
 The format of the `napi_extended_error_info` structure is as follows:
 
-```C
+<!-- YAML
+added: v8.0.0
+napiVersion: 1
+-->
+
+```c
 typedef struct napi_extended_error_info {
   const char* error_message;
   void* engine_reserved;
@@ -32,15 +38,16 @@ typedef struct napi_extended_error_info {
   napi_status error_code;
 };
 ```
-- `error_message`: Textual representation of the error that occurred.
-- `engine_reserved`: Opaque handle reserved for engine use only.
-- `engine_error_code`: VM specific error code.
-- `error_code`: n-api status code for the last error.
+
+* `error_message`: Textual representation of the error that occurred.
+* `engine_reserved`: Opaque handle reserved for engine use only.
+* `engine_error_code`: VM specific error code.
+* `error_code`: n-api status code for the last error.
 
 [`napi_get_last_error_info`][] returns the information for the last
 N-API call that was made.
 
-*Note*: Do not rely on the content or format of any of the extended
-information as it is not subject to SemVer and may change at any time.
-It is intended only for logging purposes.
+Do not rely on the content or format of any of the extended information as it
+is not subject to SemVer and may change at any time. It is intended only for
+logging purposes.
 

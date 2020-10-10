@@ -2,24 +2,24 @@
 added: v0.1.31
 -->
 
-* `id` {string|number} 进程组名字或ID
+* `id` {string|number} 组名或 ID。
 
-`process.setgid()` 为进程方法设置组ID. (查看setgid(2).)
-可给`id`参数传一个数值ID或字符串名。
-
-如果已经有一个进程组ID名，那么在解析为相关的ID之前，此方法是阻塞。
+`process.setgid()` 方法为进程设置组标识。（参见 setgid(2)）。
+`id` 可以传入数字 ID 或组名字符串。
+如果指定了组名，则此方法在解析关联的数字 ID 时会阻塞。
 
 ```js
 if (process.getgid && process.setgid) {
-  console.log(`Current gid: ${process.getgid()}`);
+  console.log(`当前的 gid: ${process.getgid()}`);
   try {
     process.setgid(501);
-    console.log(`New gid: ${process.getgid()}`);
+    console.log(`新的 gid: ${process.getgid()}`);
   } catch (err) {
-    console.log(`Failed to set gid: ${err}`);
+    console.log(`无法设置 gid: ${err}`);
   }
 }
 ```
 
-注意: 这个方法只在POSIX平台可用(换句话说，Windows或Android不行)。
+这个函数只在 POSIX 平台有效（在 Windows 或 Android 平台无效）。
+此特性在 [`Worker`] 线程中不可用。
 

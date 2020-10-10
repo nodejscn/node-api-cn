@@ -1,25 +1,33 @@
 <!-- YAML
 added: v0.1.21
+changes:
+  - version: v10.0.0
+    pr-url: https://github.com/nodejs/node/pull/17003
+    description: Used comparison changed from Strict Equality to `Object.is()`
 -->
 * `actual` {any}
 * `expected` {any}
-* `message` {any}
+* `message` {string|Error}
 
-使用[不全等运算符]（`!==`）测试 `actual` 参数与 `expected` 参数是否不全等。
+测试 `actual` 参数和 `expected` 参数之间的严格不相等，使用 [SameValue比较][SameValue Comparison]。
 
 ```js
-const assert = require('assert');
+const assert = require('assert').strict;
 
 assert.notStrictEqual(1, 2);
-// 测试通过。
+// 通过。
 
 assert.notStrictEqual(1, 1);
-// 抛出 AssertionError: 1 !== 1
+// AssertionError [ERR_ASSERTION]: Expected "actual" to be strictly unequal to:
+//
+// 1
 
 assert.notStrictEqual(1, '1');
-// 测试通过。
+// 通过。
 ```
 
-如果两个值全等，则抛出一个带有 `message` 属性的 `AssertionError`，其中 `message` 属性的值等于传入的 `message` 参数的值。
-如果 `message` 参数为 `undefined`，则赋予默认的错误信息。
+如果值严格相等，则抛出 [`AssertionError`]，并将 `message` 属性设置为等于 `message` 参数的值。 
+如果未定义 `message` 参数，则会分配默认错误消息。 
+如果 `message` 参数是 [`Error`] 的实例，则它将被抛出而不是 `AssertionError`。
+
 

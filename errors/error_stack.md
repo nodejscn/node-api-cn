@@ -3,9 +3,7 @@
 
 `error.stack` 属性是一个字符串，描述代码中 `Error` 被实例化的位置。
 
-例子：
-
-```txt
+```console
 Error: Things keep happening!
    at /home/gbusey/file.js:525:2
    at Frobnicator.refrobulate (/home/gbusey/business-logic.js:424:21)
@@ -19,7 +17,7 @@ V8 引擎会试图显示每个函数的名称（变量名、函数名、或对�
 如果 V8 引擎没法确定一个函数的名称，则只显示帧的位置信息。
 否则，在位置信息的旁边会显示明确的函数名。
 
-注意，帧只由 JavaScript 函数产生。
+帧只由 JavaScript 函数产生。
 例如，同步地执行一个名为 `cheetahify` 的 C++ 插件，且插件自身调用一个 JavaScript 函数，代表 `cheetahify` 回调的栈帧不会出现在堆栈跟踪里：
 
 
@@ -27,7 +25,7 @@ V8 引擎会试图显示每个函数的名称（变量名、函数名、或对�
 const cheetahify = require('./native-binding.node');
 
 function makeFaster() {
-  // cheetahify 同步地调用 speedy.
+  // `cheetahify()` 同步地调用 speedy。
   cheetahify(function speedy() {
     throw new Error('oh no!');
   });
@@ -61,5 +59,4 @@ makeFaster();
 
 堆栈跟踪捕获的帧的数量是由 `Error.stackTraceLimit` 或当前事件循环中可用的帧数量的最小值界定的。
 
-系统级的错误是由扩展的 `Error` 实例产生的，详见[系统错误]。
 

@@ -1,10 +1,16 @@
 <!-- YAML
-added: v7.10.0
+added:
+  - v7.10.0
+  - v6.13.0
+changes:
+  - version: v9.0.0
+    pr-url: https://github.com/nodejs/node/pull/15231
+    description: The `buffer` argument may be any `TypedArray` or `DataView`.
 -->
 
-* `buffer` {Buffer|Uint8Array}必须被支持.
-* `offset` {number} Defaults to `0`.
-* `size` {number} Defaults to `buffer.length - offset`.
+* `buffer` {Buffer|TypedArray|DataView} Must be supplied.
+* `offset` {number} **Default:** `0`
+* `size` {number} **Default:** `buffer.length - offset`
 * `callback` {Function} `function(err, buf) {}`.
 
 This function is similar to [`crypto.randomBytes()`][] but requires the first
@@ -32,6 +38,37 @@ crypto.randomFill(buf, 5, 5, (err, buf) => {
 });
 ```
 
-Note that this API uses libuv's threadpool, which can have surprising and
-negative performance implications for some applications, see the
+Any `TypedArray` or `DataView` instance may be passed as `buffer`.
+
+```js
+const a = new Uint32Array(10);
+crypto.randomFill(a, (err, buf) => {
+  if (err) throw err;
+  console.log(Buffer.from(buf.buffer, buf.byteOffset, buf.byteLength)
+    .toString('hex'));
+});
+
+const b = new Float64Array(10);
+crypto.randomFill(b, (err, buf) => {
+  if (err) throw err;
+  console.log(Buffer.from(buf.buffer, buf.byteOffset, buf.byteLength)
+    .toString('hex'));
+});
+
+const c = new DataView(new ArrayBuffer(10));
+crypto.randomFill(c, (err, buf) => {
+  if (err) throw err;
+  console.log(Buffer.from(buf.buffer, buf.byteOffset, buf.byteLength)
+    .toString('hex'));
+});
+```
+
+This API uses libuv's threadpool, which can have surprising and
+negative performance implications for some applications; see the
 [`UV_THREADPOOL_SIZE`][] documentation for more information.
+
+The asynchronous version of `crypto.randomFill()` is carried out in a single
+threadpool request. To minimize threadpool task length variation, partition
+large `randomFill` requests when doing so as part of fulfilling a client
+request.
+

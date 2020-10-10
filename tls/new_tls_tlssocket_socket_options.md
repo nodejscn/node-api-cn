@@ -1,34 +1,41 @@
 <!-- YAML
 added: v0.11.4
 changes:
+  - version: v12.2.0
+    pr-url: https://github.com/nodejs/node/pull/27497
+    description: The `enableTrace` option is now supported.
   - version: v5.0.0
     pr-url: https://github.com/nodejs/node/pull/2564
     description: ALPN options are supported now.
 -->
 
-* `socket` {net.Socket} An instance of [`net.Socket`][]
+* `socket` {net.Socket|stream.Duplex}
+  On the server side, any `Duplex` stream. On the client side, any
+  instance of [`net.Socket`][] (for generic `Duplex` stream support
+  on the client side, [`tls.connect()`][] must be used).
 * `options` {Object}
+  * `enableTrace`: See [`tls.createServer()`][]
   * `isServer`: The SSL/TLS protocol is asymmetrical, TLSSockets must know if
     they are to behave as a server or a client. If `true` the TLS socket will be
-    instantiated as a server.  Defaults to `false`.
-  * `server` {net.Server} An optional [`net.Server`][] instance.
+    instantiated as a server. **Default:** `false`.
+  * `server` {net.Server} A [`net.Server`][] instance.
   * `requestCert`: Whether to authenticate the remote peer by requesting a
      certificate. Clients always request a server certificate. Servers
-     (`isServer` is true) may optionally set `requestCert` to true to request a
-     client certificate.
-  * `rejectUnauthorized`: Optional, see [`tls.createServer()`][]
-  * `NPNProtocols`: Optional, see [`tls.createServer()`][]
-  * `ALPNProtocols`: Optional, see [`tls.createServer()`][]
-  * `SNICallback`: Optional, see [`tls.createServer()`][]
-  * `session` {Buffer} An optional `Buffer` instance containing a TLS session.
+     (`isServer` is true) may set `requestCert` to true to request a client
+     certificate.
+  * `rejectUnauthorized`: See [`tls.createServer()`][]
+  * `ALPNProtocols`: See [`tls.createServer()`][]
+  * `SNICallback`: See [`tls.createServer()`][]
+  * `session` {Buffer} A `Buffer` instance containing a TLS session.
   * `requestOCSP` {boolean} If `true`, specifies that the OCSP status request
     extension will be added to the client hello and an `'OCSPResponse'` event
     will be emitted on the socket before establishing a secure communication
-  * `secureContext`: Optional TLS context object created with
+  * `secureContext`: TLS context object created with
     [`tls.createSecureContext()`][]. If a `secureContext` is _not_ provided, one
     will be created by passing the entire `options` object to
     `tls.createSecureContext()`.
-  * ...: Optional [`tls.createSecureContext()`][] options that are used if the
-    `secureContext` option is missing, otherwise they are ignored.
+  * ...: [`tls.createSecureContext()`][] options that are used if the
+    `secureContext` option is missing. Otherwise, they are ignored.
 
 Construct a new `tls.TLSSocket` object from an existing TCP socket.
+

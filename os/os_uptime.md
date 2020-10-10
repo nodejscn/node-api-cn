@@ -1,9 +1,13 @@
 <!-- YAML
 added: v0.3.3
+changes:
+  - version: v10.0.0
+    pr-url: https://github.com/nodejs/node/pull/20129
+    description: The result of this function no longer contains a fraction
+                 component on Windows.
 -->
 
-* Returns: {integer}
+* 返回: {integer}
 
-`os.uptime()` 方法在几秒内返回操作系统的上线时间.
+返回系统的正常运行时间（以秒为单位）。
 
-*注意*：在Windows平台上，这个方法返回的秒值包含分数，请用`Math.floor()`获取整数值

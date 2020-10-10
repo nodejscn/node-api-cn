@@ -1,8 +1,9 @@
-<!--
+<!-- YAML
 added: v8.0.0
 -->
 
+* `value` {any}
 * Returns: {Buffer}
 
-使用[`DefaultSerializer`][]来序列化`value`到一个缓冲区中。
+Uses a [`DefaultSerializer`][] to serialize `value` into a buffer.
 

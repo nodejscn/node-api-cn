@@ -1,5 +1,5 @@
 
-* {String}
+* {string}
 
-`error.code` 属性是一个表示错误码的字符串，总是 `E` 带上一串大写字母。
+`error.code` 属性是表示错误代码的字符串。
 

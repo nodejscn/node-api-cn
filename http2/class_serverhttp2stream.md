@@ -2,7 +2,7 @@
 added: v8.4.0
 -->
 
-* Extends: {Http2Stream}
+* 继承自: {Http2Stream}
 
 The `ServerHttp2Stream` class is an extension of [`Http2Stream`][] that is
 used exclusively on HTTP/2 Servers. `Http2Stream` instances on the server

@@ -2,8 +2,6 @@
 * Returns: {number} The ID of the resource responsible for calling the callback
   that is currently being executed.
 
-For example:
-
 ```js
 const server = net.createServer((conn) => {
   // The resource that caused (or triggered) this callback to be called
@@ -18,4 +16,7 @@ const server = net.createServer((conn) => {
   async_hooks.triggerAsyncId();
 });
 ```
+
+Promise contexts may not get valid `triggerAsyncId`s by default. See
+the section on [promise execution tracking][].
 

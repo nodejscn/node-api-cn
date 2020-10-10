@@ -1,15 +1,17 @@
 <!-- YAML
 added: v0.7.5
 -->
-- `groupName` {string}
 
-Creates a predefined `DiffieHellman` key exchange object. The
+* `groupName` {string}
+* Returns: {DiffieHellmanGroup}
+
+Creates a predefined `DiffieHellmanGroup` key exchange object. The
 supported groups are: `'modp1'`, `'modp2'`, `'modp5'` (defined in
 [RFC 2412][], but see [Caveats][]) and `'modp14'`, `'modp15'`,
 `'modp16'`, `'modp17'`, `'modp18'` (defined in [RFC 3526][]). The
 returned object mimics the interface of objects created by
 [`crypto.createDiffieHellman()`][], but will not allow changing
-the keys (with [`diffieHellman.setPublicKey()`][] for example). The
+the keys (with [`diffieHellman.setPublicKey()`][], for example). The
 advantage of using this method is that the parties do not have to
 generate nor exchange a group modulus beforehand, saving both processor
 and communication time.

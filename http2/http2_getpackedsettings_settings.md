@@ -2,7 +2,7 @@
 added: v8.4.0
 -->
 
-* `settings` {[Settings Object][]}
+* `settings` {HTTP/2 Settings Object}
 * Returns: {Buffer}
 
 Returns a `Buffer` instance containing serialized representation of the given

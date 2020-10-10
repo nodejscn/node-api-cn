@@ -1,17 +1,16 @@
 
-可读流（Readable streams）是对提供数据的 *源头* （source）的抽象。
+可读流是对提供数据的来源的一种抽象。
 
 可读流的例子包括：
 
-* [HTTP responses, on the client][http-incoming-message]
-* [HTTP requests, on the server][http-incoming-message]
-* [fs read streams][]
-* [zlib streams][zlib]
-* [crypto streams][crypto]
-* [TCP sockets][]
-* [child process stdout and stderr][]
+* [客户端的 HTTP 响应][http-incoming-message]
+* [服务器的 HTTP 请求][http-incoming-message]
+* [fs 的读取流][fs read streams]
+* [zlib 流][zlib]
+* [crypto 流][crypto]
+* [TCP socket][TCP sockets]
+* [子进程 stdout 与 stderr][child process stdout and stderr]
 * [`process.stdin`][]
 
-所有的 [Readable][] 都实现了
-`stream.Readable` 类定义的接口。
+所有[可读流]都实现了 `stream.Readable` 类定义的接口。
 

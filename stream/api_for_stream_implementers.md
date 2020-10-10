@@ -1,29 +1,39 @@
 
 <!--type=misc-->
 
-`stream`模块API的设计是为了让JavaScript的原型继承模式可以简单的实现流。
+`stream` 模块 API 旨在为了更容易地使用 JavaScript 的原型继承模式来实现流。
 
-首先，一个流开发者可能声明了一个JavaScript类并且继承四个基本流类中的一个（`stream.Weiteable`，`stream.Readable`，`stream.Duplex`，或者`stream.Transform`），确保他们调用合适的父类构造函数:
+首先，流的开发者声明一个新的 JavaScript 类，该类继承了四个基本流类之一（`stream.Writeable`、`stream.Readable`、`stream.Duplex` 或 `stream.Transform`），并确保调用了相应的父类构造函数:
 
+<!-- eslint-disable no-useless-constructor -->
 ```js
 const { Writable } = require('stream');
 
 class MyWritable extends Writable {
-  constructor(options) {
-    super(options);
+  constructor({ highWaterMark, ...options }) {
+    super({ highWaterMark });
     // ...
   }
 }
 ```
 
-新的流类必须实现一个或多个特定的方法，根据所创建的流类型，如下图所示:
+当继承流时，在传入基本构造函数之前，务必清楚使用者可以且应该提供哪些选项。 
+例如，如果实现需要 `autoDestroy` 和 `emitClose` 选项，则不允许使用者覆盖这些选项。 
+应明确要传入的选项，而不是隐式地传入所有选项。
 
-| 用例 | 类 | 实现的方法 |
-| --- | --- | --- |
-| 只读流 | [Readable](#stream_class_stream_readable) | [_read](#stream_readable_read_size_1) |
-| 只写流 | [writable](#stream_class_stream_writable) | [_write](#stream_writable_write_chunk_encoding_callback_1) ，[_writev](#stream_writable_writev_chunks_callback)，[_final](#stream_writable_final_callback) |
-| 可读可写流 | [Duplex](#stream_class_stream_duplex) | [_read](#stream_readable_read_size_1) ，[_write](#stream_writable_write_chunk_encoding_callback_1) ，[_writev](#stream_writable_writev_chunks_callback)，[_final](#stream_writable_final_callback) |
-| 操作写数据，然后读结果 | [Transform](#stream_class_stream_transform) | [_transform](#stream_transform_transform_chunk_encoding_callback)，[_flush](#stream_transform_flush_callback)，[_final](#stream_writable_final_callback) |
+新的流类必须实现一个或多个特定的方法，具体取决于要创建的流的类型，如下图所示:
 
-注意：实现流的代码里面不应该出现调用“public”方法的地方因为这些方法是给使用者使用的（[流使用者](#stream_api_for_stream_consumers)部分的API所述）。这样做可能会导致使用流的应用程序代码产生不利的副作用。
+| 用例 | 类 | 需要实现的方法 |
+| -------- | ----- | ---------------------- |
+| 只读 | [`Readable`] | [`_read()`][stream-_read] |
+| 只写 | [`Writable`] | [`_write()`][stream-_write]、[`_writev()`][stream-_writev]、[`_final()`][stream-_final] |
+| 可读可写 | [`Duplex`] | [`_read()`][stream-_read]、[`_write()`][stream-_write]、[`_writev()`][stream-_writev]、[`_final()`][stream-_final] |
+| 对写入的数据进行操作，然后读取结果 | [`Transform`][] | [`_transform()`][stream-_transform]、[`_flush()`][stream-_flush]、[`_final()`][stream-_final] |
+
+流的实现代码应永远不要调用旨在供消费者使用的公共方法（详见[用于消费流的API][API for Stream Consumers]）。
+这样做可能会导致消费流的应用程序代码产生不利的副作用。
+
+避免重写诸如 `write()`、`end()`、`cork()`、`uncork()`、`read()` 和 `destroy()` 之类的公共方法，或通过 `.emit()` 触发诸如 `'error'`、`'data'`、`'end'`、`'finish'` 和 `'close'` 之类的内部事件。 
+这样做会破坏当前和未来的流的不变量，从而导致与其他流、流的实用工具、以及用户期望的行为和/或兼容性问题。
+
 

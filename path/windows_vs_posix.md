@@ -1,8 +1,8 @@
 
-`path` 模块的默认操作会根据 Node.js 应用程序运行的操作系统的不同而变化。
-比如，当运行在 Windows 操作系统上时，`path` 模块会认为使用的是 Windows 风格的路径。
+`path` 模块的默认操作会因 Node.js 应用程序运行所在的操作系统而异。
+具体来说，当在 Windows 操作系统上运行时，`path` 模块会假定正被使用的是 Windows 风格的路径。
 
-例如，对 Windows 文件路径 `C:\temp\myfile.html` 使用 `path.basename()` 函数，运行在 POSIX 上与运行在 Windows 上会产生不同的结果：
+因此，使用 `path.basename()` 可能会在 POSIX 和 Windows 上产生不同的结果：
 
 在 POSIX 上:
 
@@ -18,7 +18,7 @@ path.basename('C:\\temp\\myfile.html');
 // 返回: 'myfile.html'
 ```
 
-要想在任何操作系统上处理 Windows 文件路径时获得一致的结果，可以使用 [`path.win32`]：
+如果要在任意操作系统上使用 Windows 文件路径时获得一致的结果，则使用 [`path.win32`]：
 
 在 POSIX 和 Windows 上:
 
@@ -27,7 +27,7 @@ path.win32.basename('C:\\temp\\myfile.html');
 // 返回: 'myfile.html'
 ```
 
-要想在任何操作系统上处理 POSIX 文件路径时获得一致的结果，可以使用 [`path.posix`]：
+如果要在任意操作系统上使用 POSIX 文件路径时获得一致的结果，则使用 [`path.posix`]：
 
 在 POSIX 和 Windows 上:
 
@@ -36,8 +36,8 @@ path.posix.basename('/tmp/myfile.html');
 // 返回: 'myfile.html'
 ```
 
-注意：在 Windows 上 Node.js 遵循单驱动器工作目录的理念。
-当使用驱动器路径且不带反斜杠时就能体验到该特征。
-例如，`fs.readdirSync('c:\\')` 可能返回与 `fs.readdirSync('c:')` 不同的结果。
-详见 [MSDN 路径文档]。
+在 Windows 上，Node.js 遵循独立驱动器工作目录的概念。
+当使用没有反斜杠的驱动器路径时，可以观察到此行为。
+例如，`path.resolve('C:\\')` 可能会返回与 `path.resolve('C:')` 不同的结果。
+详见[此 MSDN 页面][MSDN-Rel-Path]。
 

@@ -10,6 +10,7 @@ deferred object that is created by `napi_create_promise()` is freed by
 be returned to JavaScript where it can be used in the usual fashion.
 
 For example, to create a promise and pass it to an asynchronous worker:
+
 ```c
 napi_deferred deferred;
 napi_value promise;
@@ -29,6 +30,7 @@ return promise;
 The above function `do_something_asynchronous()` would perform its asynchronous
 action and then it would resolve or reject the deferred, thereby concluding the
 promise and freeing the deferred:
+
 ```c
 napi_deferred deferred;
 napi_value undefined;

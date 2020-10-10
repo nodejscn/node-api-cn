@@ -6,7 +6,7 @@ changes:
     description: The `host` parameter is supported now.
 -->
 
-在找到主机之后创建连接之前触发。不可用于 UNIX socket。
+在找到主机之后创建连接之前触发。不可用于 Unix socket。
 
 * `err` {Error|null} 错误对象。查看 [`dns.lookup()`][]。
 * `address` {string} IP 地址。

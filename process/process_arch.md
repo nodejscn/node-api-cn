@@ -4,10 +4,10 @@ added: v0.5.0
 
 * {string}
 
-`process.arch`属性返回一个标识Node.js在其上运行的处理器架构的字符串。例如
-`'arm'`, `'ia32'`, or `'x64'`.
+为其编译 Node.js 二进制文件的操作系统的 CPU 架构。
+可能的值有：`'arm'`、`'arm64'`、`'ia32'`、`'mips'`、`'mipsel'`、`'ppc'`、`'ppc64'`、`'s390'`、`'s390x'`、`'x32'` 和 `'x64'`。
 
 ```js
-console.log(`This processor architecture is ${process.arch}`);
+console.log(`该处理器的架构是 ${process.arch}`);
 ```
 

@@ -5,13 +5,14 @@ added: v0.7.0
 * `message` {Object}
 * `handle` {undefined|Object}
 
-和`cluster.on('message')`事件类似，但针对特定的工作进程。
+类似于 `cluster.on('message')` 事件，但特定于此工作进程。 
 
-在工作进程内，可以使用`process.on('message')`
+在工作进程内，也可以使用 `process.on('message')`。
 
-详见 [`process` event: `'message'`][].
+参见 [`process` event: `'message'`]。
 
-在下面这个例子中，我们使用message机制来实现主进程统计cluster中请求数量的功能。
+以下是一个使用消息系统的示例。
+它在主进程中对工作进程接收的 HTTP 请求数量保持计数：
 
 ```js
 const cluster = require('cluster');
@@ -19,20 +20,20 @@ const http = require('http');
 
 if (cluster.isMaster) {
 
-  // 跟踪 http 请求
+  // 跟踪 http 请求。
   let numReqs = 0;
   setInterval(() => {
-    console.log(`numReqs = ${numReqs}`);
+    console.log(`请求的数量 = ${numReqs}`);
   }, 1000);
 
-  // 计算请求数目
+  // 对请求计数。
   function messageHandler(msg) {
     if (msg.cmd && msg.cmd === 'notifyRequest') {
       numReqs += 1;
     }
   }
 
-  // 启动 worker 并监听包含 notifyRequest 的消息
+  // 启动 worker 并监听包含 notifyRequest 的消息。
   const numCPUs = require('os').cpus().length;
   for (let i = 0; i < numCPUs; i++) {
     cluster.fork();
@@ -44,13 +45,14 @@ if (cluster.isMaster) {
 
 } else {
 
-  // Worker 进程有一个http服务器
+  // 工作进程有一个 http 服务器。
   http.Server((req, res) => {
     res.writeHead(200);
-    res.end('hello world\n');
+    res.end('你好世界\n');
 
-    // 通知 master 进程接收到了请求
+    // 通知主进程接收到了请求。
     process.send({ cmd: 'notifyRequest' });
   }).listen(8000);
 }
 ```
+

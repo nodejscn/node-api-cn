@@ -1,7 +1,8 @@
 
 <!--type=example-->
 
-以下是可读流的一个基本例子，触发数字1到1,000,000升序，然后结束
+下面是一个可读流的简单例子，依次触发读取 1 到 1,000,000：
+
 ```js
 const { Readable } = require('stream');
 
@@ -17,7 +18,7 @@ class Counter extends Readable {
     if (i > this._max)
       this.push(null);
     else {
-      const str = '' + i;
+      const str = String(i);
       const buf = Buffer.from(str, 'ascii');
       this.push(buf);
     }

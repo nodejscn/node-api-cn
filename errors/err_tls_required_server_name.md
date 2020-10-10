@@ -1,5 +1,5 @@
 
-Used with TLS, when calling the `server.addContext()` method without providing
-a hostname in the first parameter.
+While using TLS, the `server.addContext()` method was called without providing
+a host name in the first parameter.
 
 <a id="ERR_TLS_SESSION_ATTACK"></a>

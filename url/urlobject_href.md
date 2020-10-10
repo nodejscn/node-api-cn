@@ -1,5 +1,6 @@
 
-`href` 属性是解析后的完整的 URL 字符串，`protocol` 和 `host` 都会被转换为小写的。
+The `href` property is the full URL string that was parsed with both the
+`protocol` and `host` components converted to lower-case.
 
-例如：`'http://user:pass@sub.host.com:8080/p/a/t/h?query=string#hash'`
+For example: `'http://user:pass@sub.example.com:8080/p/a/t/h?query=string#hash'`.
 

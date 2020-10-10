@@ -1,6 +1,9 @@
 
 * `message` {string}
 
-当一个对象无法被克隆时，会使用此方法来生成待抛出的错误对象。
+This method is called to generate error objects that will be thrown when an
+object can not be cloned.
 
-此方法默认为[`Error`][]的构造函数，可以在子类中被覆盖。
+This method defaults to the [`Error`][] constructor and can be overridden on
+subclasses.
+

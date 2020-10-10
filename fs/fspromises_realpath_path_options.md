@@ -1,0 +1,19 @@
+<!-- YAML
+added: v10.0.0
+-->
+
+* `path` {string|Buffer|URL}
+* `options` {string|Object}
+  * `encoding` {string} **默认值:** `'utf8'`。
+* 返回: {Promise}
+
+使用与 `fs.realpath.native()` 函数相同的语义来判断 `path` 的实际位置，然后解决 `Promise` 并带上解析后的路径。
+
+仅支持可转换为 UTF8 字符串的路径。
+
+可选的 `options` 参数可以是字符串（指定字符编码）、或具有 `encoding` 属性（指定用于路径的字符编码）的对象。 
+如果 `encoding` 被设置为 `'buffer'`，则返回的路径会作为 `Buffer` 对象传入。
+
+在 Linux 上，当 Node.js 与 musl libc 链接时，procfs 文件系统必须挂载在 `/proc` 上才能使此功能正常工作。 
+Glibc 没有这个限制。
+

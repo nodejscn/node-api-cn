@@ -1,4 +1,4 @@
 
-Used to indicate that an invalid HTTP2 header value has been specified.
+An invalid HTTP/2 header value was specified.
 
 <a id="ERR_HTTP2_INVALID_INFO_STATUS"></a>

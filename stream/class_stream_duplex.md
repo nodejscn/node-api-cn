@@ -9,12 +9,11 @@ changes:
 
 <!--type=class-->
 
-Duplex 流是同时实现了 [Readable][] 和
-[Writable][] 接口的流。
+双工流（Duplex）是同时实现了 [`Readable`] 和 [`Writable`] 接口的流。
 
-Duplex 流的实例包括了：
+`Duplex` 流的例子包括：
 
-* [TCP sockets][]
-* [zlib streams][zlib]
-* [crypto streams][crypto]
+* [TCP socket][TCP sockets]
+* [zlib 流][zlib]
+* [crypto 流][crypto]
 

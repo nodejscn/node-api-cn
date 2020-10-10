@@ -1,4 +1,4 @@
-若提供的编码方式不是WHATWG(网页超文本应用技术工作小组)支持的编码方式，
-`util.TextDecoder()` API会使用这个错误代码
 
-<a id="ERR_FALSY_VALUE_REJECTION"></a>
+提供给 `TextDecoder()` API 的字符编码不是 [WHATWG 支持的字符编码][WHATWG Supported Encodings]。
+
+<a id="ERR_EVAL_ESM_CANNOT_PRINT"></a>

@@ -1,10 +1,14 @@
 
-`buffer` 属性指向创建该 `Buffer` 的底层的 `ArrayBuffer` 对象。
+* {ArrayBuffer} 创建此 `Buffer` 对象时基于的底层 `ArrayBuffer` 对象。
+
+不能保证此 `ArrayBuffer` 与原始的 `Buffer` 完全对应。 
+有关详细信息，参见 `buf.byteOffset` 上的说明。
 
 ```js
 const arrayBuffer = new ArrayBuffer(16);
 const buffer = Buffer.from(arrayBuffer);
 
 console.log(buffer.buffer === arrayBuffer);
-// 输出: true
+// 打印: true
 ```
+

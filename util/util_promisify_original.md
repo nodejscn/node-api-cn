@@ -3,11 +3,9 @@ added: v8.0.0
 -->
 
 * `original` {Function}
-* Returns: {Function}
+* 返回: {Function}
 
-让一个遵循通常的 Node.js 回调风格的函数， 即 `(err, value) => ...` 回调函数是最后一个参数, 返回一个返回值是一个 promise 版本的函数。
-
-例如：
+传入一个遵循常见的错误优先的回调风格的函数（即以 `(err, value) => ...` 回调作为最后一个参数），并返回一个返回 promise 的版本。
 
 ```js
 const util = require('util');
@@ -15,13 +13,13 @@ const fs = require('fs');
 
 const stat = util.promisify(fs.stat);
 stat('.').then((stats) => {
-  // Do something with `stats`
+  // 使用 `stats`。
 }).catch((error) => {
-  // Handle the error.
+  // 处理错误。
 });
 ```
 
-或者，使用`async function`获得等效的效果:
+或者，等效地使用 `async function`:
 
 ```js
 const util = require('util');
@@ -31,11 +29,40 @@ const stat = util.promisify(fs.stat);
 
 async function callStat() {
   const stats = await stat('.');
-  console.log(`This directory is owned by ${stats.uid}`);
+  console.log(`该目录归 ${stats.uid} 拥有`);
 }
 ```
 
-如果原本就有 `original[util.promisify.custom]` 属性, `promisify` 会返回它的值， 查阅 [Custom promisified functions][].
+如果存在 `original[util.promisify.custom]` 属性，则 `promisify` 将会返回其值，参见[自定义的 promise 化函数][Custom promisified functions]。
 
-`promisify()` 会在所有情况下假定 `original` 是一个最后的参数是回调函数的函数，如果它不是，那么返回的函数的返回值为 undefined。 
+`promisify()` 在所有情况下都会假定 `original` 是一个以回调作为其最后参数的函数。
+如果 `original` 不是一个函数，则 `promisify()` 将会抛出错误。 
+如果 `original` 是一个函数但其最后一个参数不是一个错误优先的回调，则它将仍会传入一个错误优先的回调作为其最后一个参数。
+
+除非特殊处理，否则在类方法或使用 `this` 的其他方法上使用 `promisify()` 可能无法正常工作：
+
+```js
+const util = require('util');
+
+class Foo {
+  constructor() {
+    this.a = 42;
+  }
+
+  bar(callback) {
+    callback(null, this.a);
+  }
+}
+
+const foo = new Foo();
+
+const naiveBar = util.promisify(foo.bar);
+// TypeError: Cannot read property 'a' of undefined
+// naiveBar().then(a => console.log(a));
+
+naiveBar.call(foo).then((a) => console.log(a)); // '42'
+
+const bindBar = naiveBar.bind(foo);
+bindBar().then((a) => console.log(a)); // '42'
+```
 

@@ -1,74 +1,81 @@
 
-以下常量用于 `fs.open()`。
+以下常量适用于 `fs.open()`。
 
 <table>
   <tr>
     <th>常量</th>
-    <th>描述</th>
+    <th>说明</th>
   </tr>
   <tr>
     <td><code>O_RDONLY</code></td>
-    <td>该标志表明打开一个文件用于只读访问。</td>
+    <td>表明打开文件用于只读访问。</td>
   </tr>
   <tr>
     <td><code>O_WRONLY</code></td>
-    <td>该标志表明打开一个文件用于只写访问。</td>
+    <td>表明打开文件用于只写访问。</td>
   </tr>
   <tr>
     <td><code>O_RDWR</code></td>
-    <td>该标志表明打开一个文件用于读写访问。</td>
+    <td>表明打开文件用于读写访问。</td>
   </tr>
   <tr>
     <td><code>O_CREAT</code></td>
-    <td>该标志表明如果文件不存在则创建一个文件。</td>
+    <td>表明如果文件尚不存在则创建该文件。</td>
   </tr>
   <tr>
     <td><code>O_EXCL</code></td>
-    <td>该标志表明如果设置了 <code>O_CREAT</code> 标志且文件已经存在，则打开一个文件应该失败。</td>
+    <td>表明如果设置了 <code>O_CREAT</code> 标志且文件已存在，则打开文件应该失败。</td>
   </tr>
   <tr>
     <td><code>O_NOCTTY</code></td>
-    <td>该标志表明如果路径是一个终端设备，则打开该路径不应该造成该终端变成进程的控制终端（如果进程还没有终端）。</td>
+    <td>表明如果路径表示终端设备，则打开该路径不应该造成该终端变成进程的控制终端（如果进程还没有终端）。</td>
   </tr>
   <tr>
     <td><code>O_TRUNC</code></td>
-    <td>该标志表明如果文件存在且为一个常规文件、且文件被成功打开为写入访问，则它的长度应该被截断至零。</td>
+    <td>表明如果文件存在且是普通的文件、并且文件成功打开以进行写入访问，则其长度应截断为零。</td>
   </tr>
   <tr>
     <td><code>O_APPEND</code></td>
-    <td>该标志表明数据会被追加到文件的末尾。</td>
+    <td>表明数据将会追加到文件的末尾。</td>
   </tr>
   <tr>
     <td><code>O_DIRECTORY</code></td>
-    <td>该标志表明如果路径不是一个目录，则打开应该失败。</td>
+    <td>表明如果路径不是目录，则打开应该失败。</td>
   </tr>
   <tr>
   <td><code>O_NOATIME</code></td>
-    <td>该标志表明文件系统的读取访问权不再引起相关文件 `atime` 信息的更新。该标志只在 Linux 操作系统有效。</td>
+    <td>表明文件系统的读取访问将不再导致与文件相关联的 <code>atime</code> 信息的更新。
+    仅在 Linux 操作系统上可用。</td>
   </tr>
   <tr>
     <td><code>O_NOFOLLOW</code></td>
-    <td>该标志表明如果路径是一个符号链接，则打开应该失败。</td>
+    <td>表明如果路径是符号链接，则打开应该失败。</td>
   </tr>
   <tr>
     <td><code>O_SYNC</code></td>
-    <td>该标志表明文件打开用于同步 I/O。</td>
+    <td>表明文件是为同步 I/O 打开的，写入操作将会等待文件的完整性。</td>
   </tr>
   <tr>
     <td><code>O_DSYNC</code></td>
-    <td>该标志标明文件为同步I/O打开，写入操作会等待数据完整性</td>
+    <td>表明文件是为同步 I/O 打开的，写入操作将会等待数据的完整性</td>
   </tr>
   <tr>
     <td><code>O_SYMLINK</code></td>
-    <td>该标志表明打开符号链接自身，而不是它指向的资源。</td>
+    <td>表明打开符号链接自身，而不是它指向的资源。</td>
   </tr>
   <tr>
     <td><code>O_DIRECT</code></td>
-    <td>当设置它时，会尝试最小化文件 I/O 的缓存效果。</td>
+    <td>表明将尝试最小化文件 I/O 的缓存效果。</td>
   </tr>
   <tr>
     <td><code>O_NONBLOCK</code></td>
-    <td>该标志表明当可能时以非阻塞模式打开文件。</td>
+    <td>表明在可能的情况下以非阻塞模式打开文件。</td>
+  </tr>
+  <tr>
+    <td><code>UV_FS_O_FILEMAP</code></td>
+    <td>当设置后，将会使用内存文件的映射来访问文件。 
+    此标志仅在 Windows 操作系统上可用。 
+    在其他操作系统上，此标志会被忽略。</td>
   </tr>
 </table>
 

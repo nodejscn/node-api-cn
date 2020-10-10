@@ -2,53 +2,56 @@
 added: v0.1.92
 -->
 
-“Sign”类是生成签名的实用工具。它有两种使用方式:
+* 继承自: {stream.Writable}
 
-- 作为一个可写的[stream][]，在这里，要签署的数据是写出来的，[`sign.sign()`][]方法用于生成并返回签名
-- 使用[`sign.update()`][]和[`sign.sign()`][]方法生产签名。
+`Sign` 类是一个实用工具，用于生成签名。
+它可以通过以下两种方式之一使用：
 
-[`crypto.createSign()`][]方法用于创建`Sign`实例。`Sign`实例不能直接使用`new`关键字创建。
+- 作为可写的[流][stream]，其中写入要签名的数据，并使用 [`sign.sign()`] 方法生成和返回签名。
+- 使用 [`sign.update()`] 和 [`sign.sign()`] 方法生成签名。
 
-示例:使用“符号”对象作为流:
+[`crypto.createSign()`] 方法用于创建 `Sign` 实例。
+参数是要使用的哈希函数的字符串名称。 
+不能使用 `new` 关键字直接地创建 `Sign` 对象。
+
+示例，使用 `Sign` 和 [`Verify`] 对象作为流：
 
 ```js
 const crypto = require('crypto');
-const sign = crypto.createSign('SHA256');
 
-sign.write('some data to sign');
+const { privateKey, publicKey } = crypto.generateKeyPairSync('ec', {
+  namedCurve: 'sect239k1'
+});
+
+const sign = crypto.createSign('SHA256');
+sign.write('要生成签名的数据');
 sign.end();
+const signature = sign.sign(privateKey, 'hex');
 
-const privateKey = getPrivateKeySomehow();
-console.log(sign.sign(privateKey, 'hex'));
-// Prints: the calculated signature using the specified private key and
-// SHA-256. For RSA keys, the algorithm is RSASSA-PKCS1-v1_5 (see padding
-// parameter below for RSASSA-PSS). For EC keys, the algorithm is ECDSA.
+const verify = crypto.createVerify('SHA256');
+verify.write('要生成签名的数据');
+verify.end();
+console.log(verify.verify(publicKey, signature, 'hex'));
+// 打印 true
 ```
 
-示例：使用[`sign.update()`][]和[`sign.sign()`][]方法：
+示例，使用 [`sign.update()`] 和 [`verify.update()`] 方法：
 
 ```js
 const crypto = require('crypto');
+
+const { privateKey, publicKey } = crypto.generateKeyPairSync('rsa', {
+  modulusLength: 2048,
+});
+
 const sign = crypto.createSign('SHA256');
+sign.update('要生成签名的数据');
+sign.end();
+const signature = sign.sign(privateKey);
 
-sign.update('some data to sign');
-
-const privateKey = getPrivateKeySomehow();
-console.log(sign.sign(privateKey, 'hex'));
-// Prints: the calculated signature
-```
-
-一个`Sign`实例也可以通过仅仅通过摘要来创建算法名称，在这种情况下，OpenSSL将会从PEM-formatted私钥的类型推断出完整的签名算法，包括不直接暴露姓名常数的算法。比如'ecdsa-with-SHA256'。
-
-示例:使用ECDSA与SHA256进行签名
-
-```js
-const crypto = require('crypto');
-const sign = crypto.createSign('RSA-SHA256');
-
-sign.update('some data to sign');
-
-const privateKey = getPrivateKeySomehow();
-console.log(sign.sign(privateKey, 'hex'));
-// Prints: the calculated signature
+const verify = crypto.createVerify('SHA256');
+verify.update('要生成签名的数据');
+verify.end();
+console.log(verify.verify(publicKey, signature));
+// 打印: true
 ```

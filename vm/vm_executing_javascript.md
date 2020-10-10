@@ -1,40 +1,39 @@
 
-> 稳定性: 2 - 稳定的
+> 稳定性: 2 - 稳定
 
 <!--name=vm-->
 
-`vm` 模块提供了一系列 API 用于在 V8 虚拟机环境中编译和运行代码。
+<!-- source_link=lib/vm.js -->
 
-JavaScript 代码可以被编译并立即运行，或编译、保存然后再运行。
+`vm` 模块可在 V8 虚拟机上下文中编译和运行代码。 
+`vm` 模块不是安全的机制。 
+不要使用它来运行不受信任的代码。
 
-A common use case is to run the code in a sandboxed environment.
-The sandboxed code uses a different V8 Context, meaning that
-it has a different global object than the rest of the code.
+JavaScript 代码可以被立即编译并运行，也可以编译、保存并稍后运行。
 
-One can provide the context by ["contextifying"][contextified] a sandbox
-object. The sandboxed code treats any property on the sandbox like a
-global variable. Any changes on global variables caused by the sandboxed
-code are reflected in the sandbox object.
+一个常见的用例是在不同的 V8 上下文中运行代码。 
+这意味着被调用的代码与调用的代码具有不同的全局对象。
+
+可以通过使对象[上下文隔离化][contextified]来提供上下文。 
+被调用的代码将上下文中的任何属性都视为全局变量。 
+由调用的代码引起的对全局变量的任何更改都将会反映在上下文对象中。
 
 ```js
 const vm = require('vm');
 
 const x = 1;
 
-const sandbox = { x: 2 };
-vm.createContext(sandbox); // Contextify the sandbox.
+const context = { x: 2 };
+vm.createContext(context); // 上下文隔离化对象。
 
 const code = 'x += 40; var y = 17;';
-// x and y are global variables in the sandboxed environment.
-// Initially, x has the value 2 because that is the value of sandbox.x.
-vm.runInContext(code, sandbox);
+// `x` and `y` 是上下文中的全局变量。
+// 最初，x 的值为 2，因为这是 context.x 的值。
+vm.runInContext(code, context);
 
-console.log(sandbox.x); // 42
-console.log(sandbox.y); // 17
+console.log(context.x); // 42
+console.log(context.y); // 17
 
-console.log(x); // 1; y is not defined.
+console.log(x); // 1; y 没有定义。
 ```
-
-*注意*: vm模块并不是实现代码安全性的一套机制。
-**绝不要试图用其运行未经信任的代码**.
 

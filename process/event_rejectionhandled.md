@@ -2,33 +2,31 @@
 added: v1.4.1
 -->
 
-如果有 `Promise` 被 rejected，并且此 `Promise`在 Nodje.js 事件循环的下次轮询及之后期间，被绑定了一个错误处理器（例如使用 [`promise.catch()`]），会触发 `'rejectionHandled'` 事件。
+* `promise` {Promise} 最近处理的 Promise。
 
-此事件监听器的回调函数使用 rejected 的 `Promise` 引用，作为唯一入参。
+每当 `Promise` 被拒绝并且错误处理函数附加到它（例如，使用 [`promise.catch()`]）晚于一个 Node.js 事件循环时，就会触发 `'rejectionHandled'` 事件。
 
-`Promise` 对象应该已经在 `'unhandledRejection'` 事件触发时被处理，但是在被处理过程中获得了一个 rejection 处理器。
+`Promise` 对象之前已经在 `'unhandledRejection'` 事件中触发，但在处理过程中获得了拒绝处理函数。
 
-对于 `Promise` 链，没有概念表明在 `Promise` 链的哪个地方，所有的 rejection 总是会被处理。
-由于本来就是异步的，一个 `Promise` rejection 可以在将来的某个时间点被处理-可能要远远晚于 `'unhandledRejection'` 事件被触发及处理的时间。
+`Promise` 链中没有顶层的概念，总是可以处理拒绝。
+本质上自身是异步的，可以在未来的某个时间点处理 `Promise` 拒绝，可能比触发 `'unhandledRejection'` 事件所需的事件循环更晚。
 
-另一种表述的方式就是，与使用同步代码时会出现不断增长的未处理异常列表不同，使用 `Promise` 时，未处理异常列表可能会出现增长然后收缩的情况。
+另一种表述的方式就是，与同步代码中不断增长的未处理异常列表不同，使用 Promise 可能会有一个不断增长和缩小的未处理拒绝列表。
 
-在同步代码情况下，当未处理异常列表增长时，会触发 `'uncaughtException'` 事件。
+在同步代码中，当未处理的异常列表增长时，会触发 `'uncaughtException'` 事件。
 
-在异步代码情况下，当未处理异常列表增长时，会触发 `'uncaughtException'` 事件，当未处理列表收缩时，会触发 `'rejectionHandled'` 事件。
-
-例如:
+在异步代码中，当未处理的拒绝列表增长时会触发 `'unhandledRejection'` 事件，并且当未处理的拒绝列表缩小时会触发 `'rejectionHandled'` 事件。
 
 ```js
 const unhandledRejections = new Map();
-process.on('unhandledRejection', (reason, p) => {
-  unhandledRejections.set(p, reason);
+process.on('unhandledRejection', (reason, promise) => {
+  unhandledRejections.set(promise, reason);
 });
-process.on('rejectionHandled', (p) => {
-  unhandledRejections.delete(p);
+process.on('rejectionHandled', (promise) => {
+  unhandledRejections.delete(promise);
 });
 ```
 
-在上述例子中，`unhandledRejections` 会随着时间增加和缩减，表明 rejection 开始是未被处理状态，然后变成已处理状态。
-可以定时（对于需长期运行的应用，这个可能是最好的方式）或当进程结束时（对脚本的应用可能是最方便的），在错误日志中记录这些错误信息。
+在这个例子中，`unhandledRejections` 的 `Map` 将随着时间的推移而增长和缩小，反映出拒绝开始未处理然后被处理。
+可以定期地（这对可能长时间运行的应用程序最好）或进程退出时（这对脚本来说可能是最方便的）在错误日志中记录此类错误。
 

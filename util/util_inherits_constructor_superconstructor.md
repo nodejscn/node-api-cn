@@ -6,17 +6,18 @@ changes:
     description: The `constructor` parameter can refer to an ES6 class now.
 -->
 
-注意，不建议使用 `util.inherits()`。
-请使用 ES6 的 `class` 和 `extends` 关键词获得语言层面的继承支持。
-注意，这两种方式是[语义上不兼容的]。
-
 * `constructor` {Function}
 * `superConstructor` {Function}
 
-从一个[构造函数]中继承原型方法到另一个。
+不建议使用 `util.inherits()`。
+请使用 ES6 的 `class` 和 `extends` 关键词获得语言层面的继承支持。
+这两种方式是[语义上不兼容的][semantically incompatible]。
+
+从一个[构造函数][constructor]中继承原型方法到另一个。
 `constructor` 的原型会被设置到一个从 `superConstructor` 创建的新对象上。
 
-`superConstructor` 可通过 `constructor.super_` 属性访问。
+这主要在 `Object.setPrototypeOf(constructor.prototype, superConstructor.prototype)` 之上添加了一些输入验证。 
+作为额外的便利，可以通过 `constructor.super_`属性访问 `superConstructor`。
 
 ```js
 const util = require('util');
@@ -43,7 +44,7 @@ stream.on('data', (data) => {
 stream.write('运作良好！'); // 接收的数据："运作良好！"
 ```
 
-例子：使用 ES6 的 `class` 和 `extends`：
+使用 ES6 的 `class` 和 `extends` 的示例：
 
 ```js
 const EventEmitter = require('events');
@@ -60,6 +61,5 @@ stream.on('data', (data) => {
   console.log(`接收的数据："${data}"`);
 });
 stream.write('使用 ES6');
-
 ```
 

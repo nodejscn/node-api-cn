@@ -6,25 +6,28 @@ changes:
     description: The `source` parameter can now be a `Uint8Array`.
 -->
 
-* `source` {Buffer|Uint8Array} 一个 `Buffer` 或 `Uint8Array` 实例
-* `fromEnc` {string} 当前编码
-* `toEnc` {string} 目标编码
+* `source` {Buffer|Uint8Array} 一个 `Buffer` 或 `Uint8Array` 实例。
+* `fromEnc` {string} 当前字符编码。
+* `toEnc` {string} 目标字符编码。
+* 返回: {Buffer}
 
+将指定的 `Buffer` 或 `Uint8Array` 实例从一个字符编码重新编码到另一个字符。
+返回新的 `Buffer` 实例。
 
-将给定的 `Buffer` 或 `Uint8Array` 实例从一个字符编码重新编码到另一个字符。 返回一个新的Buffer实例。
+如果 `fromEnc` 或 `toEnc` 指定了无效的字符编码，或者无法从 `fromEnc` 转换为 `toEnc`，则抛出异常。
 
-如果 `fromEnc` 或 `toEnc` 指定的字符串编码无效，或者不允许从 `fromEnc` 转换为 `toEnc`，将抛出异常。
+`buffer.transcode()` 支持的字符编码有 `'ascii'`、`'utf8'`、`'utf16le'`、`'ucs2'`、`'latin1'` 与 `'binary'`。
 
-如果给定的字节序列不能在目标编码中充分表示，转码过程将使用替代字符。例如：
+如果指定的字节序列无法用目标字符编码表示，则转码过程会使用替代的字符。
+例如：
 
 ```js
 const buffer = require('buffer');
 
 const newBuf = buffer.transcode(Buffer.from('€'), 'utf8', 'ascii');
 console.log(newBuf.toString('ascii'));
-// 输出: '?'
+// 打印: '?'
 ```
 
-因为欧元符号（`€`）不能在 US-ASCII 中表示，所以在转换 `Buffer` 的时候使用 `?` 代替。
+因为欧元符号（`€`）无法在 US-ASCII 中表示，所以在转码 `Buffer` 时使用 `?` 代替。
 
-注意 `buffer` 属性是通过 `require('buffer')` 返回的 `buffer` 模块，而不是全局 `Buffer` 或 `Buffer` 实例的属性。

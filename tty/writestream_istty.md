@@ -2,5 +2,5 @@
 added: v0.5.8
 -->
 
-A `boolean` that is always `true`.
+一个 `boolean`，始终为 `true`。
 

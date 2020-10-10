@@ -1,16 +1,18 @@
 
 <!--introduced_in=v0.10.0-->
 
-> 稳定性: 2 - 稳定的
+> 稳定性: 2 - 稳定
 
-`require('readline')` 模块提供了一个接口，用于从[可读流]（如 [`process.stdin`]）读取数据，每次读取一行。
-它可以通过以下方式使用：
+<!-- source_link=lib/readline.js -->
+
+`readline` 模块提供了一个接口，用于一次一行地读取[可读流][Readable]（例如 [`process.stdin`]）中的数据。 
+可以使用以下方式访问它：
 
 ```js
 const readline = require('readline');
 ```
 
-例子，`readline` 模块的基本用法：
+以下的简单示例说明了 `readline` 模块的基本用法。
 
 ```js
 const readline = require('readline');
@@ -20,13 +22,15 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-rl.question('你认为 Node.js 中文网怎么样？', (answer) => {
-  // 对答案进行处理
-  console.log(`多谢你的反馈：${answer}`);
+rl.question('你如何看待 Node.js 中文网？', (answer) => {
+  // TODO：将答案记录在数据库中。
+  console.log(`感谢您的宝贵意见：${answer}`);
 
   rl.close();
 });
 ```
 
-注意：当调用该代码时，Node.js 程序不会终止，直到 `readline.Interface` 被关闭，因为接口在等待 `input` 流中要被接收的数据。
+一旦调用此代码，Node.js 应用程序将不会终止，直到 `readline.Interface` 关闭，因为接口在 `input` 流上等待接收数据。
+
+
 

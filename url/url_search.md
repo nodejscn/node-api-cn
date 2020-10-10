@@ -1,18 +1,19 @@
 
 * {string}
 
-获取及设置URL的序列化查询(query)部分部分。
+获取及设置 URL 的序列化查询部分。
 
 ```js
-const { URL } = require('url');
 const myURL = new URL('https://example.org/abc?123');
 console.log(myURL.search);
-  // 输出 ?123
+// 打印 ?123
 
 myURL.search = 'abc=xyz';
 console.log(myURL.href);
-  // 输出 https://example.org/abc?abc=xyz
+// 打印 https://example.org/abc?abc=xyz
 ```
 
-任何出现在赋给`search`属性值中的无效URL字符将被[百分比编码][]。请注意选择哪些字符进行百分比编码可能与[`url.parse()`][]和[`url.format()`][]方法产生的不同。
+
+分配给 `search` 属性的值中包含的无效 URL 字符是[百分比编码的][percent-encoded]。 
+选择哪些字符进行百分比编码可能与 [`url.parse()`] 和 [`url.format()`] 方法产生的内容有所不同。
 

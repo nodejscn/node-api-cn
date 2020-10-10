@@ -1,4 +1,7 @@
 
 * Returns: {integer}
 
-读取底层的传输格式的版本。很可能有助于遗留代码来读取旧的传输格式版本。不可在`.readHeader()`之前调用此方法。
+Reads the underlying wire format version. Likely mostly to be useful to
+legacy code reading old wire format versions. May not be called before
+`.readHeader()`.
+

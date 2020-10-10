@@ -5,54 +5,57 @@ changes:
     description: The `chunk` argument can now be a `Uint8Array` instance.
 -->
 
-* `chunk` {Buffer|Uint8Array|string|null|any} 压入读队列的数据块。
-  对于没有处在object mode的流来说，`chunk`必须是一个字符串，`Buffer` 或`Uint8Array`；
-  对object mode 的流来说，`chunk`可以使任何JavaScript值。
-* `encoding` {string} 字符串数据块的编码方式.  必须是可用的Buffer编码方式，例如`'utf8'` 或 `'ascii'`。
-* 返回 {boolean} 如果多余的数据块可能会继续压入，那么返回`true`; 否则返回 `false`.
+* `chunk` {Buffer|Uint8Array|string|null|any} 要推入读取队列的数据块。
+  对于非对象模式的流，`chunk` 必须是字符串、`Buffer` 或 `Uint8Array`。
+  对于对象模式的流，`chunk` 可以是任何 JavaScript 值。
+* `encoding` {string} 字符串数据块的字符编码。
+  必须是有效的 `Buffer` 字符编码，例如 `'utf8'` 或 `'ascii'`。
+* 返回: {boolean} 如果还有数据块可以继续推入，则返回 `true`，否则返回 `false`。
 
-当`chunk`是一个`Buffer`, `Uint8Array`或者`string`时，
-这个数据块(`chunk`)会被添加到内部队列供使用者消费。
-在没有数据可写入后，给`chunk`传了`null`发出流结束(EOF)的信号。
+当 `chunk` 是 `Buffer`、`Uint8Array` 或 `string` 时，`chunk` 的数据会被添加到内部队列中供流消费。
+在没有数据可写入后，给 `chunk` 传入 `null` 表示流的结束（EOF）。
 
-当可读流处在传输模式下，`'data'`事件触发时，可以通过
-调用[`readable.read()`][stream-read] 方法读出来数据，这数据是用`readable.push()`添加的。
+当可读流处在暂停模式时，使用 `readable.push()` 添加的数据可以在触发 [`'readable'`] 事件时通过调用 [`readable.read()`][stream-read] 读取。
 
-`readable.push()`方法被设计得尽可能的灵活。
-比如，当封装一个有'暂停/恢复'机制和带数据回调的底层source的时候，
-那么这个底层的source可以被常规的可读流实例封装。就像下面的例子一样。
+当可读流处于流动模式时，使用 `readable.push()` 添加的数据可以通过触发 `'data'` 事件读取。
 
+`readable.push()` 方法被设计得尽可能的灵活。
+例如，当需要封装一个带有'暂停/继续'机制与数据回调的底层数据源时，该底层数据源可以使用自定义的可读流实例封装：
 
 ```js
-// source 是一个有readStop()和 readStart()方法的对象。
-// 有数据就调`ondata`成员函数；
-// 数据结束就调`onend`成员函数。
+// `source` 是一个有 `readStop()` 和 `readStart()` 方法的对象，
+// 当有数据时会调用 `ondata` 方法，
+// 当数据结束时会调用 `onend` 方法。
 
 class SourceWrapper extends Readable {
   constructor(options) {
     super(options);
 
-    this._source = getLowlevelSourceObject();
+    this._source = getLowLevelSourceObject();
 
-    // Every time there's data, push it into the internal buffer.
+    // 每当有数据时，将其推入内部缓冲。
     this._source.ondata = (chunk) => {
-      // if push() returns false, then stop reading from source
+      // 如果 push() 返回 `false`，则停止读取。
       if (!this.push(chunk))
         this._source.readStop();
     };
 
-    // When the source ends, push the EOF-signaling `null` chunk
+    // 当读取到尽头时，推入 `null` 表示流的结束。
     this._source.onend = () => {
       this.push(null);
     };
   }
-  // _read will be called when the stream wants to pull more data in
-  // the advisory size argument is ignored in this case.
+  // 当流想推送更多数据时，`_read` 会被调用。
   _read(size) {
     this._source.readStart();
   }
 }
 ```
-*注意*: `readable.push()`方法是为了让可读流实现者调用的，
-而且只来自`readable._read()`方法内部。
+
+`readable.push()` 方法用于将内容推入内部的 buffer。 
+它可以由 [`readable._read()`] 方法驱动。
+
+对于非对象模式的流，如果 `readable.push()` 的 `chunk` 参数为 `undefined`，则它会被当成空字符串或 buffer。
+详见 [`readable.push('')`]。
+
 

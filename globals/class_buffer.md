@@ -6,5 +6,5 @@ added: v0.1.103
 
 * {Function}
 
-用于处理二进制数据。详见 [buffer文档]。
+用于处理二进制数据。请参见 [Buffer 文档][buffer section]。
 

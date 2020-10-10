@@ -3,10 +3,11 @@ added: v0.1.25
 -->
 * `str` {string}
 
-对给定的 `str` 进行解码。
+`querystring.unescape()` 方法在给定的 `str` 上执行 URL 百分比编码字符的解码。
 
-该方法是提供给 `querystring.parse()` 使用的，通常不直接使用。
-它之所以对外开放，是为了在需要时可以通过给 `querystring.unescape` 赋值一个函数来重写解码的实现。
+`querystring.unescape()` 方法由 `querystring.parse()` 使用，通常不会被直接地使用。 
+它的导出主要是为了允许应用程序代码在需要时通过将 `querystring.unescape` 赋值给替代函数来提供替换的解码实现。
 
-默认使用 JavaScript 内置的 `decodeURIComponent()` 方法来解码。
+默认情况下，`querystring.unescape()` 方法将会尝试使用 JavaScript 内置的 `decodeURIComponent()` 方法进行解码。 
+如果失败，则将会使用更保险的不会因格式错误的 URL 而抛出异常的同类方法。
 

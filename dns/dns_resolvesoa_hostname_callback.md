@@ -1,12 +1,13 @@
 <!-- YAML
 added: v0.11.10
 -->
-- `hostname` {string}
-- `callback` {Function}
+* `hostname` {string}
+* `callback` {Function}
   - `err` {Error}
   - `address` {Object}
 
-使用DNS协议处理主机名子域名记录(`SOA`记录)。`addresses`参数为一个对象包含以下属性：
+使用 DNS 协议为 `hostname` 解析开始权限记录（`SOA` 记录）。
+传给 `callback` 函数的 `addresses` 参数将会是一个具有以下属性的对象：
 
 * `nsname`
 * `hostmaster`

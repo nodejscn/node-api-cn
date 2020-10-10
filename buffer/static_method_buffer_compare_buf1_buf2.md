@@ -1,0 +1,25 @@
+<!-- YAML
+added: v0.11.13
+changes:
+  - version: v8.0.0
+    pr-url: https://github.com/nodejs/node/pull/10236
+    description: The arguments can now be `Uint8Array`s.
+-->
+
+* `buf1` {Buffer|Uint8Array}
+* `buf2` {Buffer|Uint8Array}
+* 返回: {integer} `-1`、`0` 或 `1`，取决于比较的结果。 有关详细信息，参见 [`buf.compare()`]。
+
+比较 `buf1` 与 `buf2`，主要用于 `Buffer` 实例数组的排序。
+相当于调用 [`buf1.compare(buf2)`][`buf.compare()`]。
+
+```js
+const buf1 = Buffer.from('1234');
+const buf2 = Buffer.from('0123');
+const arr = [buf1, buf2];
+
+console.log(arr.sort(Buffer.compare));
+// 打印: [ <Buffer 30 31 32 33>, <Buffer 31 32 33 34> ]
+// (结果相当于: [buf2, buf1])
+```
+

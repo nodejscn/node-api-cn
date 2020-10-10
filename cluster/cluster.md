@@ -1,12 +1,14 @@
 
 <!--introduced_in=v0.10.0-->
 
-> 稳定性: 2 - 稳定的
+> 稳定性: 2 - 稳定
 
-Node.js在单个线程中运行单个实例。
-用户(开发者)为了使用现在的多核系统，有时候,用户(开发者)会用一串Node.js进程去处理负载任务。
+<!-- source_link=lib/cluster.js -->
 
-`cluster` 模块允许简单容易的创建共享服务器端口的子进程。
+单个 Node.js 实例运行在单个线程中。
+为了充分利用多核系统，有时需要启用一组 Node.js 进程去处理负载任务。
+
+`cluster` 模块可以创建共享服务器端口的子进程。
 
 ```js
 const cluster = require('cluster');
@@ -26,7 +28,7 @@ if (cluster.isMaster) {
   });
 } else {
   // 工作进程可以共享任何 TCP 连接。
-  // 在本例子中，共享的是一个 HTTP 服务器。
+  // 在本例子中，共享的是 HTTP 服务器。
   http.createServer((req, res) => {
     res.writeHead(200);
     res.end('你好世界\n');
@@ -35,9 +37,10 @@ if (cluster.isMaster) {
   console.log(`工作进程 ${process.pid} 已启动`);
 }
 ```
-现在运行 `Node.js` 将会在工作进程(指代子进程)之间共享8000端口
 
-```txt
+运行代码，则工作进程会共享 8000 端口：
+
+```console
 $ node server.js
 主进程 3596 正在运行
 工作进程 4324 已启动
@@ -45,5 +48,6 @@ $ node server.js
 工作进程 6056 已启动
 工作进程 5644 已启动
 ```
-请注意,在Windows中,还不能在工作进程中设置管道(Pipe)服务器。
+
+在 Windows 上，尚无法在工作进程中设置命名管道服务器。
 

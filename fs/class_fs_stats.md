@@ -3,20 +3,13 @@ added: v0.1.21
 changes:
   - version: v8.1.0
     pr-url: https://github.com/nodejs/node/pull/13173
-    description: Added times as numbers.
+    description: 新增数值型的时间。
 -->
 
-从 [`fs.stat()`]、[`fs.lstat()`] 和 [`fs.fstat()`] 及其同步版本返回的对象都是该类型。
+`fs.Stats` 对象提供了关于文件的信息。
 
- - `stats.isFile()`
- - `stats.isDirectory()`
- - `stats.isBlockDevice()`
- - `stats.isCharacterDevice()`
- - `stats.isSymbolicLink()` (仅对 [`fs.lstat()`] 有效)
- - `stats.isFIFO()`
- - `stats.isSocket()`
-
-对于一个普通文件，[`util.inspect(stats)`] 会返回一个类似如下的字符串：
+从 [`fs.stat()`]、[`fs.lstat()`]、[`fs.fstat()`]、以及它们的同步方法返回的对象都是此类型。
+如果传给这些方法的 `options` 中的 `bigint` 为 true，则数值会是 `bigint` 型而不是 `number` 型，并且该对象还会包含额外的纳秒级精度的属性（以 `Ns` 为后缀）。
 
 ```console
 Stats {
@@ -40,10 +33,31 @@ Stats {
   birthtime: Mon, 10 Oct 2011 23:24:11 GMT }
 ```
 
-*注意*：`atimeMs`，`mtimeMs`，`ctimeMs`，`birthtimeMs` 是以单位为毫秒保存相对应时间的数字 [numbers][MDN-Number]。
-他们的精度由所在的平台决定。`atime`，`mtime`，`ctime` 以及 `birthtime` 是表示各个时间的日期对象 `[Date][MDN-Date]`。
-`Date` 与数值并没有关联。对数值进行重新赋值，或者改变 `Date` 的值，不会反映到相对应的表示中。
+`bigint` 的版本：
 
-
-
+```console
+BigIntStats {
+  dev: 2114n,
+  ino: 48064969n,
+  mode: 33188n,
+  nlink: 1n,
+  uid: 85n,
+  gid: 100n,
+  rdev: 0n,
+  size: 527n,
+  blksize: 4096n,
+  blocks: 8n,
+  atimeMs: 1318289051000n,
+  mtimeMs: 1318289051000n,
+  ctimeMs: 1318289051000n,
+  birthtimeMs: 1318289051000n,
+  atimeNs: 1318289051000000000n,
+  mtimeNs: 1318289051000000000n,
+  ctimeNs: 1318289051000000000n,
+  birthtimeNs: 1318289051000000000n,
+  atime: Mon, 10 Oct 2011 23:24:11 GMT,
+  mtime: Mon, 10 Oct 2011 23:24:11 GMT,
+  ctime: Mon, 10 Oct 2011 23:24:11 GMT,
+  birthtime: Mon, 10 Oct 2011 23:24:11 GMT }
+```
 

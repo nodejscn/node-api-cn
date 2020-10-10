@@ -2,26 +2,26 @@
 added: v0.1.16
 -->
 
-`exports` 变量是在模块的文件级别作用域内有效的，它在模块被执行前被赋予 `module.exports` 的值。
+`exports` 变量是在模块的文件级作用域内可用的，且在模块执行之前赋值给 `module.exports`。
 
-它有一个快捷方式，以便 `module.exports.f = ...` 可以被更简洁地写成 `exports.f = ...`。
-注意，就像任何变量，如果一个新的值被赋值给 `exports`，它就不再绑定到 `module.exports`：
+它允许使用快捷方式，因此 `module.exports.f = ...` 可以更简洁地写成 `exports.f = ...`。
+但是，就像任何变量一样，如果为 `exports` 赋予了新值，则它将不再绑定到 `module.exports`：
 
 ```js
-module.exports.hello = true; // 从对模块的引用中导出
-exports = { hello: false };  // 不导出，只在模块内有效
+module.exports.hello = true; // 从模块的引用中导出。
+exports = { hello: false };  // 不导出，仅在模块中可用。
 ```
 
-当 `module.exports` 属性被一个新的对象完全替代时，也会重新赋值 `exports`，例如：
+当 `module.exports` 属性被新对象完全替换时，通常也会重新赋值 `exports`：
 
 <!-- eslint-disable func-name-matching -->
 ```js
 module.exports = exports = function Constructor() {
-  // ... 及其他
+  // ... 
 };
 ```
 
-为了解释这个行为，想象对 `require()` 的假设实现，它跟 `require()` 的实际实现相当类似：
+为了说明这种行为，想象对 `require()` 的假设实现，它与 `require()` 的实际实现非常类似：
 
 ```js
 function require(/* ... */) {

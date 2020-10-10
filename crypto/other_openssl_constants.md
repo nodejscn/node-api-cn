@@ -1,4 +1,6 @@
 
+See the [list of SSL OP Flags][] for details.
+
 <table>
   <tr>
     <th>Constant</th>
@@ -18,10 +20,6 @@
   </tr>
   <tr>
     <td><code>DH_NOT_SUITABLE_GENERATOR</code></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td><code>NPN_ENABLED</code></td>
     <td></td>
   </tr>
   <tr>
@@ -54,18 +52,18 @@
   </tr>
   <tr>
     <td><code>RSA_PSS_SALTLEN_DIGEST</code></td>
-    <td>Sets the salt length for `RSA_PKCS1_PSS_PADDING` to the digest size
-        when signing or verifying.</td>
+    <td>Sets the salt length for <code>RSA_PKCS1_PSS_PADDING</code> to the
+        digest size when signing or verifying.</td>
   </tr>
   <tr>
     <td><code>RSA_PSS_SALTLEN_MAX_SIGN</code></td>
-    <td>Sets the salt length for `RSA_PKCS1_PSS_PADDING` to the maximum
-        permissible value when signing data.</td>
+    <td>Sets the salt length for <code>RSA_PKCS1_PSS_PADDING</code> to the
+        maximum permissible value when signing data.</td>
   </tr>
   <tr>
     <td><code>RSA_PSS_SALTLEN_AUTO</code></td>
-    <td>Causes the salt length for `RSA_PKCS1_PSS_PADDING` to be determined
-        automatically when verifying a signature.</td>
+    <td>Causes the salt length for <code>RSA_PKCS1_PSS_PADDING</code> to be
+        determined automatically when verifying a signature.</td>
   </tr>
   <tr>
     <td><code>POINT_CONVERSION_COMPRESSED</code></td>

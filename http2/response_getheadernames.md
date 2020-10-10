@@ -2,12 +2,10 @@
 added: v8.4.0
 -->
 
-* Returns: {Array}
+* Returns: {string[]}
 
 Returns an array containing the unique names of the current outgoing headers.
 All header names are lowercase.
-
-Example:
 
 ```js
 response.setHeader('Foo', 'bar');

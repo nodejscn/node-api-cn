@@ -2,22 +2,15 @@
 added: v0.5.0
 -->
 
-* Returns: {string}
+* 返回: {string}
 
-`os.platform()` 方法返回一个字符串, 指定Node.js编译时的操作系统平台
+返回标识操作系统平台的字符串。
+该值在编译时设置。 
+可能的值有 `'aix'`、`'darwin'`、`'freebsd'`、`'linux'`、`'openbsd'`、`'sunos'` 和 `'win32'`。
 
-当前可能的值有:
+返回的值等价于 [`process.platform`]。
 
-* `'aix'`
-* `'darwin'`
-* `'freebsd'`
-* `'linux'`
-* `'openbsd'`
-* `'sunos'`
-* `'win32'`
+如果 Node.js 在 Android 操作系统上构建，则也可能返回 `'android'` 值。
+[Android 的支持是实验性的][Android building]。
 
-等价于 [`process.platform`][].
-
-*注意*: 如果Node.js 在Android操作系统上构建, `'android'`值
-可能被返回. 然而, Android支持Node.js在当前被认为是实验期.
 

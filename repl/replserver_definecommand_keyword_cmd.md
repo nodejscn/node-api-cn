@@ -21,9 +21,8 @@ const replServer = repl.start({ prompt: '> ' });
 replServer.defineCommand('sayhello', {
   help: '打招呼',
   action(name) {
-    this.lineParser.reset();
-    this.bufferedCommand = '';
-    console.log(`你好，${name}！`);
+    this.clearBufferedCommand();
+    console.log(`你好, ${name}!`);
     this.displayPrompt();
   }
 });
@@ -35,7 +34,7 @@ replServer.defineCommand('saybye', function saybye() {
 
 在 REPL 实例中使用新的命令：
 
-```txt
+```console
 > .sayhello Node.js中文网
 你好，Node.js中文网！
 > .saybye

@@ -11,10 +11,10 @@ changes:
 * `to` {string}
 * 返回: {string}
 
-`path.relative()` 方法返回从 `from` 到 `to` 的相对路径（基于当前工作目录）。
-如果 `from` 和 `to` 各自解析到同一路径（调用 `path.resolve()`），则返回一个长度为零的字符串。
+`path.relative()` 方法根据当前工作目录返回 `from` 到 `to` 的相对路径。 
+如果 `from` 和 `to` 各自解析到相同的路径（分别调用 `path.resolve()` 之后），则返回零长度的字符串。
 
-如果 `from` 或 `to` 传入了一个长度为零的字符串，则当前工作目录会被用于代替长度为零的字符串。
+如果将零长度的字符串传入 `from` 或 `to`，则使用当前工作目录代替该零长度的字符串。
 
 例如，在 POSIX 上：
 
@@ -30,5 +30,5 @@ path.relative('C:\\orandea\\test\\aaa', 'C:\\orandea\\impl\\bbb');
 // 返回: '..\\..\\impl\\bbb'
 ```
 
-如果 `from` 或 `to` 不是一个字符串，则抛出 [`TypeError`]。
+如果 `from` 或 `to` 不是字符串，则抛出 [`TypeError`]。
 

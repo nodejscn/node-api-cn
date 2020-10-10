@@ -2,9 +2,11 @@
 added: v0.1.90
 -->
 
+* `callback` {Function} 当 server 被关闭时调用。
 * 返回: {net.Server}
 
-停止 server接受建立新的connections并保持已经存在的connections.此功能是异步的,当所有的connections关闭同时server响应 [`'close'`][]事件的时候,server将会最终关闭.
-一旦`'close'`发生将会调用可选的回调函数. 与该事件不同, 如果服务器在关闭时未打开，则将使用错误作为唯一参数。
+阻止 server 接受新的连接并保持现有的连接。
+该函数是异步的，server 将在所有连接结束后关闭并触发 [`'close'`] 事件。
+可选的 `callback` 将在 `'close'` 事件发生时被调用。
+与 `'close'` 事件不同的是，如果 server 在关闭时未打开，回调函数被调用时会传入一个 `Error` 对象作为唯一参数。
 
-返回 `server`。

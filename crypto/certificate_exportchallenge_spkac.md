@@ -1,13 +1,13 @@
 <!-- YAML
-added: v0.11.8
+added: v9.0.0
 -->
-- `spkac` {string | Buffer | TypedArray | DataView}
-- 返回 {Buffer} 返回 `spkac` 数据结构的 challenge 部分，`spkac` 包含一个公钥和一个 challange。
+* `spkac` {string | Buffer | TypedArray | DataView}
+* 返回 {Buffer} 返回 `spkac` 数据结构的 challenge 部分，`spkac` 包含一个公钥和一个 challenge。
 
 ```js
-const cert = require('crypto').Certificate();
+const { Certificate } = require('crypto');
 const spkac = getSpkacSomehow();
-const challenge = cert.exportChallenge(spkac);
+const challenge = Certificate.exportChallenge(spkac);
 console.log(challenge.toString('utf8'));
-// Prints: the challenge as a UTF8 string
+// 以 UTF 字符串的形式打印 challenge。
 ```

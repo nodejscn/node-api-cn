@@ -1,5 +1,7 @@
 
-可以使用 `new` 关键字或者调用 `crypto.Certificate()` 方法创建 `Certificate` 类的实例:
+Instances of the `Certificate` class can be created using the `new` keyword
+or by calling `crypto.Certificate()` as a function:
+
 ```js
 const crypto = require('crypto');
 

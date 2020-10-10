@@ -9,6 +9,6 @@ changes:
 把跟随的参数作为 JavaScript 来执行。
 在 REPL 中预定义的模块也可以在 `script` 中使用。
 
-*Note*: On Windows, using `cmd.exe` a single quote will not work correctly
-because it only recognizes double `"` for quoting. In Powershell or
-Git bash, both `'` and `"` are usable.
+在 Windows 上，使用 `cmd.exe` 单引号将会无法正常工作，因为它只识别双引号 `"`。
+在 Powershell 或 Git bash 中，`'` 和 `"` 都可用。
+

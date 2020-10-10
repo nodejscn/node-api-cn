@@ -2,7 +2,7 @@
 added: v0.3.3
 -->
 
-* Returns: {integer}
+* 返回: {integer}
 
-`os.totalmem()`方法以整数的形式返回所有系统内存的字节数.
+以整数的形式返回系统的内存总量（以字节为单位）。
 

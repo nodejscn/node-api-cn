@@ -2,5 +2,6 @@
 added: v0.5.8
 -->
 
-停止监听 `fs.FSWatcher` 的变化。
+给定的 `fs.FSWatcher` 停止监视更改。
+一旦停止，则 `fs.FSWatcher` 对象将不再可用。
 

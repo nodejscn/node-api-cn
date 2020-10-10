@@ -2,20 +2,23 @@
 added: v0.9.4
 -->
 
-* `chunk` {Buffer|string|any} 数据片段。对于非对象模式的可读流，这是一个字符串或者 `Buffer`。
-  对于对象模式的可读流，这可以是除 `null` 以外的任意类型 JavaScript 值。
+* `chunk` {Buffer|string|any} 数据块。
+  对于非对象模式的流， `chunk` 可以是字符串或 `Buffer`。
+  对于对象模式的流，`chunk` 可以是任何 JavaScript 值，除了 `null`。
 
-`'data'` 事件会在流将数据传递给消费者时触发。当流转换到 flowing 模式时会触发该事件。调用 `readable.pipe()`， `readable.resume()` 方法，或为 `'data'` 事件添加回调可以将流转换到 flowing 模式。 `'data'` 事件也会在调用 `readable.read()` 方法并有数据返回时触发。
+当流将数据块传送给消费者后触发。
+当调用 `readable.pipe()`，`readable.resume()` 或绑定监听器到 `'data'` 事件时，流会转换到流动模式。
+当调用 `readable.read()` 且有数据块返回时，也会触发 `'data'` 事件。
 
-在没有明确暂停的流上添加 `'data'` 事件监听会将流转换为 flowing 模式。 数据会在可用时尽快传递给下个流程。
+将 `'data'` 事件监听器附加到尚未显式暂停的流将会使流切换为流动模式。 
+数据将会在可用时立即传递。
 
-如果调用 `readable.setEncoding()` 方法明确为流指定了默认编码，回调函数将接收到一个字符串，否则接收到的数据将是一个
-`Buffer` 实例。
+如果使用 `readable.setEncoding()` 为流指定了默认的字符编码，则监听器回调传入的数据为字符串，否则传入的数据为 `Buffer`。
 
 ```js
 const readable = getReadableStreamSomehow();
 readable.on('data', (chunk) => {
-  console.log(`Received ${chunk.length} bytes of data.`);
+  console.log(`接收到 ${chunk.length} 个字节的数据`);
 });
 ```
 

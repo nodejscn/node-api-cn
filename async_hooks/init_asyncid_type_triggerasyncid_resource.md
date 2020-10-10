@@ -3,8 +3,8 @@
 * `type` {string} The type of the async resource.
 * `triggerAsyncId` {number} The unique ID of the async resource in whose
   execution context this async resource was created.
-* `resource` {Object} Reference to the resource representing the async operation,
-  needs to be released during _destroy_.
+* `resource` {Object} Reference to the resource representing the async
+  operation, needs to be released during _destroy_.
 
 Called when a class is constructed that has the _possibility_ to emit an
 asynchronous event. This _does not_ mean the instance must call
@@ -22,5 +22,5 @@ clearTimeout(setTimeout(() => {}, 10));
 ```
 
 Every new resource is assigned an ID that is unique within the scope of the
-current process.
+current Node.js instance.
 

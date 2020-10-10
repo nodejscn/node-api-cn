@@ -2,23 +2,22 @@
 added: v0.1.26
 -->
 
-* `eventName` {any} 要监听的事件的名称
-* `listener` {Function} 事件的句柄函数
+* `eventName` {string|symbol} 事件的名称。
+* `listener` {Function} 事件的句柄函数。
 
-`EventEmitter` 实例会在一个监听器被添加到其内部监听器数组之前触发自身的 `'newListener'` 事件。
+`EventEmitter` 实例在新的监听器被添加到其内部监听器数组之前，会触发自身的 `'newListener'` 事件。
 
-注册了 `'newListener'` 事件的监听器会传入事件名与被添加的监听器的引用。
+为 `'newListener'` 事件注册的监听器将传递事件名称和对要添加的监听器的引用。
 
-事实上，在添加监听器之前触发事件有一个微妙但重要的副作用：
-在`'newListener'` 回调函数中, 一个监听器的名字如果和已有监听器名称相同, 则在被插入到EventEmitter实例的内部监听器数组时, 该监听器会被添加到其它同名监听器的前面。
+在添加监听器之前触发事件的事实具有微妙但重要的副作用：在 `'newListener'` 回调中注册到相同 `name` 的任何其他监听器将插入到正在添加的监听器之前。
 
 
 ```js
 const myEmitter = new MyEmitter();
-// 只处理一次，所以不会无限循环
+// 只处理一次，避免无限循环。
 myEmitter.once('newListener', (event, listener) => {
   if (event === 'event') {
-    // 在开头插入一个新的监听器
+    // 在前面插入一个新的监听器。
     myEmitter.on('event', () => {
       console.log('B');
     });

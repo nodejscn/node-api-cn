@@ -1,10 +1,12 @@
 
 <!--introduced_in=v0.10.0-->
 
-> 稳定性: 2 - 稳定的
+> 稳定性: 2 - 稳定
 
-`url` 模块提供了一些实用函数，用于 URL 处理与解析。
-可以通过以下方式使用：
+<!-- source_link=lib/url.js -->
+
+`url` 模块用于处理与解析 URL。
+使用方法如下：
 
 ```js
 const url = require('url');

@@ -1,12 +1,13 @@
 <!-- YAML
 added: v0.9.12
 -->
-- `hostname` {string}
-- `callback` {Function}
+* `hostname` {string}
+* `callback` {Function}
   - `err` {Error}
   - `addresses` {Object[]}
 
-使用DNS协议来处理基于正则表达式匹配的记录(`NAPTR`记录)的主机名。`adresses`参数是传递给`callback`函数的主机名对象数组，对象包含属性：
+使用 DNS 协议为 `hostname` 解析基于正则表达式的记录（`NAPTR` 记录）。
+传给 `callback` 函数的 `adresses` 参数将会包含具有以下属性的对象数组：
 
 * `flags`
 * `service`
@@ -14,8 +15,6 @@ added: v0.9.12
 * `replacement`
 * `order`
 * `preference`
-
-例如：
 
 <!-- eslint-skip -->
 ```js

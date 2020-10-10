@@ -1,26 +1,43 @@
+<!-- YAML
+changes:
+  - version:
+     - v11.2.0
+     - v10.16.0
+    pr-url: https://github.com/nodejs/node/pull/22795
+    description: Add `autoDestroy` option to automatically `destroy()` the
+                 stream when it emits `'end'` or errors.
+  - version: v14.0.0
+    pr-url: https://github.com/nodejs/node/pull/30623
+    description: Change `autoDestroy` option default to `true`.
+-->
 
 * `options` {Object}
-  * `highWaterMark` {number} 从底层资源读取数据并存储在内部缓冲区中的最大字节数。默认`16384` (16kb), 或者 `16`对应`objectMode`流模式。
-  * `encoding` {string} 指定解析的字符编码格式. 默认 为`null`
-  * `objectMode` {boolean} 一个对象的流。 这意味着 [`stream.read(n)`][stream-read] 返回的是一个单一的对象而不是n个字节的缓冲区。默认 `false`
-  * `read` {Function} 对 [`stream._read()`][stream-_read]方法的实现。
-  * `destroy` {Function} 对 [`stream._destroy()`][readable-_destroy] 方法的实现。
+  * `highWaterMark` {number} 从底层资源读取数据并存储在内部缓冲区中的最大[字节数][hwm-gotcha]。
+    **默认值:** `16384` (16KB), 对象模式的流默认为 `16`。
+  * `encoding` {string} 如果指定了，则使用指定的字符编码将 buffer 解码成字符串。
+    **默认值:** `null`。
+  * `objectMode` {boolean} 流是否可以是一个对象流。
+    也就是说 [`stream.read(n)`][stream-read] 会返回对象而不是 `Buffer`。
+    **默认值:** `false`。
+  * `emitClose` {boolean} 流被销毁后是否应该触发 `'close'`。**默认值:** `true`。
+  * `read` {Function} 对 [`stream._read()`][stream-_read] 方法的实现。
+  * `destroy` {Function} 对 [`stream._destroy()`][readable-_destroy] 方法的实现。
+  * `autoDestroy` {boolean} 流是否应在结束后自动调用 `.destroy()`。**默认值:** `true`。
 
-例如：
-
+<!-- eslint-disable no-useless-constructor -->
 ```js
 const { Readable } = require('stream');
 
 class MyReadable extends Readable {
   constructor(options) {
-    // Calls the stream.Readable(options) constructor
+    // 调用 stream.Readable(options) 构造函数。
     super(options);
     // ...
   }
 }
 ```
 
-或者使用ES6语法:
+使用 ES6 之前的语法：
 
 ```js
 const { Readable } = require('stream');
@@ -34,7 +51,7 @@ function MyReadable(options) {
 util.inherits(MyReadable, Readable);
 ```
 
-或者使用简化的构造方法：
+使用简化的构造函数：
 
 ```js
 const { Readable } = require('stream');

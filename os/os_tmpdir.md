@@ -7,8 +7,7 @@ changes:
                  returns a path with a trailing slash on any platform
 -->
 
-* Returns: {string}
+* 返回: {string}
 
-`os.tmpdir()`方法返回一个字符串, 表明操作系统的
-默认临时文件目录.
+以字符串的形式返回操作系统的默认临时文件目录。
 

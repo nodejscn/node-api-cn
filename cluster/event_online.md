@@ -2,13 +2,13 @@
 added: v0.7.0
 -->
 
-和`cluster.on('online')`事件类似，但针对特定的工作进程。
+类似于 `cluster.on('online')` 事件，但特定于此工作进程。 
 
 ```js
 cluster.fork().on('online', () => {
-  // Worker is online
+  // 工作进程已上线。
 });
 ```
 
-本事件不会在工作进程内部被触发。
+此事件不会在工作进程中触发。
 

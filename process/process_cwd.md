@@ -3,9 +3,11 @@ added: v0.1.8
 -->
 
 * 返回: {string}
- 
-`process cwd()` 方法返回 Node.js 进程当前工作的目录。
+
+`process.cwd()` 方法会返回 Node.js 进程的当前工作目录。
+
 
 ```js
-console.log('Current directory: ${process.cwd()}');
+console.log(`当前工作目录是: ${process.cwd()}`);
 ```
+

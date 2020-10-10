@@ -1,6 +1,6 @@
 
 The following example uses the [Async Hooks][] and Performance APIs to measure
-the actual duration of a Timeout operation (including the amount of time it
+the actual duration of a Timeout operation (including the amount of time it took
 to execute the callback).
 
 ```js
@@ -34,7 +34,6 @@ hook.enable();
 const obs = new PerformanceObserver((list, observer) => {
   console.log(list.getEntries()[0]);
   performance.clearMarks();
-  performance.clearMeasures();
   observer.disconnect();
 });
 obs.observe({ entryTypes: ['measure'], buffered: true });

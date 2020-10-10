@@ -5,10 +5,10 @@ added: v0.11.15
 * `path` {string}
 * 返回: {Object}
 
-`path.parse()` 方法返回一个对象，对象的属性表示 `path` 的元素。
-尾部文件分隔符会被忽略，请看 [`path.sep`][].
+`path.parse()` 方法会返回一个对象，其属性表示 `path` 的有效元素。
+尾部的目录分隔符会被忽略，参见 [`path.sep`]。
 
-返回的对象有以下属性：
+返回的对象具有以下属性：
 
 * `dir` {string}
 * `root` {string}
@@ -19,13 +19,13 @@ added: v0.11.15
 例如，在 POSIX 上：
 
 ```js
-path.parse('/home/user/dir/file.txt');
+path.parse('/目录1/目录2/文件.txt');
 // 返回:
 // { root: '/',
-//   dir: '/home/user/dir',
-//   base: 'file.txt',
+//   dir: '/目录1/目录2',
+//   base: '文件.txt',
 //   ext: '.txt',
-//   name: 'file' }
+//   name: '文件' }
 ```
 
 ```text
@@ -33,21 +33,21 @@ path.parse('/home/user/dir/file.txt');
 │          dir        │    base    │
 ├──────┬              ├──────┬─────┤
 │ root │              │ name │ ext │
-"  /    home/user/dir / file  .txt "
+"  /    目录1/目录2    / 文件   .txt "
 └──────┴──────────────┴──────┴─────┘
-(请无视以上字符串中的空格，它们只是为了布局)
+（"" 行中的所有空格均可忽略。它们纯粹是用于格式化。）
 ```
 
 在 Windows 上：
 
 ```js
-path.parse('C:\\path\\dir\\file.txt');
+path.parse('C:\\目录1\\目录2\\文件.txt');
 // 返回:
 // { root: 'C:\\',
-//   dir: 'C:\\path\\dir',
-//   base: 'file.txt',
+//   dir: 'C:\\目录1\\目录2',
+//   base: '文件.txt',
 //   ext: '.txt',
-//   name: 'file' }
+//   name: '文件' }
 ```
 
 ```text
@@ -55,10 +55,10 @@ path.parse('C:\\path\\dir\\file.txt');
 │          dir        │    base    │
 ├──────┬              ├──────┬─────┤
 │ root │              │ name │ ext │
-" C:\      path\dir   \ file  .txt "
+" C:\    目录1\目录2   \ 文件   .txt "
 └──────┴──────────────┴──────┴─────┘
-(请无视以上字符串中的空格，它们只是为了布局)
+（"" 行中的所有空格均可忽略。它们纯粹是用于格式化。）
 ```
 
-如果 `path` 不是一个字符串，则抛出 [`TypeError`]。
+如果 `path` 不是字符串，则抛出 [`TypeError`]。
 

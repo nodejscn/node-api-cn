@@ -10,12 +10,10 @@ header-related http module methods. The keys of the returned object are the
 header names and the values are the respective header values. All header names
 are lowercase.
 
-*Note*: The object returned by the `response.getHeaders()` method _does not_
+The object returned by the `response.getHeaders()` method _does not_
 prototypically inherit from the JavaScript `Object`. This means that typical
 `Object` methods such as `obj.toString()`, `obj.hasOwnProperty()`, and others
 are not defined and *will not work*.
-
-Example:
 
 ```js
 response.setHeader('Foo', 'bar');

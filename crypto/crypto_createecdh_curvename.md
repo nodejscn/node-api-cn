@@ -1,7 +1,9 @@
 <!-- YAML
 added: v0.11.14
 -->
-- `curveName` {string}
+
+* `curveName` {string}
+* Returns: {ECDH}
 
 Creates an Elliptic Curve Diffie-Hellman (`ECDH`) key exchange object using a
 predefined curve specified by the `curveName` string. Use

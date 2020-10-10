@@ -1,6 +1,6 @@
 
-ALPN negotiation allows to support both [HTTPS][] and HTTP/2 over
-the same socket. The `req` and `res` objects can be either HTTP/1 or
+ALPN negotiation allows supporting both [HTTPS][] and HTTP/2 over
+the same socket. The `req` and `res` objects can be either HTTP/1 or
 HTTP/2, and an application **must** restrict itself to the public API of
 [HTTP/1][], and detect if it is possible to use the more advanced
 features of HTTP/2.
@@ -20,7 +20,7 @@ const server = createSecureServer(
 ).listen(4443);
 
 function onRequest(req, res) {
-  // detects if it is a HTTPS request or HTTP/2
+  // Detects if it is a HTTPS request or HTTP/2
   const { socket: { alpnProtocol } } = req.httpVersion === '2.0' ?
     req.stream.session : req;
   res.writeHead(200, { 'content-type': 'application/json' });

@@ -1,18 +1,25 @@
 <!-- YAML
 added: v0.9.4
+changes:
+  - version: v10.0.0
+    pr-url: https://github.com/nodejs/node/pull/18994
+    description: The `resume()` has no effect if there is a `'readable'` event
+                 listening.
 -->
 
-* 返回： `this`
+* 返回: {this}
 
-`readable.resume()` 方法会重新触发 [`'data'`][] 事件, 将暂停模式切换到流动模式。
+`readable.resume()` 方法将被暂停的可读流恢复触发 [`'data'`] 事件，并将流切换到流动模式。
 
-`readable.resume()` 方法可以用来充分使用流中的数据，而不用实际处理任何数据，如以下示例所示：
+`readable.resume()` 方法可以用来充分消耗流中的数据，但无需实际处理任何数据：
 
 ```js
 getReadableStreamSomehow()
   .resume()
   .on('end', () => {
-    console.log('Reached the end, but did not read anything.');
+    console.log('到达流的尽头，但无需读取任何数据');
   });
 ```
+
+当存在 `'readable'` 事件监听器时，`readable.resume()` 方法不起作用。
 

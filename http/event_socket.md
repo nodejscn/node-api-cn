@@ -2,7 +2,7 @@
 added: v0.5.3
 -->
 
-* `socket` {net.Socket}
+* `socket` {stream.Duplex}
 
-当 socket 被分配到请求后触发。
+此事件保证传入 {net.Socket} 类（{stream.Duplex} 的子类）的实例，除非用户指定了 {net.Socket} 以外的套接字类型。
 

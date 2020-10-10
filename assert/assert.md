@@ -1,7 +1,9 @@
 
-<!--introduced_in=v0.10.0-->
+<!--introduced_in=v0.1.21-->
 
-> 稳定性: 2 - 稳定的
+> 稳定性: 2 - 稳定
 
-`assert` 模块提供了断言测试的函数，用于测试不变式。
+<!-- source_link=lib/assert.js -->
+
+`assert` 模块提供了一组断言函数，用于验证不变量。
 

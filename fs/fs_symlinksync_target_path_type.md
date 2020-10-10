@@ -6,11 +6,17 @@ changes:
     description: The `target` and `path` parameters can be WHATWG `URL` objects
                  using `file:` protocol. Support is currently still
                  *experimental*.
+  - version: v12.0.0
+    pr-url: https://github.com/nodejs/node/pull/23724
+    description: If the `type` argument is left undefined, Node will autodetect
+                 `target` type and automatically select `dir` or `file`
 -->
 
 * `target` {string|Buffer|URL}
 * `path` {string|Buffer|URL}
-* `type` {string} **默认值:** `'file'`
+* `type` {string}
 
-同步的 symlink(2)。返回 `undefined`。
+返回 `undefined`。
+
+详见此 API 的异步版本的文档：[`fs.symlink()`]。
 

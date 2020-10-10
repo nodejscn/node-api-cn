@@ -1,7 +1,9 @@
 <!-- YAML
 added: v8.0.0
+napiVersion: 1
 -->
-```C
+
+```c
 napi_status napi_wrap(napi_env env,
                       napi_value js_object,
                       void* native_object,
@@ -10,17 +12,17 @@ napi_status napi_wrap(napi_env env,
                       napi_ref* result);
 ```
 
- - `[in] env`: The environment that the API is invoked under.
- - `[in] js_object`: The JavaScript object that will be the wrapper for the
-   native object. This object _must_ have been created from the `prototype` of
-   a constructor that was created using `napi_define_class()`.
- - `[in] native_object`: The native instance that will be wrapped in the
-   JavaScript object.
- - `[in] finalize_cb`: Optional native callback that can be used to free the
-   native instance when the JavaScript object is ready for garbage-collection.
- - `[in] finalize_hint`: Optional contextual hint that is passed to the
-   finalize callback.
- - `[out] result`: Optional reference to the wrapped object.
+* `[in] env`: The environment that the API is invoked under.
+* `[in] js_object`: The JavaScript object that will be the wrapper for the
+  native object.
+* `[in] native_object`: The native instance that will be wrapped in the
+  JavaScript object.
+* `[in] finalize_cb`: Optional native callback that can be used to free the
+  native instance when the JavaScript object is ready for garbage-collection.
+  [`napi_finalize`][] provides more details.
+* `[in] finalize_hint`: Optional contextual hint that is passed to the
+  finalize callback.
+* `[out] result`: Optional reference to the wrapped object.
 
 Returns `napi_ok` if the API succeeded.
 
@@ -45,17 +47,11 @@ temporarily during async operations that require the instance to remain valid.
 
 *Caution*: The optional returned reference (if obtained) should be deleted via
 [`napi_delete_reference`][] ONLY in response to the finalize callback
-invocation. (If it is deleted before then, then the finalize callback may never
-be invoked.) Therefore, when obtaining a reference a finalize callback is also
-required in order to enable correct proper of the reference.
+invocation. If it is deleted before then, then the finalize callback may never
+be invoked. Therefore, when obtaining a reference a finalize callback is also
+required in order to enable correct disposal of the reference.
 
-*Note*: This API may modify the prototype chain of the wrapper object.
-Afterward, additional manipulation of the wrapper's prototype chain may cause
-`napi_unwrap()` to fail.
-
-*Note*: Calling `napi_wrap()` a second time on an object that already has a
-native instance associated with it by virtue of a previous call to
-`napi_wrap()` will cause an error to be returned. If you wish to associate
-another native instance with the given object, call `napi_remove_wrap()` on it
+Calling `napi_wrap()` a second time on an object will return an error. To
+associate another native instance with the object, use `napi_remove_wrap()`
 first.
 

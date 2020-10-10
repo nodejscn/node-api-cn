@@ -2,13 +2,17 @@
 added: v8.1.0
 -->
 
-* `socket` {net.Socket}
+* `socket` {stream.Duplex}
 * `request` {http.ClientRequest}
 
-由于 keep-alive 选项被保持持久化, 在 `socket` 附加到 `request` 时调用. 默认行为是:
+由于 keep-alive 选项而在持久化后将 `socket` 附加到 `request` 时调用。 
+默认行为是：
 
 ```js
 socket.ref();
 ```
 
-这个方法可以被一个特定的 `Agent` 子类重写.
+此方法可以由特定的 `Agent` 子类重写。
+
+`socket` 参数可以是 {net.Socket}（{stream.Duplex} 的子类）的实例。
+

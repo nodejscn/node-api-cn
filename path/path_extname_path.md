@@ -3,16 +3,14 @@ added: v0.1.25
 changes:
   - version: v6.0.0
     pr-url: https://github.com/nodejs/node/pull/5348
-    description: Passing a non-string as the `path` argument will throw now.
+    description: 传入非字符串作为 `path` 参数会抛出错误。
 -->
 
 * `path` {string}
 * 返回: {string}
 
-`path.extname()` 方法返回 `path` 的扩展名，即从 `path` 的最后一部分中的最后一个 `.`（句号）字符到字符串结束。
-如果 `path` 的最后一部分没有 `.` 或 `path` 的文件名（见 `path.basename()`）的第一个字符是 `.`，则返回一个空字符串。
-
-例子：
+`path.extname()` 方法会返回 `path` 的扩展名，即 `path` 的最后一部分中从最后一次出现 `.`（句点）字符直到字符串结束。 
+如果在 `path` 的最后一部分中没有 `.`，或者如果 `path` 的基本名称（参见 `path.basename()`）除了第一个字符以外没有 `.`，则返回空字符串。
 
 ```js
 path.extname('index.html');
@@ -29,7 +27,10 @@ path.extname('index');
 
 path.extname('.index');
 // 返回: ''
+
+path.extname('.index.md');
+// 返回: '.md'
 ```
 
-如果 `path` 不是一个字符串，则抛出 [`TypeError`]。
+如果 `path` 不是字符串，则抛出 [`TypeError`]。
 

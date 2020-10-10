@@ -2,8 +2,10 @@
 added: v6.0.0
 -->
 
-返回一个列出触发器已注册监听器的事件的数组。
-数组中的值为字符串或符号。 
+* 返回: {Array}
+
+返回已注册监听器的事件名数组。
+数组中的值为字符串或 `Symbol`。
 
 ```js
 const EventEmitter = require('events');

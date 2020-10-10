@@ -2,11 +2,10 @@
 added: v0.3.3
 -->
 
-* Returns: {string}
+* 返回: {string}
 
-`os.type()`方法返回一个字符串,表明操作系统的名字,
-由 [uname(3)] 返回.举个例子, `'Linux'` 在 Linux系统上, `'Darwin'` 在 macOS 系统上,`'Windows_NT'` 在 Windows系统上.
+返回与 [`uname(3)`] 返回一样的操作系统名字。
+例如，在 Linux 上返回 `'Linux'`，在 macOS 上返回 `'Darwin'`，在 Windows 上返回 `'Windows_NT'`。
 
-请查看https://en.wikipedia.org/wiki/Uname#Examples 获取其他关于在不同
-操作系统上执行 [uname(3)],得到输出的信息.
+有关在各种操作系统上运行 [`uname(3)`] 的输出的更多信息，参见 <https://en.wikipedia.org/wiki/Uname#Examples>。
 

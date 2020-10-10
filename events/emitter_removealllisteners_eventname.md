@@ -1,11 +1,13 @@
 <!-- YAML
 added: v0.1.26
 -->
-- `eventName` {any}
+* `eventName` {string|symbol}
+* 返回: {EventEmitter}
 
-移除全部或指定 `eventName` 的监听器。
+移除全部监听器或指定的 `eventName` 事件的监听器。
 
-注意，在代码中移除其他地方添加的监听器是一个不好的做法，尤其是当 `EventEmitter` 实例是其他组件或模块（如 socket 或文件流）创建的。
+删除代码中其他位置添加的监听器是不好的做法，尤其是当 `EventEmitter` 实例是由某些其他组件或模块（例如套接字或文件流）创建时。
 
-返回一个 `EventEmitter` 引用，可以链式调用。
+返回对 `EventEmitter` 的引用，以便可以链式调用。
+
 

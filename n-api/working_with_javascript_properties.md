@@ -1,16 +1,16 @@
 
 N-API exposes a set of APIs to get and set properties on JavaScript
-objects. Some of these types are documented under
-[Section 7](https://tc39.github.io/ecma262/#sec-operations-on-objects) of the
-[ECMAScript Language Specification](https://tc39.github.io/ecma262/).
+objects. Some of these types are documented under [Section 7][] of the
+[ECMAScript Language Specification][].
 
 Properties in JavaScript are represented as a tuple of a key and a value.
 Fundamentally, all property keys in N-API can be represented in one of the
 following forms:
-- Named: a simple UTF8-encoded string
-- Integer-Indexed: an index value represented by `uint32_t`
-- JavaScript value: these are represented in N-API by `napi_value`. This can
-be a `napi_value` representing a String, Number or Symbol.
+
+* Named: a simple UTF8-encoded string
+* Integer-Indexed: an index value represented by `uint32_t`
+* JavaScript value: these are represented in N-API by `napi_value`. This can
+  be a `napi_value` representing a `String`, `Number`, or `Symbol`.
 
 N-API values are represented by the type `napi_value`.
 Any N-API call that requires a JavaScript value takes in a `napi_value`.
@@ -22,12 +22,15 @@ get and set properties on arbitrary JavaScript objects represented by
 `napi_value`.
 
 For instance, consider the following JavaScript code snippet:
+
 ```js
 const obj = {};
 obj.myProp = 123;
 ```
+
 The equivalent can be done using N-API values with the following snippet:
-```C
+
+```c
 napi_status status = napi_generic_failure;
 
 // const obj = {}
@@ -46,12 +49,15 @@ if (status != napi_ok) return status;
 
 Indexed properties can be set in a similar manner. Consider the following
 JavaScript snippet:
+
 ```js
 const arr = [];
 arr[123] = 'hello';
 ```
+
 The equivalent can be done using N-API values with the following snippet:
-```C
+
+```c
 napi_status status = napi_generic_failure;
 
 // const arr = [];
@@ -70,13 +76,15 @@ if (status != napi_ok) return status;
 
 Properties can be retrieved using the APIs described in this section.
 Consider the following JavaScript snippet:
+
 ```js
 const arr = [];
 const value = arr[123];
 ```
 
 The following is the approximate equivalent of the N-API counterpart:
-```C
+
+```c
 napi_status status = napi_generic_failure;
 
 // const arr = []
@@ -91,6 +99,7 @@ if (status != napi_ok) return status;
 
 Finally, multiple properties can also be defined on an object for performance
 reasons. Consider the following JavaScript:
+
 ```js
 const obj = {};
 Object.defineProperties(obj, {
@@ -100,7 +109,8 @@ Object.defineProperties(obj, {
 ```
 
 The following is the approximate equivalent of the N-API counterpart:
-```C
+
+```c
 napi_status status = napi_status_generic_failure;
 
 // const obj = {};
@@ -117,8 +127,8 @@ if (status != napi_ok) return status;
 
 // Set the properties
 napi_property_descriptor descriptors[] = {
-  { "foo", nullptr, 0, 0, 0, fooValue, napi_default, 0 },
-  { "bar", nullptr, 0, 0, 0, barValue, napi_default, 0 }
+  { "foo", NULL, NULL, NULL, NULL, fooValue, napi_writable | napi_configurable, NULL },
+  { "bar", NULL, NULL, NULL, NULL, barValue, napi_writable | napi_configurable, NULL }
 }
 status = napi_define_properties(env,
                                 obj,

@@ -1,14 +1,16 @@
 <!-- YAML
 added: v8.0.0
+napiVersion: 1
 -->
-```C
+
+```c
 napi_status napi_get_global(napi_env env, napi_value* result)
 ```
 
-- `[in] env`: The environment that the API is invoked under.
-- `[out] result`: `napi_value` representing JavaScript Global Object.
+* `[in] env`: The environment that the API is invoked under.
+* `[out] result`: `napi_value` representing JavaScript `global` object.
 
 Returns `napi_ok` if the API succeeded.
 
-This API returns the global Object.
+This API returns the `global` object.
 

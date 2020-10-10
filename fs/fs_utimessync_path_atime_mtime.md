@@ -7,8 +7,8 @@ changes:
                  specifiers."
   - version: v7.6.0
     pr-url: https://github.com/nodejs/node/pull/10739
-    description: The `path` parameter can be a WHATWG `URL` object using `file:`
-                 protocol. Support is currently still *experimental*.
+    description: 参数 `path` 可以是 WHATWG `URL` 对象（使用 `file:` 协议）。 
+      该支持目前仍是实验的。
   - version: v4.1.0
     pr-url: https://github.com/nodejs/node/pull/2387
     description: Numeric strings, `NaN` and `Infinity` are now allowed
@@ -16,8 +16,10 @@ changes:
 -->
 
 * `path` {string|Buffer|URL}
-* `atime` {integer}
-* `mtime` {integer}
+* `atime` {number|string|Date}
+* `mtime` {number|string|Date}
 
-[`fs.utimes()`] 的同步版本。返回 `undefined`。
+返回 `undefined`。
+
+详见此 API 的异步版本的文档：[`fs.utimes()`]。
 

@@ -1,21 +1,24 @@
 <!-- YAML
-added: v7.4.0
+added:
+  - v7.4.0
+  - v6.13.0
 -->
 
 * `domain` {string}
 * 返回: {string}
 
-返回[Punycode][] ASCII序列化的`domain`. 如果`domain`是无效域名，将返回空字符串。
+返回 [Punycode][] ASCII 序列化的 `domain`。
+如果 `domain` 是无效域名，则返回空字符串。
 
-它执行的是[`url.domainToUnicode()`][]的逆运算。
+它执行的是 [`url.domainToUnicode()`] 的逆运算。
 
 ```js
 const url = require('url');
 console.log(url.domainToASCII('español.com'));
-  // 输出 xn--espaol-zwa.com
+// 打印 xn--espaol-zwa.com
 console.log(url.domainToASCII('中文.com'));
-  // 输出 xn--fiq228c.com
+// 打印 xn--fiq228c.com
 console.log(url.domainToASCII('xn--iñvalid.com'));
-  // 输出空字符串
+// 打印空字符串
 ```
 

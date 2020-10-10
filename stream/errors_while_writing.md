@@ -1,5 +1,8 @@
 
-建议在处理`writable._write()`和`writable._writev()`方法期间发生的错误时传给回调函数的第一个参数来处理。这将导致Writable触发`error`事件。从`writable._write()`中抛出一个错误可能会导致意外和不一致的行为，具体取决于如何使用流。使用回调可确保对错误进行一致且可预测的处理。
+在 [`writable._write()`]、[`writable._writev()`] 和 [`writable._final()`] 方法的处理期间发生的错误必须通过调用回调并将错误作为第一个参数传入来冒泡。 
+从这些方法中抛出 `Error` 或手动触发 `'error'` 事件会导致未定义的行为。
+
+如果 `Readable` 流通过管道传送到 `Writable` 流时 `Writable` 触发了错误，则 `Readable` 流将会被取消管道。
 
 ```js
 const { Writable } = require('stream');
@@ -7,7 +10,7 @@ const { Writable } = require('stream');
 const myWritable = new Writable({
   write(chunk, encoding, callback) {
     if (chunk.toString().indexOf('a') >= 0) {
-      callback(new Error('chunk is invalid'));
+      callback(new Error('数据块是无效的'));
     } else {
       callback();
     }

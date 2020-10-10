@@ -1,7 +1,6 @@
 
-* `flag` {boolean}
+* `flag` {boolean} **Default:** `false`
 
-表明是否视`TypedArray`，`DataView`对象为宿主对象，也就是说，是否能将他们传入[`serializer._writeHostObject()`][]中。
-
-默认以上对象非宿主对象。
+Indicate whether to treat `TypedArray` and `DataView` objects as
+host objects, i.e. pass them to [`serializer._writeHostObject()`][].
 

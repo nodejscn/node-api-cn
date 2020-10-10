@@ -16,4 +16,3 @@ A socket's address family's ANY address (IPv4 `'0.0.0.0'` or IPv6 `'::'`) can be
 used to return control of the sockets default outgoing interface to the system
 for future multicast packets.
 
-

@@ -1,5 +1,25 @@
 
 以下常量由 `fs.constants` 输出。
 
-**注意：**不是所有的常量在每一个操作系统上都是可用的。
+并非所有操作系统都可以使用每个常量。
+
+
+To use more than one constant, use the bitwise OR `|` operator.
+
+Example:
+
+```js
+const fs = require('fs');
+
+const {
+  O_RDWR,
+  O_CREAT,
+  O_EXCL
+} = fs.constants;
+
+fs.open('/path/to/my/file', O_RDWR | O_CREAT | O_EXCL, (err, fd) => {
+  // ...
+});
+```
+
 

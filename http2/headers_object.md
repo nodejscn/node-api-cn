@@ -1,10 +1,8 @@
 
 Headers are represented as own-properties on JavaScript objects. The property
 keys will be serialized to lower-case. Property values should be strings (if
-they are not they will be coerced to strings) or an Array of strings (in order
+they are not they will be coerced to strings) or an `Array` of strings (in order
 to send more than one value per header field).
-
-For example:
 
 ```js
 const headers = {
@@ -16,10 +14,27 @@ const headers = {
 stream.respond(headers);
 ```
 
-*Note*: Header objects passed to callback functions will have a `null`
-prototype. This means that normal JavaScript object methods such as
+Header objects passed to callback functions will have a `null` prototype. This
+means that normal JavaScript object methods such as
 `Object.prototype.toString()` and `Object.prototype.hasOwnProperty()` will
 not work.
+
+For incoming headers:
+
+* The `:status` header is converted to `number`.
+* Duplicates of `:status`, `:method`, `:authority`, `:scheme`, `:path`,
+  `:protocol`, `age`, `authorization`, `access-control-allow-credentials`,
+  `access-control-max-age`, `access-control-request-method`, `content-encoding`,
+  `content-language`, `content-length`, `content-location`, `content-md5`,
+  `content-range`, `content-type`, `date`, `dnt`, `etag`, `expires`, `from`,
+  `if-match`, `if-modified-since`, `if-none-match`, `if-range`,
+  `if-unmodified-since`, `last-modified`, `location`, `max-forwards`,
+  `proxy-authorization`, `range`, `referer`,`retry-after`, `tk`,
+  `upgrade-insecure-requests`, `user-agent` or `x-content-type-options` are
+  discarded.
+* `set-cookie` is always an array. Duplicates are added to the array.
+* For duplicate `cookie` headers, the values are joined together with '; '.
+* For all other headers, the values are joined together with ', '.
 
 ```js
 const http2 = require('http2');

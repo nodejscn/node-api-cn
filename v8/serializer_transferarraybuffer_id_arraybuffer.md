@@ -1,6 +1,8 @@
 
-* `id` {integer} 一个32位的无符号整型。
-* `arrayBuffer` {ArrayBuffer} 一个`ArrayBuffer`实例。
+* `id` {integer} A 32-bit unsigned integer.
+* `arrayBuffer` {ArrayBuffer} An `ArrayBuffer` instance.
 
-标记一个`ArrayBuffer`, 表明它的内容正在被带外传输中。同时将`ArrayBuffer`包裹于一个反序列化的上下文内，之后将结果传入[`deserializer.transferArrayBuffer()`][]中。
+Marks an `ArrayBuffer` as having its contents transferred out of band.
+Pass the corresponding `ArrayBuffer` in the deserializing context to
+[`deserializer.transferArrayBuffer()`][].
 

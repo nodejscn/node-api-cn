@@ -6,16 +6,17 @@ changes:
     description: Support values exceeding the 32-bit unsigned integer range.
 -->
 
-返回关于v8堆空间的统计,即组成v8堆的片段。通过V8 [`GetHeapSpaceStatistics`][] 函数提供统计信息，无论堆空间的顺序，或是堆空间的可用性都可以被保证，并且可能是多个V8版本。
+* 返回: {Object[]}
 
-返回一个数组包含如下属性：
+返回有关 V8 堆空间的统计信息，即组成 V8 堆的片段。
+由于统计信息是通过 V8 的 [`GetHeapSpaceStatistics`] 函数提供的，因此可以保证堆空间的排序以及堆空间的可用性，并且可以从一个 V8 版本更改为下一个版本。
+
+返回的值是包含以下属性的对象数组：
 * `space_name` {string}
 * `space_size` {number}
 * `space_used_size` {number}
 * `space_available_size` {number}
 * `physical_space_size` {number}
-
-例如:
 
 ```json
 [

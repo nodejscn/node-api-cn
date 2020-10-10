@@ -4,7 +4,9 @@ added: v7.3.0
 
 当设置了此选项时，根 CA 证书（如 VeriSign）会被 `file` 指定的证书扩展。
 文件应该包括一个或多个可信的 PEM 格式的证书。
-如果文件丢失或有缺陷，则 [`process.emitWarning()`] 会触发一个消息。
+如果文件丢失或有缺陷，则 [`process.emitWarning()`][emit_warning] 会触发一个消息。
 
-注意，当一个 TLS 或 HTTPS 的客户端或服务器的 `ca` 选项的属性被显式地指定时，则指定的证书不会被使用。
+当一个 TLS 或 HTTPS 的客户端或服务器的 `ca` 选项的属性被显式地指定时，则指定的证书不会被使用。
+
+当 `node` 以 setuid root 运行或设置了 Linux 文件功能时，将会忽略此环境变量。
 

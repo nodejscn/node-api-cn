@@ -2,12 +2,31 @@
 added: v0.11.12
 -->
 
-当 Node.js 的事件循环数组已经为空，并且没有额外的工作被添加进来，事件 `'beforeExit'` 会被触发。
-正常情况下，如果没有额外的工作被添加到事件循环数组，Node.js 进程会结束。
-但是如果 `'beforeExit'` 事件绑定的监听器的回调函数中，含有一个可以进行异步调用的操作，那么 Node.js 进程会继续运行。
+当 Node.js 清空其事件循环并且没有其他工作要安排时，会触发 `'beforeExit'` 事件。 
+通常，Node.js 进程将在没有调度工作时退出，但是在 `'beforeExit'` 事件上注册的监听器可以进行异步调用，从而导致 Node.js 进程继续。
 
-[`process.exitCode`] 作为唯一的参数值传递给 `'beforeExit'` 事件监听器的回调函数。
+调用监听器回调函数时会将 [`process.exitCode`] 的值作为唯一参数传入。
 
-如果进程由于显式的原因而将要终止，例如直接调用 [`process.exit()`] 或抛出未捕获的异常，`'beforeExit'` 事件不会被触发。
+对于导致显式终止的条件，不会触发 `'beforeExit'` 事件，例如调用 [`process.exit()`] 或未捕获的异常。
 
-除非本意就是需要添加额外的工作（比如通过监听器进行异步调用）到事件循环数组，否则不应该用 `'beforeExit'` 事件替代 `'exit'` 事件。
+除非打算安排额外的工作，否则不应将 `'beforeExit'` 用作 `'exit'` 事件的替代方案。
+
+```js
+process.on('beforeExit', (code) => {
+  console.log('进程 beforeExit 事件的代码: ', code);
+});
+
+process.on('exit', (code) => {
+  console.log('进程 exit 事件的代码: ', code);
+});
+
+console.log('此消息最新显示');
+
+// 打印:
+// 此消息最新显示
+// 进程 beforeExit 事件的代码: 0
+// 进程 exit 事件的代码: 0
+```
+
+
+

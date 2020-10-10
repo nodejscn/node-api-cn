@@ -2,6 +2,7 @@
 added: v0.3.2
 -->
 
-The `tls.Server` class is a subclass of `net.Server` that accepts encrypted
-connections using TLS or SSL.
+* 继承自: {net.Server}
+
+接受使用 TLS 或 SSL 的加密连接。
 

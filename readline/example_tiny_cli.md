@@ -1,5 +1,5 @@
 
-例子，使用 `readline.Interface` 类实现一个简单的命令行界面：
+以下示例说明了如何使用 `readline.Interface` 类来实现一个小型命令行界面：
 
 ```js
 const readline = require('readline');

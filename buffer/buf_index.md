@@ -3,22 +3,26 @@ type: property
 name: [index]
 -->
 
-索引操作符 `[index]` 可用于获取或设置 `buf` 中指定 `index` 位置的八位字节。
-这个值指向的是单个字节，所以合法的值范围是的 `0x00` 至 `0xFF`（十六进制），或 `0` 至 `255`（十进制）。
+* `index` {integer}
 
-该操作符继承自 `Uint8Array`，所以它对越界访问的处理与 `UInt8Array` 相同（也就是说，获取时返回 `undefined`，设置时什么也不做）。
+索引操作符 `[index]` 可用于获取或设置 `buf` 中指定的 `index` 位置的八位字节。
+该值指向单个字节，所以有效的值的范围是 `0x00` 至 `0xFF`（十六进制）、或 `0` 至 `255`（十进制）。
 
-例如：拷贝一个 ASCII 字符串到一个 `Buffer`，每次一个字节。
+该操作符继承自 `Uint8Array`，所以对越界访问的行为与 `Uint8Array` 相同。
+也就是说，当 `index` 为负数或大于或等于 `buf.length` 时，则 `buf[index]` 返回 `undefined`，而如果 `index` 为负数或 `>= buf.length` 时，则 `buf[index] = value` 不会修改该 buffer。
 
 ```js
-const str = 'Node.js';
+// 拷贝 ASCII 字符串到 `Buffer`，每次拷贝一个字节。
+// （这仅适用于只有 ASCII 字符串。通常，应使用 `Buffer.from()` 来执行此转换。）
+
+const str = 'http://nodejs.cn/';
 const buf = Buffer.allocUnsafe(str.length);
 
 for (let i = 0; i < str.length; i++) {
   buf[i] = str.charCodeAt(i);
 }
 
-// 输出: Node.js
-console.log(buf.toString('ascii'));
+console.log(buf.toString('utf8'));
+// 打印: http://nodejs.cn/
 ```
 

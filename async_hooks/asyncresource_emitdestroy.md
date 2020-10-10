@@ -1,5 +1,5 @@
 
-* Returns: {undefined}
+* Returns: {AsyncResource} A reference to `asyncResource`.
 
 Call all `destroy` hooks. This should only ever be called once. An error will
 be thrown if it is called more than once. This **must** be manually called. If

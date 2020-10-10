@@ -1,4 +1,4 @@
 
-用`AsyncHooks`提示试图向非回调函数注册的行为。
+试图注册不是 `AsyncHooks` 回调的函数。
 
 <a id="ERR_ASYNC_TYPE"></a>

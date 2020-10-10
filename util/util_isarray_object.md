@@ -3,11 +3,12 @@ added: v0.6.0
 deprecated: v4.0.0
 -->
 
-> 稳定性: 0 - 废弃的
+> Stability: 0 - Deprecated: Use [`Array.isArray()`][] instead.
 
 * `object` {any}
+* Returns: {boolean}
 
-Internal alias for [`Array.isArray`][].
+Alias for [`Array.isArray()`][].
 
 Returns `true` if the given `object` is an `Array`. Otherwise, returns `false`.
 

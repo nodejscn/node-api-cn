@@ -1,10 +1,13 @@
 
 <!--introduced_in=v0.10.0-->
 
-> 稳定性: 2 - 稳定的
+> 稳定性: 2 - 稳定
 
-`timer` 模块暴露了一个全局的 API，用于在某个未来时间段调用调度函数。
-因为定时器函数是全局的，所以使用该 API 无需调用 `require('timers')`。
+<!-- source_link=lib/timers.js -->
 
-Node.js 中的计时器函数实现了与 Web 浏览器提供的定时器类似的 API，除了它使用了一个不同的内部实现，它是基于 [Node.js 事件循环]构建的。
+`timer` 模块开放了一个全局的 API，用于安排函数在未来某个时间点被调用。 
+因为定时器函数是全局的，所以使用 API 不需要调用 `require('timers')`。
+
+Node.js 中的定时器函数实现了与 Web 浏览器提供的定时器 API 类似的 API，但是使用了不同的内部实现（构建于 Node.js [事件循环][Event Loop]）。
+
 

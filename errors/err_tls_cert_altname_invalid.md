@@ -1,5 +1,5 @@
 
-Used with TLS, when the hostname/IP of the peer does not match any of the
-subjectAltNames in its certificate.
+While using TLS, the host name/IP of the peer did not match any of the
+`subjectAltNames` in its certificate.
 
 <a id="ERR_TLS_DH_PARAM_SIZE"></a>

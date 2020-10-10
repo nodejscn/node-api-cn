@@ -1,12 +1,40 @@
 <!-- YAML
 added: v0.1.21
+changes:
+  - version: v14.0.0
+    pr-url: https://github.com/nodejs/node/pull/30766
+    description: NaN is now treated as being identical in case both sides are
+                 NaN.
+  - version: v9.0.0
+    pr-url: https://github.com/nodejs/node/pull/15001
+    description: The `Error` names and messages are now properly compared
+  - version: v8.0.0
+    pr-url: https://github.com/nodejs/node/pull/12142
+    description: The `Set` and `Map` content is also compared
+  - version: v6.4.0, v4.7.1
+    pr-url: https://github.com/nodejs/node/pull/8002
+    description: Typed array slices are handled correctly now.
+  - version: v6.1.0, v4.5.0
+    pr-url: https://github.com/nodejs/node/pull/6432
+    description: Objects with circular references can be used as inputs now.
+  - version: v5.10.1, v4.4.3
+    pr-url: https://github.com/nodejs/node/pull/5910
+    description: Handle non-`Uint8Array` typed arrays correctly.
 -->
+
 * `actual` {any}
 * `expected` {any}
-* `message` {any}
+* `message` {string|Error}
 
-测试 `actual` 参数与 `expected` 参数是否不深度相等。
-与 [`assert.deepEqual()`] 相反。
+**Strict assertion mode**
+
+An alias of [`assert.notDeepStrictEqual()`][].
+
+**Legacy assertion mode**
+
+> Stability: 0 - Deprecated: Use [`assert.notDeepStrictEqual()`][] instead.
+
+Tests for any deep inequality. Opposite of [`assert.deepEqual()`][].
 
 ```js
 const assert = require('assert');
@@ -29,18 +57,21 @@ const obj3 = {
 const obj4 = Object.create(obj1);
 
 assert.notDeepEqual(obj1, obj1);
-// 抛出 AssertionError: { a: { b: 1 } } notDeepEqual { a: { b: 1 } }
+// AssertionError: { a: { b: 1 } } notDeepEqual { a: { b: 1 } }
 
 assert.notDeepEqual(obj1, obj2);
-// 测试通过，obj1 与 obj2 不深度相等。
+// OK
 
 assert.notDeepEqual(obj1, obj3);
-// 抛出 AssertionError: { a: { b: 1 } } notDeepEqual { a: { b: 1 } }
+// AssertionError: { a: { b: 1 } } notDeepEqual { a: { b: 1 } }
 
 assert.notDeepEqual(obj1, obj4);
-// 测试通过，obj1 与 obj4 不深度相等。
+// OK
 ```
 
-如果两个值深度相等，则抛出一个带有 `message` 属性的 `AssertionError`，其中 `message` 属性的值等于传入的 `message` 参数的值。
-如果 `message` 参数为 `undefined`，则赋予默认的错误信息。
+If the values are deeply equal, an [`AssertionError`][] is thrown with a
+`message` property set equal to the value of the `message` parameter. If the
+`message` parameter is undefined, a default error message is assigned. If the
+`message` parameter is an instance of an [`Error`][] then it will be thrown
+instead of the `AssertionError`.
 

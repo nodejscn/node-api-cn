@@ -4,16 +4,16 @@ added: v0.9.3
 
 * {string}
 
-提供平台特定的路径分隔符：
+提供平台特定的路径定界符：
 
-* Windows 上是 `;`
-* POSIX 上是 `:`
+* `;` 用于 Windows
+* `:` 用于 POSIX
 
 例如，在 POSIX 上：
 
 ```js
 console.log(process.env.PATH);
-// 输出: '/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin'
+// 打印: '/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin'
 
 process.env.PATH.split(path.delimiter);
 // 返回: ['/usr/bin', '/bin', '/usr/sbin', '/sbin', '/usr/local/bin']
@@ -23,7 +23,7 @@ process.env.PATH.split(path.delimiter);
 
 ```js
 console.log(process.env.PATH);
-// 输出: 'C:\Windows\system32;C:\Windows;C:\Program Files\node\'
+// 打印: 'C:\Windows\system32;C:\Windows;C:\Program Files\node\'
 
 process.env.PATH.split(path.delimiter);
 // 返回: ['C:\\Windows\\system32', 'C:\\Windows', 'C:\\Program Files\\node\\']

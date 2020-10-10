@@ -12,14 +12,13 @@ repl.start('> ').context.m = msg;
 
 `context` 对象的属性表现为 REPL 中的局部变量：
 
-<!-- eslint-skip -->
-```js
+```console
 $ node repl_test.js
 > m
 'message'
 ```
 
-注意，默认情况下 `context` 的属性不是只读的。
+默认情况下 `context` 的属性不是只读的。
 要指定只读的全局变量，`context` 的属性必须使用 `Object.defineProperty()` 来定义:
 
 ```js

@@ -1,23 +1,24 @@
 <!-- YAML
 added: v8.0.0
+napiVersion: 1
 -->
-```C
-napi_status napi_call_function(napi_env env,
-                               napi_value recv,
-                               napi_value func,
-                               int argc,
-                               const napi_value* argv,
-                               napi_value* result)
+
+```c
+NAPI_EXTERN napi_status napi_call_function(napi_env env,
+                                           napi_value recv,
+                                           napi_value func,
+                                           size_t argc,
+                                           const napi_value* argv,
+                                           napi_value* result);
 ```
 
-- `[in] env`: The environment that the API is invoked under.
-- `[in] recv`: The `this` object passed to the called function.
-- `[in] func`: `napi_value` representing the JavaScript function
-to be invoked.
-- `[in] argc`: The count of elements in the `argv` array.
-- `[in] argv`: Array of `napi_values` representing JavaScript values passed
-in as arguments to the function.
-- `[out] result`: `napi_value` representing the JavaScript object returned.
+* `[in] env`: The environment that the API is invoked under.
+* `[in] recv`: The `this` object passed to the called function.
+* `[in] func`: `napi_value` representing the JavaScript function to be invoked.
+* `[in] argc`: The count of elements in the `argv` array.
+* `[in] argv`: Array of `napi_values` representing JavaScript values passed in
+  as arguments to the function.
+* `[out] result`: `napi_value` representing the JavaScript object returned.
 
 Returns `napi_ok` if the API succeeded.
 
@@ -28,6 +29,7 @@ after an async operation, see [`napi_make_callback`][].
 
 A sample use case might look as follows. Consider the following JavaScript
 snippet:
+
 ```js
 function AddTwo(num) {
   return num + 2;
@@ -36,7 +38,8 @@ function AddTwo(num) {
 
 Then, the above function can be invoked from a native add-on using the
 following code:
-```C
+
+```c
 // Get the function named "AddTwo" on the global object
 napi_value global, add_two, arg;
 napi_status status = napi_get_global(env, &global);

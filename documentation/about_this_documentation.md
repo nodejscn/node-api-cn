@@ -2,8 +2,7 @@
 <!--introduced_in=v0.10.0-->
 <!-- type=misc -->
 
-本文档的目的是为了全面地讲解 Node.js 的 API，包括使用方法与相关概念。
-每个章节分别介绍一个内置模块或高级概念。
+欢迎使用 Node.js 的 API 参考文档！
 
-每个主题的标题下会列出属性的类型、方法的参数、以及事件处理回调函数的参数等。
+Node.js 是一个基于 [V8 JavaScript 引擎][V8 JavaScript engine]构建的 JavaScript 运行时。
 

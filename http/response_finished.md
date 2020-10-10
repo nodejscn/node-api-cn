@@ -1,10 +1,14 @@
 <!-- YAML
 added: v0.0.2
+deprecated:
+ - v13.4.0
+ - v12.16.0
 -->
+
+> Stability: 0 - Deprecated. Use [`response.writableEnded`][].
 
 * {boolean}
 
-返回一个布尔值，表示响应是否已完成。
-默认为 `false`。
-执行 [`response.end()`] 之后，该值会变为 `true`。
+The `response.finished` property will be `true` if [`response.end()`][]
+has been called.
 

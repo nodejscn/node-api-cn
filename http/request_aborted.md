@@ -1,6 +1,12 @@
 <!-- YAML
 added: v0.11.14
+changes:
+  - version: v11.0.0
+    pr-url: https://github.com/nodejs/node/pull/20230
+    description: The `aborted` property is no longer a timestamp number.
 -->
 
-如果请求已被终止，则该属性的值为请求被终止的时间，从 `1 January 1970 00:00:00 UTC` 到现在的毫秒数。
+* {boolean}
+
+如果请求已中止，则 `request.aborted` 属性将会为 `true`。
 

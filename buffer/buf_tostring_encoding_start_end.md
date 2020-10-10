@@ -2,43 +2,38 @@
 added: v0.1.90
 -->
 
-* `encoding` {string} 解码使用的字符编码。**默认:** `'utf8'`
-* `start` {integer} 开始解码的字节偏移量。**默认:** `0`
-* `end` {integer} 结束解码的字节偏移量（不包含）。
-  **默认:** [`buf.length`]
+* `encoding` {string} 使用的字符编码。**默认值:** `'utf8'`。
+* `start` {integer} 开始解码的字节偏移量。**默认值:** `0`。
+* `end` {integer} 结束解码的字节偏移量（不包含）。**默认值:** [`buf.length`]。
 * 返回: {string}
 
-根据 `encoding` 指定的字符编码解码 `buf` 成一个字符串。
-`start` 和 `end` 可传入用于只解码 `buf` 的一部分。
+根据 `encoding` 指定的字符编码将 `buf` 解码成字符串。
+传入 `start` 和 `end` 可以只解码 `buf` 的子集。
 
-字符串实例的最大长度（以UTF-16代码为单位）可查看[`buffer.constants.MAX_STRING_LENGTH`][]。
+如果 `encoding` 为 `'utf8'`，并且输入中的字节序列不是有效的 UTF-8，则每个无效的字节都会由替换字符 `U+FFFD` 替换。
 
-例子：
+字符串的最大长度（以 UTF-16 为单位）可查看 [`buffer.constants.MAX_STRING_LENGTH`]。
 
 ```js
 const buf1 = Buffer.allocUnsafe(26);
 
 for (let i = 0; i < 26; i++) {
-  // 97 是 'a' 的十进制 ASCII 值
+  // 97 是 'a' 的十进制 ASCII 值。
   buf1[i] = i + 97;
 }
 
-// 输出: abcdefghijklmnopqrstuvwxyz
-console.log(buf1.toString('ascii'));
-
-// 输出: abcde
-console.log(buf1.toString('ascii', 0, 5));
-
+console.log(buf1.toString('utf8'));
+// 打印: abcdefghijklmnopqrstuvwxyz
+console.log(buf1.toString('utf8', 0, 5));
+// 打印: abcde
 
 const buf2 = Buffer.from('tést');
 
-// 输出: 74c3a97374
 console.log(buf2.toString('hex'));
-
-// 输出: té
+// 打印: 74c3a97374
 console.log(buf2.toString('utf8', 0, 3));
-
-// 输出: té
+// 打印: té
 console.log(buf2.toString(undefined, 0, 3));
+// 打印: té
 ```
 

@@ -23,8 +23,7 @@ r.on('reset', initializeContext);
 
 当代码被执行时，全局的 `'m'` 变量可以被修改，但随后的 `.clear` 命令会把它重置回初始值：
 
-<!-- eslint-skip -->
-```js
+```console
 $ ./node example.js
 > m
 'test'

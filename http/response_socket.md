@@ -2,18 +2,22 @@
 added: v0.3.0
 -->
 
-* {net.Socket}
+* {stream.Duplex}
 
-引用底层socket。 通常用户不想访问此属性。 特别地，由于协议解析器连接到socket的方式，socket将不会发出`'readable'`事件。 在`response.end()`之后，该属性为null。 也可以通过`response.connection`来访问`socket`。
+指向底层的套接字。 
+通常用户不需要访问此属性。 
+特别是，由于协议解析器附加到套接字的方式，套接字将不会触发 `'readable'` 事件。 
+在调用 `response.end()` 之后，此属性将为空。 
 
-例如:
 
 ```js
 const http = require('http');
 const server = http.createServer((req, res) => {
   const ip = res.socket.remoteAddress;
   const port = res.socket.remotePort;
-  res.end(`你的IP地址是 ${ip}，你的源端口是 ${port}。`);
+  res.end(`您的 IP 地址是 ${ip}，您的源端口是 ${port}`);
 }).listen(3000);
 ```
+
+此属性保证是 {net.Socket} 类（{stream.Duplex} 的子类）的实例，除非用户指定了 {net.Socket} 以外的套接字类型。
 

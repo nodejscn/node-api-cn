@@ -1,2 +1,3 @@
 
-`require.cache` 没有被 `import` 使用。它有一个独立的缓存。
+`require.cache` is not used by `import`. It has a separate cache.
+

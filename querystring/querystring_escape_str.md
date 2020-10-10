@@ -4,8 +4,8 @@ added: v0.1.25
 
 * `str` {string}
 
-对给定的 `str` 进行 URL 编码。
+`querystring.escape()` 方法以对 URL 查询字符串的特定要求进行了优化的方式对给定的 `str` 执行 URL 百分比编码。
 
-该方法是提供给 `querystring.stringify()` 使用的，通常不直接使用。
-它之所以对外开放，是为了在需要时可以通过给 `querystring.escape` 赋值一个函数来重写编码的实现。
+`querystring.escape()` 方法由 `querystring.stringify()` 使用，通常不会被直接地使用。 
+它的导出主要是为了允许应用程序代码在需要时通过将 `querystring.escape` 赋值给替代函数来提供替换的百分比编码实现。
 

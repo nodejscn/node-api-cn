@@ -1,5 +1,5 @@
 
-`protocol` 属性表明 URL 的小写的协议体制。
+The `protocol` property identifies the URL's lower-cased protocol scheme.
 
-例如：`'http:'`
+For example: `'http:'`.
 

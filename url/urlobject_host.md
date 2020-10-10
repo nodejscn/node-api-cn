@@ -1,5 +1,6 @@
 
-`host` 属性是 URL 的完整的小写的主机部分，包括 `port`（如果有）。
+The `host` property is the full lower-cased host portion of the URL, including
+the `port` if specified.
 
-例如：`'sub.host.com:8080'`
+For example: `'sub.example.com:8080'`.
 

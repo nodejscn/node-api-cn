@@ -2,20 +2,23 @@
 added: v0.9.4
 -->
 
-* 返回： `this`
+* 返回: {this}
 
-`readable.pause()` 方法将会使 flowing 模式的流停止触发 [`'data'`][] 事件， 进而切出 flowing 模式。任何可用的数据都将保存在内部缓存中。
+`readable.pause()` 方法使流动模式的流停止触发 [`'data'`] 事件，并切换出流动模式。
+任何可用的数据都会保留在内部缓存中。
 
 ```js
 const readable = getReadableStreamSomehow();
 readable.on('data', (chunk) => {
-  console.log(`Received ${chunk.length} bytes of data.`);
+  console.log(`接收到 ${chunk.length} 字节的数据`);
   readable.pause();
-  console.log('There will be no additional data for 1 second.');
+  console.log('暂停一秒');
   setTimeout(() => {
-    console.log('Now data will start flowing again.');
+    console.log('数据重新开始流动');
     readable.resume();
   }, 1000);
 });
 ```
+
+如果存在 `'readable'` 事件监听器，则 `readable.pause()` 方法不起作用。
 

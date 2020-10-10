@@ -2,13 +2,12 @@
 added: v5.10.0
 -->
 
-Node.js 可以在一开始就使用 `--zero-fill-buffers` 命令行选项强制所有使用 `new Buffer(size)` 、[`Buffer.allocUnsafe()`] 、[`Buffer.allocUnsafeSlow()`] 或 `new SlowBuffer(size)` 新分配的 `Buffer` 实例在创建时**自动用 0 填充**。
-使用这个选项会**改变**这些方法的**默认行为**，且**对性能有明显的影响**。
-建议只在需要强制新分配的 `Buffer` 实例不能包含潜在的敏感数据时才使用 `--zero-fill-buffers` 选项。
+可以使用 `--zero-fill-buffers` 命令行选项启动 Node.js，以使所有新分配的 `Buffer` 实例在创建时默认使用零来填充。
+如果没有该选项，则使用 [`Buffer.allocUnsafe()`]、[`Buffer.allocUnsafeSlow()`] 和 `new SlowBuffer(size)` 创建的 buffer 不会填充零。
+使用这个选项可能会对性能产生重大的负面影响。
+仅在需要强制新分配的 `Buffer` 实例不能包含可能敏感的旧数据时，才使用 `--zero-fill-buffers` 选项。
 
-例子：
-
-```txt
+```console
 $ node --zero-fill-buffers
 > Buffer.allocUnsafe(5);
 <Buffer 00 00 00 00 00>

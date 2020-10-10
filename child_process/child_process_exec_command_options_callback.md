@@ -3,90 +3,80 @@ added: v0.1.90
 changes:
   - version: v8.8.0
     pr-url: https://github.com/nodejs/node/pull/15380
-    description: The `windowsHide` option is supported now.
+    description: 支持 `windowsHide` 选项。
 -->
 
-* `command` {string} 要运行的命令，用空格分隔参数。
+* `command` {string} 要运行的命令，参数使用空格分隔。
 * `options` {Object}
   * `cwd` {string} 子进程的当前工作目录。
-  * `env` {Object} 环境变量键值对。
-  * `encoding` {string} 默认为 `'utf8'`。
-  * `shell` {string} 用于执行命令的 shell。
-    在 UNIX 上默认为 `'/bin/sh'`，在 Windows 上默认为 `process.env.ComSpec`。
-    详见 [Shell Requirements][] 与 [Default Windows Shell][]。
-  * `timeout` {number} 默认为 `0`。
-  * [`maxBuffer`] {number} stdout 或 stderr 允许的最大字节数。
-    默认为 `200*1024`。
-    如果超过限制，则子进程会被终止。
-    查看警告： [`maxBuffer` and Unicode][]。
-  * `killSignal` {string|integer} 默认为 `'SIGTERM'`。
-  * `uid` {number} 设置该进程的用户标识。（详见 setuid(2)）
-  * `gid` {number} 设置该进程的组标识。（详见 setgid(2)）
-  * `windowsHide` {boolean} Hide the subprocess console window that would
-    normally be created on Windows systems. **Default:** `false`.
-* `callback` {Function} 当进程终止时调用，并带上输出。
+    **默认值:** `null`。
+  * `env` {Object} 环境变量的键值对。
+    **默认值:** `process.env`。
+  * `encoding` {string} **默认值:** `'utf8'`。
+  * `shell` {string} 用于执行命令。
+    参见 [shell 的要求][Shell requirements]和[默认的 Windows shell][Default Windows shell]。
+     **默认值:** Unix 上是 `'/bin/sh'`，Windows 上是 `process.env.ComSpec`。
+  * `timeout` {number} **默认值:** `0`。
+  * `maxBuffer` {number} stdout 或 stderr 上允许的最大数据量（以字节为单位）。
+    如果超过限制，则子进程会被终止，并且输出会被截断。
+    参见 [maxBuffer 和 Unicode][`maxBuffer` and Unicode] 的注意事项。
+    **默认值:** `1024 * 1024`。
+  * `killSignal` {string|integer} **默认值:** `'SIGTERM'`。
+  * `uid` {number} 设置进程的用户标识，参见 setuid(2)。
+  * `gid` {number} 设置进程的群组标识，参见 setgid(2)。
+  * `windowsHide` {boolean} 隐藏子进程的控制台窗口（在 Windows 系统上通常会创建）。
+    **默认值:** `false`。
+* `callback` {Function} 当进程终止时调用并传入输出。
   * `error` {Error}
   * `stdout` {string|Buffer}
   * `stderr` {string|Buffer}
 * 返回: {ChildProcess}
 
-衍生一个 shell，然后在 shell 中执行 `command`，且缓冲任何产生的输出。传入 exec  函数的 `command` 字符串会被 shell 直接处理，特殊字符（因 [shell](https://en.wikipedia.org/wiki/List_of_command-line_interpreters) 而异）需要相应处理：
+衍生 shell，然后在 shell 中执行 `command`，并缓冲任何产生的输出。
+传给 exec 函数的 `command` 字符串会被 shell 直接处理，特殊字符（因 [shell][shell special characters] 而异）需要被相应地处理：
 
 ```js
-exec('"/path/to/test file/test.sh" arg1 arg2');
-// 使用双引号这样路径中的空格就不会被解释为多个参数
+exec('"/目录/空 格/文件.sh" 参数1 参数2');
+// 使用双引号，使路径中的空格不会被解释为多个参数的分隔符。
 
-exec('echo "The \\$HOME variable is $HOME"');
-// 第一个 $HOME 被转义了，但第二个没有
+exec('echo "\\$HOME 变量为 $HOME"');
+// $HOME 变量在第一个实例中会被转义，但是第二个则不会。
 ```
 
-注意：不要把未经检查的用户输入传入到该函数。
-任何包括 shell 元字符的输入都可被用于触发任何命令的执行。
+**切勿将未经过处理的用户输入传给此函数。
+包含 shell 元字符的任何输入都可用于触发任意命令的执行。**
+
+如果提供了 `callback` 函数，则调用时会传入参数 `(error, stdout, stderr)`。
+当成功时，则 `error` 会为 `null`。
+当报错时，则 `error` 会是 [`Error`] 的实例。
+`error.code` 属性是进程的退出码。
+按照惯例，除 `0` 以外的任何退出码均表示错误。
+`error.signal` 是终止进程的信号。
+
+传给回调的 `stdout` 和 `stderr` 参数会包含子进程的 stdout 和 stderr 输出。
+默认情况下，Node.js 会将输出解码为 UTF-8 并将字符串传给回调。
+`encoding` 选项可用于指定字符编码（用于解码 stdout 和 stderr 输出）。
+如果 `encoding` 是 `'buffer'` 或无法识别的字符编码，则传给回调的会是 `Buffer` 对象。
 
 ```js
 const { exec } = require('child_process');
-exec('cat *.js bad_file | wc -l', (error, stdout, stderr) => {
+exec('cat *.js 文件 | wc -l', (error, stdout, stderr) => {
   if (error) {
-    console.error(`exec error: ${error}`);
+    console.error(`执行的错误: ${error}`);
     return;
   }
   console.log(`stdout: ${stdout}`);
-  console.log(`stderr: ${stderr}`);
+  console.error(`stderr: ${stderr}`);
 });
 ```
 
-如果提供了一个 `callback` 函数，则它被调用时会带上参数 `(error, stdout, stderr)`。
-当成功时，`error` 会是 `null`。
-当失败时，`error` 会是一个 [`Error`] 实例。
-`error.code` 属性会是子进程的退出码，`error.signal` 会被设为终止进程的信号。
-除 `0` 以外的任何退出码都被认为是一个错误。
+如果 `timeout` 大于 `0`，则当子进程运行时间超过 `timeout` 毫秒时，父进程会发送由 `killSignal` 属性（默认为 `'SIGTERM'`）标识的信号。
 
-传给回调的 `stdout` 和 `stderr` 参数会包含子进程的 stdout 和 stderr 的输出。
-默认情况下，Node.js 会解码输出为 UTF-8，并将字符串传给回调。
-`encoding` 选项可用于指定用于解码 stdout 和 stderr 输出的字符编码。
-如果 `encoding` 是 `'buffer'`、或一个无法识别的字符编码，则传入 `Buffer` 对象到回调函数。
+与 exec(3) 的 POSIX 系统调用不同，`child_process.exec()` 不会替换现有的进程，而是使用 shell 来执行命令。
 
-`options` 参数可以作为第二个参数传入，用于自定义如何衍生进程。
-默认的选项是：
-
-```js
-const defaults = {
-  encoding: 'utf8',
-  timeout: 0,
-  maxBuffer: 200 * 1024,
-  killSignal: 'SIGTERM',
-  cwd: null,
-  env: null
-};
-```
-
-如果 `timeout` 大于 `0`，当子进程运行超过 `timeout` 毫秒时，父进程就会发送由 `killSignal` 属性标识的信号（默认为 `'SIGTERM'`）。
-
-注意：不像 POSIX 系统调用中的 exec(3)，`child_process.exec()` 不会替换现有的进程，且使用一个 shell 来执行命令。
-
-如果调用该方法的 [`util.promisify()`][] 版本，将会返回一个包含 `stdout` 和 `stderr` 的 Promise 对象。在出现错误的情况下，将返回 rejected 状态的 promise，拥有与回调函数一样的 `error` 对象，但附加了 `stdout` 和 `stderr` 属性。
-
-例子:
+如果调用此方法的 [`util.promisify()`] 版本，则返回 `Promise`（会传入具有 `stdout` 和 `stderr` 属性的 `Object`）。
+返回的 `ChildProcess` 实例会作为 `child` 属性附加到 `Promise`。
+如果出现错误（包括导致退出码不为 0 的任何错误），则返回 reject 的 promise，并传入与回调中相同的 `error` 对象，但是还有两个额外的属性 `stdout` 和 `stderr`。
 
 ```js
 const util = require('util');
@@ -95,7 +85,8 @@ const exec = util.promisify(require('child_process').exec);
 async function lsExample() {
   const { stdout, stderr } = await exec('ls');
   console.log('stdout:', stdout);
-  console.log('stderr:', stderr);
+  console.error('stderr:', stderr);
 }
 lsExample();
 ```
+

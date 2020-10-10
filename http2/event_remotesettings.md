@@ -2,13 +2,14 @@
 added: v8.4.0
 -->
 
-The `'remoteSettings'` event is emitted when a new SETTINGS frame is received
-from the connected peer. When invoked, the handler function will receive a copy
-of the remote settings.
+* `settings` {HTTP/2 Settings Object} A copy of the `SETTINGS` frame received.
+
+The `'remoteSettings'` event is emitted when a new `SETTINGS` frame is received
+from the connected peer.
 
 ```js
 session.on('remoteSettings', (settings) => {
-  /** use the new settings **/
+  /* Use the new settings */
 });
 ```
 

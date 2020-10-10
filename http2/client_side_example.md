@@ -1,13 +1,12 @@
 
-The following illustrates an HTTP/2 client:
+以下示例说明了一个 HTTP/2 客户端：
 
 ```js
 const http2 = require('http2');
 const fs = require('fs');
 const client = http2.connect('https://localhost:8443', {
-  ca: fs.readFileSync('localhost-cert.pem')
+  ca: fs.readFileSync('证书.pem')
 });
-client.on('socketError', (err) => console.error(err));
 client.on('error', (err) => console.error(err));
 
 const req = client.request({ ':path': '/' });
@@ -23,7 +22,7 @@ let data = '';
 req.on('data', (chunk) => { data += chunk; });
 req.on('end', () => {
   console.log(`\n${data}`);
-  client.destroy();
+  client.close();
 });
 req.end();
 ```

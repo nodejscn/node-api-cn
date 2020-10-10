@@ -62,7 +62,7 @@ class MyObject : public node::ObjectWrap {
 
   static void New(const v8::FunctionCallbackInfo<v8::Value>& args);
   static void PlusOne(const v8::FunctionCallbackInfo<v8::Value>& args);
-  static v8::Persistent<v8::Function> constructor;
+  static v8::Global<v8::Function> constructor;
   double value_;
 };
 
@@ -80,19 +80,21 @@ class MyObject : public node::ObjectWrap {
 
 namespace demo {
 
+using node::AddEnvironmentCleanupHook;
 using v8::Context;
 using v8::Function;
 using v8::FunctionCallbackInfo;
 using v8::FunctionTemplate;
+using v8::Global;
 using v8::Isolate;
 using v8::Local;
 using v8::Number;
 using v8::Object;
-using v8::Persistent;
 using v8::String;
 using v8::Value;
 
-Persistent<Function> MyObject::constructor;
+// 注意！这不是线程安全的，此插件不能用于工作线程。
+Global<Function> MyObject::constructor;
 
 MyObject::MyObject(double value) : value_(value) {
 }
@@ -103,21 +105,28 @@ MyObject::~MyObject() {
 void MyObject::Init(Isolate* isolate) {
   // 准备构造函数模版
   Local<FunctionTemplate> tpl = FunctionTemplate::New(isolate, New);
-  tpl->SetClassName(String::NewFromUtf8(isolate, "MyObject"));
+  tpl->SetClassName(String::NewFromUtf8(isolate, "MyObject").ToLocalChecked());
   tpl->InstanceTemplate()->SetInternalFieldCount(1);
 
   // 原型
   NODE_SET_PROTOTYPE_METHOD(tpl, "plusOne", PlusOne);
 
-  constructor.Reset(isolate, tpl->GetFunction());
+  Local<Context> context = isolate->GetCurrentContext();
+  constructor.Reset(isolate, tpl->GetFunction(context).ToLocalChecked());
+
+  AddEnvironmentCleanupHook(isolate, [](void*) {
+    constructor.Reset();
+  }, nullptr);
 }
 
 void MyObject::New(const FunctionCallbackInfo<Value>& args) {
   Isolate* isolate = args.GetIsolate();
+  Local<Context> context = isolate->GetCurrentContext();
 
   if (args.IsConstructCall()) {
     // 像构造函数一样调用：`new MyObject(...)`
-    double value = args[0]->IsUndefined() ? 0 : args[0]->NumberValue();
+    double value = args[0]->IsUndefined() ?
+        0 : args[0]->NumberValue(context).FromMaybe(0);
     MyObject* obj = new MyObject(value);
     obj->Wrap(args.This());
     args.GetReturnValue().Set(args.This());
@@ -126,7 +135,6 @@ void MyObject::New(const FunctionCallbackInfo<Value>& args) {
     const int argc = 1;
     Local<Value> argv[argc] = { args[0] };
     Local<Function> cons = Local<Function>::New(isolate, constructor);
-    Local<Context> context = isolate->GetCurrentContext();
     Local<Object> instance =
         cons->NewInstance(context, argc, argv).ToLocalChecked();
     args.GetReturnValue().Set(instance);

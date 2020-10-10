@@ -2,6 +2,9 @@
 added: v3.0.0
 -->
 
-Returns a `Buffer` instance holding the keys currently used for
-encryption/decryption of the [TLS Session Tickets][]
+* Returns: {Buffer} A 48-byte buffer containing the session ticket keys.
+
+Returns the session ticket keys.
+
+See [Session Resumption][] for more information.
 

@@ -4,6 +4,9 @@ changes:
   - version: v4.2.0
     pr-url: https://github.com/nodejs/node/pull/3102
     description: The `icu` property is now supported.
+  - version: v9.0.0
+    pr-url: https://github.com/nodejs/node/pull/15785
+    description: The `v8` property now includes a Node.js specific suffix.
 -->
 
 * {Object}
@@ -18,20 +21,21 @@ console.log(process.versions);
 
 会显示类似下面的对象信息:
 
-<!-- eslint-skip -->
-```js
-{
-  http_parser: '2.3.0',
-  node: '1.1.1',
-  v8: '4.1.0.14',
-  uv: '1.3.0',
-  zlib: '1.2.8',
-  ares: '1.10.0-DEV',
-  modules: '43',
-  icu: '55.1',
-  openssl: '1.0.1k',
-  unicode: '8.0',
-  cldr: '29.0',
-  tz: '2016b' }
+```console
+{ node: '11.13.0',
+  v8: '7.0.276.38-node.18',
+  uv: '1.27.0',
+  zlib: '1.2.11',
+  brotli: '1.0.7',
+  ares: '1.15.0',
+  modules: '67',
+  nghttp2: '1.34.0',
+  napi: '4',
+  llhttp: '1.1.1',
+  openssl: '1.1.1b',
+  cldr: '34.0',
+  icu: '63.1',
+  tz: '2018e',
+  unicode: '11.0' }
 ```
 

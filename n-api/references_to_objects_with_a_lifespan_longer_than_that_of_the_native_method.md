@@ -1,3 +1,4 @@
+
 In some cases an addon will need to be able to create and reference objects
 with a lifespan longer than that of a single native method invocation. For
 example, to create a constructor and later use that constructor
@@ -21,13 +22,13 @@ then be modified through [`napi_reference_ref`][] and
 [`napi_reference_unref`][]. If an object is collected while the count
 for a reference is 0, all subsequent calls to
 get the object associated with the reference [`napi_get_reference_value`][]
-will return NULL for the returned `napi_value`. An attempt to call
+will return `NULL` for the returned `napi_value`. An attempt to call
 [`napi_reference_ref`][] for a reference whose object has been collected
-will result in an error.
+results in an error.
 
 References must be deleted once they are no longer required by the addon. When
-a reference is deleted it will no longer prevent the corresponding object from
-being collected. Failure to delete a persistent reference will result in
+a reference is deleted, it will no longer prevent the corresponding object from
+being collected. Failure to delete a persistent reference results in
 a 'memory leak' with both the native memory for the persistent reference and
 the corresponding object on the heap being retained forever.
 

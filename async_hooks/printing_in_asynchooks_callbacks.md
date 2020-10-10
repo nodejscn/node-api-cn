@@ -2,18 +2,18 @@
 Because printing to the console is an asynchronous operation, `console.log()`
 will cause the AsyncHooks callbacks to be called. Using `console.log()` or
 similar asynchronous operations inside an AsyncHooks callback function will thus
-cause an infinite recursion. An easily solution to this when debugging is
-to use a synchronous logging operation such as `fs.writeSync(1, msg)`. This
-will print to stdout because `1` is the file descriptor for stdout and will
-not invoke AsyncHooks recursively because it is synchronous.
+cause an infinite recursion. An easy solution to this when debugging is to use a
+synchronous logging operation such as `fs.writeFileSync(file, msg, flag)`.
+This will print to the file and will not invoke AsyncHooks recursively because
+it is synchronous.
 
 ```js
 const fs = require('fs');
 const util = require('util');
 
 function debug(...args) {
-  // use a function like this one when debugging inside an AsyncHooks callback
-  fs.writeSync(1, `${util.format(...args)}\n`);
+  // Use a function like this one when debugging inside an AsyncHooks callback
+  fs.writeFileSync('log.out', `${util.format(...args)}\n`, { flag: 'a' });
 }
 ```
 

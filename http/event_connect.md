@@ -3,57 +3,59 @@ added: v0.7.0
 -->
 
 * `response` {http.IncomingMessage}
-* `socket` {net.Socket}
+* `socket` {stream.Duplex}
 * `head` {Buffer}
 
-每当服务器响应 `CONNECT` 请求时触发。
-如果该事件未被监听，则接收到 `CONNECT` 方法的客户端会关闭连接。
+每次服务器使用 `CONNECT` 方法响应请求时都会触发。
+如果未监听此事件，则接收 `CONNECT` 方法的客户端将关闭其连接。
 
-例子，用一对客户端和服务端来演示如何监听 `'connect'` 事件：
+此事件保证传入 {net.Socket} 类（{stream.Duplex} 的子类）的实例，除非用户指定了 {net.Socket} 以外的套接字类型。
+
+客户端和服务器对演示了如何监听 `'connect'` 事件：
 
 ```js
 const http = require('http');
 const net = require('net');
-const url = require('url');
+const { URL } = require('url');
 
-// 创建一个 HTTP 代理服务器
+// 创建 HTTP 隧道代理。
 const proxy = http.createServer((req, res) => {
   res.writeHead(200, { 'Content-Type': 'text/plain' });
-  res.end('okay');
+  res.end('响应内容');
 });
-proxy.on('connect', (req, cltSocket, head) => {
-  // 连接到一个服务器
-  const srvUrl = url.parse(`http://${req.url}`);
-  const srvSocket = net.connect(srvUrl.port, srvUrl.hostname, () => {
-    cltSocket.write('HTTP/1.1 200 Connection Established\r\n' +
+proxy.on('connect', (req, clientSocket, head) => {
+  // 连接到原始服务器。
+  const { port, hostname } = new URL(`http://${req.url}`);
+  const serverSocket = net.connect(port || 80, hostname, () => {
+    clientSocket.write('HTTP/1.1 200 Connection Established\r\n' +
                     'Proxy-agent: Node.js-Proxy\r\n' +
                     '\r\n');
-    srvSocket.write(head);
-    srvSocket.pipe(cltSocket);
-    cltSocket.pipe(srvSocket);
+    serverSocket.write(head);
+    serverSocket.pipe(clientSocket);
+    clientSocket.pipe(serverSocket);
   });
 });
 
-// 代理服务器正在运行
+// 代理正在运行。
 proxy.listen(1337, '127.0.0.1', () => {
 
-  // 发送一个请求到代理服务器
+  // 向隧道代理发出请求。
   const options = {
     port: 1337,
-    hostname: '127.0.0.1',
+    host: '127.0.0.1',
     method: 'CONNECT',
-    path: 'www.google.com:80'
+    path: 'nodejs.cn:80'
   };
 
   const req = http.request(options);
   req.end();
 
   req.on('connect', (res, socket, head) => {
-    console.log('已连接！');
+    console.log('已连接');
 
-    // 通过代理服务器发送一个请求
+    // 通过 HTTP 隧道发出请求。
     socket.write('GET / HTTP/1.1\r\n' +
-                 'Host: www.google.com:80\r\n' +
+                 'Host: nodejs.cn:80\r\n' +
                  'Connection: close\r\n' +
                  '\r\n');
     socket.on('data', (chunk) => {

@@ -1,6 +1,10 @@
 <!-- YAML
 deprecated: v6.0.0
 changes:
+  - version: v10.0.0
+    pr-url: https://github.com/nodejs/node/pull/19524
+    description: Calling this constructor emits a deprecation warning when
+                 run from code outside the `node_modules` directory.
   - version: v7.2.1
     pr-url: https://github.com/nodejs/node/pull/9529
     description: Calling this constructor no longer emits a deprecation warning.
@@ -9,23 +13,10 @@ changes:
     description: Calling this constructor emits a deprecation warning now.
 -->
 
-> 稳定性: 0 - 废弃的: 使用 [`Buffer.from(buffer)`] 代替。
+> Stability: 0 - Deprecated: Use [`Buffer.from(buffer)`][] instead.
 
-* `buffer` {Buffer} 一个要拷贝数据的已存在的 `Buffer`
+* `buffer` {Buffer|Uint8Array} An existing `Buffer` or [`Uint8Array`][] from
+  which to copy data.
 
-将传入的 `buffer` 数据拷贝到一个新建的 `Buffer` 实例。
+See [`Buffer.from(buffer)`][].
 
-例子:
-
-```js
-const buf1 = new Buffer('buffer');
-const buf2 = new Buffer(buf1);
-
-buf1[0] = 0x61;
-
-// 输出: auffer
-console.log(buf1.toString());
-
-// Prints: buffer
-console.log(buf2.toString());
-```

@@ -42,7 +42,7 @@ class MyObject : public node::ObjectWrap {
 
   static void New(const v8::FunctionCallbackInfo<v8::Value>& args);
   static void PlusOne(const v8::FunctionCallbackInfo<v8::Value>& args);
-  static v8::Persistent<v8::Function> constructor;
+
   double value_;
 };
 
@@ -69,11 +69,9 @@ using v8::Isolate;
 using v8::Local;
 using v8::Number;
 using v8::Object;
-using v8::Persistent;
+using v8::ObjectTemplate;
 using v8::String;
 using v8::Value;
-
-Persistent<Function> MyObject::constructor;
 
 MyObject::MyObject(double value) : value_(value) {
 }
@@ -83,26 +81,36 @@ MyObject::~MyObject() {
 
 void MyObject::Init(Local<Object> exports) {
   Isolate* isolate = exports->GetIsolate();
+  Local<Context> context = isolate->GetCurrentContext();
+
+  Local<ObjectTemplate> addon_data_tpl = ObjectTemplate::New(isolate);
+  addon_data_tpl->SetInternalFieldCount(1);  // MyObject::New() 的一个字段。
+  Local<Object> addon_data =
+      addon_data_tpl->NewInstance(context).ToLocalChecked();
 
   // 准备构造函数模版
-  Local<FunctionTemplate> tpl = FunctionTemplate::New(isolate, New);
-  tpl->SetClassName(String::NewFromUtf8(isolate, "MyObject"));
+  Local<FunctionTemplate> tpl = FunctionTemplate::New(isolate, New, addon_data);
+  tpl->SetClassName(String::NewFromUtf8(isolate, "MyObject").ToLocalChecked());
   tpl->InstanceTemplate()->SetInternalFieldCount(1);
 
   // 原型
   NODE_SET_PROTOTYPE_METHOD(tpl, "plusOne", PlusOne);
 
-  constructor.Reset(isolate, tpl->GetFunction());
-  exports->Set(String::NewFromUtf8(isolate, "MyObject"),
-               tpl->GetFunction());
+  Local<Function> constructor = tpl->GetFunction(context).ToLocalChecked();
+  addon_data->SetInternalField(0, constructor);
+  exports->Set(context, String::NewFromUtf8(
+      isolate, "MyObject").ToLocalChecked(),
+      constructor).FromJust();
 }
 
 void MyObject::New(const FunctionCallbackInfo<Value>& args) {
   Isolate* isolate = args.GetIsolate();
+  Local<Context> context = isolate->GetCurrentContext();
 
   if (args.IsConstructCall()) {
     // 像构造函数一样调用：`new MyObject(...)`
-    double value = args[0]->IsUndefined() ? 0 : args[0]->NumberValue();
+    double value = args[0]->IsUndefined() ?
+        0 : args[0]->NumberValue(context).FromMaybe(0);
     MyObject* obj = new MyObject(value);
     obj->Wrap(args.This());
     args.GetReturnValue().Set(args.This());
@@ -110,8 +118,8 @@ void MyObject::New(const FunctionCallbackInfo<Value>& args) {
     // 像普通方法 `MyObject(...)` 一样调用，转为构造调用。
     const int argc = 1;
     Local<Value> argv[argc] = { args[0] };
-    Local<Context> context = isolate->GetCurrentContext();
-    Local<Function> cons = Local<Function>::New(isolate, constructor);
+    Local<Function> cons =
+        args.Data().As<Object>()->GetInternalField(0).As<Function>();
     Local<Object> result =
         cons->NewInstance(context, argc, argv).ToLocalChecked();
     args.GetReturnValue().Set(result);
@@ -160,4 +168,10 @@ console.log(obj.plusOne());
 console.log(obj.plusOne());
 // 打印: 13
 ```
+
+当对象被垃圾收集时，包装器对象的析构函数将会运行。 
+对于析构函数测试，有一些命令行标志可用于强制垃圾收集。 
+这些标志由底层 V8 JavaScript 引擎提供。 
+它们随时可能更改或删除。 
+它们没有由 Node.js 或 V8 记录，并且它们永远不应该在测试之外使用。
 
