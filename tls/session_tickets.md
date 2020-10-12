@@ -18,7 +18,7 @@
 由三个16字节的密钥组成，但在API实现中，为了方便使用了一个48字节的缓存保存。
 
 服务器实例使用[`server.getTicketKeys()`][]可以获取ticket密钥，并将其分发给其他服务器。
-但出于安全考虑，最好是生成48字节随机的数据并通过 `tls.createServer()`][]的`ticketKeys`
+但出于安全考虑，最好是生成48字节随机的数据并通过[`tls.createServer()`][]的`ticketKeys`
 参数来设置。密钥最好定时重新生成并通过[`server.setTicketKeys()`][]在服务器中更新。
 
 Session ticket是TLS协商过程的加密密钥之一，因此ticket***必须安全的存储***。在TLS1.2及TLS1.2以下版本，
