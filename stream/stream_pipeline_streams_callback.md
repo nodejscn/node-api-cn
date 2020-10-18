@@ -1,15 +1,15 @@
 <!-- YAML
 added: v10.0.0
 changes:
-  - version: v13.10.0
-    pr-url: https://github.com/nodejs/node/pull/31223
-    description: Add support for async generators.
   - version: v14.0.0
     pr-url: https://github.com/nodejs/node/pull/32158
     description: The `pipeline(..., cb)` will wait for the `'close'` event
                  before invoking the callback. The implementation tries to
                  detect legacy streams and only apply this behavior to streams
                  which are expected to emit `'close'`.
+  - version: v13.10.0
+    pr-url: https://github.com/nodejs/node/pull/31223
+    description: Add support for async generators.
 -->
 
 * `streams` {Stream[]|Iterable[]|AsyncIterable[]|Function[]}

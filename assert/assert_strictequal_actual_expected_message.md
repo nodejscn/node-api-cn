@@ -3,8 +3,9 @@ added: v0.1.21
 changes:
   - version: v10.0.0
     pr-url: https://github.com/nodejs/node/pull/17003
-    description: Used comparison changed from Strict Equality to `Object.is()`
+    description: Used comparison changed from Strict Equality to `Object.is()`.
 -->
+
 * `actual` {any}
 * `expected` {any}
 * `message` {string|Error}

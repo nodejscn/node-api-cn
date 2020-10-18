@@ -1,6 +1,9 @@
 <!-- YAML
 added: v0.1.30
 changes:
+  - version: v10.5.0
+    pr-url: https://github.com/nodejs/node/pull/20220
+    description: 接受额外的 `options` 对象，用于指定返回的数值是否为 bigint。
   - version: v10.0.0
     pr-url: https://github.com/nodejs/node/pull/12562
     description: 参数 `callback` 不再是可选的。 
@@ -13,9 +16,6 @@ changes:
     pr-url: https://github.com/nodejs/node/pull/7897
     description: 参数 `callback` 不再是可选的。 
       如果不传入，则会触发弃用警告（id 为 DEP0013）。
-  - version: v10.5.0
-    pr-url: https://github.com/nodejs/node/pull/20220
-    description: 接受额外的 `options` 对象，用于指定返回的数值是否为 bigint。
 -->
 
 * `path` {string|Buffer|URL}

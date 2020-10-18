@@ -7,7 +7,7 @@ changes:
   - version: v12.0.0
     pr-url: https://github.com/nodejs/node/pull/27312
     description: changed from `--diagnostic-report-uncaught-exception` to
-                 `--report-uncaught-exception`
+                 `--report-uncaught-exception`.
 -->
 
 Enables report to be generated on uncaught exceptions. Useful when inspecting

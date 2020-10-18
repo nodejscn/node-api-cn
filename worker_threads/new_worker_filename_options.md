@@ -20,15 +20,15 @@ changes:
     description: The `filename` parameter can be a WHATWG `URL` object using
                  `file:` protocol.
   - version:
-     - v13.2.0
-     - v12.16.0
-    pr-url: https://github.com/nodejs/node/pull/26628
-    description: The `resourceLimits` option was introduced.
-  - version:
      - v13.4.0
      - v12.16.0
     pr-url: https://github.com/nodejs/node/pull/30559
     description: The `argv` option was introduced.
+  - version:
+     - v13.2.0
+     - v12.16.0
+    pr-url: https://github.com/nodejs/node/pull/26628
+    description: The `resourceLimits` option was introduced.
 -->
 
 * `filename` {string} 工作线程主脚本的路径。必须是以 `./` 或 `../` 开头的绝对路径或相对路径（即相对于当前工作目录）、或者使用 `file:` 或 `data:` 协议的 WHATWG `URL` 对象。 

@@ -1,3 +1,6 @@
+
+<!--lint disable nodejs-yaml-comments -->
+
 <!-- YAML
 changes:
   - version: v11.0.0
@@ -7,6 +10,8 @@ changes:
     description: Added documentation-only deprecation
                  with `--pending-deprecation` support.
 -->
+
+<!--lint enable nodejs-yaml-comments -->
 
 Type: Documentation-only (supports [`--pending-deprecation`][])
 

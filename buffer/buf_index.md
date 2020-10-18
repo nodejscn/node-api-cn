@@ -1,7 +1,3 @@
-<!-- YAML
-type: property
-name: [index]
--->
 
 * `index` {integer}
 

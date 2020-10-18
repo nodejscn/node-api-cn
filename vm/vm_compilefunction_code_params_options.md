@@ -1,12 +1,15 @@
 <!-- YAML
 added: v10.10.0
 changes:
-  - version: v14.1.0
-    pr-url: https://github.com/nodejs/node/pull/32985
-    description: The `importModuleDynamically` option is now supported.
   - version: v14.3.0
     pr-url: https://github.com/nodejs/node/pull/33364
-    description: Removal of `importModuleDynamically` due to compatibility issues
+    description: Removal of `importModuleDynamically` due to compatibility
+                 issues.
+  - version:
+    - v14.1.0
+    - v13.14.0
+    pr-url: https://github.com/nodejs/node/pull/32985
+    description: The `importModuleDynamically` option is now supported.
 -->
 * `code` {string} 需要编译的函数体。
 * `params` {string[]} 包含所有函数参数的字符串数组。

@@ -1,6 +1,8 @@
 <!-- YAML
 changes:
-  - version: v14.0.0
+  - version:
+    - v14.0.0
+    - v12.19.0
     pr-url: https://github.com/nodejs/node/pull/32499
     description: Documentation-only deprecation.
 -->

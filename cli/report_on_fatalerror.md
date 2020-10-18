@@ -7,7 +7,7 @@ changes:
   - version: v12.0.0
     pr-url: https://github.com/nodejs/node/pull/27312
     description: changed from `--diagnostic-report-on-fatalerror` to
-                 `--report-on-fatalerror`
+                 `--report-on-fatalerror`.
 -->
 
 Enables the report to be triggered on fatal errors (internal errors within

@@ -7,7 +7,9 @@ changes:
   - version: v6.0.0
     pr-url: https://github.com/nodejs/node/pull/6055
     description: 返回的对象不再继承自 `Object.prototype`。
-  - version: v6.0.0, v4.2.4
+  - version:
+    - v6.0.0
+    - v4.2.4
     pr-url: https://github.com/nodejs/node/pull/3807
     description: 参数 `eq` 现在可以长度大于 `1`。
 -->

@@ -1,7 +1,8 @@
 <!-- YAML
 added: v0.1.99
 changes:
-  - version: v0.10
+  - version: v0.9.1
+    commit: 332fea5ac1816e498030109c4211bca24a7fa667
     description: The method was changed to an asynchronous execution model.
                  Legacy code would need to be changed to pass a callback
                  function to the method call.

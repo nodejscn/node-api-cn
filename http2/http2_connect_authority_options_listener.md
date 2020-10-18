@@ -3,6 +3,9 @@ added: v8.4.0
 changes:
   - version:
      - v14.4.0
+     - v12.18.0
+     - v10.21.0
+    commit: 3948830ce6408be620b09a70bf66158623022af0
     pr-url: https://github.com/nodejs-private/node-private/pull/204
     description: Added `maxSettings` option with a default of 32.
   - version: v13.0.0

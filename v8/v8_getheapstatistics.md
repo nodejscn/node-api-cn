@@ -1,13 +1,13 @@
 <!-- YAML
 added: v1.0.0
 changes:
+  - version: v7.5.0
+    pr-url: https://github.com/nodejs/node/pull/10186
+    description: Support values exceeding the 32-bit unsigned integer range.
   - version: v7.2.0
     pr-url: https://github.com/nodejs/node/pull/8610
     description: Added `malloced_memory`, `peak_malloced_memory`,
                  and `does_zap_garbage`.
-  - version: v7.5.0
-    pr-url: https://github.com/nodejs/node/pull/10186
-    description: Support values exceeding the 32-bit unsigned integer range.
 -->
 
 * 返回: {Object}

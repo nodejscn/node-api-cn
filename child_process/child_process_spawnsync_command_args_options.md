@@ -10,7 +10,9 @@ changes:
   - version: v8.0.0
     pr-url: https://github.com/nodejs/node/pull/10653
     description: 选项 `input` 可以是 `Uint8Array`。
-  - version: v6.2.1, v4.5.0
+  - version:
+    - v6.2.1
+    - v4.5.0
     pr-url: https://github.com/nodejs/node/pull/6939
     description: The `encoding` option can now explicitly be set to `buffer`.
   - version: v5.7.0

@@ -4,6 +4,9 @@ changes:
   - version: v14.5.0
     pr-url: https://github.com/nodejs/node/pull/22413
     description: The `msg` parameter can now be any `TypedArray` or `DataView`.
+  - version: v12.0.0
+    pr-url: https://github.com/nodejs/node/pull/26871
+    description: Added support for sending data on connected sockets.
   - version: v8.0.0
     pr-url: https://github.com/nodejs/node/pull/11985
     description: The `msg` parameter can be an `Uint8Array` now.
@@ -18,9 +21,6 @@ changes:
     pr-url: https://github.com/nodejs/node/pull/4374
     description: The `msg` parameter can be an array now. Also, the `offset`
                  and `length` parameters are optional now.
-  - version: v12.0.0
-    pr-url: https://github.com/nodejs/node/pull/26871
-    description: Added support for sending data on connected sockets.
 -->
 
 * `msg` {Buffer|TypedArray|DataView|string|Array} 要发送的消息。

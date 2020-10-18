@@ -1,11 +1,11 @@
 <!-- YAML
 changes:
-  - version: v8.0.0
-    pr-url: https://github.com/nodejs/node/pull/10970
-    description: Runtime deprecation.
   - version: v12.0.0
     pr-url: https://github.com/nodejs/node/pull/25828
     description: End-of-Life.
+  - version: v8.0.0
+    pr-url: https://github.com/nodejs/node/pull/10970
+    description: Runtime deprecation.
 -->
 
 Type: End-of-Life

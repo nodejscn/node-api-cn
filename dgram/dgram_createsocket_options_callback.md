@@ -1,16 +1,16 @@
 <!-- YAML
 added: v0.11.13
 changes:
-  - version: v8.6.0
-    pr-url: https://github.com/nodejs/node/pull/14560
-    description: The `lookup` option is supported.
+  - version: v11.4.0
+    pr-url: https://github.com/nodejs/node/pull/23798
+    description: The `ipv6Only` option is supported.
   - version: v8.7.0
     pr-url: https://github.com/nodejs/node/pull/13623
     description: The `recvBufferSize` and `sendBufferSize` options are
                  supported now.
-  - version: v11.4.0
-    pr-url: https://github.com/nodejs/node/pull/23798
-    description: The `ipv6Only` option is supported.
+  - version: v8.6.0
+    pr-url: https://github.com/nodejs/node/pull/14560
+    description: The `lookup` option is supported.
 -->
 
 * `options` {Object} 允许的选项是:

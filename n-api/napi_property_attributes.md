@@ -2,7 +2,7 @@
 changes:
  - version: v14.12.0
    pr-url: https://github.com/nodejs/node/pull/35214
-   description: added `napi_default_method` and `napi_default_property`
+   description: added `napi_default_method` and `napi_default_property`.
 -->
 
 ```c

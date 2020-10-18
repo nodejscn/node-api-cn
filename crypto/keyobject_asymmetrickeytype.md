@@ -6,14 +6,14 @@ changes:
     description: Added support for `'dh'`.
   - version: v12.0.0
     pr-url: https://github.com/nodejs/node/pull/26960
-    description: Added support for `'rsa-pss'`
+    description: Added support for `'rsa-pss'`.
   - version: v12.0.0
     pr-url: https://github.com/nodejs/node/pull/26786
     description: This property now returns `undefined` for KeyObject
                  instances of unrecognized type instead of aborting.
   - version: v12.0.0
     pr-url: https://github.com/nodejs/node/pull/26774
-    description: Added support for `'x25519'` and `'x448'`
+    description: Added support for `'x25519'` and `'x448'`.
   - version: v12.0.0
     pr-url: https://github.com/nodejs/node/pull/26319
     description: Added support for `'ed25519'` and `'ed448'`.

@@ -2,8 +2,8 @@
 added: v12.0.0
 changes:
   - version:
-    - v12.17.0
     - v13.2.0
+    - v12.17.0
     pr-url: https://github.com/nodejs/node/pull/29866
     description: Unflag `--experimental-modules`.
 -->

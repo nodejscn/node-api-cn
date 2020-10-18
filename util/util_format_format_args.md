@@ -4,10 +4,6 @@ changes:
   - version: v12.11.0
     pr-url: https://github.com/nodejs/node/pull/29606
     description: The `%c` specifier is ignored now.
-  - version: v11.4.0
-    pr-url: https://github.com/nodejs/node/pull/23708
-    description: The `%d`, `%f` and `%i` specifiers now support Symbols
-                 properly.
   - version: v12.0.0
     pr-url: https://github.com/nodejs/node/pull/23162
     description: The `format` argument is now only taken as such if it actually
@@ -19,6 +15,10 @@ changes:
                  first argument. This change removes previously present quotes
                  from strings that were being output when the first argument
                  was not a string.
+  - version: v11.4.0
+    pr-url: https://github.com/nodejs/node/pull/23708
+    description: The `%d`, `%f` and `%i` specifiers now support Symbols
+                 properly.
   - version: v11.4.0
     pr-url: https://github.com/nodejs/node/pull/24806
     description: The `%o` specifier's `depth` has default depth of 4 again.

@@ -1,13 +1,13 @@
 <!-- YAML
 added: v0.1.30
 changes:
+  - version: v10.5.0
+    pr-url: https://github.com/nodejs/node/pull/20220
+    description: 接受额外的 `options` 对象，用于指定返回的数值是否为 bigint。
   - version: v7.6.0
     pr-url: https://github.com/nodejs/node/pull/10739
     description: 参数 `path` 可以是 WHATWG `URL` 对象（使用 `file:` 协议）。 
       该支持目前仍是实验的。
-  - version: v10.5.0
-    pr-url: https://github.com/nodejs/node/pull/20220
-    description: 接受额外的 `options` 对象，用于指定返回的数值是否为 bigint。
 -->
 
 * `path` {string|Buffer|URL}

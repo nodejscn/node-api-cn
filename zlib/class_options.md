@@ -1,7 +1,9 @@
 <!-- YAML
 added: v0.11.1
 changes:
-  - version: v14.5.0
+  - version:
+    - v14.5.0
+    - v12.19.0
     pr-url: https://github.com/nodejs/node/pull/33516
     description: The `maxOutputLength` option is supported now.
   - version: v9.4.0

@@ -2,7 +2,7 @@
 changes:
   - version: v14.0.0
     pr-url: https://github.com/nodejs/node/pull/31166
-    description: End-of-Life (for `digest === null`)
+    description: End-of-Life (for `digest === null`).
   - version: v11.0.0
     pr-url: https://github.com/nodejs/node/pull/22861
     description: Runtime deprecation (for `digest === null`).

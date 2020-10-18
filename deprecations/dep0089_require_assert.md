@@ -5,7 +5,7 @@ changes:
     description: Deprecation revoked.
   - version:
       - v9.9.0
-      - v10.0.0
+      - v8.13.0
     pr-url: https://github.com/nodejs/node/pull/17002
     description: Documentation-only deprecation.
 -->

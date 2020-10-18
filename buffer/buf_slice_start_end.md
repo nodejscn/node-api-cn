@@ -1,7 +1,9 @@
 <!-- YAML
 added: v0.3.0
 changes:
-  - version: v7.1.0, v6.9.2
+  - version:
+    - v7.1.0
+    - v6.9.2
     pr-url: https://github.com/nodejs/node/pull/9341
     description: Coercing the offsets to integers now handles values outside
                  the 32-bit integer range properly.

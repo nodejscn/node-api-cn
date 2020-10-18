@@ -1,15 +1,15 @@
 <!-- YAML
 added: v0.1.31
 changes:
+  - version: v12.0.0
+    pr-url: https://github.com/nodejs/node/pull/23724
+    description: If the `type` argument is left undefined, Node will autodetect
+                 `target` type and automatically select `dir` or `file`.
   - version: v7.6.0
     pr-url: https://github.com/nodejs/node/pull/10739
     description: The `target` and `path` parameters can be WHATWG `URL` objects
                  using `file:` protocol. Support is currently still
                  *experimental*.
-  - version: v12.0.0
-    pr-url: https://github.com/nodejs/node/pull/23724
-    description: If the `type` argument is left undefined, Node will autodetect
-                 `target` type and automatically select `dir` or `file`
 -->
 
 * `target` {string|Buffer|URL}

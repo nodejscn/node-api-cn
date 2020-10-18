@@ -10,7 +10,9 @@ changes:
   - version: v13.3.0
     pr-url: https://github.com/nodejs/node/pull/30570
     description: 支持 `maxHeaderSize` 选项。
-  - version: v9.6.0, v8.12.0
+  - version:
+    - v9.6.0
+    - v8.12.0
     pr-url: https://github.com/nodejs/node/pull/15752
     description: 支持 `options` 参数。
 -->

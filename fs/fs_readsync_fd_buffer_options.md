@@ -4,7 +4,7 @@ changes:
   - version: v14.0.0
     pr-url: https://github.com/nodejs/node/pull/32460
     description: Options object can be passed in
-                 to make offset, length and position optional
+                 to make offset, length and position optional.
 -->
 
 * `fd` {integer}

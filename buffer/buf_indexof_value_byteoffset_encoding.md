@@ -4,7 +4,9 @@ changes:
   - version: v8.0.0
     pr-url: https://github.com/nodejs/node/pull/10236
     description: The `value` can now be a `Uint8Array`.
-  - version: v5.7.0, v4.4.0
+  - version:
+    - v5.7.0
+    - v4.4.0
     pr-url: https://github.com/nodejs/node/pull/4803
     description: When `encoding` is being passed, the `byteOffset` parameter
                  is no longer required.

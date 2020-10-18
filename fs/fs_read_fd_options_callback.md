@@ -4,7 +4,7 @@ changes:
   - version: v13.11.0
     pr-url: https://github.com/nodejs/node/pull/31402
     description: Options object can be passed in
-                 to make Buffer, offset, length and position optional
+                 to make Buffer, offset, length and position optional.
 -->
 * `fd` {integer}
 * `options` {Object}

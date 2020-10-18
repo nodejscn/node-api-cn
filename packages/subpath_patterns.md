@@ -1,9 +1,10 @@
 
 > Stability: 1 - Experimental
 
-For packages with a small number of exports, we recommend explicitly listing
-each exports subpath entry. But for packages that have large numbers of
-subpaths, this might cause `package.json` bloat and maintenance issues.
+For packages with a small number of exports or imports, we recommend
+explicitly listing each exports subpath entry. But for packages that have
+large numbers of subpaths, this might cause `package.json` bloat and
+maintenance issues.
 
 For these use cases, subpath export patterns can be used instead:
 
@@ -12,6 +13,9 @@ For these use cases, subpath export patterns can be used instead:
 {
   "exports": {
     "./features/*": "./src/features/*.js"
+  },
+  "imports": {
+    "#internal/*": "./src/internal/*.js"
   }
 }
 ```
@@ -26,6 +30,9 @@ import featureX from 'es-module-package/features/x';
 
 import featureY from 'es-module-package/features/y/y';
 // Loads ./node_modules/es-module-package/src/features/y/y.js
+
+import internalZ from '#internal/z';
+// Loads ./node_modules/es-module-package/src/internal/z.js
 ```
 
 This is a direct static replacement without any special handling for file

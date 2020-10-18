@@ -2,20 +2,24 @@
 added: v12.7.0
 changes:
   - version:
-    - v12.16.0
-    - v13.2.0
-    pr-url: https://github.com/nodejs/node/pull/29978
-    description: Implement conditional exports.
+    - v14.13.0
+    pr-url: https://github.com/nodejs/node/pull/34718
+    description: Add support for `"exports"` patterns.
   - version:
-    - v12.16.0
     - v13.7.0
+    - v12.16.0
+    pr-url: https://github.com/nodejs/node/pull/31008
+    description: Implement logical conditional exports ordering.
+  - version:
+    - v13.7.0
+    - v12.16.0
     pr-url: https://github.com/nodejs/node/pull/31001
     description: Remove the `--experimental-conditional-exports` option.
   - version:
+    - v13.2.0
     - v12.16.0
-    - v13.7.0
-    pr-url: https://github.com/nodejs/node/pull/31008
-    description: Implement logical conditional exports ordering.
+    pr-url: https://github.com/nodejs/node/pull/29978
+    description: Implement conditional exports.
 -->
 
 * Type: {Object} | {string} | {string[]}

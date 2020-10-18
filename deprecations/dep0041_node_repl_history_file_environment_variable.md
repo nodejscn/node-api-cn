@@ -4,8 +4,8 @@ changes:
     pr-url: https://github.com/nodejs/node/pull/13876
     description: End-of-Life.
   - version:
-    - v4.8.6
     - v6.12.0
+    - v4.8.6
     pr-url: https://github.com/nodejs/node/pull/10116
     description: A deprecation code has been assigned.
   - version: v3.0.0

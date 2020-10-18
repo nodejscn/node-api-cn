@@ -38,3 +38,5 @@ console.log(bufA.length);
 // 打印: 42
 ```
 
+`Buffer.concat()` may also use the internal `Buffer` pool like
+[`Buffer.allocUnsafe()`][] does.

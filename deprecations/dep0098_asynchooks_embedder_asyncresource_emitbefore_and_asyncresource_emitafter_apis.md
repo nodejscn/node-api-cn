@@ -2,11 +2,11 @@
 changes:
   - version: v12.0.0
     pr-url: https://github.com/nodejs/node/pull/26530
-    description: End-of-Life
+    description: End-of-Life.
   - version:
-    - v8.12.0
-    - v9.6.0
     - v10.0.0
+    - v9.6.0
+    - v8.12.0
     pr-url: https://github.com/nodejs/node/pull/18632
     description: Runtime deprecation.
 -->

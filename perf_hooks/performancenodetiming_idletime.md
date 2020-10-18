@@ -1,5 +1,7 @@
 <!-- YAML
-added: v14.10.0
+added:
+  - v14.10.0
+  - v12.19.0
 -->
 
 * {number}

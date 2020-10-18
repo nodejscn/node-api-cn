@@ -4,6 +4,7 @@ changes:
   - version:
       - v13.9.0
       - v12.16.2
+    pr-url: https://github.com/nodejs/node/pull/31635
     description: 将“严格模式”更改为“严格的断言模式”，将“传统模式”更改为“传统的断言模式”，以避免与更常见的“严格模式”的含义混淆。
   - version: v9.9.0
     pr-url: https://github.com/nodejs/node/pull/17615

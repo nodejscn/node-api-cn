@@ -3,6 +3,9 @@ added: v8.4.0
 changes:
   - version:
      - v14.4.0
+     - v12.18.0
+     - v10.21.0
+    commit: 3948830ce6408be620b09a70bf66158623022af0
     pr-url: https://github.com/nodejs-private/node-private/pull/204
     description: Added `maxSettings` option with a default of 32.
   - version:
@@ -24,6 +27,10 @@ changes:
     pr-url: https://github.com/nodejs/node/pull/27782
     description: The `options` parameter now supports `net.createServer()`
                  options.
+  - version: v9.6.0
+    pr-url: https://github.com/nodejs/node/pull/15752
+    description: Added the `Http1IncomingMessage` and `Http1ServerResponse`
+                 option.
   - version: v8.9.3
     pr-url: https://github.com/nodejs/node/pull/17105
     description: Added the `maxOutstandingPings` option with a default limit of
@@ -32,10 +39,6 @@ changes:
     pr-url: https://github.com/nodejs/node/pull/16676
     description: Added the `maxHeaderListPairs` option with a default limit of
                  128 header pairs.
-  - version: v9.6.0
-    pr-url: https://github.com/nodejs/node/pull/15752
-    description: Added the `Http1IncomingMessage` and `Http1ServerResponse`
-                 option.
 -->
 
 * `options` {Object}

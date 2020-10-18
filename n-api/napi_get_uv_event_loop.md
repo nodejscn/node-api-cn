@@ -1,7 +1,7 @@
 <!-- YAML
 added:
-  - v8.10.0
   - v9.3.0
+  - v8.10.0
 napiVersion: 2
 -->
 

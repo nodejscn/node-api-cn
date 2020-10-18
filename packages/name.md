@@ -1,11 +1,11 @@
 <!-- YAML
 added:
-  - v12.16.0
   - v13.1.0
+  - v12.16.0
 changes:
   - version:
-    - v12.16.0
     - v13.6.0
+    - v12.16.0
     pr-url: https://github.com/nodejs/node/pull/31002
     description: Remove the `--experimental-resolve-self` option.
 -->
