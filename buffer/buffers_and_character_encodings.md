@@ -2,10 +2,10 @@
 changes:
   - version: v6.4.0
     pr-url: https://github.com/nodejs/node/pull/7111
-    description: Introduced `latin1` as an alias for `binary`.
+    description: 引入 `latin1` 作为 `binary` 的别名。
   - version: v5.0.0
     pr-url: https://github.com/nodejs/node/pull/2859
-    description: Removed the deprecated `raw` and `raws` encodings.
+    description: 删除了弃用的 `raw` 和 `raws` 编码。
 -->
 
 当在 `Buffer` 和字符串之间转换时，可以指定字符编码。 
@@ -28,7 +28,7 @@ console.log(Buffer.from('fhqwhgads', 'utf16le'));
 Node.js 当前支持的字符编码如下：
 
 * `'utf8'`: 多字节编码的 Unicode 字符。
-  许多网页和其他文档格式都使用 UTF-8。
+  许多网页和其他文档格式都使用 [UTF-8]。
   这是默认的字符编码。 
   当将 `Buffer` 解码为不专门包含有效 UTF-8 数据的字符串时，则会使用 Unicode 替换字符 `U+FFFD` � 来表示这些错误。
 

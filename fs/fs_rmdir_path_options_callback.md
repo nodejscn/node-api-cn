@@ -46,3 +46,6 @@ changes:
 
 对文件（而不是目录）使用 `fs.rmdir()` 会导致 `ENOENT` 错误（在 Windows 上）或 `ENOTDIR` 错误（在 POSIX 上）。
 
+设置为 `recursive` 为 `true` 会导致行为类似于 Unix 命令 `rm -rf`：不存在的路径不会引发错误，表示文件的路径会被删除。 
+`recursive` 选项的宽容行为已弃用，未来会抛出 `ENOTDIR` 和 `ENOENT`。
+

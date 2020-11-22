@@ -154,41 +154,34 @@ const req = http.request(options, (res) => {
 * `'close'`
 * `res` 对象上的 `'close'` 事件
 
+如果在分配 socket 之前调用 `req.destroy()`，则按以下顺序触发以下事件：
 
-If `req.destroy()` is called before a socket is assigned, the following
-events will be emitted in the following order:
+* (在这里调用 `req.destroy()`)
+* `'error'` 事件并带上错误信 `'Error: socket hang up'` 和错误码 `'ECONNRESET'`
+* `'close'` 事件
 
-* (`req.destroy()` called here)
-* `'error'` with an error with message `'Error: socket hang up'` and code
-  `'ECONNRESET'`
-* `'close'`
+如果在连接成功之前调用 `req.destroy()`，则按以下顺序触发以下事件：
 
-If `req.destroy()` is called before the connection succeeds, the following
-events will be emitted in the following order:
+* `'socket'` 事件
+* (在这里调用 `req.destroy()`)
+* `'error'` 事件并带上错误信息 `'Error: socket hang up'` 和错误码 `'ECONNRESET'`
+* `'close'` 事件
 
-* `'socket'`
-* (`req.destroy()` called here)
-* `'error'` with an error with message `'Error: socket hang up'` and code
-  `'ECONNRESET'`
-* `'close'`
+如果在响应被接收之后调用 `req.destroy()`，则按以下顺序触发以下事件：
 
-If `req.destroy()` is called after the response is received, the following
-events will be emitted in the following order:
+* `'socket'` 事件
+* `'response'` 事件
+  * `res` 对象上任意次数的 `'data'` 事件
+* (在这里调用 `req.destroy()`)
+* `res` 对象上的 `'aborted'` 事件
+* `'close'` 事件
+* `res` 对象上的 `'close'` 事件
 
-* `'socket'`
-* `'response'`
-  * `'data'` any number of times, on the `res` object
-* (`req.destroy()` called here)
-* `'aborted'` on the `res` object
-* `'close'`
-* `'close'` on the `res` object
+如果在分配 socket 之前调用 `req.abort()`，则按以下顺序触发以下事件：
 
-If `req.abort()` is called before a socket is assigned, the following
-events will be emitted in the following order:
-
-* (`req.abort()` called here)
-* `'abort'`
-* `'close'`
+* (在这里调用 `req.abort()`)
+* `'abort'` 事件
+* `'close'` 事件
 
 如果在连接成功之前调用 `req.abort()`，则按以下顺序触发以下事件：
 
@@ -208,7 +201,6 @@ events will be emitted in the following order:
 * `'abort'` 事件
 * `res` 对象上的 `'aborted'` 事件
 * `'close'` 事件
-* `res` 对象上的 `'end'` 事件
 * `res` 对象上的 `'close'` 事件
 
 设置 `timeout` 选项或使用 `setTimeout()` 函数不会中止请求或执行除添加 `'timeout'` 事件之外的任何操作。

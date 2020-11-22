@@ -43,6 +43,7 @@ changes:
 参见以下关于使用文件描述符的说明。
 
 如果 `data` 是 buffer，则 `encoding` 选项会被忽略。
+如果 `data` 是普通的对象，则它必须具有自身的 `toString` 函数属性。
 
 ```js
 const data = new Uint8Array(Buffer.from('Node.js 中文网'));

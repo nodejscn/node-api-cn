@@ -9,8 +9,7 @@ changes:
     description: Negative `end` values throw an `ERR_INDEX_OUT_OF_RANGE` error.
   - version: v10.0.0
     pr-url: https://github.com/nodejs/node/pull/18129
-    description: Attempting to fill a non-zero length buffer with a zero length
-                 buffer triggers a thrown exception.
+    description: 尝试用零长度的 buffer 填充非零长度的 buffer 会触发抛出异常。
   - version: v10.0.0
     pr-url: https://github.com/nodejs/node/pull/17427
     description: Specifying an invalid string for `value` triggers a thrown

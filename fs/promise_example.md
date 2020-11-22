@@ -1,5 +1,5 @@
 
-基于 Promise 的操作会返回 `Promise`（当异步操作完成时会被解决）。
+基于 promise 的操作会返回 `Promise`（当异步操作完成时被解决）。
 
 ```js
 const fs = require('fs/promises');

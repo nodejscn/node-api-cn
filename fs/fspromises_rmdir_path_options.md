@@ -35,8 +35,5 @@ changes:
 
 对文件（而不是目录）使用 `fsPromises.rmdir()` 会导致 `Promise` 被拒绝，在 Windows 上会带上 `ENOENT` 错误、在 POSIX 上会带上 `ENOTDIR` 错误。
 
-Setting `recursive` to `true` results in behavior similar to the Unix command
-`rm -rf`: an error will not be raised for paths that do not exist, and paths
-that represent files will be deleted. The permissive behavior of the
-`recursive` option is deprecated, `ENOTDIR` and `ENOENT` will be thrown in
-the future.
+设置为 `recursive` 为 `true` 会导致行为类似于 Unix 命令 `rm -rf`：不存在的路径不会引发错误，表示文件的路径会被删除。 
+`recursive` 选项的宽容行为已弃用，未来会抛出 `ENOTDIR` 和 `ENOENT`。

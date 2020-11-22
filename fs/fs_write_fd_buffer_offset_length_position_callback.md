@@ -27,7 +27,7 @@ changes:
 -->
 
 * `fd` {integer}
-* `buffer` {Buffer|TypedArray|DataView}
+* `buffer` {Buffer|TypedArray|DataView|string|Object}
 * `offset` {integer}
 * `length` {integer}
 * `position` {integer}
@@ -37,6 +37,7 @@ changes:
   * `buffer` {Buffer|TypedArray|DataView}
 
 写入 `buffer` 到 `fd` 指定的文件。
+如果 `buffer` 是普通的对象，则它必须具有自身的 `toString` 函数属性。
 
 `offset` 决定 buffer 中要被写入的部位，`length` 是整数，指定要写入的字节数。
 

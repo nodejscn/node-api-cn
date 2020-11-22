@@ -3,19 +3,16 @@ added: v5.10.0
 changes:
   - version: v10.0.0
     pr-url: https://github.com/nodejs/node/pull/18129
-    description: Attempting to fill a non-zero length buffer with a zero length
-                 buffer triggers a thrown exception.
+    description: 尝试用零长度的 buffer 填充非零长度的 buffer 会触发抛出异常。
   - version: v10.0.0
     pr-url: https://github.com/nodejs/node/pull/17427
-    description: Specifying an invalid string for `fill` triggers a thrown
-                 exception.
+    description: 为 `fill` 指定无效的字符串会触发抛出异常。
   - version: v8.9.3
     pr-url: https://github.com/nodejs/node/pull/17428
-    description: Specifying an invalid string for `fill` now results in a
-                 zero-filled buffer.
+    description: 为 `fill` 指定无效的字符串会导致 buffer 以零填充。
 -->
 
-* `size` {integer} 新 `Buffer` 的所需长度。
+* `size` {integer} 新 `Buffer` 的期望长度。
 * `fill` {string|Buffer|Uint8Array|integer} 用于预填充新 `Buffer` 的值。**默认值:** `0`。
 * `encoding` {string} 如果 `fill` 是一个字符串，则这是它的字符编码。**默认值:** `'utf8'`。
 

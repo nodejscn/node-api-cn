@@ -45,7 +45,7 @@ fs.readFile('文件名', (err, data) => {
 如果 `options` 是字符串，则它指定字符编码：
 
 ```js
-fs.readFile('/etc/passwd', 'utf8', callback);
+fs.readFile('文件名', 'utf8', callback);
 ```
 
 当路径是目录时，则 `fs.readFile()` 和 [`fs.readFileSync()`] 的行为是特定于平台的。

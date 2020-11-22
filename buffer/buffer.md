@@ -14,14 +14,14 @@
 `Buffer` 类在全局作用域中，因此无需使用 `require('buffer').Buffer`。
 
 ```js
-// 创建一个长度为 10 的 Buffer，
-// 其中填充了全部值为 `1` 的字节。
+// 创建一个长度为 10、以零填充的 Buffer。
 const buf1 = Buffer.alloc(10);
 
-// 创建一个长度为 10、且用 0x1 填充的 Buffer。 
+// 创建一个长度为 10 的 Buffer，
+// 其中全部填充了值为 `1` 的字节。
 const buf2 = Buffer.alloc(10, 1);
 
-// 创建一个长度为 10、且未初始化的 Buffer。
+// 创建一个长度为 10、且未初始化的 buffer。
 // 这个方法比调用 Buffer.alloc() 更快，
 // 但返回的 Buffer 实例可能包含旧数据，
 // 因此需要使用 fill()、write() 或其他能填充 Buffer 的内容的函数进行重写。
