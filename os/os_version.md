@@ -2,12 +2,9 @@
 added: v13.11.0
 -->
 
-* Returns {string}
+* 返回: {string}
 
-Returns a string identifying the kernel version.
+返回一个操作系统内核版本标识的字符串。
 
-On POSIX systems, the operating system release is determined by calling
-[`uname(3)`][]. On Windows, `RtlGetVersion()` is used, and if it is not
-available, `GetVersionExW()` will be used. See
-<https://en.wikipedia.org/wiki/Uname#Examples> for more information.
+在 POSIX 系统中，操作系统版本由调用[`uname(3)`][]决定；在 Windows 系统中, 将会使用 `RtlGetVersion()` ，如果不可用，那么使用 `GetVersionExW()`。在 https://en.wikipedia.org/wiki/Uname#Examples 查看更多信息。
 
