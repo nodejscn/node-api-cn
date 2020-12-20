@@ -13,6 +13,8 @@ added: v0.1.26
 
 
 ```js
+class MyEmitter extends EventEmitter {}
+
 const myEmitter = new MyEmitter();
 // 只处理一次，避免无限循环。
 myEmitter.once('newListener', (event, listener) => {

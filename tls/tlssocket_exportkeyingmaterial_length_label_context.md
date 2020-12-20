@@ -4,8 +4,8 @@ added: v13.10.0
 
 * `length` {number} number of bytes to retrieve from keying material
 * `label` {string} an application specific label, typically this will be a
-value from the
-[IANA Exporter Label Registry](https://www.iana.org/assignments/tls-parameters/tls-parameters.xhtml#exporter-labels).
+  value from the
+  [IANA Exporter Label Registry](https://www.iana.org/assignments/tls-parameters/tls-parameters.xhtml#exporter-labels).
 * `context` {Buffer} Optionally provide a context.
 
 * Returns: {Buffer} requested bytes of the keying material

@@ -13,8 +13,9 @@ changes:
   * `columnOffset` {number} 定义脚本生成的堆栈跟踪信息所显示的列号偏移。**默认值:** `0`。
   * `displayErrors` {boolean} 当值为 `true` 的时候，假如在解析代码的时候发生错误 [`Error`][]，引起错误的行将会被加入堆栈跟踪信息。**默认值:** `true`。
   * `timeout` {integer} 定义在被终止执行之前此 `code` 被允许执行的最大毫秒数。假如执行被终止，将会抛出一个错误 [`Error`][]。该值必须是严格正整数。
-  * `breakOnSigint` {boolean} 若值为 `true`，当收到 `SIGINT` (Ctrl+C)事件时，代码会被终止执行。
-     此外，通过 `process.on('SIGINT')` 方法所设置的消息响应机制在代码被执行时会被屏蔽，但代码被终止后会被恢复。如果执行被终止，一个错误 [`Error`][] 会被抛出。**默认值:** `false`。
+  * `breakOnSigint` {boolean} 若值为 `true`，接收到 `SIGINT`（<kbd>Ctrl</kbd>+<kbd>C</kbd>）会终止执行并抛出 [`Error`]。
+     通过 `process.on('SIGINT')` 方法所设置的消息响应机制在代码被执行时会被屏蔽，但代码被终止后会被恢复。
+     **默认值:** `false`。
   * `cachedData` {Buffer|TypedArray|DataView} 为源码提供一个可选的存有 V8 代码缓存数据的 `Buffer`、`TypedArray` 或 `TypedArray`。
     如果提供了，则 `cachedDataRejected` 的值将会被设为要么为 `true` 要么为 `false`，这取决于 v8 引擎对数据的接受状况。
   * `produceCachedData` {boolean} 当值为 `true` 且 `cachedData` 不存在的时候，V8 将会试图为 `code` 生成代码缓存数据。

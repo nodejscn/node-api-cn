@@ -1,6 +1,11 @@
 <!-- YAML
 added: v0.1.92
 changes:
+  - version:
+     - v13.2.0
+     - v12.16.0
+    pr-url: https://github.com/nodejs/node/pull/29292
+    description: This function now supports IEEE-P1363 DSA and ECDSA signatures.
   - version: v12.0.0
     pr-url: https://github.com/nodejs/node/pull/26960
     description: This function now supports RSA-PSS keys.

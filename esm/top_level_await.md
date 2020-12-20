@@ -1,4 +1,6 @@
 
+> Stability: 1 - Experimental
+
 The `await` keyword may be used in the top level (outside of async functions)
 within modules as per the [ECMAScript Top-Level `await` proposal][].
 
@@ -20,4 +22,6 @@ console.log(five); // Logs `5`
 ```bash
 node b.mjs # works
 ```
+
+<i id="esm_experimental_loaders"></i>
 

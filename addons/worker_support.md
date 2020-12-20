@@ -32,9 +32,9 @@ such as any libuv handles registered by the addon.
 
 ```cpp
 // addon.cc
+#include <node.h>
 #include <assert.h>
 #include <stdlib.h>
-#include <node.h>
 
 using node::AddEnvironmentCleanupHook;
 using v8::HandleScope;

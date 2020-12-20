@@ -13,8 +13,8 @@ typedef void (*napi_async_cleanup_hook)(napi_async_cleanup_hook_handle handle,
 ```
 
 * `[in] handle`: The handle that must be passed to
-[`napi_remove_async_cleanup_hook`][] after completion of the asynchronous
-cleanup.
+  [`napi_remove_async_cleanup_hook`][] after completion of the asynchronous
+  cleanup.
 * `[in] data`: The data that was passed to [`napi_add_async_cleanup_hook`][].
 
 The body of the function should initiate the asynchronous cleanup actions at the

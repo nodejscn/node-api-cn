@@ -1,7 +1,7 @@
 
-`require` always treats the files it references as CommonJS. This applies
-whether `require` is used the traditional way within a CommonJS environment, or
-in an ES module environment using [`module.createRequire()`][].
+The CommonJS module `require` always treats the files it references as CommonJS.
 
-To include an ES module into CommonJS, use [`import()`][].
+Using `require` to load an ES module is not supported because ES modules have
+asynchronous execution. Instead, use use [`import()`][] to load an ES module
+from a CommonJS module.
 

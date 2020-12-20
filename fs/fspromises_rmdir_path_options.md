@@ -15,8 +15,6 @@ changes:
                   now supported.
 -->
 
-> 稳定性: 1 - 递归的删除是实验性的。
-
 * `path` {string|Buffer|URL}
 * `options` {Object}
   * `maxRetries` {integer} 如果遇到 `EBUSY`、`EMFILE`、`ENFILE`、`ENOTEMPTY` 或 `EPERM` 错误，则 Node.js 会重试该操作（每次尝试时使用 `retryDelay` 毫秒时长的线性回退等待）。

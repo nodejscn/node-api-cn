@@ -12,7 +12,7 @@ A class method that returns the number of listeners for the given `eventName`
 registered on the given `emitter`.
 
 ```js
-const myEmitter = new MyEmitter();
+const myEmitter = new EventEmitter();
 myEmitter.on('event', () => {});
 myEmitter.on('event', () => {});
 console.log(EventEmitter.listenerCount(myEmitter, 'event'));

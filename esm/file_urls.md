@@ -1,8 +1,4 @@
 
-ES modules are resolved and cached based upon
-[URL](https://url.spec.whatwg.org/) semantics. This means that files containing
-special characters such as `#` and `?` need to be escaped.
-
 Modules are loaded multiple times if the `import` specifier used to resolve
 them has a different query or fragment.
 
@@ -11,5 +7,7 @@ import './foo.mjs?query=1'; // loads ./foo.mjs with query of "?query=1"
 import './foo.mjs?query=2'; // loads ./foo.mjs with query of "?query=2"
 ```
 
-For now, only modules using the `file:` protocol can be loaded.
+The volume root may be referenced via `/`, `//` or `file:///`. Given the
+differences between [URL][] and path resolution (such as percent encoding
+details), it is recommended to use [url.pathToFileURL][] when importing a path.
 

@@ -1,5 +1,5 @@
 
-当用户正在 REPL 中输入时，按下 **Enter** 键会把当前行的输入发送到 `eval` 函数。
+在 REPL 提示框中，按下 <kbd>Enter</kbd> 键会把当前行的输入发送到 `eval` 函数。
 为了支持多行输入，`eval` 函数可以返回一个 `repl.Recoverable` 实例给提供的回调函数：
 
 ```js

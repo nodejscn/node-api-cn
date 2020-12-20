@@ -18,7 +18,7 @@ changes:
   </tr>
   <tr>
     <td><code>SIGINT</code></td>
-    <td>发送来表明当一个用户期望中断一个进程时。(<code>(Ctrl+C)</code>).</td>
+    <td>发送来表明当一个用户期望中断一个进程时（<kbd>Ctrl</kbd>+<kbd>C</kbd>）。</td>
   </tr>
   <tr>
     <td><code>SIGQUIT</code></td>

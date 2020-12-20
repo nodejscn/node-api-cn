@@ -9,7 +9,7 @@ forwards.
 
 Duplicated history entires will be skipped.
 
-Entries are accepted as soon as any button is pressed that doesn't correspond
+Entries are accepted as soon as any key is pressed that doesn't correspond
 with the reverse search. Cancelling is possible by pressing <kbd>Esc</kbd> or
 <kbd>Ctrl</kbd>+<kbd>C</kbd>.
 

@@ -4,10 +4,12 @@
 
 可能的参数：
 
+<!--lint disable no-undefined-references-->
 * [`server.listen(handle[, backlog][, callback])`][`server.listen(handle)`]
 * [`server.listen(options[, callback])`][`server.listen(options)`]
 * [`server.listen(path[, backlog][, callback])`][`server.listen(path)`] 用于 [IPC] 服务器。
 * [server.listen([port[, host[, backlog]]][, callback])][server_listen_port] 用于 TCP 服务器。
+<!--lint enable no-undefined-references-->
 
 这个函数是异步的。当服务器开始监听时，会触发 [`'listening'`] 事件。
 最后一个参数 `callback` 将被添加为 [`'listening'`] 事件的监听器。

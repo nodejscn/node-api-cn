@@ -4,9 +4,9 @@ added: v0.1.98
 
 * `data` {string}
 * `key` {Object}
-  * `ctrl` {boolean} `true` 表示 `<ctrl>` 键。
-  * `meta` {boolean} `true` 表示 `<Meta>` 键。
-  * `shift` {boolean} `true` 表示 `<Shift>` 键。
+  * `ctrl` {boolean} `true` 表示 <kbd>Ctrl</kbd> 键。
+  * `meta` {boolean} `true` 表示 <kbd>Meta</kbd> 键。
+  * `shift` {boolean} `true` 表示 <kbd>Shift</kbd> 键。
   * `name` {string} 按键的名称。
 
 `rl.write()` 方法将 `data` 或 `key` 标识的按键序列写入 `output`。
@@ -21,7 +21,7 @@ added: v0.1.98
 
 ```js
 rl.write('删除这个！');
-// 模拟 Ctrl+u 删除先前写入的行。
+// 模拟 Ctrl+U 删除先前写入的行。
 rl.write(null, { ctrl: true, name: 'u' });
 ```
 

@@ -18,9 +18,11 @@ changes:
 * `callback` {Function}
 * 返回: {net.Server}
 
+<!--lint disable no-undefined-references-->
 如果指定了 `port` 参数，该方法的行为跟 [server.listen([port[, host[, backlog]]][, callback])][server_listen_port] 一样。
 否则，如果指定了 `path` 参数，该方法的行为与 [`server.listen(path[, backlog][, callback])`][`server.listen(path)`] 一致。
 如果没有 `port` 或者 `path` 参数，则会抛出一个错误。
+<!--lint enable no-undefined-references-->
 
 如果 `exclusive` 是 `false`（默认），则集群的所有进程将使用相同的底层句柄，允许共享连接处理任务。如果 `exclusive` 是 `true`，则句柄不会被共享，如果尝试端口共享将导致错误。监听独立端口的例子如下。
 

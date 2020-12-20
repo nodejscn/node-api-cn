@@ -24,9 +24,10 @@ changes:
     不推荐使用此选项，而应该使用 `script.createCachedData()`。**默认值:** `false`。
   * `importModuleDynamically` {Function} 在调用 `import()` 时评估此模块期间调用。 
     如果未指定此选项，则对 `import()` 的调用将拒绝 [`ERR_VM_DYNAMIC_IMPORT_CALLBACK_MISSING`]。 
-    此选项是实验的模块的 API 的一部分，不应被视为稳定。
+    此选项是实验的模块的 API 的一部分。
+    不建议在生产环境中使用。
      * `specifier` {string} 传给 `import()` 的说明符。
-     * `module` {vm.Module}
+     * `script` {vm.Script}
      * 返回: {Module Namespace Object|vm.Module} 返回 `vm.Module` 以利用错误跟踪，并避免出现包含 `then` 函数导出的命名空间问题。
     
 如果 `options` 是字符串，则它指定文件名。

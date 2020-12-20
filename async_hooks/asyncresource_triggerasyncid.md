@@ -1,5 +1,5 @@
 
 * Returns: {number} The same `triggerAsyncId` that is passed to the
-`AsyncResource` constructor.
+  `AsyncResource` constructor.
 
 <a id="async-resource-worker-pool"></a>

@@ -14,7 +14,7 @@ napi_status napi_typeof(napi_env env, napi_value value, napi_valuetype* result)
 Returns `napi_ok` if the API succeeded.
 
 * `napi_invalid_arg` if the type of `value` is not a known ECMAScript type and
- `value` is not an External value.
+  `value` is not an External value.
 
 This API represents behavior similar to invoking the `typeof` Operator on
 the object as defined in [Section 12.5.5][] of the ECMAScript Language

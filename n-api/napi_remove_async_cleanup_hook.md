@@ -14,7 +14,7 @@ NAPI_EXTERN napi_status napi_remove_async_cleanup_hook(
 ```
 
 * `[in] remove_handle`: The handle to an asynchronous cleanup hook that was
-created with [`napi_add_async_cleanup_hook`][].
+  created with [`napi_add_async_cleanup_hook`][].
 
 Unregisters the cleanup hook corresponding to `remove_handle`. This will prevent
 the hook from being executed, unless it has already started executing.

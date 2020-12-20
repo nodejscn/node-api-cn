@@ -1,4 +1,6 @@
 
+> Stability: 1 - Experimental
+
 Currently importing JSON modules are only supported in the `commonjs` mode
 and are loaded using the CJS loader. [WHATWG JSON modules specification][] are
 still being standardized, and are experimentally supported by including the
@@ -26,4 +28,6 @@ to work.
 node index.mjs # fails
 node --experimental-json-modules index.mjs # works
 ```
+
+<i id="esm_experimental_wasm_modules"></i>
 

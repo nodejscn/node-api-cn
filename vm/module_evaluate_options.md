@@ -3,11 +3,11 @@
   * `timeout` {integer} Specifies the number of milliseconds to evaluate
     before terminating execution. If execution is interrupted, an [`Error`][]
     will be thrown. This value must be a strictly positive integer.
-  * `breakOnSigint` {boolean} If `true`, the execution will be terminated when
-    `SIGINT` (Ctrl+C) is received. Existing handlers for the event that have
-    been attached via `process.on('SIGINT')` will be disabled during script
-    execution, but will continue to work after that. If execution is
-    interrupted, an [`Error`][] will be thrown. **Default:** `false`.
+  * `breakOnSigint` {boolean} If `true`, receiving `SIGINT`
+    (<kbd>Ctrl</kbd>+<kbd>C</kbd>) will terminate execution and throw an
+    [`Error`][]. Existing handlers for the event that have been attached via
+    `process.on('SIGINT')` are disabled during script execution, but continue to
+    work after that. **Default:** `false`.
 * Returns: {Promise}
 
 Evaluate the module.

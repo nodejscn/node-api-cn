@@ -22,6 +22,8 @@ changes:
     description: Implement conditional exports.
 -->
 
+> Stability: 1 - Experimental
+
 * Type: {Object} | {string} | {string[]}
 
 ```json

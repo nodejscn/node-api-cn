@@ -26,3 +26,5 @@ $ node --harmony script.js --version
 ['/usr/local/bin/node', 'script.js', '--version']
 ```
 
+关于具有此属性的工作线程的详细行为，详见 [`Worker` 构造函数][`Worker` constructor]。
+

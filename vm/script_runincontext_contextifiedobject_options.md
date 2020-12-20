@@ -10,8 +10,9 @@ changes:
 * `options` {Object}
   * `displayErrors` {boolean} 当值为 `true` 的时候，假如在解析代码的时候发生错误 [`Error`][]，引起错误的行将会被加入堆栈跟踪信息。**默认值:** `true`。
   * `timeout` {integer} 定义在被终止执行之前此 `code` 被允许执行的最大毫秒数。假如执行被终止，将会抛出一个错误 [`Error`][]。该值必须是严格正整数。
-  * `breakOnSigint` {boolean} 若值为 `true`，当收到 `SIGINT` (Ctrl+C)事件时，代码会被终止执行。
-     此外，通过 `process.on('SIGINT')` 方法所设置的消息响应机制在代码被执行时会被屏蔽，但代码被终止后会被恢复。如果执行被终止，一个错误 [`Error`][] 会被抛出。**默认值:** `false`。
+  * `breakOnSigint` {boolean} 若值为 `true`，接收到 `SIGINT`（<kbd>Ctrl</kbd>+<kbd>C</kbd>）会终止执行并抛出 [`Error`]。
+     通过 `process.on('SIGINT')` 方法所设置的消息响应机制在代码被执行时会被屏蔽，但代码被终止后会被恢复。
+     **默认值:** `false`。
 * 返回: {any} 脚本中执行的最后一个语句的结果。
 
 在指定的 `contextifiedObject` 中执行 `vm.Script` 对象中被编译后的代码并返回其结果。被执行的代码无法获取本地作用域。

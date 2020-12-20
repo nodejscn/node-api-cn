@@ -2,7 +2,7 @@
 added: v0.7.5
 -->
 
-每当 `input` 流接收到 `<ctrl>-Z` 输入（通常称为 `SIGTSTP`）时，就会触发 `'SIGTSTP'` 事件。
+每当 `input` 流接收到 <kbd>Ctrl</kbd>+<kbd>Z</kbd> 输入（通常称为 `SIGTSTP`）时，就会触发 `'SIGTSTP'` 事件。
 如果当 `input` 流接收到 `SIGTSTP` 时没有注册 `'SIGTSTP'` 事件监听器，则 Node.js 进程将被发送到后台。
 
 当使用 fg(1p) 恢复程序时，将触发 `'pause'` 和 `'SIGCONT'` 事件。

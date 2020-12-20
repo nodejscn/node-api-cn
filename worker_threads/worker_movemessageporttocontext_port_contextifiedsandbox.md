@@ -18,6 +18,6 @@ inherit from its global `Object` class. Objects passed to the
 and inherit from its global `Object` class.
 
 However, the created `MessagePort` will no longer inherit from
-[`EventEmitter`][], and only [`port.onmessage()`][] can be used to receive
+[`EventTarget`][], and only [`port.onmessage()`][] can be used to receive
 events using it.
 

@@ -15,7 +15,7 @@ napi_status napi_check_object_type_tag(napi_env env,
 * `[in] js_object`: The JavaScript object whose type tag to examine.
 * `[in] type_tag`: The tag with which to compare any tag found on the object.
 * `[out] result`: Whether the type tag given matched the type tag on the
-object. `false` is also returned if no type tag was found on the object.
+  object. `false` is also returned if no type tag was found on the object.
 
 Returns `napi_ok` if the API succeeded.
 

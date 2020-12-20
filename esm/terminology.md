@@ -3,27 +3,30 @@ The _specifier_ of an `import` statement is the string after the `from` keyword,
 e.g. `'path'` in `import { sep } from 'path'`. Specifiers are also used in
 `export from` statements, and as the argument to an `import()` expression.
 
-There are four types of specifiers:
-
-* _Bare specifiers_ like `'some-package'`. They refer to an entry point of a
-  package by the package name.
-
-* _Deep import specifiers_ like `'some-package/lib/shuffle.mjs'`. They refer to
-  a path within a package prefixed by the package name.
+There are three types of specifiers:
 
 * _Relative specifiers_ like `'./startup.js'` or `'../config.mjs'`. They refer
-  to a path relative to the location of the importing file.
+  to a path relative to the location of the importing file. _The file extension
+  is always necessary for these._
+
+* _Bare specifiers_ like `'some-package'` or `'some-package/shuffle'`. They can
+  refer to the main entry point of a package by the package name, or a
+  specific feature module within a package prefixed by the package name as per
+  the examples respectively. _Including the file extension is only necessary
+  for packages without an [`"exports"`][] field._
 
 * _Absolute specifiers_ like `'file:///opt/nodejs/config.js'`. They refer
   directly and explicitly to a full path.
 
-Bare specifiers, and the bare specifier portion of deep import specifiers, are
-strings; but everything else in a specifier is a URL.
+Bare specifier resolutions are handled by the [Node.js module resolution
+algorithm][]. All other specifier resolutions are always only resolved with
+the standard relative [URL][] resolution semantics.
 
-`file:`, `node:`, and `data:` URLs are supported. A specifier like
-`'https://example.com/app.js'` may be supported by browsers but it is not
-supported in Node.js.
+Like in CommonJS, module files within packages can be accessed by appending a
+path to the package name unless the package’s [`package.json`][] contains an
+[`"exports"`][] field, in which case files within packages can only be accessed
+via the paths defined in [`"exports"`][].
 
-Specifiers may not begin with `/` or `//`. These are reserved for potential
-future use. The root of the current volume may be referenced via `file:///`.
+For details on these package resolution rules that apply to bare specifiers in
+the Node.js module resolution, see the [packages documentation](packages.md).
 

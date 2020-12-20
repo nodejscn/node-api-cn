@@ -3,7 +3,7 @@ added: v0.0.1
 -->
 
 * `callback` {Function} 当定时器到点时调用的函数。
-* `delay` {number} 调用 `callback` 之前等待的毫秒数。
+* `delay` {number} 调用 `callback` 之前等待的毫秒数。**默认值**: `1`。
 * `...args` {any} 当调用 `callback` 时传入的可选参数。
 * 返回: {Timeout} 用于 [`clearTimeout()`]。
 

@@ -20,7 +20,7 @@ NAPI_EXTERN napi_status napi_add_async_cleanup_hook(
 * `[in] hook`: The function pointer to call at environment teardown.
 * `[in] arg`: The pointer to pass to `hook` when it gets called.
 * `[out] remove_handle`: Optional handle that refers to the asynchronous cleanup
-hook.
+  hook.
 
 Registers `hook`, which is a function of type [`napi_async_cleanup_hook`][], as
 a function to be run with the `remove_handle` and `arg` parameters once the

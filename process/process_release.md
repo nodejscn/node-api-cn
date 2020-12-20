@@ -12,7 +12,7 @@ changes:
 
 `process.release` 包括如下属性：
 
-* `name` {string} 对于 Node.js，此值始终为 `'node'`。对于传统的 io.js 发布包，此值为 `'io.js'`。
+* `name` {string} 此值始终为 `'node'`。
 * `sourceUrl` {string} 指向一个_`.tar.gz`_文件的绝对 URL，包括了当前发布的源代码。
 * `headersUrl`{string} 指向一个_`.tar.gz`_文件的绝对 URL，包括了当前发布的源代码的头文件信息。
   这个文件要比全部源代码文件明显小很多，可以用于编译 Node.js 原生插件。

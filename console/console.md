@@ -24,7 +24,15 @@ console.log('你好世界');
 console.log('你好%s', '世界');
 // 打印到 stdout: 你好世界
 console.error(new Error('错误信息'));
-// 打印到 stderr: [Error: 错误信息]
+// 打印错误信息和堆栈跟踪到 stderr：
+//   Error: 错误信息
+//     at [eval]:5:15
+//     at Script.runInThisContext (node:vm:132:18)
+//     at Object.runInThisContext (node:vm:309:38)
+//     at node:internal/process/execution:77:19
+//     at [eval]-wrapper:6:22
+//     at evalScript (node:internal/process/execution:76:60)
+//     at node:internal/main/eval_string:23:3
 
 const name = '描述';
 console.warn(`警告${name}`);
