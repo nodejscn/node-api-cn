@@ -18,7 +18,6 @@ const assert = require('assert');
 特别是对于 [`assert.deepEqual()`]，其中的比较规则是松散的：
 
 ```js
-// 注意：这不会抛出 AssertionError！
 assert.deepEqual(/a/gi, new Date());
 ```
 
