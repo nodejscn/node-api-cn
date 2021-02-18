@@ -1,7 +1,7 @@
 
 * {number}
 
-This property refers to the value of underlying file descriptor of
-`process.stdout`. The value is fixed at `1`. In [`Worker`][] threads,
-this field does not exist.
+此属性指向 `process.stdout` 的底层文件描述符的值。
+该值固定为 `1`。
+在 [`Worker`] 线程中，此字段不存在。
 

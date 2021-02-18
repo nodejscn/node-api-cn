@@ -10,7 +10,7 @@ added: v8.0.0
   * `detail` {string} 错误的附加信息。
 
 `process.emitWarning()` 方法可用于触发自定义或应用特定的进程警告。
-可以通过给 [`'warning'`][process_warning] 事件增加处理程序来监听这些警告。
+可以通过给 [`'warning'`][process_warning] 事件增加句柄来监听这些警告。
 
 ```js
 // 使用代码和其他详细信息触发警告。

@@ -4,9 +4,9 @@ added: v1.4.1
 
 * `promise` {Promise} 最近处理的 Promise。
 
-每当 `Promise` 被拒绝并且错误处理函数附加到它（例如，使用 [`promise.catch()`]）晚于一个 Node.js 事件循环时，就会触发 `'rejectionHandled'` 事件。
+每当 `Promise` 被拒绝并且错误句柄附加到它（例如，使用 [`promise.catch()`]）晚于一个 Node.js 事件循环时，就会触发 `'rejectionHandled'` 事件。
 
-`Promise` 对象之前已经在 `'unhandledRejection'` 事件中触发，但在处理过程中获得了拒绝处理函数。
+`Promise` 对象之前已经在 `'unhandledRejection'` 事件中触发，但在处理过程中获得了拒绝句柄。
 
 `Promise` 链中没有顶层的概念，总是可以处理拒绝。
 本质上自身是异步的，可以在未来的某个时间点处理 `Promise` 拒绝，可能比触发 `'unhandledRejection'` 事件所需的事件循环更晚。

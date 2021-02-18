@@ -3,23 +3,23 @@ added: v0.2.0
 changes:
   - version: v9.0.0
     pr-url: https://github.com/nodejs/node/pull/15785
-    description: The `v8` property now includes a Node.js specific suffix.
+    description: 属性 `v8` 会包含 Node.js 特定的后缀。
   - version: v4.2.0
     pr-url: https://github.com/nodejs/node/pull/3102
-    description: The `icu` property is now supported.
+    description: 支持 `icu` 属性。
 -->
 
 * {Object}
 
-`process.versions`属性返回一个对象，此对象列出了Node.js和其依赖的版本信息。
-`process.versions.modules`表明了当前ABI版本，此版本会随着一个C++API变化而增加。
-Node.js会拒绝加载模块，如果这些模块使用一个不同ABI版本的模块进行编译。
+`process.versions` 属性会返回列出 Node.js 及其依赖的版本字符串的对象。
+`process.versions.modules` 表明当前的 ABI 版本，其会随着 C++ API 的变化而增加。
+Node.js 会拒绝加载使用不同的模块 ABI 版本编译的模块。
 
 ```js
 console.log(process.versions);
 ```
 
-会显示类似下面的对象信息:
+会符合类似以下的对象:
 
 ```console
 { node: '11.13.0',

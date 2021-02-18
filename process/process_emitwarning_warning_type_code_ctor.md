@@ -8,7 +8,7 @@ added: v6.0.0
 * `ctor` {Function} 当 `warning` 是一个 `String` 时，则 `ctor` 是一个可选的函数，用于限制生成的堆栈信息。**默认值:** `process.emitWarning`。
 
 `process.emitWarning()` 方法可用于触发自定义或应用特定的进程警告。
-可以通过给 [`'warning'`][process_warning] 事件增加处理程序来监听这些警告。
+可以通过给 [`'warning'`][process_warning] 事件增加句柄来监听这些警告。
 
 ```js
 // 使用字符串触发警告。
@@ -38,7 +38,7 @@ process.on('warning', (warning) => {
 });
 ```
 
-如果 `warning` 是一个 `Error` 对象，则它将会被透传给 `'warning'` 事件处理程序（并且将会忽略可选的 `type`、`code` 和 `ctor` 参数）：
+如果 `warning` 是一个 `Error` 对象，则它将会被透传给 `'warning'` 事件句柄（并且将会忽略可选的 `type`、`code` 和 `ctor` 参数）：
 
 ```js
 // 使用错误对象触发警告。

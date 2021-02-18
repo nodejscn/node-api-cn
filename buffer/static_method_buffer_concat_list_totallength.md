@@ -3,7 +3,7 @@ added: v0.7.11
 changes:
   - version: v8.0.0
     pr-url: https://github.com/nodejs/node/pull/10236
-    description: The elements of `list` can now be `Uint8Array`s.
+    description: 参数 `list` 的元素现在可以是 `Uint8Array`。
 -->
 
 * `list` {Buffer[] | Uint8Array[]} 要合并的 `Buffer` 数组或 [`Uint8Array`] 数组。
@@ -38,5 +38,6 @@ console.log(bufA.length);
 // 打印: 42
 ```
 
-`Buffer.concat()` may also use the internal `Buffer` pool like
-[`Buffer.allocUnsafe()`][] does.
+`Buffer.concat()` 也可以像 [`Buffer.allocUnsafe()`] 一样使用内部的 `Buffer` 池。
+
+
