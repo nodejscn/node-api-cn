@@ -31,8 +31,7 @@ changes:
 
 如果发生错误，则 `err.code` 会是[常见的系统错误][Common System Errors]之一。
 
-不建议在调用 `fs.open()`、`fs.readFile()` 或 `fs.writeFile()` 之前使用 `fs.stat()` 检查文件的存在性。
-而是应该直接地打开、读取或写入文件，如果文件不可用，则处理引发的错误。
+尽量不要在 `fs.open()`、`fs.readFile()` 或 `fs.writeFile()` 之前使用 `fs.stat()` 来检查文件是否存在，因为前面的这些方法如果找不到文件会直接报错的。所以请直接调用 `fs.open()`、`fs.readFile()` 或 `fs.writeFile()` 
 
 若要只检查文件是否存在，但没有更多的操作，则建议使用 [`fs.access()`]。
 
