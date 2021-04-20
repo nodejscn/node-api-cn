@@ -6,7 +6,7 @@ changes:
     description: The default timeout changed from 120s to 0 (no timeout).
 -->
 
-* {number} 超时时间（以毫秒为单位）。**默认值:** `120000`（2 分钟）。
+* {number} 超时时间（以毫秒为单位）。**默认值:** `0`（禁用）。
 
 认定套接字超时的不活动毫秒数。
 
