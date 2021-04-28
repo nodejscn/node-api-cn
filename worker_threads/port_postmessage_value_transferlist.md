@@ -12,20 +12,17 @@ changes:
 * `value` {any}
 * `transferList` {Object[]}
 
-Sends a JavaScript value to the receiving side of this channel.
-`value` will be transferred in a way which is compatible with
-the [HTML structured clone algorithm][].
+发送一个JavaScript值给一个接收端。
+`value` 使用兼容 [HTML结构化克隆算法][] 的方式传输。
 
-In particular, the significant differences to `JSON` are:
+它与一般 `JSON` 的显著区别:
 
-* `value` may contain circular references.
-* `value` may contain instances of builtin JS types such as `RegExp`s,
-  `BigInt`s, `Map`s, `Set`s, etc.
-* `value` may contain typed arrays, both using `ArrayBuffer`s
-   and `SharedArrayBuffer`s.
-* `value` may contain [`WebAssembly.Module`][] instances.
-* `value` may not contain native (C++-backed) objects other than `MessagePort`s,
-  [`FileHandle`][]s, and [`KeyObject`][]s.
+* `value` 可以包含循环引用。
+* `value` 可以包含一些内建JS类型，例如：`RegExp`, `BigInt`, `Map`, `Set` 等。
+* `value` 可以包含基于 `ArrayBuffer` 和 `SharedArrayBuffer` 的类型数组。
+* `value` 可以包含 [`WebAssembly.Module`][] 实例。
+* `value` 不能包含 native(需C++模块支持的) 对象，
+但以下除外：`MessagePort`、[`FileHandle`][] 和 [`KeyObject`][]。
 
 ```js
 const { MessageChannel } = require('worker_threads');
@@ -35,22 +32,20 @@ port1.on('message', (message) => console.log(message));
 
 const circularData = {};
 circularData.foo = circularData;
-// Prints: { foo: [Circular] }
+// 打印: { foo: [Circular] }
 port2.postMessage(circularData);
 ```
 
-`transferList` may be a list of [`ArrayBuffer`][], [`MessagePort`][] and
-[`FileHandle`][] objects.
-After transferring, they will not be usable on the sending side of the channel
-anymore (even if they are not contained in `value`). Unlike with
-[child processes][], transferring handles such as network sockets is currently
-not supported.
+`transferList`（转移列表）是一个可以包含 [`ArrayBuffer`][]、[`MessagePort`][] 和[`FileHandle`][] 对象的数组。
+被转移（至另一个线程/上下文）后，这些对象（在当前上下文）将无法再被使用（即使他们不被包含在 `value` 中）。
+不同于[child processes][]，转移像socket连接这样的句柄(handle)目前尚不支持。
 
-If `value` contains [`SharedArrayBuffer`][] instances, those will be accessible
-from either thread. They cannot be listed in `transferList`.
+如果 `value` 包含 [`SharedArrayBuffer`][] 实例，
+则这些实例（的内存）将可以被另一个线程直接访问。
+并且他们无法被放入 `transferList`。
 
-`value` may still contain `ArrayBuffer` instances that are not in
-`transferList`; in that case, the underlying memory is copied rather than moved.
+`value` 可以包含 `ArrayBuffer` 实例，但可以不把他们放入
+`transferList`；此时，底层内存将被拷贝而非转移。
 
 ```js
 const { MessageChannel } = require('worker_threads');
@@ -59,31 +54,27 @@ const { port1, port2 } = new MessageChannel();
 port1.on('message', (message) => console.log(message));
 
 const uint8Array = new Uint8Array([ 1, 2, 3, 4 ]);
-// This posts a copy of `uint8Array`:
+// 发送 `uint8Array` 的一份拷贝:
 port2.postMessage(uint8Array);
-// This does not copy data, but renders `uint8Array` unusable:
+// 不会拷贝数据, 但是 `uint8Array` 无法再被使用
 port2.postMessage(uint8Array, [ uint8Array.buffer ]);
 
-// The memory for the `sharedUint8Array` will be accessible from both the
-// original and the copy received by `.on('message')`:
+// `sharedUint8Array` 的内存可以同时被发送端和接收端访问
 const sharedUint8Array = new Uint8Array(new SharedArrayBuffer(4));
 port2.postMessage(sharedUint8Array);
 
-// This transfers a freshly created message port to the receiver.
-// This can be used, for example, to create communication channels between
-// multiple `Worker` threads that are children of the same parent thread.
+// 发送一个 `MessagePort` 给接收者
+// 可以被用来让衍生的子工作线程之间互相通信
 const otherChannel = new MessageChannel();
 port2.postMessage({ port: otherChannel.port1 }, [ otherChannel.port1 ]);
 ```
 
-Because the object cloning uses the structured clone algorithm,
-non-enumerable properties, property accessors, and object prototypes are
-not preserved. In particular, [`Buffer`][] objects will be read as
-plain [`Uint8Array`][]s on the receiving side.
+由于使用结构化克隆算法来克隆对象，
+不可枚举属性、属性访问器、对象原型将无法被保留。
+需要特别注意，[`Buffer`][] 对象在接收端会以 [`Uint8Array`][] 类型被读取。
 
-The message object will be cloned immediately, and can be modified after
-posting without having side effects.
+发送后对象会被立即克隆，之后的修改不会造成任何影响。
 
-For more information on the serialization and deserialization mechanisms
-behind this API, see the [serialization API of the `v8` module][v8.serdes].
+更多关于此API的序列化和反序列化机制的内容,
+参考 [serialization API of the `v8` module][v8.serdes]。
 
