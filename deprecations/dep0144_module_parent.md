@@ -7,7 +7,7 @@ changes:
     description: Documentation-only deprecation.
 -->
 
-Type: Documentation-only
+Type: Documentation-only (supports [`--pending-deprecation`][])
 
 A CommonJS module can access the first module that required it using
 `module.parent`. This feature is deprecated because it does not work

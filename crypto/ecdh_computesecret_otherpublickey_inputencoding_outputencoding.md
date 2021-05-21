@@ -10,7 +10,7 @@ changes:
     description: The default `inputEncoding` changed from `binary` to `utf8`.
 -->
 
-* `otherPublicKey` {string | Buffer | TypedArray | DataView}
+* `otherPublicKey` {string|ArrayBuffer|Buffer|TypedArray|DataView}
 * `inputEncoding` {string} The [encoding][] of the `otherPublicKey` string.
 * `outputEncoding` {string} The [encoding][] of the return value.
 * Returns: {Buffer | string}

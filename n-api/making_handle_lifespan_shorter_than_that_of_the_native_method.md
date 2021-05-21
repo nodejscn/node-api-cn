@@ -18,13 +18,13 @@ substantial resources. In addition, even though the native code could only
 use the most recent handle, all of the associated objects would also be
 kept alive since they all share the same scope.
 
-To handle this case, N-API provides the ability to establish a new 'scope' to
+To handle this case, Node-API provides the ability to establish a new 'scope' to
 which newly created handles will be associated. Once those handles
 are no longer required, the scope can be 'closed' and any handles associated
 with the scope are invalidated. The methods available to open/close scopes are
 [`napi_open_handle_scope`][] and [`napi_close_handle_scope`][].
 
-N-API only supports a single nested hierarchy of scopes. There is only one
+Node-API only supports a single nested hierarchy of scopes. There is only one
 active scope at any time, and all new handles will be associated with that
 scope while it is active. Scopes must be closed in the reverse order from
 which they are opened. In addition, all scopes created within a native method
@@ -55,8 +55,8 @@ for (int i = 0; i < 1000000; i++) {
 ```
 
 When nesting scopes, there are cases where a handle from an
-inner scope needs to live beyond the lifespan of that scope. N-API supports an
-'escapable scope' in order to support this case. An escapable scope
+inner scope needs to live beyond the lifespan of that scope. Node-API supports
+an 'escapable scope' in order to support this case. An escapable scope
 allows one handle to be 'promoted' so that it 'escapes' the
 current scope and the lifespan of the handle changes from the current
 scope to that of the outer scope.

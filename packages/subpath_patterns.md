@@ -1,5 +1,8 @@
-
-> Stability: 1 - Experimental
+<!-- YAML
+added:
+  - v14.13.0
+  - v12.20.0
+-->
 
 For packages with a small number of exports or imports, we recommend
 explicitly listing each exports subpath entry. But for packages that have

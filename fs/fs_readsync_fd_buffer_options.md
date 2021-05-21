@@ -1,7 +1,11 @@
 <!-- YAML
-added: v14.0.0
+added:
+ - v13.13.0
+ - v12.17.0
 changes:
-  - version: v14.0.0
+  - version:
+     - v13.13.0
+     - v12.17.0
     pr-url: https://github.com/nodejs/node/pull/32460
     description: Options object can be passed in
                  to make offset, length and position optional.
@@ -11,8 +15,8 @@ changes:
 * `buffer` {Buffer|TypedArray|DataView}
 * `options` {Object}
   * `offset` {integer} **Default:** `0`
-  * `length` {integer} **Default:** `buffer.length`
-  * `position` {integer} **Default:** `null`
+  * `length` {integer} **Default:** `buffer.byteLength`
+  * `position` {integer|bigint} **Default:** `null`
 * Returns: {number}
 
 Returns the number of `bytesRead`.

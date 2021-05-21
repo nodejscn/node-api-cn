@@ -1,8 +1,12 @@
 <!-- YAML
 added: v12.3.0
+changes:
+  - version: v15.12.0
+    pr-url: https://github.com/nodejs/node/pull/37535
+    description: The port argument can also refer to a `BroadcastChannel` now.
 -->
 
-* `port` {MessagePort}
+* `port` {MessagePort|BroadcastChannel}
 
 * Returns: {Object|undefined}
 
@@ -22,6 +26,6 @@ console.log(receiveMessageOnPort(port2));
 // Prints: undefined
 ```
 
-When this function is used, no `'message'` event will be emitted and the
-`onmessage` listener will not be invoked.
+When this function is used, no `'message'` event is emitted and the
+`onmessage` listener is not invoked.
 

@@ -1,6 +1,8 @@
 
 <!-- YAML
-added: v13.9.0
+added:
+ - v13.9.0
+ - v12.17.0
 -->
 
 * Returns: {Object} The resource representing the current execution.

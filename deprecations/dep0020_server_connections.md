@@ -1,5 +1,8 @@
 <!-- YAML
 changes:
+  - version: v15.0.0
+    pr-url: https://github.com/nodejs/node/pull/33647
+    description: Server.connections has been removed.
   - version:
     - v6.12.0
     - v4.8.6
@@ -10,8 +13,8 @@ changes:
     description: Runtime deprecation.
 -->
 
-Type: Runtime
+Type: End-of-Life
 
-The [`Server.connections`][] property is deprecated. Please use the
-[`Server.getConnections()`][] method instead.
+The `Server.connections` property was deprecated in Node.js v0.9.7 and has
+been removed. Please use the [`Server.getConnections()`][] method instead.
 

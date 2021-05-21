@@ -12,7 +12,7 @@ napi_status napi_set_instance_data(napi_env env,
                                    void* finalize_hint);
 ```
 
-* `[in] env`: The environment that the N-API call is invoked under.
+* `[in] env`: The environment that the Node-API call is invoked under.
 * `[in] data`: The data item to make available to bindings of this instance.
 * `[in] finalize_cb`: The function to call when the environment is being torn
   down. The function receives `data` so that it might free it.

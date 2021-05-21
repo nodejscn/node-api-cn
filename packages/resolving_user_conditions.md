@@ -1,3 +1,8 @@
+<!-- YAML
+added:
+  - v14.9.0
+  - v12.19.0
+-->
 
 When running Node.js, custom user conditions can be added with the
 `--conditions` flag:

@@ -5,15 +5,15 @@ added:
 changes:
   - version: v10.0.0
     pr-url: https://github.com/nodejs/node/pull/18281
-    description: The class is now available on the global object.
+    description: 该类现在在全局的对象上是可用的。
 -->
 
-`URLSearchParams` API 提供对 `URL` 查询部分的读写权限。
-`URLSearchParams` 类也能够与以下四个构造函数中的任意一个单独使用。
-`URLSearchParams` 类也可在全局对象上使用。
+`URLSearchParams` API 提供对一个 `URL` 的查询的读写访问。
+`URLSearchParams` 类也可以被与以下的四个构造器之一一起单独使用。
+`URLSearchParams` 类也是在全局的对象上可用的。
 
-WHATWG `URLSearchParams` 接口和 [`querystring`] 模块有相似的目的，但是 [`querystring`] 模块的目的更加通用，因为它可以定制分隔符（`＆` 和 `=`）。
-但另一方面，这个 API 是专门为 URL 查询字符串而设计的。
+WHATWG `URLSearchParams` 接口和 [`querystring`] 模块具有相似的用途，但是 [`querystring`] 模块的用途更加通用，因为它允许分隔符（`＆` 和 `=`）的自定义。
+另一方面，此 API 被纯粹地设计用于 URL 查询字符串。
 
 ```js
 const myURL = new URL('https://example.org/?abc=123');
@@ -30,7 +30,7 @@ console.log(myURL.href);
 // 打印 https://example.org/?a=b
 
 const newSearchParams = new URLSearchParams(myURL.searchParams);
-// 上面的代码等同于：
+// 以上的代码等效于
 // const newSearchParams = new URLSearchParams(myURL.search);
 
 newSearchParams.append('a', 'c');
@@ -39,7 +39,7 @@ console.log(myURL.href);
 console.log(newSearchParams.toString());
 // 打印 a=b&a=c
 
-// newSearchParams.toString() 会被隐式调用。
+// newSearchParams.toString() 被隐式地调用。
 myURL.search = newSearchParams;
 console.log(myURL.href);
 // 打印 https://example.org/?a=b&a=c

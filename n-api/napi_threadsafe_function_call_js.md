@@ -13,7 +13,7 @@ The data arriving from the secondary thread via the queue is given in the `data`
 parameter and the JavaScript function to call is given in the `js_callback`
 parameter.
 
-N-API sets up the environment prior to calling this callback, so it is
+Node-API sets up the environment prior to calling this callback, so it is
 sufficient to call the JavaScript function via `napi_call_function` rather than
 via `napi_make_callback`.
 
@@ -35,7 +35,7 @@ typedef void (*napi_threadsafe_function_call_js)(napi_env env,
 * `[in] context`: The optional data with which the thread-safe function was
   created.
 * `[in] data`: Data created by the secondary thread. It is the responsibility of
-  the callback to convert this native data to JavaScript values (with N-API
+  the callback to convert this native data to JavaScript values (with Node-API
   functions) that can be passed as parameters when `js_callback` is invoked.
   This pointer is managed entirely by the threads and this callback. Thus this
   callback should free the data.

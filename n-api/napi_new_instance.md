@@ -33,7 +33,7 @@ const arg = 'hello';
 const value = new MyObject(arg);
 ```
 
-The following can be approximated in N-API using the following snippet:
+The following can be approximated in Node-API using the following snippet:
 
 ```c
 // Get the constructor function MyObject

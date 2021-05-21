@@ -33,8 +33,8 @@ asyncHook.disable();
 function init(asyncId, type, triggerAsyncId, resource) { }
 
 // Before is called just before the resource's callback is called. It can be
-// called 0-N times for handles (e.g. TCPWrap), and will be called exactly 1
-// time for requests (e.g. FSReqCallback).
+// called 0-N times for handles (such as TCPWrap), and will be called exactly 1
+// time for requests (such as FSReqCallback).
 function before(asyncId) { }
 
 // After is called just after the resource's callback has finished.

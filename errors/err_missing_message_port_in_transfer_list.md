@@ -1,6 +1,9 @@
+<!-- YAML
+removed: v15.0.0
+-->
 
-An object that needs to be explicitly listed in the `transferList` argument
-is in the object passed to a `postMessage()` call, but is not provided
-in the `transferList` for that call. Usually, this is a `MessagePort`.
+This error code was replaced by [`ERR_MISSING_TRANSFERABLE_IN_TRANSFER_LIST`][]
+in Node.js v15.0.0, because it is no longer accurate as other types of
+transferable objects also exist now.
 
-<a id="ERR_MISSING_OPTION"></a>
+<a id="ERR_NAPI_CONS_PROTOTYPE_OBJECT"></a>

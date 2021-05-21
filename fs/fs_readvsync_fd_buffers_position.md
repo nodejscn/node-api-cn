@@ -1,5 +1,7 @@
 <!-- YAML
-added: v14.0.0
+added:
+ - v13.13.0
+ - v12.17.0
 -->
 
 * `fd` {integer}

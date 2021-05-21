@@ -1,6 +1,10 @@
 <!-- YAML
 added: v0.1.21
 changes:
+  - version: v16.0.0
+    pr-url: https://github.com/nodejs/node/pull/38113
+    description: In Legacy assertion mode, changed status from Deprecated to
+                 Legacy.
   - version: v14.0.0
     pr-url: https://github.com/nodejs/node/pull/30766
     description: NaN is now treated as being identical in case both sides are
@@ -17,13 +21,29 @@ An alias of [`assert.strictEqual()`][].
 
 **Legacy assertion mode**
 
-> Stability: 0 - Deprecated: Use [`assert.strictEqual()`][] instead.
+> Stability: 3 - Legacy: Use [`assert.strictEqual()`][] instead.
 
 Tests shallow, coercive equality between the `actual` and `expected` parameters
 using the [Abstract Equality Comparison][] ( `==` ). `NaN` is special handled
 and treated as being identical in case both sides are `NaN`.
 
-```js
+```mjs
+import assert from 'assert';
+
+assert.equal(1, 1);
+// OK, 1 == 1
+assert.equal(1, '1');
+// OK, 1 == '1'
+assert.equal(NaN, NaN);
+// OK
+
+assert.equal(1, 2);
+// AssertionError: 1 == 2
+assert.equal({ a: { b: 1 } }, { a: { b: 1 } });
+// AssertionError: { a: { b: 1 } } == { a: { b: 1 } }
+```
+
+```cjs
 const assert = require('assert');
 
 assert.equal(1, 1);

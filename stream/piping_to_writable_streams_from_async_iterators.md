@@ -4,9 +4,9 @@ handling of backpressure and errors. [`stream.pipeline()`][] abstracts away
 the handling of backpressure and backpressure-related errors:
 
 ```js
-const { pipeline } = require('stream');
-const util = require('util');
 const fs = require('fs');
+const { pipeline } = require('stream');
+const { pipeline: pipelinePromise } = require('stream/promises');
 
 const writable = fs.createWriteStream('./file');
 
@@ -20,7 +20,6 @@ pipeline(iterator, writable, (err, value) => {
 });
 
 // Promise Pattern
-const pipelinePromise = util.promisify(pipeline);
 pipelinePromise(iterator, writable)
   .then((value) => {
     console.log(value, 'value returned');

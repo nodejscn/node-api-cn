@@ -1,5 +1,7 @@
 <!-- YAML
-added: v13.6.0
+added:
+ - v13.6.0
+ - v12.17.0
 -->
 
 Re-map the Node.js static code to large memory pages at startup. If supported on

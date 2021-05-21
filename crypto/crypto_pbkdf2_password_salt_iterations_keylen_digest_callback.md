@@ -1,6 +1,10 @@
 <!-- YAML
 added: v0.5.5
 changes:
+  - version: v15.0.0
+    pr-url: https://github.com/nodejs/node/pull/35093
+    description: The password and salt arguments can also be ArrayBuffer
+                 instances.
   - version: v14.0.0
     pr-url: https://github.com/nodejs/node/pull/30578
     description: The `iterations` parameter is now restricted to positive
@@ -18,8 +22,8 @@ changes:
                  from `binary` to `utf8`.
 -->
 
-* `password` {string|Buffer|TypedArray|DataView}
-* `salt` {string|Buffer|TypedArray|DataView}
+* `password` {string|ArrayBuffer|Buffer|TypedArray|DataView}
+* `salt` {string|ArrayBuffer|Buffer|TypedArray|DataView}
 * `iterations` {number}
 * `keylen` {number}
 * `digest` {string}
@@ -48,9 +52,26 @@ but will take a longer amount of time to complete.
 The `salt` should be as unique as possible. It is recommended that a salt is
 random and at least 16 bytes long. See [NIST SP 800-132][] for details.
 
-```js
-const crypto = require('crypto');
-crypto.pbkdf2('secret', 'salt', 100000, 64, 'sha512', (err, derivedKey) => {
+When passing strings for `password` or `salt`, please consider
+[caveats when using strings as inputs to cryptographic APIs][].
+
+```mjs
+const {
+  pbkdf2,
+} = await import('crypto');
+
+pbkdf2('secret', 'salt', 100000, 64, 'sha512', (err, derivedKey) => {
+  if (err) throw err;
+  console.log(derivedKey.toString('hex'));  // '3745e48...08d59ae'
+});
+```
+
+```cjs
+const {
+  pbkdf2,
+} = require('crypto');
+
+pbkdf2('secret', 'salt', 100000, 64, 'sha512', (err, derivedKey) => {
   if (err) throw err;
   console.log(derivedKey.toString('hex'));  // '3745e48...08d59ae'
 });
@@ -60,7 +81,16 @@ The `crypto.DEFAULT_ENCODING` property can be used to change the way the
 `derivedKey` is passed to the callback. This property, however, has been
 deprecated and use should be avoided.
 
-```js
+```mjs
+const crypto = await import('crypto');
+crypto.DEFAULT_ENCODING = 'hex';
+crypto.pbkdf2('secret', 'salt', 100000, 512, 'sha512', (err, derivedKey) => {
+  if (err) throw err;
+  console.log(derivedKey);  // '3745e48...aa39b34'
+});
+```
+
+```cjs
 const crypto = require('crypto');
 crypto.DEFAULT_ENCODING = 'hex';
 crypto.pbkdf2('secret', 'salt', 100000, 512, 'sha512', (err, derivedKey) => {

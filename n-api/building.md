@@ -1,6 +1,6 @@
 
 Unlike modules written in JavaScript, developing and deploying Node.js
-native addons using N-API requires an additional set of tools. Besides the
+native addons using Node-API requires an additional set of tools. Besides the
 basic tools required to develop for Node.js, the native addon developer
 requires a toolchain that can compile C and C++ code into a binary. In
 addition, depending upon how the native addon is deployed, the *user* of

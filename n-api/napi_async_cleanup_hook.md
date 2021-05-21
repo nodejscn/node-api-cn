@@ -1,5 +1,7 @@
 <!-- YAML
-added: v14.10.0
+added:
+  - v14.10.0
+  - v12.19.0
 -->
 
 Function pointer used with [`napi_add_async_cleanup_hook`][]. It will be called

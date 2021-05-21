@@ -1,5 +1,7 @@
 <!-- YAML
-added: v14.2.0
+added:
+  - v14.2.0
+  - v12.19.0
 -->
 
 > Stability: 1 - Experimental

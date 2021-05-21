@@ -15,10 +15,33 @@ specify the desired output length in bytes.
 An error is thrown when an attempt is made to copy the `Hash` object after
 its [`hash.digest()`][] method has been called.
 
-```js
+```mjs
 // Calculate a rolling hash.
-const crypto = require('crypto');
-const hash = crypto.createHash('sha256');
+const {
+  createHash,
+} = require('crypto');
+
+const hash = createHash('sha256');
+
+hash.update('one');
+console.log(hash.copy().digest('hex'));
+
+hash.update('two');
+console.log(hash.copy().digest('hex'));
+
+hash.update('three');
+console.log(hash.copy().digest('hex'));
+
+// Etc.
+```
+
+```cjs
+// Calculate a rolling hash.
+const {
+  createHash,
+} = require('crypto');
+
+const hash = createHash('sha256');
 
 hash.update('one');
 console.log(hash.copy().digest('hex'));

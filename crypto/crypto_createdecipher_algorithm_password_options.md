@@ -10,7 +10,7 @@ changes:
 > Stability: 0 - Deprecated: Use [`crypto.createDecipheriv()`][] instead.
 
 * `algorithm` {string}
-* `password` {string | Buffer | TypedArray | DataView}
+* `password` {string|ArrayBuffer|Buffer|TypedArray|DataView}
 * `options` {Object} [`stream.transform` options][]
 * Returns: {Decipher}
 

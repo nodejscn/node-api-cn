@@ -1,4 +1,4 @@
 
-如果在本文档中发现错误，欢迎[提交问题]。
-有关如何提交 pull request 的说明，请参见[贡献指南][the contributing guide]。
+在[议题区]报告本文档中的错误。
+查看[贡献指南][the contributing guide]获取如何提交拉取请求的指导。
 

@@ -3,6 +3,7 @@ added: v12.7.0
 changes:
   - version:
     - v14.13.0
+    - v12.20.0
     pr-url: https://github.com/nodejs/node/pull/34718
     description: Add support for `"exports"` patterns.
   - version:
@@ -21,8 +22,6 @@ changes:
     pr-url: https://github.com/nodejs/node/pull/29978
     description: Implement conditional exports.
 -->
-
-> Stability: 1 - Experimental
 
 * Type: {Object} | {string} | {string[]}
 

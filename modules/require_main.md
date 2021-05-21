@@ -23,7 +23,6 @@ Module {
   id: '.',
   path: '/absolute/path/to',
   exports: {},
-  parent: null,
   filename: '/absolute/path/to/entry.js',
   loaded: false,
   children: [],

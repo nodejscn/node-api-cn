@@ -33,12 +33,13 @@ ee2.on('something', async (value) => {
 ee2[Symbol.for('nodejs.rejection')] = console.log;
 ```
 
-Setting `EventEmitter.captureRejections = true` will change the default for all
+Setting `events.captureRejections = true` will change the default for all
 new instances of `EventEmitter`.
 
 ```js
-EventEmitter.captureRejections = true;
-const ee1 = new EventEmitter();
+const events = require('events');
+events.captureRejections = true;
+const ee1 = new events.EventEmitter();
 ee1.on('something', async (value) => {
   throw new Error('kaboom');
 });

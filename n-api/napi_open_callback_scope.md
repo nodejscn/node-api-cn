@@ -21,7 +21,7 @@ NAPI_EXTERN napi_status napi_open_callback_scope(napi_env env,
 
 There are cases (for example, resolving promises) where it is
 necessary to have the equivalent of the scope associated with a callback
-in place when making certain N-API calls. If there is no other script on
+in place when making certain Node-API calls. If there is no other script on
 the stack the [`napi_open_callback_scope`][] and
 [`napi_close_callback_scope`][] functions can be used to open/close
 the required scope.

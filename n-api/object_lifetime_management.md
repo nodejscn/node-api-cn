@@ -1,5 +1,5 @@
 
-As N-API calls are made, handles to objects in the heap for the underlying
+As Node-API calls are made, handles to objects in the heap for the underlying
 VM may be returned as `napi_values`. These handles must hold the
 objects 'live' until they are no longer required by the native code,
 otherwise the objects could be collected before the native code was
@@ -13,6 +13,6 @@ held live for the lifespan of the native method call.
 
 In many cases, however, it is necessary that the handles remain valid for
 either a shorter or longer lifespan than that of the native method.
-The sections which follow describe the N-API functions that can be used
+The sections which follow describe the Node-API functions that can be used
 to change the handle lifespan from the default.
 

@@ -12,8 +12,8 @@
     `vm.createContext()` method, to compile and evaluate this `Module` in.
   * `lineOffset` {integer} Specifies the line number offset that is displayed
     in stack traces produced by this `Module`. **Default:** `0`.
-  * `columnOffset` {integer} Specifies the column number offset that is
-    displayed in stack traces produced by this `Module`. **Default:** `0`.
+  * `columnOffset` {integer} Specifies the first-line column number offset that
+    is displayed in stack traces produced by this `Module`. **Default:** `0`.
   * `initializeImportMeta` {Function} Called during evaluation of this `Module`
     to initialize the `import.meta`.
     * `meta` {import.meta}
@@ -33,11 +33,37 @@ Properties assigned to the `import.meta` object that are objects may
 allow the module to access information outside the specified `context`. Use
 `vm.runInContext()` to create objects in a specific context.
 
-```js
-const vm = require('vm');
+```mjs
+import vm from 'vm';
 
 const contextifiedObject = vm.createContext({ secret: 42 });
 
+const module = new vm.SourceTextModule(
+  'Object.getPrototypeOf(import.meta.prop).secret = secret;',
+  {
+    initializeImportMeta(meta) {
+      // Note: this object is created in the top context. As such,
+      // Object.getPrototypeOf(import.meta.prop) points to the
+      // Object.prototype in the top context rather than that in
+      // the contextified object.
+      meta.prop = {};
+    }
+  });
+// Since module has no dependencies, the linker function will never be called.
+await module.link(() => {});
+await module.evaluate();
+
+// Now, Object.prototype.secret will be equal to 42.
+//
+// To fix this problem, replace
+//     meta.prop = {};
+// above with
+//     meta.prop = vm.runInContext('{}', contextifiedObject);
+```
+
+```cjs
+const vm = require('vm');
+const contextifiedObject = vm.createContext({ secret: 42 });
 (async () => {
   const module = new vm.SourceTextModule(
     'Object.getPrototypeOf(import.meta.prop).secret = secret;',
@@ -53,7 +79,6 @@ const contextifiedObject = vm.createContext({ secret: 42 });
   // Since module has no dependencies, the linker function will never be called.
   await module.link(() => {});
   await module.evaluate();
-
   // Now, Object.prototype.secret will be equal to 42.
   //
   // To fix this problem, replace

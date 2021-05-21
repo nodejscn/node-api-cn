@@ -1,5 +1,5 @@
 
-Any N-API function call may result in a pending JavaScript exception. This is
+Any Node-API function call may result in a pending JavaScript exception. This is
 the case for any of the API functions, even those that may not cause the
 execution of JavaScript.
 
@@ -10,10 +10,10 @@ exception is pending and no additional action is required. If the
 instead of simply returning immediately, [`napi_is_exception_pending`][]
 must be called in order to determine if an exception is pending or not.
 
-In many cases when an N-API function is called and an exception is
+In many cases when a Node-API function is called and an exception is
 already pending, the function will return immediately with a
 `napi_status` of `napi_pending_exception`. However, this is not the case
-for all functions. N-API allows a subset of the functions to be
+for all functions. Node-API allows a subset of the functions to be
 called to allow for some minimal cleanup before returning to JavaScript.
 In that case, `napi_status` will reflect the status for the function. It
 will not reflect previous pending exceptions. To avoid confusion, check
@@ -24,7 +24,7 @@ When an exception is pending one of two approaches can be employed.
 The first approach is to do any appropriate cleanup and then return so that
 execution will return to JavaScript. As part of the transition back to
 JavaScript, the exception will be thrown at the point in the JavaScript
-code where the native method was invoked. The behavior of most N-API calls
+code where the native method was invoked. The behavior of most Node-API calls
 is unspecified while an exception is pending, and many will simply return
 `napi_pending_exception`, so do as little as possible and then return to
 JavaScript where the exception can be handled.
@@ -57,7 +57,7 @@ generated internally. The goal is for applications to use these
 error codes for all error checking. The associated error messages
 will remain, but will only be meant to be used for logging and
 display with the expectation that the message can change without
-SemVer applying. In order to support this model with N-API, both
+SemVer applying. In order to support this model with Node-API, both
 in internal functionality and for module specific functionality
 (as its good practice), the `throw_` and `create_` functions
 take an optional code parameter which is the string for the code

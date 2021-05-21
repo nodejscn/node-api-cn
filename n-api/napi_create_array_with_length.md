@@ -15,7 +15,7 @@ napi_status napi_create_array_with_length(napi_env env,
 
 Returns `napi_ok` if the API succeeded.
 
-This API returns an N-API value corresponding to a JavaScript `Array` type.
+This API returns a Node-API value corresponding to a JavaScript `Array` type.
 The `Array`'s length property is set to the passed-in length parameter.
 However, the underlying buffer is not guaranteed to be pre-allocated by the VM
 when the array is created. That behavior is left to the underlying VM

@@ -17,7 +17,7 @@ napi_status napi_create_arraybuffer(napi_env env,
 
 Returns `napi_ok` if the API succeeded.
 
-This API returns an N-API value corresponding to a JavaScript `ArrayBuffer`.
+This API returns a Node-API value corresponding to a JavaScript `ArrayBuffer`.
 `ArrayBuffer`s are used to represent fixed-length binary data buffers. They are
 normally used as a backing-buffer for `TypedArray` objects.
 The `ArrayBuffer` allocated will have an underlying byte buffer whose size is

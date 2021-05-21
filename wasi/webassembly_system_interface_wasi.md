@@ -9,7 +9,26 @@ The WASI API provides an implementation of the [WebAssembly System Interface][]
 specification. WASI gives sandboxed WebAssembly applications access to the
 underlying operating system via a collection of POSIX-like functions.
 
-```js
+```mjs
+import fs from 'fs';
+import { WASI } from 'wasi';
+
+const wasi = new WASI({
+  args: process.argv,
+  env: process.env,
+  preopens: {
+    '/sandbox': '/some/real/path/that/wasm/can/access'
+  }
+});
+const importObject = { wasi_snapshot_preview1: wasi.wasiImport };
+
+const wasm = await WebAssembly.compile(fs.readFileSync('./demo.wasm'));
+const instance = await WebAssembly.instantiate(wasm, importObject);
+
+wasi.start(instance);
+```
+
+```cjs
 'use strict';
 const fs = require('fs');
 const { WASI } = require('wasi');
@@ -69,6 +88,6 @@ Use [wabt](https://github.com/WebAssembly/wabt) to compile `.wat` to `.wasm`
 $ wat2wasm demo.wat
 ```
 
-The `--experimental-wasi-unstable-preview1` and `--experimental-wasm-bigint`
-CLI arguments are needed for this example to run.
+The `--experimental-wasi-unstable-preview1` CLI argument is needed for this
+example to run.
 

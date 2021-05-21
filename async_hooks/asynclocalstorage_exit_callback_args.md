@@ -1,20 +1,21 @@
 <!-- YAML
-added: v13.10.0
+added:
+ - v13.10.0
+ - v12.17.0
 -->
 
 * `callback` {Function}
 * `...args` {any}
 
-This methods runs a function synchronously outside of a context and return its
+Runs a function synchronously outside of a context and returns its
 return value. The store is not accessible within the callback function or
-the asynchronous operations created within the callback.
+the asynchronous operations created within the callback. Any `getStore()`
+call done within the callback function will always return `undefined`.
 
-Optionally, arguments can be passed to the function. They will be passed to
-the callback function.
+The optional `args` are passed to the callback function.
 
-If the callback function throws an error, it will be thrown by `exit` too.
-The stacktrace will not be impacted by this call and
-the context will be re-entered.
+If the callback function throws an error, the error is thrown by `exit()` too.
+The stacktrace is not impacted by this call and the context is re-entered.
 
 Example:
 

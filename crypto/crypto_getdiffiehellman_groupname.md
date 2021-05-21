@@ -18,10 +18,30 @@ and communication time.
 
 Example (obtaining a shared secret):
 
-```js
-const crypto = require('crypto');
-const alice = crypto.getDiffieHellman('modp14');
-const bob = crypto.getDiffieHellman('modp14');
+```mjs
+const {
+  getDiffieHellman,
+} = await import('crypto');
+const alice = getDiffieHellman('modp14');
+const bob = getDiffieHellman('modp14');
+
+alice.generateKeys();
+bob.generateKeys();
+
+const aliceSecret = alice.computeSecret(bob.getPublicKey(), null, 'hex');
+const bobSecret = bob.computeSecret(alice.getPublicKey(), null, 'hex');
+
+/* aliceSecret and bobSecret should be the same */
+console.log(aliceSecret === bobSecret);
+```
+
+```cjs
+const {
+  getDiffieHellman,
+} = require('crypto');
+
+const alice = getDiffieHellman('modp14');
+const bob = getDiffieHellman('modp14');
 
 alice.generateKeys();
 bob.generateKeys();

@@ -8,7 +8,7 @@ changes:
       该支持目前仍是实验的。
 -->
 
-> 稳定性: 0 - 弃用: 改为使用 [`fs.stat()`] 或 [`fs.access()`]。
+> 稳定性: 0 - 弃用的: 改为使用 [`fs.stat()`] 或 [`fs.access()`]。
 
 * `path` {string|Buffer|URL}
 * `callback` {Function}

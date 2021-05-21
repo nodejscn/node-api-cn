@@ -1,5 +1,6 @@
-
-> Stability: 1 - Experimental
+<!-- YAML
+added: v12.7.0
+-->
 
 When using the [`"exports"`][] field, custom subpaths can be defined along
 with the main entry point by treating the main entry point as the

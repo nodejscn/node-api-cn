@@ -8,9 +8,11 @@ changes:
     description: The `buffer` argument may be any `TypedArray` or `DataView`.
 -->
 
-* `buffer` {Buffer|TypedArray|DataView} Must be supplied.
+* `buffer` {ArrayBuffer|Buffer|TypedArray|DataView} Must be supplied. The
+  size of the provided `buffer` must not be larger than `2**31 - 1`.
 * `offset` {number} **Default:** `0`
-* `size` {number} **Default:** `buffer.length - offset`
+* `size` {number} **Default:** `buffer.length - offset`. The `size` must
+  not be larger than `2**31 - 1`.
 * `callback` {Function} `function(err, buf) {}`.
 
 This function is similar to [`crypto.randomBytes()`][] but requires the first
@@ -19,47 +21,110 @@ requires that a callback is passed in.
 
 If the `callback` function is not provided, an error will be thrown.
 
-```js
+```mjs
+const {
+  randomFill,
+} = await import('crypto');
+
 const buf = Buffer.alloc(10);
-crypto.randomFill(buf, (err, buf) => {
+randomFill(buf, (err, buf) => {
   if (err) throw err;
   console.log(buf.toString('hex'));
 });
 
-crypto.randomFill(buf, 5, (err, buf) => {
+randomFill(buf, 5, (err, buf) => {
   if (err) throw err;
   console.log(buf.toString('hex'));
 });
 
 // The above is equivalent to the following:
-crypto.randomFill(buf, 5, 5, (err, buf) => {
+randomFill(buf, 5, 5, (err, buf) => {
   if (err) throw err;
   console.log(buf.toString('hex'));
 });
 ```
 
-Any `TypedArray` or `DataView` instance may be passed as `buffer`.
+```cjs
+const {
+  randomFill,
+} = require('crypto');
 
-```js
+const buf = Buffer.alloc(10);
+randomFill(buf, (err, buf) => {
+  if (err) throw err;
+  console.log(buf.toString('hex'));
+});
+
+randomFill(buf, 5, (err, buf) => {
+  if (err) throw err;
+  console.log(buf.toString('hex'));
+});
+
+// The above is equivalent to the following:
+randomFill(buf, 5, 5, (err, buf) => {
+  if (err) throw err;
+  console.log(buf.toString('hex'));
+});
+```
+
+Any `ArrayBuffer`, `TypedArray`, or `DataView` instance may be passed as
+`buffer`.
+
+While this includes instances of `Float32Array` and `Float64Array`, this
+function should not be used to generate random floating-point numbers. The
+result may contain `+Infinity`, `-Infinity`, and `NaN`, and even if the array
+contains finite numbers only, they are not drawn from a uniform random
+distribution and have no meaningful lower or upper bounds.
+
+```mjs
+const {
+  randomFill,
+} = await import('crypto');
+
 const a = new Uint32Array(10);
-crypto.randomFill(a, (err, buf) => {
+randomFill(a, (err, buf) => {
   if (err) throw err;
   console.log(Buffer.from(buf.buffer, buf.byteOffset, buf.byteLength)
     .toString('hex'));
 });
 
-const b = new Float64Array(10);
-crypto.randomFill(b, (err, buf) => {
+const b = new DataView(new ArrayBuffer(10));
+randomFill(b, (err, buf) => {
   if (err) throw err;
   console.log(Buffer.from(buf.buffer, buf.byteOffset, buf.byteLength)
     .toString('hex'));
 });
 
-const c = new DataView(new ArrayBuffer(10));
-crypto.randomFill(c, (err, buf) => {
+const c = new ArrayBuffer(10);
+randomFill(c, (err, buf) => {
+  if (err) throw err;
+  console.log(Buffer.from(buf).toString('hex'));
+});
+```
+
+```cjs
+const {
+  randomFill,
+} = require('crypto');
+
+const a = new Uint32Array(10);
+randomFill(a, (err, buf) => {
   if (err) throw err;
   console.log(Buffer.from(buf.buffer, buf.byteOffset, buf.byteLength)
     .toString('hex'));
+});
+
+const b = new DataView(new ArrayBuffer(10));
+randomFill(b, (err, buf) => {
+  if (err) throw err;
+  console.log(Buffer.from(buf.buffer, buf.byteOffset, buf.byteLength)
+    .toString('hex'));
+});
+
+const c = new ArrayBuffer(10);
+randomFill(c, (err, buf) => {
+  if (err) throw err;
+  console.log(Buffer.from(buf).toString('hex'));
 });
 ```
 

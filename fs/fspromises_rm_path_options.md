@@ -16,7 +16,7 @@ added: v14.14.0
   * `retryDelay` {integer} The amount of time in milliseconds to wait between
     retries. This option is ignored if the `recursive` option is not `true`.
     **Default:** `100`.
+* Returns: {Promise} Fulfills with `undefined` upon success.
 
 Removes files and directories (modeled on the standard POSIX `rm` utility).
-Resolves the `Promise` with no arguments on success.
 

@@ -1,5 +1,5 @@
 
-N-API offers a way to "wrap" C++ classes and instances so that the class
+Node-API offers a way to "wrap" C++ classes and instances so that the class
 constructor and methods can be called from JavaScript.
 
 1. The [`napi_define_class`][] API defines a JavaScript class with constructor,
@@ -86,9 +86,9 @@ case, the database handle instance can appear as a query handle instance, and it
 will pass the `napi_instanceof()` test for a query handle instance, while still
 containing a pointer to a database handle.
 
-To this end, N-API provides type-tagging capabilities.
+To this end, Node-API provides type-tagging capabilities.
 
-A type tag is a 128-bit integer unique to the addon. N-API provides the
+A type tag is a 128-bit integer unique to the addon. Node-API provides the
 `napi_type_tag` structure for storing a type tag. When such a value is passed
 along with a JavaScript object stored in a `napi_value` to
 `napi_type_tag_object()`, the JavaScript object will be "marked" with the

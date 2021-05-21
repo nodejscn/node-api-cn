@@ -18,7 +18,7 @@ typedef struct {
   not implemented for any VM.
 * `engine_error_code`: VM-specific error code. This is currently
   not implemented for any VM.
-* `error_code`: The N-API status code that originated with the last error.
+* `error_code`: The Node-API status code that originated with the last error.
 
 See the [Error handling][] section for additional information.
 

@@ -1,6 +1,9 @@
 <!-- YAML
 added: v0.1.92
 changes:
+  - version: v15.0.0
+    pr-url: https://github.com/nodejs/node/pull/35093
+    description: The privateKey can also be an ArrayBuffer and CryptoKey.
   - version:
      - v13.2.0
      - v12.16.0
@@ -17,12 +20,14 @@ changes:
     description: Support for RSASSA-PSS and additional options was added.
 -->
 
-* `privateKey` {Object | string | Buffer | KeyObject}
+<!--lint disable maximum-line-length remark-lint-->
+* `privateKey` {Object|string|ArrayBuffer|Buffer|TypedArray|DataView|KeyObject|CryptoKey}
   * `dsaEncoding` {string}
   * `padding` {integer}
   * `saltLength` {integer}
 * `outputEncoding` {string} The [encoding][] of the return value.
 * Returns: {Buffer | string}
+<!--lint enable maximum-line-length remark-lint-->
 
 Calculates the signature on all the data passed through using either
 [`sign.update()`][] or [`sign.write()`][stream-writable-write].

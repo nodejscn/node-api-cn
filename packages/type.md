@@ -8,8 +8,6 @@ changes:
     description: Unflag `--experimental-modules`.
 -->
 
-> Stability: 1 - Experimental
-
 * Type: {string}
 
 The `"type"` field defines the module format that Node.js uses for all

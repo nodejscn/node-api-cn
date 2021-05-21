@@ -27,7 +27,7 @@ For incoming headers:
   `access-control-max-age`, `access-control-request-method`, `content-encoding`,
   `content-language`, `content-length`, `content-location`, `content-md5`,
   `content-range`, `content-type`, `date`, `dnt`, `etag`, `expires`, `from`,
-  `if-match`, `if-modified-since`, `if-none-match`, `if-range`,
+  `host`, `if-match`, `if-modified-since`, `if-none-match`, `if-range`,
   `if-unmodified-since`, `last-modified`, `location`, `max-forwards`,
   `proxy-authorization`, `range`, `referer`,`retry-after`, `tk`,
   `upgrade-insecure-requests`, `user-agent` or `x-content-type-options` are

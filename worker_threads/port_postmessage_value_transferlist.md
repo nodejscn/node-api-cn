@@ -1,10 +1,26 @@
 <!-- YAML
 added: v10.5.0
 changes:
-  - version: v14.5.0
+  - version: v15.14.0
+    pr-url: https://github.com/nodejs/node/pull/37917
+    description: Add 'BlockList' to the list of cloneable types.
+  - version: v15.9.0
+    pr-url: https://github.com/nodejs/node/pull/37155
+    description: Add 'Histogram' types to the list of cloneable types.
+  - version: v15.6.0
+    pr-url: https://github.com/nodejs/node/pull/36804
+    description: Added `X509Certificate` to the list of cloneable types.
+  - version: v15.0.0
+    pr-url: https://github.com/nodejs/node/pull/35093
+    description: Added `CryptoKey` to the list of cloneable types.
+  - version:
+    - v14.5.0
+    - v12.19.0
     pr-url: https://github.com/nodejs/node/pull/33360
     description: Added `KeyObject` to the list of cloneable types.
-  - version: v14.5.0
+  - version:
+    - v14.5.0
+    - v12.19.0
     pr-url: https://github.com/nodejs/node/pull/33772
     description: Added `FileHandle` to the list of transferable types.
 -->
@@ -13,7 +29,7 @@ changes:
 * `transferList` {Object[]}
 
 Sends a JavaScript value to the receiving side of this channel.
-`value` will be transferred in a way which is compatible with
+`value` is transferred in a way which is compatible with
 the [HTML structured clone algorithm][].
 
 In particular, the significant differences to `JSON` are:
@@ -24,8 +40,15 @@ In particular, the significant differences to `JSON` are:
 * `value` may contain typed arrays, both using `ArrayBuffer`s
    and `SharedArrayBuffer`s.
 * `value` may contain [`WebAssembly.Module`][] instances.
-* `value` may not contain native (C++-backed) objects other than `MessagePort`s,
-  [`FileHandle`][]s, and [`KeyObject`][]s.
+* `value` may not contain native (C++-backed) objects other than:
+  * {CryptoKey}s,
+  * {FileHandle}s,
+  * {Histogram}s,
+  * {KeyObject}s,
+  * {MessagePort}s,
+  * {net.BlockList}s,
+  * {net.SocketAddress}es,
+  * {X509Certificate}s.
 
 ```js
 const { MessageChannel } = require('worker_threads');
@@ -41,12 +64,12 @@ port2.postMessage(circularData);
 
 `transferList` may be a list of [`ArrayBuffer`][], [`MessagePort`][] and
 [`FileHandle`][] objects.
-After transferring, they will not be usable on the sending side of the channel
+After transferring, they are not usable on the sending side of the channel
 anymore (even if they are not contained in `value`). Unlike with
 [child processes][], transferring handles such as network sockets is currently
 not supported.
 
-If `value` contains [`SharedArrayBuffer`][] instances, those will be accessible
+If `value` contains [`SharedArrayBuffer`][] instances, those are accessible
 from either thread. They cannot be listed in `transferList`.
 
 `value` may still contain `ArrayBuffer` instances that are not in
@@ -64,7 +87,7 @@ port2.postMessage(uint8Array);
 // This does not copy data, but renders `uint8Array` unusable:
 port2.postMessage(uint8Array, [ uint8Array.buffer ]);
 
-// The memory for the `sharedUint8Array` will be accessible from both the
+// The memory for the `sharedUint8Array` is accessible from both the
 // original and the copy received by `.on('message')`:
 const sharedUint8Array = new Uint8Array(new SharedArrayBuffer(4));
 port2.postMessage(sharedUint8Array);
@@ -76,12 +99,7 @@ const otherChannel = new MessageChannel();
 port2.postMessage({ port: otherChannel.port1 }, [ otherChannel.port1 ]);
 ```
 
-Because the object cloning uses the structured clone algorithm,
-non-enumerable properties, property accessors, and object prototypes are
-not preserved. In particular, [`Buffer`][] objects will be read as
-plain [`Uint8Array`][]s on the receiving side.
-
-The message object will be cloned immediately, and can be modified after
+The message object is cloned immediately, and can be modified after
 posting without having side effects.
 
 For more information on the serialization and deserialization mechanisms

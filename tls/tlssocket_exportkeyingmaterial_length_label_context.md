@@ -1,5 +1,7 @@
 <!-- YAML
-added: v13.10.0
+added:
+ - v13.10.0
+ - v12.17.0
 -->
 
 * `length` {number} number of bytes to retrieve from keying material

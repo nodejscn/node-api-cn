@@ -1,6 +1,7 @@
 <!-- YAML
 added:
  - v13.7.0
+ - v12.17.0
  - v10.20.0
 napiVersion: 6
 -->

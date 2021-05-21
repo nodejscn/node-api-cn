@@ -5,7 +5,7 @@ deprecated: v5.2.0
 
 > Stability: 0 - Deprecated
 
-* `publicKey` {string | Buffer | TypedArray | DataView}
+* `publicKey` {string|ArrayBuffer|Buffer|TypedArray|DataView}
 * `encoding` {string} The [encoding][] of the `publicKey` string.
 
 Sets the EC Diffie-Hellman public key.
@@ -21,16 +21,47 @@ set.
 
 Example (obtaining a shared secret):
 
-```js
-const crypto = require('crypto');
-const alice = crypto.createECDH('secp256k1');
-const bob = crypto.createECDH('secp256k1');
+```mjs
+const {
+  createECDH,
+  createHash,
+} = await crypto('crypto');
+
+const alice = createECDH('secp256k1');
+const bob = createECDH('secp256k1');
 
 // This is a shortcut way of specifying one of Alice's previous private
 // keys. It would be unwise to use such a predictable private key in a real
 // application.
 alice.setPrivateKey(
-  crypto.createHash('sha256').update('alice', 'utf8').digest()
+  createHash('sha256').update('alice', 'utf8').digest()
+);
+
+// Bob uses a newly generated cryptographically strong
+// pseudorandom key pair
+bob.generateKeys();
+
+const aliceSecret = alice.computeSecret(bob.getPublicKey(), null, 'hex');
+const bobSecret = bob.computeSecret(alice.getPublicKey(), null, 'hex');
+
+// aliceSecret and bobSecret should be the same shared secret value
+console.log(aliceSecret === bobSecret);
+```
+
+```cjs
+const {
+  createECDH,
+  createHash,
+} = require('crypto');
+
+const alice = createECDH('secp256k1');
+const bob = createECDH('secp256k1');
+
+// This is a shortcut way of specifying one of Alice's previous private
+// keys. It would be unwise to use such a predictable private key in a real
+// application.
+alice.setPrivateKey(
+  createHash('sha256').update('alice', 'utf8').digest()
 );
 
 // Bob uses a newly generated cryptographically strong

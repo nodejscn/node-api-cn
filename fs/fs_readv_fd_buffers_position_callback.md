@@ -1,5 +1,7 @@
 <!-- YAML
-added: v14.0.0
+added:
+ - v13.13.0
+ - v12.17.0
 -->
 
 * `fd` {integer}
@@ -21,5 +23,5 @@ The callback will be given three arguments: `err`, `bytesRead`, and
 `buffers`. `bytesRead` is how many bytes were read from the file.
 
 If this method is invoked as its [`util.promisify()`][]ed version, it returns
-a `Promise` for an `Object` with `bytesRead` and `buffers` properties.
+a promise for an `Object` with `bytesRead` and `buffers` properties.
 

@@ -1,4 +1,4 @@
-N-API modules are registered in a manner similar to other modules
+Node-API modules are registered in a manner similar to other modules
 except that instead of using the `NODE_MODULE` macro the following
 is used:
 
@@ -6,7 +6,7 @@ is used:
 NAPI_MODULE(NODE_GYP_MODULE_NAME, Init)
 ```
 
-The next difference is the signature for the `Init` method. For a N-API
+The next difference is the signature for the `Init` method. For a Node-API
 module it is as follows:
 
 ```c
@@ -16,8 +16,8 @@ napi_value Init(napi_env env, napi_value exports);
 The return value from `Init` is treated as the `exports` object for the module.
 The `Init` method is passed an empty object via the `exports` parameter as a
 convenience. If `Init` returns `NULL`, the parameter passed as `exports` is
-exported by the module. N-API modules cannot modify the `module` object but can
-specify anything as the `exports` property of the module.
+exported by the module. Node-API modules cannot modify the `module` object but
+can specify anything as the `exports` property of the module.
 
 To add the method `hello` as a function so that it can be called as a method
 provided by the addon:
@@ -81,8 +81,8 @@ napi_value Init(napi_env env, napi_value exports) {
 }
 ```
 
-If the module will be loaded multiple times during the lifetime of the Node.js
-process, use the `NAPI_MODULE_INIT` macro to initialize the module:
+You can also use the `NAPI_MODULE_INIT` macro, which acts as a shorthand
+for `NAPI_MODULE` and defining an `Init` function:
 
 ```c
 NAPI_MODULE_INIT() {
@@ -99,13 +99,9 @@ NAPI_MODULE_INIT() {
 }
 ```
 
-This macro includes `NAPI_MODULE`, and declares an `Init` function with a
-special name and with visibility beyond the addon. This will allow Node.js to
-initialize the module even if it is loaded multiple times.
-
-There are a few design considerations when declaring a module that may be loaded
-multiple times. The documentation of [context-aware addons][] provides more
-details.
+All Node-API addons are context-aware, meaning they may be loaded multiple
+times. There are a few design considerations when declaring such a module.
+The documentation on [context-aware addons][] provides more details.
 
 The variables `env` and `exports` will be available inside the function body
 following the macro invocation.

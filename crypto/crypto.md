@@ -1,7 +1,7 @@
 
 <!--introduced_in=v0.3.6-->
 
-> 稳定性: 2 - 稳定
+> 稳定性: 2 - 稳定的
 
 <!-- source_link=lib/crypto.js -->
 

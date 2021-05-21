@@ -1,6 +1,6 @@
 
 JavaScript functions can normally only be called from a native addon's main
-thread. If an addon creates additional threads, then N-API functions that
+thread. If an addon creates additional threads, then Node-API functions that
 require a `napi_env`, `napi_value`, or `napi_ref` must not be called from those
 threads.
 

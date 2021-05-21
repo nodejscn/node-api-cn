@@ -2,11 +2,11 @@
 added: v10.5.0
 -->
 
-Opposite of `unref()`. Calling `ref()` on a previously `unref()`ed port will
+Opposite of `unref()`. Calling `ref()` on a previously `unref()`ed port does
 *not* let the program exit if it's the only active handle left (the default
-behavior). If the port is `ref()`ed, calling `ref()` again will have no effect.
+behavior). If the port is `ref()`ed, calling `ref()` again has no effect.
 
-If listeners are attached or removed using `.on('message')`, the port will
-be `ref()`ed and `unref()`ed automatically depending on whether
+If listeners are attached or removed using `.on('message')`, the port
+is `ref()`ed and `unref()`ed automatically depending on whether
 listeners for the event exist.
 

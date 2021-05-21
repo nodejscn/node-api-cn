@@ -13,10 +13,10 @@ changes:
                  from `binary` to `utf8`.
 -->
 
-* `prime` {string | Buffer | TypedArray | DataView}
+* `prime` {string|ArrayBuffer|Buffer|TypedArray|DataView}
 * `primeEncoding` {string} The [encoding][] of the `prime` string.
-* `generator` {number | string | Buffer | TypedArray | DataView} **Default:**
-  `2`
+* `generator` {number|string|ArrayBuffer|Buffer|TypedArray|DataView}
+  **Default:** `2`
 * `generatorEncoding` {string} The [encoding][] of the `generator` string.
 * Returns: {DiffieHellman}
 

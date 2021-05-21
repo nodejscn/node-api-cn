@@ -1,9 +1,9 @@
 
 This is an abstraction used to control and modify the lifetime of objects
-created within a particular scope. In general, N-API values are created within
-the context of a handle scope. When a native method is called from
+created within a particular scope. In general, Node-API values are created
+within the context of a handle scope. When a native method is called from
 JavaScript, a default handle scope will exist. If the user does not explicitly
-create a new handle scope, N-API values will be created in the default handle
+create a new handle scope, Node-API values will be created in the default handle
 scope. For any invocations of code outside the execution of a native method
 (for instance, during a libuv callback invocation), the module is required to
 create a scope before invoking any functions that can result in the creation

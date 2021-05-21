@@ -14,15 +14,17 @@ To enable source map parsing, Node.js must be run with the flag
 [`--enable-source-maps`][], or with code coverage enabled by setting
 [`NODE_V8_COVERAGE=dir`][].
 
-```js
+```mjs
 // module.mjs
 // In an ECMAScript module
 import { findSourceMap, SourceMap } from 'module';
 ```
 
-```js
+```cjs
 // module.cjs
 // In a CommonJS module
 const { findSourceMap, SourceMap } = require('module');
 ```
 
+<!-- Anchors to make sure old links find a target -->
+<a id="module_module_findsourcemap_path_error"></a>

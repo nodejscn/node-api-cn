@@ -1,8 +1,10 @@
 <!-- YAML
-added: v14.10.0
+added:
+  - v14.10.0
+  - v12.19.0
 -->
 
-* `min` {integer} Start of random range (inclusive). **Default**: `0`.
+* `min` {integer} Start of random range (inclusive). **Default:** `0`.
 * `max` {integer} End of random range (exclusive).
 * `callback` {Function} `function(err, n) {}`.
 
@@ -15,23 +17,67 @@ be [safe integers][].
 If the `callback` function is not provided, the random integer is
 generated synchronously.
 
-```js
+```mjs
 // Asynchronous
-crypto.randomInt(3, (err, n) => {
+const {
+  randomInt,
+} = await import('crypto');
+
+randomInt(3, (err, n) => {
   if (err) throw err;
   console.log(`Random number chosen from (0, 1, 2): ${n}`);
 });
 ```
 
-```js
+```cjs
+// Asynchronous
+const {
+  randomInt,
+} = require('crypto');
+
+randomInt(3, (err, n) => {
+  if (err) throw err;
+  console.log(`Random number chosen from (0, 1, 2): ${n}`);
+});
+```
+
+```mjs
 // Synchronous
-const n = crypto.randomInt(3);
+const {
+  randomInt,
+} = await import('crypto');
+
+const n = randomInt(3);
 console.log(`Random number chosen from (0, 1, 2): ${n}`);
 ```
 
-```js
+```cjs
+// Synchronous
+const {
+  randomInt,
+} = require('crypto');
+
+const n = randomInt(3);
+console.log(`Random number chosen from (0, 1, 2): ${n}`);
+```
+
+```mjs
 // With `min` argument
-const n = crypto.randomInt(1, 7);
+const {
+  randomInt,
+} = await import('crypto');
+
+const n = randomInt(1, 7);
+console.log(`The dice rolled: ${n}`);
+```
+
+```cjs
+// With `min` argument
+const {
+  randomInt,
+} = require('crypto');
+
+const n = randomInt(1, 7);
 console.log(`The dice rolled: ${n}`);
 ```
 

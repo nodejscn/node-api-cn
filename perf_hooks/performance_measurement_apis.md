@@ -22,7 +22,7 @@ const obs = new PerformanceObserver((items) => {
   console.log(items.getEntries()[0].duration);
   performance.clearMarks();
 });
-obs.observe({ entryTypes: ['measure'] });
+obs.observe({ type: 'measure' });
 performance.measure('Start to Now');
 
 performance.mark('A');

@@ -1,5 +1,5 @@
 
-All of the N-API functions share the same error handling pattern. The
+All of the Node-API functions share the same error handling pattern. The
 return type of all API functions is `napi_status`.
 
 The return value will be `napi_ok` if the request was successful and
@@ -42,10 +42,10 @@ typedef struct napi_extended_error_info {
 * `error_message`: Textual representation of the error that occurred.
 * `engine_reserved`: Opaque handle reserved for engine use only.
 * `engine_error_code`: VM specific error code.
-* `error_code`: n-api status code for the last error.
+* `error_code`: Node-API status code for the last error.
 
 [`napi_get_last_error_info`][] returns the information for the last
-N-API call that was made.
+Node-API call that was made.
 
 Do not rely on the content or format of any of the extended information as it
 is not subject to SemVer and may change at any time. It is intended only for

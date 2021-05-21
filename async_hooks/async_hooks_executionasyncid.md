@@ -29,7 +29,7 @@ const server = net.createServer((conn) => {
   async_hooks.executionAsyncId();
 
 }).listen(port, () => {
-  // Returns the ID of a TickObject (i.e. process.nextTick()) because all
+  // Returns the ID of a TickObject (process.nextTick()) because all
   // callbacks passed to .listen() are wrapped in a nextTick().
   async_hooks.executionAsyncId();
 });

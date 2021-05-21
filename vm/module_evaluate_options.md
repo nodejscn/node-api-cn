@@ -8,7 +8,7 @@
     [`Error`][]. Existing handlers for the event that have been attached via
     `process.on('SIGINT')` are disabled during script execution, but continue to
     work after that. **Default:** `false`.
-* Returns: {Promise}
+* Returns: {Promise} Fulfills with `undefined` upon success.
 
 Evaluate the module.
 

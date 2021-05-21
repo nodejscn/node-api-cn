@@ -1,5 +1,7 @@
 <!-- YAML
-added: v13.12.0
+added:
+ - v13.12.0
+ - v12.17.0
 -->
 
 Write reports in a compact format, single-line JSON, more easily consumable

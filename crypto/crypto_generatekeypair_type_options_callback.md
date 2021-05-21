@@ -1,7 +1,9 @@
 <!-- YAML
 added: v10.12.0
 changes:
-  - version: v13.9.0
+  - version:
+     - v13.9.0
+     - v12.17.0
     pr-url: https://github.com/nodejs/node/pull/31178
     description: Add support for Diffie-Hellman.
   - version: v12.0.0
@@ -45,8 +47,33 @@ the respective part of the key is returned as a [`KeyObject`][].
 It is recommended to encode public keys as `'spki'` and private keys as
 `'pkcs8'` with encryption for long-term storage:
 
-```js
-const { generateKeyPair } = require('crypto');
+```mjs
+const {
+  generateKeyPair,
+} = await import('crypto');
+
+generateKeyPair('rsa', {
+  modulusLength: 4096,
+  publicKeyEncoding: {
+    type: 'spki',
+    format: 'pem'
+  },
+  privateKeyEncoding: {
+    type: 'pkcs8',
+    format: 'pem',
+    cipher: 'aes-256-cbc',
+    passphrase: 'top secret'
+  }
+}, (err, publicKey, privateKey) => {
+  // Handle errors and use the generated key pair.
+});
+```
+
+```cjs
+const {
+  generateKeyPair,
+} = require('crypto');
+
 generateKeyPair('rsa', {
   modulusLength: 4096,
   publicKeyEncoding: {

@@ -1,5 +1,8 @@
 <!-- YAML
-added: v14.8.0
+added:
+  - v14.8.0
+  - v12.19.0
+napiVersion: 8
 -->
 
 A 128-bit value stored as two unsigned 64-bit integers. It serves as a UUID

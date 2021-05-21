@@ -1,19 +1,19 @@
 
-N-API exposes a set of APIs to get and set properties on JavaScript
+Node-API exposes a set of APIs to get and set properties on JavaScript
 objects. Some of these types are documented under [Section 7][] of the
 [ECMAScript Language Specification][].
 
 Properties in JavaScript are represented as a tuple of a key and a value.
-Fundamentally, all property keys in N-API can be represented in one of the
+Fundamentally, all property keys in Node-API can be represented in one of the
 following forms:
 
 * Named: a simple UTF8-encoded string
 * Integer-Indexed: an index value represented by `uint32_t`
-* JavaScript value: these are represented in N-API by `napi_value`. This can
+* JavaScript value: these are represented in Node-API by `napi_value`. This can
   be a `napi_value` representing a `String`, `Number`, or `Symbol`.
 
-N-API values are represented by the type `napi_value`.
-Any N-API call that requires a JavaScript value takes in a `napi_value`.
+Node-API values are represented by the type `napi_value`.
+Any Node-API call that requires a JavaScript value takes in a `napi_value`.
 However, it's the caller's responsibility to make sure that the
 `napi_value` in question is of the JavaScript type expected by the API.
 
@@ -28,7 +28,7 @@ const obj = {};
 obj.myProp = 123;
 ```
 
-The equivalent can be done using N-API values with the following snippet:
+The equivalent can be done using Node-API values with the following snippet:
 
 ```c
 napi_status status = napi_generic_failure;
@@ -55,7 +55,7 @@ const arr = [];
 arr[123] = 'hello';
 ```
 
-The equivalent can be done using N-API values with the following snippet:
+The equivalent can be done using Node-API values with the following snippet:
 
 ```c
 napi_status status = napi_generic_failure;
@@ -82,7 +82,7 @@ const arr = [];
 const value = arr[123];
 ```
 
-The following is the approximate equivalent of the N-API counterpart:
+The following is the approximate equivalent of the Node-API counterpart:
 
 ```c
 napi_status status = napi_generic_failure;
@@ -108,7 +108,7 @@ Object.defineProperties(obj, {
 });
 ```
 
-The following is the approximate equivalent of the N-API counterpart:
+The following is the approximate equivalent of the Node-API counterpart:
 
 ```c
 napi_status status = napi_status_generic_failure;

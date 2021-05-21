@@ -5,4 +5,4 @@ strict compliance with the API specification (which in some cases may accept
 `func(undefined)` and `func()` are treated identically, and the
 [`ERR_INVALID_ARG_TYPE`][] error code may be used instead.
 
-<a id="ERR_MISSING_MESSAGE_PORT_IN_TRANSFER_LIST"></a>
+<a id="ERR_MISSING_OPTION"></a>

@@ -1,8 +1,8 @@
 <!-- YAML
-added: v14.6.0
+added:
+ - v14.6.0
+ - v12.19.0
 -->
-
-> Stability: 1 - Experimental
 
 * Type: {Object}
 
@@ -26,6 +26,8 @@ Entries in the imports field must be strings starting with `#`.
 Import maps permit mapping to external packages.
 
 This field defines [subpath imports][] for the current package.
+
+
 
 
 

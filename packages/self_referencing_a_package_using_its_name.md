@@ -1,3 +1,14 @@
+<!-- YAML
+added:
+  - v13.1.0
+  - v12.16.0
+changes:
+  - version:
+    - v13.6.0
+    - v12.16.0
+    pr-url: https://github.com/nodejs/node/pull/31002
+    description: Unflag self-referencing a package using its name.
+-->
 
 Within a package, the values defined in the package’s
 `package.json` [`"exports"`][] field can be referenced via the package’s name.

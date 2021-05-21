@@ -4,4 +4,4 @@
 -->
 A given index was out of the accepted range (e.g. negative offsets).
 
-<a id="ERR_NAPI_CONS_PROTOTYPE_OBJECT"></a>
+<a id="ERR_INVALID_OPT_VALUE"></a>

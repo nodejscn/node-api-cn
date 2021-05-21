@@ -2,7 +2,7 @@
 added: v8.0.0
 napiVersion: 1
 -->
-Integral status code indicating the success or failure of a N-API call.
+Integral status code indicating the success or failure of a Node-API call.
 Currently, the following status codes are supported.
 
 ```c

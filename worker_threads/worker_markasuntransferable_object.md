@@ -1,9 +1,11 @@
 <!-- YAML
-added: v14.5.0
+added:
+  - v14.5.0
+  - v12.19.0
 -->
 
 Mark an object as not transferable. If `object` occurs in the transfer list of
-a [`port.postMessage()`][] call, it will be ignored.
+a [`port.postMessage()`][] call, it is ignored.
 
 In particular, this makes sense for objects that can be cloned, rather than
 transferred, and which are used by other objects on the sending side.

@@ -11,7 +11,7 @@ in [BUILDING.md][].
 An overview of available Node.js and JavaScript features for each `configure`
 option:
 
-|                                         | `none`                            | `system-icu`                 | `small-icu`            | `full-icu` |
+| Feature                                 | `none`                            | `system-icu`                 | `small-icu`            | `full-icu` |
 |-----------------------------------------|-----------------------------------|------------------------------|------------------------|------------|
 | [`String.prototype.normalize()`][]      | none (function is no-op)          | full                         | full                   | full       |
 | `String.prototype.to*Case()`            | full                              | full                         | full                   | full       |
@@ -20,6 +20,7 @@ option:
 | `String.prototype.toLocale*Case()`      | partial (not locale-aware)        | full                         | full                   | full       |
 | [`Number.prototype.toLocaleString()`][] | partial (not locale-aware)        | partial/full (depends on OS) | partial (English-only) | full       |
 | `Date.prototype.toLocale*String()`      | partial (not locale-aware)        | partial/full (depends on OS) | partial (English-only) | full       |
+| [Legacy URL Parser][]                   | partial (no IDN support)          | full                         | full                   | full       |
 | [WHATWG URL Parser][]                   | partial (no IDN support)          | full                         | full                   | full       |
 | [`require('buffer').transcode()`][]     | none (function does not exist)    | full                         | full                   | full       |
 | [REPL][]                                | partial (inaccurate line editing) | full                         | full                   | full       |

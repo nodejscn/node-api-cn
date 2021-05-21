@@ -7,16 +7,18 @@ created, while `triggerAsyncId` shows *why* a resource was created.
 The following is a simple demonstration of `triggerAsyncId`:
 
 ```js
+const { fd } = process.stdout;
+
 async_hooks.createHook({
   init(asyncId, type, triggerAsyncId) {
     const eid = async_hooks.executionAsyncId();
     fs.writeSync(
-      process.stdout.fd,
+      fd,
       `${type}(${asyncId}): trigger: ${triggerAsyncId} execution: ${eid}\n`);
   }
 }).enable();
 
-require('net').createServer((conn) => {}).listen(8080);
+net.createServer((conn) => {}).listen(8080);
 ```
 
 Output when hitting the server with `nc localhost 8080`:

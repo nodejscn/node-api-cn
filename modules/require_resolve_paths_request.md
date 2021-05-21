@@ -2,7 +2,8 @@
 added: v8.9.0
 -->
 
-* `request` {string} 被查询解析路径的模块的路径。
+* `request` {string} 正在被获取其查找路径的模块路径。
 * 返回: {string[]|null}
 
-返回一个数组，其中包含解析 `request` 过程中被查询的路径，如果 `request` 字符串指向核心模块（例如 `http` 或 `fs`）则返回 `null`。
+返回一个包含 `request` 解析期间被搜索的路径的数组，或者如果 `request` 字符串指向一个核心模块（例如 `http` 或者 `fs`）则返回 `null`。
+

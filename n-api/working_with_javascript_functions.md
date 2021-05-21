@@ -1,6 +1,6 @@
 
-N-API provides a set of APIs that allow JavaScript code to
-call back into native code. N-API APIs that support calling back
+Node-API provides a set of APIs that allow JavaScript code to
+call back into native code. Node-APIs that support calling back
 into native code take in a callback functions represented by
 the `napi_callback` type. When the JavaScript VM calls back to
 native code, the `napi_callback` function provided is invoked. The APIs
@@ -11,7 +11,7 @@ following:
 * Get the arguments passed into the callback.
 * Return a `napi_value` back from the callback.
 
-Additionally, N-API provides a set of functions which allow calling
+Additionally, Node-API provides a set of functions which allow calling
 JavaScript functions from native code. One can either call a function
 like a regular JavaScript function call, or as a constructor
 function.

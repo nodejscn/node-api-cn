@@ -2,7 +2,7 @@
 added: v0.11.14
 -->
 
-* `privateKey` {string | Buffer | TypedArray | DataView}
+* `privateKey` {string|ArrayBuffer|Buffer|TypedArray|DataView}
 * `encoding` {string} The [encoding][] of the `privateKey` string.
 
 Sets the EC Diffie-Hellman private key.

@@ -1,5 +1,5 @@
 
-N-API provides facilities for creating `Promise` objects as described in
+Node-API provides facilities for creating `Promise` objects as described in
 [Section 25.4][] of the ECMA specification. It implements promises as a pair of
 objects. When a promise is created by `napi_create_promise()`, a "deferred"
 object is created and returned alongside the `Promise`. The deferred object is

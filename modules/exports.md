@@ -6,5 +6,6 @@ added: v0.1.12
 
 * {Object}
 
-这是一个对于 `module.exports` 的更简短的引用形式。查看关于 [exports 快捷方式][exports shortcut]的章节，详细了解什么时候使用 `exports`、什么时候使用 `module.exports`。
+对 `module.exports` 的一个引用，这样输入更简短。
+查看关于 [exports 快捷方式][exports shortcut]的章节，获取何时使用 `exports` 与何时使用 `module.exports` 的详细信息。
 

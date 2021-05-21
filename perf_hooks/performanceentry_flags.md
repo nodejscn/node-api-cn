@@ -2,6 +2,11 @@
 added:
  - v13.9.0
  - v12.17.0
+changes:
+  - version: v16.0.0
+    pr-url: https://github.com/nodejs/node/pull/37136
+    description: Runtime deprecated. Now moved to the detail property
+                 when entryType is 'gc'.
 -->
 
 * {number}

@@ -1,9 +1,11 @@
 
-* `input` {string} 要解析的绝对或相对的 URL。如果 `input` 是相对路径，则需要 `base`。 如果 `input` 是绝对路径，则忽略 `base`。
-* `base` {string|URL} 如果 `input` 不是绝对路径，则为要解析的基本 URL。
+* `input` {string} 要解析的绝对或相对的输入 URL。
+   如果 `input` 是相对的，则 `base` 是必需的。 
+   如果 `input` 是绝对的，则 `base` 是忽略的。
+* `base` {string|URL} 如果 `input` 不是绝对的时要解析的基本 URL。
 
-通过将 `input` 相对于 `base` 进行解析，创建一个新的 `URL` 对象。
-如果 `base` 是一个字符串，则解析方法与 `new URL(base)` 相同。
+通过相对于 `base` 解析 `input`，创建一个新的 `URL` 对象。
+如果 `base` 被作为一个字符串传入，则它会被解析为等效于 `new URL(base)`。
 
 
 ```js
@@ -11,15 +13,16 @@ const myURL = new URL('/foo', 'https://example.org/');
 // https://example.org/foo
 ```
 
-The URL constructor is accessible as a property on the global object.
-It can also be imported from the built-in url module:
+URL 构造器可被作为全局对象上的一个属性访问。
+它也可以被从内置的 url 模块导入：
+
 
 ```js
-console.log(URL === require('url').URL); // Prints 'true'.
+console.log(URL === require('url').URL); // 打印 'true'。
 ```
 
-如果 `input` 或 `base` 是无效的 URL，则将会抛出 `TypeError`。
-注意，给定值将会被强制转换为字符串。
+如果 `input` 或者 `base` 是无效的 URL，则一个 `TypeError` 会被抛出。
+注意，给定的值会被强制转换为字符串。
 例如：
 
 
@@ -28,17 +31,17 @@ const myURL = new URL({ toString: () => 'https://example.org/' });
 // https://example.org/
 ```
 
-存在于 `input` 主机名中的 Unicode 字符将被使用 [Punycode] 算法自动转换为 ASCII。
+`input` 的主机名中出现的 Unicode 字符会被使用 [Punycode] 算法自动地转换为 ASCII。
 
 ```js
 const myURL = new URL('https://測試');
 // https://xn--g6w251d/
 ```
 
-只有在启用 [ICU] 的情况下编译 `node` 可执行文件时，此功能才可用。 
-如果没有，则域名将保持不变。
+此特性只有在 `node` 可执行文件在 [ICU] 被启用的情况下被编译时才可用。 
+如果不是，则域名被原样传入。
 
-如果 `input` 是绝对的 URL 并且提供了 `base`，则事先不知道它，建议验证 `URL` 对象的 `origin` 是否是预期的。
+如果事先不知道 `input` 是一个绝对的 URL 并且一个 `base` 被提供，则建议校验 `URL` 对象的 `origin` 是否是期望的。
 
 ```js
 let myURL = new URL('http://Example.com/', 'https://example.org/');

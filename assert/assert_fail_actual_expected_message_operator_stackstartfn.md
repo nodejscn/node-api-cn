@@ -25,8 +25,27 @@ the other arguments will be stored as properties on the thrown object. If
 removed from stacktrace (see [`Error.captureStackTrace`][]). If no arguments are
 given, the default message `Failed` will be used.
 
-```js
-const assert = require('assert').strict;
+```mjs
+import assert from 'assert/strict';
+
+assert.fail('a', 'b');
+// AssertionError [ERR_ASSERTION]: 'a' != 'b'
+
+assert.fail(1, 2, undefined, '>');
+// AssertionError [ERR_ASSERTION]: 1 > 2
+
+assert.fail(1, 2, 'fail');
+// AssertionError [ERR_ASSERTION]: fail
+
+assert.fail(1, 2, 'whoops', '>');
+// AssertionError [ERR_ASSERTION]: whoops
+
+assert.fail(1, 2, new TypeError('need array'));
+// TypeError: need array
+```
+
+```cjs
+const assert = require('assert/strict');
 
 assert.fail('a', 'b');
 // AssertionError [ERR_ASSERTION]: 'a' != 'b'
@@ -49,7 +68,22 @@ influence on the error message.
 
 Example use of `stackStartFn` for truncating the exception's stacktrace:
 
-```js
+```mjs
+import assert from 'assert/strict';
+
+function suppressFrame() {
+  assert.fail('a', 'b', undefined, '!==', suppressFrame);
+}
+suppressFrame();
+// AssertionError [ERR_ASSERTION]: 'a' !== 'b'
+//     at repl:1:1
+//     at ContextifyScript.Script.runInThisContext (vm.js:44:33)
+//     ...
+```
+
+```cjs
+const assert = require('assert/strict');
+
 function suppressFrame() {
   assert.fail('a', 'b', undefined, '!==', suppressFrame);
 }

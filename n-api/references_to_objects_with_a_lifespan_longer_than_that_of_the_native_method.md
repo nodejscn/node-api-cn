@@ -9,7 +9,7 @@ described in the earlier section. The lifespan of a normal handle is
 managed by scopes and all scopes must be closed before the end of a native
 method.
 
-N-API provides methods to create persistent references to an object.
+Node-API provides methods to create persistent references to an object.
 Each persistent reference has an associated count with a value of 0
 or higher. The count determines if the reference will keep
 the corresponding object live. References with a count of 0 do not

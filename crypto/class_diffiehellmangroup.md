@@ -5,12 +5,18 @@ added: v0.7.5
 The `DiffieHellmanGroup` class takes a well-known modp group as its argument but
 otherwise works the same as `DiffieHellman`.
 
-```js
-const name = 'modp1';
-const dh = crypto.createDiffieHellmanGroup(name);
+```mjs
+const { createDiffieHellmanGroup } = await import('crypto');
+const dh = createDiffieHellmanGroup('modp1');
 ```
 
-`name` is taken from [RFC 2412][] (modp1 and 2) and [RFC 3526][]:
+```cjs
+const { createDiffieHellmanGroup } = require('crypto');
+const dh = createDiffieHellmanGroup('modp1');
+```
+
+The name (e.g. `'modp1'`) is taken from [RFC 2412][] (modp1 and 2) and
+[RFC 3526][]:
 
 ```console
 $ perl -ne 'print "$1\n" if /"(modp\d+)"/' src/node_crypto_groups.h

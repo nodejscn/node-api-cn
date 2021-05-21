@@ -1,7 +1,7 @@
 
 <!--introduced_in=v0.1.25-->
 
-> 稳定性: 2 - 稳定
+> 稳定性: 2 - 稳定的
 
 <!--name=querystring-->
 

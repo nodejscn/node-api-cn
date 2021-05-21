@@ -29,5 +29,5 @@ remain in the queue that may need to be freed. This normally occurs when the
 Node.js process exits while there is a thread-safe function still active.
 
 It is not necessary to call into JavaScript via `napi_make_callback()` because
-N-API runs `call_js_cb` in a context appropriate for callbacks.
+Node-API runs `call_js_cb` in a context appropriate for callbacks.
 

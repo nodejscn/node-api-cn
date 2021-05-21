@@ -1,12 +1,15 @@
 <!-- YAML
-added: v14.8.0
+added:
+  - v14.8.0
+  - v12.19.0
+napiVersion: 8
 changes:
-  - version: v14.10.0
+  - version:
+    - v14.10.0
+    - v12.19.0
     pr-url: https://github.com/nodejs/node/pull/34819
     description: Changed signature of the `hook` callback.
 -->
-
-> Stability: 1 - Experimental
 
 ```c
 NAPI_EXTERN napi_status napi_add_async_cleanup_hook(

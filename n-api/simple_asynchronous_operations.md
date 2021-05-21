@@ -4,10 +4,10 @@ implementation. This allows them to schedule work to be executed asynchronously
 so that their methods can return in advance of the work being completed. This
 allows them to avoid blocking overall execution of the Node.js application.
 
-N-API provides an ABI-stable interface for these
+Node-API provides an ABI-stable interface for these
 supporting functions which covers the most common asynchronous use cases.
 
-N-API defines the `napi_async_work` structure which is used to manage
+Node-API defines the `napi_async_work` structure which is used to manage
 asynchronous workers. Instances are created/deleted with
 [`napi_create_async_work`][] and [`napi_delete_async_work`][].
 
@@ -15,9 +15,9 @@ The `execute` and `complete` callbacks are functions that will be
 invoked when the executor is ready to execute and when it completes its
 task respectively.
 
-The `execute` function should avoid making any N-API calls
+The `execute` function should avoid making any Node-API calls
 that could result in the execution of JavaScript or interaction with
-JavaScript objects. Most often, any code that needs to make N-API
+JavaScript objects. Most often, any code that needs to make Node-API
 calls should be made in `complete` callback instead.
 Avoid using the `napi_env` parameter in the execute callback as
 it will likely execute JavaScript.

@@ -1,7 +1,10 @@
 <!-- YAML
 added: v11.8.0
 changes:
-  - version: v14.0.0
+  - version:
+    - v14.0.0
+    - v13.14.0
+    - v12.17.0
     pr-url: https://github.com/nodejs/node/pull/32496
     description: This option is no longer experimental.
   - version: v12.0.0

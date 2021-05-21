@@ -1,5 +1,14 @@
-
-> Stability: 1 - Experimental
+<!-- YAML
+added:
+  - v13.2.0
+  - v12.16.0
+changes:
+  - version:
+    - v13.7.0
+    - v12.16.0
+    pr-url: https://github.com/nodejs/node/pull/31001
+    description: Unflag conditional exports.
+-->
 
 Conditional exports provide a way to map to different paths depending on
 certain conditions. They are supported for both CommonJS and ES module imports.
@@ -19,7 +28,7 @@ For example, a package that wants to provide different ES module exports for
 }
 ```
 
-Node.js supports the following conditions out of the box:
+Node.js implements the following conditions:
 
 * `"import"` - matches when the package is loaded via `import` or
    `import()`, or via any top-level import or resolve operation by the
@@ -41,11 +50,6 @@ Within the [`"exports"`][] object, key order is significant. During condition
 matching, earlier entries have higher priority and take precedence over later
 entries. _The general rule is that conditions should be from most specific to
 least specific in object order_.
-
-Other conditions such as `"browser"`, `"electron"`, `"deno"`, `"react-native"`,
-etc., are unknown to Node.js, and thus ignored. Runtimes or tools other than
-Node.js can use them at their discretion. Further restrictions, definitions, or
-guidance on condition names might occur in the future.
 
 Using the `"import"` and `"require"` conditions can lead to some hazards,
 which are further explained in [the dual CommonJS/ES module packages section][].

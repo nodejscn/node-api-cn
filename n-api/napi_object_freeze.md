@@ -1,15 +1,16 @@
 <!-- YAML
-added: v14.14.0
+added:
+  - v14.14.0
+  - v12.20.0
+napiVersion: 8
 -->
-
-> Stability: 1 - Experimental
 
 ```c
 napi_status napi_object_freeze(napi_env env,
                                napi_value object);
 ```
 
-* `[in] env`: The environment that the N-API call is invoked under.
+* `[in] env`: The environment that the Node-API call is invoked under.
 * `[in] object`: The object to freeze.
 
 Returns `napi_ok` if the API succeeded.

@@ -1,6 +1,10 @@
 <!-- YAML
 added: v0.1.21
 changes:
+  - version: v16.0.0
+    pr-url: https://github.com/nodejs/node/pull/38113
+    description: In Legacy assertion mode, changed status from Deprecated to
+                 Legacy.
   - version: v14.0.0
     pr-url: https://github.com/nodejs/node/pull/30766
     description: NaN is now treated as being identical in case both sides are
@@ -17,13 +21,26 @@ An alias of [`assert.notStrictEqual()`][].
 
 **Legacy assertion mode**
 
-> Stability: 0 - Deprecated: Use [`assert.notStrictEqual()`][] instead.
+> Stability: 3 - Legacy: Use [`assert.notStrictEqual()`][] instead.
 
 Tests shallow, coercive inequality with the [Abstract Equality Comparison][]
 (`!=` ). `NaN` is special handled and treated as being identical in case both
 sides are `NaN`.
 
-```js
+```mjs
+import assert from 'assert';
+
+assert.notEqual(1, 2);
+// OK
+
+assert.notEqual(1, 1);
+// AssertionError: 1 != 1
+
+assert.notEqual(1, '1');
+// AssertionError: 1 != '1'
+```
+
+```cjs
 const assert = require('assert');
 
 assert.notEqual(1, 2);

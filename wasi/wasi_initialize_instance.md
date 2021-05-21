@@ -1,6 +1,7 @@
 <!-- YAML
 added:
  - v14.6.0
+ - v12.19.0
 -->
 
 * `instance` {WebAssembly.Instance}

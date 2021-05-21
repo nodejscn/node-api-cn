@@ -1,8 +1,9 @@
 <!-- YAML
-added: v14.8.0
+added:
+  - v14.8.0
+  - v12.19.0
+napiVersion: 8
 -->
-
-> Stability: 1 - Experimental
 
 ```c
 napi_status napi_check_object_type_tag(napi_env env,

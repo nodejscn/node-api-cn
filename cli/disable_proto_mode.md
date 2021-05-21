@@ -1,5 +1,7 @@
-<!--YAML
-added: v13.12.0
+<!-- YAML
+added:
+ - v13.12.0
+ - v12.17.0
 -->
 
 Disable the `Object.prototype.__proto__` property. If `mode` is `delete`, the

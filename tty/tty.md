@@ -1,13 +1,13 @@
 
 <!--introduced_in=v0.10.0-->
 
-> 稳定性: 2 - 稳定
+> 稳定性: 2 - 稳定的
 
 <!-- source_link=lib/tty.js -->
 
 `tty` 模块提供了 `tty.ReadStream` 和 `tty.WriteStream` 类。 
-在大多数情况下，不需要也不可能直接地使用此模块。 
-但是，可以使用以下方法访问它：
+在大多数情况中，不需要也不可能直接地使用此模块。 
+当然，它可以被使用以下方式访问：
 
 ```js
 const tty = require('tty');

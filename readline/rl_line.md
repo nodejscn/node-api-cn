@@ -1,8 +1,12 @@
 <!-- YAML
 added: v0.1.98
+changes:
+  - version: v15.8.0
+    pr-url: https://github.com/nodejs/node/pull/33676
+    description: Value will always be a string, never undefined.
 -->
 
-* {string|undefined}
+* {string}
 
 The current input data being processed by node.
 

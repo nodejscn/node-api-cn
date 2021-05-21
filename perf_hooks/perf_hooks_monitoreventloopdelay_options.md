@@ -5,12 +5,12 @@ added: v11.10.0
 * `options` {Object}
   * `resolution` {number} The sampling rate in milliseconds. Must be greater
     than zero. **Default:** `10`.
-* Returns: {Histogram}
+* Returns: {IntervalHistogram}
 
 _This property is an extension by Node.js. It is not available in Web browsers._
 
-Creates a `Histogram` object that samples and reports the event loop delay
-over time. The delays will be reported in nanoseconds.
+Creates an `IntervalHistogram` object that samples and reports the event loop
+delay over time. The delays will be reported in nanoseconds.
 
 Using a timer to detect approximate event loop delay works because the
 execution of timers is tied specifically to the lifecycle of the libuv

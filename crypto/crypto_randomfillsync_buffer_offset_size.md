@@ -8,38 +8,82 @@ changes:
     description: The `buffer` argument may be any `TypedArray` or `DataView`.
 -->
 
-* `buffer` {Buffer|TypedArray|DataView} Must be supplied.
+* `buffer` {ArrayBuffer|Buffer|TypedArray|DataView} Must be supplied. The
+  size of the provided `buffer` must not be larger than `2**31 - 1`.
 * `offset` {number} **Default:** `0`
-* `size` {number} **Default:** `buffer.length - offset`
-* Returns: {Buffer|TypedArray|DataView} The object passed as `buffer` argument.
+* `size` {number} **Default:** `buffer.length - offset`. The `size` must
+  not be larger than `2**31 - 1`.
+* Returns: {ArrayBuffer|Buffer|TypedArray|DataView} The object passed as
+  `buffer` argument.
 
 Synchronous version of [`crypto.randomFill()`][].
 
-```js
-const buf = Buffer.alloc(10);
-console.log(crypto.randomFillSync(buf).toString('hex'));
+```mjs
+const {
+  randomFillSync,
+} = await import('crypto');
 
-crypto.randomFillSync(buf, 5);
+const buf = Buffer.alloc(10);
+console.log(randomFillSync(buf).toString('hex'));
+
+randomFillSync(buf, 5);
 console.log(buf.toString('hex'));
 
 // The above is equivalent to the following:
-crypto.randomFillSync(buf, 5, 5);
+randomFillSync(buf, 5, 5);
 console.log(buf.toString('hex'));
 ```
 
-Any `TypedArray` or `DataView` instance may be passed as `buffer`.
+```cjs
+const {
+  randomFillSync,
+} = require('crypto');
 
-```js
+const buf = Buffer.alloc(10);
+console.log(randomFillSync(buf).toString('hex'));
+
+randomFillSync(buf, 5);
+console.log(buf.toString('hex'));
+
+// The above is equivalent to the following:
+randomFillSync(buf, 5, 5);
+console.log(buf.toString('hex'));
+```
+
+Any `ArrayBuffer`, `TypedArray` or `DataView` instance may be passed as
+`buffer`.
+
+```mjs
+const {
+  randomFillSync,
+} = await import('crypto');
+
 const a = new Uint32Array(10);
-console.log(Buffer.from(crypto.randomFillSync(a).buffer,
+console.log(Buffer.from(randomFillSync(a).buffer,
                         a.byteOffset, a.byteLength).toString('hex'));
 
-const b = new Float64Array(10);
-console.log(Buffer.from(crypto.randomFillSync(b).buffer,
+const b = new DataView(new ArrayBuffer(10));
+console.log(Buffer.from(randomFillSync(b).buffer,
                         b.byteOffset, b.byteLength).toString('hex'));
 
-const c = new DataView(new ArrayBuffer(10));
-console.log(Buffer.from(crypto.randomFillSync(c).buffer,
-                        c.byteOffset, c.byteLength).toString('hex'));
+const c = new ArrayBuffer(10);
+console.log(Buffer.from(randomFillSync(c)).toString('hex'));
+```
+
+```cjs
+const {
+  randomFillSync,
+} = require('crypto');
+
+const a = new Uint32Array(10);
+console.log(Buffer.from(randomFillSync(a).buffer,
+                        a.byteOffset, a.byteLength).toString('hex'));
+
+const b = new DataView(new ArrayBuffer(10));
+console.log(Buffer.from(randomFillSync(b).buffer,
+                        b.byteOffset, b.byteLength).toString('hex'));
+
+const c = new ArrayBuffer(10);
+console.log(Buffer.from(randomFillSync(c)).toString('hex'));
 ```
 

@@ -1,6 +1,9 @@
 <!-- YAML
 added: v0.1.92
 changes:
+  - version: v15.0.0
+    pr-url: https://github.com/nodejs/node/pull/35093
+    description: The object can also be an ArrayBuffer and CryptoKey.
   - version:
      - v13.2.0
      - v12.16.0
@@ -17,14 +20,16 @@ changes:
     description: Support for RSASSA-PSS and additional options was added.
 -->
 
-* `object` {Object | string | Buffer | KeyObject}
+<!--lint disable maximum-line-length remark-lint-->
+* `object` {Object|string|ArrayBuffer|Buffer|TypedArray|DataView|KeyObject|CryptoKey}
   * `dsaEncoding` {string}
   * `padding` {integer}
   * `saltLength` {integer}
-* `signature` {string | Buffer | TypedArray | DataView}
+* `signature` {string|ArrayBuffer|Buffer|TypedArray|DataView}
 * `signatureEncoding` {string} The [encoding][] of the `signature` string.
 * Returns: {boolean} `true` or `false` depending on the validity of the
   signature for the data and public key.
+<!--lint enable maximum-line-length remark-lint-->
 
 Verifies the provided data using the given `object` and `signature`.
 
@@ -33,7 +38,7 @@ If `object` is not a [`KeyObject`][], this function behaves as if
 object, the following additional properties can be passed:
 
 * `dsaEncoding` {string} For DSA and ECDSA, this option specifies the
-  format of the generated signature. It can be one of the following:
+  format of the signature. It can be one of the following:
   * `'der'` (default): DER-encoded ASN.1 signature structure encoding `(r, s)`.
   * `'ieee-p1363'`: Signature format `r || s` as proposed in IEEE-P1363.
 * `padding` {integer} Optional padding value for RSA, one of the following:

@@ -10,7 +10,7 @@ napi_status napi_define_properties(napi_env env,
                                    const napi_property_descriptor* properties);
 ```
 
-* `[in] env`: The environment that the N-API call is invoked under.
+* `[in] env`: The environment that the Node-API call is invoked under.
 * `[in] object`: The object from which to retrieve the properties.
 * `[in] property_count`: The number of elements in the `properties` array.
 * `[in] properties`: The array of property descriptors.

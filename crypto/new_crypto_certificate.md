@@ -2,10 +2,17 @@
 Instances of the `Certificate` class can be created using the `new` keyword
 or by calling `crypto.Certificate()` as a function:
 
-```js
-const crypto = require('crypto');
+```mjs
+const { Certificate } = await import('crypto');
 
-const cert1 = new crypto.Certificate();
-const cert2 = crypto.Certificate();
+const cert1 = new Certificate();
+const cert2 = Certificate();
+```
+
+```cjs
+const { Certificate } = require('crypto');
+
+const cert1 = new Certificate();
+const cert2 = Certificate();
 ```
 

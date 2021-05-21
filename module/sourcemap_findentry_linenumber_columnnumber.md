@@ -12,8 +12,7 @@ consists of the following keys:
 * originalSource: {string}
 * originalLine: {number}
 * originalColumn: {number}
-
-
+* name: {string}
 
 
 

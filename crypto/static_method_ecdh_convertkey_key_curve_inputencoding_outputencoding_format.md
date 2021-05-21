@@ -2,7 +2,7 @@
 added: v10.0.0
 -->
 
-* `key` {string | Buffer | TypedArray | DataView}
+* `key` {string|ArrayBuffer|Buffer|TypedArray|DataView}
 * `curve` {string}
 * `inputEncoding` {string} The [encoding][] of the `key` string.
 * `outputEncoding` {string} The [encoding][] of the return value.
@@ -27,8 +27,32 @@ If the `inputEncoding` is not provided, `key` is expected to be a [`Buffer`][],
 
 Example (uncompressing a key):
 
-```js
-const { createECDH, ECDH } = require('crypto');
+```mjs
+const {
+  createECDH,
+  ECDH,
+} = await import('crypto');
+
+const ecdh = createECDH('secp256k1');
+ecdh.generateKeys();
+
+const compressedKey = ecdh.getPublicKey('hex', 'compressed');
+
+const uncompressedKey = ECDH.convertKey(compressedKey,
+                                        'secp256k1',
+                                        'hex',
+                                        'hex',
+                                        'uncompressed');
+
+// The converted key and the uncompressed public key should be the same
+console.log(uncompressedKey === ecdh.getPublicKey('hex'));
+```
+
+```cjs
+const {
+  createECDH,
+  ECDH,
+} = require('crypto');
 
 const ecdh = createECDH('secp256k1');
 ecdh.generateKeys();

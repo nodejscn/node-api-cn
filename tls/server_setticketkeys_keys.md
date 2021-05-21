@@ -2,7 +2,8 @@
 added: v3.0.0
 -->
 
-* `keys` {Buffer} A 48-byte buffer containing the session ticket keys.
+* `keys` {Buffer|TypedArray|DataView} A 48-byte buffer containing the session
+  ticket keys.
 
 Sets the session ticket keys.
 

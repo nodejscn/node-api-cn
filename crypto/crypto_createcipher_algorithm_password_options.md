@@ -2,6 +2,10 @@
 added: v0.1.94
 deprecated: v10.0.0
 changes:
+  - version: v15.0.0
+    pr-url: https://github.com/nodejs/node/pull/35093
+    description: The password argument can be an ArrayBuffer and is limited to
+                 a maximum of 2 ** 31 - 1 bytes.
   - version: v10.10.0
     pr-url: https://github.com/nodejs/node/pull/21447
     description: Ciphers in OCB mode are now supported.
@@ -14,7 +18,7 @@ changes:
 > Stability: 0 - Deprecated: Use [`crypto.createCipheriv()`][] instead.
 
 * `algorithm` {string}
-* `password` {string | Buffer | TypedArray | DataView}
+* `password` {string|ArrayBuffer|Buffer|TypedArray|DataView}
 * `options` {Object} [`stream.transform` options][]
 * Returns: {Cipher}
 

@@ -1,3 +1,7 @@
+<!-- YAML
+added: v8.0.0
+removed: v15.0.0
+-->
 
 An invalid or unexpected value was passed in an options object.
 

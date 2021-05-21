@@ -2,21 +2,33 @@
 added:
   - v13.6.0
   - v12.16.0
+changes:
+  - version: v16.0.0
+    pr-url: https://github.com/nodejs/node/pull/38111
+    description: This API is no longer experimental.
 -->
 
 * `string` {string}
 * `regexp` {RegExp}
 * `message` {string|Error}
 
-> Stability: 1 - Experimental
-
 Expects the `string` input to match the regular expression.
 
-This feature is currently experimental and the name might change or it might be
-completely removed again.
+```mjs
+import assert from 'assert/strict';
 
-```js
-const assert = require('assert').strict;
+assert.match('I will fail', /pass/);
+// AssertionError [ERR_ASSERTION]: The input did not match the regular ...
+
+assert.match(123, /pass/);
+// AssertionError [ERR_ASSERTION]: The "string" argument must be of type string.
+
+assert.match('I will pass', /pass/);
+// OK
+```
+
+```cjs
+const assert = require('assert/strict');
 
 assert.match('I will fail', /pass/);
 // AssertionError [ERR_ASSERTION]: The input did not match the regular ...

@@ -1,7 +1,9 @@
 <!-- YAML
 added: v10.12.0
 changes:
-  - version: v13.9.0
+  - version:
+     - v13.9.0
+     - v12.17.0
     pr-url: https://github.com/nodejs/node/pull/31178
     description: Add support for Diffie-Hellman.
   - version: v12.0.0
@@ -42,9 +44,38 @@ When encoding public keys, it is recommended to use `'spki'`. When encoding
 private keys, it is recommended to use `'pkcs8'` with a strong passphrase,
 and to keep the passphrase confidential.
 
-```js
-const { generateKeyPairSync } = require('crypto');
-const { publicKey, privateKey } = generateKeyPairSync('rsa', {
+```mjs
+const {
+  generateKeyPairSync,
+} = await import('crypto');
+
+const {
+  publicKey,
+  privateKey,
+} = generateKeyPairSync('rsa', {
+  modulusLength: 4096,
+  publicKeyEncoding: {
+    type: 'spki',
+    format: 'pem'
+  },
+  privateKeyEncoding: {
+    type: 'pkcs8',
+    format: 'pem',
+    cipher: 'aes-256-cbc',
+    passphrase: 'top secret'
+  }
+});
+```
+
+```cjs
+const {
+  generateKeyPairSync,
+} = require('crypto');
+
+const {
+  publicKey,
+  privateKey,
+} = generateKeyPairSync('rsa', {
   modulusLength: 4096,
   publicKeyEncoding: {
     type: 'spki',

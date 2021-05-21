@@ -1,5 +1,5 @@
 
-Although N-API provides an ABI stability guarantee, other parts of Node.js do
+Although Node-API provides an ABI stability guarantee, other parts of Node.js do
 not, and any external libraries used from the addon may not. In particular,
 none of the following APIs provide an ABI stability guarantee across major
 versions:
@@ -26,12 +26,12 @@ versions:
     ```
 
 Thus, for an addon to remain ABI-compatible across Node.js major versions, it
-must use N-API exclusively by restricting itself to using
+must use Node-API exclusively by restricting itself to using
 
 ```c
 #include <node_api.h>
 ```
 
 and by checking, for all external libraries that it uses, that the external
-library makes ABI stability guarantees similar to N-API.
+library makes ABI stability guarantees similar to Node-API.
 

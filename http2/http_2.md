@@ -7,7 +7,7 @@ changes:
 -->
 <!--introduced_in=v8.4.0-->
 
-> 稳定性: 2 - 稳定
+> 稳定性: 2 - 稳定的
 
 <!-- source_link=lib/http2.js -->
 

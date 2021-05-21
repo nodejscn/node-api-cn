@@ -1,7 +1,9 @@
 <!-- YAML
 added: v11.6.0
 changes:
-  - version: v13.9.0
+  - version:
+     - v13.9.0
+     - v12.17.0
     pr-url: https://github.com/nodejs/node/pull/31178
     description: Added support for `'dh'`.
   - version: v12.0.0

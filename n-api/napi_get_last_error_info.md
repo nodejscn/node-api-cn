@@ -19,7 +19,7 @@ This API retrieves a `napi_extended_error_info` structure with information
 about the last error that occurred.
 
 The content of the `napi_extended_error_info` returned is only valid up until
-an n-api function is called on the same `env`.
+a Node-API function is called on the same `env`.
 
 Do not rely on the content or format of any of the extended information as it
 is not subject to SemVer and may change at any time. It is intended only for

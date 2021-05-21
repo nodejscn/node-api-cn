@@ -1,5 +1,11 @@
 
 <!--type=misc-->
+<!-- YAML
+changes:
+  - version: v16.0.0
+    pr-url: https://github.com/nodejs/node/pull/37246
+    description: Added `node:` import support to `require(...)`.
+-->
 
 Node.js 有些模块会被编译成二进制。
 这些模块别的地方有更详细的描述。

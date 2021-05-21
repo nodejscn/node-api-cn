@@ -39,6 +39,7 @@ Node.js options that are allowed are:
 * `--disable-proto`
 * `--enable-fips`
 * `--enable-source-maps`
+* `--experimental-abortcontroller`
 * `--experimental-import-meta-resolve`
 * `--experimental-json-modules`
 * `--experimental-loader`
@@ -53,6 +54,7 @@ Node.js options that are allowed are:
 * `--force-context-aware`
 * `--force-fips`
 * `--frozen-intrinsics`
+* `--heapsnapshot-near-heap-limit`
 * `--heapsnapshot-signal`
 * `--http-parser`
 * `--icu-data-dir`
@@ -67,6 +69,7 @@ Node.js options that are allowed are:
 * `--no-deprecation`
 * `--no-force-async-hooks-checks`
 * `--no-warnings`
+* `--node-memory-debug`
 * `--openssl-config`
 * `--pending-deprecation`
 * `--policy-integrity`
@@ -82,6 +85,8 @@ Node.js options that are allowed are:
 * `--report-signal`
 * `--report-uncaught-exception`
 * `--require`, `-r`
+* `--secure-heap-min`
+* `--secure-heap`
 * `--throw-deprecation`
 * `--title`
 * `--tls-cipher-list`

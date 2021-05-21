@@ -1,5 +1,8 @@
-
-> Stability: 1 - Experimental
+<!-- YAML
+added:
+  - v14.6.0
+  - v12.19.0
+-->
 
 In addition to the [`"exports"`][] field, it is possible to define internal
 package import maps that only apply to import specifiers from within the package
